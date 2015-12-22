@@ -130,6 +130,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountMergeController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountMergeControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -143,6 +151,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddressDisplayInlineEditControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -362,6 +374,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomLogUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -391,6 +407,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GenerateAndAttachPDF</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GenerateAndAttachPDFTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -890,6 +914,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TerminateVehicleRelationshipTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1215,6 +1243,22 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleExtensionTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehiclePickerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehiclePickerControllerTests</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1613,6 +1657,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DMS_Customer_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.DUPNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7383,97 +7432,97 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Ad_Num__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Ad_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Brand__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.CBU_PbP__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Car_Model__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Class__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Comments__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Document_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Due_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Event_Num__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Event_Tool_Kit__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Event_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.MIGR_SOURCEID__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Media_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Module__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Publish_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Upload_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11606,6 +11655,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Recall__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Recall__c.EP_Parent_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.Recall_Class__c</field>
         <readable>true</readable>
@@ -11636,6 +11695,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Recall__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Rejected_Duplicate_Log__c.Duplicate_Account__c</field>
         <readable>true</readable>
@@ -11653,6 +11717,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Rejected_Duplicate_Log__c.R_checkRecordID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Rejected_Duplicate_Log__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12446,6 +12515,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Annual_Call_Task_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Annual_Call_Task_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Annual_Call_Task_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Annual_Call__c</field>
         <readable>true</readable>
@@ -12543,6 +12627,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Duration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.EOC_Call_Task_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.EOC_Call_Task_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.EOC_Call_Task_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16026,7 +16125,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
-        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -16038,7 +16137,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
-        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -17393,6 +17492,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AccountMerge</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17494,6 +17597,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Create_Vehicle</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17617,6 +17724,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>SelectSlaveAccount</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>SiteLogin</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17697,6 +17808,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>VehiclePicker</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17757,7 +17872,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -17772,7 +17887,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

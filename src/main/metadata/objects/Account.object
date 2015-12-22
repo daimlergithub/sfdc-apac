@@ -72,17 +72,17 @@
         <fullName>AccountMergeFields</fullName>
         <description>AccountMerge.page (Contact Portfolio)</description>
         <displayedFields>
-            <field>Master_Record__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Master_Record__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -97,22 +97,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Area_Code__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>PersonHomePhone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Phone</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Extension_Number__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -122,37 +107,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>City__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>ZipCode__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Primary_Address__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>DMS_Address__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>ID_Number__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>PersonEmail</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Last_Successful_Call__c</field>
+            <field>Email__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -282,11 +242,6 @@
         <fullName>SuspectAccountFields</fullName>
         <description>SelectSlaveAccount.page (Contact Portfolio)</description>
         <displayedFields>
-            <field>Master_Record__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -317,17 +272,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>ID_Number__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>PersonEmail</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Primary_Address__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1551,6 +1496,17 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <externalId>false</externalId>
         <label>DMS Customer ID</label>
         <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DUPNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>DUP Number</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -19213,7 +19169,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle</url>
+        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
@@ -19368,19 +19324,23 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
-
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
 if (sforce.console.isInConsole()) {
 	javascript:sforce.console.getEnclosingPrimaryTabId(
 		function openSubTab(result) {
 			sforce.console.openSubtab(result.id, 
-				'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}', 
-				true, 'Account Merge');
+				'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge');
 		}
 	)
 }
-else {
-	window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "", 
-		"width = 800, height = 600");
+else {       
+      var accnt_DUP_Number__pc= '{!Account.DUP_Number__pc}'; 
+      var acct_RecordType_Name='{!Account.RecordType}';       
+      if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){
+       alert('No duplicate records found to be merged!!!');
+   } else {
+	window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");
+   }
 }</url>
     </webLinks>
     <webLinks>
@@ -19419,7 +19379,8 @@ else {
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>{!Account.Id}</url>
+        <url>/701/e?RecordType=012280000008ptb&amp;ent=Account&amp;00N28000007QqUf={!Account.FirstName}&amp;00N28000007QqUm={!Account.LastName}&amp;00N28000007QqUe={!Account.FirstName_Native_1__c}&amp;00N28000007QqUl={!Account.LastName_Native_1__c}
+ &amp;00N28000007QqUg={!Account.Primary_Address_Display__c}&amp;00N28000007QqUr={!Account.Primary_Phone_Display__c}&amp;00N28000007QqUd={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>
@@ -19506,6 +19467,30 @@ if (sforce.console.isInConsole()) {
                                                           true, 'Test');
    }
    sforce.console.getEnclosingPrimaryTabId(showTabId); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Testing</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Testing</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+ 
+// query the record
+var qr = sforce.connection.query("SELECT Id,Dup_Reason__c FROM Account where Id='" + "{!Account.Id}" + "'");
+var records = qr.getArray("records");
+ 
+// display the field from the query
+alert("Dup Reason: " +qr.records.Dup_Reason__c);
+
+if(qr.records.Dup_Reason__c==null){
+   alert('No record found to be merged');
+}
+else{
+window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");	
 }</url>
     </webLinks>
     <webLinks>

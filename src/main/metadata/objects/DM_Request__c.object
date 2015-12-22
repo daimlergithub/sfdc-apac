@@ -814,32 +814,22 @@ Modify Reason:
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")};
-{!REQUIRESCRIPT("/soap/ajax/32.0/apex.js")};
-{!REQUIRESCRIPT("/support/console/32.0/integration.js")};
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-var proceed = true; 
 
-var idList  = {!GETRECORDIDS($ObjectType.DM_Request__c)};
-if(proceed &amp;&amp; idList.length &lt;= 0)
+var result = sforce.apex.execute("GenerateCatalogueCsv","getDMRequests",{});
+if(result == "&lt;5")
 {
-alert('Please select record(s).');
-proceed = false;
+alert('{!$Label.Error_Message_1}');
 }
-if (proceed &amp;&amp; (navigator.userAgent.indexOf('MSIE')) &gt;= 0) 
-{
-if(idList.length &gt; 100)
-{
-alert('Only maximum of 100 records can be selected.');
-proceed = false;
+if(result == "true")
+{ 
+alert('{!$Label.Success_message}');
 }
-}
-if(proceed)
+if(result == "false")
 {
-//var rdurl = sforce.apex.execute('dmRequestDownloadCatalogue','downloadCatalogue',{arg: idList});
-
-//window.location.href = "/apex/dmRequestDownloadCatalogue" ;
-window.open("https://cs5.salesforce.com/apex/exportCSV");
+alert('{!$Label.Error_Message_2}');
 }</url>
     </webLinks>
 </CustomObject>
