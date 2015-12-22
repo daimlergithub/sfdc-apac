@@ -1,35 +1,43 @@
 /**
- * An apex class that keeps updates of a portal user
-  in sync with its corresponding contact.
+ * An apex class that keeps updates of a portal user in sync with its corresponding contact.
    Guest users are never able to access this page.
  */
 @IsTest public with sharing class MyProfilePageControllerTest {
-    @IsTest static void testSetContactFields() {
+    
+    @IsTest(SeeAllData=true) static void testSetContactFields() {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         User u = [select title, firstname, lastname, email, phone, mobilephone, fax, street, city, state, postalcode, country
                            FROM User WHERE id =: UserInfo.getUserId()];
 
         Contact c = new Contact();
-         Test.startTest();
+
         MyProfilePageController.setContactFields(c, u);
-        Test.stopTest();
         System.assertEquals(c.firstname, u.firstname, 'firstname should have been set as the firstname of the user for the contact');
         System.assertEquals(c.lastname, u.lastname, 'lastname should have been set as the lastname of the user for the contact');
     }
 
-    @IsTest static void testSave() {
+    @IsTest(SeeAllData=true) static void testSave() {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         // Modify the test to query for a portal user that exists in your org
         List<User> existingPortalUsers = [SELECT id, profileId, userRoleId FROM User WHERE UserRoleId <> null AND UserType='CustomerSuccess'];
-Test.startTest();
+
         if (existingPortalUsers.isEmpty()) {
             User currentUser = [select id, title, firstname, lastname, email, phone, mobilephone, fax, street, city, state, postalcode, country
                                 FROM User WHERE id =: UserInfo.getUserId()];
             MyProfilePageController controller = new MyProfilePageController();
             System.assertEquals(currentUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
-          
+            System.assert(controller.getIsEdit() == false, 'isEdit should default to false');
             controller.edit();
-          System.assert(controller.getIsEdit(),true);
+            System.assert(controller.getIsEdit() == true);
             controller.cancel();
-         
+            System.assert(controller.getIsEdit() == false);
+
             Contact c = new Contact();
             c.LastName = 'TestContact';
             insert c;
@@ -54,21 +62,20 @@ Test.startTest();
 
             System.runAs(existingPortalUser) {
                 MyProfilePageController controller = new MyProfilePageController();
-               System.assertEquals(existingPortalUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
-               
+                System.assertEquals(existingPortalUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
+                System.assert(controller.getIsEdit() == false, 'isEdit should default to false');
                 controller.edit();
-                System.assert(controller.getIsEdit(), true);
+                System.assert(controller.getIsEdit() == true);
 
                 controller.cancel();
-                System.assert(controller.getIsEdit() , false);
+                System.assert(controller.getIsEdit() == false);
 
                 controller.getUser().Fax = randFax;
                 controller.save();
-                System.assert(controller.getIsEdit() ,false);
+                System.assert(controller.getIsEdit() == false);
             }
-Test.stopTest();
+
             // verify that the user and contact were updated
-            
             existingPortalUser = [Select id, fax, Contact.Fax from User where id =: existingPortalUser.Id];
             System.assert(existingPortalUser.fax == randFax);
             System.assert(existingPortalUser.Contact.fax == randFax);

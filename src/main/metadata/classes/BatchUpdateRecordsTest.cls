@@ -3,6 +3,9 @@ public class BatchUpdateRecordsTest {
 
     public static testMethod void testMyController() {
          
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
+		
         Id SMSRTID = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
         List<Task> tasks = new List<Task>();
         for(integer i = 0; i < 201; i++) {
