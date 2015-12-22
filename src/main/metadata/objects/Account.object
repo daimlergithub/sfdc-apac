@@ -7462,7 +7462,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         <externalId>false</externalId>
         <label>Main Dealer</label>
         <lookupFilter>
-            <active>false</active>
+            <active>true</active>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
