@@ -1,0 +1,1177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Retail Task</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Retail Tasks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Retail Tasks (Account Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action Detail --></label>
+        <name>Action_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action Taken --></label>
+        <name>Action_Taken__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount Financed --></label>
+        <name>Amount_Financed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Call Task 1 --></label>
+        <name>Annual_Call_Task_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Call Task 2 --></label>
+        <name>Annual_Call_Task_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Call Task 3 --></label>
+        <name>Annual_Call_Task_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Call --></label>
+        <name>Annual_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Date --></label>
+        <name>ApplicationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- *Assist End Date --></label>
+        <name>Assist_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Balloon / RV Amount --></label>
+        <name>Balloon_RV_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Interest Rate --></label>
+        <name>Base_Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Broker Name --></label>
+        <name>Broker_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- CMS Contract No. --></label>
+        <name>CMS_Contract_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Description --></label>
+        <name>Campaign_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client ID --></label>
+        <name>Client_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Date --></label>
+        <name>Contact_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ContractNumber --></label>
+        <name>ContractNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Make --></label>
+        <name>Current_Make__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Model --></label>
+        <name>Current_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Year --></label>
+        <name>Current_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Number --></label>
+        <name>Dealer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Direct Debit Authority --></label>
+        <name>Direct_Debit_Authority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Call Task 1 --></label>
+        <name>EOC_Call_Task_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Call Task 2 --></label>
+        <name>EOC_Call_Task_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Call Task 3 --></label>
+        <name>EOC_Call_Task_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- EOC Call --></label>
+        <name>EOC_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- EndDate --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- FPI Cover --></label>
+        <name>FPI_Cover__c</name>
+    </fields>
+    <fields>
+        <label><!-- FPI Premium Amount --></label>
+        <name>FPI_Premium_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Brand --></label>
+        <name>Finance_Brand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Product Type --></label>
+        <name>Finance_Product_Type__c</name>
+        <picklistValues>
+            <masterLabel>Asset Loan</masterLabel>
+            <translation><!-- Asset Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consumer Loan</masterLabel>
+            <translation><!-- Consumer Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Lease</masterLabel>
+            <translation><!-- Finance Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hire Purchase</masterLabel>
+            <translation><!-- Hire Purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operating Lease</masterLabel>
+            <translation><!-- Operating Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Fleet --></label>
+        <name>Fleet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow Up Date --></label>
+        <name>Follow_Up_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow Up Group --></label>
+        <name>Follow_Up_Group__c</name>
+        <picklistValues>
+            <masterLabel>Aftersales contacts</masterLabel>
+            <translation><!-- Aftersales contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaigns only</masterLabel>
+            <translation><!-- Campaigns only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complaints</masterLabel>
+            <translation><!-- Complaints --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Control</masterLabel>
+            <translation><!-- Credit Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Survey</masterLabel>
+            <translation><!-- Customer Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General contacts</masterLabel>
+            <translation><!-- General contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost sales</masterLabel>
+            <translation><!-- Lost sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle sales contacts</masterLabel>
+            <translation><!-- Vehicle sales contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle sales letters</masterLabel>
+            <translation><!-- Vehicle sales letters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Follow Up Type --></label>
+        <name>Follow_Up_Type__c</name>
+        <picklistValues>
+            <masterLabel>Accepted vehicle order VS</masterLabel>
+            <translation><!-- Accepted vehicle order VS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acquisition visit</masterLabel>
+            <translation><!-- Acquisition visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acquisition/cold call</masterLabel>
+            <translation><!-- Acquisition/cold call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales estimate</masterLabel>
+            <translation><!-- Aftersales estimate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Birthday card</masterLabel>
+            <translation><!-- Birthday card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Letter</masterLabel>
+            <translation><!-- Campaign Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 1</masterLabel>
+            <translation><!-- Car anniversary 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 2</masterLabel>
+            <translation><!-- Car anniversary 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 3</masterLabel>
+            <translation><!-- Car anniversary 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed vehicle order</masterLabel>
+            <translation><!-- Confirmed vehicle order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact termination</masterLabel>
+            <translation><!-- Contact termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn 2</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn 3</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - dealer</masterLabel>
+            <translation><!-- Customer complaint - dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - other</masterLabel>
+            <translation><!-- Customer complaint - other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - product</masterLabel>
+            <translation><!-- Customer complaint - product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - staff</masterLabel>
+            <translation><!-- Customer complaint - staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demo Bokking Approval</masterLabel>
+            <translation><!-- Demo Bokking Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deposit</masterLabel>
+            <translation><!-- Deposit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incoming letter</masterLabel>
+            <translation><!-- Incoming letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incoming telephone call</masterLabel>
+            <translation><!-- Incoming telephone call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice New Vehicle</masterLabel>
+            <translation><!-- Invoice New Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost sale - new</masterLabel>
+            <translation><!-- Lost sale - new --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPC Contact Termination</masterLabel>
+            <translation><!-- MPC Contact Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Magazine</masterLabel>
+            <translation><!-- Mercedes-Benz Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New vehicle lost sale letter</masterLabel>
+            <translation><!-- New vehicle lost sale letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outgoing telephone call</masterLabel>
+            <translation><!-- Outgoing telephone call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post-sale follow up call</masterLabel>
+            <translation><!-- Post-sale follow up call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-qualification call</masterLabel>
+            <translation><!-- Re-qualification call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Letter</masterLabel>
+            <translation><!-- Sales Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign</masterLabel>
+            <translation><!-- Sales Satisfaction Investign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign 2</masterLabel>
+            <translation><!-- Sales Satisfaction Investign 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign 3</masterLabel>
+            <translation><!-- Sales Satisfaction Investign 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice</masterLabel>
+            <translation><!-- Service Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom visit by customer</masterLabel>
+            <translation><!-- Showroom visit by customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test drive</masterLabel>
+            <translation><!-- Test drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle delivery</masterLabel>
+            <translation><!-- Vehicle delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle enquiry</masterLabel>
+            <translation><!-- Vehicle enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle order</masterLabel>
+            <translation><!-- Vehicle order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle quotation</masterLabel>
+            <translation><!-- Vehicle quotation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit to customer</masterLabel>
+            <translation><!-- Visit to customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome pack</masterLabel>
+            <translation><!-- Welcome pack --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Franchise Description --></label>
+        <name>Franchise_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- GAP Cover --></label>
+        <name>GAP_Cover__c</name>
+    </fields>
+    <fields>
+        <label><!-- GAP Premium Amount --></label>
+        <name>GAP_Premium_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- GFV --></label>
+        <name>GFV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Good Customer --></label>
+        <name>Good_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group --></label>
+        <name>Group__c</name>
+        <picklistValues>
+            <masterLabel>Aftersales contacts</masterLabel>
+            <translation><!-- Aftersales contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaigns only</masterLabel>
+            <translation><!-- Campaigns only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complaints</masterLabel>
+            <translation><!-- Complaints --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Control</masterLabel>
+            <translation><!-- Credit Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Survey</masterLabel>
+            <translation><!-- Customer Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General contacts</masterLabel>
+            <translation><!-- General contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost sales</masterLabel>
+            <translation><!-- Lost sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle sales contacts</masterLabel>
+            <translation><!-- Vehicle sales contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle sales letters</masterLabel>
+            <translation><!-- Vehicle sales letters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incident Date --></label>
+        <name>Incident_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Information --></label>
+        <name>Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurance Rating --></label>
+        <name>Insurance_Rating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insured Name --></label>
+        <name>Insured_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Rate --></label>
+        <name>Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Contract Date --></label>
+        <name>Latest_Contract_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Invoice Date --></label>
+        <name>Latest_Invoice_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Sales Person --></label>
+        <name>Latest_Sales_Person__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Exp. Date --></label>
+        <name>Lease_Exp_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level of Cover --></label>
+        <name>Level_of_Cover__c</name>
+    </fields>
+    <fields>
+        <label><!-- MD --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOT Owner Address --></label>
+        <name>MOT_Owner_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOT Owner Name --></label>
+        <name>MOT_Owner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOT User Address --></label>
+        <name>MOT_User_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOT User Name --></label>
+        <name>MOT_User_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- MileageMaximum --></label>
+        <name>MileageMaximum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Repayment --></label>
+        <name>Monthly_Repayment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Origin --></label>
+        <name>Origin__c</name>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Frequency --></label>
+        <name>Payment_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fortnightly</masterLabel>
+            <translation><!-- Fortnightly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Half Yearly</masterLabel>
+            <translation><!-- Half Yearly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation><!-- Yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Policy Class --></label>
+        <name>Policy_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Policy Number --></label>
+        <name>Policy_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premium Amount --></label>
+        <name>Premium_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Problem Actual Detail --></label>
+        <name>Problem_Actual_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Problem Detail --></label>
+        <name>Problem_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Problem --></label>
+        <name>Problem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Variation --></label>
+        <name>Product_Variation__c</name>
+        <picklistValues>
+            <masterLabel>TBC</masterLabel>
+            <translation><!-- TBC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Purchase Method --></label>
+        <name>Purchase_Method__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Month --></label>
+        <name>Purchase_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Year --></label>
+        <name>Purchase_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Contact --></label>
+        <name>Related_Contact__c</name>
+        <relationshipLabel><!-- Retail Tasks (Service Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Dealer --></label>
+        <name>Related_Dealer__c</name>
+        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Vehicle --></label>
+        <name>Related_Vehicle__c</name>
+        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Residual --></label>
+        <name>Residual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail CreatedDate --></label>
+        <name>Retail_CreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Employee Activity --></label>
+        <name>Retail_Employee_Activity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Id --></label>
+        <name>Retail_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail LastModifiedDate --></label>
+        <name>Retail_LastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sector --></label>
+        <name>Sector__c</name>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Sales</masterLabel>
+            <translation><!-- Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Selling Dealer --></label>
+        <name>Selling_Dealer__c</name>
+        <relationshipLabel><!-- Retail Tasks (Selling Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Staff Name --></label>
+        <name>Service_Advisor__c</name>
+        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Amount --></label>
+        <name>Service_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Code --></label>
+        <name>Service_Code__c</name>
+        <picklistValues>
+            <masterLabel>Body Jobs</masterLabel>
+            <translation><!-- Body Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electrical Jobs</masterLabel>
+            <translation><!-- Electrical Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free</masterLabel>
+            <translation><!-- Free --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Repair</masterLabel>
+            <translation><!-- General Repair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New car/used car sales</masterLabel>
+            <translation><!-- New car/used car sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Jobs</masterLabel>
+            <translation><!-- Other Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paint Jobs</masterLabel>
+            <translation><!-- Paint Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Predelivery inspection</masterLabel>
+            <translation><!-- Predelivery inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return Jobs</masterLabel>
+            <translation><!-- Return Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Contract</masterLabel>
+            <translation><!-- Service Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Maintenance</masterLabel>
+            <translation><!-- Service Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Jobs</masterLabel>
+            <translation><!-- Test Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used car purchase</masterLabel>
+            <translation><!-- Used car purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty</masterLabel>
+            <translation><!-- Warranty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wear &amp; Tear Jobs</masterLabel>
+            <translation><!-- Wear &amp; Tear Jobs --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service Contact Name --></label>
+        <name>Service_Contact_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Date In --></label>
+        <name>Service_Date_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Date Out --></label>
+        <name>Service_Date_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Date --></label>
+        <name>Service_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Dealer --></label>
+        <name>Service_Dealer__c</name>
+        <relationshipLabel><!-- Retail Tasks (Service Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Details --></label>
+        <name>Service_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Invoice Number --></label>
+        <name>Service_Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Mileage --></label>
+        <name>Service_Mileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Number --></label>
+        <name>Service_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Position --></label>
+        <name>Service_Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Signer --></label>
+        <name>Signer__c</name>
+        <relationshipLabel><!-- Retail Tasks (Signer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Source System --></label>
+        <name>Source_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- StartDate --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation Approved</masterLabel>
+            <translation><!-- Cancellation Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In service</masterLabel>
+            <translation><!-- In service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Save</masterLabel>
+            <translation><!-- Save --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valid</masterLabel>
+            <translation><!-- Valid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Approval</masterLabel>
+            <translation><!-- Waiting for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for cancellation approval</masterLabel>
+            <translation><!-- Waiting for cancellation approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>pullback</masterLabel>
+            <translation><!-- pullback --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Product --></label>
+        <name>Sub_Product__c</name>
+        <picklistValues>
+            <masterLabel>TBC</masterLabel>
+            <translation><!-- TBC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- The Day After Start One Year --></label>
+        <name>The_Day_After_Start_One_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Accepted vehicle order VS</masterLabel>
+            <translation><!-- Accepted vehicle order VS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acquisition visit</masterLabel>
+            <translation><!-- Acquisition visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acquisition/cold call</masterLabel>
+            <translation><!-- Acquisition/cold call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales estimate</masterLabel>
+            <translation><!-- Aftersales estimate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Birthday card</masterLabel>
+            <translation><!-- Birthday card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Letter</masterLabel>
+            <translation><!-- Campaign Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 1</masterLabel>
+            <translation><!-- Car anniversary 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 2</masterLabel>
+            <translation><!-- Car anniversary 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car anniversary 3</masterLabel>
+            <translation><!-- Car anniversary 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed vehicle order</masterLabel>
+            <translation><!-- Confirmed vehicle order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact termination</masterLabel>
+            <translation><!-- Contact termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn 2</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Invtgn 3</masterLabel>
+            <translation><!-- Customer Satisfaction Invtgn 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - dealer</masterLabel>
+            <translation><!-- Customer complaint - dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - other</masterLabel>
+            <translation><!-- Customer complaint - other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - product</masterLabel>
+            <translation><!-- Customer complaint - product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer complaint - staff</masterLabel>
+            <translation><!-- Customer complaint - staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demo Bokking Approval</masterLabel>
+            <translation><!-- Demo Bokking Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deposit</masterLabel>
+            <translation><!-- Deposit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incoming letter</masterLabel>
+            <translation><!-- Incoming letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incoming telephone call</masterLabel>
+            <translation><!-- Incoming telephone call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice New Vehicle</masterLabel>
+            <translation><!-- Invoice New Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost sale - new</masterLabel>
+            <translation><!-- Lost sale - new --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MPC Contact Termination</masterLabel>
+            <translation><!-- MPC Contact Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Magazine</masterLabel>
+            <translation><!-- Mercedes-Benz Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New vehicle lost sale letter</masterLabel>
+            <translation><!-- New vehicle lost sale letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outgoing telephone call</masterLabel>
+            <translation><!-- Outgoing telephone call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post-sale follow up call</masterLabel>
+            <translation><!-- Post-sale follow up call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-qualification call</masterLabel>
+            <translation><!-- Re-qualification call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Letter</masterLabel>
+            <translation><!-- Sales Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign</masterLabel>
+            <translation><!-- Sales Satisfaction Investign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign 2</masterLabel>
+            <translation><!-- Sales Satisfaction Investign 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Satisfaction Investign 3</masterLabel>
+            <translation><!-- Sales Satisfaction Investign 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice</masterLabel>
+            <translation><!-- Service Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom visit by customer</masterLabel>
+            <translation><!-- Showroom visit by customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Warranty</masterLabel>
+            <translation><!-- Standard Warranty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test drive</masterLabel>
+            <translation><!-- Test drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Car Warranty</masterLabel>
+            <translation><!-- Used Car Warranty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle delivery</masterLabel>
+            <translation><!-- Vehicle delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle enquiry</masterLabel>
+            <translation><!-- Vehicle enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle order</masterLabel>
+            <translation><!-- Vehicle order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle quotation</masterLabel>
+            <translation><!-- Vehicle quotation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit to customer</masterLabel>
+            <translation><!-- Visit to customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome pack</masterLabel>
+            <translation><!-- Welcome pack --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Underwriter ID --></label>
+        <name>Underwriter_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Underwriter --></label>
+        <name>Underwriter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- VIN --></label>
+        <name>VIN_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- VIN --></label>
+        <name>VIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Registration No --></label>
+        <name>Vehicle_Registration_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Call Task --></label>
+        <name>Welcome_Call_Task__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Call --></label>
+        <name>Welcome_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- *150 Days Before EOC --></label>
+        <name>X150_Days_Before_EOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- livetime --></label>
+        <name>livetime__c</name>
+    </fields>
+    <layouts>
+        <layout>Retail Task Layout(Contract)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Retail Activity)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Service)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Contract --></label>
+        <name>Contract</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Retail Activity --></label>
+        <name>Retail_Activity</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service --></label>
+        <name>Service</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Contract Share --></label>
+        <name>Contract_Share</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Retail Activity Share --></label>
+        <name>Retail_Activity_Share</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Service Share --></label>
+        <name>Service_Share</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
