@@ -221,16 +221,12 @@
 				<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
-				<sf:include name="TriggerComplaintDescriptionHandlerJP"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
 				<sf:include name="TriggerPackageItemTriggerHandlerJP"/>
-				<sf:include name="TriggerParticipatingDealerTriggerHandlerJP"/>
 				<sf:include name="TriggerRecallTriggerHandlerJP"/>
 				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
 				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
-				<sf:include name="TriggerSMSReplyHistoryTriggerHandlerJP"/>
-				<sf:include name="TriggerSettlementManagementHandlerJP"/>
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 				<sf:include name="VehicleRelationshipHelperJP"/>
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
@@ -314,9 +310,7 @@
 				<sf:include name="VehiclePicker"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
-			<sf:include name="QCHelperTest"/>
 			<sf:include name="UtilSobject"/>
-			<sf:include name="QCHelper"/>
 			<sf:include name="MisunderstoodTaskGeneration"/>
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
@@ -330,7 +324,6 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="TriggerQCTriggerHandler"/>
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
 			<sf:include name="VehiclePickerController"/>
 			<sf:include name="VehiclePickerControllerTests"/>
@@ -369,13 +362,11 @@
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="VehicleExtension"/>
 			<sf:include name="VehicleExtensionTest"/>
-			<sf:include name="ComplaintDescriptionController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
-				<sf:include name="ComplaintDescriptionViewAll"/>
 				<sf:include name="Create_Vehicle"/>
 		</sf:typeset>		
 		</deploy>					
@@ -388,19 +379,9 @@
 			<sf:include name="NewVehicleRelationshipControllerTest"/>
 			<sf:include name="RetailCampaignCalendarController"/>
 			<sf:include name="RetailCampaignCalendarControllerTest"/>
-			<sf:include name="ScheduleCalcAmountOfAssignedLeads"/>
-			<sf:include name="ScheduleCalcAmountOfAssignedLeadsTest"/>
 			<sf:include name="BatchCalcAmountOfAssignedLeads"/>
-			<sf:include name="ScheduleCreateConversionRateOBEmails"/>
-			<sf:include name="ScheduleCreateConversionRateOBEmailsTest"/>
 			<sf:include name="UtilLeadEmailEscalation"/>
 			<sf:include name="BatchCreateDealerOBEmails"/>
-			<sf:include name="ScheduleCreateMonthlyDealerOBEmails"/>
-			<sf:include name="ScheduleCreateMonthlyDealerOBEmailsTest"/>
-			<sf:include name="ScheduleCreateMonthlyRegionOBEmails"/>
-			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
-			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
-			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
 			<sf:include name="AccountMergeControllerTest"/>
 		</sf:typeset>
 		<sf:typeset name="tabs"> 
@@ -449,12 +430,6 @@
 	<target name="deploy35">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="ScheduledCreationTaskToDealers"/>
-			<sf:include name="ScheduledCreationTaskToDealersTest"/>
-			<sf:include name="ScheduledDeleteTaskToDealers"/>
-			<sf:include name="ScheduledDeleteTaskToDealersTest"/>
-			<sf:include name="ScheduledUpdateCommunityUsers"/>
-			<sf:include name="ScheduledUpdateCommunityUsersTest"/>
 			<sf:include name="SelectAssignedDealerController"/>
 			<sf:include name="SelectAssignedDealerControllerTest"/>
 			<sf:include name="UtilCustomSettings"/>
@@ -476,11 +451,8 @@
 	<target name="deploy36">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="ComplaintDesHelper"/>
-			<sf:include name="ComplaintDesHelperTest"/>
 			<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
 			<sf:include name="TriggerCampaignLeadTriggerHandler"/>
-			<sf:include name="TriggerComplaintDescriptionHandler"/>
 			<sf:include name="UtilCampaignLead"/>
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
@@ -510,9 +482,6 @@
 			<sf:include name="TriggerRecallTriggerHandler"/>
 			<sf:include name="RecallHelper"/>	
 			<sf:include name="RecallHelperTest"/>
-			<sf:include name="SettlementHelper"/>
-			<sf:include name="SettlementHelperTest"/>
-			<sf:include name="TriggerSettlementManagementHandler"/>				
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerLead"/>
@@ -662,9 +631,6 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
-			<sf:include name="ComplaintDescriptionControllerTest"/>	
-			<sf:include name="HistoryRespondController"/>
-			<sf:include name="HistoryRespondControllerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
@@ -688,18 +654,14 @@
 			<sf:include name="TriggerCampaignTriggerHandler"/>
 			<sf:include name="CaseEscalationController"/>
 			<sf:include name="CaseEscalationControllerTest"/>
-			<sf:include name="SlickCtiController"/>
-			<sf:include name="SlickCtiObjectHelper"/>	
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
-			<sf:include name="MassApproveRetailCampaignController"/>
-			<sf:include name="MassApproveRetailCampaignControllerTest"/>
 			<sf:include name="MassApproveToolKitController"/>
 			<sf:include name="MassApproveToolKitControllerTest"/>
+			<sf:include name="MassApproveRetailCampaignController"/>
+			<sf:include name="MassApproveRetailCampaignControllerTest"/>
 			<sf:include name="MassAssignRecallTasksControllerExtension"/>
 			<sf:include name="MassAssignRecallTasksTest"/>
-			<sf:include name="MonthlyMarketAmountReportController"/>	
-			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>
 			<sf:include name="BatchUpdateRecords"/>
@@ -708,9 +670,9 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="CaseEscalation"/>
 				<sf:include name="MassApproveRetailCampaign"/>
+				<sf:include name="MassApproveToolKit"/>
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
-				<sf:include name="MassApproveToolKit"/>
 				<sf:include name="LeadConverting"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
@@ -726,13 +688,8 @@
 			<sf:include name="UserLookupResultControllerTest"/>
 			<sf:include name="SMSControllerExtension"/>
 			<sf:include name="SMSControllerExtensionTest"/>
-			<sf:include name="SMSSendLeadResultExtension"/>
-			<sf:include name="SMSSendLeadResultExtensionTest"/>
 			<sf:include name="UserTriggerCallout"/>
 			<sf:include name="UserTriggerCalloutTest"/>
-			<sf:include name="TriggerParticipatingDealerTriggerHandler"/>
-			<sf:include name="ParticipatingDealerHelper"/>
-			<sf:include name="ParticipatingDealerHelperTest"/>	
 			<sf:include name="UtilProfile"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
@@ -740,7 +697,6 @@
 			<sf:include name="UserHelper"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="UserTriggerHandler"/>
-			<sf:include name="TriggerComplaintDescriptionHandler"/>	
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerParticipatingDealer"/>
@@ -763,17 +719,12 @@
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
-			<sf:include name="SMSReplyHistoryHelper"/>
-			<sf:include name="SMSReplyHistoryHelperTest"/>	
 			<sf:include name="TriggerCaseTest"/>
 			<sf:include name="TriggerCaseTriggerHandler"/>
-			<sf:include name="TriggerSMSReplyHistoryTriggerHandler"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="SSIVINMatchProcessTest"/>
-			<sf:include name="SlickCtiObjectHelperTest"/>
-			<sf:include name="SlickCtiControllerTest"/>		
 			<sf:include name="ContactTableController"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
@@ -795,14 +746,16 @@
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
+				<sf:exclude name="CACFields"/>
+				<sf:exclude name="ComplaintDescriptionViewAll"/>
+				<sf:exclude name="Campaign_Timeline"/>
+				<sf:exclude name="HistoryRespond"/>
+				<sf:exclude name="SlickCTI_Phone"/>
+				<sf:exclude name="SMSSendLeadResult"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
-			<sf:include name="CACFieldsExtension"/>
-			<sf:include name="CACFieldsExtensionTest"/>
-			<sf:include name="CPCalController"/>
-			<sf:include name="CpCallControllerClass_Test"/>
 			<sf:include name="GenerateAndAttachPDF"/>			
 			</sf:typeset>
 			<sf:typeset name="tabs">
