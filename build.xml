@@ -520,8 +520,6 @@
 	<target name="deploy39">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="YearlyTAAchieTracingController"/>
-			<sf:include name="YearlyTAAchieTracingControllerTest"/>
 			<sf:include name="YearlyTAReportController"/>
 			<sf:include name="YearlyTAReportControllerTest"/>
 			<sf:include name="YearlyTargetController"/>
@@ -529,8 +527,6 @@
 			<sf:include name="Paginator"/>
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
-			<sf:include name="TriggerPackageItemTriggerHandler"/>
-			<sf:include name="TriggerPackageItem_TestClass"/>			
 			<sf:include name="AddressDisplayInlineEditController"/>
 			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
@@ -538,8 +534,8 @@
 			<sf:include name="TriggerPackageItem"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
-				<sf:include name="YearlyTAAchievementTracingReport"/>
 				<sf:include name="Yearly_TA_Report"/>
+				<sf:include name="YearlyTA"/>
 				<sf:include name="AddressDisplayInlineEdit"/>
 		</sf:typeset>
 		</deploy>					
@@ -554,31 +550,8 @@
 			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
-			<sf:include name="ViewVoiceRecordingController"/>
-			<sf:include name="ViewVoiceRecordingControllerTest"/>
-			<sf:include name="VinMatchController"/>
-			<sf:include name="VinMatchControllerTest"/>
 			<sf:include name="SharingDataHandlerBase"/>
 			<sf:include name="SharingDataHandlerBaseTest"/>
-			<sf:include name="SSIBatchVinMatch"/>
-			<sf:include name="SSIDataClean"/>
-			<sf:include name="SSIDataCleanTest"/>
-			<sf:include name="SSIBatchDealerCheck"/>
-			<sf:include name="SSIBatchRestRuleCheck"/>
-			<sf:include name="SSIBatchCalculateResult"/>
-			<sf:include name="SSIDataCleansingSnapshot"/>
-			<sf:include name="SSIBatchGenerateWelcomeCall"/>
-			<sf:include name="SSIBatchGenerateWelcomeCallTest"/>
-			<sf:include name="SSINewComplaintController"/>	
-			<sf:include name="SSINewComplaintControllerTest"/>
-			<sf:include name="SSIScheduleWelcomeCallEscalation"/>
-			<sf:include name="SSITriggerHandler"/>
-			<sf:include name="SSITriggerHandlerTest"/>
-			<sf:include name="SsiHelper"/>
-			<sf:include name="SSIVINMatchProcess"/>		
-		</sf:typeset>
-		<sf:typeset name="pages"> 
-				<sf:include name="SSINewComplaintEnd"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -590,16 +563,9 @@
 			<sf:include name="TaskFailBlacklistTrigger_TestClass"/>
 			<sf:include name="TaskMassChangeOwner"/>
 			<sf:include name="TaskMassChangeOwnerTest"/>
-			<sf:include name="TaskSMSControllerExtensionTest"/>
 			<sf:include name="TextInputtingControlelr"/>
 			<sf:include name="TextInputtingControlelrTest"/>
-			<sf:include name="TookKitSharingTest"/>
 			<sf:include name="TookKitSharingWrapService"/>
-			<sf:include name="ToolKitSelectContentController"/>
-			<sf:include name="ToolKitSelectContentControllerTest"/>	
-			<sf:include name="ToolKitTriggerHandler"/>
-			<sf:include name="ToolKitTriggerHelper"/>
-			<sf:include name="TaskSMSControllerExtension"/>	
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -688,7 +654,6 @@
 			<sf:include name="UtilProfile"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
-			<sf:include name="TriggerPD_TestClass"/>
 			<sf:include name="UserHelper"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="UserTriggerHandler"/>
@@ -719,7 +684,6 @@
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
-			<sf:include name="SSIVINMatchProcessTest"/>
 			<sf:include name="ContactTableController"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
