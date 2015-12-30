@@ -85,15 +85,7 @@
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
 			<sf:typeset name="queues"/>
-			<sf:typeset name="pages">
-			   <sf:include name="ViewHierarchy"/>
-			</sf:typeset>				
-			<sf:typeset name="classes">
-		       <sf:include name="UtilConstant"/>
-			   <sf:include name="UtilTestData"/>
-			   <sf:include name="ViewHierarchyController"/>
-			   <sf:include name="ViewHierarchyControllerTest"/>			   
-			</sf:typeset>
+							
 		</deploy>
     </target>
 	
@@ -201,9 +193,13 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="ViewHierarchy"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
+				<sf:include name="UtilTestData"/>
+				<sf:include name="ViewHierarchyController"/>
+				<sf:include name="ViewHierarchyControllerTest"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilRecordTypeTest"/>
@@ -315,7 +311,6 @@
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
 			<sf:include name="BatchJobHelperTest"/>
-			<sf:include name="UtilTestData"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccount"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccountTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByVehicle"/>
