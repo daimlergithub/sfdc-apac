@@ -796,7 +796,6 @@
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>false</enabled>
