@@ -1,4 +1,4 @@
-public class TaskTriggerHandlerJP
+public class CaseTriggerHandlerJP
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
@@ -10,3 +10,4 @@ public class TaskTriggerHandlerJP
       // Implementation to addedd as required in market
     }
 }
+

@@ -1,4 +1,4 @@
-public class TaskTriggerHandlerJP
+public class TriggerVehicleRelationshipHandlerJP
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
