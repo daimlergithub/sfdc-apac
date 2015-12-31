@@ -49,20 +49,24 @@
                                </strong></span></li>
                           <!-- Vehicle to Vehicle Relationship --> 
                            <ul> 
-                              <apex:repeat value="{!parent.parentVehRelation}" var="child">
-                                <li><span class="formattextcon"><strong>                 
-                                     {!$Label.VehicleRelationship} || &nbsp; 
-                                     <apex:outputtext escape="false" value="{!child.Name}" rendered="{!If(child.Name!=Null,true,false)}">: &nbsp;</apex:outputtext> 
+                              <apex:repeat value="{!parent.parentVehRelation}" var="child"> 
+                               <apex:outputlabel rendered="{!If(child.Id != parent.gparentVehRelation.Id,true,false)}">
+                                <li>                                
+                                  <span class="formattextcon"><strong>                 
+                                     <apex:outputLabel rendered="{!If(child.Id != parent.gparentVehRelation.Id,true,false)}">{!$Label.VehicleRelationship} || &nbsp; </apex:outputLabel> 
+                                     <apex:outputtext escape="false" value="{!child.Name}" rendered="{!If(child.Name!=Null,true,false)}">: &nbsp;</apex:outputtext>
                                      <apex:outputtext escape="false" value="{!child.Vehicle_Model__c}" rendered="{!If(child.Vehicle_Model__c!=Null,true,false)}">:&nbsp; </apex:outputtext> 
                                      <apex:outputtext escape="false" value="{!child.Vehicle_Brand__c}" rendered="{!If(child.Vehicle_Brand__c!=Null,true,false)}">:&nbsp;</apex:outputtext> 
                                      <apex:outputtext escape="false" value="{!child.Vehicle_Class__c}" rendered="{!If(child.Vehicle_Class__c!=Null,true,false)}">:&nbsp;</apex:outputtext> 
                                      <apex:outputtext escape="false" value="{!child.Vehicle_ID__r.Name}" rendered="{!If(child.Vehicle_ID__r.Name!=Null,true,false)}">:&nbsp;</apex:outputtext> 
                                      <apex:outputtext escape="false" value="{!child.Car_Relation__c}" rendered="{!If(child.Car_Relation__c!=Null,true,false)}">:&nbsp;</apex:outputtext> 
-                                     <apex:outputtext escape="false" value="{!child.Contact__r.name }">: &nbsp;</apex:outputtext> 
-                               </strong></span></li>
-                               </apex:repeat>  
+                                     <apex:outputtext escape="false" value="{!child.Contact__r.name }"></apex:outputtext> 
+                                 </strong></span>                                
+                                 </li>
+                                </apex:outputlabel>                                 
+                             </apex:repeat>  
                           <!-- Vehicle to  Retail Task  -->   
-                               <apex:repeat value="{!parent.retailtask}" var="rtask">                 
+                               <apex:repeat value="{!parent.retailtask}" var="rtask">  
                                   <li><span><strong>{!$Label.RetailTask} ||                                             
                                       <apex:outputtext escape="false" value="{!rtask.ContractNumber__c}" rendered="{!If(rtask.ContractNumber__c!=Null,true,false)}"> : &nbsp;</apex:outputtext> 
                                       <apex:outputtext escape="false" value="{!rtask.Name}" rendered="{!If(rtask.Name!=Null,true,false)}"> : &nbsp;</apex:outputtext> 
