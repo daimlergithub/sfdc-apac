@@ -6113,10 +6113,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Communications equipment, computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6194,10 +6190,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Postal Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6449,10 +6441,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Pharmaceutical Manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6598,6 +6586,30 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Utilities ( gas / electric )</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical materials manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
