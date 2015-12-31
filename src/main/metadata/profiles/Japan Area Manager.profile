@@ -900,10 +900,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerBatchJobTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
