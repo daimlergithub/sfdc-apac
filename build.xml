@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
 	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
@@ -73,8 +73,12 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
 	</target>
-	
 	<target name="deploy01">
+		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="installedPackages"/>
+		</deploy>
+    </target>
+	<target name="deploy05">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources">
@@ -89,14 +93,14 @@
 		</deploy>
     </target>
 	
-	<target name="deploy05">
+	<target name="deploy07">
 		<deploy runAllTests="${sfdc.runAllTests}">			
 			<sf:typeset name="documents"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
 	
-	<target name="deploy07">
+	<target name="deploy09">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="User"/>
@@ -108,7 +112,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy09">
+	<target name="deploy10">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
@@ -128,7 +132,7 @@
 		</deploy>
     </target>
 
-	<target name="deploy10">
+	<target name="deploy12">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name=".*__c"/>
@@ -151,7 +155,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy12">
+	<target name="deploy15">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Campaign"/>
@@ -159,7 +163,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy15">
+	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -176,7 +180,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy20">
+	<target name="deploy21">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
@@ -236,7 +240,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy21">
+	<target name="deploy25">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
@@ -265,7 +269,7 @@
 		</deploy>
     </target>
 	
-	<target name="deploy25">			
+	<target name="deploy29">			
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
@@ -286,13 +290,13 @@
 		</deploy>
     </target>
 	
-	<target name="deploy29">
+	<target name="deploy30">
 		<deploy transformations="transformations29.xml">
 		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>			
 		</deploy>
 	</target>
 	
-	<target name="deploy30">
+	<target name="deploy31">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TriggerHandlerIf"/>
@@ -306,7 +310,7 @@
 		</deploy>		
     </target>
 	
-	<target name="deploy31">
+	<target name="deploy32">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
@@ -340,7 +344,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy32">
+	<target name="deploy33">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="CMapTest"/>
@@ -373,7 +377,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy33">
+	<target name="deploy34">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="NewVehicleRelationshipController"/>
@@ -395,7 +399,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy34">
+	<target name="deploy35">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TaskHelper"/>
@@ -428,7 +432,7 @@
 		</deploy>				
     </target>
 	
-	<target name="deploy35">
+	<target name="deploy36">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="SelectAssignedDealerController"/>
@@ -449,7 +453,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy36">
+	<target name="deploy37">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
@@ -458,18 +462,21 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>			
+			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="AddressHelperJP"/>
+			<sf:include name="TriggerAddressTriggerHandlerJP"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
 			<sf:include name="TriggerCampaignLead"/>
 			<sf:include name="TriggerComplaintDescription"/>
-			<sf:include name="TriggerCampaignOffering"/>			
+			<sf:include name="TriggerCampaignOffering"/>
+			<sf:include name="TriggerAddress"/>			
 		</sf:typeset>	
 		</deploy>					
     </target>
 	
-	<target name="deploy37">
+	<target name="deploy38">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="LeadHelper"/>
@@ -493,7 +500,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy38">
+	<target name="deploy39">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="AccountHelper"/>
@@ -523,7 +530,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy39">
+	<target name="deploy40">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="YearlyTAReportController"/>
@@ -547,7 +554,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy40">
+	<target name="deploy41">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="VehicleDataSharingHandler"/>
@@ -562,7 +569,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy41">
+	<target name="deploy42">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TaskDeletingControllerTest"/>
@@ -576,7 +583,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy42">
+	<target name="deploy43">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="RetailCampaignHelper"/>
@@ -609,7 +616,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy43">
+	<target name="deploy44">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="LeadConvertingController"/>
@@ -648,7 +655,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy44">
+	<target name="deploy45">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="UserLookupResultController"/>
@@ -671,7 +678,7 @@
 		</deploy>					
     </target>	
 	
-	<target name="deploy45">
+	<target name="deploy46">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="AddToRetailCampaignController"/>
@@ -706,7 +713,7 @@
 		</deploy>				
     </target>	
 	
-	<target name="deploy46">
+	<target name="deploy47">
 		<deploy runAllTests="${sfdc.runAllTests}">	
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
@@ -745,7 +752,7 @@
 		</deploy>
 	</target>
 	
-	<target name="deploy47">
+	<target name="deploy48">
 		<deploy>		
 	    <sf:typeset name="classes">
 			<sf:include name="GenerateAndAttachPDFTest"/>
@@ -753,14 +760,14 @@
 			<sf:include name="AccountMergeController"/>
 			<sf:include name="TerminateVehicleRelationshipTest"/>						
 		</sf:typeset>	
-        <sf:typeset name="profiles" force="true"/>	
+       <sf:typeset name="profiles" force="true"/>
 		</deploy>
 	</target>	
 	
-	<target name="deploy48">
+	<target name="deploy49">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="settings"/>
-			<sf:typeset name="permissionsets"/>	
+			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>	
@@ -771,7 +778,7 @@
 		</deploy>
 	</target>
 	
-	<target name="deploy49">
+	<target name="deploy50">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="accountSharingRules"/>
 			<sf:typeset name="campaignSharingRules"/>
@@ -782,13 +789,10 @@
 			-->
 		</deploy>
     </target>
-		<target name="deploy50">
+		<target name="deploy51">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objectTranslations"/>
 			<sf:typeset name="translations"/>
-			<!-- TODO : Commenting out for kernel prod deployment
-			<sf:typeset name="approvalProcesses"/>
-			-->
 		</deploy>
     </target>
 	<target name="loaddata-oliver">
@@ -807,7 +811,7 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
 	</property>
 	
@@ -829,6 +833,7 @@
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
 			<sf:feature name="include-personaccount"/>
+			<sf:feature name="package-namespaces" param="AES_SFConnector"/>
 		</sf:retrieve>
 		
 		<!-- retrieves all metadata -->
