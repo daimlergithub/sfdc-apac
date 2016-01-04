@@ -13,9 +13,6 @@ public without sharing class VehiclePickerControllerTests{
     
     /********************* CREATING TEST DATA : START **************************/
         
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
         UtilConstant utilConst = new UtilConstant();     
         testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
         system.debug('Leads... :' +testLead);
