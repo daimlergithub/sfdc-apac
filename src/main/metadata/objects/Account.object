@@ -7472,7 +7472,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts (Main Dealer)</relationshipLabel>
-        <relationshipName>Main_Dealer</relationshipName>
+        <relationshipName>MainDealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -19169,7 +19169,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
