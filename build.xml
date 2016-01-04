@@ -462,13 +462,16 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>			
+			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="AddressHelperJP"/>
+			<sf:include name="TriggerAddressTriggerHandlerJP"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
 			<sf:include name="TriggerCampaignLead"/>
 			<sf:include name="TriggerComplaintDescription"/>
-			<sf:include name="TriggerCampaignOffering"/>			
+			<sf:include name="TriggerCampaignOffering"/>
+			<sf:include name="TriggerAddress"/>			
 		</sf:typeset>	
 		</deploy>					
     </target>
