@@ -6113,23 +6113,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Communications equipment, computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Instrumentation and culture , office machinery manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electricity , heat production and supply industry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6137,27 +6121,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Building Decoration Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Railway transportation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6177,43 +6141,11 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Warehousing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Retail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Catering</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6237,43 +6169,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Business Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Technology exchange and promotion services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Resident Services</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6289,55 +6185,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Radio, television , film and audiovisual industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mass organizations , community groups and religious organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International Organizations</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6349,15 +6197,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Livestock</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Fisheries</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Agriculture, forestry , animal husbandry and fishery service</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6369,10 +6209,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Oil and gas industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Ferrous metal mining industry</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6381,63 +6217,11 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Food Manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Textiles and clothing , footwear, headgear manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Leather , fur, feathers ( down) and its products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wood processing and wood, bamboo , rattan , brown grass products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Printing, Reproduction of recorded media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Petroleum processing, coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6453,59 +6237,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accounting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Advertising / Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car dealer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6513,35 +6245,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Credit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Law</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6549,43 +6253,11 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Property</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Trade</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Utilities ( gas / electric )</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6610,6 +6282,14 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13800,11 +13480,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
+                <fullName>Chemical fiber manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical fiber manufacturing</fullName>
+                <fullName>Chemical materials manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13825,6 +13505,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13860,6 +13548,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
@@ -13876,6 +13568,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
@@ -13885,6 +13581,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13912,11 +13612,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17947,10 +17655,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Industry</picklist>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Distribution</fullName>
                 <default>false</default>
