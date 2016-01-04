@@ -270,6 +270,7 @@
          /*Set the initial Brand value for the vehicle which is already selected*/                  
          $scope.setSelectedValue = function (brand){
             $scope.relatedClasses = $scope.brandsClasses[brand];
+            $scope.models = [];
          };
       
          /*Set the initial Model values for the vehicle which is already selected*/
@@ -411,7 +412,7 @@
                 $scope.TradeInLookup = false;
             }
                 /*Fetch the car models based on status types here*/
-                $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass);
+                $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
           }  
           
           $scope.selectBrandAction = function () {
@@ -431,7 +432,7 @@
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                             Colour:$scope.colourVal, Model:$scope.selectedModel,
+                                             Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
                                              Trim:$scope.trimVal,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
@@ -644,7 +645,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedClasses" ng-change="setModelValue(selectedClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -692,7 +693,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedCompetitorBrand" ng-change="setSelectedValue(selectedCompetitorBrand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCompetitorClasses" ng-change="setModelValue(selectedCompetitorClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCompetitorClasses" ng-blur="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-change="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -729,7 +730,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedCurrent1Brand" ng-change="setSelectedValue(selectedCurrent1Brand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCurrent1Classes" ng-change="setModelValue(selectedCurrent1Classes)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCurrent1Classes" ng-blur="setModelValue(selectedCurrent1Classes+selectedCurrent1Brand)" ng-change="setModelValue(selectedCurrent1Classes+selectedCurrent1Brand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -778,7 +779,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedCurrent2Brand" ng-change="setSelectedValue(selectedCurrent2Brand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCurrent2Classes" ng-change="setModelValue(selectedCurrent2Classes)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCurrent2Classes" ng-blur="setModelValue(selectedCurrent2Classes+selectedCurrent2Brand)" ng-change="setModelValue(selectedCurrent2Classes+selectedCurrent2Brand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -827,7 +828,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedTradeInBrand" ng-change="setSelectedValue(selectedTradeInBrand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedTradeInClasses" ng-change="setModelValue(selectedTradeInClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedTradeInClasses" ng-blur="setModelValue(selectedTradeInClasses+selectedTradeInBrand)" ng-change="setModelValue(selectedTradeInClasses+selectedTradeInBrand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -876,7 +877,7 @@
                     <td>{!$label.Brand}</td>
                     <td><select id="brandItems" ng-model="selectedPurchasedBrand" ng-change="setSelectedValue(selectedPurchasedBrand)" ng-options="brand for brand in brands"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedPurchasedClasses" ng-change="setModelValue(selectedPurchasedClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedPurchasedClasses" ng-blur="setModelValue(selectedPurchasedClasses+selectedPurchasedBrand)" ng-change="setModelValue(selectedPurchasedClasses+selectedPurchasedBrand)" ng-options="classes for classes in relatedClasses"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
