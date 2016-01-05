@@ -233,9 +233,6 @@
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
-				<sf:include name="TriggerComplaintDescriptionHandlerJP"/>
-				<sf:include name="TriggerSettlementManagementHandlerJP"/>
-				<sf:include name="TriggerVehicleRelationshipHandlerJP"/>
 			</sf:typeset>
 		</deploy>
     </target>
