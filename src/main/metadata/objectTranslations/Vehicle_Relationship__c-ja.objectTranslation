@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
@@ -3040,8 +3040,16 @@
             <section>Date Information</section>
         </sections>
         <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
             <label><!-- MOT Information --></label>
             <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
         </sections>
         <sections>
             <label><!-- Vehicle Information --></label>
