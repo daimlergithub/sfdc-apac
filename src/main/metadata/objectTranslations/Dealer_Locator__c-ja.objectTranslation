@@ -797,5 +797,12 @@
         <label><!-- Suburb --></label>
         <name>Suburb__c</name>
     </fields>
+    <layouts>
+        <layout>Dealer Locator Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel><!-- Dealer Locator --></nameFieldLabel>
 </CustomObjectTranslation>
