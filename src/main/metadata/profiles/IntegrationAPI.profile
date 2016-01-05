@@ -492,6 +492,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MassApproveToolKitControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MassAssignRecallTasksControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -852,14 +856,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerComplaintDescriptionHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerComplaintDescriptionHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -888,10 +884,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerQCTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerRecallTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -917,10 +909,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerRetailTaskTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerSettlementManagementHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1177,6 +1165,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>YearlyTargetController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>YearlyTargetControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -18533,8 +18525,8 @@
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
-     <userPermissions>
-         <enabled>false</enabled>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ForceTwoFactor</name>
     </userPermissions>
     <userPermissions>
@@ -18625,8 +18617,8 @@
         <enabled>true</enabled>
         <name>ManageTranslation</name>
     </userPermissions>
-     <userPermissions>
-         <enabled>false</enabled>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageTwoFactor</name>
     </userPermissions>
     <userPermissions>
@@ -18681,8 +18673,8 @@
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
     </userPermissions>
-     <userPermissions>
-         <enabled>false</enabled>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>TwoFactorApi</name>
     </userPermissions>
     <userPermissions>
