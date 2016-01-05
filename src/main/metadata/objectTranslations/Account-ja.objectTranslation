@@ -3865,6 +3865,14 @@ Allows up to 240 characters --></help>
     <fields>
         <name>Industry</name>
         <picklistValues>
+            <masterLabel>Accommodation Industry</masterLabel>
+            <translation><!-- Accommodation Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Advertising / Marketing</masterLabel>
             <translation><!-- Advertising / Marketing --></translation>
         </picklistValues>
@@ -3873,60 +3881,128 @@ Allows up to 240 characters --></help>
             <translation><!-- Agriculture --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Agriculture, forestry , animal husbandry and fishery service</masterLabel>
+            <translation><!-- Agriculture, forestry , animal husbandry and fishery service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agro-food processing industry</masterLabel>
+            <translation><!-- Agro-food processing industry --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Air transport</masterLabel>
             <translation><!-- Air transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Army</masterLabel>
+            <translation><!-- Army --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bank</masterLabel>
+            <translation><!-- Bank --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Banking</masterLabel>
             <translation><!-- Banking --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Beverage Manufacturing</masterLabel>
+            <translation><!-- Beverage Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building</masterLabel>
+            <translation><!-- Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building Decoration Industry</masterLabel>
+            <translation><!-- Building Decoration Industry --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Business Services</masterLabel>
             <translation><!-- Business Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPPCC and the democratic parties</masterLabel>
+            <translation><!-- CPPCC and the democratic parties --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Car dealer</masterLabel>
             <translation><!-- Car dealer --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Car rental</masterLabel>
+            <translation><!-- Car rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catering</masterLabel>
+            <translation><!-- Catering --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Chemical fiber manufacturing</masterLabel>
             <translation><!-- Chemical fiber manufacturing --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Chemical materials and chemical products manufacturing</masterLabel>
-            <translation><!-- Chemical materials and chemical products manufacturing --></translation>
+            <masterLabel>Chemical materials manufacturing</masterLabel>
+            <translation><!-- Chemical materials manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese Communist Party organ</masterLabel>
+            <translation><!-- Chinese Communist Party organ --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Coal mining and washing</masterLabel>
             <translation><!-- Coal mining and washing --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Communications equipment/computers and other electronic equipment manufacturing</masterLabel>
-            <translation><!-- Communications equipment/computers and other electronic equipment manufacturing --></translation>
+            <masterLabel>Communications equipment, computers and other electronic equipment manufacturing</masterLabel>
+            <translation><!-- Communications equipment, computers and other electronic equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer</masterLabel>
+            <translation><!-- Computer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer services</masterLabel>
+            <translation><!-- Computer services --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Construction and installation industry</masterLabel>
             <translation><!-- Construction and installation industry --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Consumer Goods</masterLabel>
+            <translation><!-- Consumer Goods --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Crafts and other manufacturing</masterLabel>
             <translation><!-- Crafts and other manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit</masterLabel>
+            <translation><!-- Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Culture and Arts</masterLabel>
+            <translation><!-- Culture and Arts --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Distribution</masterLabel>
             <translation><!-- Distribution --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Driving</masterLabel>
+            <translation><!-- Driving --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Education</masterLabel>
             <translation><!-- Education --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Electricity/heat production and supply industry</masterLabel>
-            <translation><!-- Electricity/heat production and supply industry --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Ferrous metal mining industry</masterLabel>
             <translation><!-- Ferrous metal mining industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferrous metal smelting and rolling processing industry</masterLabel>
+            <translation><!-- Ferrous metal smelting and rolling processing industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fisheries</masterLabel>
@@ -3937,8 +4013,20 @@ Allows up to 240 characters --></help>
             <translation><!-- Food Manufacturing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Footwear</masterLabel>
+            <translation><!-- Footwear --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Forestry</masterLabel>
             <translation><!-- Forestry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchising</masterLabel>
+            <translation><!-- Franchising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Furniture manufacturing</masterLabel>
+            <translation><!-- Furniture manufacturing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gas Production and Supply</masterLabel>
@@ -3949,24 +4037,92 @@ Allows up to 240 characters --></help>
             <translation><!-- General equipment manufacturing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Geological Prospecting</masterLabel>
+            <translation><!-- Geological Prospecting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grassroots autonomous organizations</masterLabel>
+            <translation><!-- Grassroots autonomous organizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guesthouse</masterLabel>
+            <translation><!-- Guesthouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Handling and other transport services</masterLabel>
+            <translation><!-- Handling and other transport services --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Health</masterLabel>
             <translation><!-- Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housing and civil engineering construction</masterLabel>
+            <translation><!-- Housing and civil engineering construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instrumentation and culture , office machinery manufacturing</masterLabel>
+            <translation><!-- Instrumentation and culture , office machinery manufacturing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
             <translation><!-- Insurance --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mass organizations/community groups and religious organizations</masterLabel>
-            <translation><!-- Mass organizations/community groups and religious organizations --></translation>
+            <masterLabel>International Organizations</masterLabel>
+            <translation><!-- International Organizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Law</masterLabel>
+            <translation><!-- Law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing</masterLabel>
+            <translation><!-- Leasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leather , fur, feathers ( down) and its products industry</masterLabel>
+            <translation><!-- Leather , fur, feathers ( down) and its products industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Livestock</masterLabel>
+            <translation><!-- Livestock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mass and religious organizations</masterLabel>
+            <translation><!-- Mass and religious organizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mass organizations , community groups and religious organizations</masterLabel>
+            <translation><!-- Mass organizations , community groups and religious organizations --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
             <translation><!-- Media --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>News Publishing</masterLabel>
+            <translation><!-- News Publishing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-ferrous metal smelting and rolling processing industry</masterLabel>
+            <translation><!-- Non-ferrous metal smelting and rolling processing industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-metallic mineral products industry</masterLabel>
+            <translation><!-- Non-metallic mineral products industry --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Nonferrous Metals</masterLabel>
             <translation><!-- Nonferrous Metals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nonmetal mining industry</masterLabel>
+            <translation><!-- Nonmetal mining industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil and gas industry</masterLabel>
+            <translation><!-- Oil and gas industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
@@ -3977,8 +4133,20 @@ Allows up to 240 characters --></help>
             <translation><!-- Other Services --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other construction</masterLabel>
+            <translation><!-- Other construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other equipment manufacturing</masterLabel>
+            <translation><!-- Other equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Other financial activities</masterLabel>
             <translation><!-- Other financial activities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other mining industry</masterLabel>
+            <translation><!-- Other mining industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Paper and paper products industry</masterLabel>
@@ -3989,16 +4157,68 @@ Allows up to 240 characters --></help>
             <translation><!-- Parts --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Petroleum processing/coking and nuclear fuel processing industry</masterLabel>
-            <translation><!-- Petroleum processing/coking and nuclear fuel processing industry --></translation>
+            <masterLabel>Petroleum processing industry</masterLabel>
+            <translation><!-- Petroleum processing industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petroleum processing, coking and nuclear fuel processing industry</masterLabel>
+            <translation><!-- Petroleum processing, coking and nuclear fuel processing industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pharmaceutical Manufacturing</masterLabel>
             <translation><!-- Pharmaceutical Manufacturing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Physical education</masterLabel>
+            <translation><!-- Physical education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pipeline transportation</masterLabel>
+            <translation><!-- Pipeline transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plastic products industry</masterLabel>
+            <translation><!-- Plastic products industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal Services</masterLabel>
+            <translation><!-- Postal Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printing, Reproduction of recorded media</masterLabel>
+            <translation><!-- Printing, Reproduction of recorded media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Technical Services</masterLabel>
+            <translation><!-- Professional Technical Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property</masterLabel>
+            <translation><!-- Property --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Facilities Management</masterLabel>
+            <translation><!-- Public Facilities Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio, television , film and audiovisual industry</masterLabel>
+            <translation><!-- Radio, television , film and audiovisual industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Railway transportation</masterLabel>
+            <translation><!-- Railway transportation --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Real Estate</masterLabel>
             <translation><!-- Real Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research and Experimental Development</masterLabel>
+            <translation><!-- Research and Experimental Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resident Services</masterLabel>
+            <translation><!-- Resident Services --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Retail</masterLabel>
@@ -4017,20 +4237,56 @@ Allows up to 240 characters --></help>
             <translation><!-- Securities Industry --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ship building</masterLabel>
-            <translation><!-- Ship building --></translation>
+            <masterLabel>Social Security Industry</masterLabel>
+            <translation><!-- Social Security Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Welfare</masterLabel>
+            <translation><!-- Social Welfare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Industry</masterLabel>
+            <translation><!-- Software Industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Special equipment manufacturing</masterLabel>
             <translation><!-- Special equipment manufacturing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Sporting Goods Manufacturing</masterLabel>
+            <translation><!-- Sporting Goods Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>State institutions</masterLabel>
             <translation><!-- State institutions --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Telecommunications and Other Information Transmission Services</masterLabel>
-            <translation><!-- Telecommunications and Other Information Transmission Services --></translation>
+            <masterLabel>Stone</masterLabel>
+            <translation><!-- Stone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology exchange and promotion services</masterLabel>
+            <translation><!-- Technology exchange and promotion services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications Services</masterLabel>
+            <translation><!-- Telecommunications Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile industry</masterLabel>
+            <translation><!-- Textile industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textiles and clothing , footwear, headgear manufacturing</masterLabel>
+            <translation><!-- Textiles and clothing , footwear, headgear manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tobacco and alcohol</masterLabel>
+            <translation><!-- Tobacco and alcohol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tobacco industry</masterLabel>
+            <translation><!-- Tobacco industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade</masterLabel>
@@ -4041,6 +4297,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Transportation Equipment Manufacturing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Travel</masterLabel>
+            <translation><!-- Travel --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Unknown</masterLabel>
             <translation><!-- Unknown --></translation>
         </picklistValues>
@@ -4049,12 +4309,40 @@ Allows up to 240 characters --></help>
             <translation><!-- Urban public transport sector --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Utilities ( gas / electric )</masterLabel>
+            <translation><!-- Utilities ( gas / electric ) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Maintenance</masterLabel>
+            <translation><!-- Vehicle Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Warehousing</masterLabel>
             <translation><!-- Warehousing --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Waste Resources and Materials Recycling and Processing</masterLabel>
+            <translation><!-- Waste Resources and Materials Recycling and Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water Management Industry</masterLabel>
+            <translation><!-- Water Management Industry --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Water Transportation</masterLabel>
             <translation><!-- Water Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water production and supply industry</masterLabel>
+            <translation><!-- Water production and supply industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesale Trade</masterLabel>
+            <translation><!-- Wholesale Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wood processing and wood, bamboo , rattan , brown grass products industry</masterLabel>
+            <translation><!-- Wood processing and wood, bamboo , rattan , brown grass products industry --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6518,27 +6806,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-	
    <!-- <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
-        <sections> 
-            <label></label>
-           <section>Custom Links</section>
+        <sections>
+            <label> Custom Links </label>
+            <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Fields</section>
+            <label> Fields </label>
+            <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Other information</section>
+            <label> Other information </label>
+            <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Retail Information </label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>-->
     <layouts>
         <layout>Company Layout</layout>
         <sections>
@@ -6623,170 +6910,170 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-          <section>Additional Information</section>
+            <label> Additional Information </label>
+            <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Address Information</section>
+            <label> Address Information </label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Contact Info Status </label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Contact Information </label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Dealer Information </label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Duplication Information </label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Other Information </label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Person Account Basic Information </label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Retail Information</section>
+            <label> Retail Information </label>
+            <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Telematics Related Information </label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Whole activities </label>
             <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-          <section>Custom Links</section>
+            <label> Custom Links </label>
+            <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Fields</section>
+            <label> Fields </label>
+            <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Other information </label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Retail Information </label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Whole activities</section>
+            <label> Whole activities </label>
+            <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label> Additional Information </label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Address Information</section>
+            <label> Address Information </label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Contact Info Status</section>
+            <label> Contact Info Status </label>
+            <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Contact Information </label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Dealer Information</section>
+            <label> Dealer Information </label>
+            <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Duplication Information</section>
+            <label> Duplication Information </label>
+            <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Other Information </label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Person Account Basic Information</section>
+            <label> Person Account Basic Information </label>
+            <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Retail Information</section>
+            <label> Retail Information </label>
+            <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Telematics Related Information</section>
+            <label> Telematics Related Information </label>
+            <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Whole activities</section>
+            <label> Whole activities </label>
+            <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-         <section>Additional Information</section>
+            <label> Additional Information </label>
+            <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-        <section>Address Information</section>
+            <label> Address Information </label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
-        <section>Contact Info Status</section>
+            <label> Contact Info Status </label>
+            <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Contact Information</section>
+            <label> Contact Information </label>
+            <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label> Dealer Information </label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Duplication Information</section>
+            <label> Duplication Information </label>
+            <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Other Information</section>
+            <label> Other Information </label>
+            <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Person Account Basic Information</section>
+            <label> Person Account Basic Information </label>
+            <section>Person Account Basic Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-        <section>Contact Information</section>
+            <label> Contact Information </label>
+            <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Profile Information</section>
+            <label> Profile Information /label>
+            <section>Profile Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
