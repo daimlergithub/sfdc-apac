@@ -2454,10 +2454,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -2487,6 +2483,10 @@
             </values>
             <values>
                 <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2522,6 +2522,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
@@ -2538,6 +2542,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
@@ -2547,6 +2555,10 @@
             </values>
             <values>
                 <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2571,6 +2583,10 @@
             </values>
             <values>
                 <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6888,10 +6904,6 @@
             </values>
             <values>
                 <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11466,10 +11478,6 @@
             </values>
             <values>
                 <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20765,10 +20773,6 @@
             </values>
             <values>
                 <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
                 <default>false</default>
             </values>
             <values>
