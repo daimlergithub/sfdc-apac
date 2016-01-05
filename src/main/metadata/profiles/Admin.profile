@@ -18886,7 +18886,7 @@
         <name>ViewEventLogFiles</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>

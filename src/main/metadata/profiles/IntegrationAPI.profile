@@ -18426,7 +18426,7 @@
         <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ApiUserOnly</name>
     </userPermissions>
     <userPermissions>
@@ -18533,6 +18533,10 @@
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
+     <userPermissions>
+         <enabled>false</enabled>
+        <name>ForceTwoFactor</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>IdentityEnabled</name>
@@ -18621,6 +18625,10 @@
         <enabled>true</enabled>
         <name>ManageTranslation</name>
     </userPermissions>
+     <userPermissions>
+         <enabled>false</enabled>
+        <name>ManageTwoFactor</name>
+    </userPermissions
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageUsers</name>
@@ -18673,6 +18681,10 @@
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
     </userPermissions>
+     <userPermissions>
+         <enabled>false</enabled>
+        <name>TwoFactorApi</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>
@@ -18694,7 +18706,7 @@
         <name>ViewEventLogFiles</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
