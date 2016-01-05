@@ -3921,10 +3921,6 @@ Allows up to 240 characters --></help>
             <translation><!-- Education --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Electrical machinery and equipment manufacturing</masterLabel>
-            <translation><!-- Electrical machinery and equipment manufacturing --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Electricity/heat production and supply industry</masterLabel>
             <translation><!-- Electricity/heat production and supply industry --></translation>
         </picklistValues>
