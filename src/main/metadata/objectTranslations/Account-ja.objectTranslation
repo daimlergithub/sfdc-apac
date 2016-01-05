@@ -3997,38 +3997,6 @@ Allows up to 240 characters --></help>
             <translation><!-- Education --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Electrical equipment manufacturing</masterLabel>
-            <translation><!-- Electrical equipment manufacturing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Electricity , heat production and supply industry</masterLabel>
-            <translation><!-- Electricity , heat production and supply industry --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Electronic</masterLabel>
-            <translation><!-- Electronic --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Embassy</masterLabel>
-            <translation><!-- Embassy --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Entertainment</masterLabel>
-            <translation><!-- Entertainment --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Environmental management industry</masterLabel>
-            <translation><!-- Environmental management industry --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Express delivery</masterLabel>
-            <translation><!-- Express delivery --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fabricated Metal</masterLabel>
-            <translation><!-- Fabricated Metal --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Ferrous metal mining industry</masterLabel>
             <translation><!-- Ferrous metal mining industry --></translation>
         </picklistValues>
