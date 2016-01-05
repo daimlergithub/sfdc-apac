@@ -6806,26 +6806,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <layouts>
+   <!-- <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label> Custom Links </label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label> Fields </label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Other information --></label>
+            <label> Other information </label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label> Retail Information </label>
             <section>Retail Information</section>
         </sections>
-    </layouts>
+    </layouts>-->
     <layouts>
         <layout>Company Layout</layout>
         <sections>
