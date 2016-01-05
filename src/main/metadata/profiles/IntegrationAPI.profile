@@ -18628,7 +18628,7 @@
      <userPermissions>
          <enabled>false</enabled>
         <name>ManageTwoFactor</name>
-    </userPermissions
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageUsers</name>
