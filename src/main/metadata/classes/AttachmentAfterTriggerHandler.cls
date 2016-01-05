@@ -28,7 +28,8 @@ public class AttachmentAfterTriggerHandler
     
         // for purpose No.1
         if (caseIds.size()>0) {
-            ComplaintDesHelper.sendMailToCaseMember(caseIds);
+		//TODO Commented as part of unused class removal task
+            //ComplaintDesHelper.sendMailToCaseMember(caseIds);
         }
     }
        public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
