@@ -6261,7 +6261,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Electrical equipment manufacturing</fullName>
+                <fullName>Mass and religious organizations</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6273,15 +6273,15 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mass and religious organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -19465,7 +19465,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
