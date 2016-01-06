@@ -6911,10 +6911,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
@@ -6932,10 +6928,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7020,10 +7012,6 @@
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11485,10 +11473,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
@@ -11506,10 +11490,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11594,10 +11574,6 @@
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16003,10 +15979,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
@@ -16020,10 +15992,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16100,10 +16068,6 @@
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20780,10 +20744,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
@@ -20801,10 +20761,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20889,10 +20845,6 @@
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -374,6 +374,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
@@ -396,6 +400,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
@@ -407,6 +415,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
@@ -416,6 +428,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
         </sections>
         <sections>
             <label><!-- System Information --></label>

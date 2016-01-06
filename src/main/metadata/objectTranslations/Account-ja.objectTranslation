@@ -3885,24 +3885,16 @@ Allows up to 240 characters --></help>
             <translation><!-- Business Services --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Car dealer</masterLabel>
-            <translation><!-- Car dealer --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Chemical fiber manufacturing</masterLabel>
             <translation><!-- Chemical fiber manufacturing --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Chemical materials and chemical products manufacturing</masterLabel>
-            <translation><!-- Chemical materials and chemical products manufacturing --></translation>
+            <masterLabel>Chemical materials manufacturing</masterLabel>
+            <translation><!-- Chemical materials manufacturing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Coal mining and washing</masterLabel>
             <translation><!-- Coal mining and washing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Communications equipment/computers and other electronic equipment manufacturing</masterLabel>
-            <translation><!-- Communications equipment/computers and other electronic equipment manufacturing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Construction and installation industry</masterLabel>
@@ -3921,8 +3913,12 @@ Allows up to 240 characters --></help>
             <translation><!-- Education --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Electricity/heat production and supply industry</masterLabel>
-            <translation><!-- Electricity/heat production and supply industry --></translation>
+            <masterLabel>Electrical equipment manufacturing</masterLabel>
+            <translation><!-- Electrical equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity production and supply</masterLabel>
+            <translation><!-- Electricity production and supply --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ferrous metal mining industry</masterLabel>
@@ -3957,8 +3953,8 @@ Allows up to 240 characters --></help>
             <translation><!-- Insurance --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mass organizations/community groups and religious organizations</masterLabel>
-            <translation><!-- Mass organizations/community groups and religious organizations --></translation>
+            <masterLabel>Mass and religious organizations</masterLabel>
+            <translation><!-- Mass and religious organizations --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
@@ -3977,6 +3973,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Other Services --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other equipment manufacturing</masterLabel>
+            <translation><!-- Other equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Other financial activities</masterLabel>
             <translation><!-- Other financial activities --></translation>
         </picklistValues>
@@ -3989,8 +3989,8 @@ Allows up to 240 characters --></help>
             <translation><!-- Parts --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Petroleum processing/coking and nuclear fuel processing industry</masterLabel>
-            <translation><!-- Petroleum processing/coking and nuclear fuel processing industry --></translation>
+            <masterLabel>Petroleum processing industry</masterLabel>
+            <translation><!-- Petroleum processing industry --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pharmaceutical Manufacturing</masterLabel>
@@ -4029,8 +4029,8 @@ Allows up to 240 characters --></help>
             <translation><!-- State institutions --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Telecommunications and Other Information Transmission Services</masterLabel>
-            <translation><!-- Telecommunications and Other Information Transmission Services --></translation>
+            <masterLabel>Telecommunications Services</masterLabel>
+            <translation><!-- Telecommunications Services --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade</masterLabel>
@@ -6518,27 +6518,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-	
-   <!-- <layouts>
+    <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
-        <sections> 
-            <label></label>
-           <section>Custom Links</section>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Fields</section>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Other information</section>
+            <label><!-- Other information --></label>
+            <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <layouts>
         <layout>Company Layout</layout>
         <sections>
@@ -6619,174 +6618,174 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
+    <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-          <section>Additional Information</section>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Address Information</section>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Retail Information</section>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-          <section>Custom Links</section>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Fields</section>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other information --></label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Whole activities</section>
+            <label><!-- Whole activities --></label>
+            <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Address Information</section>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Contact Info Status</section>
+            <label><!-- Contact Info Status --></label>
+            <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Dealer Information</section>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Duplication Information</section>
+            <label><!-- Duplication Information --></label>
+            <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Person Account Basic Information</section>
+            <label><!-- Person Account Basic Information --></label>
+            <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Retail Information</section>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Telematics Related Information</section>
+            <label><!-- Telematics Related Information --></label>
+            <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Whole activities</section>
+            <label><!-- Whole activities --></label>
+            <section>Whole activities</section>
         </sections>
-    </layouts> 
+    </layouts>
     <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-         <section>Additional Information</section>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
-        <section>Address Information</section>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
-        <section>Contact Info Status</section>
+            <label><!-- Contact Info Status --></label>
+            <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Contact Information</section>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
-           <section>Duplication Information</section>
+            <label><!-- Duplication Information --></label>
+            <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Other Information</section>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
-          <section>Person Account Basic Information</section>
+            <label><!-- Person Account Basic Information --></label>
+            <section>Person Account Basic Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-        <section>Contact Information</section>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
-         <section>Profile Information</section>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
         </sections>
-    </layouts>-->
+    </layouts>
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
@@ -6795,6 +6794,10 @@ Allows up to 240 characters --></help>
         <label><!-- Dealer --></label>
         <name>Dealer</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Will not allow --></errorMessage>
+        <name>ASCII_Char</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- If customer has no vehicle relationship, Status must not be ‘Customer’. --></errorMessage>
         <name>Account_Status</name>
