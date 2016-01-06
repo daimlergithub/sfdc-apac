@@ -1305,10 +1305,6 @@
     <layouts>
         <layout>CAC Campaign Layout</layout>
         <sections>
-            <label><!-- De-dup Details --></label>
-            <section>De-dup Details</section>
-        </sections>
-        <sections>
             <label><!-- Scheduling Details --></label>
             <section>Scheduling Details</section>
         </sections>
@@ -1504,10 +1500,6 @@
         <sections>
             <label><!-- Expected Outcome --></label>
             <section>Expected Outcome</section>
-        </sections>
-        <sections>
-            <label><!-- Scheduling Details --></label>
-            <section>Scheduling Details</section>
         </sections>
     </layouts>
     <layouts>
