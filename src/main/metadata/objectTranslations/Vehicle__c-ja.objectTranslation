@@ -61,7 +61,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ESTATE</masterLabel>
-            <translation><!-- Estate --></translation>
+            <translation><!-- ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HATCHBACK</masterLabel>
@@ -73,7 +73,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ROADSTER</masterLabel>
-            <translation><!-- Roadster --></translation>
+            <translation><!-- ROADSTER --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SEDAN</masterLabel>
@@ -1746,10 +1746,6 @@
             <translation><!-- Avanti --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Bentley</masterLabel>
-            <translation><!-- BENTLEY --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>BL</masterLabel>
             <translation><!-- BL --></translation>
         </picklistValues>
@@ -1762,12 +1758,12 @@
             <translation><!-- BMW Alpina --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Buick</masterLabel>
-            <translation><!-- BUICK --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Bandenpura</masterLabel>
             <translation><!-- Bandenpura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bentley</masterLabel>
+            <translation><!-- Bentley --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bertone</masterLabel>
@@ -1786,28 +1782,20 @@
             <translation><!-- Bugatti --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Buick</masterLabel>
+            <translation><!-- Buick --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Burstner</masterLabel>
             <translation><!-- Burstner --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Cadillac</masterLabel>
-            <translation><!-- CADILLAC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chevrolet</masterLabel>
-            <translation><!-- CHEVROLET --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chrysler</masterLabel>
-            <translation><!-- CHRYSLER --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Citroen</masterLabel>
-            <translation><!-- CITROEN --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>CT&amp;T</masterLabel>
             <translation><!-- CT&amp;T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cadillac</masterLabel>
+            <translation><!-- Cadillac --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Canada Honda</masterLabel>
@@ -1824,6 +1812,18 @@
         <picklistValues>
             <masterLabel>Caterham</masterLabel>
             <translation><!-- Caterham --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevrolet</masterLabel>
+            <translation><!-- Chevrolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chrysler</masterLabel>
+            <translation><!-- Chrysler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Citroen</masterLabel>
+            <translation><!-- Citroen --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMC</masterLabel>
@@ -1858,20 +1858,20 @@
             <translation><!-- Eagle --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Fiat</masterLabel>
-            <translation><!-- FIAT --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ford</masterLabel>
-            <translation><!-- FORD --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Ferrari</masterLabel>
             <translation><!-- Ferrari --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Fiat</masterLabel>
+            <translation><!-- Fiat --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Fisker</masterLabel>
             <translation><!-- Fisker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GM Daewoo</masterLabel>
@@ -1898,18 +1898,6 @@
             <translation><!-- Gumpert --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Honda</masterLabel>
-            <translation><!-- HONDA --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hummer</masterLabel>
-            <translation><!-- HUMMER --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hyundai</masterLabel>
-            <translation><!-- HYUNDAI --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Healey</masterLabel>
             <translation><!-- Healey --></translation>
         </picklistValues>
@@ -1920,6 +1908,18 @@
         <picklistValues>
             <masterLabel>Holden</masterLabel>
             <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hummer</masterLabel>
+            <translation><!-- Hummer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Imported car Other</masterLabel>
@@ -1935,27 +1935,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Jaguar</masterLabel>
-            <translation><!-- JAGUAR --></translation>
+            <translation><!-- Jaguar --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Jeep</masterLabel>
             <translation><!-- Jeep --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Kia</masterLabel>
-            <translation><!-- KIA --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>KTM</masterLabel>
             <translation><!-- KTM --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Koenigsegg</masterLabel>
-            <translation><!-- Koenigsegg --></translation>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Lexus</masterLabel>
-            <translation><!-- LEXUS --></translation>
+            <masterLabel>Koenigsegg</masterLabel>
+            <translation><!-- Koenigsegg --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lamborghini</masterLabel>
@@ -1968,6 +1964,10 @@
         <picklistValues>
             <masterLabel>Land Rover</masterLabel>
             <translation><!-- Land Rover --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lincoln</masterLabel>
@@ -1984,14 +1984,6 @@
         <picklistValues>
             <masterLabel>MG</masterLabel>
             <translation><!-- MG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mini</masterLabel>
-            <translation><!-- MINI --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mitsubishi</masterLabel>
-            <translation><!-- MITSUBISHI --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MVS</masterLabel>
@@ -2026,6 +2018,14 @@
             <translation><!-- Mercury --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mini</masterLabel>
+            <translation><!-- Mini --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mitsuoka</masterLabel>
             <translation><!-- Mitsuoka --></translation>
         </picklistValues>
@@ -2039,19 +2039,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Nissan</masterLabel>
-            <translation><!-- NISSAN --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Opel</masterLabel>
-            <translation><!-- OPEL --></translation>
+            <translation><!-- Nissan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oldsmobile</masterLabel>
             <translation><!-- Oldsmobile --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Peugeot</masterLabel>
-            <translation><!-- PEUGEOT --></translation>
+            <masterLabel>Opel</masterLabel>
+            <translation><!-- Opel --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PGO</masterLabel>
@@ -2064,6 +2060,10 @@
         <picklistValues>
             <masterLabel>Panther</masterLabel>
             <translation><!-- Panther --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peugeot</masterLabel>
+            <translation><!-- Peugeot --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Plymouth</masterLabel>
@@ -2082,16 +2082,16 @@
             <translation><!-- Proton --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Renault</masterLabel>
-            <translation><!-- RENAULT --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Rada</masterLabel>
             <translation><!-- Rada --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reliant</masterLabel>
             <translation><!-- Reliant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renault</masterLabel>
+            <translation><!-- Renault --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Riley</masterLabel>
@@ -2114,16 +2114,12 @@
             <translation><!-- Ruf --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Saab</masterLabel>
-            <translation><!-- SAAB --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>SEAT</masterLabel>
             <translation><!-- SEAT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Suzuki</masterLabel>
-            <translation><!-- SUZUKI --></translation>
+            <masterLabel>Saab</masterLabel>
+            <translation><!-- Saab --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saleen</masterLabel>
@@ -2150,12 +2146,12 @@
             <translation><!-- Subaru --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>TD</masterLabel>
-            <translation><!-- TD --></translation>
+            <masterLabel>Suzuki</masterLabel>
+            <translation><!-- Suzuki --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Toyota</masterLabel>
-            <translation><!-- TOYOTA --></translation>
+            <masterLabel>TD</masterLabel>
+            <translation><!-- TD --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TVR</masterLabel>
@@ -2188,6 +2184,10 @@
         <picklistValues>
             <masterLabel>Tommykaira</masterLabel>
             <translation><!-- Tommykaira --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Triumph</masterLabel>
@@ -2250,16 +2250,16 @@
             <translation><!-- Uzurei --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Volvo</masterLabel>
-            <translation><!-- VOLVO --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Venturi Automobiles</masterLabel>
             <translation><!-- Venturi Automobiles --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Volkswagen</masterLabel>
             <translation><!-- Volkswagen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Westfield</masterLabel>
@@ -5507,10 +5507,6 @@
             <section>Date Information</section>
         </sections>
         <sections>
-            <label><!-- Miscellaneous Fields --></label>
-            <section>Miscellaneous Fields</section>
-        </sections>
-        <sections>
             <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
@@ -5532,6 +5528,37 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Self Registered Layout-CAC</layout>
+        <sections>
+            <label><!-- Competitor Information --></label>
+            <section>Competitor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
         </sections>
         <sections>
             <label><!-- Vehicle information --></label>
