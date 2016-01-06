@@ -10367,10 +10367,6 @@
             <translation><!-- C-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class ESTATE</masterLabel>
-            <translation><!-- C-Class ESTATE --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>C-Class HATCHBACK</masterLabel>
             <translation><!-- C-Class HATCHBACK --></translation>
         </picklistValues>
@@ -10465,10 +10461,6 @@
         <picklistValues>
             <masterLabel>E-Class CABRIO</masterLabel>
             <translation><!-- E-Class CABRIO --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>E-Class COUPE</masterLabel>
-            <translation><!-- E-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Cabriolet</masterLabel>
@@ -13296,11 +13288,43 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Inquiry Layout - CAC(IB/OB)</layout>
+        <layout>Close Inquiry Layout-CAC(IB/OB)</layout>
+        <layoutType>CaseClose</layoutType>
         <sections>
-            <label><!-- Car Enquiry --></label>
-            <section>Car Enquiry</section>
+            <label><!-- Case Feedback --></label>
+            <section>Case Feedback</section>
         </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Info --></label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Inquiry Information --></label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Information --></label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
             <label><!-- Case Feedback --></label>
             <section>Case Feedback</section>
@@ -13308,6 +13332,10 @@
         <sections>
             <label><!-- Dealer Info --></label>
             <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Inquiry Information --></label>
+            <section>Inquiry Information</section>
         </sections>
         <sections>
             <label><!-- Other Information --></label>
