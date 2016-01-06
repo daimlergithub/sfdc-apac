@@ -3993,6 +3993,14 @@ Allows up to 240 characters --></help>
             <translation><!-- Driving --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Electrical equipment manufacturing</masterLabel>
+            <translation><!-- Electrical equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity production and supply</masterLabel>
+            <translation><!-- Electricity production and supply --></translation>
+		</picklistValues>
+        <picklistValues>
             <masterLabel>Education</masterLabel>
             <translation><!-- Education --></translation>
         </picklistValues>
@@ -4067,6 +4075,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
             <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mass and religious organizations</masterLabel>
+            <translation><!-- Mass and religious organizations --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>International Organizations</masterLabel>
@@ -4259,6 +4271,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>State institutions</masterLabel>
             <translation><!-- State institutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications Services</masterLabel>
+            <translation><!-- Telecommunications Services --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Stone</masterLabel>
@@ -6806,7 +6822,27 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-   <!-- <layouts>
+    <layouts>
+        <layout>3rd Pary Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Other information --></label>
+            <section>Other information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
+        </sections>
+    </layouts>
+   <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6825,7 +6861,7 @@ Allows up to 240 characters --></help>
             <label> Retail Information </label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts>
     <layouts>
         <layout>Company Layout</layout>
         <sections>
@@ -6906,9 +6942,57 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
+    <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Info Status --></label>
+            <section>Contact Info Status</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Duplication Information --></label>
+            <section>Duplication Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Person Account Basic Information --></label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Telematics Related Information --></label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections>
+            <label><!-- Whole activities --></label>
+			<section>Whole activities</section>
+        </sections>
+		</layouts>
+		<layouts>
+		<layout>PA Layout-Other User</layout>
+		<layoutType>PersonAccount</layoutType>
         <sections>
             <label> Additional Information </label>
             <section>Additional Information</section>
@@ -6958,6 +7042,26 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Other information --></label>
+            <section>Other information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Whole activities --></label>
+			<section>Whole activities</section>
+        </sections>
+        <sections>
             <label> Custom Links </label>
             <section>Custom Links</section>
         </sections>
@@ -6980,6 +7084,54 @@ Allows up to 240 characters --></help>
     </layouts>
     <layouts>
         <layout>PA Layout-Other User</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Info Status --></label>
+            <section>Contact Info Status</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Duplication Information --></label>
+            <section>Duplication Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Person Account Basic Information --></label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Information --></label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Telematics Related Information --></label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections> 	
+            <label><!-- Whole activities --></label>
+			<section>Whole activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
             <label> Additional Information </label>
@@ -7030,6 +7182,46 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Info Status --></label>
+            <section>Contact Info Status</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Duplication Information --></label>
+            <section>Duplication Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+		<sections>
+            <label> Person Account Basic Information </label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label> Retail Information </label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label> Telematics Related Information </label>
+            <section>Telematics Related Information</section>
+        </sections>
             <label> Additional Information </label>
             <section>Additional Information</section>
         </sections>
@@ -7066,6 +7258,14 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>
             <label> Contact Information </label>
             <section>Contact Information</section>
         </sections>
@@ -7073,7 +7273,7 @@ Allows up to 240 characters --></help>
             <label> Profile Information /label>
             <section>Profile Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
@@ -7082,6 +7282,10 @@ Allows up to 240 characters --></help>
         <label><!-- Dealer --></label>
         <name>Dealer</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Will not allow --></errorMessage>
+        <name>ASCII_Char</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- If customer has no vehicle relationship, Status must not be ‘Customer’. --></errorMessage>
         <name>Account_Status</name>
