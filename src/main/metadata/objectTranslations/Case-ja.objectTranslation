@@ -198,8 +198,8 @@
             <translation><!-- C-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Estate</masterLabel>
-            <translation><!-- C-Class Estate --></translation>
+            <masterLabel>C-Class ESTATE</masterLabel>
+            <translation><!-- C-Class ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Coupe</masterLabel>
@@ -254,8 +254,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupe</masterLabel>
-            <translation><!-- E-Class Coupe --></translation>
+            <masterLabel>E-Class COUPE</masterLabel>
+            <translation><!-- E-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -450,8 +450,8 @@
             <translation><!-- C-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Estate</masterLabel>
-            <translation><!-- C-Class Estate --></translation>
+            <masterLabel>C-Class ESTATE</masterLabel>
+            <translation><!-- C-Class ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Coupe</masterLabel>
@@ -506,8 +506,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupe</masterLabel>
-            <translation><!-- E-Class Coupe --></translation>
+            <masterLabel>E-Class COUPE</masterLabel>
+            <translation><!-- E-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -702,8 +702,8 @@
             <translation><!-- C-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Estate</masterLabel>
-            <translation><!-- C-Class Estate --></translation>
+            <masterLabel>C-Class ESTATE</masterLabel>
+            <translation><!-- C-Class ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Coupe</masterLabel>
@@ -758,8 +758,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupe</masterLabel>
-            <translation><!-- E-Class Coupe --></translation>
+            <masterLabel>E-Class COUPE</masterLabel>
+            <translation><!-- E-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -6470,8 +6470,8 @@
             <translation><!-- Collection purchase --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Collection repari</masterLabel>
-            <translation><!-- Collection repari --></translation>
+            <masterLabel>Collection repair</masterLabel>
+            <translation><!-- Collection repair --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Commercial Vehicle</masterLabel>
@@ -12948,8 +12948,8 @@
             <translation><!-- C-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Estate</masterLabel>
-            <translation><!-- C-Class Estate --></translation>
+            <masterLabel>C-Class ESTATE</masterLabel>
+            <translation><!-- C-Class ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Sedan</masterLabel>
