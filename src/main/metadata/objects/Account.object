@@ -19465,6 +19465,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
     </searchLayouts>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
