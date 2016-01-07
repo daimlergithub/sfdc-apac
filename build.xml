@@ -119,6 +119,7 @@
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
 				<sf:include name="Campaign"/>
+				<sf:include name="Case"/>
 			    <sf:include name=".*__c"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
@@ -128,8 +129,8 @@
 				<sf:exclude name="Retail_Campaign__c"/>
 				<sf:exclude name="OB_Task_Handing__c"/>
 				<sf:exclude name="Retail_Campaign_Member__c"/>
-				<!--<sf:exclude name="Lead__c"/>-->
-				<sf:exclude name="Campaign_Lead__c"/>
+				<!--<sf:exclude name="Lead__c"/>-
+				<sf:exclude name="Campaign_Lead__c"/>-->
 				<sf:exclude name="DM_Request__c"/>
 				<sf:exclude name="SurveyTaker__c"/>
 				<sf:exclude name="SurveyQuestionResponse__c"/>
@@ -185,8 +186,8 @@
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<sf:include name="Lead__c"/>
-				<sf:include name="Campaign_Lead__c"/>
+				<!--<sf:include name="Lead__c"/>
+				<sf:include name="Campaign_Lead__c"/>-->
 				<sf:include name="DM_Request__c"/>
 				<sf:include name="SMS_Batch__c"/>
 				<sf:include name="Retail_Campaign__c"/>
@@ -206,6 +207,7 @@
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
 				<sf:exclude name="Campaign"/>
+				<sf:exclude name="Case"/>
 				<sf:exclude name="Task"/>
 				<sf:exclude name="Activity"/>
 				<!-- TODO FALK check this: do not deploy site -->
