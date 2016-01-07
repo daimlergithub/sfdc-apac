@@ -65854,9 +65854,9 @@ ISNULL(First_Contact_Customer_Date__c)
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_Single</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(OR (ISCHANGED( FirstName_Native_1__c ),(ISNEW())), 
-NOT(REGEX(FirstName_Native_1__c , "[a-zA-Z0-9+-]")))</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX( FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be Double byte.</errorMessage>
     </validationRules>
@@ -65866,6 +65866,15 @@ NOT(REGEX(FirstName_Native_1__c , "[a-zA-Z0-9+-]")))</errorConditionFormula>
         <errorConditionFormula>Need_Contact__c  &amp;&amp;  ( OR(ISBLANK(Instructor__c), ISNULL(Instructor__c)))</errorConditionFormula>
         <errorDisplayField>Instructor__c</errorDisplayField>
         <errorMessage>Please fill in the Instructor.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Last_Name_Native_Single</fullName>
+        <active>true</active>
+        <description>If Last_Name_Native_1__c contains single byte(ASCII) characters.</description>
+        <errorConditionFormula>AND(NOT(REGEX(  LastName_Native_1__c ,"[^\\x00-\\x7F]+")), 
+NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
+        <errorDisplayField>LastName_Native_1__c</errorDisplayField>
+        <errorMessage>Last Name Native should be Double byte.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
