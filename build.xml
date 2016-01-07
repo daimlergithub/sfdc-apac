@@ -128,7 +128,7 @@
 				<sf:exclude name="Retail_Campaign__c"/>
 				<sf:exclude name="OB_Task_Handing__c"/>
 				<sf:exclude name="Retail_Campaign_Member__c"/>
-				<sf:exclude name="Lead__c"/>
+				<!--<sf:exclude name="Lead__c"/>-->
 				<sf:exclude name="Campaign_Lead__c"/>
 				<sf:exclude name="DM_Request__c"/>
 				<sf:exclude name="SurveyTaker__c"/>
