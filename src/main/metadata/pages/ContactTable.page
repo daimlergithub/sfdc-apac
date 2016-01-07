@@ -19,6 +19,7 @@
 <apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false"  >
     <apex:form id="form1">
         <apex:pageMessages id="showmsg"></apex:pageMessages>
+        <apex:includeScript value="/support/console/24.0/integration.js"/>
        <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
            <apex:pageBlock id="myTable">
@@ -35,7 +36,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
                        <td><apex:inputtext value="{!ParAcc.Mobile__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Mobile__c}" rendered="{!!editMode}"/>
+                           
+                          <support:clickToDial number="{!ParAcc.Mobile__c}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
@@ -49,7 +51,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Mobile}</th>     
                        <td><apex:inputField value="{!ParAcc.Mobile2__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Mobile2__c}" rendered="{!!editMode}"/>
+                           
+                           <support:clickToDial number="{!ParAcc.Mobile2__c}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td>  
                        <td><apex:inputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!!editMode}"/>
@@ -63,7 +66,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!!editMode}"/>
+                           
+                           <support:clickToDial number="{!ParAcc.Individual_Home_Phone__c}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
@@ -78,7 +82,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_1}</th>        
                        <td><apex:inputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!editMode}" />
-                           <apex:outputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!!editMode}"/>
+                           
+                           <support:clickToDial number="{!ParAcc.Home_Phone_2__c}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Home_Phone_Status_2__c}" rendered="{!editMode}" />
                            <apex:outputField value="{!ParAcc.Home_Phone_Status_2__c}"  rendered="{!!editMode}" />
@@ -92,7 +97,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                        <td><apex:inputField value="{!ParAcc.Work_Phone__c}" rendered="{!editMode}" />
-                           <apex:outputField value="{!ParAcc.Work_Phone__c}" rendered="{!!editMode}" />
+                           
+                           <support:clickToDial number="{!ParAcc.Work_Phone__c}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
@@ -106,7 +112,8 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        
                        <td><apex:inputField value="{!ParAcc.Phone}" rendered="{!editMode}" />
-                           <apex:outputField value="{!ParAcc.Phone}" rendered="{!!editMode}" />
+                           
+                           <support:clickToDial number="{!ParAcc.Phone}" entityId="{!ParAcc.id}" rendered="{!!editMode}" />
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!editMode}" />
                            <apex:outputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!!editMode}" />
