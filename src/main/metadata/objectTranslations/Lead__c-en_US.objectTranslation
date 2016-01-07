@@ -14092,10 +14092,6 @@
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Bought Vehicle Information --></label>
-            <section>Bought Vehicle Information</section>
-        </sections>
-        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
@@ -14110,10 +14106,6 @@
         <sections>
             <label><!-- Description Information --></label>
             <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Interested Vehicle Information --></label>
-            <section>Interested Vehicle Information</section>
         </sections>
         <sections>
             <label><!-- Lead Customer Information --></label>
@@ -14148,16 +14140,8 @@
             <section>Source Information</section>
         </sections>
         <sections>
-            <label><!-- Trade-In Vehicle Information --></label>
-            <section>Trade-In Vehicle Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Information --></label>
-            <section>Vehicle Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Picker --></label>
-            <section>Vehicle Picker</section>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
         </sections>
     </layouts>
     <layouts>
