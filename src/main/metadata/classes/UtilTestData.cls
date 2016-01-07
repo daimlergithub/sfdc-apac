@@ -148,7 +148,7 @@ Public class UtilTestData {
         System.runAs ( thisUser ) {               
                 usr.UserName = testString + Math.rint(Math.random() * 100000) + '@daimler.com';
                 usr.ProfileId=profileId;
-                usr.UserRoleId=userRoleId;
+                // usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = testString;
@@ -355,7 +355,6 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
             getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + accountString);
         // acc.Name = testString;
         acc.LastName = 'Customer';
-        acc.Gender__c = '0=Male';
         acc.Type = acc.Type == null ? '0=Company' : acc.Type;
         acc.Phone = '01234567';
         acc.Area_Code__c = '010';

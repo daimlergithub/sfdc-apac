@@ -45,9 +45,9 @@ public static void preparedTestData()
         customer.Dealer_Lead_System__c = 'Salesforce';
         customer.LastName = 'Customer';
         customer.Gender__c = '0=Male';
-        customer.ZipCode__c = '200235';
+        customer.ZipCode__c = '2000235';
         customer.Type = '0=Company';
-        customer.Phone = '12332111'; 
+        customer.Phone = '0123321117'; 
         customer.Status__c = '0=Customer';
         customer.RecordTypeId = personRecordTypeId;
         customer.Area_Code__c = '010';
