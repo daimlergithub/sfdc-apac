@@ -784,10 +784,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerBatchJobTriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -929,10 +925,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
