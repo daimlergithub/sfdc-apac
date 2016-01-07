@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
+    <applicationVisibilities>  
         <application>Central_CRM</application>
         <default>true</default>
         <visible>true</visible>
@@ -389,10 +389,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CpCallControllerClass_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
