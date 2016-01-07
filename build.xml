@@ -121,7 +121,8 @@
 				<sf:include name="Address__c"/>	
 				<sf:include name="Vehicle_Relationship__c"/>
 				<sf:include name="SSI__c"/>
-				<sf:include name="Vehicle__c"/>				
+				<sf:include name="Vehicle__c"/>
+				<sf:include name="Retail_Task__c"/>					
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
@@ -130,6 +131,7 @@
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
 			   <sf:include name="UtilTestData"/>
+			   <sf:include name="IllegalArgumentException"/>	
 			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
@@ -302,7 +304,6 @@
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
-			<sf:include name="IllegalArgumentException"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
