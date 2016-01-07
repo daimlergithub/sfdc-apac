@@ -140,6 +140,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountHelperJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -385,6 +389,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CpCallControllerClass_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -780,6 +788,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerBatchJobTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -921,6 +933,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -16029,15 +16045,15 @@
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account_Link__c-Contact to Dealer</layout>
+        <recordType>Account_Link__c.ContactSector</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Contact to Dealer</layout>
-        <recordType>Account_Link__c.ContactSector</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Address__c-Address Layout</layout>
@@ -16197,6 +16213,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CaseClose-Case Close Master Layout</layout>
+        <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseInteraction-Case Feed Layout</layout>
@@ -17977,7 +17997,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>

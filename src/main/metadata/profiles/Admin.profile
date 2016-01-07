@@ -140,6 +140,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountHelperJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -385,6 +389,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CpCallControllerClass_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -780,6 +788,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerBatchJobTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -921,6 +933,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -16684,7 +16700,15 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <loginHours/>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -18419,7 +18443,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
@@ -18868,10 +18891,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewEventLogFiles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

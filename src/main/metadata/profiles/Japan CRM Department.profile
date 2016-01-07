@@ -16010,7 +16010,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account Master Layout</layout>
+        <layout>Account-Company Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
