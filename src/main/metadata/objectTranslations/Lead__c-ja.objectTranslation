@@ -14237,6 +14237,10 @@
         <name>InstructorMandatory</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Last Name Native should be Double byte. --></errorMessage>
+        <name>Last_Name_Native_Single</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required. --></errorMessage>
         <name>Lost_Dealer_Required_Check</name>
     </validationRules>
