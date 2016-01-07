@@ -356,7 +356,6 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         // acc.Name = testString;
         acc.LastName = 'Customer';
         acc.Gender__c = '0=Male';
-        acc.ZipCode__c = '2002357';
         acc.Type = acc.Type == null ? '0=Company' : acc.Type;
         acc.Phone = '01234567';
         acc.Area_Code__c = '010';
