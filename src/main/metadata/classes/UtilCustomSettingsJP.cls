@@ -21,14 +21,17 @@ public  class UtilCustomSettingsJP {
   */ 
   public static  List<Trigger__c> customSettingDetails()
   {
-  	
+    
    Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(AttachmentAfter);
+   
+   Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   updatecustomsetting.add(TriggerAddress);
    
    Trigger__c CampaignMemberAfterTrigger=new Trigger__c(Name='CampaignMemberAfterTrigger',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(CampaignMemberAfterTrigger);
    
-   Trigger__c CaseTrigger=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   Trigger__c CaseTrigger=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='TriggerCaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(CaseTrigger);
    
    Trigger__c ContactTrigger=new Trigger__c(Name='ContactTrigger',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
@@ -52,7 +55,7 @@ public  class UtilCustomSettingsJP {
    Trigger__c TaskTrigger=new Trigger__c(Name='TaskTrigger',Trigger_Name__c='TaskTrigger',Trigger_Handler__c='TaskTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TaskTrigger);
    
-   Trigger__c ToolKitTrigger=new Trigger__c(Name='ToolKitTrigger',Trigger_Name__c='ToolKitTrigger',Trigger_Handler__c='ToolKitTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   Trigger__c ToolKitTrigger=new Trigger__c(Name='ToolKitTrigger',Trigger_Name__c='ToolKitTrigger',Trigger_Handler__c='ToolKitTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(ToolKitTrigger);
        
    Trigger__c TriggerAccount=new Trigger__c(Name='TriggerAccount',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
