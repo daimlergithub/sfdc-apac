@@ -126,7 +126,7 @@
 				<sf:exclude name="External_Picklist__c"/>
 				<sf:exclude name="Car_Model__c"/>
 				<sf:exclude name="SMS_Batch__c"/>
-				<sf:exclude name="Retail_Campaign__c"/>
+				<!--<sf:exclude name="Retail_Campaign__c"/>-->
 				<sf:exclude name="OB_Task_Handing__c"/>
 				<sf:exclude name="Retail_Campaign_Member__c"/>
 				<!--<sf:exclude name="Lead__c"/>-
@@ -140,6 +140,7 @@
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
+			   <sf:include name="GeneratePDF"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -148,6 +149,8 @@
 			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
+			   <sf:include name="GenerateAndAttachPDF"/>
+			   <sf:include name="GenerateAndAttachPDFTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -190,7 +193,7 @@
 				<sf:include name="Campaign_Lead__c"/>-->
 				<sf:include name="DM_Request__c"/>
 				<sf:include name="SMS_Batch__c"/>
-				<sf:include name="Retail_Campaign__c"/>
+				<!--<sf:include name="Retail_Campaign__c"/>-->
 				<sf:include name="OB_Task_Handing__c"/>
 				<sf:include name="Retail_Campaign_Member__c"/>
 				<sf:include name="SurveyTaker__c"/>
@@ -215,14 +218,14 @@
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
-			   <sf:include name="GeneratePDF"/>
+			   <!--<sf:include name="GeneratePDF"/>-->
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
 				<sf:include name="AccountHelperJP"/>
 				<sf:include name="UtilCustomSettingsJP"/>
-				<sf:include name="GenerateAndAttachPDF"/>
+				<!--<sf:include name="GenerateAndAttachPDF"/>-->
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
