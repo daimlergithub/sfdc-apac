@@ -19579,6 +19579,14 @@ RecordType.DeveloperName = 'ThirdParty'
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Company_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native_1__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(Company_Name_Native_1__c)))</errorConditionFormula>
+        <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
+        <errorMessage>Company Name Native should be Double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
         <active>false</active>
         <description>HLD Dealer 004</description>
@@ -19745,6 +19753,14 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>If Finance Sanction is checked, Finance Sanction Comment needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>First_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
+        <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
+        <errorMessage>First Name Native should be Double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Foundation_Date_Past</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Foundation_Date__c),ISNEW()),
@@ -19850,6 +19866,22 @@ MD__c = 'JP'
 )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zipcode is not 7 digits long</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_ZipCode_2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(ZipCode__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(ZipCode__c)))</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>Zip is not single byte number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Last_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(LastName_Native_1__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(LastName_Native_1__c)))</errorConditionFormula>
+        <errorDisplayField>LastName_Native_1__c</errorDisplayField>
+        <errorMessage>Last Name Native should be Double byte.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile2_NoChar</fullName>
@@ -20061,6 +20093,14 @@ ISPICKVAL(  Gender__c , 'Male'))
 )</errorConditionFormula>
         <errorDisplayField>Gender__c</errorDisplayField>
         <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Website_text_dot</fullName>
+        <active>true</active>
+        <description>Ensures the URL entered is in format www.*.*</description>
+        <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
+        <errorDisplayField>Website</errorDisplayField>
+        <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
