@@ -212,7 +212,10 @@
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			</sf:typeset>
-			<sf:typeset name="classes">			
+			<sf:typeset name="classes">	
+				<sf:include name="TriggerHandlerIf"/>
+				<sf:include name="TriggerUtil"/>
+				<sf:include name="TriggerUtilTest"/>
 				<sf:include name="AccountHelperJP"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
