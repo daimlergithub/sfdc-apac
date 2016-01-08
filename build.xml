@@ -201,7 +201,6 @@
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
 				<sf:exclude name="Campaign"/>
-				<sf:exclude name="Case"/>
 				<sf:exclude name="Task"/>
 				<sf:exclude name="Activity"/>
 				<!-- TODO FALK check this: do not deploy site -->
