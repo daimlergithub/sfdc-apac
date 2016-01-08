@@ -87,6 +87,7 @@
 				<sf:include name="treeHierarhy"/>
 				<sf:include name="jquery142"/>
 				<sf:include name="jQuery"/>
+				<sf:include name="Angular"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
