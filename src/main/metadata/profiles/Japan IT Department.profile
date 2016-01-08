@@ -943,15 +943,6 @@
         <apexClass>UserHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>UserLookupResultController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserLookupResultControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UserService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
