@@ -913,14 +913,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UserLookupResultController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserLookupResultControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UserService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -16181,10 +16173,6 @@ Default Flag, All 6 DMS Codes</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>UnderConstruction</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>UserLookupResult</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
