@@ -944,7 +944,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UserService</apexClass>
+		<apexClass>UserService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
