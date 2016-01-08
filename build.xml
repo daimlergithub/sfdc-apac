@@ -122,6 +122,8 @@
 				<sf:include name="Vehicle__c"/>
 				<sf:include name="Vehicle_Relationship__c"/>
 				<sf:include name="Retail_Task__c"/>
+				<sf:include name="Account_Link__c"/>
+				<sf:include name="SSI__c"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
@@ -144,6 +146,9 @@
 			    <sf:include name=".*__c"/>
 				<sf:exclude name="Vehicle__c"/>
 				<sf:exclude name="Vehicle_Relatioship__c"/>
+				<sf:exclude name="Address__c"/>
+				<sf:exclude name="Account_Link__c"/>
+				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
