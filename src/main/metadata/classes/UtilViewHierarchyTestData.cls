@@ -37,6 +37,12 @@ Public class UtilViewHierarchyTestData {
         return recordTypeMap;
     }
 	
+	public static Sobject createSobject(Sobject so, String recordTypeName) {
+        initiateSobject(so, recordTypeName);
+        
+        insert so;
+        return so;
+    }
 	public static List<Sobject> createSobjects(List<Sobject> sos, String recordTypeName) {
 		initiateSobjects(sos, recordTypeName);
 
