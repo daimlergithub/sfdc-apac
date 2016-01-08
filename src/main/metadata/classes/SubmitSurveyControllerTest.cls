@@ -32,9 +32,10 @@ Private static String surveyID='surveyID';
 
     static{
  		//upsert new Trigger__c(Name = 'TriggerSurveyQuestionResponse',Market__c='NA', Trigger_Name__c = 'TriggerSurveyQuestionResponse', 
-                              Trigger_Handler__c = 'TriggerSurveyQuestionResponseHandler', 
-							  enabled__c = true, before__c = true, after__c = true, insert__c = true,
-                              update__c = true, delete__c = true);       
+                              //Trigger_Handler__c = 'TriggerSurveyQuestionResponseHandler', 
+							  //enabled__c = true, before__c = true, after__c = true, insert__c = true,
+                              //update__c = true, delete__c = true);
+							  
     } 
     public static void preparedTestDate()
         {
