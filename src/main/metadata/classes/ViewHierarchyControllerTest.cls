@@ -46,22 +46,22 @@ Public static Account_Link__c objAccountLink;
     {  
         // Create Account
         objAccount=new Account();
-        objAccount=(Account)UtilTestData.createSobject(new Account(),UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         // Create Vehicle 
         objVehicle=new Vehicle__c();                    
-        objVehicle=(Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB);        
+        objVehicle=(Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilViewHierarchyTestData.VEHICLE_MB);        
         // Create Vehicle Relationship
         objVehicleRelship= new Vehicle_Relationship__c();
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;
         objVehicleRelship.Contact__c = objAccount.Id;
         objVehicleRelship.Car_Relation__c='Owner';
-        objVehicleRelship= (Vehicle_Relationship__c)UtilTestData.createSobject(objVehicleRelship,UtilTestData.VEHICLE_RELATIONSHIP);
+        objVehicleRelship= (Vehicle_Relationship__c)UtilViewHierarchyTestData.createSobject(objVehicleRelship,UtilViewHierarchyTestData.VEHICLE_RELATIONSHIP);
         objRetailTask= new Retail_Task__c();
         objRetailTask.Related_Vehicle__c = objVehicle.Id;
         objRetailTask.Name = 'Test Retail Task';
-        objRetailTask= (Retail_Task__c)UtilTestData.createSobject(objRetailTask,UtilConstant.RECORDTYPE_CONTRACT);
+        objRetailTask= (Retail_Task__c)UtilViewHierarchyTestData.createSobject(objRetailTask,UtilConstant.RECORDTYPE_CONTRACT);
         objAccountLink= new Account_Link__c();
         objAccountLink.toRole__c=objAccount.Id;
-        objAccountLink= (Account_Link__c)UtilTestData.createSobject(objAccountLink,UtilConstant.Contact2Contact);       
+        objAccountLink= (Account_Link__c)UtilViewHierarchyTestData.createSobject(objAccountLink,UtilConstant.Contact2Contact);       
    }   
 }
