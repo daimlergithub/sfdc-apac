@@ -86,6 +86,7 @@
 				<sf:exclude name="Checksums"/>
 				<sf:include name="treeHierarhy"/>
 				<sf:include name="jquery142"/>
+				<sf:include name="jQuery"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
@@ -350,8 +351,6 @@
 			<sf:include name="VehiclePickerControllerTests"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
-		
-			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
