@@ -140,6 +140,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountHelperJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -16029,10 +16033,10 @@
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact to Contact</layout>
+        <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact to Contact</layout>
+        <layout>Account_Link__c-Contact2Contact</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16685,6 +16689,10 @@
         <layout>Vehicle__c-Vehicle Layout</layout>
     </layoutAssignments>
     <loginHours/>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -18391,7 +18399,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
@@ -18412,10 +18419,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ApiUserOnly</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -18522,10 +18525,6 @@
         <name>ExportReport</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ForceTwoFactor</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>IdentityEnabled</name>
     </userPermissions>
@@ -18614,10 +18613,6 @@
         <name>ManageTranslation</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ManageTwoFactor</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>ManageUsers</name>
     </userPermissions>
@@ -18670,10 +18665,6 @@
         <name>TransferAnyLead</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>TwoFactorApi</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>
     </userPermissions>
@@ -18692,10 +18683,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewEventLogFiles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

@@ -928,10 +928,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -16014,7 +16010,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account Master Layout</layout>
+        <layout>Account-Company Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>

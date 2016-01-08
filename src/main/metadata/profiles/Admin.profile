@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
+    <applicationVisibilities>  
         <application>Central_CRM</application>
         <default>true</default>
         <visible>true</visible>
@@ -137,6 +137,10 @@
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -16029,10 +16033,10 @@
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact to Contact</layout>
+        <layout>Account_Link__c-Contact2Contact</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact to Contact</layout>
+        <layout>Account_Link__c-Contact2Contact</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16684,11 +16688,11 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
-    <loginHours/>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
+    <loginHours/>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -18423,7 +18427,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
@@ -18872,10 +18875,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewEventLogFiles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

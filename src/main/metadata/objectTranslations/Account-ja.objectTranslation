@@ -2,355 +2,355 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>取引先)</value>
+        <value>???)</value>
     </caseValues>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)のアクセス権</value>
+            <value>???)??????</value>
         </caseValues>
         <name>account_access</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)のアクセス権</value>
+            <value>???)??????</value>
         </caseValues>
         <name>account_access_level</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)責任者の役割</value>
+            <value>???)??????</value>
         </caseValues>
         <name>account_contact_role</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 作成者</value>
+            <value>???) ???</value>
         </caseValues>
         <name>account_creator</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 通貨</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_currency</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 説明</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_description</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 詳細ページ</value>
+            <value>???) ?????</value>
         </caseValues>
         <name>account_detail_page</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) ディビジョン</value>
+            <value>???) ??????</value>
         </caseValues>
         <name>account_division</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)の編集</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_edit</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) Fax</value>
+            <value>???) Fax</value>
         </caseValues>
         <name>account_fax</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)の項目</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_field</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 一般情報</value>
+            <value>???) ????</value>
         </caseValues>
         <name>account_general</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>関連取引先)</value>
+            <value>?????)</value>
         </caseValues>
         <name>account_hierarchy</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)履歴</value>
+            <value>???)??</value>
         </caseValues>
         <name>account_history</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)履歴アーカイブ</value>
+            <value>???)???????</value>
         </caseValues>
         <name>account_history_archive</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)履歴レポート</value>
+            <value>???)??????</value>
         </caseValues>
         <name>account_history_report</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) ID</value>
+            <value>???) ID</value>
         </caseValues>
         <name>account_id</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)情報</value>
+            <value>???)??</value>
         </caseValues>
         <name>account_information</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)名))</value>
+            <value>???)?))</value>
         </caseValues>
         <name>account_name</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)番号</value>
+            <value>???)??</value>
         </caseValues>
         <name>account_number</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 所有者</value>
+            <value>???) ???</value>
         </caseValues>
         <name>account_owner</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 所有者(別名)</value>
+            <value>???) ???(??)</value>
         </caseValues>
         <name>account_owner_alias</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)所有者レポート</value>
+            <value>???)???????</value>
         </caseValues>
         <name>account_owner_report</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 所有者 ロール</value>
+            <value>???) ??? ???</value>
         </caseValues>
         <name>account_owner_role</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 会社形態</value>
+            <value>???) ????</value>
         </caseValues>
         <name>account_ownership</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 電話</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_phone</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 評価</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_rating</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)レコード</value>
+            <value>???)????</value>
         </caseValues>
         <name>account_record</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)レコードタイプ</value>
+            <value>???)???????</value>
         </caseValues>
         <name>account_record_type</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)レポート</value>
+            <value>???)????</value>
         </caseValues>
         <name>account_report</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)の共有</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_sharing</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 部門</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_site</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)ソース</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_source</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)フェーズ ID</value>
+            <value>???)???? ID</value>
         </caseValues>
         <name>account_stage_id</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)チーム</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_team</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)チームメンバー</value>
+            <value>???)???????</value>
         </caseValues>
         <name>account_team_member</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)チームメンバー ID</value>
+            <value>???)??????? ID</value>
         </caseValues>
         <name>account_team_member_id</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)チームレポート</value>
+            <value>???)???????</value>
         </caseValues>
         <name>account_team_report</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)テリトリー</value>
+            <value>???)?????</value>
         </caseValues>
         <name>account_territory</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)ツール</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_tool</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 種別</value>
+            <value>???) ??</value>
         </caseValues>
         <name>account_type</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先)ビュー</value>
+            <value>???)???</value>
         </caseValues>
         <name>account_view</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>法人取引先)</value>
+            <value>?????)</value>
         </caseValues>
         <name>business_account</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>親取引先)</value>
+            <value>????)</value>
         </caseValues>
         <name>parent_account</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>親取引先) ディビジョン</value>
+            <value>????) ??????</value>
         </caseValues>
         <name>parent_account_division</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>親取引先) ID</value>
+            <value>????) ID</value>
         </caseValues>
         <name>parent_account_id</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>親取引先) 部門</value>
+            <value>????) ??</value>
         </caseValues>
         <name>parent_account_site</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>個人取引先)</value>
+            <value>?????)</value>
         </caseValues>
         <name>person_account</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>個人取引先)レコード</value>
+            <value>?????)????</value>
         </caseValues>
         <name>person_account_record</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>取引先) 部門</value>
+            <value>???) ??</value>
         </caseValues>
         <name>site_account</name>
     </fields>
@@ -510,7 +510,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>個人情報許諾フラグ(MBJ⇒販売店)</label>
+        <label>?????????(MBJ????)</label>
         <name>Allow_Data_Sharing2__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -526,7 +526,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>個人情報許諾フラグ(販売店⇒MBJ)</label>
+        <label>?????????(????MBJ)</label>
         <name>Allow_Data_Sharing__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -582,15 +582,15 @@
         <name>Batch_No__c</name>
     </fields>
     <fields>
-        <label>拠点名（英語）</label>
+        <label>???(??)</label>
         <name>Branch_name_ENG__c</name>
     </fields>
     <fields>
-        <label>拠点名（日本語カナ）</label>
+        <label>???(?????)</label>
         <name>Branch_name_Native__c</name>
     </fields>
     <fields>
-        <label>拠点名（日本語）</label>
+        <label>???(???)</label>
         <name>Branch_name__c</name>
     </fields>
     <fields>
@@ -702,7 +702,7 @@
         <name>CV_No_Brand_Purchases__c</name>
     </fields>
     <fields>
-        <label>CVステータス</label>
+        <label>CV?????</label>
         <name>CV_Status__c</name>
         <picklistValues>
             <masterLabel>Customer</masterLabel>
@@ -742,7 +742,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>車両販売地域</label>
+        <label>??????</label>
         <name>Car_Sales_Region__c</name>
         <picklistValues>
             <masterLabel>Eastern Region</masterLabel>
@@ -798,7 +798,7 @@
         <name>Clicksell__c</name>
     </fields>
     <fields>
-        <label>企業番号</label>
+        <label>????</label>
         <name>Commercial_Reg_No__c</name>
     </fields>
     <fields>
@@ -810,7 +810,7 @@
         <name>CompanyOtherPhone__c</name>
     </fields>
     <fields>
-        <label>決算月</label>
+        <label>???</label>
         <name>Company_Fiscal_Year_Start__c</name>
         <picklistValues>
             <masterLabel>1</masterLabel>
@@ -862,7 +862,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>法人格（リスト）</label>
+        <label>???(???)</label>
         <name>Company_Legal_Form__c</name>
         <picklistValues>
             <masterLabel>Cooperative society</masterLabel>
@@ -922,19 +922,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>法人格（Text）</label>
+        <label>???(Text)</label>
         <name>Company_Legal_Form_text__c</name>
     </fields>
     <fields>
-        <label>法人名（カナ）</label>
+        <label>???(??)</label>
         <name>Company_Name_Native_1__c</name>
     </fields>
     <fields>
-        <label>法人格含む法人名</label>
+        <label>????????</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>
-        <label>従業員数</label>
+        <label>????</label>
         <name>Company_No_Of_Employees__c</name>
         <picklistValues>
             <masterLabel>100 - 300</masterLabel>
@@ -975,7 +975,7 @@
         <relationshipLabel><!-- Accounts (Company) --></relationshipLabel>
     </fields>
     <fields>
-        <label>苦情件数</label>
+        <label>????</label>
         <name>Complaint_Amount__c</name>
     </fields>
     <fields>
@@ -987,7 +987,7 @@
         <name>Corporate_Program__c</name>
     </fields>
     <fields>
-        <label>国籍</label>
+        <label>??</label>
         <name>Country__c</name>
         <picklistValues>
             <masterLabel>China</masterLabel>
@@ -1004,11 +1004,11 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label>クレジットライセンス番号</label>
+        <label>????????????</label>
         <name>Credit_License_Number__c</name>
     </fields>
     <fields>
-        <label>クレジットライセンス</label>
+        <label>??????????</label>
         <name>Credit_License__c</name>
         <picklistValues>
             <masterLabel>MBFS License</masterLabel>
@@ -1040,7 +1040,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>ステージ</label>
+        <label>????</label>
         <name>Customer_Lifecycle_Phase__c</name>
         <picklistValues>
             <masterLabel>Care</masterLabel>
@@ -1088,7 +1088,7 @@
         <name>DUPNumber__c</name>
     </fields>
     <fields>
-        <label>タッチポイント</label>
+        <label>???????</label>
         <name>Data_Source__c</name>
         <picklistValues>
             <masterLabel>3rd party data</masterLabel>
@@ -1188,7 +1188,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>タッチポイント詳細</label>
+        <label>?????????</label>
         <name>Data_Sub_Source__c</name>
         <picklistValues>
             <masterLabel>A web special</masterLabel>
@@ -1744,7 +1744,7 @@
         <name>Dealer_ACN__c</name>
     </fields>
     <fields>
-        <label>AMGパフォーマンスセンター</label>
+        <label>AMG???????????</label>
         <name>Dealer_AMGPerformance__c</name>
     </fields>
     <fields>
@@ -1756,31 +1756,31 @@
         <name>Dealer_Account_No_Dlr_Code__c</name>
     </fields>
     <fields>
-        <label>有効フラグ</label>
+        <label>?????</label>
         <name>Dealer_Active__c</name>
     </fields>
     <fields>
-        <label>有効期間(from)</label>
+        <label>????(from)</label>
         <name>Dealer_Active_from__c</name>
     </fields>
     <fields>
-        <label>有効期間(to)</label>
+        <label>????(to)</label>
         <name>Dealer_Active_to__c</name>
     </fields>
     <fields>
-        <label>販売店住所1（日本語）</label>
+        <label>?????1(???)</label>
         <name>Dealer_Address_Addition_CN__c</name>
     </fields>
     <fields>
-        <label>販売店住所2（英語）</label>
+        <label>?????2(??)</label>
         <name>Dealer_Address_Addition_EN__c</name>
     </fields>
     <fields>
-        <label>販売店住所（カナ）</label>
+        <label>?????(??)</label>
         <name>Dealer_Address_CN__c</name>
     </fields>
     <fields>
-        <label>販売店住所1（英語）</label>
+        <label>?????1(??)</label>
         <name>Dealer_Address_EN__c</name>
     </fields>
     <fields>
@@ -1792,7 +1792,7 @@
         <name>Dealer_Aftersales_Manager__c</name>
     </fields>
     <fields>
-        <label>販売店振り分け</label>
+        <label>???????</label>
         <name>Dealer_Allocation__c</name>
         <picklistValues>
             <masterLabel>Both</masterLabel>
@@ -1810,11 +1810,11 @@
     <fields>
         <help><!-- Alternate Dealer Name is populated by the GSSN interface
 Allows up to 240 characters --></help>
-        <label>法人名（英語）</label>
+        <label>???(??)</label>
         <name>Dealer_Alternate_Name__c</name>
     </fields>
     <fields>
-        <label>反贈収賄確認</label>
+        <label>??????</label>
         <name>Dealer_Anti_bribery_Confirmation__c</name>
     </fields>
     <fields>
@@ -1826,15 +1826,15 @@ Allows up to 240 characters --></help>
         <name>Dealer_BTLInfo__c</name>
     </fields>
     <fields>
-        <label>銀行口座番号</label>
+        <label>??????</label>
         <name>Dealer_Bank_Account_No__c</name>
     </fields>
     <fields>
-        <label>銀行</label>
+        <label>??</label>
         <name>Dealer_Bank__c</name>
     </fields>
     <fields>
-        <label>営業時間（セールス）</label>
+        <label>????(????)</label>
         <name>Dealer_Business_Hours__c</name>
     </fields>
     <fields>
@@ -1850,7 +1850,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_CRM_Manager__c</name>
     </fields>
     <fields>
-        <label>車両サービス地域</label>
+        <label>????????</label>
         <name>Dealer_Car_Service_Region__c</name>
         <picklistValues>
             <masterLabel>Eastern Region</masterLabel>
@@ -1866,7 +1866,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>サービス工場カテゴリ</label>
+        <label>??????????</label>
         <name>Dealer_Cars_Dlr_Class_After_Sales__c</name>
         <picklistValues>
             <masterLabel>Authorized</masterLabel>
@@ -1890,7 +1890,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>拠点区分</label>
+        <label>????</label>
         <name>Dealer_Cars_Dlr_Class_Sales__c</name>
         <picklistValues>
             <masterLabel>AUTHORIZEDFACTORY</masterLabel>
@@ -1930,11 +1930,11 @@ Allows up to 240 characters --></help>
         <name>Dealer_Cars_POV_Targets_Yearly__c</name>
     </fields>
     <fields>
-        <label>販売店住所3（英語）</label>
+        <label>?????3(??)</label>
         <name>Dealer_City_EN__c</name>
     </fields>
     <fields>
-        <label>競合車</label>
+        <label>???</label>
         <name>Dealer_Competitors__c</name>
         <picklistValues>
             <masterLabel>Alfa</masterLabel>
@@ -2186,27 +2186,27 @@ Allows up to 240 characters --></help>
         <name>Dealer_Complaint_Manager__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS AS コード2</label>
+        <label>Dealer DMS AS ???2</label>
         <name>Dealer_DMS_AS_Code_2__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS AS コード1</label>
+        <label>Dealer DMS AS ???1</label>
         <name>Dealer_DMS_AS_Code__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS CRM コード2</label>
+        <label>Dealer DMS CRM ???2</label>
         <name>Dealer_DMS_CRM_Code_2__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS CRM コード1</label>
+        <label>Dealer DMS CRM ???1</label>
         <name>Dealer_DMS_CRM_Code__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS SR コード2</label>
+        <label>Dealer DMS SR ???2</label>
         <name>Dealer_DMS_SR_Code_2__c</name>
     </fields>
     <fields>
-        <label>Dealer DMS SR コード1</label>
+        <label>Dealer DMS SR ???1</label>
         <name>Dealer_DMS_SR_Code__c</name>
     </fields>
     <fields>
@@ -2330,7 +2330,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Dated_Started_MBAuP__c</name>
     </fields>
     <fields>
-        <label>販売店タイプ</label>
+        <label>??????</label>
         <name>Dealer_Dealership_Type__c</name>
         <picklistValues>
             <masterLabel>Independent</masterLabel>
@@ -2342,7 +2342,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>販売店デフォルトフラグ</label>
+        <label>???????????</label>
         <name>Dealer_Default_Flag__c</name>
     </fields>
     <fields>
@@ -2358,19 +2358,19 @@ Allows up to 240 characters --></help>
         <name>Dealer_Email__c</name>
     </fields>
     <fields>
-        <label>販売店緊急番号</label>
+        <label>???????</label>
         <name>Dealer_Emergency_Number__c</name>
     </fields>
     <fields>
-        <label>FAX（部品）</label>
+        <label>FAX(??)</label>
         <name>Dealer_Fax_Parts__c</name>
     </fields>
     <fields>
-        <label>FAX（サービス）</label>
+        <label>FAX(????)</label>
         <name>Dealer_Fax_Service__c</name>
     </fields>
     <fields>
-        <label>ファイナンスサービス地域</label>
+        <label>????????????</label>
         <name>Dealer_Financial_Service_Region__c</name>
         <picklistValues>
             <masterLabel>NTHN</masterLabel>
@@ -2394,23 +2394,23 @@ Allows up to 240 characters --></help>
         <name>Dealer_Floor_Plan__c</name>
     </fields>
     <fields>
-        <label>法人コード(GSSN)</label>
+        <label>?????(GSSN)</label>
         <name>Dealer_GC_Code__c</name>
     </fields>
     <fields>
-        <label>拠点コード(GSSN)</label>
+        <label>?????(GSSN)</label>
         <name>Dealer_GS_Code__c</name>
     </fields>
     <fields>
-        <label>販売店マネージャーE-mail</label>
+        <label>?????????E-mail</label>
         <name>Dealer_General_Manager_Email__c</name>
     </fields>
     <fields>
-        <label>販売店マネージャー</label>
+        <label>?????????</label>
         <name>Dealer_General_Manager__c</name>
     </fields>
     <fields>
-        <label>ネットワーク</label>
+        <label>??????</label>
         <name>Dealer_Group__c</name>
         <picklistValues>
             <masterLabel>Independent</masterLabel>
@@ -2479,11 +2479,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>本店機能</label>
+        <label>????</label>
         <name>Dealer_Legal_Entity__c</name>
     </fields>
     <fields>
-        <label>法人コード(DAW)</label>
+        <label>?????(DAW)</label>
         <name>Dealer_Legal_NativeCode__c</name>
     </fields>
     <fields>
@@ -2495,7 +2495,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_MBFS_Review_Date__c</name>
     </fields>
     <fields>
-        <label>販売店MB Sub-地域</label>
+        <label>???MB Sub-??</label>
         <name>Dealer_MB_Sub_Region__c</name>
         <picklistValues>
             <masterLabel>EAST1</masterLabel>
@@ -2543,7 +2543,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Marketing_Manager__c</name>
     </fields>
     <fields>
-        <label>拠点コード(MPC/DAW)</label>
+        <label>?????(MPC/DAW)</label>
         <name>Dealer_ND_Code__c</name>
     </fields>
     <fields>
@@ -2551,19 +2551,19 @@ Allows up to 240 characters --></help>
         <name>Dealer_New_No_Spare_Parts__c</name>
     </fields>
     <fields>
-        <label>休日（サービス）</label>
+        <label>??(????)</label>
         <name>Dealer_NonWorkingDay_Service__c</name>
     </fields>
     <fields>
-        <label>休日（セールス）</label>
+        <label>??(????)</label>
         <name>Dealer_NonWorking_Day__c</name>
     </fields>
     <fields>
-        <label>販売店運用システム</label>
+        <label>?????????</label>
         <name>Dealer_Operating_System_Other__c</name>
     </fields>
     <fields>
-        <label>販売店運用システム</label>
+        <label>?????????</label>
         <name>Dealer_Operating_System__c</name>
         <picklistValues>
             <masterLabel>Dealer Sockets</masterLabel>
@@ -2571,15 +2571,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>母店機能</label>
+        <label>????</label>
         <name>Dealer_Parent_Code__c</name>
     </fields>
     <fields>
-        <label>電話番号（サービス）</label>
+        <label>????(????)</label>
         <name>Dealer_Phone_Service__c</name>
     </fields>
     <fields>
-        <label>電話番号</label>
+        <label>????</label>
         <name>Dealer_Phone__c</name>
     </fields>
     <fields>
@@ -2611,11 +2611,11 @@ Allows up to 240 characters --></help>
         <name>Dealer_Presales__c</name>
     </fields>
     <fields>
-        <label>都道府県（日本語）</label>
+        <label>????(???)</label>
         <name>Dealer_Province__c</name>
     </fields>
     <fields>
-        <label>MB無効理由</label>
+        <label>MB????</label>
         <name>Dealer_Reason_for_Inactivation__c</name>
         <picklistValues>
             <masterLabel>MB Reason for Inactivation</masterLabel>
@@ -2651,7 +2651,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>地域（英語）</label>
+        <label>??(??)</label>
         <name>Dealer_Region__c</name>
         <picklistValues>
             <masterLabel>EAST</masterLabel>
@@ -2671,7 +2671,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>拠点長</label>
+        <label>???</label>
         <name>Dealer_Representative__c</name>
     </fields>
     <fields>
@@ -2691,15 +2691,15 @@ Allows up to 240 characters --></help>
         <name>Dealer_SPICS_II_Vans__c</name>
     </fields>
     <fields>
-        <label>販売店SSI参加フラグ</label>
+        <label>???SSI?????</label>
         <name>Dealer_SSI_Participation__c</name>
     </fields>
     <fields>
-        <label>販売店セールスマネージャーE-mail</label>
+        <label>?????????????E-mail</label>
         <name>Dealer_Sales_Manager_Email__c</name>
     </fields>
     <fields>
-        <label>販売店セールスマネージャー</label>
+        <label>?????????????</label>
         <name>Dealer_Sales_Manager__c</name>
     </fields>
     <fields>
@@ -2727,11 +2727,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>販売</label>
+        <label>??</label>
         <name>Dealer_Sales_func__c</name>
     </fields>
     <fields>
-        <label>機能</label>
+        <label>??</label>
         <name>Dealer_Service_Codes__c</name>
         <picklistValues>
             <masterLabel>AMG Performance Center</masterLabel>
@@ -2783,23 +2783,23 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>サービス</label>
+        <label>????</label>
         <name>Dealer_Service_Func__c</name>
     </fields>
     <fields>
-        <label>販売店住所4（英語）</label>
+        <label>?????4(??)</label>
         <name>Dealer_Suburb__c</name>
     </fields>
     <fields>
-        <label>営業時間（部品）</label>
+        <label>????(??)</label>
         <name>Dealer_Trading_Hours_Parts__c</name>
     </fields>
     <fields>
-        <label>営業時間（サービス）</label>
+        <label>????(????)</label>
         <name>Dealer_Trading_Hours_Service__c</name>
     </fields>
     <fields>
-        <label>トラック販売店セールス</label>
+        <label>???????????</label>
         <name>Dealer_Trucks_Dlr_Class_Sales__c</name>
         <picklistValues>
             <masterLabel>Metro</masterLabel>
@@ -2823,7 +2823,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Trucks_PES_Target_Yearly__c</name>
     </fields>
     <fields>
-        <label>トラックセールス地域</label>
+        <label>??????????</label>
         <name>Dealer_Trucks_Sales_Region__c</name>
         <picklistValues>
             <masterLabel>Eastern Region</masterLabel>
@@ -2839,7 +2839,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>トラックサービス地域</label>
+        <label>??????????</label>
         <name>Dealer_Trucks_Service_Region__c</name>
         <picklistValues>
             <masterLabel>Eastern Region</masterLabel>
@@ -2855,15 +2855,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>中古車コーナー</label>
+        <label>???????</label>
         <name>Dealer_UsedCarCorner__c</name>
     </fields>
     <fields>
-        <label>中古車</label>
+        <label>???</label>
         <name>Dealer_UsedCar_Func__c</name>
     </fields>
     <fields>
-        <label>VAN販売店クラス</label>
+        <label>VAN??????</label>
         <name>Dealer_Vans_Dlr_Class__c</name>
         <picklistValues>
             <masterLabel>Metro</masterLabel>
@@ -2887,7 +2887,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Vans_PES_Target_Yearly__c</name>
     </fields>
     <fields>
-        <label>VANセールス地域</label>
+        <label>VAN??????</label>
         <name>Dealer_Vans_Sales_Region__c</name>
         <picklistValues>
             <masterLabel>Zone 1</masterLabel>
@@ -2899,7 +2899,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>VANサービス地域</label>
+        <label>VAN??????</label>
         <name>Dealer_Vans_Service_Region__c</name>
         <picklistValues>
             <masterLabel>Zone 1</masterLabel>
@@ -2955,11 +2955,11 @@ Allows up to 240 characters --></help>
         <name>Dealer_Warranty_Code__c</name>
     </fields>
     <fields>
-        <label>ウェブサイト</label>
+        <label>??????</label>
         <name>Dealer_Website__c</name>
     </fields>
     <fields>
-        <label>販売店smart サブ地域</label>
+        <label>???smart ????</label>
         <name>Dealer_smart_Sub_Region__c</name>
         <picklistValues>
             <masterLabel>EAST1</masterLabel>
@@ -2995,7 +2995,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>生存フラグ</label>
+        <label>?????</label>
         <name>Deceased__c</name>
     </fields>
     <fields>
@@ -3003,11 +3003,11 @@ Allows up to 240 characters --></help>
         <name>Display_Name__c</name>
     </fields>
     <fields>
-        <label>運転免許証番号</label>
+        <label>???????</label>
         <name>Driver_License_Number__c</name>
     </fields>
     <fields>
-        <label>運転免許証有効期限</label>
+        <label>?????????</label>
         <name>Driver_License_Validity_Date__c</name>
     </fields>
     <fields>
@@ -3083,39 +3083,39 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(会社）</label>
+        <label>E???(??)</label>
         <name>Email2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他）</label>
+        <label>E???(???)</label>
         <name>Email3__c</name>
     </fields>
     <fields>
-        <label>Eメール(会社） 更新者</label>
+        <label>E???(??) ???</label>
         <name>Email_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新者</label>
+        <label>E???(???) ???</label>
         <name>Email_Last_Modified_By3__c</name>
     </fields>
     <fields>
-        <label>Eメール(自宅） 更新者</label>
+        <label>E???(??) ???</label>
         <name>Email_Last_Modified_By__c</name>
     </fields>
     <fields>
-        <label>Eメール(会社） 更新日時</label>
+        <label>E???(??) ????</label>
         <name>Email_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新日時</label>
+        <label>E???(???) ????</label>
         <name>Email_Last_Modified_Date3__c</name>
     </fields>
     <fields>
-        <label>Eメール(自宅） 更新日時</label>
+        <label>E???(??) ????</label>
         <name>Email_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>Eメール(会社） Validity</label>
+        <label>E???(??) Validity</label>
         <name>Email_Status_2__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3131,7 +3131,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(その他） Validity</label>
+        <label>E???(???) Validity</label>
         <name>Email_Status_3__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3147,7 +3147,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(自宅） Validity</label>
+        <label>E???(??) Validity</label>
         <name>Email_Status__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3183,7 +3183,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(自宅）</label>
+        <label>E???(??)</label>
         <name>Email__c</name>
     </fields>
     <fields>
@@ -3291,11 +3291,11 @@ Allows up to 240 characters --></help>
         <name>FUSO_Dealer_Code__c</name>
     </fields>
     <fields>
-        <label>勤務先 FAX</label>
+        <label>??? FAX</label>
         <name>Fax2__c</name>
     </fields>
     <fields>
-        <label>勤務先FAX Validity</label>
+        <label>???FAX Validity</label>
         <name>Fax_Validity2__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3311,7 +3311,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>自宅FAX Validity</label>
+        <label>??FAX Validity</label>
         <name>Fax_Validity__c</name>
         <picklistValues>
             <masterLabel>Blacklisted</masterLabel>
@@ -3331,19 +3331,19 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>YHメモ（ファイナンス用）</label>
+        <label>YH??(???????)</label>
         <name>Finance_Sanction_Comment__c</name>
     </fields>
     <fields>
-        <label>YH（ファイナンス用）</label>
+        <label>YH(???????)</label>
         <name>Finance_Sanction__c</name>
     </fields>
     <fields>
-        <label>名（カナ）</label>
+        <label>?(??)</label>
         <name>FirstName_Native_1__c</name>
     </fields>
     <fields>
-        <label>フリートカテゴリー</label>
+        <label>?????????</label>
         <name>Fleet_Category__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
@@ -3463,11 +3463,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>フリート</label>
+        <label>????</label>
         <name>Fleet__c</name>
     </fields>
     <fields>
-        <label>設立年月日</label>
+        <label>?????</label>
         <name>Foundation_Date__c</name>
     </fields>
     <fields>
@@ -3475,7 +3475,7 @@ Allows up to 240 characters --></help>
         <name>Full_Name__c</name>
     </fields>
     <fields>
-        <label>ふそうサービス</label>
+        <label>???????</label>
         <name>Fuso_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -3519,7 +3519,7 @@ Allows up to 240 characters --></help>
         <name>GSSN_Brand_Main_Code__c</name>
     </fields>
     <fields>
-        <label>性別</label>
+        <label>??</label>
         <name>Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -3535,7 +3535,7 @@ Allows up to 240 characters --></help>
         <name>Gov_Background__c</name>
     </fields>
     <fields>
-        <label>趣味</label>
+        <label>??</label>
         <name>Hobby__c</name>
         <picklistValues>
             <masterLabel>Art(design)</masterLabel>
@@ -3767,27 +3767,27 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>その他電話番号1</label>
+        <label>???????1</label>
         <name>Home_Phone_2__c</name>
     </fields>
     <fields>
-        <label>その他電話１更新者</label>
+        <label>?????1???</label>
         <name>Home_Phone_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>自宅電話更新者</label>
+        <label>???????</label>
         <name>Home_Phone_Last_Modified_By__c</name>
     </fields>
     <fields>
-        <label>その他電話１更新日時</label>
+        <label>?????1????</label>
         <name>Home_Phone_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>自宅電話更新日時</label>
+        <label>????????</label>
         <name>Home_Phone_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>その他電話１ Validity</label>
+        <label>?????1 Validity</label>
         <name>Home_Phone_Status_2__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
@@ -3803,15 +3803,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>家族人数 - 同居家族人数（合計）</label>
+        <label>???? - ??????(??)</label>
         <name>Household_Amount__c</name>
     </fields>
     <fields>
-        <label>子供の人数 - 同居の家族人数（子供）</label>
+        <label>????? - ???????(??)</label>
         <name>Household_Children__c</name>
     </fields>
     <fields>
-        <label>同居の家族人数（その他家族）</label>
+        <label>???????(?????)</label>
         <name>Household_Other__c</name>
     </fields>
     <fields>
@@ -3839,11 +3839,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>MB無効日付</label>
+        <label>MB????</label>
         <name>Inactivation_Date__c</name>
     </fields>
     <fields>
-        <label>自宅電話 Validity</label>
+        <label>???? Validity</label>
         <name>Individual_Home_Phone_Status__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
@@ -3859,7 +3859,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>自宅電話</label>
+        <label>????</label>
         <name>Individual_Home_Phone__c</name>
     </fields>
     <fields>
@@ -4290,7 +4290,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>興味モデル</label>
+        <label>?????</label>
         <name>Interest_Model__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
@@ -4450,7 +4450,7 @@ Allows up to 240 characters --></help>
         <name>Is_Invalid__c</name>
     </fields>
     <fields>
-        <label>勤務先役職</label>
+        <label>?????</label>
         <name>Job__c</name>
         <picklistValues>
             <masterLabel>Department manager</masterLabel>
@@ -4490,11 +4490,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>姓（カナ）</label>
+        <label>?(??)</label>
         <name>LastName_Native_1__c</name>
     </fields>
     <fields>
-        <label>最終キャンペーン参加日</label>
+        <label>???????????</label>
         <name>Last_Campaign_Date__c</name>
     </fields>
     <fields>
@@ -4530,17 +4530,17 @@ Allows up to 240 characters --></help>
         <name>Last_updated__c</name>
     </fields>
     <fields>
-        <label>最終購入ディーラー</label>
+        <label>?????????</label>
         <name>Latest_Sales_Dealer__c</name>
         <relationshipLabel><!-- Accounts (Latest Sales Dealers (Account)) --></relationshipLabel>
     </fields>
     <fields>
-        <label>最終サービスディーラー</label>
+        <label>???????????</label>
         <name>Latest_Service_Dealer__c</name>
         <relationshipLabel><!-- Accounts (Latest Service Dealers (Account)) --></relationshipLabel>
     </fields>
     <fields>
-        <label>法人格（前置き／後置き）</label>
+        <label>???(???/???)</label>
         <name>Legal_Form_Position__c</name>
         <picklistValues>
             <masterLabel>Post</masterLabel>
@@ -4552,15 +4552,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>TポイントカードNo</label>
+        <label>T???????No</label>
         <name>Loyalty_Card_No__c</name>
     </fields>
     <fields>
-        <label>MBFS有効日付</label>
+        <label>MBFS????</label>
         <name>MBFS_Activation_Date__c</name>
     </fields>
     <fields>
-        <label>MBFS車両サービス</label>
+        <label>MBFS??????</label>
         <name>MBFS_Car_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -4588,11 +4588,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>MBFS無効日付</label>
+        <label>MBFS????</label>
         <name>MBFS_Inactivation_Date__c</name>
     </fields>
     <fields>
-        <label>MBFS無効理由</label>
+        <label>MBFS????</label>
         <name>MBFS_Reason_for_Inactivation__c</name>
         <picklistValues>
             <masterLabel>The franchise agreement was not renewed when it expired.</masterLabel>
@@ -4632,7 +4632,7 @@ Allows up to 240 characters --></help>
         <name>MBFS_Supporting__c</name>
     </fields>
     <fields>
-        <label>MBFSトラックサービス</label>
+        <label>MBFS????????</label>
         <name>MBFS_Truck_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -4660,7 +4660,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>ヤナセディーラーコード</label>
+        <label>???????????</label>
         <name>MBJ_Yanase_Code__c</name>
     </fields>
     <fields>
@@ -4677,7 +4677,7 @@ Allows up to 240 characters --></help>
         <relationshipLabel><!-- Accounts (Main Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label>配偶者有無</label>
+        <label>?????</label>
         <name>Marital_Status__c</name>
         <picklistValues>
             <masterLabel>Divorced</masterLabel>
@@ -4717,11 +4717,11 @@ Allows up to 240 characters --></help>
         <name>Minimum_per_Dealer__c</name>
     </fields>
     <fields>
-        <label>勤務先携帯電話</label>
+        <label>???????</label>
         <name>Mobile2__c</name>
     </fields>
     <fields>
-        <label>携帯電話 Validity</label>
+        <label>???? Validity</label>
         <name>Mobile_Status__c</name>
         <picklistValues>
             <masterLabel>Invalid Number</masterLabel>
@@ -4733,7 +4733,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>携帯電話</label>
+        <label>????</label>
         <name>Mobile__c</name>
     </fields>
     <fields>
@@ -4765,7 +4765,7 @@ Allows up to 240 characters --></help>
         <name>NumberofLocations__c</name>
     </fields>
     <fields>
-        <label>職業</label>
+        <label>??</label>
         <name>Occupation__c</name>
         <picklistValues>
             <masterLabel>Accounting</masterLabel>
@@ -4869,11 +4869,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>除外理由</label>
+        <label>????</label>
         <name>Opt_In_Contact_Reason_Details__c</name>
     </fields>
     <fields>
-        <label>可能アクティビティ</label>
+        <label>?????????</label>
         <name>Opt_In_Contact_Reason__c</name>
         <picklistValues>
             <masterLabel>Campaign (Aftersales)</masterLabel>
@@ -4929,43 +4929,43 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール受信拒否（ディーラー）</label>
+        <label>E???????(?????)</label>
         <name>Opt_In_Email2__c</name>
     </fields>
     <fields>
-        <label>Eメール受信拒否</label>
+        <label>E???????</label>
         <name>Opt_In_Email__c</name>
     </fields>
     <fields>
-        <label>その他電話1 OptIn</label>
+        <label>?????1 OptIn</label>
         <name>Opt_In_Home_Phone2__c</name>
     </fields>
     <fields>
-        <label>自宅電話 OptIn</label>
+        <label>???? OptIn</label>
         <name>Opt_In_Home_Phone__c</name>
     </fields>
     <fields>
-        <label>勤務先電話 OptIn</label>
+        <label>????? OptIn</label>
         <name>Opt_In_SMS2__c</name>
     </fields>
     <fields>
-        <label>携帯電話　OptIn</label>
+        <label>???? OptIn</label>
         <name>Opt_In_SMS__c</name>
     </fields>
     <fields>
-        <label>その他電話2 OptIn</label>
+        <label>?????2 OptIn</label>
         <name>Opt_In_Work_Phone2__c</name>
     </fields>
     <fields>
-        <label>勤務先電話 OptIn</label>
+        <label>????? OptIn</label>
         <name>Opt_In_Work_Phone__c</name>
     </fields>
     <fields>
-        <label>My Mercedes 除外理由</label>
+        <label>My Mercedes ????</label>
         <name>Opt_Out_Portal_Reason__c</name>
     </fields>
     <fields>
-        <label>My Mercedes 車両表示可否フラグ</label>
+        <label>My Mercedes ?????????</label>
         <name>Opt_Out_Portal__c</name>
         <picklistValues>
             <masterLabel>Full</masterLabel>
@@ -5016,7 +5016,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>PCステータス</label>
+        <label>PC?????</label>
         <name>PC_Status__c</name>
         <picklistValues>
             <masterLabel>Customer</masterLabel>
@@ -5232,11 +5232,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>出生地</label>
+        <label>???</label>
         <name>Place_of_Birth__c</name>
     </fields>
     <fields>
-        <label>My Mercedes メールアドレス</label>
+        <label>My Mercedes ???????</label>
         <name>Portal_Email__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -5244,11 +5244,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>DM拒否</label>
+        <label>DM??</label>
         <name>Postal_Opt_Out__c</name>
     </fields>
     <fields>
-        <label>希望連絡日</label>
+        <label>?????</label>
         <name>Preferred_Contact_Date__c</name>
         <picklistValues>
             <masterLabel>Friday</masterLabel>
@@ -5288,7 +5288,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>希望連絡先</label>
+        <label>?????</label>
         <name>Preferred_Contact_Method__c</name>
         <picklistValues>
             <masterLabel>Direct Mail</masterLabel>
@@ -5312,31 +5312,31 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>連絡可能時間</label>
+        <label>??????</label>
         <name>Preferred_Contact_Time__c</name>
     </fields>
     <fields>
-        <label>希望Email1</label>
+        <label>??Email1</label>
         <name>Preferred_Email_1__c</name>
     </fields>
     <fields>
-        <label>希望Email2</label>
+        <label>??Email2</label>
         <name>Preferred_Email_2__c</name>
     </fields>
     <fields>
-        <label>希望自宅電話1</label>
+        <label>??????1</label>
         <name>Preferred_Home_Phone_1__c</name>
     </fields>
     <fields>
-        <label>希望自宅電話2</label>
+        <label>??????2</label>
         <name>Preferred_Home_Phone_2__c</name>
     </fields>
     <fields>
-        <label>インターネットサイト</label>
+        <label>??????????</label>
         <name>Preferred_Internet_Site__c</name>
     </fields>
     <fields>
-        <label>主要言語</label>
+        <label>????</label>
         <name>Preferred_Language__c</name>
         <picklistValues>
             <masterLabel>Cantonese</masterLabel>
@@ -5356,23 +5356,23 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>購読雑誌</label>
+        <label>????</label>
         <name>Preferred_Magazine__c</name>
     </fields>
     <fields>
-        <label>希望携帯電話1</label>
+        <label>??????1</label>
         <name>Preferred_Mobile_1__c</name>
     </fields>
     <fields>
-        <label>希望携帯電話2</label>
+        <label>??????2</label>
         <name>Preferred_Mobile_2__c</name>
     </fields>
     <fields>
-        <label>購読新聞</label>
+        <label>????</label>
         <name>Preferred_Newspaper__c</name>
     </fields>
     <fields>
-        <label>希望電話</label>
+        <label>????</label>
         <name>Preferred_Phone__c</name>
         <picklistValues>
             <masterLabel>Home phone</masterLabel>
@@ -5392,19 +5392,19 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>希望勤務先電話1</label>
+        <label>???????1</label>
         <name>Preferred_Work_Phone_1__c</name>
     </fields>
     <fields>
-        <label>希望勤務先電話2</label>
+        <label>???????2</label>
         <name>Preferred_Work_Phone_2__c</name>
     </fields>
     <fields>
-        <label>セールスアドレス</label>
+        <label>????????</label>
         <name>Primary_Address_Display__c</name>
     </fields>
     <fields>
-        <label>セールス住所</label>
+        <label>??????</label>
         <name>Primary_Address_Reference__c</name>
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
@@ -5433,11 +5433,11 @@ Allows up to 240 characters --></help>
         <name>Primary_Address__c</name>
     </fields>
     <fields>
-        <label>セールスMail</label>
+        <label>????Mail</label>
         <name>Primary_Email_Display__c</name>
     </fields>
     <fields>
-        <label>セールスMail</label>
+        <label>????Mail</label>
         <name>Primary_Email__c</name>
         <picklistValues>
             <masterLabel>E-mail 1</masterLabel>
@@ -5449,11 +5449,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>セールスFAX</label>
+        <label>????FAX</label>
         <name>Primary_Fax_Display__c</name>
     </fields>
     <fields>
-        <label>セールスFAX</label>
+        <label>????FAX</label>
         <name>Primary_Fax__c</name>
         <picklistValues>
             <masterLabel>FAX1</masterLabel>
@@ -5465,11 +5465,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>セールス電話</label>
+        <label>??????</label>
         <name>Primary_Phone_Display__c</name>
     </fields>
     <fields>
-        <label>セールス電話</label>
+        <label>??????</label>
         <name>Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
@@ -5501,7 +5501,7 @@ Allows up to 240 characters --></help>
         <name>Processed__c</name>
     </fields>
     <fields>
-        <label>サブ地域（英語）</label>
+        <label>????(??)</label>
         <name>Province__c</name>
         <picklistValues>
             <masterLabel>Province1</masterLabel>
@@ -5549,7 +5549,7 @@ Allows up to 240 characters --></help>
         <name>R_Confirmed_by_user__c</name>
     </fields>
     <fields>
-        <label>タッチポイント詳細</label>
+        <label>?????????</label>
         <name>R_DataSource__c</name>
     </fields>
     <fields>
@@ -5620,12 +5620,12 @@ Allows up to 240 characters --></help>
         <name>Recall__c</name>
     </fields>
     <fields>
-        <label>販売店AMGオーナー</label>
+        <label>???AMG????</label>
         <name>Retail_AMG_Owner__c</name>
         <relationshipLabel><!-- Accounts (Retail AMG Owner) --></relationshipLabel>
     </fields>
     <fields>
-        <label>販売店ASオーナー</label>
+        <label>???AS????</label>
         <name>Retail_AS_Owner__c</name>
         <relationshipLabel><!-- Accounts (Retail AS Owner) --></relationshipLabel>
     </fields>
@@ -5654,7 +5654,7 @@ Allows up to 240 characters --></help>
         <name>Retail_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label>販売店MBオーナー</label>
+        <label>???MB????</label>
         <name>Retail_MB_Owner__c</name>
         <relationshipLabel><!-- Accounts (Retail MB Owner) --></relationshipLabel>
     </fields>
@@ -5767,7 +5767,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>販売店Star Eliteオーナー</label>
+        <label>???Star Elite????</label>
         <name>Retail_Star_Elite_Owner__c</name>
         <relationshipLabel><!-- Accounts (Retail Star Elite Owner) --></relationshipLabel>
     </fields>
@@ -5780,7 +5780,7 @@ Allows up to 240 characters --></help>
         <name>Retail_ZipCode__c</name>
     </fields>
     <fields>
-        <label>販売店smartオーナー</label>
+        <label>???smart????</label>
         <name>Retail_smart_Owner__c</name>
         <relationshipLabel><!-- Accounts (Retail smart Owner) --></relationshipLabel>
     </fields>
@@ -5817,23 +5817,23 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>勤務先携帯　更新者</label>
+        <label>????? ???</label>
         <name>SMS_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>携帯電話 更新者</label>
+        <label>???? ???</label>
         <name>SMS_Last_Modified_By__c</name>
     </fields>
     <fields>
-        <label>勤務先携帯　更新日時</label>
+        <label>????? ????</label>
         <name>SMS_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>携帯電話　更新日</label>
+        <label>???? ???</label>
         <name>SMS_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>勤務先携帯　Validity</label>
+        <label>????? Validity</label>
         <name>SMS_MMS_IM_Status_2__c</name>
         <picklistValues>
             <masterLabel>Invalid Number</masterLabel>
@@ -5845,11 +5845,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>カスタマーメモ</label>
+        <label>???????</label>
         <name>Sales_Sanction_Comment__c</name>
     </fields>
     <fields>
-        <label>カスタマーフラグ</label>
+        <label>????????</label>
         <name>Sales_Sanction__c</name>
         <picklistValues>
             <masterLabel>A</masterLabel>
@@ -5881,7 +5881,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>トラックサービス</label>
+        <label>????????</label>
         <name>SelecTrucks_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -5909,7 +5909,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>smartサービス</label>
+        <label>smart????</label>
         <name>Smarts_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -5953,7 +5953,7 @@ Allows up to 240 characters --></help>
         <name>Special_Care__c</name>
     </fields>
     <fields>
-        <label>関係者フラグ</label>
+        <label>??????</label>
         <name>Special_Mark_on_Account__c</name>
         <picklistValues>
             <masterLabel>BBAC</masterLabel>
@@ -5993,7 +5993,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>参照番号（福祉車両）等級</label>
+        <label>????(????)??</label>
         <name>Special_Needs_Class__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -6001,11 +6001,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>参照番号（福祉車両）日</label>
+        <label>????(????)?</label>
         <name>Special_Needs_Date__c</name>
     </fields>
     <fields>
-        <label>特別車両サービス</label>
+        <label>????????</label>
         <name>Special_Vehicle_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -6033,12 +6033,12 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Star Eliteアカウントオーナー</label>
+        <label>Star Elite?????????</label>
         <name>Star_Elite_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (Star Elite Account Owner) --></relationshipLabel>
     </fields>
     <fields>
-        <label>顧客区分</label>
+        <label>????</label>
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Customer</masterLabel>
@@ -6178,7 +6178,7 @@ Allows up to 240 characters --></help>
         <name>Total_Flex__c</name>
     </fields>
     <fields>
-        <label>トラックサービス</label>
+        <label>????????</label>
         <name>Trucks_Offered_Service__c</name>
         <picklistValues>
             <masterLabel>Auto Body Repairer</masterLabel>
@@ -6306,7 +6306,7 @@ Allows up to 240 characters --></help>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label>興味度合</label>
+        <label>????</label>
         <name>UpsellOpportunity__c</name>
         <picklistValues>
             <masterLabel>Maybe</masterLabel>
@@ -6338,7 +6338,7 @@ Allows up to 240 characters --></help>
         <name>VAN_No_Brand_Purchases__c</name>
     </fields>
     <fields>
-        <label>VANステータス</label>
+        <label>VAN?????</label>
         <name>VAN_Status__c</name>
         <picklistValues>
             <masterLabel>Customer</masterLabel>
@@ -6358,7 +6358,7 @@ Allows up to 240 characters --></help>
         <name>VAN_Tenure__c</name>
     </fields>
     <fields>
-        <label>VIPフラグ</label>
+        <label>VIP???</label>
         <name>VIP__c</name>
     </fields>
     <fields>
@@ -6394,7 +6394,7 @@ Allows up to 240 characters --></help>
         <name>Vat_No__c</name>
     </fields>
     <fields>
-        <label>車両保有台数</label>
+        <label>??????</label>
         <name>Vehicle_Amount__c</name>
     </fields>
     <fields>
@@ -6402,7 +6402,7 @@ Allows up to 240 characters --></help>
         <name>Vendor_Code__c</name>
     </fields>
     <fields>
-        <label>訪問拒否</label>
+        <label>????</label>
         <name>Visit_Opt_Out__c</name>
     </fields>
     <fields>
@@ -6458,23 +6458,23 @@ Allows up to 240 characters --></help>
         <name>Winbeat_SAP_No__c</name>
     </fields>
     <fields>
-        <label>その他電話２　更新者</label>
+        <label>?????2 ???</label>
         <name>Work_Phone_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>勤務先電話　更新者</label>
+        <label>????? ???</label>
         <name>Work_Phone_Last_Modified_By__c</name>
     </fields>
     <fields>
-        <label>その他電話２　更新日時</label>
+        <label>?????2 ????</label>
         <name>Work_Phone_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>勤務先電話　更新日時</label>
+        <label>????? ????</label>
         <name>Work_Phone_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>その他電話２　Validity</label>
+        <label>?????2 Validity</label>
         <name>Work_Phone_Status_2__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
@@ -6490,7 +6490,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>勤務先電話 Validity</label>
+        <label>????? Validity</label>
         <name>Work_Phone_Status__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
@@ -6506,15 +6506,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>勤務先電話</label>
+        <label>?????</label>
         <name>Work_Phone__c</name>
     </fields>
     <fields>
-        <label>販売店郵便番号</label>
+        <label>???????</label>
         <name>ZipCode__c</name>
     </fields>
     <fields>
-        <label>smartアカウントオーナー</label>
+        <label>smart?????????</label>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
@@ -6537,7 +6537,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6692,8 +6692,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+    <!-- <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6716,8 +6716,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+    <!-- <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6764,8 +6764,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+    <!-- <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6800,8 +6800,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Person Account Basic Information</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+    <!-- <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6812,7 +6812,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Profile Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
@@ -6840,6 +6840,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- Customer must have at least one phone field populated. --></errorMessage>
         <name>CP_Customer_Phone_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Company Name Native should be Double byte. --></errorMessage>
+        <name>Company_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- You couldn&apos;t update Dealer Group when Dealer is inactive. --></errorMessage>
@@ -6906,6 +6910,10 @@ Allows up to 240 characters --></help>
         <name>Finance_Sanction_Comment_required</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- First Name Native should be Double byte. --></errorMessage>
+        <name>First_Name_Native_1_Fullchar</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Foundation date is not allowed to be later than today. --></errorMessage>
         <name>Foundation_Date_Past</name>
     </validationRules>
@@ -6940,6 +6948,14 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- Zipcode is not 7 digits long --></errorMessage>
         <name>Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Zip is not single byte number --></errorMessage>
+        <name>Invalid_ZipCode_2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Last Name Native should be Double byte. --></errorMessage>
+        <name>Last_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Mobile Phone 2 should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
@@ -7012,6 +7028,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- Please compare the value of salution and gender, and fill in the appropriate values. --></errorMessage>
         <name>Validation_on_Salutation_and_Gender</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please ensure there is text before and after the &apos;.&apos; --></errorMessage>
+        <name>Website_text_dot</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Work Phone should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>

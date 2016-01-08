@@ -1389,6 +1389,14 @@ MD__c = 'JP'
         <errorMessage>Company name is required when TitleOfHonor is 'Dear'.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Company_Name_Single</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(Company_Name_Native__c)))</errorConditionFormula>
+        <errorDisplayField>Company_Name_Native__c</errorDisplayField>
+        <errorMessage>Company name native should be in double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Invalid_ZipCode</fullName>
         <active>true</active>
         <description>Post Code is not 7 digits long</description>
