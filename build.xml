@@ -212,6 +212,9 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
 			</sf:typeset>
+			<sf:typeset name="tabs">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
 				<sf:include name="TriggerUtil"/>
