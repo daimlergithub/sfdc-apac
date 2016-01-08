@@ -6470,10 +6470,6 @@
             <translation><!-- Collection purchase --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Collection repair</masterLabel>
-            <translation><!-- Collection repair --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Commercial Vehicle</masterLabel>
             <translation><!-- Commercial Vehicle --></translation>
         </picklistValues>

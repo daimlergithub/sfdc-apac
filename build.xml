@@ -118,47 +118,32 @@
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
-				<sf:include name="Campaign"/>
-				<sf:include name="Case"/>
-			    <sf:include name=".*__c"/>
-				<sf:exclude name="Picklist_Mapping__c"/>
-				<sf:exclude name="Integration_Picklist__c"/>
-				<sf:exclude name="External_Picklist__c"/>
-				<sf:exclude name="Car_Model__c"/>
-				<sf:exclude name="SMS_Batch__c"/>
-				<!--<sf:exclude name="Retail_Campaign__c"/>-->
-				<sf:exclude name="OB_Task_Handing__c"/>
-				<sf:exclude name="Retail_Campaign_Member__c"/>
-				<!--<sf:exclude name="Lead__c"/>-
-				<sf:exclude name="Campaign_Lead__c"/>-->
-				<sf:exclude name="DM_Request__c"/>
-				<sf:exclude name="SurveyTaker__c"/>
-				<sf:exclude name="SurveyQuestionResponse__c"/>
-				<sf:exclude name="Survey_Question__c"/>
-				<sf:exclude name="Contract_Relation__c"/>
+				<sf:include name="Vehicle__c"/>
+				<sf:include name="Vehicle_Relatioship__c"/>
+				<sf:include name="Retail_Task__c"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
-			   <sf:include name="GeneratePDF"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
-			   <sf:include name="UtilTestData"/>
+			   <sf:include name="UtilViewHierarchyTestData"/>
 			   <sf:include name="IllegalArgumentException"/>	
 			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
-			   <sf:include name="GenerateAndAttachPDF"/>
-			   <sf:include name="GenerateAndAttachPDFTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
 
-	<!--<target name="deploy12">
+	<target name="deploy12">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name=".*__c"/>
+				<sf:exclude name="Vehicle__c"/>
+				<sf:exclude name="Vehicle_Relatioship__c"/>
+				<sf:exclude name="Retail_Task__c"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
 				<sf:exclude name="External_Picklist__c"/>
@@ -184,16 +169,16 @@
 				<sf:include name="Campaign"/>
 			</sf:typeset>
 		</deploy>
-    </target> -->
+    </target>
 	
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<!--<sf:include name="Lead__c"/>
-				<sf:include name="Campaign_Lead__c"/>-->
+				<sf:include name="Lead__c"/>
+				<sf:include name="Campaign_Lead__c"/>
 				<sf:include name="DM_Request__c"/>
 				<sf:include name="SMS_Batch__c"/>
-				<!--<sf:include name="Retail_Campaign__c"/>-->
+				<sf:include name="Retail_Campaign__c"/>
 				<sf:include name="OB_Task_Handing__c"/>
 				<sf:include name="Retail_Campaign_Member__c"/>
 				<sf:include name="SurveyTaker__c"/>
@@ -218,14 +203,14 @@
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
-			   <!--<sf:include name="GeneratePDF"/>-->
+			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
 				<sf:include name="AccountHelperJP"/>
 				<sf:include name="UtilCustomSettingsJP"/>
-				<!--<sf:include name="GenerateAndAttachPDF"/>-->
+				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
@@ -621,7 +606,7 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
-			<sf:include name="TriggerCampaignTriggerHandler"/>			
+			<sf:include name="TriggerCampaignTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="RetailCampaignTrigger"/>
