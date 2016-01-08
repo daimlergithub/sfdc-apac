@@ -217,6 +217,7 @@
 				<sf:include name="AccountHelperJP"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
