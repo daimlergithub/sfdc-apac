@@ -17222,10 +17222,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>UserLookupResult</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>VehiclePicker</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
