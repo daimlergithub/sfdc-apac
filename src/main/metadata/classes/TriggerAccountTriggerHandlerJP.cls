@@ -18,11 +18,8 @@ public class TriggerAccountTriggerHandlerJP
             {
                 AccountHelperJP.updateAccountFields(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
                 AccountHelperJP.updatePrimaryContactInformation(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+				AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
             }
-        else if((isBefore && isUpdate))
-        {               
-                AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
-        }
     }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)

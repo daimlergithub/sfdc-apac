@@ -87,9 +87,9 @@ private class ContactHelperTest {
     {
         account = new Account();
         account.Name = 'account name';
-        account.Phone = '10086';
+        account.Phone = '012310086';
         account.Area_Code__c = '010';
-        account.Fax = '10086';
+        account.Fax = '012310086';
         account.BillingCity = 'San Francisco';
         account.BillingCountry = 'USA';
         account.BillingPostalCode = '94105';
