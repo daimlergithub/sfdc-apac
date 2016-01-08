@@ -939,9 +939,8 @@
         <apexClass>UserHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-		<classAccesses> 
- <classAccesses> 
- <apexClass>UserService</apexClass>
+	<classAccesses> 
+		<apexClass>UserService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
