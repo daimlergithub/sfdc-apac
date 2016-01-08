@@ -210,6 +210,7 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="TaskDeleting"/>
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -246,6 +247,8 @@
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
+				<sf:include name="TaskDeletingController"/>
+				<sf:include name="TaskDeletingControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
