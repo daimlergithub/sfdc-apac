@@ -88,6 +88,10 @@
 				<sf:include name="jquery142"/>
 				<sf:include name="jQuery"/>
 				<sf:include name="Angular"/>
+				<sf:include name="Bootstrap"/>
+				<sf:include name="UiBootstrap"/>
+				<sf:include name="jQueryCSV"/>
+				<sf:include name="JSforce"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
