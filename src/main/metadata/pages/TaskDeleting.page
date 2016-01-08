@@ -1,4 +1,4 @@
-<apex:page standardController="Task" tabStyle="Tasks__tab" standardController="Task" extensions="TaskDeletingController" action="{!removeTask}">
+<apex:page standardController="Task" tabStyle="Tasks__tab" extensions="TaskDeletingController" action="{!removeTask}">
     <script>
         function goback(){
             history.back();
