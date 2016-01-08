@@ -17,13 +17,13 @@ public without sharing class VehiclePickerControllerTests{
         insert updatecustomsettings;
 
         UtilConstant utilConst = new UtilConstant();     
-        testLead = (Lead__c)UtilViewHierarchyTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
+        testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
         system.debug('Leads... :' +testLead);
         
-        testVehicleMB = (Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
         system.debug('Test Vehicle1' +testVehicleMB);                                              
         
-        testVehicle_VehicleProduct = (Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), utilConst.VEHICLE_PRODUCT);
+        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), utilConst.VEHICLE_PRODUCT);
         system.debug('Test Vehicle2' +testVehicle_VehicleProduct);
         
         //Create Car Models
@@ -36,7 +36,7 @@ public without sharing class VehiclePickerControllerTests{
         for (Integer i=0; i<4; i++){
             carModels.add(new Car_Model__c());
         }
-        carModels = (List<Car_Model__c>)UtilViewHierarchyTestData.createSobjects(carModels, '');
+        carModels = (List<Car_Model__c>)UtilTestData.createSobjects(carModels, '');
         system.debug('Car Models :' +carModels);
         
         for (Integer i=0; i<4; i++){
@@ -409,17 +409,17 @@ public without sharing class VehiclePickerControllerTests{
         VehiclePickerController vpc = new VehiclePickerController(sc);
         
         //Creating associated data for search test.
-        Account testAccount = (Account)UtilViewHierarchyTestData.createSobject(new Account(), UtilConstant.person_Account);
+        Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
         testLead.Contact__c = testAccount.Id;
         update testLead;
         
         String Vin = '87465345982346578';
-        Vehicle__c testVIN_Vehicle = (Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        Vehicle__c testVIN_Vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
         testVIN_Vehicle.UsVIN__c = Vin;
         update testVIN_Vehicle;
         
-        Vehicle__c testVR_vehicle = (Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
-        Vehicle_Relationship__c testVR  = (Vehicle_Relationship__c)UtilViewHierarchyTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
+        Vehicle__c testVR_vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        Vehicle_Relationship__c testVR  = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
         testVR.Contact__c = testAccount.Id;
         testVR.Vehicle_ID__c = testVehicleMB.Id;
         update testVR;
