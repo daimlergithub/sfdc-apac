@@ -14,7 +14,7 @@ public class TriggerUtilTest
     public static testMethod void testIsTriggerEnabled_AllDisabled_Insert()
     {
         // prepare test data
-        upsert new Trigger__c(Name = testTrigger_1,Market__c='NA', Trigger_Name__c = testTrigger, enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        //upsert new Trigger__c(Name = testTrigger_1,Market__c='NA', Trigger_Name__c = testTrigger, enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         triggerProcessed = false;
         
         // run test
