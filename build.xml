@@ -118,8 +118,9 @@
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
+				<sf:include name="Address__c"/>
 				<sf:include name="Vehicle__c"/>
-				<sf:include name="Vehicle_Relatioship__c"/>
+				<sf:include name="Vehicle_Relationship__c"/>
 				<sf:include name="Retail_Task__c"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
