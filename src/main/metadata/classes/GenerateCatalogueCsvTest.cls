@@ -4,16 +4,19 @@ public class GenerateCatalogueCsvTest
     public Static Account objAccount;
     public Static Account DealerAccount;
     public static DM_Request__c Dmr;
-    public static Dealer_Locator__c Dl ;  
+    public static Dealer_Locator__c Dl ;    
     public static DM_Material__c Dmm;
+    public static User usr ;
     public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static String personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    
     
     public static testMethod void test_getDMRequests()
     {   
          
         createTestData();
+        
         test.startTest();
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
         GenerateCatalogueCsv.DMRequests.add(Dmr);
@@ -21,7 +24,7 @@ public class GenerateCatalogueCsvTest
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
-        	
+        
     }
     
    
@@ -29,32 +32,38 @@ public class GenerateCatalogueCsvTest
     public static testMethod void test_getDMRequest1()
     {
         createTestData();
+        
         Dl.Sequence_No__c = '2';
         update Dl;
         test.startTest();
         GenerateCatalogueCsv.DMRequests.add(Dmr);
         GenerateCatalogueCsv.DlList.add(Dl);
+        system.debug('!!!!!!!!'+GenerateCatalogueCsv.DlList.size() );
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
+        
     } 
     
     public static testMethod void test_getDMRequest2()
     {
         
         createTestData();
-        Dl.Post_Code__c = '560000';
+        
+        Dl.Post_Code__c = '六六六六六六六';
         update Dl;
         test.startTest();
         GenerateCatalogueCsv.DMRequests.add(Dmr);
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals(0,GenerateCatalogueCsv.DlList.size());
+        
     }
     
      public static testMethod void test_getDMRequest3()
     {
         createTestData();
+        
         Dl.Sequence_No__c = '3';
         update Dl;
         test.startTest();
@@ -63,24 +72,28 @@ public class GenerateCatalogueCsvTest
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
+        
     } 
     
      public static testMethod void test_getDMRequestNeg()
     {
         
         createTestData();
+       
         test.startTest();
         delete Dmr;
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('false', retString);
+        
     }
     
     static void createTestData()
     {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
-
+       
+        
         
         DealerAccount= new Account();
         DealerAccount.RecordtypeId=DealerAccRecordTypeId;
@@ -102,7 +115,7 @@ public class GenerateCatalogueCsvTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
-        objAccount.ZipCode__c = '5602004';
+        objAccount.ZipCode__c = '五五五五五五五';
         objAccount.Email__c='test@mbj.com';
         objAccount.Mobile__c ='0435488899';
         objAccount.Phone = '08022420181';
@@ -127,13 +140,14 @@ public class GenerateCatalogueCsvTest
         Dmr.Expected_DM_Material3__c = Dmm.id;
         insert Dmr;
         
-         Dl = new Dealer_Locator__c();
-        Dl.Post_Code__c = '560004';
+        Dl = new Dealer_Locator__c();
+        Dl.Post_Code__c = '五五五五五五五';
         Dl.Dealer_Name__c = DealerAccount.id;
         Dl.Sequence_No__c = '1';
         insert Dl;
-         
-          
+        
+        
+        
             }
     
     
