@@ -16132,7 +16132,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-    <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
         <enabled>false</enabled>
     </pageAccesses>

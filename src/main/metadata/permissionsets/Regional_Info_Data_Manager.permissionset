@@ -16124,7 +16124,6 @@ Account Owner, MB Region, MB Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-    <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
