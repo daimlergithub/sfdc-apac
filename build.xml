@@ -93,7 +93,7 @@
 				<sf:include name="jQueryCSV"/>
 				<sf:include name="JSforce"/>
 				<sf:include name="ContactTableVfStylesheet"/>
-				
+				<sf:include name="RetailCampaignSegmentation"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
