@@ -739,6 +739,8 @@
 	<target name="deploy47">
 		<deploy runAllTests="${sfdc.runAllTests}">	
 			<sf:typeset name="applications"/>
+				<sf:exclude name="Retail_CRM"/>
+			</sf:typeset
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
 				<sf:exclude name="CACFields"/>
@@ -757,6 +759,7 @@
 				<sf:exclude name="ViewVoiceRecording"/>
 				<sf:exclude name="VinMatch"/>
 				<sf:exclude name="YearlyTAAchievementTracingReport"/>
+				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
@@ -770,9 +773,8 @@
 				<sf:include name="Central_Campaigns"/>
 				<sf:include name="Campaign_Calendar"/>
 				<sf:include name="Retail_Campaign__c"/>	
-				<sf:include name="Retail_Campaign_Calender"/>
 				<sf:include name="Yearly_Target"/>
-			</sf:typeset>			
+			</sf:typeset>		
 			<sf:typeset name="layouts">
 				<sf:include name="Campaign.*"/>
 				<sf:include name="Event.*"/>
