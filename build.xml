@@ -763,7 +763,8 @@
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
-				<sf:include name="GenerateAndAttachPDF"/>			
+				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
