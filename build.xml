@@ -94,15 +94,6 @@
 				<sf:include name="JSforce"/>
 				<sf:include name="ContactTableVfStylesheet"/>
 				<sf:include name="RetailCampaignSegmentation"/>
-				<sf:inlcude name="ReminderForCampaignRelation"/>
-				<sf:include name="unlink"/>
-				<sf:include name="UserGuide"/>
-				<sf:include name="webchat"/>
-				<sf:include name="Timeline_JS"/>
-				<sf:include name="TrialPortalBanner"/>
-				<sf:include name="SortTable"/>
-				<sf:include name="linked"/>
-				<sf:include name="SiteSamples"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
