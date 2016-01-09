@@ -95,6 +95,7 @@
 				<sf:include name="ContactTableVfStylesheet"/>
 				<sf:include name="RetailCampaignSegmentation"/>
 				<sf:include name="SurveyForce"/>
+				<sf:include name="Timeline_CSS"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
@@ -749,7 +750,6 @@
 				<sf:exclude name="SMSSendLeadResult"/>
 				<sf:exclude name="SlickCTI_CSS"/>
 				<sf:exclude name="DealerClean"/>
-				<sf:exclude name="RetailCampaign_Timeline"/>
 				<sf:exclude name="SSINewComplaintEnd"/>
 				<sf:exclude name="SSINewComplaintStart"/>
 				<sf:exclude name="SlickCTI_CSS"/>
@@ -770,7 +770,8 @@
 				<sf:include name="Retail_Campaigns"/>
 				<sf:include name="Central_Campaigns"/>
 				<sf:include name="Campaign_Calendar"/>
-				<sf:include name="Retail_Campaign__c"/>	
+				<sf:include name="Retail_Campaign__c"/>
+				<sf:include name="Retail_Campaign_Calender"/>				
 				<sf:include name="Yearly_Target"/>
 			</sf:typeset>		
 			<sf:typeset name="layouts">
