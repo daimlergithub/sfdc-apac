@@ -10,7 +10,8 @@
      Public Vehicle_Relationship__c velRel{get;set;}
      Public Account acount{get;set;}
      Public List<cNodes> hierarchy;
- 
+     Public Map<Id,List<Retail_Task__c>> mapRetailTask=new Map<Id,List<Retail_Task__c>>();  
+     Public Map<Id,List<Vehicle_Relationship__c>> mapVehicleRelship=new Map<Id,List<Vehicle_Relationship__c>>();
     /**  
      * @Description Contructor is getting called and fatching current account record details 
      * @author  Sneha chail
@@ -66,15 +67,19 @@
       {
         hierarchy = new List<cNodes>();
         List<Vehicle_Relationship__c> tempParentvelRel = [Select Id,Name,Vehicle_ID__c,Vehicle_ID__r.Name,Start_Date__c,Car_Relation__c,
-                                                Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,Vehicle_ID__r.Class__c,Contact__r.name 
+                                                Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,Vehicle_ID__r.Class__c,Contact__r.name, 
+                                                Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c 
                                                 from Vehicle_Relationship__c Where Contact__c=:acount.Id AND Vehicle_ID__c!=Null];
-        for (Integer i =0; i< tempParentvelRel.size() ; i++)
-        {
-           hierarchy.add(new cNodes(tempParentvelRel[i],tempVelRelation(tempParentvelRel[i].Vehicle_ID__c,tempParentvelRel[i].Id),tempRetailTask(tempParentvelRel[i].Vehicle_ID__c)));
-         }   
-        return hierarchy;
+        
+        tempRetailTask();  
+        tempVelRelation();       
+        for (Integer i =0; i<tempParentvelRel.size();i++)
+          {         
+            hierarchy.add(new cNodes(tempParentvelRel[i],mapVehicleRelship.get(tempParentvelRel[i].Vehicle_ID__c),mapRetailTask.get(tempParentvelRel[i].Vehicle_ID__c)));//tempRetailTask(tempParentvelRel[i].Vehicle_ID__c)));
+          }     
+         return hierarchy;
       } 
-  
+   
      /**  
       * @Description fetch all the vehicle relationship records
       * @author  Sneha chail
@@ -82,15 +87,26 @@
       * @Param Vehicle Id and associated vehicle Relationship Id   
       * @see   ViewHierarchy(Vf Page)
      **/   
-      
-      Public list<Vehicle_Relationship__c> tempVelRelation(Id VehicleID,Id Ids){
+       Public void tempVelRelation(){
        List<Vehicle_Relationship__c> childrenVelRelation = [Select Name,Vehicle_ID__r.Name,Vehicle_ID__c,
                                     Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,
-                                    Vehicle_ID__r.Class__c,Car_Relation__c,Contact__r.name,Contact__c from Vehicle_Relationship__c 
-                                    where Vehicle_ID__c = :VehicleID AND Id!=:Ids];
-        return childrenVelRelation;
+                                    Vehicle_ID__r.Class__c,Car_Relation__c,Contact__r.name,Contact__c from Vehicle_Relationship__c];
+                      
+        for(Vehicle_Relationship__c vr:childrenVelRelation)
+            {
+             if(mapVehicleRelship!=Null && mapVehicleRelship.containsKey(vr.Vehicle_ID__c)) {             
+               List<Vehicle_Relationship__c> vehicleRelationshipList=mapVehicleRelship.get(vr.Vehicle_ID__c); 
+               vehicleRelationshipList.add(vr);                            
+               mapVehicleRelship.put(vr.Vehicle_ID__c,vehicleRelationshipList);              
+             }
+              else {
+               mapVehicleRelship.put(vr.Vehicle_ID__c,new List<Vehicle_Relationship__c> {vr});
+              }
+           } 
+        
        }
-       
+                
+      
      /**  
       * @Description fetch all the Retail task records
       * @author  Sneha chail
@@ -98,14 +114,18 @@
       * @Param Vehicle Id  
       * @see   ViewHierarchy(Vf Page)
      **/   
-   
-       public list<Retail_Task__c> tempRetailTask(Id VehicleID){
-         List<Retail_Task__c> retailTask=new List<Retail_Task__c>();
-         for(Retail_Task__c rst:[select id,Name,Related_Vehicle__c,ContractNumber__c,Status__c,StartDate__c,EndDate__c from Retail_Task__c Where Related_Vehicle__c=:VehicleID])
+      public Void tempRetailTask(){
+         for(Retail_Task__c rt :[select id,Name,Related_Vehicle__c,ContractNumber__c,Status__c,StartDate__c,EndDate__c from Retail_Task__c])
             {
-              retailTask.add(rst);
-            }
-          return retailTask;
+             if(mapRetailTask!=Null && mapRetailTask.containsKey(rt.Related_Vehicle__c)) {             
+              List<Retail_Task__c> retailTaskList=mapRetailTask.get(rt.Related_Vehicle__c); 
+              retailTaskList.add(rt);                            
+              mapRetailTask.put(rt.Related_Vehicle__c,retailTaskList);              
+             }
+              else {
+               mapRetailTask.put(rt.Related_Vehicle__c, new List<Retail_Task__c> {rt});
+              }
+           } 
        }
    
      /**  

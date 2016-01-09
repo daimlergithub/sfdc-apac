@@ -72,6 +72,13 @@
         <value>Add to Campaign</value>
     </labels>
     <labels>
+        <fullName>AddressType_Validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressType Validation</shortDescription>
+        <value>There is a same address type already exist.</value>
+    </labels>
+    <labels>
         <fullName>Address_1</fullName>
         <language>en_US</language>
         <protected>false</protected>

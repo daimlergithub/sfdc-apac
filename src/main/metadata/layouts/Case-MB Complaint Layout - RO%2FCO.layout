@@ -638,7 +638,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <customButtons>View_All</customButtons>
         <fields>Description__c</fields>
         <fields>Action__c</fields>
         <fields>CREATEDBY_USER</fields>
@@ -677,11 +676,11 @@
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
-    <showKnowledgeComponent>true</showKnowledgeComponent>
+    <showKnowledgeComponent>false</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh1S</masterLabel>
+        <masterLabel>00hp0000000IeJT</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

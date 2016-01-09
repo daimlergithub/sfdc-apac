@@ -212,7 +212,8 @@ public class AddressDisplayInlineEditControllerTest
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
         system.debug('editadds>>>'+editadds);
         editadds[0].Preferred__c=false;
-        editadds[0].Province__c='NSW';        
+        editadds[0].Province__c='NSW';
+		editadds[0].Address_Type__c ='Company';        
         update editadds;
         
     }

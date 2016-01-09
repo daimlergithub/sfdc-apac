@@ -1,27 +1,29 @@
 /*
     Type:       Trigger on Account
-    Purpose:    1. If customer has no vehicle relationship, Status must not be ‘Customer’ 
-                2. Update dealer record in salesforce manually check
-                3. When city change , update look up
+    Purpose:    1. Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are updated. 
+                2. Upadte Primary address display field based on primary address reference lookup field.
+                3. Upadte Primary contact information based on corresponding picklist values.
+    Created By: Sudhir
+    Date: 2015-12-22
     User Story: US-DS-001, US-Lead-009
     Used By:    
     ---------------------------------------------------------------
-    History:
-    
-    1. Mouse Created on 2013-03-28 for US-DS-OO1
-    2. Mouse Updated on 2013-07-04 for US-Lead-009
-    3. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
-    4. Gerhard Henning (NTTData)  Moved code to TriggerAccountHandler on 2015-04-21
 */
 public class TriggerAccountTriggerHandlerJP 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete)
     {
-       // Implementation to addedd as required in market
+        if(isBefore && (isInsert || isUpdate))
+            {
+                AccountHelperJP.updateAccountFields(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+                AccountHelperJP.updatePrimaryContactInformation(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+				AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+            }
     }
+        
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }

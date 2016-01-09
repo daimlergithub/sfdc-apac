@@ -6,9 +6,7 @@ public class BatchJobHelperTest
     
     public static testMethod void testAfterInsert()
     {
-		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-		insert updatecustomsettings;
-		
+	
         Test.startTest();       
         Campaign top = new Campaign(
             IsActive = true, 

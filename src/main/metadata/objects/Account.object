@@ -6113,10 +6113,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Crafts and other manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6137,22 +6133,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Communications equipment/computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electricity/heat production and supply industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mass organizations/community groups and religious organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Petroleum processing/coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Water Transportation</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6162,10 +6142,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Warehousing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6249,10 +6225,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Pharmaceutical Manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6266,10 +6238,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Advertising / Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car dealer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6293,7 +6261,35 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Ship building</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7264,7 +7260,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts (Main Dealer)</relationshipLabel>
-        <relationshipName>Main_Dealer</relationshipName>
+        <relationshipName>MainDealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -13484,23 +13480,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
+                <fullName>Chemical materials manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Coal mining and washing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Communications equipment%2Fcomputers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13520,11 +13508,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electricity%2Fheat production and supply industry</fullName>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13560,7 +13548,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations%2Fcommunity groups and religious organizations</fullName>
+                <fullName>Mass and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13580,6 +13568,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
@@ -13592,7 +13584,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petroleum processing%2Fcoking and nuclear fuel processing industry</fullName>
+                <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13632,7 +13624,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
+                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17664,10 +17656,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
@@ -17681,10 +17669,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ship building</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19492,9 +19476,9 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
-        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
@@ -19595,6 +19579,14 @@ RecordType.DeveloperName = 'ThirdParty'
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Company_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native_1__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(Company_Name_Native_1__c)))</errorConditionFormula>
+        <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
+        <errorMessage>Company Name Native should be Double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
         <active>false</active>
         <description>HLD Dealer 004</description>
@@ -19607,9 +19599,9 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
-        <errorConditionFormula>AND(NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
+        <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
     </validationRules>
     <validationRules>
@@ -19761,6 +19753,14 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>If Finance Sanction is checked, Finance Sanction Comment needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>First_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
+        <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
+        <errorMessage>First Name Native should be Double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Foundation_Date_Past</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Foundation_Date__c),ISNEW()),
@@ -19868,6 +19868,22 @@ MD__c = 'JP'
         <errorMessage>Zipcode is not 7 digits long</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Invalid_ZipCode_2</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(ZipCode__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(ZipCode__c)))</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>Zip is not single byte number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Last_Name_Native_1_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(REGEX(LastName_Native_1__c,"[^\\x00-\\x7F]+")),
+NOT(ISBLANK(LastName_Native_1__c)))</errorConditionFormula>
+        <errorDisplayField>LastName_Native_1__c</errorDisplayField>
+        <errorMessage>Last Name Native should be Double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Mobile2_NoChar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Mobile2__c),ISNEW()), 
@@ -19955,6 +19971,13 @@ OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)  &lt;=  15), NO
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
         <errorMessage>Mobile phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Phone</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone_NoChar</fullName>
@@ -20070,6 +20093,14 @@ ISPICKVAL(  Gender__c , 'Male'))
 )</errorConditionFormula>
         <errorDisplayField>Gender__c</errorDisplayField>
         <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Website_text_dot</fullName>
+        <active>true</active>
+        <description>Ensures the URL entered is in format www.*.*</description>
+        <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
+        <errorDisplayField>Website</errorDisplayField>
+        <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -20328,8 +20359,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>
-		{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
 
@@ -20352,8 +20382,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 		else { 
 		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
 		} 
-		}
-       </url>
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>

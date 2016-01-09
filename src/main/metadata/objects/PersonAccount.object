@@ -2454,23 +2454,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
+                <fullName>Chemical materials manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Coal mining and washing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Communications equipment%2Fcomputers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2490,11 +2482,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <fullName>Electrical equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electricity%2Fheat production and supply industry</fullName>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2530,7 +2522,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations%2Fcommunity groups and religious organizations</fullName>
+                <fullName>Mass and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2550,6 +2542,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
@@ -2562,7 +2558,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petroleum processing%2Fcoking and nuclear fuel processing industry</fullName>
+                <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2602,7 +2598,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
+                <fullName>Telecommunications Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6911,15 +6907,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6940,10 +6928,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7023,19 +7007,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ship building</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11493,15 +11469,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11522,10 +11490,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11605,19 +11569,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ship building</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16023,10 +15979,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
@@ -16040,10 +15992,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16115,19 +16063,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ship building</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20800,15 +20740,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20829,10 +20761,6 @@
             </values>
             <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20912,19 +20840,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ship building</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -359,7 +359,7 @@
     <relatedLists>
         <fields>Description__c</fields>
         <fields>Action__c</fields>
-        <fields>Created_By__c</fields>
+        <fields>CREATEDBY_USER</fields>
         <fields>Date_Time__c</fields>
         <fields>NAME</fields>
         <relatedList>Complaint_Description__c.Case__c</relatedList>
