@@ -94,6 +94,7 @@
 				<sf:include name="JSforce"/>
 				<sf:include name="ContactTableVfStylesheet"/>
 				<sf:include name="RetailCampaignSegmentation"/>
+				<sf:include name="SurveyForce"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
@@ -746,7 +747,17 @@
 				<sf:exclude name="HistoryRespond"/>
 				<sf:exclude name="SlickCTI_Phone"/>
 				<sf:exclude name="SMSSendLeadResult"/>
-			</sf:typeset>			
+				<sf:exclude name="SlickCTI_CSS"/>
+				<sf:exclude name="DealerClean"/>
+				<sf:exclude name="RetailCampaign_Timeline"/>
+				<sf:exclude name="SSINewComplaintEnd"/>
+				<sf:exclude name="SSINewComplaintStart"/>
+				<sf:exclude name="SlickCTI_CSS"/>
+				<sf:exclude name="TaskSMSSendResult"/>
+				<sf:exclude name="ViewVoiceRecording"/>
+				<sf:exclude name="VinMatch"/>
+				<sf:exclude name="YearlyTAAchievementTracingReport"/>
+			</sf:typeset>
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
