@@ -99,13 +99,10 @@
 				<sf:include name="UserGuide"/>
 				<sf:include name="webchat"/>
 				<sf:include name="Timeline_JS"/>
-				<sf:include name="Timeline_JS_Pa_Z"/>
 				<sf:include name="TrialPortalBanner"/>
 				<sf:include name="SortTable"/>
-				<sf:include name="SurveyForce"/>
 				<sf:include name="linked"/>
 				<sf:include name="SiteSamples"/>
-				<sf:include name="ServiceCloudLogo"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
