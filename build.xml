@@ -739,8 +739,6 @@
 	<target name="deploy47">
 		<deploy runAllTests="${sfdc.runAllTests}">	
 			<sf:typeset name="applications"/>
-				<sf:exclude name="Retail_CRM"/>
-			</sf:typeset>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
 				<sf:exclude name="CACFields"/>
@@ -764,7 +762,7 @@
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
-			<sf:include name="GenerateAndAttachPDF"/>			
+				<sf:include name="GenerateAndAttachPDF"/>			
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
