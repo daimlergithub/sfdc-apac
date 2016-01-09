@@ -16124,9 +16124,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>SlickCTI_CSS</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
         <enabled>false</enabled>
