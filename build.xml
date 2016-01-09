@@ -92,6 +92,8 @@
 				<sf:include name="UiBootstrap"/>
 				<sf:include name="jQueryCSV"/>
 				<sf:include name="JSforce"/>
+				<sf:include name="ContactTableVfStylesheet"/>
+				
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
