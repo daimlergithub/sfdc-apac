@@ -1800,6 +1800,10 @@
             <translation><!-- SLS-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>V-Class</masterLabel>
             <translation><!-- V-Class --></translation>
         </picklistValues>
@@ -1985,6 +1989,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Segment Information --></label>
+            <section>Segment Information</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Car Model Name --></nameFieldLabel>
