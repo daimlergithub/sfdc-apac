@@ -436,7 +436,7 @@
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
-			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="TriggerAccountLinkTriggerHandlerJP"/>
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
@@ -451,7 +451,7 @@
 			<sf:include name="UtilCampaignShareByCollaboration"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
-			<sf:include name="ShareAccountLinksToDealer"/>
+			<sf:include name="TriggerAccountLink"/>
 			<sf:include name="TaskTrigger"/>
 		</sf:typeset>	
 		</deploy>				
