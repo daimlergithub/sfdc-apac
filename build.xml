@@ -436,6 +436,7 @@
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="TriggerAccountLinkTriggerHandlerJP"/>
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
