@@ -46,7 +46,7 @@ public  class UtilCustomSettingsJP {
    Trigger__c TriggerAccountLink=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountLinkTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerAccountLink);
    
-   Trigger__c ShareCampaignByCollab=new Trigger__c(Name='ShareCampaignByCollab',Trigger_Name__c='ShareCampaignByCollab',Trigger_Handler__c='ShareCampaignByCollabTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   Trigger__c ShareCampaignByCollab=new Trigger__c(Name='ShareCampaignByCollab',Trigger_Name__c='ShareCampaignByCollab',Trigger_Handler__c='ShareCampaignByCollabTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(ShareCampaignByCollab);
    
    Trigger__c SSITrigger=new Trigger__c(Name='SSITrigger',Trigger_Name__c='SSITrigger',Trigger_Handler__c='SSITriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
