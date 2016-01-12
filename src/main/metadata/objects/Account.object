@@ -19582,7 +19582,9 @@ RecordType.DeveloperName = 'ThirdParty'
         <fullName>Company_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native_1__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(Company_Name_Native_1__c)))</errorConditionFormula>
+NOT(ISBLANK(Company_Name_Native_1__c)),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be Double byte.</errorMessage>
     </validationRules>
@@ -19756,7 +19758,9 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
+NOT(ISBLANK(FirstName_Native_1__c )),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be Double byte.</errorMessage>
     </validationRules>
@@ -19857,13 +19861,10 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Invalid_ZipCode</fullName>
         <active>true</active>
         <description>Zipcode is not 7 digits long</description>
-        <errorConditionFormula>AND(
-OR(ISCHANGED(ZipCode__c ), ISNEW()),
-NOT( ISBLANK(ZipCode__c ) ),
-NOT(REGEX( ZipCode__c , "[0-9]{7}")),
-$Profile.Name &lt;&gt; 'IntegrationAPI',
-MD__c = 'JP' 
-)</errorConditionFormula>
+        <errorConditionFormula>AND(LEN(ZipCode__c)&lt;&gt;7,
+NOT(ISBLANK(ZipCode__c)),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zipcode is not 7 digits long</errorMessage>
     </validationRules>
@@ -19871,7 +19872,9 @@ MD__c = 'JP'
         <fullName>Invalid_ZipCode_2</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(ZipCode__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(ZipCode__c)))</errorConditionFormula>
+NOT(ISBLANK(ZipCode__c)),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not single byte number</errorMessage>
     </validationRules>
@@ -19879,7 +19882,9 @@ NOT(ISBLANK(ZipCode__c)))</errorConditionFormula>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(LastName_Native_1__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(LastName_Native_1__c)))</errorConditionFormula>
+NOT(ISBLANK(LastName_Native_1__c)),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be Double byte.</errorMessage>
     </validationRules>

@@ -1392,7 +1392,9 @@ MD__c = 'JP'
         <fullName>Company_Name_Single</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(Company_Name_Native__c)))</errorConditionFormula>
+NOT(ISBLANK(Company_Name_Native__c)),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native__c</errorDisplayField>
         <errorMessage>Company name native should be in double byte.</errorMessage>
     </validationRules>
