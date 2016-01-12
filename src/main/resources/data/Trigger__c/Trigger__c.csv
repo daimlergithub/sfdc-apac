@@ -6,7 +6,6 @@ CaseTrigger,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerJP,JP
 ContactTrigger,TRUE,TRUE,TRUE,ContactTrigger,TRUE,TRUE,TRUE,ContactTriggerHandlerJP,JP
 RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdateTriggerHandlerJP,JP
 RetailCampaignTrigger,TRUE,TRUE,TRUE,RetailCampaignTrigger,TRUE,TRUE,TRUE,RetailCampaignTriggerHandlerJP,JP
-ShareCampaignByCollab,TRUE,TRUE,TRUE,ShareCampaignByCollab,TRUE,TRUE,TRUE,ShareCampaignByCollabTriggerHandlerJP,JP
 SSITrigger,TRUE,TRUE,TRUE,SSITrigger,TRUE,TRUE,TRUE,SSITriggerHandlerJP,JP
 TaskTrigger,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerJP,JP
 ToolKitTrigger,TRUE,TRUE,TRUE,ToolKitTrigger,TRUE,TRUE,TRUE,ToolKitTriggerHandlerJP,JP
