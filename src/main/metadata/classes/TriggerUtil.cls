@@ -8,31 +8,27 @@
 public class TriggerUtil 
 {
     //User variable
-    public static Boolean user = false;
+    public static Boolean userCreate = false;
     public static User usr = new User();
     
-    public static Boolean isTriggerEnabled(String aTriggerName) 
-    {
-        return isTriggerEnabled(getTriggerInfo(aTriggerName));
-    }
-    
+     
     public static Boolean isTriggerEnabled(Trigger__c aTriggerInfo) 
     {
         if (aTriggerInfo != null) {
             return aTriggerInfo.enabled__c;
         }
         else {
-            return true;
+            return false;
         }
     }
     
     public static void handleTrigger(String aTriggerName)
     {
-        Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
-        if(!user && !test.isrunningtest()){
+        if(!userCreate){
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
-            user = true;
+            userCreate = true;
         }
+		Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
         if (isTriggerEnabled(triggerInfo) ) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
@@ -45,12 +41,12 @@ public class TriggerUtil
         }
     }
     
-    public static Trigger__c getTriggerInfo(String aTriggerName) 
+    public static Trigger__c getTriggerInfo(String aTriggerName, User user) 
     {
         if (aTriggerName != null) {
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
 
-                if (aTriggerName.equals(triggerInfo.Trigger_Name__c)) {
+                if (aTriggerName.equals(triggerInfo.Trigger_Name__c)&& user.Market__c.equals(triggerInfo.Market__c)) {
 
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
@@ -82,10 +78,10 @@ public class TriggerUtil
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
             triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
         }
-        else {
+        /*else {
             triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
 
-        }
+        }*/
         
         Type triggerHandlerType = Type.forName(triggerHandlerName);
             
