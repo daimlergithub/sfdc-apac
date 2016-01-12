@@ -172,7 +172,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -194,7 +194,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1645,7 +1645,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2028,6 +2028,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

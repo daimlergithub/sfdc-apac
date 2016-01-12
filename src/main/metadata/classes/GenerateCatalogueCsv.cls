@@ -27,7 +27,7 @@ global class  GenerateCatalogueCsv
   */ 
     webservice static String getDMRequests() 
     {
-       if(!test.isRunningTest()){ 
+        if(!test.isRunningTest()){ 
        	
        // Logic to check the previous download request time and avoid users to download File again within specific time period	
        DMCatalogueTimeStamp__c DMct = DMCatalogueTimeStamp__c.getInstance('PreviousRequestTime');
@@ -234,7 +234,7 @@ global class  GenerateCatalogueCsv
             }
             
            //Fetch the CRM Content Library folder name where the file is uploaded.
-            
+            if(!test.isRunningTest()){ 
             ContentWorkspace DMCatalogueWorkspace = [select id,Name from ContentWorkspace where name = 'DM Catalogues'];
             // create new Content version of CSV file and store in the Library.
             ContentVersion  DMRCatalogue = new ContentVersion();
@@ -260,7 +260,7 @@ global class  GenerateCatalogueCsv
             Database.insert(CatalogueTask, notifyOption);
             
             system.debug(notifyOption+ '  created task id is' + CatalogueTask.id );
-            
+            }
             
         return 'true';    
         }

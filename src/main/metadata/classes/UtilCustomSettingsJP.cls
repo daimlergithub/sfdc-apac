@@ -43,8 +43,8 @@ public  class UtilCustomSettingsJP {
    Trigger__c RetailCampaignTrigger=new Trigger__c(Name='RetailCampaignTrigger',Trigger_Name__c='RetailCampaignTrigger',Trigger_Handler__c='RetailCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(RetailCampaignTrigger);
    
-   Trigger__c ShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   updatecustomsetting.add(ShareAccountLinksToDealer);
+   Trigger__c TriggerAccountLink=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountLinkTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   updatecustomsetting.add(TriggerAccountLink);
    
    Trigger__c ShareCampaignByCollab=new Trigger__c(Name='ShareCampaignByCollab',Trigger_Name__c='ShareCampaignByCollab',Trigger_Handler__c='ShareCampaignByCollabTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(ShareCampaignByCollab);

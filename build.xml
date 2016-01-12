@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
 	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
@@ -85,6 +85,18 @@
 				<!-- the Checksums resource is handled by separate tasks -->
 				<sf:exclude name="Checksums"/>
 				<sf:include name="treeHierarhy"/>
+				<sf:include name="jquery142"/>
+				<sf:include name="jQuery"/>
+				<sf:include name="Angular"/>
+				<sf:include name="Bootstrap"/>
+				<sf:include name="UiBootstrap"/>
+				<sf:include name="jQueryCSV"/>
+				<sf:include name="JSforce"/>
+				<sf:include name="ContactTableVfStylesheet"/>
+				<sf:include name="RetailCampaignSegmentation"/>
+				<sf:include name="SurveyForce"/>
+				<sf:include name="Timeline_CSS"/>
+				<sf:include name="RetailCampaignTimeline_JS"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
@@ -201,22 +213,28 @@
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
 				<sf:exclude name="Campaign"/>
-				<sf:exclude name="Case"/>
-				<sf:exclude name="Task"/>
-				<sf:exclude name="Activity"/>
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
+			</sf:typeset>
+			<sf:typeset name="tabs">
+				<sf:include name="Tasks"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="TaskDeleting"/>
+			   <sf:include name="Tasks"/>
 			</sf:typeset>
-			<sf:typeset name="classes">			
+			<sf:typeset name="classes">	
+				<sf:include name="TriggerHandlerIf"/>
+				<sf:include name="TriggerUtil"/>
+				<sf:include name="TriggerUtilTest"/>
 				<sf:include name="AccountHelperJP"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
@@ -244,6 +262,8 @@
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
+				<sf:include name="TaskDeletingController"/>
+				<sf:include name="TaskDeletingControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -341,8 +361,6 @@
 			<sf:include name="VehiclePickerControllerTests"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
-		
-			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -419,6 +437,7 @@
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="TriggerAccountLinkTriggerHandlerJP"/>
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
@@ -433,7 +452,7 @@
 			<sf:include name="UtilCampaignShareByCollaboration"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
-			<sf:include name="ShareAccountLinksToDealer"/>
+			<sf:include name="TriggerAccountLink"/>
 			<sf:include name="TaskTrigger"/>
 		</sf:typeset>	
 		</deploy>				
@@ -731,11 +750,22 @@
 				<sf:exclude name="HistoryRespond"/>
 				<sf:exclude name="SlickCTI_Phone"/>
 				<sf:exclude name="SMSSendLeadResult"/>
-			</sf:typeset>			
+				<sf:exclude name="SlickCTI_CSS"/>
+				<sf:exclude name="DealerClean"/>
+				<sf:exclude name="SSINewComplaintEnd"/>
+				<sf:exclude name="SSINewComplaintStart"/>
+				<sf:exclude name="SlickCTI_CSS"/>
+				<sf:exclude name="TaskSMSSendResult"/>
+				<sf:exclude name="ViewVoiceRecording"/>
+				<sf:exclude name="VinMatch"/>
+				<sf:exclude name="YearlyTAAchievementTracingReport"/>
+				<sf:exclude name="ToolKitSelectContent"/>
+			</sf:typeset>
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
-			<sf:include name="GenerateAndAttachPDF"/>			
+				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
@@ -743,10 +773,10 @@
 				<sf:include name="Retail_Campaigns"/>
 				<sf:include name="Central_Campaigns"/>
 				<sf:include name="Campaign_Calendar"/>
-				<sf:include name="Retail_Campaign__c"/>	
-				<sf:include name="Retail_Campaign_Calender"/>
+				<sf:include name="Retail_Campaign__c"/>
+				<sf:include name="Retail_Campaign_Calender"/>				
 				<sf:include name="Yearly_Target"/>
-			</sf:typeset>			
+			</sf:typeset>		
 			<sf:typeset name="layouts">
 				<sf:include name="Campaign.*"/>
 				<sf:include name="Event.*"/>

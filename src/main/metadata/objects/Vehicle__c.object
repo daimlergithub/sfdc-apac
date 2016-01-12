@@ -1131,6 +1131,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <fullName>AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
@@ -4294,7 +4298,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -8026,10 +8030,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -8270,14 +8270,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
-
-
-
-
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -8331,11 +8323,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
-
-
-
-
-
                 <default>false</default>
             </values>
             <values>
@@ -8411,10 +8398,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -10887,10 +10870,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -11131,14 +11110,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
-
-
-
-
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -11192,11 +11163,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
-
-
-
-
-
                 <default>false</default>
             </values>
             <values>
@@ -11272,10 +11238,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -12891,10 +12853,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28not current series%29</fullName>
                 <default>false</default>
             </values>
@@ -12988,6 +12946,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15999,10 +15961,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -16243,14 +16201,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
-
-
-
-
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -16304,11 +16254,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
-
-
-
-
-
                 <default>false</default>
             </values>
             <values>
@@ -16384,10 +16329,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -18003,10 +17944,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28not current series%29</fullName>
                 <default>false</default>
             </values>
@@ -18100,6 +18037,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21179,10 +21120,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -21423,14 +21360,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
-
-
-
-
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -21487,10 +21416,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>Oldsmobile</fullName>
                 <default>false</default>
             </values>
@@ -21563,10 +21488,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -23182,10 +23103,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28not current series%29</fullName>
                 <default>false</default>
             </values>
@@ -23279,6 +23196,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26323,10 +26244,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -26567,14 +26484,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
-
-
-
-
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -26628,11 +26537,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
-
-
-
-
-
                 <default>false</default>
             </values>
             <values>
@@ -26708,10 +26612,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-
-
-
-
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -26863,7 +26763,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>Westfield</fullName>
                 <default>false</default>
             </values>
-            <values> 
+            <values>
                 <fullName>Winnebago</fullName>
                 <default>false</default>
             </values>
@@ -27963,10 +27863,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28not current series%29</fullName>
                 <default>false</default>
             </values>
@@ -28012,6 +27908,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29254,7 +29154,6 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-
         <errorConditionFormula>AND(
 NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
 (LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
@@ -29273,7 +29172,7 @@ NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>Euro VIN Has Invalid Syntax.</errorMessage>
     </validationRules>
-	 <validationRules>
+    <validationRules>
         <fullName>Invalid_Start_End_Date</fullName>
         <active>true</active>
         <description>End date should not before Start date.</description>
@@ -29285,12 +29184,21 @@ Related_From__c  &gt;  Related_To__c)) &amp;&amp;
 ($Profile.Name != 'IntegrationAPI') &amp;&amp; UPPER(MD__c) = 'JP'</errorConditionFormula>
         <errorDisplayField>Related_To__c</errorDisplayField>
         <errorMessage>End date should not before Start date.</errorMessage>
-    </validationRules>    
+    </validationRules>
+    <validationRules>
+        <fullName>US_VIN_Invalid_Syntax</fullName>
+        <active>true</active>
+        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
+        <errorConditionFormula>AND(	NOT(ISNULL( UsVIN__c )),
+	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'MB')</errorConditionFormula>
+        <errorDisplayField>UsVIN__c</errorDisplayField>
+        <errorMessage>US VIN Has Invalid Syntax.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>UsVIN_Read_Only</fullName>
         <active>true</active>
         <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
-         <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP')</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
     </validationRules>
