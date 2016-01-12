@@ -17,23 +17,22 @@ private class VehicleRelationshipHelperTest {
                                     Dealer_DMS_SR_Code__c='Test_SR_Code1',
                                     //Status__c='Unknown',
                                     City__c='Beijing',
-                                    Phone = '80801010',
+                                    Phone = '080801010',
                                     Area_Code__c = '010',
                                     LastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='100101',
+                                    ZipCode__c='???????',
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
     static Account account2 = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_SR_Code__c='Test_SR_Code2',
                                     //Status__c='Other',
                                     City__c='Beijing',
-                                    Phone = '80801011',
+                                    Phone = '080801011',
                                     Area_Code__c = '010',            
                                     Name = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='100101',
+                                    ZipCode__c='???????',
                                     RecordTypeId=accPerson_RecordTypeId);
-                                                                    
-                                                                                                                                   
+                                                                                                                                                                                                       
     static testMethod void myUnitTest() {
        
        Test.StartTest();
