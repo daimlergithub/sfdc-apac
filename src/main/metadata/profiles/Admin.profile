@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>  
+    <applicationVisibilities>
         <application>Central_CRM</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -42,7 +42,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Data_Management</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -391,6 +391,7 @@
         <apexClass>ContactTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    
     <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
         <enabled>true</enabled>
@@ -467,6 +468,7 @@
         <apexClass>LeadHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    
     <classAccesses>
         <apexClass>LeadHelperTest</apexClass>
         <enabled>true</enabled>
@@ -764,6 +766,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerAccountLinkTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -781,6 +787,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerBatchJobTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -928,6 +938,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -944,7 +958,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-		<apexClass>UserService</apexClass>
+        <apexClass>UserService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1069,6 +1083,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilViewHierarchyTestData</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -16680,11 +16698,11 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
+    <loginHours/>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
-    <loginHours/>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -17613,6 +17631,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SlickCTI_CSS</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18606,6 +18628,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ImportLeads</name>
     </userPermissions>
     <userPermissions>
@@ -18619,6 +18645,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>InstallPackaging</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -18742,6 +18772,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManagePvtRptsAndDashbds</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageRemoteAccess</name>
     </userPermissions>
     <userPermissions>
@@ -18755,6 +18789,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageSolutions</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageSynonyms</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

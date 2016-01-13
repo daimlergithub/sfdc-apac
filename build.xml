@@ -242,6 +242,8 @@
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
 				<sf:include name="SSITriggerHandlerJP"/>
+				<sf:include name="SSITriggerHandler"/>
+				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
@@ -490,6 +492,7 @@
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
 			<sf:include name="UtilCampaignCity"/>
 			<sf:include name="AddressHelperJP"/>
+			<sf:include name="AddressHelperJPTest"/>
 			<sf:include name="TriggerAddressTriggerHandlerJP"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
@@ -605,6 +608,8 @@
 			<sf:include name="TextInputtingControlelr"/>
 			<sf:include name="TextInputtingControlelrTest"/>
 			<sf:include name="TookKitSharingWrapService"/>
+			<sf:include name="ToolKitTriggerHandler"/>
+			<sf:include name="ToolKitTriggerHelper"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -624,6 +629,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAfterTriggerHandlerJP"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
 			<sf:include name="CampaignHelperTest"/>
