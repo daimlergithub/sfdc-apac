@@ -242,6 +242,8 @@
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
 				<sf:include name="SSITriggerHandlerJP"/>
+				<sf:include name="SSITriggerHandler"/>
+				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
@@ -605,6 +607,8 @@
 			<sf:include name="TextInputtingControlelr"/>
 			<sf:include name="TextInputtingControlelrTest"/>
 			<sf:include name="TookKitSharingWrapService"/>
+			<sf:include name="ToolKitTriggerHandler"/>
+			<sf:include name="ToolKitTriggerHelper"/>
 		</sf:typeset>
 		</deploy>					
     </target>
