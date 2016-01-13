@@ -4897,6 +4897,10 @@
         <label><!-- Lead DataSource --></label>
         <name>Lead_DataSource__c</name>
         <picklistValues>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation><!-- 24 hours Touring Support --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>3rd party data</masterLabel>
             <translation><!-- 3rd party data --></translation>
         </picklistValues>
@@ -4905,12 +4909,20 @@
             <translation><!-- BBAC --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation><!-- Dealers --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-mail</masterLabel>
             <translation><!-- E-mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English Customer Desk</masterLabel>
+            <translation><!-- English Customer Desk --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
@@ -4925,6 +4937,10 @@
             <translation><!-- IB Call --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Letter</masterLabel>
+            <translation><!-- Letter --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
             <translation><!-- MB Magazine --></translation>
         </picklistValues>
@@ -4933,12 +4949,36 @@
             <translation><!-- MB website --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Maybach call</masterLabel>
+            <translation><!-- Maybach call --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Media advertisement</masterLabel>
             <translation><!-- Media advertisement --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Call Catalogue</masterLabel>
+            <translation><!-- Mercedes Call Catalogue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Magainze Survey</masterLabel>
+            <translation><!-- Mercedes Magainze Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation><!-- Mercedes call --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
             <translation><!-- Mercedes-Benz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
+            <translation><!-- Mercedes-Benz Owner Hotline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
+            <translation><!-- Mercedes-Benz School of Excelence --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz driving Academy</masterLabel>
@@ -4947,6 +4987,18 @@
         <picklistValues>
             <masterLabel>Mercedes-Benz financial</masterLabel>
             <translation><!-- Mercedes-Benz financial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz phone</masterLabel>
+            <translation><!-- Mercedes-Benz phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Model-Year Reference desk</masterLabel>
+            <translation><!-- Model-Year Reference desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation><!-- My Mercedes --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
@@ -4961,12 +5013,24 @@
             <translation><!-- Partners --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Recall desk</masterLabel>
+            <translation><!-- Recall desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response Sheet</masterLabel>
+            <translation><!-- Response Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Searching engine</masterLabel>
             <translation><!-- Searching engine --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Social media</masterLabel>
             <translation><!-- Social media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
