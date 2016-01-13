@@ -31,7 +31,7 @@ public with sharing class CaseEscalationControllerTest {
         dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Name='shrek';
         dealer.Gender__c = '0=Male';
-        dealer.ZipCode__c = '2002356';
+        dealer.ZipCode__c = '???????';
         dealer.Type = '0=Company';
         dealer.Phone = '00000000'; 
         dealer.Status__c = '0=contac1';
