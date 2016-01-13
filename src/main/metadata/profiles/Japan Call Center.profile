@@ -468,10 +468,7 @@
         <apexClass>LeadHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>LeadHelperJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>LeadHelperTest</apexClass>
         <enabled>true</enabled>
