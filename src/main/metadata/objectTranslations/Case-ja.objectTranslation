@@ -250,12 +250,12 @@
             <translation><!-- E-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Cabriolet</masterLabel>
-            <translation><!-- E-Class Cabriolet --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>E-Class COUPE</masterLabel>
             <translation><!-- E-Class COUPE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -502,12 +502,12 @@
             <translation><!-- E-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Cabriolet</masterLabel>
-            <translation><!-- E-Class Cabriolet --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>E-Class COUPE</masterLabel>
             <translation><!-- E-Class COUPE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -754,12 +754,12 @@
             <translation><!-- E-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Cabriolet</masterLabel>
-            <translation><!-- E-Class Cabriolet --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>E-Class COUPE</masterLabel>
             <translation><!-- E-Class COUPE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -6150,6 +6150,10 @@
             <translation><!-- Direct sales --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Drive/Suspension (Gr31~Gr41)</masterLabel>
+            <translation><!-- Drive/Suspension (Gr31~Gr41) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Electric system (Gr15)</masterLabel>
             <translation><!-- Electric system (Gr15) --></translation>
         </picklistValues>
@@ -6468,6 +6472,10 @@
         <picklistValues>
             <masterLabel>Collection purchase</masterLabel>
             <translation><!-- Collection purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collection repair</masterLabel>
+            <translation><!-- Collection repair --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Commercial Vehicle</masterLabel>
@@ -7649,6 +7657,10 @@
             <translation><!-- Maybach call --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Call Catalogue</masterLabel>
+            <translation><!-- Mercedes Call Catalogue --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
             <translation><!-- Mercedes Magazine Survey --></translation>
         </picklistValues>
@@ -7687,10 +7699,6 @@
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Othes</masterLabel>
-            <translation><!-- Othes --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -9812,26 +9820,6 @@
             <translation><!-- Response (received rep) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>illegality</masterLabel>
-            <translation><!-- illegality --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>internet brand image</masterLabel>
-            <translation><!-- internet brand image --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>media company image</masterLabel>
-            <translation><!-- media company image --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>poor service</masterLabel>
-            <translation><!-- poor service --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>revenue lost</masterLabel>
-            <translation><!-- revenue lost --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>電話</masterLabel>
             <translation><!-- 電話 --></translation>
         </picklistValues>
@@ -9861,12 +9849,24 @@
             <translation><!-- None --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>収益損失甚大</masterLabel>
-            <translation><!-- 収益損失甚大 --></translation>
+            <masterLabel>illegality</masterLabel>
+            <translation><!-- illegality --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>法令違反/不正・不祥事</masterLabel>
-            <translation><!-- 法令違反/不正・不祥事 --></translation>
+            <masterLabel>internet brand image</masterLabel>
+            <translation><!-- internet brand image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>media company image</masterLabel>
+            <translation><!-- media company image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>poor service</masterLabel>
+            <translation><!-- poor service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>revenue lost</masterLabel>
+            <translation><!-- revenue lost --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -10363,6 +10363,10 @@
             <translation><!-- C-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C-Class ESTATE</masterLabel>
+            <translation><!-- C-Class ESTATE --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>C-Class HATCHBACK</masterLabel>
             <translation><!-- C-Class HATCHBACK --></translation>
         </picklistValues>
@@ -10457,6 +10461,10 @@
         <picklistValues>
             <masterLabel>E-Class CABRIO</masterLabel>
             <translation><!-- E-Class CABRIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class COUPE</masterLabel>
+            <translation><!-- E-Class COUPE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Cabriolet</masterLabel>
@@ -13044,8 +13052,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class COUPE</masterLabel>
-            <translation><!-- E-Class COUPE --></translation>
+            <masterLabel>E-Class Coupé</masterLabel>
+            <translation><!-- E-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Estate</masterLabel>

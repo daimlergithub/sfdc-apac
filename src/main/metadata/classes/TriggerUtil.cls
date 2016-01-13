@@ -28,7 +28,7 @@ public class TriggerUtil
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             userCreate = true;
         }
-		Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
+        Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
         if (isTriggerEnabled(triggerInfo) ) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
@@ -46,7 +46,7 @@ public class TriggerUtil
         if (aTriggerName != null) {
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
 
-                if (aTriggerName.equals(triggerInfo.Trigger_Name__c)&& user.Market__c.equals(triggerInfo.Market__c)) {
+                if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && ((user.Market__c.equals(triggerInfo.Market__c)) || (usr.profile.Name.equals('IntegrationAPI')))) {
 
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
