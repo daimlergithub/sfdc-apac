@@ -492,6 +492,7 @@
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
 			<sf:include name="UtilCampaignCity"/>
 			<sf:include name="AddressHelperJP"/>
+			<sf:include name="AddressHelperJPTest"/>
 			<sf:include name="TriggerAddressTriggerHandlerJP"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
