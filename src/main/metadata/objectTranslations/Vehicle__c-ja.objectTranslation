@@ -822,6 +822,10 @@
             <translation><!-- SLS-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>V-Class</masterLabel>
             <translation><!-- V-Class --></translation>
         </picklistValues>

@@ -18,23 +18,23 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                     //Status__c='Other',
                                     City__c='Beijing',
                                     PersonMobilePhone='5879875698',
-                                    Phone = '80801011',
+                                    Phone = '080801011',
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='100101',
+                                    ZipCode__c='???????',
                                     Salutation='Brother',
-                                    FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
+                                    FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;  
          Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         dealer.Email__c='test@mbau.com';
                     dealer.Email2__c = 'testemail2@test.com';
-                    dealer.Home_Phone_2__c = '98765413';
+                    dealer.Home_Phone_2__c = '098765413';
         update dealer;
          contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'ba', 
-            Phone = '1212313', 
+            Phone = '01212313', 
             email = 's@s.s'
         );
         insert contact;

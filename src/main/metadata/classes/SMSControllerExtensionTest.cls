@@ -33,16 +33,16 @@ public class SMSControllerExtensionTest {
     static List<SelectOption> Templates_ADDRESS ;
     //Created Record
     private static void init(){
-          customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+          customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888888', RecordTypeId = personAccountRecordTypeId);
           accountList.add(customer);    
           
-          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8889888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111');
+          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08889888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111');
           accountList.add(customer_PersonMobilePhone);
           
-          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888818', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111');
+          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888818', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111');
           accountList.add(customer_PersonOtherPhone);   
           
-          dealer = new Account(Name = 'Acme Dealer', Phone = '8888848', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+          dealer = new Account(Name = 'Acme Dealer', Phone = '08888848', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
           accountList.add(dealer);
           
           insert accountList;

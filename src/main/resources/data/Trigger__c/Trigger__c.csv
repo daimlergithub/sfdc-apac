@@ -6,8 +6,6 @@ CaseTrigger,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerJP,JP
 ContactTrigger,TRUE,TRUE,TRUE,ContactTrigger,TRUE,TRUE,TRUE,ContactTriggerHandlerJP,JP
 RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdateTriggerHandlerJP,JP
 RetailCampaignTrigger,TRUE,TRUE,TRUE,RetailCampaignTrigger,TRUE,TRUE,TRUE,RetailCampaignTriggerHandlerJP,JP
-ShareAccountLinksToDealer,TRUE,TRUE,TRUE,ShareAccountLinksToDealer,TRUE,TRUE,TRUE,ShareAccountLinksToDealerTriggerHandlerJP,JP
-ShareCampaignByCollab,TRUE,TRUE,TRUE,ShareCampaignByCollab,TRUE,TRUE,TRUE,ShareCampaignByCollabTriggerHandlerJP,JP
 SSITrigger,TRUE,TRUE,TRUE,SSITrigger,TRUE,TRUE,TRUE,SSITriggerHandlerJP,JP
 TaskTrigger,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerJP,JP
 ToolKitTrigger,TRUE,TRUE,TRUE,ToolKitTrigger,TRUE,TRUE,TRUE,ToolKitTriggerHandlerJP,JP
@@ -25,3 +23,4 @@ TriggerDealerLocator,TRUE,TRUE,TRUE,TriggerDealerLocator,TRUE,TRUE,TRUE,TriggerD
 TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,JP
 TriggerLead,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,TriggerLeadTriggerHandlerJP,JP
 TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItemTriggerHandlerJP,JP
+TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLinkTriggerHandlerJP,JP
