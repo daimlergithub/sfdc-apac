@@ -8341,6 +8341,10 @@ Modify Reason:
                 <fullName>My Mercedes Trade-in request</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Drive/Suspension (Gr31~Gr41)</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10247,10 +10251,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Othes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10260,6 +10260,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14284,26 +14288,6 @@ Modify Reason:
                 <fullName>No Action</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>illegality</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>revenue lost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>media company image</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>internet brand image</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>poor service</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -14401,11 +14385,23 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>法令違反/不正・不祥事</fullName>
+                <fullName>illegality</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>収益損失甚大</fullName>
+                <fullName>revenue lost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>media company image</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>internet brand image</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>poor service</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -23513,11 +23509,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23764,11 +23760,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24015,11 +24011,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29000,6 +28996,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Drive%2FSuspension %28Gr31%7EGr41%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Electric system %28Gr15%29</fullName>
                 <default>false</default>
             </values>
@@ -29732,6 +29732,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
@@ -29745,6 +29749,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Maybach call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29776,7 +29784,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Othes</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -31177,6 +31185,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>Response %28received rep%29</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Risk_classification__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>illegality</fullName>
                 <default>false</default>
@@ -31195,13 +31210,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>revenue lost</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Risk_classification__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33854,11 +33862,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34105,11 +34113,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34356,11 +34364,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43615,11 +43623,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43866,11 +43874,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44117,11 +44125,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53156,11 +53164,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53407,11 +53415,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53658,11 +53666,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60213,14 +60221,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Risk_classification__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>収益損失甚大</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>法令違反%2F不正%E3%83%BB不祥事</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -71125,11 +71125,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -71376,11 +71376,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -71627,11 +71627,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -81182,11 +81182,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -81433,11 +81433,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -81684,11 +81684,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89013,14 +89013,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>収益損失甚大</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>法令違反%2F不正%E3%83%BB不祥事</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Road_Assistant_Result__c</picklist>
@@ -91715,11 +91707,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91966,11 +91958,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92217,11 +92209,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Cabriolet</fullName>
+                <fullName>E-Class COUPE</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class COUPE</fullName>
+                <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98772,14 +98764,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Risk_classification__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>収益損失甚大</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>法令違反%2F不正%E3%83%BB不祥事</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
