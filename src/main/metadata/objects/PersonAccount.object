@@ -22911,6 +22911,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-	<enableHistory>true</enableHistory>
+	<!--<enableHistory>true</enableHistory>-->
     <sharingModel>Private</sharingModel>
 </CustomObject>
