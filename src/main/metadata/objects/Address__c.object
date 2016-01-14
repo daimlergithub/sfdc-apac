@@ -810,18 +810,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dead Mail</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1071,18 +1063,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dead Mail</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1332,18 +1316,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dead Mail</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -12,7 +12,7 @@
 public class TriggerCampaignPackageTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Campaign_Package__c> oldmap = (Map<Id,Campaign_Package__c>)trigger.oldmap;
         Map<Id,Campaign_Package__c> newmap = (Map<Id,Campaign_Package__c>)trigger.newmap;
