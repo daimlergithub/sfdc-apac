@@ -36,7 +36,7 @@ public class TriggerUtil
             
             if (triggerHandler != null) {
                 if(usr.profile.Name!='IntegrationAPI')
-                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete, trigger.isAfter);
+                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
                 else
                     triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
             }
@@ -47,13 +47,11 @@ public class TriggerUtil
     {
 
         if (aTriggerName != null) {
-			String profileName = user.profile.Name;
+            String profileName = user.profile.Name;
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
                 if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI')))
-				
-				{
-
-                if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && ((user.Market__c.equals(triggerInfo.Market__c)) || (usr.profile.Name.equals('IntegrationAPI')))) {
+                
+                {
 
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
