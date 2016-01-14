@@ -1,5 +1,5 @@
 NAME,INSERT__C,UPDATE__C,DELETE__C,TRIGGER_NAME__C,BEFORE__C,AFTER__C,ENABLED__C,TRIGGER_HANDLER__C,MARKET__C
-TriggerAddress ,TRUE,TRUE,TRUE,TriggerAddress  ,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerJP,JP
+TriggerAddress,TRUE,TRUE,TRUE,TriggerAddress,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerJP,JP
 AttachmentAfter,TRUE,TRUE,TRUE,AttachmentAfter,TRUE,TRUE,TRUE,AttachmentAfterTriggerHandlerJP,JP
 CampaignMemberAfterTrigger,TRUE,TRUE,TRUE,CampaignMemberAfterTrigger,TRUE,TRUE,TRUE,CampaignMemberAfterTriggerHandlerJP,JP
 CaseTrigger,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerJP,JP

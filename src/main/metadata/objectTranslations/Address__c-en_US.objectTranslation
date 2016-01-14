@@ -386,6 +386,10 @@
         <name>Company_Name_Required</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Company name native should be in double byte. --></errorMessage>
+        <name>Company_Name_Single</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
         <name>Invalid_ZipCode</name>
     </validationRules>
