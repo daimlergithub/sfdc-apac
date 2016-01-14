@@ -420,6 +420,10 @@
                 <fullName>Vehicle Purchase</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>End of Contract</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1212,6 +1216,10 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
+                <fullName>End of Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Key 2 Key</fullName>
                 <default>false</default>
             </values>
@@ -1875,6 +1883,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Early Payout</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>End of Contract</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2544,6 +2556,10 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
+                <fullName>End of Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Key 2 Key</fullName>
                 <default>false</default>
             </values>
@@ -3206,6 +3222,40 @@ if(userInfo.records != null) {
   }
 }else if(userInfo.records == null) {
   alert("Users who are not associated with the current contact is created!");
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Dealer_Contact</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Contact</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+
+var query = "SELECT Business_Unit__c FROM Account WHERE Id = '{!Account.Id}' limit 1"; 
+
+result = sforce.connection.query(query); 
+records = result.getArray("records"); 
+
+if(records[0]) { 
+var master = records[0]; 
+var BusinessUnit= master.Business_Unit__c; 
+
+var mplVals = BusinessUnit; 
+var mplSFID = "00N1a000005s3zR"; 
+var mplVals = "test"+";"+mplVals; 
+var mplVals = mplVals.split(";"); 
+var ent="" 
+var params = ""; 
+for (var i=0;i&lt;mplVals.length;i++){ 
+params = params + mplSFID+ "=" + mplVals[i] + "&amp;"; 
+} 
+document.location.href = 'setup/ui/recordtypeselect.jsp?ent=Contact&amp;retURL=%2F003%2Fo&amp;save_new_url=%2F003%2Fe%3FretURL%3D%252F003%252Fo+/003/e?&amp;con4_lkid={!Account.Id}&amp;00N1a000005s3zR_selected='+params; 
+} else { 
+alert('There was an error.'); 
 }</url>
     </webLinks>
     <webLinks>
