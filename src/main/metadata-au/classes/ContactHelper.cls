@@ -243,24 +243,29 @@ public class ContactHelper {
     {
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
     
-        Set<Id> accountIds = new Set<Id>();
+        Set<Id> accountIds = new Set<Id>(); 
+        map<id,Account> relatedAccounts =new map<id,Account>();
         List<Account> dealersToUpdate = new List<Account>();
         
-        String contactInfo;
-        for(Contact con : contacts) {            
-            contactInfo = con.FirstName + ' ' + con.LastName;
+      
+        for(Contact con : contacts) {   
             accountIds.add(con.AccountId);
         }
-        for(Contact con : [select id,LastName,FirstName,Inactive__c from contact where accountid in :accountIds and Inactive__c= false]) {            
-            contactInfo = con.FirstName + ' ' + con.LastName;            
+        for(Account ac:[select Id,DRM__c from Account where  Id in: accountIds])
+        {
+            relatedAccounts.put(ac.id, ac);
+            
+        }
+        for(Contact con : contacts) { 
+            if(con.Inactive__c==false){
+                for(Account accnt:relatedAccounts.values()){         			   
+                       accnt.DRM__c=con.FirstName + ' ' + con.LastName;
+                       dealersToUpdate.add(accnt);
+                }
+            }
         }        
         
-        for(Account acc : [select Id,DRM__c from Account where  Id in :AccountIds ] )
-        { 
-            acc.DRM__c=contactInfo;            
-            dealersToUpdate.add(acc);
-        }
-         if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty()) { 
+        if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty()) { 
             UtilSobject.updateSobjects(dealersToUpdate);
         }
        }
