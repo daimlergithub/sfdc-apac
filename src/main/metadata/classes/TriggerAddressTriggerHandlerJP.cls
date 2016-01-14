@@ -6,7 +6,7 @@
 public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
     {
     
-            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
             {
                 /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
@@ -14,6 +14,11 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
                  if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
                      
                     AddressHelperJP.validateSameAddressType(trigger.new);
+                }
+                
+                 if ((Trigger.isAfter && Trigger.isUpdate)){
+                     
+                    AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
                 }
         
             }

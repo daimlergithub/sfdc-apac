@@ -24,17 +24,19 @@ public class TriggerUtil
     
     public static void handleTrigger(String aTriggerName)
     {
+        system.debug('Handle Trigger...' +aTriggerName);
         if(!userCreate){
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             userCreate = true;
         }
         Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
+        system.debug('Handle Trigger1...' +usr);
         if (isTriggerEnabled(triggerInfo) ) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
             if (triggerHandler != null) {
                 if(usr.profile.Name!='IntegrationAPI')
-                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
+                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete, trigger.isAfter);
                 else
                     triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
             }
@@ -43,11 +45,15 @@ public class TriggerUtil
     
     public static Trigger__c getTriggerInfo(String aTriggerName, User user) 
     {
+        system.debug('User Info...' +user);
+        system.debug('Entered Info...' +Trigger__c.getAll().values());
         if (aTriggerName != null) {
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
 
+                system.debug('Entered Handler...' +triggerInfo);
                 if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && ((user.Market__c.equals(triggerInfo.Market__c)) || (usr.profile.Name.equals('IntegrationAPI')))) {
 
+                    system.debug('Entered Handler...');
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
                     }
