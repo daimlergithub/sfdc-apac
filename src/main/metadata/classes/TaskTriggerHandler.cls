@@ -25,7 +25,7 @@ public class TaskTriggerHandler
     private static Id WCRTID;
     private static Id OBTRTID;
     
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         if(trigger.isAfter && trigger.isInsert)
         {
