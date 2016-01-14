@@ -6,7 +6,7 @@
 public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
     {
     
-            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
             {
                 /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */

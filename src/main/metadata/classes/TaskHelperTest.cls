@@ -41,8 +41,8 @@ private class TaskHelperTest {
     Public static void preparedTestData()
     {
 
-    acc = new Account(LastName = Acme, Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
-        acccase = new Account(LastName = Acme, Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+    acc = new Account(LastName = Acme, Area_Code__c = '010', Phone = '01391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        acccase = new Account(LastName = Acme, Area_Code__c = '010',Phone = '01391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert acc;
         insert acccase;
         
@@ -165,7 +165,7 @@ private class TaskHelperTest {
         
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
-        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
+        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '058392243', Name = 'testdealer');
         insert dealer;
         
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Contact_Number__c = '13701270002', Case_Dealer__c = dealer.Id);
@@ -185,10 +185,10 @@ private class TaskHelperTest {
         update task2;
         tasks1 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
             IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
-            AND Phone__c = '13701270000'];
+            AND Phone__c = '013701270000'];
         tasks2 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
             IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
-            AND Phone__c = '13701270001'];
+            AND Phone__c = '013701270001'];
         Test.stopTest();   
         system.assertEquals(dealer.RecordTypeId,DealerRecordtypeid);
         system.assertEquals(task1.WhatId,acc.id);
@@ -238,7 +238,7 @@ private class TaskHelperTest {
             // Person Contact                
             Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
             
-            Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
+            Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '01212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
             insert conComplaint;
             Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = dealer_name, Name = 'lai');
@@ -293,9 +293,9 @@ private class TaskHelperTest {
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
-                                      ZipCode__c='123456',
-                                      PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',
+                                     // ZipCode__c='一二三四五六七',
+                                      PersonMobilePhone = '01301111111',
+                                      PersonOtherPhone = '01301111122',
                                       RecordTypeId=accPerson_RecordTypeId
                                      );        
         insert(personAccount);        

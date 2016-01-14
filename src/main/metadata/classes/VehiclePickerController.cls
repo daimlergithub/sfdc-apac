@@ -189,7 +189,7 @@ global with sharing class VehiclePickerController {
                     tempSet.add(cm.Series__c);
                 } 
                 //Create Class model map.
-                tempSet = classModelMap.get(cm.Series__c);
+                tempSet = classModelMap.get(cm.Series__c+cm.Brand__c);
                 if(tempSet == null){
                     classModelMap.put(cm.Series__c+cm.Brand__c, new Set<String>{cm.Name});
                 }else{

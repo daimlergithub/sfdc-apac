@@ -16,7 +16,7 @@
 public class TriggerAccountTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if (Trigger.isBefore) {
             UtilAccount.beforeAccDealerInfo(Trigger.new,(Map<Id,Account>)Trigger.oldMap,Trigger.isInsert,Trigger.isUpdate);
