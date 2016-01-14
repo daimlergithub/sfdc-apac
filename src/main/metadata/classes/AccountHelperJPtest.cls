@@ -1,3 +1,9 @@
+/*
+    Type:      class
+    Purpose:   Test class for AccountHelperJP
+    Create By: Sudhir Kumar Acharya
+*/
+
 @isTest
 public with sharing class AccountHelperJPtest 
 {
@@ -7,8 +13,10 @@ public with sharing class AccountHelperJPtest
     Private static map<id,Account> accountMap =  new map<id,Account>();
     Private static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     
+    //Create Test data
 	public static void createTestData()
    {       
+	   //Create Custom Settings	
        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
        insert updatecustomsettings;
        
@@ -26,11 +34,13 @@ public with sharing class AccountHelperJPtest
                                     ZipCode__c='七七七七七七七',
                                		Mobile__c = '023482832',
                                		Mobile2__c = '035456232',
-									Primary_Email__c = 'Email1',                               
+									Primary_Email__c = 'Email1',
+                               		Primary_Fax__c = 'FAX2',
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
        accountlist.add(personAcc);
+       
     address=new Address__c();
         address.Address_Type__c='Home';
         address.Province__c='test1';
@@ -69,9 +79,12 @@ public with sharing class AccountHelperJPtest
         personAcc.Email2__c = 'testemail222@test.com';
         personAcc.Email3__c = 'testemail333@test.com';
         personAcc.Primary_Fax__c = 'FAX1';
+        personAcc.Primary_Email__c = 'Email2';
+        personAcc.Primary_Phone__c = 'Work Mobile';
         update personAcc;
-        //AccountHelperJP.updateAccountFields(accountlist, accountMap, false,true);
         test.stopTest();
+        personAcc = [select Primary_Phone_Display__c,Mobile2__c from Account ];
+        system.assertEquals(personAcc.Primary_Phone_Display__c, personAcc.Mobile2__c);
     }
     public static testmethod void testupdatePrimaryAddressdisplay()
     {
@@ -80,6 +93,22 @@ public with sharing class AccountHelperJPtest
         personAcc.Primary_Address_Reference__c=address.id;
         update personAcc;
         test.stopTest();
+        
+        personAcc = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
+        system.assertEquals(personAcc.Primary_Address_Display__c, address.Province__c+address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c+address.Address_Line_2__c);
+    }
+    public static testmethod void testupdatePrimaryContactInformation()
+    {
+        createTestData();
+        accountMap.putAll(accountlist);
+        test.startTest();
+        personAcc.Primary_Fax__c = 'FAX2';
+        personAcc.Primary_Email__c = 'Email3';
+        personAcc.Primary_Phone__c = 'Home Phone';
+        update personAcc;
+        test.stopTest();
+        personAcc = [select Primary_Email_Display__c,Email3__c from Account ];
+        system.assertEquals(personAcc.Primary_Email_Display__c, personAcc.Email3__c);
     }
     
 }

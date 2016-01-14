@@ -272,4 +272,3 @@ public static void updatePrimaryContactInformation(list<Account> listNewAccounts
         
     }
 }
-}
