@@ -19,8 +19,7 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '080801010',
                                     Area_Code__c = '010',
-                                    LastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='???????',
+                                    LastName = 'Beijing XING Services Limited - Alpha Review',                                    
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
     static Account account2 = new Account(Dealer_Default_Flag__c=true,
@@ -29,8 +28,7 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '080801011',
                                     Area_Code__c = '010',            
-                                    Name = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='???????',
+                                    Name = 'Beijing XING Services Limited - Alpha Review',                                  
                                     RecordTypeId=accPerson_RecordTypeId);
                                                                                                                                                                                                        
     static testMethod void myUnitTest() {

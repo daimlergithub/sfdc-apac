@@ -15,6 +15,11 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
                      
                     AddressHelperJP.validateSameAddressType(trigger.new);
                 }
+                
+                 if ((Trigger.isAfter && Trigger.isUpdate)){
+                     
+                    AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+                }
         
             }
         
