@@ -88,8 +88,8 @@ public class AccountHelper {
     {
     try
        {      
-         if(listAccounts !=null && listAccounts.isEmpty())	 
-		{		 
+         if(listAccounts !=null && !listAccounts.isEmpty())   
+        {        
         CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method = ' +listAccounts.size() );
         for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
@@ -129,7 +129,7 @@ public class AccountHelper {
             acc.Dealer_Street_Address_Country__c = acc.Dealer_Postal_Address_Country__c;        
         }*/
     }
-	}
+    }
     
     // US-CD-004 Flag the primary person account: the lastest inserted contact or updated contact is primary.
     newCompanyIds.remove(null);
@@ -427,19 +427,19 @@ public class AccountHelper {
     public static void auAfter_Insert_Update_Delete_Events(map<id,Account> accountNewMap,map<id,Account> accountOldMap,list<Account> listNewAccounts,list<Account> listOldAccounts,boolean isInsert,boolean isDelete,boolean isUpdate)
     {
     try
-       {
-                     
+       {      
         Set<String> companyIds = new Set<String>();
         Set<Id> dealerIds = new Set<Id>();
         List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
         Set<Id> personAccountIds = new Set<Id>();
         Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
         AccountContactRole temp;
-        
-        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {  
-              
-          CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size());  
-          
+        if((isUpdate && listNewAccounts!=null && !listNewAccounts.isEmpty()))
+        {
+        CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size()); 
+        ContactHelper.UpdateBusinessUnit(listNewAccounts);
+        }
+        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {        
             for(Account item : listOldAccounts){
                   if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
                     if(isDelete){

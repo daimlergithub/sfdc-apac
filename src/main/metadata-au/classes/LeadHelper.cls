@@ -611,7 +611,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-		//TODO commented this as part of SFDCAU-467,SFDCAU-493 Once Alan validates and confirms it will be uncommented.
+        //TODO commented this as part of SFDCAU-467,SFDCAU-493 Once Alan validates and confirms it will be uncommented.
         /*
         if(!serviceLeadsForImmediateNotice.isEmpty()) {
             sendServicePartsEmail(serviceLeadsForImmediateNotice, serviceDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -1016,14 +1016,20 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     }
     
     //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
+   //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
     public static void sendFinanceEmail (List<Lead__c> leadsForSend, Set<Id> DealerIds) {
         Map<Lead__c, List<String>> leadContactToEmails = new Map<Lead__c, List<String>>();
         Map<Lead__c, List<String>> leadContactCCEmails = new Map<Lead__c, List<String>>();
-        EmailTemplate financeTemplate = [select id ,developername from EmailTemplate where developername = 'Finance_Leads_Only'];
+        List<String> customerCareTOEmail = new List<String>();
         
+        Map<String,id> templateIds = new Map<String,id>(); 
+        for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Finance_Leads_Only','Marketing_Email_lead_Template','Non_marketing_Email_lead_Template')]){
+            templateIds.put(m.developername, m.id);
+        }
+                
          List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Finance_Lead_Type__c, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c 
                                      from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false];
-									 
+                                     
         //Added contact Inactive check in the above query 3/6/2015(SFDCAU-164)
         //TODO
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Finance_Lead_Type__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c 
@@ -1076,19 +1082,43 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
 
         List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
         List<Contact> MonkContacts = new List<Contact>();
+        String temlateId = '';
         for(Lead__c lead : leadContactToEmails.keyset()) 
         {
             Contact MonkContact = MonkCotact(leadContactToEmails.get(lead)[0]);
             MonkContacts.add(MonkContact);
+            
+               if((lead.Nature_of_Request__c== 'Key 2 Key') && (lead.Company_Account__r.FS_Opt_In_SMS__c =false) && (lead.Company_Account__r.FS_Opt_In_SMS2__c =false) && (lead.Company_Account__r.FS_Opt_In_Home_Phone__c =false) && (lead.Company_Account__r.FS_Opt_In_Home_Phone2__c =false) && (lead.Company_Account__r.FS_Opt_In_Work_Phone__c =false) && (lead.Company_Account__r.FS_Opt_In_Work_Phone2__c =false) && (lead.Company_Account__r.FS_Opt_In_Email__c =false) && (lead.Company_Account__r.FS_Opt_In_Email2__c =false)){
+                    temlateId = templateIds.get('Marketing_Email_lead_Template');
+                    customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                }
+               else if((lead.Nature_of_Request__c== 'Agility' || lead.Nature_of_Request__c== 'End of contract' || lead.Nature_of_Request__c== 'Early Payout' || lead.Nature_of_Request__c== 'Vehicle Purchase') && ((lead.Company_Account__r.FS_SMS_Last_Modified_By__c ==null) && (lead.Company_Account__r.FS_SMS_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_SMS_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_SMS_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_Date2__c !=null)))  
+                {
+                    temlateId = templateIds.get('Non_marketing_Email_lead_Template');
+                    customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                }
+                else
+                {
+                temlateId = templateIds.get('Finance_Leads_Only');
+                }
             Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
             leadContactToEmails.get(lead).remove(0);
+            
+             if((customerCareTOEmail !=null) && (!customerCareTOEmail.isempty()))
+             {
+            message.setToAddresses(customerCareTOEmail);      
+            }
+            else
+            {
+            message.setToAddresses(leadContactToEmails.get(lead));
+            }        
             message.setToAddresses(leadContactToEmails.get(lead));
             if(leadContactCCEmails.containsKey(lead)) 
             {
                 message.setCCAddresses(leadContactCCEmails.get(lead));
             }
-            message.setWhatId(lead.id);
-            message.setTemplateId(financeTemplate.Id);
+            message.setWhatId(lead.id);            
+            message.setTemplateId(temlateId); 
             message.setTargetObjectId(MonkContact.id);
             message.setsaveAsActivity(false);
             message.setOrgWideEmailAddressId(OrgWideEmailAddressId);
