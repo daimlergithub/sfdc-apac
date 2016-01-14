@@ -44,9 +44,11 @@ public class TriggerUtil
     public static Trigger__c getTriggerInfo(String aTriggerName, User user) 
     {
         if (aTriggerName != null) {
+			String profileName = user.profile.Name;
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
-
-                if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && ((user.Market__c.equals(triggerInfo.Market__c)) || (usr.profile.Name.equals('IntegrationAPI')))) {
+                if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI')))
+				
+				{
 
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
