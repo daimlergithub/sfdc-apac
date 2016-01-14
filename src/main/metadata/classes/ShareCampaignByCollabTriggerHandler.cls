@@ -1,7 +1,7 @@
 public class ShareCampaignByCollabTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         if (trigger.isBefore && trigger.isInsert) {
             UtilCampaignShareByCollaboration.shareToUserInsert(trigger.new);

@@ -1,7 +1,7 @@
 public class ShareAccountLinksToDealerTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         //------------------Added by bing---------------------    
         AccountSharingDataHandler handler = new AccountSharingDataHandler('Account_Link__c');

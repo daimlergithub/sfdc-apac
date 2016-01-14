@@ -11,7 +11,10 @@ public class TriggerUtil
     public static Boolean userCreate = false;
     public static User usr = new User();
     
-     
+    public static Boolean isTriggerEnabled(String aTriggerName) 
+    {
+        return isTriggerEnabled(getTriggerInfo(aTriggerName,usr));
+    }
     public static Boolean isTriggerEnabled(Trigger__c aTriggerInfo) 
     {
         if (aTriggerInfo != null) {
