@@ -29096,10 +29096,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Out of MBJ scope request</fullName>
                 <default>false</default>
             </values>
@@ -31188,10 +31184,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </picklistValues>
         <picklistValues>
             <picklist>Risk_classification__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>illegality</fullName>
                 <default>false</default>
