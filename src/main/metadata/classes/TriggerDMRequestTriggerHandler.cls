@@ -12,7 +12,7 @@
 public class TriggerDMRequestTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,DM_Request__c> oldmap = (Map<Id,DM_Request__c>)trigger.oldmap;
         Map<Id,DM_Request__c> newmap = (Map<Id,DM_Request__c>)trigger.newmap;

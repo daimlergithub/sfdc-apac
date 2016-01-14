@@ -18,7 +18,7 @@
 public class TriggerRecallTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Recall__c> oldmap = (Map<Id,Recall__c>)trigger.oldmap;
         Map<Id,Recall__c> newmap = (Map<Id,Recall__c>)trigger.newmap;

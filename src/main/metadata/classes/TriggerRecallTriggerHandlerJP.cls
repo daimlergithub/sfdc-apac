@@ -18,7 +18,7 @@
 public class TriggerRecallTriggerHandlerJP 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         // Implementation to addedd as required in market
     }

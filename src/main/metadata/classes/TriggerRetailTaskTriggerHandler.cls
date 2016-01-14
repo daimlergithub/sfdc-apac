@@ -10,7 +10,7 @@
 public class TriggerRetailTaskTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Retail_Task__c> oldmap = (Map<Id,Retail_Task__c>)trigger.oldmap;
         Map<Id,Retail_Task__c> newmap = (Map<Id,Retail_Task__c>)trigger.newmap;

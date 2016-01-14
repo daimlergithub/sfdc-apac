@@ -12,7 +12,7 @@
 public class TriggerCampaignMembersTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfters)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,CampaignMember> oldmap = (Map<Id,CampaignMember>)trigger.oldmap;
         Map<Id,CampaignMember> newmap = (Map<Id,CampaignMember>)trigger.newmap;

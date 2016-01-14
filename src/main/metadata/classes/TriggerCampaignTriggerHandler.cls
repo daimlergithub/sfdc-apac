@@ -14,7 +14,7 @@
 public class TriggerCampaignTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
         Map<Id,Campaign> newmap = (Map<Id,Campaign>)trigger.newmap;

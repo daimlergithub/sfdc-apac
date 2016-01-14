@@ -19,7 +19,7 @@
 public class UserTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
         Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;

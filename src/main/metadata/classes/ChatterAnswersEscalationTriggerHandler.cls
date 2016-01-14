@@ -1,7 +1,7 @@
 public class ChatterAnswersEscalationTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Question> oldmap = (Map<Id,Question>)trigger.oldmap;
         Map<Id,Question> newmap = (Map<Id,Question>)trigger.newmap;
