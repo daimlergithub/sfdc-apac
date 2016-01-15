@@ -5864,10 +5864,6 @@ Allows up to 240 characters --></help>
         <name>Total_Flex__c</name>
     </fields>
     <fields>
-        <label><!-- TransTest --></label>
-        <name>TransTest__c</name>
-    </fields>
-    <fields>
         <label>トラックサービス</label>
         <name>Trucks_Offered_Service__c</name>
         <picklistValues>
