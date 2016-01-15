@@ -6527,52 +6527,6 @@ Allows up to 240 characters --></help>
             <section>Profile Information</section>
         </sections>
     </layouts>-->
-    <layouts>
-        <layout>Revised Company Layout</layout>
-        <sections>
-            <label><!-- Address Information --></label>
-            <section>Address Information</section>
-        </sections>
-        <sections>
-            <label><!-- Company Information --></label>
-            <section>Company Information</section>
-        </sections>
-        <sections>
-            <label><!-- Contact Information --></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label><!-- Telematics Related Information --></label>
-            <section>Telematics Related Information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Dealer Layout-Admin</layout>
-        <sections>
-            <label><!-- Contact Information --></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Function --></label>
-            <section>Dealer Function</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Other Information --></label>
-            <section>Dealer Other Information</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Portal Related Information --></label>
-            <section>Dealer Portal Related Information</section>
-        </sections>
-        <sections>
-            <label><!-- GSSN Address Information --></label>
-            <section>GSSN Address Information</section>
-        </sections>
-        <sections>
-            <label><!-- GSSN Information --></label>
-            <section>GSSN Information</section>
-        </sections>
-    </layouts>
     <!--<layouts>
         <layout>Revised Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
