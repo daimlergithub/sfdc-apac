@@ -717,6 +717,9 @@
 			<sf:include name="AddToRetailCampaignControllerTet"/>
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
+			<sf:include name="TestUserCreate"/>
+			<sf:include name="CaseHelperJP"/>
+			<sf:include name="CaseHelperJPtest"/>
 			<sf:include name="CaseHelper"/>
 			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
