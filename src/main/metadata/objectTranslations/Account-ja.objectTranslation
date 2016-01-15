@@ -1091,6 +1091,10 @@
         <label>???????</label>
         <name>Data_Source__c</name>
         <picklistValues>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation><!-- 24 hours Touring Support --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>3rd party data</masterLabel>
             <translation><!-- 3rd party data --></translation>
         </picklistValues>
@@ -1107,8 +1111,8 @@
             <translation><!-- Dealers --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-mail</masterLabel>
-            <translation><!-- E-mail --></translation>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
@@ -1139,6 +1143,14 @@
             <translation><!-- Maybach call --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Call Catalogue</masterLabel>
+            <translation><!-- Mercedes Call Catalogue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation><!-- Mercedes call --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
             <translation><!-- Mercedes-Benz --></translation>
         </picklistValues>
@@ -1155,8 +1167,20 @@
             <translation><!-- Mercedes-Benz Owner Hotline --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
+            <translation><!-- Mercedes-Benz School of Excelence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz phone</masterLabel>
+            <translation><!-- Mercedes-Benz phone --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Model-Year Reference desk</masterLabel>
             <translation><!-- Model-Year Reference desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation><!-- My Mercedes --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
@@ -3126,6 +3150,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Incomplete --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
         </picklistValues>
@@ -3156,6 +3184,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Incomplete</masterLabel>
             <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -3798,6 +3830,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Incomplete --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
         </picklistValues>
@@ -3852,6 +3888,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Incomplete</masterLabel>
             <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -4724,8 +4764,8 @@ Allows up to 240 characters --></help>
         <label>???? Validity</label>
         <name>Mobile_Status__c</name>
         <picklistValues>
-            <masterLabel>Invalid Number</masterLabel>
-            <translation><!-- Invalid Number --></translation>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -5440,12 +5480,16 @@ Allows up to 240 characters --></help>
         <label>????Mail</label>
         <name>Primary_Email__c</name>
         <picklistValues>
-            <masterLabel>E-mail 1</masterLabel>
-            <translation><!-- E-mail 1 --></translation>
+            <masterLabel>E-mail1</masterLabel>
+            <translation><!-- E-mail1 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-mail2</masterLabel>
             <translation><!-- E-mail2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-mail3</masterLabel>
+            <translation><!-- E-mail3 --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5836,8 +5880,8 @@ Allows up to 240 characters --></help>
         <label>????? Validity</label>
         <name>SMS_MMS_IM_Status_2__c</name>
         <picklistValues>
-            <masterLabel>Invalid Number</masterLabel>
-            <translation><!-- Invalid Number --></translation>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -5874,10 +5918,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>F</masterLabel>
             <translation><!-- F --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6485,6 +6525,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Incomplete --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
         </picklistValues>
@@ -6499,6 +6543,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Incomplete</masterLabel>
             <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6518,26 +6566,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-   <!-- <layouts>
+    <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other information --></label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6645,174 +6693,182 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
+    <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-    <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other information --></label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-    <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-    <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
-    </layouts> -->
-    <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Main Contact and Consent --></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
             <section>Profile Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
