@@ -10,4 +10,3 @@ public class CaseTriggerHandlerJP
       // Implementation to addedd as required in market
     }
 }
-

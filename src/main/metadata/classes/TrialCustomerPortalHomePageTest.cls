@@ -2,14 +2,19 @@
 Public  with sharing class TrialCustomerPortalHomePageTest
 {
     
- public static string Crtid='createdbyid';
+public static string Crtid='createdbyid';
  
   @isTest static void TestTrialCustomerHomePageController()
  {
          Id Owner;  
          
         List<Account> accs = new List<Account>();
-        Owner = [SELECT id FROM User LIMIT 1].id;
+        User loggedInUser = [Select id,CreatedById,contactId,Contact.AccountId from User where id = :UserInfo.getUserId()];
+       
+        Owner = [SELECT id,CreatedById FROM User LIMIT 1].id;
+      /*  Solution sl = [select id,SolutionName,TimesUsed,LastModifiedDate 
+                        from Solution 
+                        order by TimesUsed desc limit 3];*/
         
         for(integer i = 0; i<1000; i++) {
         Account a = new Account();
@@ -22,9 +27,9 @@ Public  with sharing class TrialCustomerPortalHomePageTest
                          List<Solution> listsol=new List<Solution>();
                             for(integer i = 0; i<1000; i++) 
                             {
-                            Solution sol=new Solution();
+                          Solution sol=new Solution();
                           sol.SolutionName='test';
-                          sol.OwnerId = Owner;
+                          //sol.OwnerId = Owner;
                           listsol.add(sol);
                            } 
                         insert listsol;                           
@@ -38,7 +43,10 @@ Test.startTest();
   trial.previousSortField1=Crtid;
   trial.previousSortField2= Crtid;
   trial.previousSortField4= Crtid;
-  trial.SortSolutions();
+ // trial.SortProducts();
+ // trial.SortCases();
+  //trial.SortSolutions();
+//  trial.SortIdeas();
      Test.stopTest();
     System.assert(!listsol.isempty());
     System.assertNotEquals(null,accs);
