@@ -232,6 +232,8 @@
 				<sf:include name="TriggerUtil"/>
 				<sf:include name="TriggerUtilTest"/>
 				<sf:include name="AccountHelperJP"/>
+				<!--<sf:include name="CaseHelperJP"/>
+				<sf:include name="CaseHelperJPTest"/> -->
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
@@ -261,7 +263,7 @@
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 				<sf:include name="VehicleRelationshipHelperJP"/>
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
-				<sf:include name="CaseTriggerHandlerJP"/>
+				<!--<sf:include name="CaseTriggerHandlerJP"/> -->
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
@@ -718,8 +720,6 @@
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
 			<sf:include name="TestUserCreate"/>
-			<sf:include name="CaseHelperJP"/>
-			<sf:include name="CaseHelperJPtest"/>
 			<sf:include name="CaseHelper"/>
 			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
