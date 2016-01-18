@@ -27,7 +27,14 @@ Global with sharing class UtilConstant {
     public final static String CHRYSLER_COMPLAINT = 'Chrysler Complaint';
     public final static String MBDA_COMPLAINT = 'MBDA Complaint';
     public final static String RETAIL_CAMPAIGN = 'Retail Campaign';
+    //Case Rec Type
     public final static String INQUIRY = 'Inquiry';
+    public final static String OTHERS = 'Others';
+    public final static String COMPLAINT = 'Complaint';
+    public final static String CLAIM = 'Claim';
+    public final static String REQUEST = 'Request';
+    public final static String TOURING_SUPPORT = 'Touring Support';
+    public final static String FINANCE = 'Finance';
     public final static String CAC_IB_TL = 'CAC IB TL';
     public final static String SSI_TASK = 'SSI Task';
     public final static String WELCOME_CALL = 'Welcome Call';

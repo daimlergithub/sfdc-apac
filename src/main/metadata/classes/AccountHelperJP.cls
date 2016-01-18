@@ -150,9 +150,12 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
         system.debug('$$$$$$$');  
         set<id> addressid = new set<id>();        
         For(Account a:listNewAccounts)
-        {
+        {	
+            if(a.MD__c == 'JP')
+            {
                 If(a.Primary_Address_Reference__c != Null)
-                addressid.add(a.Primary_Address_Reference__c); 
+                addressid.add(a.Primary_Address_Reference__c);
+            }   
         }
         system.debug('^^^^^^^^'+addressid.size());
         If(!addressid.isEmpty())
@@ -161,14 +164,17 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 system.debug('_____________'+ addr.size());
         
         For(Account acc:listNewAccounts)
-        {
-                If(acc.Primary_Address_Reference__c !=Null || acc.Primary_Address_Reference__c != '')
-             {
-                 Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                 system.debug('!!!!!!!'+add.id);
-                 acc.Primary_Address_Display__c = add.Province__c + add.City__c + add.District__c + add.Block__c + add.Address_Line_1__c + add.Address_Line_2__c ; 
-             }
-        }
+        {	
+            if(acc.MD__c == 'JP')
+            {   
+                	If(acc.Primary_Address_Reference__c !=Null || acc.Primary_Address_Reference__c != '')
+             	{
+                	 Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                 	system.debug('!!!!!!!'+add.id);
+                 	acc.Primary_Address_Display__c = add.Province__c + add.City__c + add.District__c + add.Block__c + add.Address_Line_1__c + add.Address_Line_2__c ; 
+             	}
+            }              
+         }	
 
         }
 
