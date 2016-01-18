@@ -27,7 +27,7 @@ public class LeadHelper
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS)].Id;
     private static final String EmcOrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_EMC)].Id;
-   
+   private static Messaging.SingleEmailMessage message;
     // Insert the corresponding lead sharing records
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
     {
@@ -518,7 +518,7 @@ public class LeadHelper
     
 public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
     {
-        system.debug('>>>>'+listNewLeads);
+        system.debug('Leadtest>>>>'+listNewLeads);
         List<Lead__c> preparedLeads = new List<Lead__c>();
         for(Lead__c lead : listNewLeads) {
             preparedLeads.add(lead);
@@ -540,6 +540,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Lead__c> VehicleLeadsForImmediateNotice = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor24H = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor72H = new List<Lead__c>();
+        Set<Id> leadId = new Set<Id>();
         Set<Id> serviceDealerIdsForImmediateNotice = new Set<Id>();
         Set<Id> serviceDealerIdsFor24H = new Set<Id>();
         Set<Id> serviceDealerIdsFor72H = new Set<Id>();
@@ -550,7 +551,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
         
         for(Lead__c lead : listNewLeads) {
-            
+            system.debug('Lead1>>>>'+lead);
             if(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && (isInsert || isUpdate))
                {
                    if(lead.RecordTypeId == leadVehicleRt)
@@ -608,6 +609,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 else if(lead.RecordTypeId == leadFinanceRT) {
                     financeLeads.add(lead);
                     financeDealerIds.add(lead.Assigned_Dealer__c);
+                    leadId.add(lead.id);
+                         
+                    system.debug('testLead------------>'+financeLeads);
+                    system.debug('testLeaddealer------------>'+financeDealerIds);
                 }
             }
         }
@@ -625,7 +630,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         */
         if(!financeLeads.isEmpty()) 
         {
-            sendFinanceEmail(financeLeads, financeDealerIds);
+            sendFinanceEmail(financeLeads, financeDealerIds,leadId);
         }
         /*
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
@@ -913,7 +918,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         
         for(Lead__c lead : leadContactToEmails.keyset()) {
-            Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+            message = new Messaging.SingleEmailMessage();
             message.setToAddresses(leadContactToEmails.get(lead));
             if(leadContactCCEmails.containsKey(lead)) {
                 message.setCCAddresses(leadContactCCEmails.get(lead));
@@ -1017,11 +1022,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
     //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
    //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
-    public static void sendFinanceEmail (List<Lead__c> leadsForSend, Set<Id> DealerIds) {
+    public static void sendFinanceEmail (List<Lead__c> leadsForSend, Set<Id> DealerIds,set<ID> leadId) {
         Map<Lead__c, List<String>> leadContactToEmails = new Map<Lead__c, List<String>>();
         Map<Lead__c, List<String>> leadContactCCEmails = new Map<Lead__c, List<String>>();
+        map<id,lead__c> leadCompanyMap = new map<id,lead__c>();
+         map<id,lead__c> leadContactMap = new map<id,lead__c>();
         List<String> customerCareTOEmail = new List<String>();
-        
+         List<Contact> MonkContacts = new List<Contact>();
+        List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
         Map<String,id> templateIds = new Map<String,id>(); 
         for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Finance_Leads_Only','Marketing_Email_lead_Template','Non_marketing_Email_lead_Template')]){
             templateIds.put(m.developername, m.id);
@@ -1029,11 +1037,21 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 
          List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Finance_Lead_Type__c, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c 
                                      from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false];
-                                     
+             
+        system.debug('testcontacts+++++++'+listContact);
         //Added contact Inactive check in the above query 3/6/2015(SFDCAU-164)
         //TODO
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Finance_Lead_Type__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c 
                                                 from MBAuP_Contact__c where Dealer_Name__c in :DealerIds and Lead_Escalation_Recipient_Type__c != null];*/
+        
+        
+        
+               
+        list<lead__c> companyLeadlist= [select id,Company_Account__r.FS_Opt_In_SMS__c,Company_Account__r.FS_Opt_In_SMS2__c,Company_Account__r.FS_Opt_In_Home_Phone__c,Company_Account__r.FS_Opt_In_Home_Phone2__c,Company_Account__r.FS_Opt_In_Work_Phone__c,Company_Account__r.FS_Opt_In_Work_Phone2__c,Company_Account__r.FS_Opt_In_Email__c,Company_Account__r.FS_Opt_In_Email2__c,Company_Account__r.FS_SMS_Last_Modified_By__c,Company_Account__r.FS_SMS_Last_Modified_Date__c,Company_Account__r.FS_SMS_Last_Modified_By2__c,Company_Account__r.FS_SMS_Last_Modified_Date2__c,Company_Account__r.FS_Home_Phone_Last_Modified_Date__c,Company_Account__r.FS_Home_Phone_Last_Modified_By__c,Company_Account__r.FS_Home_Phone_Last_Modified_By2__c,Company_Account__r.FS_Home_Phone_Last_Modified_Date2__c,Company_Account__r.FS_Work_Phone_Last_Modified_By__c ,Company_Account__r.FS_Work_Phone_Last_Modified_Date__c,Company_Account__r.FS_Work_Phone_Last_Modified_By2__c,Company_Account__r.FS_Work_Phone_Last_Modified_Date2__c,Company_Account__r.FS_Email_Last_Modified_By__c,Company_Account__r.FS_Email_Last_Modified_Date__c,Company_Account__r.FS_Email_Last_Modified_By2__c,Company_Account__r.FS_Email_Last_Modified_Date2__c   from lead__c where id IN:leadId] ;
+        list<lead__c> contactLeadlist= [select id,Contact__r.FS_Opt_In_SMS__c,Contact__r.FS_Opt_In_SMS2__c,Contact__r.FS_Opt_In_Home_Phone__c,Contact__r.FS_Opt_In_Home_Phone2__c,Contact__r.FS_Opt_In_Work_Phone__c,Contact__r.FS_Opt_In_Work_Phone2__c,Contact__r.FS_Opt_In_Email__c,Contact__r.FS_Opt_In_Email2__c,Contact__r.FS_SMS_Last_Modified_By__c,Contact__r.FS_SMS_Last_Modified_Date__c,Contact__r.FS_SMS_Last_Modified_By2__c,Contact__r.FS_SMS_Last_Modified_Date2__c,Contact__r.FS_Home_Phone_Last_Modified_Date__c,Contact__r.FS_Home_Phone_Last_Modified_By__c,Contact__r.FS_Home_Phone_Last_Modified_By2__c,Contact__r.FS_Home_Phone_Last_Modified_Date2__c,Contact__r.FS_Work_Phone_Last_Modified_By__c ,Contact__r.FS_Work_Phone_Last_Modified_Date__c,Contact__r.FS_Work_Phone_Last_Modified_By2__c,Contact__r.FS_Work_Phone_Last_Modified_Date2__c,Contact__r.FS_Email_Last_Modified_By__c,Contact__r.FS_Email_Last_Modified_Date__c,Contact__r.FS_Email_Last_Modified_By2__c,Contact__r.FS_Email_Last_Modified_Date2__c   from lead__c where id IN:leadId] ;
+        
+        for (lead__c lead:companyLeadlist){leadCompanyMap.put(lead.id, lead); }
+        for (lead__c lead:contactLeadlist){leadContactMap.put(lead.id, lead); }
         
         for(Lead__c lead : leadsForSend) {
             List<String> TOemails = new List<String>();
@@ -1073,36 +1091,62 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
              //modified by SFDCAU-467 & SFDCAU-524 Defect End
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
+                system.debug('toemail++++++'+TOemails);
             }
             if(!CCemails.isEmpty()) 
             {
                 leadContactCCEmails.put(lead, CCemails);
             }
-        }        
-
-        List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
-        List<Contact> MonkContacts = new List<Contact>();
+            
+          
+       
+       
         String temlateId = '';
-        for(Lead__c lead : leadContactToEmails.keyset()) 
+        for(Lead__c lead1 : leadContactToEmails.keyset()) 
         {
             Contact MonkContact = MonkCotact(leadContactToEmails.get(lead)[0]);
             MonkContacts.add(MonkContact);
             
-               if((lead.Nature_of_Request__c== 'Key 2 Key') && (lead.Company_Account__r.FS_Opt_In_SMS__c =false) && (lead.Company_Account__r.FS_Opt_In_SMS2__c =false) && (lead.Company_Account__r.FS_Opt_In_Home_Phone__c =false) && (lead.Company_Account__r.FS_Opt_In_Home_Phone2__c =false) && (lead.Company_Account__r.FS_Opt_In_Work_Phone__c =false) && (lead.Company_Account__r.FS_Opt_In_Work_Phone2__c =false) && (lead.Company_Account__r.FS_Opt_In_Email__c =false) && (lead.Company_Account__r.FS_Opt_In_Email2__c =false)){
-                    temlateId = templateIds.get('Marketing_Email_lead_Template');
-                    customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
-                }
-               else if((lead.Nature_of_Request__c== 'Agility' || lead.Nature_of_Request__c== 'End of contract' || lead.Nature_of_Request__c== 'Early Payout' || lead.Nature_of_Request__c== 'Vehicle Purchase') && ((lead.Company_Account__r.FS_SMS_Last_Modified_By__c ==null) && (lead.Company_Account__r.FS_SMS_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_SMS_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_SMS_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Home_Phone_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Work_Phone_Last_Modified_Date2__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_By__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_Date__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_By2__c !=null) && (lead.Company_Account__r.FS_Email_Last_Modified_Date2__c !=null)))  
-                {
-                    temlateId = templateIds.get('Non_marketing_Email_lead_Template');
-                    customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
-                }
-                else
-                {
-                temlateId = templateIds.get('Finance_Leads_Only');
-                }
-            Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-            leadContactToEmails.get(lead).remove(0);
+             Lead__c accountLead  = new Lead__c();
+           if(lead.Contact__c !=null)
+                     {
+                             accountLead=leadContactMap.get(lead.id);  
+                                    if((lead.Nature_of_Request__c == 'Key 2 Key') && (accountLead.Contact__r.FS_Opt_In_SMS__c == false) && (accountLead.Contact__r.FS_Opt_In_SMS2__c == false) && (accountLead.Contact__r.FS_Opt_In_Home_Phone__c == false) && (accountLead.Contact__r.FS_Opt_In_Home_Phone2__c == false) && (accountLead.Contact__r.FS_Opt_In_Work_Phone__c == false) && (accountLead.Contact__r.FS_Opt_In_Work_Phone2__c == false) && (accountLead.Contact__r.FS_Opt_In_Email__c == false) && (accountLead.Contact__r.FS_Opt_In_Email2__c == false)){
+                                temlateId = templateIds.get('Marketing_Email_lead_Template');
+                                customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                            }
+                           else if((lead.Nature_of_Request__c== 'Agility' || lead.Nature_of_Request__c== 'End of contract' || lead.Nature_of_Request__c== 'Early Payout' || lead.Nature_of_Request__c== 'Vehicle Purchase') && ((accountLead.Contact__r.FS_SMS_Last_Modified_By__c ==null) && (accountLead.Contact__r.FS_SMS_Last_Modified_Date__c !=null) && (accountLead.Contact__r.FS_SMS_Last_Modified_By2__c !=null) && (accountLead.Contact__r.FS_SMS_Last_Modified_Date2__c !=null) && (accountLead.Contact__r.FS_Home_Phone_Last_Modified_Date__c !=null) && (accountLead.Contact__r.FS_Home_Phone_Last_Modified_By__c !=null) && (accountLead.Contact__r.FS_Home_Phone_Last_Modified_By2__c !=null) && (accountLead.Contact__r.FS_Home_Phone_Last_Modified_Date2__c !=null) && (accountLead.Contact__r.FS_Work_Phone_Last_Modified_By__c !=null) && (accountLead.Contact__r.FS_Work_Phone_Last_Modified_Date__c !=null) && (accountLead.Contact__r.FS_Work_Phone_Last_Modified_By2__c !=null) && (accountLead.Contact__r.FS_Work_Phone_Last_Modified_Date2__c !=null) && (accountLead.Contact__r.FS_Email_Last_Modified_By__c !=null) && (accountLead.Contact__r.FS_Email_Last_Modified_Date__c !=null) && (accountLead.Contact__r.FS_Email_Last_Modified_By2__c !=null) && (accountLead.Contact__r.FS_Email_Last_Modified_Date2__c !=null)))  
+                            {
+                                temlateId = templateIds.get('Non_marketing_Email_lead_Template');
+                                customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                            }
+                            else
+                            {
+                            temlateId = templateIds.get('Finance_Leads_Only');
+                            }
+                     }
+                     else
+                      {
+                                    accountLead =leadCompanyMap.get(lead.id);                         
+                            
+                                    if((lead.Nature_of_Request__c == 'Key 2 Key') && (accountLead.Company_Account__r.FS_Opt_In_SMS__c == false) && (accountLead.Company_Account__r.FS_Opt_In_SMS2__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Home_Phone__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Home_Phone2__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Work_Phone__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Work_Phone2__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Email__c == false) && (accountLead.Company_Account__r.FS_Opt_In_Email2__c == false)){
+                                temlateId = templateIds.get('Marketing_Email_lead_Template');
+                                customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                            }
+                           else if((lead.Nature_of_Request__c== 'Agility' || lead.Nature_of_Request__c== 'End of contract' || lead.Nature_of_Request__c== 'Early Payout' || lead.Nature_of_Request__c== 'Vehicle Purchase') && ((accountLead.Company_Account__r.FS_SMS_Last_Modified_By__c ==null) && (accountLead.Company_Account__r.FS_SMS_Last_Modified_Date__c !=null) && (accountLead.Company_Account__r.FS_SMS_Last_Modified_By2__c !=null) && (accountLead.Company_Account__r.FS_SMS_Last_Modified_Date2__c !=null) && (accountLead.Company_Account__r.FS_Home_Phone_Last_Modified_Date__c !=null) && (accountLead.Company_Account__r.FS_Home_Phone_Last_Modified_By__c !=null) && (accountLead.Company_Account__r.FS_Home_Phone_Last_Modified_By2__c !=null) && (accountLead.Company_Account__r.FS_Home_Phone_Last_Modified_Date2__c !=null) && (accountLead.Company_Account__r.FS_Work_Phone_Last_Modified_By__c !=null) && (accountLead.Company_Account__r.FS_Work_Phone_Last_Modified_Date__c !=null) && (accountLead.Company_Account__r.FS_Work_Phone_Last_Modified_By2__c !=null) && (accountLead.Company_Account__r.FS_Work_Phone_Last_Modified_Date2__c !=null) && (accountLead.Company_Account__r.FS_Email_Last_Modified_By__c !=null) && (accountLead.Company_Account__r.FS_Email_Last_Modified_Date__c !=null) && (accountLead.Company_Account__r.FS_Email_Last_Modified_By2__c !=null) && (accountLead.Company_Account__r.FS_Email_Last_Modified_Date2__c !=null)))  
+                            {
+                                temlateId = templateIds.get('Non_marketing_Email_lead_Template');
+                                customerCareTOEmail.add(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT);
+                            }
+                            else
+                            {
+                            temlateId = templateIds.get('Finance_Leads_Only');
+                            }
+               } 
+           
+           
+            message = new Messaging.SingleEmailMessage();
+            leadContactToEmails.get(lead1).remove(0);
             
              if((customerCareTOEmail !=null) && (!customerCareTOEmail.isempty()))
              {
@@ -1110,12 +1154,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
             else
             {
-            message.setToAddresses(leadContactToEmails.get(lead));
+            message.setToAddresses(leadContactToEmails.get(lead1));
             }        
-            message.setToAddresses(leadContactToEmails.get(lead));
+            message.setToAddresses(leadContactToEmails.get(lead1));
             if(leadContactCCEmails.containsKey(lead)) 
             {
-                message.setCCAddresses(leadContactCCEmails.get(lead));
+                message.setCCAddresses(leadContactCCEmails.get(lead1));
             }
             message.setWhatId(lead.id);            
             message.setTemplateId(temlateId); 
@@ -1123,6 +1167,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             message.setsaveAsActivity(false);
             message.setOrgWideEmailAddressId(OrgWideEmailAddressId);
             messages.add(message);
+        }
         }
 
         if(!messages.isEmpty())
@@ -1178,7 +1223,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     temlateId = templateIds.get('Finance_Leads_Only');
                 }
 
-                Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                 message = new Messaging.SingleEmailMessage();
                 emailInfos.get(lead.id).get('TO').remove(0);
                 message.setToAddresses(emailInfos.get(lead.id).get('TO'));
                 message.setCcAddresses(emailInfos.get(lead.id).get('CC'));
