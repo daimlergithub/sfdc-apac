@@ -793,10 +793,6 @@
             <translation><!-- Mercedes Call Catalogue --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mercedes Magazine Survey</masterLabel>
-            <translation><!-- Mercedes Magazine Survey --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
             <translation><!-- Mercedes call --></translation>
         </picklistValues>
@@ -6356,7 +6352,6 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>
     <layouts>
-   <!-- <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6404,7 +6399,7 @@ Allows up to 240 characters --></help>
             <section>Whole activities</section>
         </sections>
     </layouts>
-   <!-- <layouts>
+    <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6428,8 +6423,7 @@ Allows up to 240 characters --></help>
             <section>Whole activities</section>
         </sections>
     </layouts>
-    </layouts> 
-      <layouts>
+    <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6477,7 +6471,7 @@ Allows up to 240 characters --></help>
             <section>Whole activities</section>
         </sections>
     </layouts>
-    <!--<layouts>
+    <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6512,11 +6506,10 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Person Account Basic Information</section>
         </sections>
-
     </layouts>
-   <!-- <layouts>
+    <layouts>
         <layout>Person Account Layout</layout>
-      <layoutType>PersonAccount</layoutType>
+        <layoutType>PersonAccount</layoutType>
         <sections>
             <label></label>
             <section>Contact Information</section>
