@@ -793,6 +793,10 @@
             <translation><!-- Mercedes Call Catalogue --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Magazine Survey</masterLabel>
+            <translation><!-- Mercedes Magazine Survey --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
             <translation><!-- Mercedes call --></translation>
         </picklistValues>
@@ -6193,6 +6197,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
             <translation><!-- Invalid --></translation>
+			
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6212,7 +6217,7 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <!--<layouts>
+   <!-- <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6231,7 +6236,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6339,19 +6344,7 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
-        <layout>MBJCTI Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label><</label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts>
-    <layouts>
+   <!-- <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6398,8 +6391,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+   <!-- <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6422,8 +6415,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+   <!-- <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6470,8 +6463,8 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Whole activities</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+    <!--<layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6506,10 +6499,10 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Person Account Basic Information</section>
         </sections>
-    </layouts>
-    <layouts>
+    </layouts> -->
+   <!-- <layouts>
         <layout>Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
+      <layoutType>PersonAccount</layoutType>
         <sections>
             <label></label>
             <section>Contact Information</section>
@@ -6526,27 +6519,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Profile Information</section>
         </sections>
-    </layouts>-->
-    <!--<layouts>
-        <layout>Revised Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Main Contact and Consent</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>New Section</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts>-->
+    </layouts> -->
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
