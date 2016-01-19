@@ -428,16 +428,24 @@ public class AccountHelper {
     {
     try
        {      
+         list<Account> updateContacts = new list<Account>();
         Set<String> companyIds = new Set<String>();
         Set<Id> dealerIds = new Set<Id>();
         List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
         Set<Id> personAccountIds = new Set<Id>();
         Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
         AccountContactRole temp;
-        if((isUpdate && listNewAccounts!=null && !listNewAccounts.isEmpty()))
+           for (Account acc:accountNewMap.values()){
+               if(accountOldMap.get(acc.id).Business_Unit__c!=acc.Business_Unit__c){
+                   updateContacts.add(acc);
+               }
+               
+           }
+           
+        if((isUpdate && updateContacts!=null && !updateContacts.isEmpty()))
         {
-        CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size()); 
-        ContactHelper.UpdateBusinessUnit(listNewAccounts);
+        CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ updateContacts.size()); 
+        ContactHelper.UpdateBusinessUnit(updateContacts);
         }
         if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {        
             for(Account item : listOldAccounts){

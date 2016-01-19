@@ -245,7 +245,7 @@ public class ContactHelper {
     
         Set<Id> accountIds = new Set<Id>(); 
         map<id,Account> relatedAccounts =new map<id,Account>();
-        List<Account> dealersToUpdate = new List<Account>();
+        map<id,Account> dealersToUpdate = new map<id,Account>();
         
       
         for(Contact con : contacts) {   
@@ -260,13 +260,13 @@ public class ContactHelper {
             if(con.Inactive__c==false){
                 for(Account accnt:relatedAccounts.values()){         			   
                        accnt.DRM__c=con.FirstName + ' ' + con.LastName;
-                       dealersToUpdate.add(accnt);
+                       dealersToUpdate.put(accnt.id,accnt);
                 }
             }
         }        
         
         if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty()) { 
-            UtilSobject.updateSobjects(dealersToUpdate);
+            UtilSobject.updateSobjects(dealersToUpdate.values());
         }
        }
       catch(DMLException ex)
