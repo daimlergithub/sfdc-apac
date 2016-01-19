@@ -603,7 +603,6 @@
     </rules>
     <rules>
         <fullName>Set Case to Overdue</fullName>
-<<<<<<< HEAD
         <active>true</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -619,7 +618,6 @@
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-=======
         <actions>
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
@@ -627,6 +625,5 @@
         <active>false</active>
         <formula>IF(AND(DeadLine__c!=Null,DeadLine__c&lt;=NOW()), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
->>>>>>> 80681f09e2497ed8d5199ce1e793ec2eafa8a66c
     </rules>
 </Workflow>
