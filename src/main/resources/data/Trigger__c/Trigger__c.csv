@@ -24,3 +24,4 @@ TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequest
 TriggerLead,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,TriggerLeadTriggerHandlerJP,JP
 TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItemTriggerHandlerJP,JP
 TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLinkTriggerHandlerJP,JP
+Vehicle Relationship,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerJP,JP
