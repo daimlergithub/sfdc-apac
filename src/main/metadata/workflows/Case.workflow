@@ -622,7 +622,6 @@
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
         <formula>IF(AND(DeadLine__c!=Null,DeadLine__c&lt;=NOW()), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
