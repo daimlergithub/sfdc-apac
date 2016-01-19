@@ -5182,34 +5182,6 @@
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes-Benz School of Excelence</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes-Benz phone</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes Call Catalogue</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
