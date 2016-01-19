@@ -8993,7 +8993,7 @@
         <name>MB_Settlement_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- MD --></label>
+        <label><!-- Market discriminator --></label>
         <name>MD__c</name>
     </fields>
     <fields>

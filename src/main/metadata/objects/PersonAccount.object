@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
+    <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <recordTypes>
         <fullName>PersonAccount</fullName>
@@ -521,9 +522,32 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Lifecycle_Phase__c</picklist>
+            <values>
+                <fullName>Care</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Discard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Service Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Lead</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -531,15 +555,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cataloue Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-mail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -551,19 +571,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB website</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -571,15 +579,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Academy</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Company call</fullName>
+                <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -587,19 +595,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -608,10 +620,6 @@
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Road Assistant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1940,11 +1948,7 @@
         <picklistValues>
             <picklist>Email_Status_2__c</picklist>
             <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1970,11 +1974,7 @@
         <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1985,16 +1985,8 @@
         <picklistValues>
             <picklist>Email_Validity__c</picklist>
             <values>
-                <fullName>Blacklisted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
             </values>
             <values>
                 <fullName>Valid</fullName>
@@ -2003,10 +1995,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
-            <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
@@ -2019,16 +2007,8 @@
         <picklistValues>
             <picklist>Fax_Validity__c</picklist>
             <values>
-                <fullName>Blacklisted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
             </values>
             <values>
                 <fullName>Valid</fullName>
@@ -2385,11 +2365,7 @@
         <picklistValues>
             <picklist>Home_Phone_Status_2__c</picklist>
             <values>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2419,11 +2395,7 @@
         <picklistValues>
             <picklist>Individual_Home_Phone_Status__c</picklist>
             <values>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3334,19 +3306,7 @@
         <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
-                <fullName>Divorced</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Married</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Married w%2F Child%28ren%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Married w%2Fo Child</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3361,7 +3321,11 @@
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3824,8 +3788,12 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mandarin Chinese</fullName>
+                <fullName>Japanese</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Mandarin Chinese</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3844,6 +3812,59 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Email__c</picklist>
+            <values>
+                <fullName>E-mail1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Fax__c</picklist>
+            <values>
+                <fullName>FAX1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAX2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Phone__c</picklist>
+            <values>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3982,7 +4003,11 @@
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4010,10 +4035,6 @@
             </values>
             <values>
                 <fullName>F</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4128,27 +4149,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Driving Academy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ex-Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Prospect</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>VIP</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4464,11 +4465,7 @@
         <picklistValues>
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4479,11 +4476,7 @@
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5110,7 +5103,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-mail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7778,7 +7771,7 @@
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8359,7 +8352,7 @@
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
             <values>
-                <fullName>E-mail 1</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8540,7 +8533,7 @@
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8568,10 +8561,6 @@
             </values>
             <values>
                 <fullName>F</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9696,7 +9685,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-mail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12336,7 +12325,7 @@
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12917,7 +12906,7 @@
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
             <values>
-                <fullName>E-mail 1</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13098,7 +13087,7 @@
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13126,10 +13115,6 @@
             </values>
             <values>
                 <fullName>F</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14250,7 +14235,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-mail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16830,7 +16815,7 @@
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17411,7 +17396,7 @@
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
             <values>
-                <fullName>E-mail 1</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17592,7 +17577,7 @@
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17620,10 +17605,6 @@
             </values>
             <values>
                 <fullName>F</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18755,7 +18736,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-mail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21611,7 +21592,7 @@
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22192,7 +22173,7 @@
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
             <values>
-                <fullName>E-mail 1</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22373,7 +22354,7 @@
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
-                <fullName>Invalid Number</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22401,10 +22382,6 @@
             </values>
             <values>
                 <fullName>F</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22911,6 +22888,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-	<enableHistory>true</enableHistory>
     <sharingModel>Private</sharingModel>
 </CustomObject>
+

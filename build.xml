@@ -1,4 +1,4 @@
-<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
+﻿<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
 
 	<property name="file.checksums.local" value="timestamps-updated.log"/>
 	<!-- This property is for debugging only. If set to true, no changes will be applied to the metadata in SFDC and the local checksums file. -->
@@ -128,8 +128,8 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
-				<!--<sf:include name="PersonAccount"/>-->
 				<sf:include name="Account"/>
+				<sf:include name="PersonAccount"/>
 				<sf:include name="Address__c"/>
 				<sf:include name="Vehicle__c"/>
 				<sf:include name="Vehicle_Relationship__c"/>
@@ -232,6 +232,9 @@
 				<sf:include name="TriggerUtil"/>
 				<sf:include name="TriggerUtilTest"/>
 				<sf:include name="AccountHelperJP"/>
+				<sf:include name="TestUserCreate"/>
+				<sf:include name="CaseHelperJP"/>
+				<sf:include name="CaseHelperJPTest"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
