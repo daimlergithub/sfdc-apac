@@ -165,6 +165,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Overdue_to_Yes</fullName>
+        <field>Overdue__c</field>
+        <literalValue>Y</literalValue>
+        <name>Update Overdue to Yes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Support_Dealer1_Email_FlgToFalse</fullName>
         <field>Send_Email_Support_Dealer1_Keeper__c</field>
         <literalValue>0</literalValue>
@@ -521,5 +530,23 @@
             <value>True</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Case to Overdue</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Overdue_to_Yes</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>
