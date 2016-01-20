@@ -238,7 +238,7 @@ public class ContactHelper {
         system.debug('End of method @@@@@@@ ');
     }
     
-    public static void CopyFirstNameLastNameToDRM(List<Contact> contacts) {
+        public static void CopyFirstNameLastNameToDRM(List<Contact> contacts) {
     try
     {
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
@@ -251,23 +251,26 @@ public class ContactHelper {
         for(Contact con : contacts) {   
             accountIds.add(con.AccountId);
         }
+       
         for(Account ac:[select Id,DRM__c from Account where  Id in: accountIds])
         {
             relatedAccounts.put(ac.id, ac);
             
         }
+       
         for(Contact con : contacts) { 
             if(con.Inactive__c==false){
-                for(Account accnt:relatedAccounts.values()){         			   
-                       accnt.DRM__c=con.FirstName + ' ' + con.LastName;
-                       dealersToUpdate.put(accnt.id,accnt);
-                }
+                       relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
+                       dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
+                
             }
         }        
         
-        if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty()) { 
-            UtilSobject.updateSobjects(dealersToUpdate.values());
+        if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty() && dealersToUpdate.values().size() > 0) { 
+            
+               UtilSobject.updateSobjects(dealersToUpdate.values());
         }
+        
        }
       catch(DMLException ex)
       {
