@@ -226,6 +226,7 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
+			   <sf:include name="AddressSearchValidation"/>
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -272,6 +273,9 @@
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
+				<sf:include name="AddressSearchValidationController"/>
+				<sf:include name="UtilWebservice"/>
+				<sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			</sf:typeset>
 		</deploy>
     </target>
