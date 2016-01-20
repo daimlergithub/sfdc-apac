@@ -26,11 +26,8 @@
 public class ContactTriggerHandler 
     implements TriggerHandlerIf
 {
-  public static boolean recursive = false;
     public void handleTrigger()
     {
-     
-       
         if (trigger.isBefore && trigger.isInsert) {
             // Validate Gate Keeper
             ContactHelper.ValidateGateKeeper(Trigger.new);
@@ -45,15 +42,14 @@ public class ContactTriggerHandler
         }
         
                      
-        if (trigger.isAfter && trigger.isInsert && !recursive) {
-            recursive=true;
+        if (trigger.isAfter && trigger.isInsert) {
             ContactHelper.AfterInsertUpdateEvents(trigger.new);
             ContactHelper.CopyFirstNameLastNameToDRM(trigger.new);            
         }
        
         if (trigger.isAfter && trigger.isUpdate) {        
             ContactHelper.AfterInsertUpdateEvents(trigger.new);  
-			ContactHelper.CopyFirstNameLastNameToDRM(trigger.new);
+            ContactHelper.CopyFirstNameLastNameToDRM(trigger.new);
         }
            
         
