@@ -17,7 +17,7 @@ private class VehicleSharingTest {
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
         
-        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
+        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
         insert acc;      
      
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');

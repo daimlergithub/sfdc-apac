@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -15,14 +15,14 @@
     </allowedSubmitters>
     <approvalPageFields>
         <field>CaseNumber</field>
-        <field>Owner</field>
-        <field>Case_Class__c</field>
         <field>Subject</field>
+        <field>Case_Class__c</field>
         <field>Account</field>
-        <field>Case_SubType__c</field>
         <field>Case_Type__c</field>
+        <field>Case_SubType__c</field>
         <field>Priority</field>
         <field>Risk_classification__c</field>
+        <field>Owner</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
@@ -53,7 +53,7 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ</name>
+                <name>MBJ_CRM_Department</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -115,7 +115,7 @@
     <label>Case Closing Approval 1</label>
     <recallActions>
         <action>
-            <name>Change_Status_to_Response_approved</name>
+            <name>Change_Status_to_New</name>
             <type>FieldUpdate</type>
         </action>
     </recallActions>

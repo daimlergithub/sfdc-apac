@@ -3,6 +3,9 @@
     <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
         <submitter>Operator</submitter>
         <type>role</type>
     </allowedSubmitters>
@@ -17,7 +20,7 @@
         <field>Contact__c</field>
         <field>Assigned_Dealer__c</field>
         <field>Lead_Desired_Service__c</field>
-        <field>R_Check_Purchase_Time__c</field>
+        <field>Purchase_Time__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
@@ -53,7 +56,7 @@
             <value>New</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Lead__c.Is_Assigned__c</field>
+            <field>Lead__c.R_IsAssigned__c</field>
             <operation>equals</operation>
             <value>1</value>
         </criteriaItems>
