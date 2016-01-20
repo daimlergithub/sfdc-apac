@@ -20,7 +20,7 @@
         <field>Contact__c</field>
         <field>Assigned_Dealer__c</field>
         <field>Lead_Desired_Service__c</field>
-        <field>R_Check_Purchase_Time__c</field>
+        <field>Purchase_Time__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
