@@ -3,6 +3,9 @@
     <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
         <submitter>Operator</submitter>
         <type>role</type>
     </allowedSubmitters>
@@ -53,7 +56,7 @@
             <value>New</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Lead__c.Is_Assigned__c</field>
+            <field>Lead__c.R_IsAssigned__c</field>
             <operation>equals</operation>
             <value>1</value>
         </criteriaItems>

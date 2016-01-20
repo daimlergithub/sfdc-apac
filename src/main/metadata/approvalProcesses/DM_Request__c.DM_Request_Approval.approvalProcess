@@ -3,6 +3,9 @@
     <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
         <submitter>Operator</submitter>
         <type>role</type>
     </allowedSubmitters>
@@ -77,6 +80,6 @@
             <type>FieldUpdate</type>
         </action>
     </recallActions>
-    <recordEditability>AdminOnly</recordEditability>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>
