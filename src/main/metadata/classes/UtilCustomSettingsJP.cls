@@ -61,7 +61,7 @@ public  class UtilCustomSettingsJP {
    Trigger__c TriggerAccount=new Trigger__c(Name='TriggerAccount',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerAccount);
     
-   Trigger__c TriggerBatchJob=new Trigger__c(Name='TriggerBatchJob',Trigger_Name__c='TriggerBatchJob',Trigger_Handler__c='TriggerBatchJobTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+   Trigger__c TriggerBatchJob=new Trigger__c(Name='TriggerBatchJob',Trigger_Name__c='TriggerBatchJob',Trigger_Handler__c='TriggerBatchJobTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerBatchJob);
    
    Trigger__c TriggerCampaign=new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
@@ -82,12 +82,6 @@ public  class UtilCustomSettingsJP {
    Trigger__c TriggerCampaignPackage=new Trigger__c(Name='TriggerCampaignPackage',Trigger_Name__c='TriggerCampaignPackage',Trigger_Handler__c='TriggerCampaignPackageTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerCampaignPackage);
    
-   Trigger__c TriggerCase=new Trigger__c(Name='TriggerCase',Trigger_Name__c='TriggerCase',Trigger_Handler__c='TriggerCaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   updatecustomsetting.add(TriggerCase);
-   
-   Trigger__c TriggerComplaintDescription=new Trigger__c(Name='TriggerComplaintDescription',Trigger_Name__c='TriggerComplaintDescription',Trigger_Handler__c='TriggerComplaintDescriptionHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   updatecustomsetting.add(TriggerComplaintDescription);
-   
    Trigger__c TriggerDealerLocator=new Trigger__c(Name='TriggerDealerLocator',Trigger_Name__c='TriggerDealerLocator',Trigger_Handler__c='TriggerDealerLocatorHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerDealerLocator);
    
@@ -97,8 +91,6 @@ public  class UtilCustomSettingsJP {
    Trigger__c TriggerLead=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
    updatecustomsetting.add(TriggerLead);
    
-   Trigger__c TriggerPackageItem=new Trigger__c(Name='TriggerPackageItem',Trigger_Name__c='TriggerPackageItem',Trigger_Handler__c='TriggerPackageItemTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   updatecustomsetting.add(TriggerPackageItem);
    
    return updatecustomsetting;
    }

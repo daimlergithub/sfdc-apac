@@ -235,6 +235,7 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="UtilCustomSettingsKernel"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
