@@ -10170,6 +10170,16 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>TransTest__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Primary_Address_Reference__r.Province__c)</formula>
+        <label>TransTest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trucks_Offered_Service__c</fullName>
         <externalId>false</externalId>
         <label>Trucks Offered Service</label>
@@ -10273,6 +10283,14 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UCID_Sequence__c</fullName>
+        <displayFormat>0{0000000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>UCID Sequence</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>UCID__c</fullName>

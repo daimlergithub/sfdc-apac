@@ -102,6 +102,69 @@
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Change_Status_to_Final_Approval_Rejecte</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Change Status to &apos;Final Approval Rejecte</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Final_approval_don</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Change Status to &apos;Final approval don</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Final_approval_done</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Change Status to &apos;Final approval done&apos;</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Final_approval_rejec</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Change Status to &apos;Final approval rejec</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Final_approval_reject</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Change Status to &apos;Final approval reject</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Response_approved</fullName>
+        <field>Status</field>
+        <literalValue>Response approved</literalValue>
+        <name>Change Status to &apos;Response approved&apos;</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status_to_Waiting_for_final_appr</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Change Status to &apos;Waiting for final appr</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>0</literalValue>
@@ -163,6 +226,22 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Overdue_to_Yes</fullName>
+
+        <field>Overdue__c</field>
+        <literalValue>Y</literalValue>
+
+        
+
+        <name>Update Overdue to Yes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+
+        <reevaluateOnChange>false</reevaluateOnChange>
+
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Support_Dealer1_Email_FlgToFalse</fullName>
@@ -522,4 +601,4 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-</Workflow>
+ </Workflow>

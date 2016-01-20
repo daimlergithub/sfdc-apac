@@ -1359,6 +1359,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>LastRunDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastRunDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Lead_Creation_flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1450,6 +1458,14 @@
     <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>NextRunDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextRunDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>
@@ -11554,11 +11570,32 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>“BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Only_Started_Campaign_can_be_activated</fullName>
+        <active>true</active>
+        <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
+Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
+        <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
+&amp;&amp; IsActive
+&amp;&amp; (  RecordType.Name = "CAC CRM Campaign" || RecordType.Name = "Central Marketing Campaign" || RecordType.Name = "CAS Marketing Campaign")</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
         <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Previous_Campaign_Execution_Parent</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,
+NOT(ISBLANK(Previous_Campaign_Execution__c))
+)</errorConditionFormula>
+        <errorDisplayField>Previous_Campaign_Execution__c</errorDisplayField>
+        <errorMessage>Previous campaign execution only belong to this parent campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SMS_Task_Verified_is_True</fullName>
@@ -11583,6 +11620,17 @@ ISPICKVAL(Execution_Type__c ,"eDM")
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>not_check_active_when_new_cac_camapgin</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+RecordType.Id = '01290000000rXlr',
+ISNEW(),
+IsActive = True
+)</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
