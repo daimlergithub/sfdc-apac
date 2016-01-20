@@ -269,6 +269,8 @@
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
 				<sf:include name="TaskDeletingControllerTest"/>
+				<sf:include name="LeadHelperJP"/>
+				<sf:include name="LeadHelperJPTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
