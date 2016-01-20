@@ -582,10 +582,6 @@
                 <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
-            <!--<values>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-            </values> -->
             <values>
                 <fullName>Mercedes call</fullName>
                 <default>false</default>

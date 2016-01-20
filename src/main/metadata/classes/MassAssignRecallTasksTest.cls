@@ -12,11 +12,11 @@ private static string OBTask='OB Task';
 
 Public static void preparedTestData()
 {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-   insert updatecustomsettings;
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
 
-newUsers = new List<User>();
-         user1  = new User();
+        newUsers = new List<User>();
+        user1  = new User();
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.runAs ( thisUser ) {
         
@@ -46,18 +46,21 @@ newUsers = new List<User>();
             
             insert newUsers;
             
+            system.debug('New Users ...' +newUsers);
+            system.debug('New Users count...' +newUsers.size());
+            
             user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
 
         }
          
          pg = new Campaign(Name='Test');
-        insert pg;
+         insert pg;
         
           acc = new Account(            
             LastName = 'Test-Customer',          
             Phone = '01234567',
             Area_Code__c = '010',                         
-            ZipCode__c = '7123456',            
+           // ZipCode__c = '7123456',            
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()        
         );        
         insert acc;
@@ -155,7 +158,7 @@ newUsers = new List<User>();
         maCon.th.By_Number__c = null;
         maCon.assignTasks();
 
-        System.runAs ( user1 ) {  
+        //System.runAs ( user1 ) {  
 
             maCon.applyFilters();
             //System.assertEquals(maCon.th.Tasks_Found__c, 200);  
@@ -171,7 +174,7 @@ newUsers = new List<User>();
             maCon.assignTasks();
             
             
-        }
+        //}
         
         Integer u2Count = [Select Count() From Task Where OwnerId = :newUsers[2].Id];
         System.assertEquals(u2Count, 0);  

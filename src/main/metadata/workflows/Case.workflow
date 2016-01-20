@@ -147,10 +147,10 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Change_Status_to_Response_approved</fullName>
+        <fullName>Change_Status_to_New</fullName>
         <field>Status</field>
-        <literalValue>Response approved</literalValue>
-        <name>Change Status to &apos;Response approved&apos;</name>
+        <literalValue>New</literalValue>
+        <name>Change Status to New</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -229,19 +229,12 @@
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Overdue_to_Yes</fullName>
-
         <field>Overdue__c</field>
         <literalValue>Y</literalValue>
-
-        
-
         <name>Update Overdue to Yes</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-
-        <reevaluateOnChange>false</reevaluateOnChange>
-
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Support_Dealer1_Email_FlgToFalse</fullName>
@@ -601,4 +594,17 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
- </Workflow>
+    <rules>
+        <fullName>Set Case to Overdue</fullName>
+        <actions>
+            <name>Update_Overdue_to_Yes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>
