@@ -10,7 +10,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
     static testmethod void runTriggerCampaignMembers(){
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-		 insert updatecustomsettings;
+         insert updatecustomsettings;
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
         Id caeSim_RecordTypeId = cpRecordTypeMap_test.get('Campaign Execution - Simple').getRecordTypeId();                       // CAC Campaign
@@ -30,7 +30,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
-                                      ZipCode__c='1234567',
+                                      ZipCode__c='五五五五五五五',
                                       PersonMobilePhone='1235678910',
                                       RecordTypeId=accPerson_RecordTypeId
                                      );        
