@@ -191,7 +191,7 @@
             <td><apex:inputField value="{!accountList_details.Email2__c}"/></td>                           
             <td><apex:inputField value="{!accountList_details.Email_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
+                <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Email_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By2__c}</apex:outputLink>
@@ -454,9 +454,6 @@
             <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date2__c}"/></td>        
         </tr>  
      </table> 
-      <apex:pageBlockButtons location="bottom">
-         <apex:commandbutton value="Update"  action="{!updateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rerender="pnlId,showmsg" onComplete="refreshParentPage();"/>                 
-     </apex:pageBlockButtons>
       </apex:pageBlock>
       <apex:outputPanel id="tstpopup">  
       <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>             
