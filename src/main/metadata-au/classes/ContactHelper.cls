@@ -260,8 +260,10 @@ public class ContactHelper {
        
         for(Contact con : contacts) { 
             if(con.Inactive__c==false){
+			  if(relatedAccounts.containsKey(con.AccountId)){
                        relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
                        dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
+					   }
                 
             }
         }        
