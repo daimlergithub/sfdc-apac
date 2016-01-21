@@ -140,6 +140,7 @@
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
+			   <sf:include name="AddressSearchValidation"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -148,6 +149,9 @@
 			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
+			   <sf:include name="AddressSearchValidationController"/>
+			   <sf:include name="UtilWebservice"/>
+			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -226,6 +230,7 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
+			   
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -235,6 +240,7 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="UtilCustomSettingsKernel"/>
 				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
@@ -269,6 +275,9 @@
 				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
 				<sf:include name="TaskDeletingControllerTest"/>
+				<sf:include name="LeadHelperJP"/>
+				<sf:include name="LeadHelperJPTest"/>
+				
 			</sf:typeset>
 		</deploy>
     </target>

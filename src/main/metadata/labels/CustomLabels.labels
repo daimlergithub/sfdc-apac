@@ -79,6 +79,13 @@
         <value>There is a same address type already exist.</value>
     </labels>
     <labels>
+        <fullName>AddressValidation_callout_failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressValidation callout failure</shortDescription>
+        <value>Webservice Callout failed: Invalid Org Id ,Please contact system  Administrator</value>
+    </labels>
+    <labels>
         <fullName>Address_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -91,6 +98,28 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Address 2</value>
+    </labels>
+    <labels>
+        <fullName>Address_Search</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Search</shortDescription>
+        <value>Address Search</value>
+    </labels>
+    <labels>
+        <fullName>Address_type_Validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address type Validation</shortDescription>
+        <value>Address type cannot be empty</value>
+    </labels>
+    <labels>
+        <fullName>Address_validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address validation</shortDescription>
+        <value>Address is not Validated ,Please click on Validate by entering proper Zipcode</value>
     </labels>
     <labels>
         <fullName>Aftersales</fullName>
@@ -3133,6 +3162,14 @@
         <value>Publish Date</value>
     </labels>
     <labels>
+        <fullName>Validate</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validate</shortDescription>
+        <value>Validate</value>
+    </labels>
+    <labels>
         <fullName>Vehicle</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3307,6 +3344,20 @@
         <value>七七七七七七七</value>
     </labels>
     <labels>
+        <fullName>Zipcode_not_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode not found</shortDescription>
+        <value>Address search did not return any value, please re enter correct Zip code</value>
+    </labels>
+    <labels>
+        <fullName>Zipcode_validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode validation</shortDescription>
+        <value>Zipcode :Please enter any  7 digit number</value>
+    </labels>
+    <labels>
         <fullName>apex_AccountMerge_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3326,6 +3377,14 @@
         <protected>false</protected>
         <shortDescription>applicationpdf</shortDescription>
         <value>application/pdf</value>
+    </labels>
+    <labels>
+        <fullName>contact_information</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Need contact Information</shortDescription>
+        <value>Please Enter Atleast one contact Information</value>
     </labels>
     <labels>
         <fullName>displayOnly</fullName>

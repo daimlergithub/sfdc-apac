@@ -304,18 +304,18 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Update_CheckFlag_After_48H</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>48</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
                 <name>Update_CheckFlag_After_72H</name>
                 <type>FieldUpdate</type>
             </actions>
             <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_CheckFlag_After_48H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -600,8 +600,11 @@
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>IF(AND(DeadLine__c!=Null,DeadLine__c&lt;=NOW()), true, false)</formula>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
