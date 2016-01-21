@@ -15,25 +15,50 @@ public with sharing class AddressHelperJP {
         * @return     : void
         * @see:       : AddressHelperJP
         */
-            public static void validateSameAddressType(List<Address__c> triggerNew){
-                set<id> accountId = new set<id>(); 
-                
+            public static void validateSameAddressType(List<Address__c> triggerNew,map<id,Address__c> addressOldMap,boolean isInsert,boolean isUpdate)
+            {
+               set<id> accountId = new set<id>(); 
+               if(IsInsert)
+               {
                 //get the related accountIds
                 for(Address__c add:triggerNew){
                     accountId.add(add.Customer__c);
                 }                    
+
+                    for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
+                        for(Address__c addType:triggerNew)
+                        {
+                            if((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))
+                            {                  
+                            addType.Address_Type__c.adderror(Label.AddressType_Validation);
+                            }
+                        }
                 
-                for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
-                    for(Address__c addType:triggerNew){
-                        if((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null)){                  
-                           addType.Address_Type__c.adderror(Label.AddressType_Validation);
+                    }
+            
+                }
+                if(isUpdate)
+                {
+                    for(Address__c add:triggerNew)
+                    {
+                        Address__c oldaddress = addressOldMap.get(add.Id);
+                        if(oldaddress.Address_Type__c!= add.Address_Type__c)
+                        {
+                            accountId.add(add.Customer__c);
                         }
                     }
+                    for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
+                        for(Address__c addType:triggerNew)
+                        {
+                            if((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null ))
+                            {                  
+                            addType.Address_Type__c.adderror(Label.AddressType_Validation);
+                            }
+                        }
                 
-                }
-            
-            }
-    
+                    }
+                } 
+            } 
       
        /**             
         * @Description: update Primary_Address_Display__c field on account on update of address

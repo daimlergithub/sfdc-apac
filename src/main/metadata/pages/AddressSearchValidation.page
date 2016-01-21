@@ -1,0 +1,179 @@
+<!-- Page: -->
+<apex:page standardController="Account" extensions="AddressSearchValidationController">
+    
+    <apex:pageMessages id="msgs" /> 
+    
+    <script type="text/javascript">
+    function CallSetRecType()
+    {
+        
+        setRecType();
+    }
+    
+    
+    
+    
+    </script>
+   <style type="text/css">
+       
+       
+       
+    </style>
+    
+    <apex:form id="form">
+        
+        
+        <div  >
+            <apex:pageBlock mode="edit" title="New Account Information"   >
+                <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
+                <apex:pageBlockSection >
+                    
+                    
+                    
+                    <apex:pageBlockSectionItem >
+                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}" />  
+                       
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            
+                            <apex:selectList id="selectRecType" value="{!RecordType}" size="1" onchange="CallSetRecType()" required="true" >
+                                
+                                <apex:selectOption itemValue="Select" itemLabel="--Select--" />
+                                <apex:selectOption itemValue="Person Account" itemLabel="Person Account"/>
+                                <apex:selectOption itemValue="Company" itemLabel="Company"/>
+                                <apex:actionSupport event="onchange" reRender="companyBlock,PersonAccBlock,Savebtn"   />
+                            </apex:selectList>
+                        </apex:outputPanel>                    
+                        
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                
+                
+                <apex:pageBlockSection id="companyBlock" title="Company Account Information" rendered="{!If(RecordType == 'Company' ,true,false)}" >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Account Name"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                            <apex:inputText value="{!objAccount.Name}" />
+                        </apex:outputPanel>
+                         </apex:pageBlockSectionItem> 
+                   <!-- <apex:inputField value="{!objAccount.Name}" /> -->
+                    <apex:inputField value="{!objAccount.Company_Name__c}" />
+                    <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />                
+                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
+                    <apex:inputField value="{!objAccount.Legal_Form_Position__c}" />
+                    <apex:inputField value="{!objAccount.Individual_Home_Phone__c}" />
+                    <apex:inputField value="{!objAccount.Mobile__c}" />
+                    <apex:inputField value="{!objAccount.Work_Phone__c}" />
+                    <apex:inputField value="{!objAccount.Mobile2__c}" />
+                    <apex:inputField value="{!objAccount.Home_Phone_2__c}" />
+                    <apex:inputField value="{!objAccount.Phone}" />
+                    <apex:inputField value="{!objAccount.Email__c}" />
+                    <apex:inputField value="{!objAccount.Email2__c}" />
+                    
+                </apex:pageBlockSection>
+                
+                
+                <apex:pageBlockSection id="PersonAccBlock" title="Person Account Information" rendered="{!If(RecordType == 'Person Account' ,true,false)}">                
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Last Name"/>
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                        <apex:inputText value="{!objPersonAccount.LastName}" />
+                            </apex:outputPanel> 
+                    </apex:pageBlockSectionItem>                
+                    <apex:pageBlockSectionItem >
+                        
+                        <apex:outputLabel value="First Name"/>
+                        <apex:inputText value="{!objPersonAccount.FirstName}" />
+                        
+                    </apex:pageBlockSectionItem> 
+                  <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
+                    <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
+                    <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
+                    <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                     
+                    <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
+                    <apex:inputField value="{!objPersonAccount.Mobile__c}" />
+                    <apex:inputField value="{!objPersonAccount.Work_Phone__c}" />
+                    <apex:inputField value="{!objPersonAccount.Mobile2__c}" />
+                    <apex:inputField value="{!objPersonAccount.Home_Phone_2__c}" />
+                    <apex:inputField value="{!objPersonAccount.Phone}" />
+                    <apex:inputField value="{!objPersonAccount.Email__c}" />
+                    <apex:inputField value="{!objPersonAccount.Email2__c}" />
+                    <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
+                    <apex:inputField value="{!objPersonAccount.Loyalty_Card_No__c}" />
+                    
+                </apex:pageBlockSection>
+                
+                
+                <apex:pageBlockSection title="Address Information" >
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address Type"/>
+                        <apex:inputField value="{!AddressObj.Address_Type__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Zip Code"/>
+                        <apex:inputField value="{!AddressObj.ZipCode__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Prefecture"/>
+                        <apex:inputField value="{!AddressObj.Province__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>             
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="City"/>
+                        <apex:inputField value="{!AddressObj.City__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem> 
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Town"/>
+                        <apex:inputField value="{!AddressObj.District__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Block"/>
+                        <apex:inputField value="{!AddressObj.Block__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address Line 1"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Address Line 2"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_2__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton action="{!AddressSearchbyZipCode}"  value="Address Search"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}"  value="Validate"/>
+                    <apex:commandButton id="Savebtn" action="{!saveAccount}"  value="Save"  rendered="{!If(RecordType == 'Person Account' ||  RecordType == 'Company',true,false)}"/>
+                    <apex:commandButton action="{!cancel}"  value="Cancel"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </div>
+    </apex:form>
+</apex:page>
