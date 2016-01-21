@@ -1,7 +1,7 @@
 <!-- Page: -->
 <apex:page standardController="Account" extensions="AddressSearchValidationController">
     
-    <apex:pageMessages id="msgs" /> 
+    <apex:pageMessages id="msgs" escape="False" /> 
     
     <script type="text/javascript">
     function CallSetRecType()
