@@ -22,7 +22,7 @@
     10. Cyril Huang updated on 2014-10-10(2014Release1.3)
     11. 2015-04-21 Gerhard Henning (NTTData)  Moved code to CaseTriggerHandler
 */
-trigger CaseTrigger on Case (before insert, before update, after insert, after update) 
+trigger CaseTrigger on Case (before insert, before update, after insert, after update, after delete) 
 { 
     TriggerUtil.handleTrigger('CaseTrigger');
 }
