@@ -83,7 +83,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AddressValidation callout failure</shortDescription>
-        <value>Webservice Callout failed: Invalid Org Id ,Please contact system  Administrator</value>
+        <value>Webservice Callout failed: Please contact system  Administrator</value>
     </labels>
     <labels>
         <fullName>Address_1</fullName>
@@ -98,6 +98,14 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Address 2</value>
+    </labels>
+    <labels>
+        <fullName>Address_Information</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Information</shortDescription>
+        <value>Address Information</value>
     </labels>
     <labels>
         <fullName>Address_Search</fullName>
@@ -981,6 +989,14 @@
         <protected>false</protected>
         <shortDescription>Common Filter Name</shortDescription>
         <value>Common Filter Name</value>
+    </labels>
+    <labels>
+        <fullName>Company_Account_Information</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Account Information</shortDescription>
+        <value>Company Account Information</value>
     </labels>
     <labels>
         <fullName>Company_Name_Department_Title</fullName>
@@ -2146,6 +2162,14 @@
         <value>Near Dealer Phone3</value>
     </labels>
     <labels>
+        <fullName>New_Account_Information</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Account Information</shortDescription>
+        <value>New Account Information</value>
+    </labels>
+    <labels>
         <fullName>New_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2263,6 +2287,14 @@
         <protected>false</protected>
         <shortDescription>Parts Cross Promotion</shortDescription>
         <value>Parts Cross Promotion</value>
+    </labels>
+    <labels>
+        <fullName>Person_Account_Information</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person Account Information</shortDescription>
+        <value>Person Account Information</value>
     </labels>
     <labels>
         <fullName>Phone</fullName>

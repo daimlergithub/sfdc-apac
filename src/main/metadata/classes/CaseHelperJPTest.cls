@@ -57,7 +57,7 @@ public class CaseHelperJPTest{
         
         for(String case_class : caseClass){
             for (String p : priority){
-                Case testCase1 = new Case(Case_Class__c = case_class, RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = p, MD__c = 'JP');
+                Case testCase1 = new Case(Case_Class__c = case_class, Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = p, MD__c = 'JP');
                 caseToInsert.add(testCase1);
             }
         }              
@@ -72,7 +72,7 @@ public class CaseHelperJPTest{
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Insert:' +acc);
         
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
         insert testCase1;
         
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
@@ -83,7 +83,7 @@ public class CaseHelperJPTest{
     public static testMethod void testComplaintAmountCaseDelete(){
         createCustomSetting();
         init();
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
         insert testCase1;
         
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
@@ -99,7 +99,7 @@ public class CaseHelperJPTest{
     public static testMethod void testComplaintAmountCaseUpdate(){
         createCustomSetting();
         init();
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP');
         insert testCase1;
         
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
@@ -118,7 +118,7 @@ public class CaseHelperJPTest{
         createCustomSetting();
         init();
         createCaseToComputeDeadline();
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'JP');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'JP');
         insert testCase1;       
         Case cs = [Select DeadLine__c from Case Where Id =: testCase1.Id];
         System.debug('Case Record...' +cs.DeadLine__c);

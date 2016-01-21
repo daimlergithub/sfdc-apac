@@ -56,7 +56,7 @@ public class TriggerUtil
             String profileName = user.profile.Name;
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
                 
-                if ((aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI'))) || (Test.isRunningTest()))               
+                if ((aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI') ||(Test.isRunningTest()))))              
                 {
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
