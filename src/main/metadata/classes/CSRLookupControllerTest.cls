@@ -4,6 +4,7 @@ public with sharing class CSRLookupControllerTest {
     public static testMethod void testMyController() {
         
         User user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
+        System.debug('SKMTestUser=>'+user1);
         
         System.runAs ( user1 ) {        
             
@@ -12,10 +13,14 @@ public with sharing class CSRLookupControllerTest {
                     'CAC OB CSR', 'CAC OB TL', 'CAC OB SV', 'CAC OB QC', 'CAC OB Trainer',
                     'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'
             };
+        
             List<Profile> profileIds = [
                 Select Id 
                 From Profile 
                 Where Name In :csrProfiles];
+        
+        System.debug('SKMTestProfile=>'+profileIds);
+        
             List<User> newUsers = new List<User>();
             for(Profile p : profileIds){
                 User usr = new User();
@@ -30,13 +35,16 @@ public with sharing class CSRLookupControllerTest {
                 usr.localesidkey='en_US';
                 newUsers.add(usr);
             }
-            
+            System.debug('SKMTestNewUser=>'+newUsers);
             insert newUsers;
                         
             Test.startTest();
             CSRLookupController con = new CSRLookupController();
             List<CSRLookupController.csrUsersWrapper> users = con.getcsrUsers();
             PageReference pr0 = con.selectCSR();
+            
+            System.debug('SKM1 =>'+con.UserList);
+            
             con.userList[0].selected = true;
             con.userList[1].selected = true;
             PageReference pr2 = con.selectCSR();

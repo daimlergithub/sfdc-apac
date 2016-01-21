@@ -13,7 +13,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
                 
                  if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
                      
-                    AddressHelperJP.validateSameAddressType(trigger.new);
+                    AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
                 }
                 
                  if ((Trigger.isAfter && Trigger.isUpdate)){
