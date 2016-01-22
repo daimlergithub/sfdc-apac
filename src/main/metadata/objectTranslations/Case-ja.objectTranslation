@@ -12987,7 +12987,7 @@
             <translation><!-- C-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Estate</masterLabel>
+            <masterLabel>C-Class ESTATE</masterLabel>
             <translation><!-- C-Class Estate --></translation>
         </picklistValues>
         <picklistValues>
@@ -13087,7 +13087,7 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupé</masterLabel>
+            <masterLabel>E-Class COUPE</masterLabel>
             <translation><!-- E-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
