@@ -2544,13 +2544,6 @@
         <value>Yearly Targets</value>
     </labels>
     <labels>
-        <fullName>customer_care_Email</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>customer care Email</shortDescription>
-        <value>customer_care@daimler.com</value>
-    </labels>
-    <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
         <categories>Car Comparation</categories>
         <language>en_US</language>
