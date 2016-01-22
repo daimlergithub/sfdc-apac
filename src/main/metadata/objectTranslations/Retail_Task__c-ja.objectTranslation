@@ -1145,17 +1145,6 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Retail Task Layout(Contract)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- MOT Information --></label>
-            <section>MOT Information</section>
-        </sections>
-    </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
         <label>契約</label>
