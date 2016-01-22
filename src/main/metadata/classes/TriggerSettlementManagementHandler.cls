@@ -16,7 +16,7 @@
 public class TriggerSettlementManagementHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Settlement_Management__c> oldmap = (Map<Id,Settlement_Management__c>)trigger.oldmap;
         Map<Id,Settlement_Management__c> newmap = (Map<Id,Settlement_Management__c>)trigger.newmap;
@@ -42,7 +42,7 @@ public class TriggerSettlementManagementHandler
             SettlementHelper.setFieldvaluestoDefault_0(Trigger.new);    
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

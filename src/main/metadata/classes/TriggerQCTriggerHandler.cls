@@ -20,7 +20,7 @@
 public class TriggerQCTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,QC__c> oldmap = (Map<Id,QC__c>)trigger.oldmap;
         Map<Id,QC__c> newmap = (Map<Id,QC__c>)trigger.newmap;
@@ -42,7 +42,7 @@ public class TriggerQCTriggerHandler
             QCHelper.beforeInsertUpdateEvents(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

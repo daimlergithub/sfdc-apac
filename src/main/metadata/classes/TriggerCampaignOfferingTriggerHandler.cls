@@ -12,7 +12,7 @@
 public class TriggerCampaignOfferingTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Campaign_Offering__c> oldmap = (Map<Id,Campaign_Offering__c>)trigger.oldmap;
         Map<Id,Campaign_Offering__c> newmap = (Map<Id,Campaign_Offering__c>)trigger.newmap;
@@ -30,7 +30,7 @@ public class TriggerCampaignOfferingTriggerHandler
             CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }
