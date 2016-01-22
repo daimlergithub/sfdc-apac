@@ -151,10 +151,31 @@ public class ContactHelper {
         }
         
     }
+    public static void ValidateBusinessUnit(List<Contact> newContacts) {
+        Set<Id> AccountIds = new Set<Id>();
+        map<id,Account> accountMap = new  map<id,Account>();
+         for(Contact con : newContacts)
+            {
+                AccountIds.add(con.AccountId);
+            }
+        for(Account acc:[select id,Business_Unit__c,Dealer_Active__c from Account where Id IN:AccountIds]){
+            accountMap.put(acc.id, acc);
+        }
+        for(Contact con:newContacts){
+            if(accountMap.containsKey(con.AccountId)){
+                if((con.Business_Unit__c!=accountMap.get(con.AccountId).Business_Unit__c)&&(!con.Inactive__c ||accountMap.get(con.AccountId).Dealer_Active__c)){
+                    con.addError('Business units of the contact does not  align with the dealership');
+                }
+            }
+            
+        }
+        
+    }
     
     public static void AfterInsertUpdateEvents(List<Contact> contacts)
     {
-    
+    try
+    {
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class AfterInsertUpdateEvents method '+'contacts= ' + contacts.size());
         List<Contact> ComplaintManagerContacts = new List<Contact>();
         List<Contact> PresalesContacts = new List<Contact>();
@@ -235,6 +256,11 @@ public class ContactHelper {
         {
             assignGateKeeperToLeadOwner(dealerIdsForAssignGateKeeper);
         }
+        }
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
         system.debug('End of method @@@@@@@ ');
     }
     
@@ -260,10 +286,10 @@ public class ContactHelper {
        
         for(Contact con : contacts) { 
             if(con.Inactive__c==false){
-			  if(relatedAccounts.containsKey(con.AccountId)){
+              if(relatedAccounts.containsKey(con.AccountId)){
                        relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
                        dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
-					   }
+                       }
                 
             }
         }        
@@ -428,7 +454,7 @@ public class ContactHelper {
     try
        { 
     CustomLogUtil.CustomLoggingEntry('contact Helper class updateBusinessUnit Method'+  'accounts'+ accounts.size()); 
-        Set<Id> accountid=new set<Id>();
+        map<Id,Account> accountid=new map<Id,Account>();
         List<Account> listAcc=new List<Account>();
         List<Contact> listCon=new List<Contact>();
         List<Contact> UpdateCon=new List<Contact>();
@@ -437,25 +463,25 @@ public class ContactHelper {
             {
                 for(Account acc:accounts)
                 {
-                accountid.add(acc.id);
+                accountid.put(acc.id,acc);
                 }
             }
             
-            listCon=[Select id,Business_Unit__c from Contact Where AccountId=:accountid];
+            listCon=[Select id,AccountId,Business_Unit__c from Contact Where AccountId=:accountid.keySet()];
                 if(listCon!=null && !listCon.isEmpty())
                 {
-                    for(Account account:accounts)
-                    {    
-                    if(account.Business_Unit__c !=null )
-                    {
+                   
                         for(Contact con:listCon)
                         {   
+                            if(accountid.containsKey(con.AccountId)){
+                                if(accountid.get(con.AccountId).id==con.AccountId)
                         
-                        con.Business_Unit__c=account.Business_Unit__c;
-                        UpdateCon.add(con);
+                                    con.Business_Unit__c=accountid.get(con.AccountId).Business_Unit__c;
+                                    UpdateCon.add(con);
+                            }
                         }
-                     }
-                    }
+                     
+                    
                }    
         if(UpdateCon!=null && !UpdateCon.IsEmpty()) {  
         System.debug('@@@@@@@@@@@@@ UpdateCon'+UpdateCon);       

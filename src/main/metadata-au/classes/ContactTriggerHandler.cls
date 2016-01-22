@@ -33,12 +33,14 @@ public class ContactTriggerHandler
             ContactHelper.ValidateGateKeeper(Trigger.new);
             // Validate complaint manager and presales
             ContactHelper.ValidateManager(Trigger.new);
+            ContactHelper.ValidateBusinessUnit(Trigger.new);
         }
         if (trigger.isBefore && trigger.isUpdate) {
             // Validate Gate Keeper
             ContactHelper.ValidateGateKeeper(Trigger.new);
             // Validate complaint manager and presales
             ContactHelper.ValidateManager(Trigger.new);
+             ContactHelper.ValidateBusinessUnit(Trigger.new);
         }
         
                      
