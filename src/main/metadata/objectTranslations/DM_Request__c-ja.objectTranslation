@@ -407,25 +407,6 @@
             <section>Other Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised DM Request Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>顧客情報</label>
-            <section>Customer Information</section>
-        </sections>
-        <sections>
-            <label>カタログ情報</label>
-            <section>DM Material Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
-        </sections>
-    </layouts>
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>

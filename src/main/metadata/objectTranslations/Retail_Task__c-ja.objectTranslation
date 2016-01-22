@@ -1152,7 +1152,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>車検情報</label>
+            <label><!-- MOT Information --></label>
             <section>MOT Information</section>
         </sections>
     </layouts>

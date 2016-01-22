@@ -13615,61 +13615,6 @@
             <section>Vehicle Owner Details</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Close Inquiry Layout - CAC (IB/OB)</layout>
-        <layoutType>CaseClose</layoutType>
-        <sections>
-            <label><!-- Case Feedback --></label>
-            <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>販売店情報</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>詳細情報</label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label>問合わせ情報</label>
-            <section>Inquiry Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label><!-- Web Information --></label>
-            <section>Web Information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Inquiry Layout - CAC(IB/OB)</layout>
-        <sections>
-            <label><!-- Case Feedback --></label>
-            <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label>販売店情報</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>問合わせ情報</label>
-            <section>Inquiry Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
-        </sections>
-    </layouts>
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
         <name>Chrysler_Complaint</name>

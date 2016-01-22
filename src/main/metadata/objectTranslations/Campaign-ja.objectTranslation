@@ -1551,51 +1551,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Revised CAC Campaign Layout</layout>
-        <sections>
-            <label>スケジュール詳細</label>
-            <section>Scheduling Details</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Campaign Execution Complex layout</layout>
-        <sections>
-            <label>キャンペーンの統計</label>
-            <section>Campaign Statistics</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label>前回キャンペーンからの期間</label>
-            <section>Interval Before This Execution</section>
-        </sections>
-        <sections>
-            <label><!-- SQL Statement --></label>
-            <section>SQL Statement</section>
-        </sections>
-        <sections>
-            <label>セグメンテーション設定</label>
-            <section>Segmentation Settings</section>
-        </sections>
-        <sections>
-            <label><!-- Template --></label>
-            <section>Template</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Central Campaign Layout</layout>
-        <sections>
-            <label>期待される結果</label>
-            <section>Expected Outcome</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>S&amp;M Event Central Campaign</layout>
         <sections>
             <label><!-- Financial Information --></label>

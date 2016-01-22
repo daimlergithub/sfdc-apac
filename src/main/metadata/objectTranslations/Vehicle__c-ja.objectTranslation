@@ -5539,76 +5539,7 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Revised Competitor Vehicle Layout-CAC</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>車両情報</label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised MB Vehicle Layout-CAC</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>日付情報</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label>車両詳細</label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label>車両情報</label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Self Registered Layout-CAC</layout>
-        <sections>
-            <label>競合車情報</label>
-            <section>Competitor Information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>日付情報</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label>車両詳細</label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label>車両情報</label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Self Resistered Layout-CAC</layout>
         <sections>
             <label>競合車情報</label>
             <section>Competitor Information</section>

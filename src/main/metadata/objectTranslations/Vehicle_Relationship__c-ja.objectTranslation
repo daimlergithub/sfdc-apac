@@ -3026,37 +3026,6 @@
         <name>vehicle_mail__c</name>
     </fields>
     <layouts>
-        <layout>Revised Vehicle Relationship Layout-CAC</layout>
-        <sections>
-            <label><!-- Basic Information --></label>
-            <section>Basic Information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>日付情報</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>手放し設定情報</label>
-            <section>End Setting Information</section>
-        </sections>
-        <sections>
-            <label>車検情報</label>
-            <section>MOT Information</section>
-        </sections>
-        <sections>
-            <label>車両住所情報</label>
-            <section>Vehicle Address Information</section>
-        </sections>
-        <sections>
-            <label>車両情報</label>
-            <section>Vehicle Information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
             <label><!-- Basic Information --></label>
