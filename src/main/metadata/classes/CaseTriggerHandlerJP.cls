@@ -1,7 +1,7 @@
 public class CaseTriggerHandlerJP
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         system.debug('Entered handler...JP handler');
         system.debug('Trigger IsDelete...' +trigger.isDelete);
@@ -23,7 +23,7 @@ public class CaseTriggerHandlerJP
             }
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
     }
