@@ -1,7 +1,7 @@
 public class RetailCampaignTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if (trigger.isAfter && trigger.isInsert) {
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();
@@ -19,7 +19,7 @@ public class RetailCampaignTriggerHandler
             RetailCampaignHelper.beforeInsertUpdateEvents(Trigger.new,(Map<Id,Retail_Campaign__c>)Trigger.oldmap,Trigger.isInsert,Trigger.isUpdate);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

@@ -26,7 +26,7 @@
 public class ContactTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if (trigger.isAfter && trigger.isInsert) {
             ContactHelper.AfterInsertUpdateEvents(trigger.new);
@@ -47,7 +47,7 @@ public class ContactTriggerHandler
             ContactHelper.ValidateManager(Trigger.new);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

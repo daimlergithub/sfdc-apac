@@ -12,7 +12,7 @@
 public class TriggerParticipatingDealerTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Participating_Dealer__c> oldmap = (Map<Id,Participating_Dealer__c>)trigger.oldmap;
         Map<Id,Participating_Dealer__c> newmap = (Map<Id,Participating_Dealer__c>)trigger.newmap;
@@ -42,7 +42,7 @@ public class TriggerParticipatingDealerTriggerHandler
             ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }
