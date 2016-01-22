@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- DM Material --></value>
+        <value>カタログマスタ</value>
     </caseValues>
     <fields>
         <label>有効フラグ</label>
@@ -21,7 +21,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Smart</masterLabel>
@@ -29,12 +29,12 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Car model</label>
+        <label><!-- Car Model --></label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- DM Material --></relationshipLabel>
     </fields>
     <fields>
-        <label>DSCカタログコード</label>
+        <label>カタログコード</label>
         <name>DM_Material_External_Id__c</name>
     </fields>
     <fields>
@@ -1575,7 +1575,14 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- DM Name --></nameFieldLabel>
+    <layouts>
+        <layout>Revised DM Material Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>カタログ名</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
         <name>Format_DM_Material_Name</name>

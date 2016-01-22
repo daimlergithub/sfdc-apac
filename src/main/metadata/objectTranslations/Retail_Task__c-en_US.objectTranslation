@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>Retail Task</value> 
+        <value>Retail Task</value>
     </caseValues>
     <caseValues>
         <plural>true</plural>
@@ -1147,6 +1147,17 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Retail Task Layout(Contract)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
         </sections>
     </layouts>
     <recordTypes>

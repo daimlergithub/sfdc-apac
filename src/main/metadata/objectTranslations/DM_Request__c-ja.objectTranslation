@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- DM Request --></value>
+        <value>カタログリクエスト</value>
     </caseValues>
     <fields>
         <label><!-- Actual DM Material1 --></label>
@@ -59,19 +59,19 @@
         <name>Channel__c</name>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
+            <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>イベント</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IB Call</masterLabel>
-            <translation><!-- IB Call --></translation>
+            <translation>IBコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Online</masterLabel>
-            <translation><!-- MB Online --></translation>
+            <translation>MBオンライン</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -109,19 +109,19 @@
         <name>Delivery_Type__c</name>
         <picklistValues>
             <masterLabel>1</masterLabel>
-            <translation><!-- 1 --></translation>
+            <translation>メール便</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>2</masterLabel>
-            <translation><!-- 2 --></translation>
+            <translation>宅急便</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3</masterLabel>
-            <translation><!-- 3 --></translation>
+            <translation>郵送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>4</masterLabel>
-            <translation><!-- 4 --></translation>
+            <translation>販売店</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -185,27 +185,27 @@
         <name>Sending_Address__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
-            <translation><!-- Business --></translation>
+            <translation>勤務先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Home</masterLabel>
-            <translation><!-- Home --></translation>
+            <translation>自宅</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 1</masterLabel>
-            <translation><!-- Other Address 1 --></translation>
+            <translation>その他1</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 2</masterLabel>
-            <translation><!-- Other Address 2 --></translation>
+            <translation>その他2</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 3</masterLabel>
-            <translation><!-- Other Address 3 --></translation>
+            <translation>その他3</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Temporary</masterLabel>
-            <translation><!-- Temporary --></translation>
+            <translation>一時住所</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -214,7 +214,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
-        <label>送付日</label>
+        <label>発送指示日</label>
         <name>Sent_Date__c</name>
     </fields>
     <fields>
@@ -222,31 +222,31 @@
         <name>Status1__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
-            <translation><!-- Duplicate --></translation>
+            <translation>重複</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
+            <translation>送付失敗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not send</masterLabel>
-            <translation><!-- Not send --></translation>
+            <translation>未送付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation><!-- Returned --></translation>
+            <translation>返却</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
-            <translation><!-- Success --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>to be sent</masterLabel>
-            <translation><!-- to be sent --></translation>
+            <translation>送付待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -254,31 +254,31 @@
         <name>Status2__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
-            <translation><!-- Duplicate --></translation>
+            <translation>重複</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
+            <translation>送付失敗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not send</masterLabel>
-            <translation><!-- Not send --></translation>
+            <translation>未送付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation><!-- Returned --></translation>
+            <translation>返却</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
-            <translation><!-- Success --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>to be sent</masterLabel>
-            <translation><!-- to be sent --></translation>
+            <translation>送付待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -286,31 +286,31 @@
         <name>Status3__c</name>
         <picklistValues>
             <masterLabel>Duplicate</masterLabel>
-            <translation><!-- Duplicate --></translation>
+            <translation>重複</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
+            <translation>送付失敗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not send</masterLabel>
-            <translation><!-- Not send --></translation>
+            <translation>未送付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation><!-- Returned --></translation>
+            <translation>返却</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
-            <translation><!-- Success --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>to be sent</masterLabel>
-            <translation><!-- to be sent --></translation>
+            <translation>送付待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -318,35 +318,35 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Approving</masterLabel>
-            <translation><!-- Approving --></translation>
+            <translation>承認中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
+            <translation>送付失敗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not send</masterLabel>
-            <translation><!-- Not send --></translation>
+            <translation>未送付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation><!-- Returned --></translation>
+            <translation>返却</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送付済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
-            <translation><!-- Success --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>to be sent</masterLabel>
-            <translation><!-- to be sent --></translation>
+            <translation>送付待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -359,11 +359,11 @@
         <name>TitleOfHonor__c</name>
         <picklistValues>
             <masterLabel>To Company</masterLabel>
-            <translation><!-- To Company --></translation>
+            <translation>御中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To Person</masterLabel>
-            <translation><!-- To Person --></translation>
+            <translation>様</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -384,7 +384,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Description Information --></label>
+            <label>詳細情報</label>
             <section>Description Information</section>
         </sections>
     </layouts>
@@ -395,25 +395,44 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Customer Information --></label>
+            <label>顧客情報</label>
             <section>Customer Information</section>
         </sections>
         <sections>
-            <label><!-- DM Material Information --></label>
+            <label>カタログ情報</label>
             <section>DM Material Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- DM Number --></nameFieldLabel>
+    <layouts>
+        <layout>Revised DM Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>顧客情報</label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label>カタログ情報</label>
+            <section>DM Material Information</section>
+        </sections>
+        <sections>
+            <label>その他</label>
+            <section>Other Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
     </validationRules>
     <webLinks>
-        <label><!-- Download_Catalogue --></label>
+        <label>カタログダウンロード</label>
         <name>Download_Catalogue</name>
     </webLinks>
 </CustomObjectTranslation>

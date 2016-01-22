@@ -1,5 +1,373 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>アカウント</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントのアクセス権</value>
+        </caseValues>
+        <name>account_access</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントのアクセス権</value>
+        </caseValues>
+        <name>account_access_level</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント責任者の役割</value>
+        </caseValues>
+        <name>account_contact_role</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 作成者</value>
+        </caseValues>
+        <name>account_creator</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 通貨</value>
+        </caseValues>
+        <name>account_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 説明</value>
+        </caseValues>
+        <name>account_description</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 詳細ページ</value>
+        </caseValues>
+        <name>account_detail_page</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント ディビジョン</value>
+        </caseValues>
+        <name>account_division</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントの編集</value>
+        </caseValues>
+        <name>account_edit</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント Fax</value>
+        </caseValues>
+        <name>account_fax</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントの項目</value>
+        </caseValues>
+        <name>account_field</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 一般情報</value>
+        </caseValues>
+        <name>account_general</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>関連アカウント</value>
+        </caseValues>
+        <name>account_hierarchy</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント履歴</value>
+        </caseValues>
+        <name>account_history</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント履歴アーカイブ</value>
+        </caseValues>
+        <name>account_history_archive</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント履歴レポート</value>
+        </caseValues>
+        <name>account_history_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント ID</value>
+        </caseValues>
+        <name>account_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント情報</value>
+        </caseValues>
+        <name>account_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>顧客名</value>
+        </caseValues>
+        <name>account_name</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント番号</value>
+        </caseValues>
+        <name>account_number</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>担当者</value>
+        </caseValues>
+        <name>account_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 所有者(別名)</value>
+        </caseValues>
+        <name>account_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント所有者レポート</value>
+        </caseValues>
+        <name>account_owner_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 所有者 ロール</value>
+        </caseValues>
+        <name>account_owner_role</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 会社形態</value>
+        </caseValues>
+        <name>account_ownership</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 電話</value>
+        </caseValues>
+        <name>account_phone</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 評価</value>
+        </caseValues>
+        <name>account_rating</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントレコード</value>
+        </caseValues>
+        <name>account_record</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントレコードタイプ</value>
+        </caseValues>
+        <name>account_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントレポート</value>
+        </caseValues>
+        <name>account_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントの共有</value>
+        </caseValues>
+        <name>account_sharing</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 部門</value>
+        </caseValues>
+        <name>account_site</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントソース</value>
+        </caseValues>
+        <name>account_source</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントフェーズ ID</value>
+        </caseValues>
+        <name>account_stage_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントチーム</value>
+        </caseValues>
+        <name>account_team</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントチームメンバー</value>
+        </caseValues>
+        <name>account_team_member</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントチームメンバー ID</value>
+        </caseValues>
+        <name>account_team_member_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントチームレポート</value>
+        </caseValues>
+        <name>account_team_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントテリトリー</value>
+        </caseValues>
+        <name>account_territory</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントツール</value>
+        </caseValues>
+        <name>account_tool</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 種別</value>
+        </caseValues>
+        <name>account_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウントビュー</value>
+        </caseValues>
+        <name>account_view</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>世帯年収</value>
+        </caseValues>
+        <name>annual_revenue_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>法人アカウント</value>
+        </caseValues>
+        <name>business_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>コミュニケーションコメント</value>
+        </caseValues>
+        <name>description_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>親アカウント</value>
+        </caseValues>
+        <name>parent_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>親アカウント ディビジョン</value>
+        </caseValues>
+        <name>parent_account_division</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>親アカウント ID</value>
+        </caseValues>
+        <name>parent_account_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>親アカウント 部門</value>
+        </caseValues>
+        <name>parent_account_site</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>個人顧客</value>
+        </caseValues>
+        <name>person_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>個人顧客レコード</value>
+        </caseValues>
+        <name>person_account_record</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>アカウント 部門</value>
+        </caseValues>
+        <name>site_account</name>
+    </fields>
     <fields>
         <name>AccountSource</name>
         <picklistValues>
@@ -738,11 +1106,11 @@
         <name>Data_Source__c</name>
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
-            <translation><!-- 24 hours Touring Support --></translation>
+            <translation>24時間ツーリングサポート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3rd party data</masterLabel>
-            <translation>第三者データ</translation>
+            <translation><!-- 3rd party data --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
@@ -750,7 +1118,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Cataloue Call</masterLabel>
-            <translation>カタログコール</translation>
+            <translation><!-- Cataloue Call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -758,11 +1126,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation>Eメール</translation>
+            <translation>E-mail SNS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
-            <translation><!-- English Customer Desk --></translation>
+            <translation>English Customer Desk</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
@@ -770,7 +1138,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>IB Call</masterLabel>
-            <translation>IBコール</translation>
+            <translation><!-- IB Call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
@@ -778,11 +1146,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
-            <translation>MBマガジン</translation>
+            <translation><!-- MB Magazine --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB website</masterLabel>
-            <translation>MBウェブサイト</translation>
+            <translation><!-- MB website --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -790,15 +1158,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Call Catalogue</masterLabel>
-            <translation><!-- Mercedes Call Catalogue --></translation>
+            <translation>メルセデスコールカタログ受付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
-            <translation><!-- Mercedes Magazine Survey --></translation>
+            <translation>メルセデス・マガジン・アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
-            <translation><!-- Mercedes call --></translation>
+            <translation>メルセデス・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
@@ -810,7 +1178,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Company call</masterLabel>
-            <translation>代表電話</translation>
+            <translation><!-- Mercedes-Benz Company call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
@@ -818,11 +1186,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
-            <translation><!-- Mercedes-Benz School of Excelence --></translation>
+            <translation>メルセデス・ベンツ サークル　オブ　エクセレンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz phone</masterLabel>
-            <translation><!-- Mercedes-Benz phone --></translation>
+            <translation>代表電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Model-Year Reference desk</masterLabel>
@@ -830,11 +1198,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes</masterLabel>
-            <translation><!-- My Mercedes --></translation>
+            <translation>My Mercedes</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
-            <translation>OBコール</translation>
+            <translation><!-- OB Call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
@@ -842,7 +1210,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Partners</masterLabel>
-            <translation>パートナー</translation>
+            <translation><!-- Partners --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -854,7 +1222,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Road Assistant</masterLabel>
-            <translation>ロードアシスタント</translation>
+            <translation><!-- Road Assistant --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -1496,7 +1864,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_BSB__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer BTLInfo --></label>
+        <label>Dealer BTLInfo</label>
         <name>Dealer_BTLInfo__c</name>
     </fields>
     <fields>
@@ -1884,7 +2252,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_DMS_SR_Code__c</name>
     </fields>
     <fields>
-        <label><!-- DMS --></label>
+        <label>DMS</label>
         <name>Dealer_DMS__c</name>
         <picklistValues>
             <masterLabel>AMWIN</masterLabel>
@@ -2329,19 +2697,19 @@ Allows up to 240 characters --></help>
         <name>Dealer_Region__c</name>
         <picklistValues>
             <masterLabel>EAST</masterLabel>
-            <translation>東</translation>
+            <translation><!-- EAST --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NORTH</masterLabel>
-            <translation>北</translation>
+            <translation><!-- NORTH --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SOUTH</masterLabel>
-            <translation>南</translation>
+            <translation><!-- SOUTH --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>WEST</masterLabel>
-            <translation>西</translation>
+            <translation><!-- WEST --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5131,15 +5499,15 @@ Allows up to 240 characters --></help>
         <name>Primary_Email__c</name>
         <picklistValues>
             <masterLabel>E-mail1</masterLabel>
-            <translation><!-- E-mail1 --></translation>
+            <translation>自宅Email</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-mail2</masterLabel>
-            <translation><!-- E-mail2 --></translation>
+            <translation>勤務先Email</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-mail3</masterLabel>
-            <translation><!-- E-mail3 --></translation>
+            <translation>その他Email</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5151,11 +5519,11 @@ Allows up to 240 characters --></help>
         <name>Primary_Fax__c</name>
         <picklistValues>
             <masterLabel>FAX1</masterLabel>
-            <translation><!-- FAX1 --></translation>
+            <translation>自宅</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>FAX2</masterLabel>
-            <translation><!-- FAX2 --></translation>
+            <translation>勤務先</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5671,7 +6039,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ</masterLabel>
-            <translation><!-- MBJ --></translation>
+            <translation>MBJ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
@@ -5868,6 +6236,10 @@ Allows up to 240 characters --></help>
         <name>Total_Flex__c</name>
     </fields>
     <fields>
+        <label><!-- TransTest --></label>
+        <name>TransTest__c</name>
+    </fields>
+    <fields>
         <label>トラックサービス</label>
         <name>Trucks_Offered_Service__c</name>
         <picklistValues>
@@ -5959,7 +6331,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- UCID --></label>
+        <label><!-- UCID Sequence --></label>
+        <name>UCID_Sequence__c</name>
+    </fields>
+    <fields>
+        <label>UCID</label>
         <name>UCID__c</name>
     </fields>
     <fields>
@@ -6197,7 +6573,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
             <translation><!-- Invalid --></translation>
-			
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6217,34 +6592,34 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-   <!-- <layouts>
+    <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <layouts>
         <layout>Account Layout</layout>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label><!-- Main Contact and Consent --></label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
@@ -6259,11 +6634,11 @@ Allows up to 240 characters --></help>
     <layouts>
         <layout>Company Layout</layout>
         <sections>
-            <label><!-- Company Information --></label>
+            <label>会社情報</label>
             <section>Company Information</section>
         </sections>
         <sections>
-            <label><!-- Contact Infromation --></label>
+            <label>コンタクト情報</label>
             <section>Contact Infromation</section>
         </sections>
         <sections>
@@ -6274,11 +6649,11 @@ Allows up to 240 characters --></help>
     <layouts>
         <layout>Dealer Layout-Admin</layout>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label><!-- Dealer Function --></label>
+            <label>販売店機能</label>
             <section>Dealer Function</section>
         </sections>
         <sections>
@@ -6290,7 +6665,7 @@ Allows up to 240 characters --></help>
             <section>Dealer Portal Related Information</section>
         </sections>
         <sections>
-            <label><!-- GSSN Address Information --></label>
+            <label>GSSN住所情報</label>
             <section>GSSN Address Information</section>
         </sections>
         <sections>
@@ -6301,7 +6676,7 @@ Allows up to 240 characters --></help>
     <layouts>
         <layout>Dealer Layout-CAC</layout>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
@@ -6313,7 +6688,7 @@ Allows up to 240 characters --></help>
             <section>Dealer Portal Related Information</section>
         </sections>
         <sections>
-            <label><!-- GSSN Address Information --></label>
+            <label>GSSN住所情報</label>
             <section>GSSN Address Information</section>
         </sections>
         <sections>
@@ -6328,7 +6703,7 @@ Allows up to 240 characters --></help>
             <section>Business Account Detail</section>
         </sections>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
@@ -6336,7 +6711,7 @@ Allows up to 240 characters --></help>
             <section>Dealer Portal Information</section>
         </sections>
         <sections>
-            <label><!-- GSSN Address Information --></label>
+            <label>GSSN住所情報</label>
             <section>GSSN Address Information</section>
         </sections>
         <sections>
@@ -6344,200 +6719,278 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-   <!-- <layouts>
+    <layouts>
+        <layout>MBJCTI Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-   <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-   <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
-    </layouts> -->
-    <!--<layouts>
+    </layouts>
+    <layouts>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
-    </layouts> -->
-   <!-- <layouts>
+    </layouts>
+    <layouts>
         <layout>Person Account Layout</layout>
-      <layoutType>PersonAccount</layoutType>
+        <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Main Contact and Concent</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- New Section --></label>
             <section>New Section</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Profile Information --></label>
             <section>Profile Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
+    <layouts>
+        <layout>Revised Company Layout</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label>会社情報</label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Telematics Related Information --></label>
+            <section>Telematics Related Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Dealer Layout-Admin</layout>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>販売店機能</label>
+            <section>Dealer Function</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Other Information --></label>
+            <section>Dealer Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Portal Related Information --></label>
+            <section>Dealer Portal Related Information</section>
+        </sections>
+        <sections>
+            <label>GSSN住所情報</label>
+            <section>GSSN Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- GSSN Information --></label>
+            <section>GSSN Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>主要コンタクト・コンセント</label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Profile Information --></label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>
     <recordTypes>
-        <label><!-- Company --></label>
+        <label>法人</label>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Dealer --></label>
+        <label>販売店</label>
         <name>Dealer</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- If customer has no vehicle relationship, Status must not be ‘Customer’. --></errorMessage>
+        <errorMessage>車両との関係が無い顧客については、顧客区分を「Customer」以外に設定して下さい。</errorMessage>
         <name>Account_Status</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Once Allow Data Sharing has been set as &quot;Yes&quot;, it cannot be changed. --></errorMessage>
+        <errorMessage>個人情報許諾フラグ(販売店⇒MBJ)は「Yes」に設定されると、その後変更をする事はできません。</errorMessage>
         <name>Allow_Data_Sharing_cannot_be_changed</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Birthdate is not allowed to be later than today or earlier than 150 years. --></errorMessage>
+        <errorMessage>生年月日は過去日で入力して下さい。</errorMessage>
         <name>Birthday</name>
     </validationRules>
     <validationRules>
@@ -6549,7 +7002,7 @@ Allows up to 240 characters --></help>
         <name>CP_Customer_Phone_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Company Name Native should be Double byte. --></errorMessage>
+        <errorMessage>法人名（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>Company_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>
@@ -6557,7 +7010,7 @@ Allows up to 240 characters --></help>
         <name>Couldnot_change_Dealer_Group</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Customer Lifecycle Phase can only be changed to &quot;Discard&quot; manually. --></errorMessage>
+        <errorMessage>ステージを「Discard」以外に手動で変更することはできません。</errorMessage>
         <name>Customer_Lifecycle_Phase_Discard</name>
     </validationRules>
     <validationRules>
@@ -6585,27 +7038,27 @@ Allows up to 240 characters --></help>
         <name>Driver_License_Year</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax 2 should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>勤務先 FAXは必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Fax2StartsWith0</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax 2 should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>勤務先 FAXには「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Fax2_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax 2 should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>勤務先 FAXは必ず11桁以下で入力して下さい。</errorMessage>
         <name>Fax2_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>FAXには「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Fax_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>FAXは必ず11桁以下で入力して下さい。</errorMessage>
         <name>Fax_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Fax should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>FAXは必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Fax_StartsWith0</name>
     </validationRules>
     <validationRules>
@@ -6613,39 +7066,39 @@ Allows up to 240 characters --></help>
         <name>Fax_Validation</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If Finance Sanction is checked, Finance Sanction Comment needs to be entered. --></errorMessage>
+        <errorMessage>YH（ファイナンス用）にチェックをされた際には、必ずYHメモ（ファイナンス用）を入力して下さい。</errorMessage>
         <name>Finance_Sanction_Comment_required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- First Name Native should be Double byte. --></errorMessage>
+        <errorMessage>名（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>First_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Foundation date is not allowed to be later than today. --></errorMessage>
+        <errorMessage>設立年月日は本日、もしくは過去日を入力して下さい。</errorMessage>
         <name>Foundation_Date_Past</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>その他電話番号1には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Home_Phone_2_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone 2 should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>その他電話番号1は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Home_Phone_2_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone 2 should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>その他電話番号1は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Home_Phone_2_StartsWith0</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>自宅電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Individual_Home_Phone_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>自宅電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Individual_Home_Phone_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Home Phone should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>自宅電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Individual_Home_Phone_StartsWith0</name>
     </validationRules>
     <validationRules>
@@ -6653,39 +7106,39 @@ Allows up to 240 characters --></help>
         <name>Invalid_Email</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Zipcode is not 7 digits long --></errorMessage>
+        <errorMessage>郵便番号は7ケタの番号で入力して下さい。</errorMessage>
         <name>Invalid_ZipCode</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Zip is not single byte number --></errorMessage>
+        <errorMessage>郵便番号は半角数字で記入して下さい。</errorMessage>
         <name>Invalid_ZipCode_2</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Last Name Native should be Double byte. --></errorMessage>
+        <errorMessage>姓（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>Last_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone 2 should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>勤務先携帯電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Mobile2_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone 2 should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>勤務先携帯電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Mobile2_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone 2 should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>勤務先携帯電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Mobile2_StartsWith0</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>携帯電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Mobile_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>携帯電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Mobile_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Mobile Phone should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>携帯電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Mobile_StartsWith0</name>
     </validationRules>
     <validationRules>
@@ -6701,15 +7154,15 @@ Allows up to 240 characters --></help>
         <name>Phone</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Phone should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>その他電話番号2には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Phone_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Phone should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>その他電話番号2は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Phone_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Phone should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>その他電話番号2は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Phone_StartsWith0</name>
     </validationRules>
     <validationRules>
@@ -6717,7 +7170,7 @@ Allows up to 240 characters --></help>
         <name>Preferred_contact_method_Changed</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If Sales Sanction is checked, Sales Sanction Comment needs to be entered. --></errorMessage>
+        <errorMessage>カスタマーフラグで値を選択をされた際には、必ずカスタマーメモを入力して下さい。</errorMessage>
         <name>Sales_Sanction_Comment_required</name>
     </validationRules>
     <validationRules>
@@ -6729,7 +7182,7 @@ Allows up to 240 characters --></help>
         <name>Social_ID</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please ensure there is text before and after the &apos;.&apos; --></errorMessage>
+        <errorMessage>Websiteの入力では、必ず「. (ドット)」の前後が文字列になるよう入力して下さい。</errorMessage>
         <name>URL_format_validation</name>
     </validationRules>
     <validationRules>
@@ -6737,19 +7190,19 @@ Allows up to 240 characters --></help>
         <name>Validation_on_Salutation_and_Gender</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please ensure there is text before and after the &apos;.&apos; --></errorMessage>
+        <errorMessage>Websiteの入力では、必ず「. (ドット)」の前後が文字列になるよう入力して下さい。</errorMessage>
         <name>Website_text_dot</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Work Phone should not include &quot;-&quot; or &quot;+&quot;. --></errorMessage>
+        <errorMessage>勤務先電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Work_Phone_2_NoChar</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Work Phone should be less than or equal to 11 digits. --></errorMessage>
+        <errorMessage>勤務先電話は必ず11桁以下で入力して下さい。</errorMessage>
         <name>Work_Phone_2_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Work Phone should start with &quot;0&quot;. --></errorMessage>
+        <errorMessage>勤務先電話は必ず「0」から始まる値を入力して下さい。</errorMessage>
         <name>Work_Phone_2_StartsWith0</name>
     </validationRules>
     <webLinks>
@@ -6801,11 +7254,11 @@ Allows up to 240 characters --></help>
         <name>Merge</name>
     </webLinks>
     <webLinks>
-        <label><!-- Mergeexample --></label>
+        <label>マージ</label>
         <name>Mergeexample</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Leads --></label>
+        <label>新規リード</label>
         <name>New_Leads</name>
     </webLinks>
     <webLinks>
@@ -6817,7 +7270,7 @@ Allows up to 240 characters --></help>
         <name>Search_Accounts</name>
     </webLinks>
     <webLinks>
-        <label><!-- Search_Dealers --></label>
+        <label>販売店サーチ</label>
         <name>Search_Dealers</name>
     </webLinks>
     <webLinks>
@@ -6829,7 +7282,7 @@ Allows up to 240 characters --></help>
         <name>Testing</name>
     </webLinks>
     <webLinks>
-        <label><!-- View_Hierarchy --></label>
+        <label>アカウント/車両関係を見る</label>
         <name>View_Hierarchy</name>
     </webLinks>
     <webLinks>

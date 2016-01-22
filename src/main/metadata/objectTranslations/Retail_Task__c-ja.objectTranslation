@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Retail Task --></value>
+        <value>保証/契約</value>
     </caseValues>
     <fields>
         <label>契約者</label>
@@ -821,27 +821,27 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
+            <translation>承認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cancellation Approved</masterLabel>
-            <translation><!-- Cancellation Approved --></translation>
+            <translation>解約承認済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <translation>解約済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Draft</masterLabel>
-            <translation><!-- Draft --></translation>
+            <translation>ドラフト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Expired</masterLabel>
-            <translation><!-- Expired --></translation>
+            <translation>保証終了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>In service</masterLabel>
-            <translation><!-- In service --></translation>
+            <translation>保証中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
@@ -849,11 +849,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Save</masterLabel>
-            <translation><!-- Save --></translation>
+            <translation>一時保存</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -861,15 +861,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for Approval</masterLabel>
-            <translation><!-- Waiting for Approval --></translation>
+            <translation>承認待ち</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for cancellation approval</masterLabel>
-            <translation><!-- Waiting for cancellation approval --></translation>
+            <translation>解約承認待ち</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>pullback</masterLabel>
-            <translation><!-- pullback --></translation>
+            <translation>申請取消</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1045,7 +1045,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Standard Warranty</masterLabel>
-            <translation><!-- Standard Warranty --></translation>
+            <translation>Mケア保証</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test drive</masterLabel>
@@ -1053,7 +1053,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Used Car Warranty</masterLabel>
-            <translation><!-- Used Car Warranty --></translation>
+            <translation>認定中古車保証</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle delivery</masterLabel>
@@ -1093,11 +1093,11 @@
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label><!-- VIN --></label>
+        <label>VIN</label>
         <name>VIN_Link__c</name>
     </fields>
     <fields>
-        <label><!-- VIN --></label>
+        <label>VIN</label>
         <name>VIN__c</name>
     </fields>
     <fields>
@@ -1127,7 +1127,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- MOT Information --></label>
+            <label>車検情報</label>
             <section>MOT Information</section>
         </sections>
     </layouts>
@@ -1145,9 +1145,20 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Name --></nameFieldLabel>
+    <layouts>
+        <layout>Revised Retail Task Layout(Contract)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>車検情報</label>
+            <section>MOT Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
-        <label><!-- Contract --></label>
+        <label>契約</label>
         <name>Contract</name>
     </recordTypes>
     <recordTypes>

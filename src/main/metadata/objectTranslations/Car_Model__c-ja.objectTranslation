@@ -2,10 +2,10 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Car Model --></value>
+        <value>車両モデルマスタ</value>
     </caseValues>
     <fields>
-        <label><!-- AMG --></label>
+        <label>AMG</label>
         <name>AMG_Classification__c</name>
         <picklistValues>
             <masterLabel>AMG</masterLabel>
@@ -85,11 +85,11 @@
         <name>Brand_Native__c</name>
         <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
+            <translation>メルセデス・ベンツ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Smart</masterLabel>
-            <translation><!-- Smart --></translation>
+            <translation>スマート</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -97,11 +97,11 @@
         <name>Brand__c</name>
         <picklistValues>
             <masterLabel>AMC</masterLabel>
-            <translation><!-- AMC --></translation>
+            <translation>ＡＭＣ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AMC Jeep</masterLabel>
-            <translation><!-- AMC Jeep --></translation>
+            <translation>AMCジープ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AMG</masterLabel>
@@ -109,119 +109,119 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Abarth</masterLabel>
-            <translation><!-- Abarth --></translation>
+            <translation>アバルト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Alfa Romeo</masterLabel>
-            <translation><!-- Alfa Romeo --></translation>
+            <translation>アルファ　ロメオ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Apal</masterLabel>
-            <translation><!-- Apal --></translation>
+            <translation>アパル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Arutega</masterLabel>
-            <translation><!-- Arutega --></translation>
+            <translation>アルテガ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aston Martin</masterLabel>
-            <translation><!-- Aston Martin --></translation>
+            <translation>アストンマーティン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Audi</masterLabel>
-            <translation><!-- Audi --></translation>
+            <translation>アウディ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Austin</masterLabel>
-            <translation><!-- Austin --></translation>
+            <translation>オースチン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Autobianchi</masterLabel>
-            <translation><!-- Autobianchi --></translation>
+            <translation>アウトビアンキ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Avanti</masterLabel>
-            <translation><!-- Avanti --></translation>
+            <translation>アバンティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BL</masterLabel>
-            <translation><!-- BL --></translation>
+            <translation>ＢＬ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BMW</masterLabel>
-            <translation><!-- BMW --></translation>
+            <translation>ＢＭＷ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BMW Alpina</masterLabel>
-            <translation><!-- BMW Alpina --></translation>
+            <translation>ＢＭＷアルピナ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bandenpura</masterLabel>
-            <translation><!-- Bandenpura --></translation>
+            <translation>バンデンプラ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bentley</masterLabel>
-            <translation><!-- Bentley --></translation>
+            <translation>ベントレー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bertone</masterLabel>
-            <translation><!-- Bertone --></translation>
+            <translation>ベルトーネ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Birkin</masterLabel>
-            <translation><!-- Birkin --></translation>
+            <translation>バーキン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Brabus</masterLabel>
-            <translation><!-- Brabus --></translation>
+            <translation>ブラバス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bugatti</masterLabel>
-            <translation><!-- Bugatti --></translation>
+            <translation>ブガッティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Buick</masterLabel>
-            <translation><!-- Buick --></translation>
+            <translation>ビュイック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Burstner</masterLabel>
-            <translation><!-- Burstner --></translation>
+            <translation>バーストナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CT&amp;T</masterLabel>
-            <translation><!-- CT&amp;T --></translation>
+            <translation>ＣＴ＆Ｔ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cadillac</masterLabel>
-            <translation><!-- Cadillac --></translation>
+            <translation>キャデラック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Canada Honda</masterLabel>
-            <translation><!-- Canada Honda --></translation>
+            <translation>カナダホンダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Carb Deeds</masterLabel>
-            <translation><!-- Carb Deeds --></translation>
+            <translation>カーボディーズ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Carlson</masterLabel>
-            <translation><!-- Carlson --></translation>
+            <translation>カールソン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Caterham</masterLabel>
-            <translation><!-- Caterham --></translation>
+            <translation>ケータハム</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Chevrolet</masterLabel>
-            <translation><!-- Chevrolet --></translation>
+            <translation>シボレー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Chrysler</masterLabel>
-            <translation><!-- Chrysler --></translation>
+            <translation>クライスラー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Citroen</masterLabel>
-            <translation><!-- Citroen --></translation>
+            <translation>シトロエン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMC</masterLabel>
@@ -229,159 +229,159 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Daihatsu</masterLabel>
-            <translation><!-- Daihatsu --></translation>
+            <translation>ダイハツ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler</masterLabel>
-            <translation><!-- Daimler --></translation>
+            <translation>デイムラー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Detomaso</masterLabel>
-            <translation><!-- Detomaso --></translation>
+            <translation>デトマソ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dodge</masterLabel>
-            <translation><!-- Dodge --></translation>
+            <translation>ダッジ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Domestic car Other</masterLabel>
-            <translation><!-- Domestic car Other --></translation>
+            <translation>国産車その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Donkervoort</masterLabel>
-            <translation><!-- Donkervoort --></translation>
+            <translation>ドンカーブート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Eagle</masterLabel>
-            <translation><!-- Eagle --></translation>
+            <translation>イーグル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ferrari</masterLabel>
-            <translation><!-- Ferrari --></translation>
+            <translation>フェラーリ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fiat</masterLabel>
-            <translation><!-- Fiat --></translation>
+            <translation>フィアット</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fisker</masterLabel>
-            <translation><!-- Fisker --></translation>
+            <translation>フィスカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ford</masterLabel>
-            <translation><!-- Ford --></translation>
+            <translation>フォード</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GM Daewoo</masterLabel>
-            <translation><!-- GM Daewoo --></translation>
+            <translation>ＧＭデーウ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GM Matiz</masterLabel>
-            <translation><!-- GM Matiz --></translation>
+            <translation>ＧＭマティス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GMC</masterLabel>
-            <translation><!-- GMC --></translation>
+            <translation>ＧＭＣ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ginetta</masterLabel>
-            <translation><!-- Ginetta --></translation>
+            <translation>ジネッタ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gio</masterLabel>
-            <translation><!-- Gio --></translation>
+            <translation>ジオ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gumpert</masterLabel>
-            <translation><!-- Gumpert --></translation>
+            <translation>グンペルト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Healey</masterLabel>
-            <translation><!-- Healey --></translation>
+            <translation>ヒーレー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hino Motors</masterLabel>
-            <translation><!-- Hino Motors --></translation>
+            <translation>日野自動車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Holden</masterLabel>
-            <translation><!-- Holden --></translation>
+            <translation>ホールデン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Honda</masterLabel>
-            <translation><!-- Honda --></translation>
+            <translation>ホンダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hummer</masterLabel>
-            <translation><!-- Hummer --></translation>
+            <translation>ハマー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hyundai</masterLabel>
-            <translation><!-- Hyundai --></translation>
+            <translation>ヒュンダイ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Imported car Other</masterLabel>
-            <translation><!-- Imported car Other --></translation>
+            <translation>輸入車その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Innocenti</masterLabel>
-            <translation><!-- Innocenti --></translation>
+            <translation>イノチェンティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Isuzu</masterLabel>
-            <translation><!-- Isuzu --></translation>
+            <translation>いすゞ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Jaguar</masterLabel>
-            <translation><!-- Jaguar --></translation>
+            <translation>ジャガー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Jeep</masterLabel>
-            <translation><!-- Jeep --></translation>
+            <translation>ジープ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>KTM</masterLabel>
-            <translation><!-- KTM --></translation>
+            <translation>ＫＴＭ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kia</masterLabel>
-            <translation><!-- Kia --></translation>
+            <translation>起亜</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Koenigsegg</masterLabel>
-            <translation><!-- Koenigsegg --></translation>
+            <translation>ケーニッグゼグ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lamborghini</masterLabel>
-            <translation><!-- Lamborghini --></translation>
+            <translation>ランボルギーニ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lancia</masterLabel>
-            <translation><!-- Lancia --></translation>
+            <translation>ランチア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Land Rover</masterLabel>
-            <translation><!-- Land Rover --></translation>
+            <translation>ランドローバー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lexus</masterLabel>
-            <translation><!-- Lexus --></translation>
+            <translation>レクサス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lincoln</masterLabel>
-            <translation><!-- Lincoln --></translation>
+            <translation>リンカーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>London taxi</masterLabel>
-            <translation><!-- London taxi --></translation>
+            <translation>ロンドンタクシー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lotus</masterLabel>
-            <translation><!-- Lotus --></translation>
+            <translation>ロータス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MG</masterLabel>
-            <translation><!-- MG --></translation>
+            <translation>ＭＧ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MVS</masterLabel>
@@ -389,307 +389,307 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Marcos</masterLabel>
-            <translation><!-- Marcos --></translation>
+            <translation>マーコス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Martin</masterLabel>
-            <translation><!-- Martin --></translation>
+            <translation>マルタン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maserati</masterLabel>
-            <translation><!-- Maserati --></translation>
+            <translation>マセラティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maurice</masterLabel>
-            <translation><!-- Maurice --></translation>
+            <translation>モーリス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach</masterLabel>
-            <translation><!-- Maybach --></translation>
+            <translation>マイバッハ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mazda Motor Corporation</masterLabel>
-            <translation><!-- Mazda Motor Corporation --></translation>
+            <translation>マツダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mclaren</masterLabel>
-            <translation><!-- Mclaren --></translation>
+            <translation>マクラーレン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
+            <translation>メルセデス・ベンツ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercury</masterLabel>
-            <translation><!-- Mercury --></translation>
+            <translation>マーキュリー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mini</masterLabel>
-            <translation><!-- Mini --></translation>
+            <translation>ミニ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mitsubishi</masterLabel>
-            <translation><!-- Mitsubishi --></translation>
+            <translation>三菱</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mitsuoka</masterLabel>
-            <translation><!-- Mitsuoka --></translation>
+            <translation>光岡自動車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Moke</masterLabel>
-            <translation><!-- Moke --></translation>
+            <translation>モーク</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Morgan</masterLabel>
-            <translation><!-- Morgan --></translation>
+            <translation>モーガン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Nissan</masterLabel>
-            <translation><!-- Nissan --></translation>
+            <translation>日産</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oldsmobile</masterLabel>
-            <translation><!-- Oldsmobile --></translation>
+            <translation>オールズモビル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Opel</masterLabel>
-            <translation><!-- Opel --></translation>
+            <translation>オペル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PGO</masterLabel>
-            <translation><!-- PGO --></translation>
+            <translation>ＰＧＯ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pagani</masterLabel>
-            <translation><!-- Pagani --></translation>
+            <translation>パガーニ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Panther</masterLabel>
-            <translation><!-- Panther --></translation>
+            <translation>パンサー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Peugeot</masterLabel>
-            <translation><!-- Peugeot --></translation>
+            <translation>プジョー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Plymouth</masterLabel>
-            <translation><!-- Plymouth --></translation>
+            <translation>プリムス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pontiac</masterLabel>
-            <translation><!-- Pontiac --></translation>
+            <translation>ポンテアック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Porsche</masterLabel>
-            <translation><!-- Porsche --></translation>
+            <translation>ポルシェ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Proton</masterLabel>
-            <translation><!-- Proton --></translation>
+            <translation>プロトン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rada</masterLabel>
-            <translation><!-- Rada --></translation>
+            <translation>ラーダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reliant</masterLabel>
-            <translation><!-- Reliant --></translation>
+            <translation>リライアント</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Renault</masterLabel>
-            <translation><!-- Renault --></translation>
+            <translation>ルノー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Riley</masterLabel>
-            <translation><!-- Riley --></translation>
+            <translation>ライレー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Road Trek</masterLabel>
-            <translation><!-- Road Trek --></translation>
+            <translation>ロードトレック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rolls-Royce</masterLabel>
-            <translation><!-- Rolls-Royce --></translation>
+            <translation>ロールスロイス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rover</masterLabel>
-            <translation><!-- Rover --></translation>
+            <translation>ローバー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ruf</masterLabel>
-            <translation><!-- Ruf --></translation>
+            <translation>ルーフ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SEAT</masterLabel>
-            <translation><!-- SEAT --></translation>
+            <translation>セアト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saab</masterLabel>
-            <translation><!-- Saab --></translation>
+            <translation>サーブ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saleen</masterLabel>
-            <translation><!-- Saleen --></translation>
+            <translation>サリーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saturn</masterLabel>
-            <translation><!-- Saturn --></translation>
+            <translation>サターン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Smart</masterLabel>
-            <translation><!-- Smart --></translation>
+            <translation>スマート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Spiker</masterLabel>
-            <translation><!-- Spiker --></translation>
+            <translation>スパイカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ssangyong</masterLabel>
-            <translation><!-- Ssangyong --></translation>
+            <translation>サンヨン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Starcraft</masterLabel>
-            <translation><!-- Starcraft --></translation>
+            <translation>スタークラフト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Subaru</masterLabel>
-            <translation><!-- Subaru --></translation>
+            <translation>スバル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Suzuki</masterLabel>
-            <translation><!-- Suzuki --></translation>
+            <translation>スズキ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TD</masterLabel>
-            <translation><!-- TD --></translation>
+            <translation>ＴＤ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TVR</masterLabel>
-            <translation><!-- TVR --></translation>
+            <translation>ＴＶＲ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Talbot</masterLabel>
-            <translation><!-- Talbot --></translation>
+            <translation>タルボ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tata</masterLabel>
-            <translation><!-- Tata --></translation>
+            <translation>タタ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Teilhol</masterLabel>
-            <translation><!-- Teilhol --></translation>
+            <translation>ティヨール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tesla</masterLabel>
-            <translation><!-- Tesla --></translation>
+            <translation>テスラ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Thailand Toyota</masterLabel>
-            <translation><!-- Thailand Toyota --></translation>
+            <translation>タイトヨタ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tiara</masterLabel>
-            <translation><!-- Tiara --></translation>
+            <translation>ティアラ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tommykaira</masterLabel>
-            <translation><!-- Tommykaira --></translation>
+            <translation>トミーカイラ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Toyota</masterLabel>
-            <translation><!-- Toyota --></translation>
+            <translation>トヨタ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Triumph</masterLabel>
-            <translation><!-- Triumph --></translation>
+            <translation>トライアンフ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>UAZ</masterLabel>
-            <translation><!-- UAZ --></translation>
+            <translation>ワズ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>UD Trucks</masterLabel>
-            <translation><!-- UD Trucks --></translation>
+            <translation>ＵＤトラックス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Acura</masterLabel>
-            <translation><!-- US Acura --></translation>
+            <translation>米国アキュラ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Honda</masterLabel>
-            <translation><!-- US Honda --></translation>
+            <translation>米国ホンダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Infiniti</masterLabel>
-            <translation><!-- US Infiniti --></translation>
+            <translation>米国インフィニティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Lexus</masterLabel>
-            <translation><!-- US Lexus --></translation>
+            <translation>米国レクサス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Mazda</masterLabel>
-            <translation><!-- US Mazda --></translation>
+            <translation>米国マツダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Mitsubishi</masterLabel>
-            <translation><!-- US Mitsubishi --></translation>
+            <translation>米国三菱</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Nissan</masterLabel>
-            <translation><!-- US Nissan --></translation>
+            <translation>米国日産</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Scion</masterLabel>
-            <translation><!-- US Scion --></translation>
+            <translation>米国サイオン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Subaru</masterLabel>
-            <translation><!-- US Subaru --></translation>
+            <translation>米国スバル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Suzuki</masterLabel>
-            <translation><!-- US Suzuki --></translation>
+            <translation>米国スズキ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>US Toyota</masterLabel>
-            <translation><!-- US Toyota --></translation>
+            <translation>米国トヨタ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Uzurei</masterLabel>
-            <translation><!-- Uzurei --></translation>
+            <translation>ウーズレイ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Venturi Automobiles</masterLabel>
-            <translation><!-- Venturi Automobiles --></translation>
+            <translation>ヴェンチュリー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Volkswagen</masterLabel>
-            <translation><!-- Volkswagen --></translation>
+            <translation>フォルクスワーゲン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Volvo</masterLabel>
-            <translation><!-- Volvo --></translation>
+            <translation>ボルボ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Westfield</masterLabel>
-            <translation><!-- Westfield --></translation>
+            <translation>ウエストフィールド</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Winnebago</masterLabel>
-            <translation><!-- Winnebago --></translation>
+            <translation>ウィネベーゴ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>YES!</masterLabel>
-            <translation><!-- YES! --></translation>
+            <translation>イエス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Zero Sports</masterLabel>
-            <translation><!-- Zero Sports --></translation>
+            <translation>ゼロスポーツ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>vector</masterLabel>
-            <translation><!-- vector --></translation>
+            <translation>ベクター</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -741,7 +741,7 @@
         <name>Material_Portal_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Mod Pack --></label>
+        <label>Mod Pack</label>
         <name>Mod_Pack__c</name>
     </fields>
     <fields>
@@ -1701,7 +1701,7 @@
         <name>Series_Description__c</name>
     </fields>
     <fields>
-        <label>シリーズ</label>
+        <label>クラス</label>
         <name>Series__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
@@ -1857,6 +1857,10 @@
         <name>Steering__c</name>
     </fields>
     <fields>
+        <label><!-- System --></label>
+        <name>System__c</name>
+    </fields>
+    <fields>
         <label>セグメント1</label>
         <name>Vehicle_Group__c</name>
         <picklistValues>
@@ -1991,9 +1995,20 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Segment Information --></label>
+            <label>セグメント情報</label>
             <section>Segment Information</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Car Model Name --></nameFieldLabel>
+    <layouts>
+        <layout>Revised Car Model Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>セグメント情報</label>
+            <section>Segment Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>モデル名</nameFieldLabel>
 </CustomObjectTranslation>

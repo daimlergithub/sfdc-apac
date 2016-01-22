@@ -112,7 +112,7 @@
         <name>Lodgement_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -405,6 +405,14 @@
         <picklistValues>
             <masterLabel>Unsuccessful communication</masterLabel>
             <translation><!-- Unsuccessful communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>レスポンスあり</masterLabel>
+            <translation><!-- レスポンスあり --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>送信</masterLabel>
+            <translation><!-- 送信 --></translation>
         </picklistValues>
     </fields>
     <fields>

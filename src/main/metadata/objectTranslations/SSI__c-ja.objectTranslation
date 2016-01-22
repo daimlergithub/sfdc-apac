@@ -2,11 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>SSI</value>
-    </caseValues>
-    <caseValues>
-        <plural>true</plural>
-        <value>SSI</value>
+        <value><!-- SSI --></value>
     </caseValues>
     <fields>
         <label><!-- Assign Task --></label>
@@ -334,7 +330,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Customer Information --></label>
+            <label>顧客情報</label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -349,7 +345,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Customer Information --></label>
+            <label>顧客情報</label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -357,7 +353,7 @@
             <section>SSI Information</section>
         </sections>
     </layouts>
-    <startsWith>Consonant</startsWith>
+    <nameFieldLabel><!-- SSI No. --></nameFieldLabel>
     <validationRules>
         <errorMessage><!-- QC has been approved. You cannot modify SSI anymore. --></errorMessage>
         <name>ApprovedSRCannotBeChanged</name>

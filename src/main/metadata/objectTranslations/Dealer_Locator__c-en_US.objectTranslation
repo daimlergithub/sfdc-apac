@@ -110,6 +110,10 @@
         <name>Dealer_Number__c</name>
     </fields>
     <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
         <label><!-- Inactive --></label>
         <name>Inactive__c</name>
     </fields>
@@ -803,6 +807,13 @@
     </fields>
     <layouts>
         <layout>Dealer Locator Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Dealer Locator Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
-        <label>セントラルCRM</label>
+        <label><!-- Central CRM --></label>
         <name>Central_CRM</name>
     </customApplications>
     <customApplications>
-        <label>セントラル販売店ポータル</label>
+        <label><!-- Central Dealer Portal --></label>
         <name>Central_Dealer_Portal</name>
     </customApplications>
     <customApplications>
@@ -13,7 +13,7 @@
         <name>Central_Lead_Management</name>
     </customApplications>
     <customApplications>
-        <label>セントラルマーケティング</label>
+        <label><!-- Central Marketing --></label>
         <name>Central_Marketing</name>
     </customApplications>
     <customApplications>
@@ -21,23 +21,23 @@
         <name>Force_com</name>
     </customApplications>
     <customApplications>
-        <label>カタログオペレーション</label>
+        <label><!-- MBJ Catalogue Operation --></label>
         <name>MBJ_Catalogue_Operation</name>
     </customApplications>
     <customApplications>
-        <label>MBJデータ管理</label>
+        <label><!-- MBJ Data Management --></label>
         <name>MBJ_Data_Management</name>
     </customApplications>
     <customApplications>
-        <label>MBJファイル管理</label>
+        <label><!-- MBJ File Management --></label>
         <name>MBJ_File_Management</name>
     </customApplications>
     <customApplications>
-        <label>MBJマスタデータ管理</label>
+        <label><!-- MBJ Master Data Management --></label>
         <name>MBJ_Master_Data_Management</name>
     </customApplications>
     <customApplications>
-        <label>MBJレポート/ダッシュボード</label>
+        <label><!-- MBJ Reports and Dashboards --></label>
         <name>MBJ_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
@@ -81,7 +81,7 @@
         <name>Accuracy</name>
     </customLabels>
     <customLabels>
-        <label>追加</label>
+        <label><!-- Add Button --></label>
         <name>Add_Button</name>
     </customLabels>
     <customLabels>
@@ -181,7 +181,7 @@
         <name>Btn_Preview_No_Questions</name>
     </customLabels>
     <customLabels>
-        <label>勤務先Email</label>
+        <label><!-- Business Email --></label>
         <name>Business_Email</name>
     </customLabels>
     <customLabels>
@@ -501,7 +501,7 @@
         <name>Campaing_Planning_Page_Title</name>
     </customLabels>
     <customLabels>
-        <label>キャンセル</label>
+        <label><!-- Cancel Button --></label>
         <name>Cancel_Button</name>
     </customLabels>
     <customLabels>
@@ -569,7 +569,7 @@
         <name>Class</name>
     </customLabels>
     <customLabels>
-        <label>クリア</label>
+        <label><!-- Button used in Vehicle Picker --></label>
         <name>Clear_Button</name>
     </customLabels>
     <customLabels>
@@ -677,7 +677,7 @@
         <name>Dealer_Has_SR_Code_1</name>
     </customLabels>
     <customLabels>
-        <label>削除</label>
+        <label><!-- Delete --></label>
         <name>Delete</name>
     </customLabels>
     <customLabels>
@@ -701,7 +701,7 @@
         <name>Downloadedfile</name>
     </customLabels>
     <customLabels>
-        <label>編集</label>
+        <label><!-- Edit --></label>
         <name>Edit</name>
     </customLabels>
     <customLabels>
@@ -781,11 +781,11 @@
         <name>Has_Referral_Record</name>
     </customLabels>
     <customLabels>
-        <label>自宅Email</label>
+        <label><!-- Home Email --></label>
         <name>Home_Email</name>
     </customLabels>
     <customLabels>
-        <label>自宅電話番号</label>
+        <label><!-- Home Phone --></label>
         <name>Home_Phone</name>
     </customLabels>
     <customLabels>
@@ -1073,11 +1073,11 @@
         <name>LABS_SF_please_visit</name>
     </customLabels>
     <customLabels>
-        <label>最終更新者</label>
+        <label><!-- Last Modified By --></label>
         <name>Last_Modified_By</name>
     </customLabels>
     <customLabels>
-        <label>最終更新日付</label>
+        <label><!-- Last Modified Date --></label>
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
@@ -1089,7 +1089,7 @@
         <name>Logic_Error</name>
     </customLabels>
     <customLabels>
-        <label>参照</label>
+        <label><!-- Lookup Button --></label>
         <name>Lookup_Button</name>
     </customLabels>
     <customLabels>
@@ -1185,7 +1185,7 @@
         <name>Mileage</name>
     </customLabels>
     <customLabels>
-        <label>携帯電話番号</label>
+        <label><!-- Label for Mobile fields which are referenced in VF pages --></label>
         <name>Mobile</name>
     </customLabels>
     <customLabels>
@@ -1249,7 +1249,7 @@
         <name>New_Account_Information</name>
     </customLabels>
     <customLabels>
-        <label>新規作成</label>
+        <label><!-- Button used in Vehicle Picker --></label>
         <name>New_Button</name>
     </customLabels>
     <customLabels>
@@ -1273,7 +1273,7 @@
         <name>Operation</name>
     </customLabels>
     <customLabels>
-        <label>その他Email</label>
+        <label><!-- Other Email --></label>
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
@@ -1281,11 +1281,11 @@
         <name>Other_Information</name>
     </customLabels>
     <customLabels>
-        <label>その他電話1</label>
+        <label><!-- Other Phone 1 --></label>
         <name>Other_Phone_1</name>
     </customLabels>
     <customLabels>
-        <label>その他電話2</label>
+        <label><!-- Other Phone 2 --></label>
         <name>Other_Phone_2</name>
     </customLabels>
     <customLabels>
@@ -1505,7 +1505,7 @@
         <name>Sales_Marketing</name>
     </customLabels>
     <customLabels>
-        <label>保存</label>
+        <label><!-- Save Button --></label>
         <name>Save_Button</name>
     </customLabels>
     <customLabels>
@@ -1553,7 +1553,7 @@
         <name>Special_Filters</name>
     </customLabels>
     <customLabels>
-        <label>状況</label>
+        <label><!-- Status --></label>
         <name>Status</name>
     </customLabels>
     <customLabels>
@@ -1817,15 +1817,15 @@
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
-        <label>勤務先FAX</label>
+        <label><!-- Work Fax --></label>
         <name>Work_Fax</name>
     </customLabels>
     <customLabels>
-        <label>勤務先携帯電話</label>
+        <label><!-- Label for Work Mobile  fields to be referenced in VF pages --></label>
         <name>Work_Mobile</name>
     </customLabels>
     <customLabels>
-        <label>勤務先電話</label>
+        <label><!-- Work Phone --></label>
         <name>Work_Phone</name>
     </customLabels>
     <customLabels>

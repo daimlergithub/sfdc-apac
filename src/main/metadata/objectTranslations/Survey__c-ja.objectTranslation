@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey --></value>
+        <value>サーベイ</value>
     </caseValues>
     <fields>
         <label>質問項目を隠す</label>
@@ -18,7 +18,6 @@
         <name>Submit_Response__c</name>
     </fields>
     <fields>
-        <help><!-- Example: #survey_container{ margin: 0 auto; width: 600px; box-shadow: 0 0 14px #CCCCCC; -moz-box-shadow: 0 0 14px #CCCCCC; -webkit-box-shadow: 0 0 14px #CCCCCC; } --></help>
         <label><!-- Survey Container CSS --></label>
         <name>Survey_Container_CSS__c</name>
     </fields>
@@ -49,7 +48,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Survey Name --></nameFieldLabel>
+    <nameFieldLabel>サーベイ名</nameFieldLabel>
     <webLinks>
         <label><!-- Preview --></label>
         <name>Preview</name>

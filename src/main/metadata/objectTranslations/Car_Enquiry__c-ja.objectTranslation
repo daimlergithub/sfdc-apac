@@ -2,779 +2,59 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value>Car Model</value>
-    </caseValues>
-    <caseValues>
-        <plural>true</plural>
-        <value>Car Model</value>
+        <value><!-- Car Enquiry --></value>
     </caseValues>
     <fields>
-        <label><!-- AMG --></label>
-        <name>AMG_Classification__c</name>
+        <label><!-- Car Brand --></label>
+        <name>Car_Brand_Picklist__c</name>
         <picklistValues>
             <masterLabel>AMG</masterLabel>
             <translation><!-- AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Non-AMG</masterLabel>
-            <translation><!-- Non-AMG --></translation>
+            <masterLabel>MB business car</masterLabel>
+            <translation><!-- MB business car --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Availability --></label>
-        <name>Availability_Flag__c</name>
-    </fields>
-    <fields>
-        <label><!-- Presentation Date --></label>
-        <name>Available_Date_Market__c</name>
-    </fields>
-    <fields>
-        <label><!-- Deployment date --></label>
-        <name>Available_Date_Retail__c</name>
-    </fields>
-    <fields>
-        <label><!-- Baumaster --></label>
-        <name>Baumaster__c</name>
-    </fields>
-    <fields>
-        <label><!-- Body Type --></label>
-        <name>Body_Type__c</name>
         <picklistValues>
-            <masterLabel>4 DOOR COUPE</masterLabel>
-            <translation><!-- 4 DOOR COUPE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CABRIO</masterLabel>
-            <translation><!-- CABRIO --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>COUPE</masterLabel>
-            <translation><!-- COUPE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ESTATE</masterLabel>
-            <translation><!-- ESTATE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>HATCHBACK</masterLabel>
-            <translation><!-- HATCHBACK --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MPV</masterLabel>
-            <translation><!-- MPV --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ROADSTER</masterLabel>
-            <translation><!-- ROADSTER --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SEDAN</masterLabel>
-            <translation><!-- SEDAN --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SHOOTING BRAKE</masterLabel>
-            <translation><!-- SHOOTING BRAKE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SPORTCOUPE</masterLabel>
-            <translation><!-- SPORTCOUPE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SUV</masterLabel>
-            <translation><!-- SUV --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Brand --></label>
-        <name>Brand_Native__c</name>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Smart</masterLabel>
-            <translation><!-- Smart --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Brand --></label>
-        <name>Brand__c</name>
-        <picklistValues>
-            <masterLabel>AMC</masterLabel>
-            <translation><!-- AMC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>AMC Jeep</masterLabel>
-            <translation><!-- AMC Jeep --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>AMG</masterLabel>
-            <translation><!-- AMG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Abarth</masterLabel>
-            <translation><!-- Abarth --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alfa Romeo</masterLabel>
-            <translation><!-- Alfa Romeo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Apal</masterLabel>
-            <translation><!-- Apal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Arutega</masterLabel>
-            <translation><!-- Arutega --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Aston Martin</masterLabel>
-            <translation><!-- Aston Martin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Audi</masterLabel>
-            <translation><!-- Audi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Austin</masterLabel>
-            <translation><!-- Austin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Autobianchi</masterLabel>
-            <translation><!-- Autobianchi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Avanti</masterLabel>
-            <translation><!-- Avanti --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BL</masterLabel>
-            <translation><!-- BL --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BMW</masterLabel>
-            <translation><!-- BMW --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BMW Alpina</masterLabel>
-            <translation><!-- BMW Alpina --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Bandenpura</masterLabel>
-            <translation><!-- Bandenpura --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Bentley</masterLabel>
-            <translation><!-- Bentley --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Bertone</masterLabel>
-            <translation><!-- Bertone --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Birkin</masterLabel>
-            <translation><!-- Birkin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Brabus</masterLabel>
-            <translation><!-- Brabus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Bugatti</masterLabel>
-            <translation><!-- Bugatti --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Buick</masterLabel>
-            <translation><!-- Buick --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Burstner</masterLabel>
-            <translation><!-- Burstner --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CT&amp;T</masterLabel>
-            <translation><!-- CT&amp;T --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cadillac</masterLabel>
-            <translation><!-- Cadillac --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Canada Honda</masterLabel>
-            <translation><!-- Canada Honda --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carb Deeds</masterLabel>
-            <translation><!-- Carb Deeds --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carlson</masterLabel>
-            <translation><!-- Carlson --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Caterham</masterLabel>
-            <translation><!-- Caterham --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chevrolet</masterLabel>
-            <translation><!-- Chevrolet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chrysler</masterLabel>
-            <translation><!-- Chrysler --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Citroen</masterLabel>
-            <translation><!-- Citroen --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DMC</masterLabel>
-            <translation><!-- DMC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Daihatsu</masterLabel>
-            <translation><!-- Daihatsu --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Daimler</masterLabel>
-            <translation><!-- Daimler --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Detomaso</masterLabel>
-            <translation><!-- Detomaso --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dodge</masterLabel>
-            <translation><!-- Dodge --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Domestic car Other</masterLabel>
-            <translation><!-- Domestic car Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Donkervoort</masterLabel>
-            <translation><!-- Donkervoort --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Eagle</masterLabel>
-            <translation><!-- Eagle --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ferrari</masterLabel>
-            <translation><!-- Ferrari --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fiat</masterLabel>
-            <translation><!-- Fiat --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fisker</masterLabel>
-            <translation><!-- Fisker --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ford</masterLabel>
-            <translation><!-- Ford --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GM Daewoo</masterLabel>
-            <translation><!-- GM Daewoo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GM Matiz</masterLabel>
-            <translation><!-- GM Matiz --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GMC</masterLabel>
-            <translation><!-- GMC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ginetta</masterLabel>
-            <translation><!-- Ginetta --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gio</masterLabel>
-            <translation><!-- Gio --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gumpert</masterLabel>
-            <translation><!-- Gumpert --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Healey</masterLabel>
-            <translation><!-- Healey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hino Motors</masterLabel>
-            <translation><!-- Hino Motors --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Holden</masterLabel>
-            <translation><!-- Holden --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Honda</masterLabel>
-            <translation><!-- Honda --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hummer</masterLabel>
-            <translation><!-- Hummer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hyundai</masterLabel>
-            <translation><!-- Hyundai --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Imported car Other</masterLabel>
-            <translation><!-- Imported car Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Innocenti</masterLabel>
-            <translation><!-- Innocenti --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Isuzu</masterLabel>
-            <translation><!-- Isuzu --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Jaguar</masterLabel>
-            <translation><!-- Jaguar --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Jeep</masterLabel>
-            <translation><!-- Jeep --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>KTM</masterLabel>
-            <translation><!-- KTM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kia</masterLabel>
-            <translation><!-- Kia --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Koenigsegg</masterLabel>
-            <translation><!-- Koenigsegg --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lamborghini</masterLabel>
-            <translation><!-- Lamborghini --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lancia</masterLabel>
-            <translation><!-- Lancia --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Land Rover</masterLabel>
-            <translation><!-- Land Rover --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lexus</masterLabel>
-            <translation><!-- Lexus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lincoln</masterLabel>
-            <translation><!-- Lincoln --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>London taxi</masterLabel>
-            <translation><!-- London taxi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lotus</masterLabel>
-            <translation><!-- Lotus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MG</masterLabel>
-            <translation><!-- MG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MVS</masterLabel>
-            <translation><!-- MVS --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Marcos</masterLabel>
-            <translation><!-- Marcos --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Martin</masterLabel>
-            <translation><!-- Martin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maserati</masterLabel>
-            <translation><!-- Maserati --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maurice</masterLabel>
-            <translation><!-- Maurice --></translation>
+            <masterLabel>MB saloon car</masterLabel>
+            <translation><!-- MB saloon car --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach</masterLabel>
             <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mazda Motor Corporation</masterLabel>
-            <translation><!-- Mazda Motor Corporation --></translation>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mclaren</masterLabel>
-            <translation><!-- Mclaren --></translation>
+            <masterLabel>TRUCKS</masterLabel>
+            <translation><!-- TRUCKS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercury</masterLabel>
-            <translation><!-- Mercury --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mini</masterLabel>
-            <translation><!-- Mini --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mitsubishi</masterLabel>
-            <translation><!-- Mitsubishi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mitsuoka</masterLabel>
-            <translation><!-- Mitsuoka --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Moke</masterLabel>
-            <translation><!-- Moke --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Morgan</masterLabel>
-            <translation><!-- Morgan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Nissan</masterLabel>
-            <translation><!-- Nissan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Oldsmobile</masterLabel>
-            <translation><!-- Oldsmobile --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Opel</masterLabel>
-            <translation><!-- Opel --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>PGO</masterLabel>
-            <translation><!-- PGO --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pagani</masterLabel>
-            <translation><!-- Pagani --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Panther</masterLabel>
-            <translation><!-- Panther --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Peugeot</masterLabel>
-            <translation><!-- Peugeot --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Plymouth</masterLabel>
-            <translation><!-- Plymouth --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pontiac</masterLabel>
-            <translation><!-- Pontiac --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Porsche</masterLabel>
-            <translation><!-- Porsche --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Proton</masterLabel>
-            <translation><!-- Proton --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rada</masterLabel>
-            <translation><!-- Rada --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Reliant</masterLabel>
-            <translation><!-- Reliant --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Renault</masterLabel>
-            <translation><!-- Renault --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Riley</masterLabel>
-            <translation><!-- Riley --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Road Trek</masterLabel>
-            <translation><!-- Road Trek --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rolls-Royce</masterLabel>
-            <translation><!-- Rolls-Royce --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rover</masterLabel>
-            <translation><!-- Rover --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ruf</masterLabel>
-            <translation><!-- Ruf --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SEAT</masterLabel>
-            <translation><!-- SEAT --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Saab</masterLabel>
-            <translation><!-- Saab --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Saleen</masterLabel>
-            <translation><!-- Saleen --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Saturn</masterLabel>
-            <translation><!-- Saturn --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Smart</masterLabel>
-            <translation><!-- Smart --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Spiker</masterLabel>
-            <translation><!-- Spiker --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ssangyong</masterLabel>
-            <translation><!-- Ssangyong --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Starcraft</masterLabel>
-            <translation><!-- Starcraft --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Subaru</masterLabel>
-            <translation><!-- Subaru --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Suzuki</masterLabel>
-            <translation><!-- Suzuki --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>TD</masterLabel>
-            <translation><!-- TD --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>TVR</masterLabel>
-            <translation><!-- TVR --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Talbot</masterLabel>
-            <translation><!-- Talbot --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tata</masterLabel>
-            <translation><!-- Tata --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Teilhol</masterLabel>
-            <translation><!-- Teilhol --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tesla</masterLabel>
-            <translation><!-- Tesla --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Thailand Toyota</masterLabel>
-            <translation><!-- Thailand Toyota --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tiara</masterLabel>
-            <translation><!-- Tiara --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tommykaira</masterLabel>
-            <translation><!-- Tommykaira --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Toyota</masterLabel>
-            <translation><!-- Toyota --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Triumph</masterLabel>
-            <translation><!-- Triumph --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>UAZ</masterLabel>
-            <translation><!-- UAZ --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>UD Trucks</masterLabel>
-            <translation><!-- UD Trucks --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Acura</masterLabel>
-            <translation><!-- US Acura --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Honda</masterLabel>
-            <translation><!-- US Honda --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Infiniti</masterLabel>
-            <translation><!-- US Infiniti --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Lexus</masterLabel>
-            <translation><!-- US Lexus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Mazda</masterLabel>
-            <translation><!-- US Mazda --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Mitsubishi</masterLabel>
-            <translation><!-- US Mitsubishi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Nissan</masterLabel>
-            <translation><!-- US Nissan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Scion</masterLabel>
-            <translation><!-- US Scion --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Subaru</masterLabel>
-            <translation><!-- US Subaru --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Suzuki</masterLabel>
-            <translation><!-- US Suzuki --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>US Toyota</masterLabel>
-            <translation><!-- US Toyota --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Uzurei</masterLabel>
-            <translation><!-- Uzurei --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Venturi Automobiles</masterLabel>
-            <translation><!-- Venturi Automobiles --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Volkswagen</masterLabel>
-            <translation><!-- Volkswagen --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Volvo</masterLabel>
-            <translation><!-- Volvo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Westfield</masterLabel>
-            <translation><!-- Westfield --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Winnebago</masterLabel>
-            <translation><!-- Winnebago --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>YES!</masterLabel>
-            <translation><!-- YES! --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Zero Sports</masterLabel>
-            <translation><!-- Zero Sports --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>vector</masterLabel>
-            <translation><!-- vector --></translation>
+            <masterLabel>smart</masterLabel>
+            <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Brand Code (SWT) --></label>
-        <name>Brand_code__c</name>
+        <label><!-- Car Brand(deleted) --></label>
+        <name>Car_Brand__c</name>
     </fields>
     <fields>
-        <label><!-- Current Class --></label>
-        <name>Class_Name_Native__c</name>
+        <label><!-- Car Model Name --></label>
+        <name>Car_Model_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Past Class --></label>
-        <name>Class_Name__c</name>
-    </fields>
-    <fields>
-        <label><!-- Description --></label>
-        <name>Description__c</name>
-    </fields>
-    <fields>
-        <label><!-- LCC --></label>
-        <name>Life_Cycle_Cluster__c</name>
+        <label><!-- Car Model --></label>
+        <name>Car_Model_Picklist__c</name>
         <picklistValues>
-            <masterLabel>LCC1</masterLabel>
-            <translation><!-- LCC1 --></translation>
+            <masterLabel>2013 smart Chocolate Special Edition</masterLabel>
+            <translation><!-- 2013 smart Chocolate Special Edition --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>LCC2</masterLabel>
-            <translation><!-- LCC2 --></translation>
+            <masterLabel>2013 smart jeremy scott special edition</masterLabel>
+            <translation><!-- 2013 smart jeremy scott special edition --></translation>
         </picklistValues>
-        <picklistValues>
-            <masterLabel>LCC3</masterLabel>
-            <translation><!-- LCC3 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>LCC4</masterLabel>
-            <translation><!-- LCC4 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>LCC5</masterLabel>
-            <translation><!-- LCC5 --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Market discriminator --></label>
-        <name>MD__c</name>
-    </fields>
-    <fields>
-        <label><!-- Portal Model Code --></label>
-        <name>Material_Portal_Code__c</name>
-    </fields>
-    <fields>
-        <label><!-- Mod Pack --></label>
-        <name>Mod_Pack__c</name>
-    </fields>
-    <fields>
-        <label><!-- Model Code --></label>
-        <name>Model_Code__c</name>
-    </fields>
-    <fields>
-        <label><!-- Model Hierarchy Code --></label>
-        <name>Model_Hierarchy_Code__c</name>
-    </fields>
-    <fields>
-        <label><!-- Model Hierarchy Description --></label>
-        <name>Model_Hierarchy_Desc__c</name>
-    </fields>
-    <fields>
-        <label><!-- Past Class and body --></label>
-        <name>Model_Name__c</name>
-    </fields>
-    <fields>
-        <label><!-- Current Class and body --></label>
-        <name>Model_Native__c</name>
-    </fields>
-    <fields>
-        <label><!-- Short Model Name --></label>
-        <name>Model_ShortName__c</name>
-    </fields>
-    <fields>
-        <label><!-- Model --></label>
-        <name>Model__c</name>
         <picklistValues>
             <masterLabel>300 SE 2.8 (not current series)</masterLabel>
             <translation><!-- 300 SE 2.8 (not current series) --></translation>
@@ -824,12 +104,20 @@
             <translation><!-- A 260 Hatchback --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>A 45 AMG</masterLabel>
+            <translation><!-- A 45 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>A160</masterLabel>
             <translation><!-- A160 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>A180</masterLabel>
             <translation><!-- A180 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B180</masterLabel>
+            <translation><!-- B180 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>B200</masterLabel>
@@ -854,6 +142,14 @@
         <picklistValues>
             <masterLabel>B200 Luxury night special edition</masterLabel>
             <translation><!-- B200 Luxury night special edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B260</masterLabel>
+            <translation><!-- B260 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C 180 Coupe</masterLabel>
+            <translation><!-- C 180 Coupe --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C 200 Entry Elegance</masterLabel>
@@ -890,6 +186,14 @@
         <picklistValues>
             <masterLabel>C 63 AMG Saloon Car</masterLabel>
             <translation><!-- C 63 AMG Saloon Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C180 Coupe</masterLabel>
+            <translation><!-- C180 Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C180 Grand Edition</masterLabel>
+            <translation><!-- C180 Grand Edition --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C180 K Classic (CKD)</masterLabel>
@@ -972,12 +276,20 @@
             <translation><!-- C260 Avantgarde --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C260 Avantgarde Grand Edition</masterLabel>
+            <translation><!-- C260 Avantgarde Grand Edition --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>C260 CGI Avantgarde (CKD)</masterLabel>
             <translation><!-- C260 CGI Avantgarde (CKD) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C260 CGI Sport (CKD)</masterLabel>
             <translation><!-- C260 CGI Sport (CKD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C260 Elegance Grand Edition</masterLabel>
+            <translation><!-- C260 Elegance Grand Edition --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C280</masterLabel>
@@ -1004,8 +316,44 @@
             <translation><!-- C300 Sport (CKD) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C300 Sport Grand Edition</masterLabel>
+            <translation><!-- C300 Sport Grand Edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C63 AMG Coupe Black Series (CBU)</masterLabel>
+            <translation><!-- C63 AMG Coupe Black Series (CBU) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>CL600</masterLabel>
             <translation><!-- CL600 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 180</masterLabel>
+            <translation><!-- CLA 180 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 200</masterLabel>
+            <translation><!-- CLA 200 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 220 4MATIC</masterLabel>
+            <translation><!-- CLA 220 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 260 4MATIC</masterLabel>
+            <translation><!-- CLA 260 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 45 AMG</masterLabel>
+            <translation><!-- CLA 45 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA180</masterLabel>
+            <translation><!-- CLA180 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA200</masterLabel>
+            <translation><!-- CLA200 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLK200K</masterLabel>
@@ -1088,6 +436,14 @@
             <translation><!-- CLS 350 Shooting Brake --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>CLS 350 Shooting Brake Luxury</masterLabel>
+            <translation><!-- CLS 350 Shooting Brake Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS 350 Shooting Brake Style</masterLabel>
+            <translation><!-- CLS 350 Shooting Brake Style --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>CLS350</masterLabel>
             <translation><!-- CLS350 --></translation>
         </picklistValues>
@@ -1118,6 +474,38 @@
         <picklistValues>
             <masterLabel>Coupe Style</masterLabel>
             <translation><!-- Coupe Style --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 260L Luxury Sedan</masterLabel>
+            <translation><!-- E 260L Luxury Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 260L Luxury Sport Sedan</masterLabel>
+            <translation><!-- E 260L Luxury Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 260L Sport Sedan</masterLabel>
+            <translation><!-- E 260L Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 300 L Sedan</masterLabel>
+            <translation><!-- E 300 L Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 300L Luxury Sport Sedan</masterLabel>
+            <translation><!-- E 300L Luxury Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 300L Sport Sedan</masterLabel>
+            <translation><!-- E 300L Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 400 L Hybrid</masterLabel>
+            <translation><!-- E 400 L Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E 400L Luxury Sport Sedan</masterLabel>
+            <translation><!-- E 400L Luxury Sport Sedan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E200</masterLabel>
@@ -1184,12 +572,32 @@
             <translation><!-- E260 CGI Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>E260 Cabriolet</masterLabel>
+            <translation><!-- E260 Cabriolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E260 Coupe</masterLabel>
+            <translation><!-- E260 Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>E260 L CGI Avantgarde(CKD)</masterLabel>
             <translation><!-- E260 L CGI Avantgarde(CKD) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E260 L Elegance (CKD)</masterLabel>
             <translation><!-- E260 L Elegance (CKD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E260 L Exclusive Sedan</masterLabel>
+            <translation><!-- E260 L Exclusive Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E260 L Exclusive Sport Sedan</masterLabel>
+            <translation><!-- E260 L Exclusive Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E260 L Sport Sedan</masterLabel>
+            <translation><!-- E260 L Sport Sedan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E260 Sport</masterLabel>
@@ -1240,6 +648,14 @@
             <translation><!-- E300 L Exclusive Avantgarde (CKD) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>E300 L Exclusive Sport Sedan</masterLabel>
+            <translation><!-- E300 L Exclusive Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E300 L Sport Sedan</masterLabel>
+            <translation><!-- E300 L Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>E300L Avantgarde Luxury</masterLabel>
             <translation><!-- E300L Avantgarde Luxury --></translation>
         </picklistValues>
@@ -1258,6 +674,10 @@
         <picklistValues>
             <masterLabel>E320 Avantgarde (not current series)</masterLabel>
             <translation><!-- E320 Avantgarde (not current series) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E320 Coupe</masterLabel>
+            <translation><!-- E320 Coupe --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E320 Elegance (not current series)</masterLabel>
@@ -1292,6 +712,22 @@
             <translation><!-- E350 coupe Sport --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>E400 Cabriolet</masterLabel>
+            <translation><!-- E400 Cabriolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E400 Coupe</masterLabel>
+            <translation><!-- E400 Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E400 L Exclusive Sport Sedan</masterLabel>
+            <translation><!-- E400 L Exclusive Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E400 L Hybrid Sedan</masterLabel>
+            <translation><!-- E400 L Hybrid Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>E500 (not current series)</masterLabel>
             <translation><!-- E500 (not current series) --></translation>
         </picklistValues>
@@ -1324,6 +760,26 @@
             <translation><!-- G65 AMG --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GL 350 CDI 4MATIC</masterLabel>
+            <translation><!-- GL 350 CDI 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 400 4MATIC Dynamic</masterLabel>
+            <translation><!-- GL 400 4MATIC Dynamic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 400 4MATIC Luxury</masterLabel>
+            <translation><!-- GL 400 4MATIC Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 500</masterLabel>
+            <translation><!-- GL 500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 63 AMG</masterLabel>
+            <translation><!-- GL 63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GL450</masterLabel>
             <translation><!-- GL450 --></translation>
         </picklistValues>
@@ -1334,6 +790,14 @@
         <picklistValues>
             <masterLabel>GL450 Exclusive</masterLabel>
             <translation><!-- GL450 Exclusive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK 260 4MATIC Dynamic</masterLabel>
+            <translation><!-- GLK 260 4MATIC Dynamic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK 260 Dynamic</masterLabel>
+            <translation><!-- GLK 260 Dynamic --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK 300 4MATIC Dynamic</masterLabel>
@@ -1356,6 +820,14 @@
             <translation><!-- GLK350 4MATIC --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GenericModel</masterLabel>
+            <translation><!-- GenericModel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAYBACH</masterLabel>
+            <translation><!-- MAYBACH --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MB100 (not current series)</masterLabel>
             <translation><!-- MB100 (not current series) --></translation>
         </picklistValues>
@@ -1364,8 +836,24 @@
             <translation><!-- ML 300 4MATIC --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>ML 320 4MATIC</masterLabel>
+            <translation><!-- ML 320 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML 350 CDI 4MATIC</masterLabel>
+            <translation><!-- ML 350 CDI 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>ML 350 Luxury</masterLabel>
             <translation><!-- ML 350 Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML 400 4MATIC Dynamic</masterLabel>
+            <translation><!-- ML 400 4MATIC Dynamic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML 400 4MATIC Luxury</masterLabel>
+            <translation><!-- ML 400 4MATIC Luxury --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ML350</masterLabel>
@@ -1400,10 +888,6 @@
             <translation><!-- Marco Polo --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Maybach</masterLabel>
-            <translation><!-- Maybach --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Maybach 62</masterLabel>
             <translation><!-- Maybach 62 --></translation>
         </picklistValues>
@@ -1412,16 +896,28 @@
             <translation><!-- Maybach 62 Zeppelin --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>New C Sport</masterLabel>
-            <translation><!-- New C Sport --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R 300 Luxury</masterLabel>
             <translation><!-- R 300 Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R 320 4MATIC Business</masterLabel>
+            <translation><!-- R 320 4MATIC Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R 320 4MATIC Luxury</masterLabel>
+            <translation><!-- R 320 4MATIC Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R 400 4MATIC Business</masterLabel>
+            <translation><!-- R 400 4MATIC Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R 400 4MATIC Luxury</masterLabel>
+            <translation><!-- R 400 4MATIC Luxury --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R300L</masterLabel>
@@ -1446,6 +942,38 @@
         <picklistValues>
             <masterLabel>S 400 HYBRID</masterLabel>
             <translation><!-- S 400 HYBRID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 400 L Exclusive</masterLabel>
+            <translation><!-- S 400 L Exclusive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 400 L Hybrid</masterLabel>
+            <translation><!-- S 400 L Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 400 L Luxury</masterLabel>
+            <translation><!-- S 400 L Luxury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 500 L</masterLabel>
+            <translation><!-- S 500 L --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 500 L 4MATIC</masterLabel>
+            <translation><!-- S 500 L 4MATIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 600 L</masterLabel>
+            <translation><!-- S 600 L --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 63 AMG</masterLabel>
+            <translation><!-- S 63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 63 L AMG 4MATIC</masterLabel>
+            <translation><!-- S 63 L AMG 4MATIC --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S280 (not current series)</masterLabel>
@@ -1502,6 +1030,14 @@
         <picklistValues>
             <masterLabel>S65 AMG</masterLabel>
             <translation><!-- S65 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL 350 Luxury Sport</masterLabel>
+            <translation><!-- SL 350 Luxury Sport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL 350 Style</masterLabel>
+            <translation><!-- SL 350 Style --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SL 63 AMG</masterLabel>
@@ -1588,8 +1124,16 @@
             <translation><!-- Vito --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>smart 2013 BRABUS</masterLabel>
+            <translation><!-- smart 2013 BRABUS --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>smart 2013 new year edition</masterLabel>
             <translation><!-- smart 2013 new year edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart 2014 new year edition</masterLabel>
+            <translation><!-- smart 2014 new year edition --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart 52kw cityflame special edition cabrio</masterLabel>
@@ -1598,6 +1142,14 @@
         <picklistValues>
             <masterLabel>smart 52kw cityflame special edition coupe</masterLabel>
             <translation><!-- smart 52kw cityflame special edition coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart 52kw citypaladin special edition cabrio</masterLabel>
+            <translation><!-- smart 52kw citypaladin special edition cabrio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart 52kw citypaladin special edition coupe</masterLabel>
+            <translation><!-- smart 52kw citypaladin special edition coupe --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart 52kw ice coupe special</masterLabel>
@@ -1652,6 +1204,14 @@
             <translation><!-- smart 62kw cityflame special edition coupe --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>smart 62kw citypaladin special edition cabrio</masterLabel>
+            <translation><!-- smart 62kw citypaladin special edition cabrio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart 62kw citypaladin special edition coupe</masterLabel>
+            <translation><!-- smart 62kw citypaladin special edition coupe --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>smart 62kw ice cabrio special</masterLabel>
             <translation><!-- smart 62kw ice cabrio special --></translation>
         </picklistValues>
@@ -1672,8 +1232,32 @@
             <translation><!-- smart 62kw mhd coupe Night orange --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>smart 75kw BRABUS tailor made</masterLabel>
+            <translation><!-- smart 75kw BRABUS tailor made --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>smart 75kw BRABUS xClusive Coupe</masterLabel>
             <translation><!-- smart 75kw BRABUS xClusive Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart BoConcept Limited Edition smart Cabrio 52kw</masterLabel>
+            <translation><!-- smart BoConcept Limited Edition smart Cabrio 52kw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart BoConcept Limited Edition smart Cabrio 62kw</masterLabel>
+            <translation><!-- smart BoConcept Limited Edition smart Cabrio 62kw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart BoConcept Limited Edition smart Coupe 52kw</masterLabel>
+            <translation><!-- smart BoConcept Limited Edition smart Coupe 52kw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart BoConcept Limited Edition smart Coupe 62kw</masterLabel>
+            <translation><!-- smart BoConcept Limited Edition smart Coupe 62kw --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Coupe-style version of the Tiger limited edition</masterLabel>
+            <translation><!-- smart Coupe-style version of the Tiger limited edition --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart Greystyle limited edition Cabrio</masterLabel>
@@ -1692,128 +1276,213 @@
             <translation><!-- smart Pure-line --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>smart Standard hardtop version of the Tiger limited edition</masterLabel>
+            <translation><!-- smart Standard hardtop version of the Tiger limited edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart electric drive 3rd gen</masterLabel>
+            <translation><!-- smart electric drive 3rd gen --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>smart gray special edition</masterLabel>
             <translation><!-- smart gray special edition --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Range --></label>
-        <name>Range__c</name>
+        <label><!-- Car Model(Lookup) --></label>
+        <name>Car_Model__c</name>
+        <relationshipLabel><!-- Car Enquiry --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Series Description --></label>
-        <name>Series_Description__c</name>
-    </fields>
-    <fields>
-        <label><!-- Series --></label>
-        <name>Series__c</name>
+        <label><!-- Car Class --></label>
+        <name>Car_Series__c</name>
         <picklistValues>
-            <masterLabel>A-Class</masterLabel>
-            <translation><!-- A-Class --></translation>
+            <masterLabel>A 45 AMG</masterLabel>
+            <translation><!-- A 45 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>AMG GT</masterLabel>
-            <translation><!-- AMG GT --></translation>
+            <masterLabel>A-CLASS</masterLabel>
+            <translation><!-- A-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>B-Class</masterLabel>
-            <translation><!-- B-Class --></translation>
+            <masterLabel>B-CLASS</masterLabel>
+            <translation><!-- B-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class</masterLabel>
-            <translation><!-- C-Class --></translation>
+            <masterLabel>C-CLASS</masterLabel>
+            <translation><!-- C-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CL-Class</masterLabel>
-            <translation><!-- CL-Class --></translation>
+            <masterLabel>C-Class Estate</masterLabel>
+            <translation><!-- C-Class Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Coupe</masterLabel>
+            <translation><!-- C-Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C63 AMG</masterLabel>
+            <translation><!-- C63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CL-CLASS</masterLabel>
+            <translation><!-- CL-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA 45 AMG</masterLabel>
+            <translation><!-- CLA 45 AMG --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA-Class</masterLabel>
             <translation><!-- CLA-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLK-Class</masterLabel>
-            <translation><!-- CLK-Class --></translation>
+            <masterLabel>CLK-CLASS</masterLabel>
+            <translation><!-- CLK-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLS-Class</masterLabel>
-            <translation><!-- CLS-Class --></translation>
+            <masterLabel>CLS-CLASS</masterLabel>
+            <translation><!-- CLS-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class</masterLabel>
-            <translation><!-- E-Class --></translation>
+            <masterLabel>CLS63 AMG</masterLabel>
+            <translation><!-- CLS63 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>G-Class</masterLabel>
-            <translation><!-- G-Class --></translation>
+            <masterLabel>Concept Car</masterLabel>
+            <translation><!-- Concept Car --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GL-Class</masterLabel>
-            <translation><!-- GL-Class --></translation>
+            <masterLabel>E Coupe Sport</masterLabel>
+            <translation><!-- E Coupe Sport --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLA-Class</masterLabel>
-            <translation><!-- GLA-Class --></translation>
+            <masterLabel>E-CLASS</masterLabel>
+            <translation><!-- E-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLC-Class</masterLabel>
-            <translation><!-- GLC-Class --></translation>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLE-Class</masterLabel>
-            <translation><!-- GLE-Class --></translation>
+            <masterLabel>E-Class Coupe</masterLabel>
+            <translation><!-- E-Class Coupe --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLK-Class</masterLabel>
-            <translation><!-- GLK-Class --></translation>
+            <masterLabel>E63 AMG</masterLabel>
+            <translation><!-- E63 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>M-Class</masterLabel>
-            <translation><!-- M-Class --></translation>
+            <masterLabel>G-CLASS</masterLabel>
+            <translation><!-- G-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Maybach</masterLabel>
-            <translation><!-- Maybach --></translation>
+            <masterLabel>G55 AMG</masterLabel>
+            <translation><!-- G55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G63 AMG</masterLabel>
+            <translation><!-- G63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G65 AMG</masterLabel>
+            <translation><!-- G65 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 63 AMG</masterLabel>
+            <translation><!-- GL 63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL-CLASS</masterLabel>
+            <translation><!-- GL-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK-CLASS</masterLabel>
+            <translation><!-- GLK-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GenericModel</masterLabel>
+            <translation><!-- GenericModel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MARCO POLO</masterLabel>
+            <translation><!-- MARCO POLO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAYBACH</masterLabel>
+            <translation><!-- MAYBACH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB100 (not current series)</masterLabel>
+            <translation><!-- MB100 (not current series) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-CLASS</masterLabel>
+            <translation><!-- ML-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML63 AMG</masterLabel>
+            <translation><!-- ML63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NEW E-Class Sport Sedan</masterLabel>
+            <translation><!-- NEW E-Class Sport Sedan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>R-Class</masterLabel>
-            <translation><!-- R-Class --></translation>
+            <masterLabel>R-CLASS</masterLabel>
+            <translation><!-- R-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>S-Class</masterLabel>
-            <translation><!-- S-Class --></translation>
+            <masterLabel>S 63 AMG</masterLabel>
+            <translation><!-- S 63 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SL-Class</masterLabel>
-            <translation><!-- SL-Class --></translation>
+            <masterLabel>S 63 L AMG</masterLabel>
+            <translation><!-- S 63 L AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SLK-Class</masterLabel>
-            <translation><!-- SLK-Class --></translation>
+            <masterLabel>S-CLASS</masterLabel>
+            <translation><!-- S-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SLR-Class</masterLabel>
-            <translation><!-- SLR-Class --></translation>
+            <masterLabel>S65 AMG</masterLabel>
+            <translation><!-- S65 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SLS-Class</masterLabel>
-            <translation><!-- SLS-Class --></translation>
+            <masterLabel>SL-CLASS</masterLabel>
+            <translation><!-- SL-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <masterLabel>SL63 AMG</masterLabel>
+            <translation><!-- SL63 AMG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>V-Class</masterLabel>
-            <translation><!-- V-Class --></translation>
+            <masterLabel>SLK-CLASS</masterLabel>
+            <translation><!-- SLK-CLASS --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>VANEO</masterLabel>
-            <translation><!-- VANEO --></translation>
+            <masterLabel>SLK55 AMG</masterLabel>
+            <translation><!-- SLK55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLS AMG</masterLabel>
+            <translation><!-- SLS AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPRINTER</masterLabel>
+            <translation><!-- SPRINTER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRUCKS</masterLabel>
+            <translation><!-- TRUCKS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VARIO</masterLabel>
+            <translation><!-- VARIO --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VIANO</masterLabel>
@@ -1827,192 +1496,22 @@
             <masterLabel>smart</masterLabel>
             <translation><!-- smart --></translation>
         </picklistValues>
-        <picklistValues>
-            <masterLabel>smart forfour</masterLabel>
-            <translation><!-- smart forfour --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart fortwo</masterLabel>
-            <translation><!-- smart fortwo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart roadster</masterLabel>
-            <translation><!-- smart roadster --></translation>
-        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Status --></label>
-        <name>Status__c</name>
-        <picklistValues>
-            <masterLabel>Competitor</masterLabel>
-            <translation><!-- Competitor --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Own Non Sellable</masterLabel>
-            <translation><!-- Own Non Sellable --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Own Sellable</masterLabel>
-            <translation><!-- Own Sellable --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Steering --></label>
-        <name>Steering__c</name>
-    </fields>
-    <fields>
-        <label><!-- System --></label>
-        <name>System__c</name>
-    </fields>
-    <fields>
-        <label><!-- Vehicle Group --></label>
-        <name>Vehicle_Group__c</name>
-        <picklistValues>
-            <masterLabel>Dream Car</masterLabel>
-            <translation><!-- Dream Car --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>NGCC</masterLabel>
-            <translation><!-- NGCC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SUV</masterLabel>
-            <translation><!-- SUV --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Segment 2 --></label>
-        <name>Vehicle_SubGroup__c</name>
-        <picklistValues>
-            <masterLabel>A-Class</masterLabel>
-            <translation><!-- A-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>B-Class</masterLabel>
-            <translation><!-- B-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>C-Class</masterLabel>
-            <translation><!-- C-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CLA</masterLabel>
-            <translation><!-- CLA --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CLS</masterLabel>
-            <translation><!-- CLS --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Compact</masterLabel>
-            <translation><!-- Compact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>E-Class</masterLabel>
-            <translation><!-- E-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>G-Class</masterLabel>
-            <translation><!-- G-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GL</masterLabel>
-            <translation><!-- GL --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLA</masterLabel>
-            <translation><!-- GLA --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLE</masterLabel>
-            <translation><!-- GLE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLK</masterLabel>
-            <translation><!-- GLK --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maybach</masterLabel>
-            <translation><!-- Maybach --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-AMG GT</masterLabel>
-            <translation><!-- Mercedes-AMG GT --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>NGCC</masterLabel>
-            <translation><!-- NGCC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>R-Class</masterLabel>
-            <translation><!-- R-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>S-Class</masterLabel>
-            <translation><!-- S-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SL</masterLabel>
-            <translation><!-- SL --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SLK</masterLabel>
-            <translation><!-- SLK --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SLR</masterLabel>
-            <translation><!-- SLR --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SLS</masterLabel>
-            <translation><!-- SLS --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>V-Class</masterLabel>
-            <translation><!-- V-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>VANEO</masterLabel>
-            <translation><!-- VANEO --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart forfour</masterLabel>
-            <translation><!-- smart forfour --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart fortwo</masterLabel>
-            <translation><!-- smart fortwo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart roadster</masterLabel>
-            <translation><!-- smart roadster --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Segment 3 --></label>
-        <name>Vehicle_SubSubGroup__c</name>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+        <relationshipLabel><!-- Car Enquiry --></relationshipLabel>
     </fields>
     <layouts>
-        <layout>Car Model Layout</layout>
+        <layout>Car Enquiry Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label><!-- Segment Information --></label>
-            <section>Segment Information</section>
-        </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Car Model Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Segment Information --></label>
-            <section>Segment Information</section>
-        </sections>
-    </layouts>
-    <startsWith>Consonant</startsWith>
+    <nameFieldLabel><!-- Car Enquiry Number --></nameFieldLabel>
+    <webLinks>
+        <label>新規リード</label>
+        <name>New_Lead</name>
+    </webLinks>
 </CustomObjectTranslation>
