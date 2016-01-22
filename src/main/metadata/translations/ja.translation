@@ -525,6 +525,38 @@
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
+        <label><!-- Case Deadline Notification Case --></label>
+        <name>Case_Deadline_Notification_Case</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Case Number --></label>
+        <name>Case_Deadline_Notification_Case_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Company --></label>
+        <name>Case_Deadline_Notification_Company</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text1 --></label>
+        <name>Case_Deadline_Notification_Text1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text2 --></label>
+        <name>Case_Deadline_Notification_Text2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text3 --></label>
+        <name>Case_Deadline_Notification_Text3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text4 --></label>
+        <name>Case_Deadline_Notification_Text4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text5 --></label>
+        <name>Case_Deadline_Notification_Text5</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Case Record Type --></label>
         <name>Case_Record_Type</name>
     </customLabels>
