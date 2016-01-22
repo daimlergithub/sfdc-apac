@@ -1,14 +1,23 @@
 <apex:page standardController="Account" extensions="AddressDisplayInlineEditController">
-
+ <!--<script  type="text/javascript">
+                function refreshParentPage(){
+                alert('Hello  '+{!refreshPage});
+                      var stringvalue='{!refreshPage}';
+                      if(stringvalue == false)){ 
+                      alert('Hello  '+stringvalue );                 
+                     window.open("/{!id}","_parent");
+                     }       
+                }
+              </script>  -->
     <!--form starts here-->
     <apex:form id="addfrm" >
-        
         <!--OutPutPanel starts here-->
         <apex:outputPanel layout="block" style="overflow:auto;">
             
             <!--PageBlock starts here-->
             <apex:pageBlock title="Addresses" id="pageBlock">
-                <apex:pageMessages /> 
+                <apex:pageMessages id="pgmsg"/> 
+                
                  
                  <!--PageBlockTable  starts here-->
                 <apex:pageBlockTable id="acc_address" value="{!adds}" var="row">                                                                    
@@ -100,12 +109,9 @@
               <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" />
               <apex:commandButton id="saveButton" value="{!$Label.Save_Button}" action="{!saveEditedRecords}" style="display:none" />
               <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
-              
-              <script  type="text/javascript">
-                function refreshParentPage(){                   
-                     window.open("/{!id}","_parent");       
-                }
-              </script>  
+
+             
+
             </apex:pageBlock>
             <apex:pageBlock id="hiddenBlock" rendered="false"></apex:pageBlock>
             <apex:pageBlock rendered="{!ShowpageBlockFlag}">                 
@@ -126,8 +132,20 @@
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
-                <apex:commandbutton value="{!$Label.Save_Button}" action="{!SaveAddress}"  oncomplete="refreshParentPage()"/>
+                <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}"/>
+                <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}"/>
+                <apex:commandbutton value="{!$Label.Save_Button}" action="{!SaveAddress}" reRender="redirectPanel,pgmsg"/>
+                     <apex:outputPanel id="redirectPanel">                   
+                     <apex:outputText rendered="{!refreshPage}">
+                         <script type="text/javascript">
+                             window.open("/{!id}","_parent");       
+                         </script>                       
+                   </apex:outputText>                    
+                </apex:outputPanel>
                 <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
+                
+                </apex:pageBlockButtons>
             </apex:pageBlock>
 
         </apex:outputPanel>

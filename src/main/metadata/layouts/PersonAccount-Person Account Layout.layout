@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Create_Vehicle</customButtons>
+    <customButtons>View_Hierarchy</customButtons>
+    <customButtons>Mergeexample</customButtons>
+    <customButtons>New_Leads</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>

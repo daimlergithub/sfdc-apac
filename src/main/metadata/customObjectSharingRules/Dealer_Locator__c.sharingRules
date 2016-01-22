@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
-        <fullName>JP_MarkeDM_Material_Readable_to_MBJ_IT_Dept</fullName>
+        <fullName>JP_MarketDealer_Locator_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
@@ -12,17 +12,6 @@
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
-        <name>JP_MarkeDM Material_Readable_to_MBJ_IT_Dept</name>
+        <name>JP_MarketDealer Locator_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
-    <ownerRules>
-        <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
-        <sharedTo>
-            <role>OB_QC</role>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>Share with Data Fulfillment user with R/W</name>
-    </ownerRules>
 </CustomObjectSharingRules>

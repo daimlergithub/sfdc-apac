@@ -9,17 +9,19 @@ public class AddressDisplayInlineEditController {
    public List<Address__c> adds {get; set;}
    public Address__c addressobj {get; set;}
    public Boolean ShowpageBlockFlag {get;set;}
+   public Boolean refreshPage{get;set;}
    private ApexPages.StandardController stdController;   
    public string addressId {get;set;}
    public string editaddressId {get;set;}  
    public String aid;
+   public boolean Address_Validated_Flag {get;set;}
 
     
    public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
            this.stdController = stdController;     
            aid = ApexPages.currentPage().getParameters().get('id');
+       	   Address_Validated_Flag = false;
            system.debug('######'+ aid); 
-       
              if(ApexPages.currentPage().getParameters().get('id')!=Null){
                 
                 adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
@@ -168,8 +170,7 @@ public class AddressDisplayInlineEditController {
         ShowpageBlockFlag = true;
                 
    }
-    
- /**    
+     /**    
      * @Description : creates new address record  
      * @author      : Srinivas
      * @Date        : 11/3/2015    
@@ -180,35 +181,143 @@ public class AddressDisplayInlineEditController {
     
           system.debug('addressobj>>>>>'+addressobj);
           system.debug('@Account Id :' +ApexPages.currentPage().getParameters().get('id'));
-  
-        if(addressobj != null ){ 
-        
-            Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+      
+            if(addressobj != null ){
+             Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
             {
-                addressobj.Customer__c = acc.id;
-            
-            try {
-                    insert addressobj;                    
+                addressobj.Customer__c = acc.id;            
+            try {  
+                	if(Address_Validated_Flag == false)
+                    {
+                    	ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                
+                    else if(Address_Validated_Flag == true)
+                    {
+                    	refreshPage= true;                
+                    	insert addressobj;
+                    }
                 }
             catch (DmlException e) 
                 {
-                     ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+                     refreshPage = false;
+                     ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
                 }
             }
            else if(editaddressId !=null)
             {
-            addressobj.id = editaddressId;
-            
-            try {
-                    update addressobj;  
+            addressobj.id = editaddressId;             
+            try {  
+                	if(Address_Validated_Flag == false)
+                    {
+                    	ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                
+                    else 
+                    {
+                    	refreshPage= true;                
+                    	insert addressobj;
+                    }
                 }
             catch (DmlException e) 
                 {
+                     refreshPage = false;
                      ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+                     
+                     system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
                 }
             }    
-        }               
-   } 
+        }  
+  }
+
+/**  Address Search based on Zip code.
+     Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
+**  Created By: Sudhir  
+**  Date: 2016-1-19
+**/    
+    public void AddressSearch()
+  {
+      if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+        {            
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+        }
+       if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
+       {
+        crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+        response =  UtilWebservice.validateAddressByZipCode(addressobj);
+        if(response != null && response.ValidationStatus == 'OK')
+        {
+        
+        addressobj.Address_Code__c = response.Addresses[0].Address_Code;
+        addressobj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+        addressobj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+        addressobj.Block__c = response.Addresses[0].Block;
+        addressobj.City__c = response.Addresses[0].City;
+        addressobj.District__c = response.Addresses[0].District;
+        addressobj.Province__c = response.Addresses[0].Province;
+        addressobj.ZipCode__c =  response.Addresses[0].ZipCode;
+        }
+        if(response != null && response.ValidationStatus == 'ERROR')
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
+            
+        }
+      
+  	} 
+  }
+      /**  Address Validation based on Zip code.
+     After Address is searched using Address Search button and if user enters additional address information, It sends information to 
+EP/Tolerant for Validation.
+**  Created By: Sudhir  
+**  Date: 2016-1-19
+**/
+    public void ValidateAddressSearch()
+    {
+        if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+        {
+            addressobj.Address_Code__c = '';
+            addressobj.Address_Line_1__c = '';
+            addressobj.Address_Line_2__c = '';
+            addressobj.Block__c = '';
+            addressobj.City__c = '';
+            addressobj.District__c = '';
+            addressobj.Province__c = '';
+            
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+        }
+        
+        if(addressobj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)))
+        {
+            crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+            response =  UtilWebservice.validateAddressByZipCode(addressobj);
+            if(response != null && response.ValidationStatus == 'OK')
+            {
+                Address_Validated_Flag = true;
+                addressobj.Address_Code__c = response.Addresses[0].Address_Code;
+                addressobj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                addressobj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                addressobj.Block__c = response.Addresses[0].Block;
+                addressobj.City__c = response.Addresses[0].City;
+                addressobj.District__c = response.Addresses[0].District;
+                addressobj.Province__c = response.Addresses[0].Province;
+                addressobj.ZipCode__c =  response.Addresses[0].ZipCode;
+                
+            }
+            if(response != null && response.ValidationStatus == 'ERROR')
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
+                
+            }
+        }
+                
+    }  
 }
