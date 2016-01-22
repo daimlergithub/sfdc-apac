@@ -21,7 +21,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>CAC CRM Campaign,CAC Campaign,Central Marketing Campaign,Campaign Execution - Simple,Campaign Execution - Complex,CAS Marketing Campaign</value>
+            <value>Campaign Execution - Simple,CAC CRM Campaign,CAC Campaign,Campaign Execution - Complex,Central Marketing Campaign,CAS Marketing Campaign</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>CAC CRM share to CRM Manager - CAC &amp; Data Mgt</name>
@@ -52,7 +52,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Started,Approved,Confirmed,Closed</value>
+            <value>Closed,Confirmed,Approved,Started</value>
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -119,7 +119,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>CAC CRM Campaign,CAC Campaign,Campaign Execution - Simple,Campaign Execution - Complex,CAS Marketing Campaign</value>
+            <value>Campaign Execution - Simple,CAC CRM Campaign,CAC Campaign,Campaign Execution - Complex,CAS Marketing Campaign</value>
         </criteriaItems>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Campaign Share with Data Service Specialist</name>
@@ -137,10 +137,24 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Started,Approved,Closed</value>
+            <value>Closed,Approved,Started</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Central Campaign share to CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketCampaign_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <campaignAccessLevel>All</campaignAccessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketCampaign_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_AS_Campaign_with_Region_E</fullName>
@@ -232,7 +246,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>notEqual</operation>
-            <value>Published,Closed</value>
+            <value>Closed,Published</value>
         </criteriaItems>
         <booleanFilter>1 OR ( 2 AND 3)</booleanFilter>
         <campaignAccessLevel>Edit</campaignAccessLevel>
@@ -251,7 +265,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Published,Closed</value>
+            <value>Closed,Published</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Share Published MB BP with Central</name>
@@ -269,7 +283,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Published,Closed</value>
+            <value>Closed,Published</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Share Published MB BP with Central-AS</name>
@@ -287,7 +301,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Published,Closed</value>
+            <value>Closed,Published</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Share Published MB BP with Region</name>
@@ -310,7 +324,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>notEqual</operation>
-            <value>Published,Closed</value>
+            <value>Closed,Published</value>
         </criteriaItems>
         <booleanFilter>1 OR (2 AND 3)</booleanFilter>
         <campaignAccessLevel>Edit</campaignAccessLevel>
@@ -414,7 +428,7 @@
         <criteriaItems>
             <field>Status</field>
             <operation>equals</operation>
-            <value>Started,Approved,Confirmed,Closed</value>
+            <value>Closed,Confirmed,Approved,Started</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Share with CAC Data Service Mgr</name>

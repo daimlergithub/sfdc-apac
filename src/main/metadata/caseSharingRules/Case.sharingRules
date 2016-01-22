@@ -26,7 +26,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Chrysler Complaint,Inquiry</value>
+            <value>Inquiry,Chrysler Complaint</value>
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>CAC Inquiry share to Hanxue</name>
@@ -167,10 +167,24 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Chrysler Complaint,Inquiry</value>
+            <value>Inquiry,Chrysler Complaint</value>
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Inquiry case is shared with CAC with RW</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketCase_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>View all records of all Japan object with MD__c = 'JP' for all Roles used in Japan</description>
+        <name>JP_MarketCase_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MBDA_CASE</fullName>
@@ -180,7 +194,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>MBDA Inquiry,MBDA Complaint</value>
+            <value>MBDA Complaint,MBDA Inquiry</value>
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>MBDA CASE</name>
