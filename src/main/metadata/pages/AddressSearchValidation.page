@@ -103,7 +103,7 @@
                     <apex:inputField value="{!objPersonAccount.Email__c}" />
                     <apex:inputField value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
-                    <apex:inputField value="{!objPersonAccount.Loyalty_Card_No__c}" />
+                    
                     
                 </apex:pageBlockSection>
                 

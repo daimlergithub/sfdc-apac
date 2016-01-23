@@ -167,9 +167,10 @@ private class TaskHelperTest {
         
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '058392243', Name = 'testdealer');
         insert dealer;
-        
-        Case c1 = new Case(RecordTypeId = MBRecordtypeid, Contact_Number__c = '13701270002', Case_Dealer__c = dealer.Id);
-        c1.AccountId = acccase.id;
+        system.debug('>>>>>>>>>>dealer'+dealer);
+        Case c1 = new Case(RecordTypeId = MBRecordtypeid, Status='Open',Contact_Number__c = '13701270002', Case_Dealer__c = dealer.Id);
+        system.debug('>>>>>>>>>>'+acc+'>>>>>'+acccase);
+        c1.AccountId = acc.id;
         insert c1;
         
         Task task1 = new Task(RecordTypeId = IBTaskRecordTypeId, IB_Call_Type__c = 'Inbound', IB_Status__c = 'Valid');

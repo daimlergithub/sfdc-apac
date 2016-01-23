@@ -115,7 +115,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <name>Campaign_ExecutionIndex_Calculation</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -171,7 +171,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <name>Update_Content_Preview</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISNEW() || ISCHANGED( Template__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -181,7 +181,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <name>Update_Ative_to_True</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>

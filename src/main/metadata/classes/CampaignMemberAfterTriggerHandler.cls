@@ -9,7 +9,7 @@
 public class CampaignMemberAfterTriggerHandler
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Set<String> memberIds = new Set<String>();
         for(CampaignMember member : (List<CampaignMember>)trigger.new){
@@ -25,7 +25,7 @@ public class CampaignMemberAfterTriggerHandler
                                     from CampaignMember where Id in :memberIds];
         CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(members);
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

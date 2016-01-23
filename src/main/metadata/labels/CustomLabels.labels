@@ -927,6 +927,62 @@
         <value>CaseNumber :</value>
     </labels>
     <labels>
+        <fullName>Case_Deadline_Notification_Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Case</shortDescription>
+        <value>Case</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Case_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Case Number</shortDescription>
+        <value>Case Number</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text1</shortDescription>
+        <value>Following case is near to deadline and need you to handle.</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text2</shortDescription>
+        <value>Please go to the following URL to login to CRM and view the details of the case.</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text3</shortDescription>
+        <value>If you are wholesale user, please use the link</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text4</shortDescription>
+        <value>If you are dealer user, please use the link</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text5</shortDescription>
+        <value>need to handle.</value>
+    </labels>
+    <labels>
         <fullName>Case_Record_Type</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3369,13 +3425,6 @@
         <value>Yearly Targets</value>
     </labels>
     <labels>
-        <fullName>Zipcode</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Zipcode</shortDescription>
-        <value>七七七七七七七</value>
-    </labels>
-    <labels>
         <fullName>Zipcode_not_found</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3699,6 +3748,13 @@
         <protected>false</protected>
         <shortDescription>slave</shortDescription>
         <value>slave</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
     </labels>
     <labels>
         <fullName>slaveId</fullName>

@@ -75,13 +75,16 @@ customer1 = new Account(Dealer_Default_Flag__c=false,
             update customer1;
 }
  
-  static testMethod void TestupdateLeads() {        
+  static testMethod void TestupdateLeads() {      
+      set<id> customer1id=new set<id>();
         User user1 = UtilTestData.createUser('IB CSR','CAC Data Manager');   
         system.runAs(user1){
           Test.startTest();
           preparedTestData();
           Test.stopTest();
           system.assertEquals(le1.Assigned_Dealer__c,dealer.id);
-        }        
+        }   
+      customer1id.add(customer1.id);
+      AccountHelper.updateLeads(customer1id);
     } 
 }

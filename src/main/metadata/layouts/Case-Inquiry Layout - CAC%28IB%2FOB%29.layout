@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>eDM</customButtons>
-    <customButtons>DM</customButtons>
-    <customButtons>SMS</customButtons>
-    <customButtons>Car_Model_Comparison</customButtons>
     <customButtons>New_Lead</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
@@ -22,8 +18,8 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>CloseCase</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -537,7 +533,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000EYcX</masterLabel>
+        <masterLabel>00hp0000000IeJO</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketAccountLink_Readable_to_MBJ_IT_Dept</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Account_Link_to_Call_Center</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
@@ -8,7 +22,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Individual Customer External Link,ContactSector,Contact2Contact</value>
+            <value>ContactSector,Contact2Contact,Individual Customer External Link</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <description>Share Account_Link__c of all record types with Call Center user.</description>

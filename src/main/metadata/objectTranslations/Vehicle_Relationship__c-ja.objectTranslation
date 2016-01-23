@@ -2,14 +2,14 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Vehicle Relationship --></value>
+        <value>車両顧客関係</value>
     </caseValues>
     <fields>
-        <label><!-- Add Date --></label>
+        <label>追加日</label>
         <name>Add_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Add User --></label>
+        <label>追加ユーザ</label>
         <name>Add_User__c</name>
     </fields>
     <fields>
@@ -86,35 +86,35 @@
         <name>Car_Relation__c</name>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 1</masterLabel>
-            <translation><!-- Aftersales Contact Target 1 --></translation>
+            <translation>アフターセールスコンタクト1</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 2</masterLabel>
-            <translation><!-- Aftersales Contact Target 2 --></translation>
+            <translation>アフターセールスコンタクト2</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
+            <translation>販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchaser</masterLabel>
-            <translation><!-- Purchaser --></translation>
+            <translation>購入者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales Contact Target</masterLabel>
-            <translation><!-- Sales Contact Target --></translation>
+            <translation>セールスコンタクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Self-registered</masterLabel>
-            <translation><!-- Self-registered --></translation>
+            <translation>自主登録</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1195,31 +1195,31 @@
         <name>Customer_Type__c</name>
         <picklistValues>
             <masterLabel>Alternative Car</masterLabel>
-            <translation><!-- Alternative Car --></translation>
+            <translation>代車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation><!-- Company Car --></translation>
+            <translation>社用車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler Employee</masterLabel>
-            <translation><!-- Daimler Employee --></translation>
+            <translation>ダイムラー社員車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
-            <translation><!-- Dealer Employee Car --></translation>
+            <translation>販売店社員車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Lease</masterLabel>
-            <translation><!-- Dealer Employee Lease --></translation>
+            <translation>販売店社員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
-            <translation><!-- Demo Car --></translation>
+            <translation>デモカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
-            <translation><!-- Gift Car --></translation>
+            <translation>ギフトカー</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1287,35 +1287,35 @@
         <name>End_Reason__c</name>
         <picklistValues>
             <masterLabel>Bought Competitors</masterLabel>
-            <translation><!-- Bought Competitors --></translation>
+            <translation>競合他車の購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS</masterLabel>
-            <translation><!-- DMS --></translation>
+            <translation>Autoline</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Handover</masterLabel>
-            <translation><!-- Handover --></translation>
+            <translation>継承</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Online</masterLabel>
-            <translation><!-- MB Online --></translation>
+            <translation>My Mercedes</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Replacement</masterLabel>
-            <translation><!-- Replacement --></translation>
+            <translation>乗り換え</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sold</masterLabel>
-            <translation><!-- Sold --></translation>
+            <translation>売却</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty system</masterLabel>
-            <translation><!-- Warranty system --></translation>
+            <translation>Mケア</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1337,19 +1337,19 @@
         <name>Finance_Method__c</name>
         <picklistValues>
             <masterLabel>Cash</masterLabel>
-            <translation><!-- Cash --></translation>
+            <translation>現金</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan</masterLabel>
-            <translation><!-- Loan --></translation>
+            <translation>通常ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual Loan</masterLabel>
-            <translation><!-- Residual Loan --></translation>
+            <translation>残価設定型</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1600,15 +1600,15 @@
         <name>Magazine__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>否</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>可</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1662,15 +1662,15 @@
         <name>New_Used__c</name>
         <picklistValues>
             <masterLabel>New</masterLabel>
-            <translation><!-- New --></translation>
+            <translation>新車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>要確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used</masterLabel>
-            <translation><!-- Used --></translation>
+            <translation>中古車</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1715,67 +1715,67 @@
         <name>Owner_Relation__c</name>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
-            <translation><!-- Business partner --></translation>
+            <translation>取引先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Child</masterLabel>
-            <translation><!-- Child --></translation>
+            <translation>子</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation><!-- Colleague --></translation>
+            <translation>同僚社員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>雇用会社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation><!-- Employee --></translation>
+            <translation>社員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
-            <translation><!-- Friend --></translation>
+            <translation>知人・友人</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand child</masterLabel>
-            <translation><!-- Grand child --></translation>
+            <translation>孫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand parent</masterLabel>
-            <translation><!-- Grand parent --></translation>
+            <translation>祖父母</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
-            <translation><!-- Husband・Wife --></translation>
+            <translation>配偶者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Manager</masterLabel>
-            <translation><!-- Manager --></translation>
+            <translation>経営者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parent</masterLabel>
-            <translation><!-- Parent --></translation>
+            <translation>親</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partner</masterLabel>
-            <translation><!-- Partner --></translation>
+            <translation>パートナー(内縁)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Relative</masterLabel>
-            <translation><!-- Relative --></translation>
+            <translation>親族</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Same</masterLabel>
-            <translation><!-- Same --></translation>
+            <translation>本人</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1784,15 +1784,15 @@
         <name>Ownership__c</name>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>法人</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Private</masterLabel>
-            <translation><!-- Private --></translation>
+            <translation>個人</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2609,15 +2609,15 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Currently Owned</masterLabel>
-            <translation><!-- Currently Owned --></translation>
+            <translation>現在所有</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Previously Owned</masterLabel>
-            <translation><!-- Previously Owned --></translation>
+            <translation>以前所有</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation><!-- Prospect --></translation>
+            <translation>プロスペクト</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2882,15 +2882,15 @@
         <name>Validity__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>未確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>確認済</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2912,7 +2912,7 @@
     <fields>
         <label>車両番号</label>
         <name>Vehicle_ID__c</name>
-        <relationshipLabel><!-- Vehicle Relationships --></relationshipLabel>
+        <relationshipLabel>保有車両</relationshipLabel>
     </fields>
     <fields>
         <label>モデル Variant</label>
@@ -3036,23 +3036,23 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Date Information --></label>
+            <label>日付情報</label>
             <section>Date Information</section>
         </sections>
         <sections>
-            <label><!-- End Setting Information --></label>
+            <label>手放し設定情報</label>
             <section>End Setting Information</section>
         </sections>
         <sections>
-            <label><!-- MOT Information --></label>
+            <label>車検情報</label>
             <section>MOT Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Address Information --></label>
+            <label>車両住所情報</label>
             <section>Vehicle Address Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Information --></label>
+            <label>車両情報</label>
             <section>Vehicle Information</section>
         </sections>
     </layouts>
@@ -3063,9 +3063,9 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- VehicleRel No. --></nameFieldLabel>
+    <nameFieldLabel>車両顧客関係番号</nameFieldLabel>
     <recordTypes>
-        <label><!-- Vehicle Relationship --></label>
+        <label>車両顧客関係</label>
         <name>Vehicle_Relationship</name>
     </recordTypes>
     <recordTypes>
@@ -3073,7 +3073,7 @@
         <name>Vehicle_Relationship_Retail</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Vehicle Relationship Soft Deleted --></label>
+        <label>車両顧客関係(論理削除)</label>
         <name>Vehicle_Relationship_Soft_Deleted</name>
     </recordTypes>
     <sharingReasons>
@@ -3081,19 +3081,19 @@
         <name>Retail_Vehicle_Relationship_Share</name>
     </sharingReasons>
     <validationRules>
-        <errorMessage><!-- Once end date has been set for the vehicle relationship, the end reason must be entered. --></errorMessage>
+        <errorMessage>手放日を設定する場合、手放し理由を入力して下さい。</errorMessage>
         <name>End_Reason_Required</name>
     </validationRules>
     <webLinks>
-        <label><!-- New_Complaint --></label>
+        <label>新規苦情</label>
         <name>New_Complaint</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Vehicle_Relationship --></label>
+        <label>新規車両顧客関係</label>
         <name>New_Vehicle_Relationship</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Vehicle_Relationship_for_Community --></label>
+        <label>新規車両顧客関係</label>
         <name>New_Vehicle_Relationship_for_Community</name>
     </webLinks>
 </CustomObjectTranslation>
