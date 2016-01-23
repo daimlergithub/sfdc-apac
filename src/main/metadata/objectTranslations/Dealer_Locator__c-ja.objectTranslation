@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Dealer Locator --></value>
+        <value>販売店テリトリーマスタ</value>
     </caseValues>
     <fields>
         <label><!-- Business Unit --></label>
@@ -104,6 +104,10 @@
     <fields>
         <label><!-- Dealer Number --></label>
         <name>Dealer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
     </fields>
     <fields>
         <label><!-- Inactive --></label>
@@ -804,5 +808,5 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Dealer Locator --></nameFieldLabel>
+    <nameFieldLabel>販売店テリトリー番号</nameFieldLabel>
 </CustomObjectTranslation>

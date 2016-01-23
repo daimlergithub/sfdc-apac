@@ -1861,6 +1861,10 @@
         <name>Steering__c</name>
     </fields>
     <fields>
+        <label><!-- System --></label>
+        <name>System__c</name>
+    </fields>
+    <fields>
         <label><!-- Vehicle Group --></label>
         <name>Vehicle_Group__c</name>
         <picklistValues>

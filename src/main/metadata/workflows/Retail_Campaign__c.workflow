@@ -97,7 +97,7 @@
             <name>Submit_Date_Updated</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>

@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey Question --></value>
+        <value>サーベイ質問</value>
     </caseValues>
     <fields>
         <label><!-- Choices --></label>
@@ -39,7 +39,7 @@
         <name>Single_FreeText_Next_Question_No__c</name>
     </fields>
     <fields>
-        <label><!-- Survey --></label>
+        <label>対象Survey</label>
         <name>Survey__c</name>
         <relationshipLabel><!-- SurveyQuestions --></relationshipLabel>
     </fields>
@@ -74,7 +74,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Name --></nameFieldLabel>
+    <nameFieldLabel>サーベイ質問</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Please set the single opinion free text next question number --></errorMessage>
         <name>Set_Single_Opinion_Text_Next_Question</name>

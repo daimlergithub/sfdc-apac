@@ -21,7 +21,7 @@
 public class TriggerLeadTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Lead__c> oldmap = (Map<Id,Lead__c>)trigger.oldmap;
         Map<Id,Lead__c> newmap = (Map<Id,Lead__c>)trigger.newmap;
@@ -51,7 +51,7 @@ public class TriggerLeadTriggerHandler
             LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldMap,trigger.isinsert,trigger.isUpdate);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

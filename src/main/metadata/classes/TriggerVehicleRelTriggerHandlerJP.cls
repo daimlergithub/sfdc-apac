@@ -4,6 +4,11 @@
                 corresponding Vehicle
                 2.  share the VR record to "Portal Role and Subordinates" with read only. 
                     Partner Name should be Account Name + " " + "Partner Executive", e.g. ??????4S? Partner Executive
+                3. Update Vehicle amount based on vehicle Relationship associated with an "Account".
+                4. Update status of an "Account" record if related vechicle relationship has validity as "Yes".
+                5. Create "Account_Link__C" Based on "Owner_Relation__c" field which describes relationship to the Purchaser, 
+                    for Sales Contact Target related to the same vehicle.
+              
     User Story: US-CP-008, US-CP-007,  ISSUE-0757
     Used By:    
     ---------------------------------------------------------------
@@ -17,12 +22,11 @@
 public class TriggerVehicleRelTriggerHandlerJP 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
-    {
-        Map<Id,Vehicle_Relationship__c> oldmap = (Map<Id,Vehicle_Relationship__c>)trigger.oldmap;
-        Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    { /*
         VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
-        
+        Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
+        Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
         system.debug('Entered handler...' +trigger.isBefore);
         system.debug('Entered handler1...' +isBefore);
         if(trigger.isBefore)
@@ -32,17 +36,30 @@ public class TriggerVehicleRelTriggerHandlerJP
             if (trigger.isInsert){
                 system.debug('Entered insert block...');
                 system.debug('Trigger Block...' +trigger.old);
-                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new, 'insert');
+                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new,'insert');
             }else if (trigger.isUpdate){
                 system.debug('Entered update block...');
                 system.debug('Trigger Block...' +Trigger.oldMap);
                 vrHelperJP.validateOverlappingVehicleRelationship(trigger.new, 'update');
             }
             
-        }
+        }*/
+       // Update Status , Update Vehicle Relationship and Create Account Link 
         
+       if(trigger.isAfter && (trigger.isInsert))
+        {
+          VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+        }
+        if(trigger.isAfter && Trigger.isUpdate) {
+          Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+          VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+        } 
+       if(trigger.isAfter && Trigger.isDelete) {
+          VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
+        } 
+    
      }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
     }

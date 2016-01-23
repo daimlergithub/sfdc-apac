@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>クローズ日時</value>
+        </caseValues>
+        <name>case_closed</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>伝票番号</value>
+        </caseValues>
+        <name>case_number</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>先行伝票番号</value>
+        </caseValues>
+        <name>parent_case</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>先行伝票番号</value>
+        </caseValues>
+        <name>parent_case_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>MBJ/MBFステータス</value>
+        </caseValues>
+        <name>status_case</name>
+    </fields>
+    <fields>
         <label>発生場所捕捉事項</label>
         <name>Accident_Location_Details__c</name>
     </fields>
@@ -1858,10 +1893,6 @@
             <translation><!-- GenericModel --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -1924,6 +1955,10 @@
         <picklistValues>
             <masterLabel>Marco Polo</masterLabel>
             <translation><!-- Marco Polo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach 62</masterLabel>
@@ -3294,10 +3329,6 @@
             <translation><!-- GenericModel --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -3360,6 +3391,10 @@
         <picklistValues>
             <masterLabel>Marco Polo</masterLabel>
             <translation><!-- Marco Polo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach 62</masterLabel>
@@ -4730,10 +4765,6 @@
             <translation><!-- GenericModel --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -4796,6 +4827,10 @@
         <picklistValues>
             <masterLabel>Marco Polo</masterLabel>
             <translation><!-- Marco Polo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach 62</masterLabel>
@@ -5736,7 +5771,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Parallel</masterLabel>
-            <translation><!-- Parallel --></translation>
+            <translation>並行</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PbP</masterLabel>
@@ -5744,7 +5779,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Regular</masterLabel>
-            <translation><!-- Regular --></translation>
+            <translation>正規</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5780,19 +5815,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Claim</masterLabel>
-            <translation><!-- Claim --></translation>
+            <translation>クレーム</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Complaint</masterLabel>
-            <translation><!-- Complaint --></translation>
+            <translation>苦情</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance</masterLabel>
-            <translation><!-- Finance --></translation>
+            <translation>ファイナンス問合わせ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Inquiry</masterLabel>
-            <translation><!-- Inquiry --></translation>
+            <translation>問い合わせ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBDA Complaint</masterLabel>
@@ -5804,7 +5839,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他意見希望</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others-After-Sales</masterLabel>
@@ -5820,7 +5855,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Request</masterLabel>
-            <translation><!-- Request --></translation>
+            <translation>リクエスト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
@@ -5828,7 +5863,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Touring Support</masterLabel>
-            <translation><!-- Touring Support --></translation>
+            <translation>ツーリングサポート</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5859,7 +5894,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler</masterLabel>
-            <translation><!-- Daimler --></translation>
+            <translation>DAG（メーカー）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance&amp;insurance</masterLabel>
@@ -5867,7 +5902,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MB</masterLabel>
-            <translation><!-- MB --></translation>
+            <translation>MBJ（インポーター）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Marketing</masterLabel>
@@ -5875,11 +5910,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
-            <translation><!-- Sales --></translation>
+            <translation>販売店/サービス工場</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6019,27 +6054,27 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Final approval done</masterLabel>
-            <translation><!-- Final approval done --></translation>
+            <translation>最終承認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final approval rejected</masterLabel>
-            <translation><!-- Final approval rejected --></translation>
+            <translation>最終承認差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>In-progress</masterLabel>
-            <translation><!-- In-progress --></translation>
+            <translation>進行中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New</masterLabel>
-            <translation><!-- New --></translation>
+            <translation>未受付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No approval needed</masterLabel>
-            <translation><!-- No approval needed --></translation>
+            <translation>承認不要対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation><!-- Prospect --></translation>
+            <translation>入電予告</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
@@ -6047,19 +6082,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Response approved</masterLabel>
-            <translation><!-- Response approved --></translation>
+            <translation>対応承認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TS transfer</masterLabel>
-            <translation><!-- TS transfer --></translation>
+            <translation>TS転送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for Response approval</masterLabel>
-            <translation><!-- Waiting for Response approval --></translation>
+            <translation>対応承認依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for final approval</masterLabel>
-            <translation><!-- Waiting for final approval --></translation>
+            <translation>最終承認依頼</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6067,55 +6102,55 @@
         <name>Case_SubSubType__c</name>
         <picklistValues>
             <masterLabel>Accessory</masterLabel>
-            <translation><!-- Accessory --></translation>
+            <translation>アクセサリ（チャイルドシート/ホイール/フロアマット/ETC）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Activities</masterLabel>
-            <translation><!-- Activities --></translation>
+            <translation>活動（調査/アンケート）その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Activities after sales</masterLabel>
-            <translation><!-- Activities after sales --></translation>
+            <translation>活動（キャンペーン）アフターセールス関係その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Activities sales</masterLabel>
-            <translation><!-- Activities sales --></translation>
+            <translation>活動（キャンペーン）セールス関係その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Address change</masterLabel>
-            <translation><!-- Address change --></translation>
+            <translation>住所変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Address opt-out</masterLabel>
-            <translation><!-- Address opt-out --></translation>
+            <translation>送付停止</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Alternative car request</masterLabel>
-            <translation><!-- Alternative car request --></translation>
+            <translation>代車依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Another address</masterLabel>
-            <translation><!-- Another address --></translation>
+            <translation>別送付先設定</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Authorization</masterLabel>
-            <translation><!-- Authorization --></translation>
+            <translation>オーソリゼーション/セントラルロッキング(Gr80)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Body and interrior</masterLabel>
-            <translation><!-- Body and interrior --></translation>
+            <translation>ボデー/内装(Gr58～Gr77/Gr86～Gr98)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Break</masterLabel>
-            <translation><!-- Break --></translation>
+            <translation>ブレーキ(Gr42/Gr43)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CI logo</masterLabel>
-            <translation><!-- CI logo --></translation>
+            <translation>CIロゴ（スターマーク/AMG/グリル/インポータラベル/バッジ）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CS survey gift</masterLabel>
-            <translation><!-- CS survey gift --></translation>
+            <translation>CSアンケート謝礼品</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CSI</masterLabel>
@@ -6123,95 +6158,95 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Certification</masterLabel>
-            <translation><!-- Certification --></translation>
+            <translation>各種車両（データ/ツール）/証明書/メンテナンス（Gr00/Gr99）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Certified Used Car Warrenty</masterLabel>
-            <translation><!-- Certified Used Car Warrenty --></translation>
+            <translation>認定中古車保証</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contract campaign</masterLabel>
-            <translation><!-- Contract campaign --></translation>
+            <translation>成約キャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer service</masterLabel>
-            <translation><!-- Dealer service --></translation>
+            <translation>販売店でのサービスについて</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer store</masterLabel>
-            <translation><!-- Dealer store --></translation>
+            <translation>販売店相談　その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Delay of work</masterLabel>
-            <translation><!-- Delay of work --></translation>
+            <translation>作業遅れ（部品欠品など）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Direct sales</masterLabel>
-            <translation><!-- Direct sales --></translation>
+            <translation>直販関係（外交官販売/タクシープロジェクト/ヨーロピアンデリ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Drive/Suspension (Gr31~Gr41)</masterLabel>
-            <translation><!-- Drive/Suspension (Gr31~Gr41) --></translation>
+            <translation>駆動/懸架装置(Gr31～Gr41)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr15)</masterLabel>
-            <translation><!-- Electric system (Gr15) --></translation>
+            <translation>電気システム（エンジン）(Gr15)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr54)</masterLabel>
-            <translation><!-- Electric system (Gr54) --></translation>
+            <translation>電気システム（インテリア）(Gr54)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr82)</masterLabel>
-            <translation><!-- Electric system (Gr82) --></translation>
+            <translation>電気システム（エクステリア/オーディオ）(Gr82)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr83)</masterLabel>
-            <translation><!-- Electric system (Gr83) --></translation>
+            <translation>電気システム（エアコン）(Gr83)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Engine</masterLabel>
-            <translation><!-- Engine --></translation>
+            <translation>エンジン（Gr01～Gr14/Gr18～Gr22/Gr49）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>活動（イベント）その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ID/PW check</masterLabel>
-            <translation><!-- ID/PW check --></translation>
+            <translation>ID/PW確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Information check</masterLabel>
-            <translation><!-- Information check --></translation>
+            <translation>情報確認（販売店への確認等）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
+            <translation>保険会社/調査会社/その他民間協力分　その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loyalty</masterLabel>
-            <translation><!-- Loyalty --></translation>
+            <translation>活動（ロイヤリティ）その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine</masterLabel>
-            <translation><!-- Magazine --></translation>
+            <translation>マガジン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine follow up call</masterLabel>
-            <translation><!-- Magazine follow up call --></translation>
+            <translation>カタログフォローアップコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mail news</masterLabel>
-            <translation><!-- Mail news --></translation>
+            <translation>メールニュース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance plus</masterLabel>
-            <translation><!-- Maintenance plus --></translation>
+            <translation>メンテナンスプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Care</masterLabel>
-            <translation><!-- Mercedes Care --></translation>
+            <translation>メルセデス･ケア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Trophy Japan</masterLabel>
@@ -6219,27 +6254,27 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Message to dealer</masterLabel>
-            <translation><!-- Message to dealer --></translation>
+            <translation>販売店へ伝言依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Monitor campaign</masterLabel>
-            <translation><!-- Monitor campaign --></translation>
+            <translation>試乗/モニターキャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Motor Show</masterLabel>
-            <translation><!-- Motor Show --></translation>
+            <translation>モーターショー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes Support</masterLabel>
-            <translation><!-- My Mercedes Support --></translation>
+            <translation>My Mercedesサポート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes Trade-in request</masterLabel>
-            <translation><!-- My Mercedes Trade-in request --></translation>
+            <translation>My Mercedes入庫リクエスト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes maintenance</masterLabel>
-            <translation><!-- My Mercedes maintenance --></translation>
+            <translation>My Mercedesメンテナンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NCBS</masterLabel>
@@ -6247,7 +6282,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>New model/ future model</masterLabel>
-            <translation><!-- New model/ future model --></translation>
+            <translation>新モデル/未導入モデル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -6255,131 +6290,131 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Out of MBJ scope request</masterLabel>
-            <translation><!-- Out of MBJ scope request --></translation>
+            <translation>MBJの責任範囲を超える要求</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parts</masterLabel>
-            <translation><!-- Parts --></translation>
+            <translation>部品（品番問い合わせ/購入）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Personal data owned by MBJ</masterLabel>
-            <translation><!-- Personal data owned by MBJ --></translation>
+            <translation>当社保有の個人データの開示/利用目的通知/訂正/利用停止等請求</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Police</masterLabel>
-            <translation><!-- Police --></translation>
+            <translation>警察/消防/陸事/その他公的機関協力分　その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Power system</masterLabel>
-            <translation><!-- Power system --></translation>
+            <translation>燃料システム(Gr47)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Price and cost</masterLabel>
-            <translation><!-- Price and cost --></translation>
+            <translation>価格と費用（維持費/税金関係）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Production location</masterLabel>
-            <translation><!-- Production location --></translation>
+            <translation>製造国/製造工場</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect DM</masterLabel>
-            <translation><!-- Prospect DM --></translation>
+            <translation>プロスペクトDM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchase support campaign</masterLabel>
-            <translation><!-- Purchase support campaign --></translation>
+            <translation>購入サポートキャンペーン（低金利/クーポン/アクセサリなど）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quality</masterLabel>
-            <translation><!-- Quality --></translation>
+            <translation>品質/故障/耐久性その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall Improvement</masterLabel>
-            <translation><!-- Recall Improvement --></translation>
+            <translation>リコール/改善対策その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall confirmation</masterLabel>
-            <translation><!-- Recall confirmation --></translation>
+            <translation>所有（使用）車両のリコール対象確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall notice change request</masterLabel>
-            <translation><!-- Recall notice change request --></translation>
+            <translation>リコール通知送付先変更依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall service confirmation</masterLabel>
-            <translation><!-- Recall service confirmation --></translation>
+            <translation>リコール/サービスキャンペーン内容確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall service request</masterLabel>
-            <translation><!-- Recall service request --></translation>
+            <translation>リコール/サービスキャンペーン作業予約</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reimbursment</masterLabel>
-            <translation><!-- Reimbursment --></translation>
+            <translation>作業費返金依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Retro fit campaign</masterLabel>
-            <translation><!-- Retro fit campaign --></translation>
+            <translation>レトロフィットキャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SSI inquiry</masterLabel>
-            <translation><!-- SSI inquiry --></translation>
+            <translation>SSI調査</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service network construction inquiry</masterLabel>
-            <translation><!-- Service network construction inquiry --></translation>
+            <translation>サービスネットワーク/サービス工場問合せ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Slot pedal</masterLabel>
-            <translation><!-- Slot pedal --></translation>
+            <translation>スロットル/ペダル(Gr29/Gr30)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Specification</masterLabel>
-            <translation><!-- Specification --></translation>
+            <translation>仕様・装備・性能その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Steering</masterLabel>
-            <translation><!-- Steering --></translation>
+            <translation>舵取装置(Gr46)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Take car</masterLabel>
-            <translation><!-- Take car --></translation>
+            <translation>車両引取依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test drive (general)</masterLabel>
-            <translation><!-- Test drive (general) --></translation>
+            <translation>試乗車/展示車（一般）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test drive (new)</masterLabel>
-            <translation><!-- Test drive (new) --></translation>
+            <translation>試乗車/展示車（新モデル）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Touring Support</masterLabel>
-            <translation><!-- Touring Support --></translation>
+            <translation>ツーリングサポート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Touring support plus</masterLabel>
-            <translation><!-- Touring support plus --></translation>
+            <translation>ツーリングサポートプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Transmission</masterLabel>
-            <translation><!-- Transmission --></translation>
+            <translation>トランスミッション（Gr22～Gr28）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warrenth and others</masterLabel>
-            <translation><!-- Warrenth and others --></translation>
+            <translation>保証その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warrenty plus</masterLabel>
-            <translation><!-- Warrenty plus --></translation>
+            <translation>保証プラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Website</masterLabel>
-            <translation><!-- Website --></translation>
+            <translation>ウェブサイト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>limitted model</masterLabel>
-            <translation><!-- limitted model --></translation>
+            <translation>限定モデル</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6447,31 +6482,31 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection Others</masterLabel>
-            <translation><!-- Collection Others --></translation>
+            <translation>[コレクション]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection Quality</masterLabel>
-            <translation><!-- Collection Quality --></translation>
+            <translation>[コレクション]品質・故障耐久性</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection Recall</masterLabel>
-            <translation><!-- Collection Recall --></translation>
+            <translation>[コレクション]リコール/改善対策</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection Warrenty</masterLabel>
-            <translation><!-- Collection Warrenty --></translation>
+            <translation>[コレクション]保証</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection deliver date</masterLabel>
-            <translation><!-- Collection deliver date --></translation>
+            <translation>[コレクション]納期・在庫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection price</masterLabel>
-            <translation><!-- Collection price --></translation>
+            <translation>[コレクション]価格</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection purchase</masterLabel>
-            <translation><!-- Collection purchase --></translation>
+            <translation>[コレクション]購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection repair</masterLabel>
@@ -6479,7 +6514,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Commercial Vehicle</masterLabel>
-            <translation><!-- Commercial Vehicle --></translation>
+            <translation>商用車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Complaints after sale</masterLabel>
@@ -6519,23 +6554,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG Environment</masterLabel>
-            <translation><!-- DAG Environment --></translation>
+            <translation>[DAG]環境/リサイクル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG Factory tour</masterLabel>
-            <translation><!-- DAG Factory tour --></translation>
+            <translation>[DAG]工場見学</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG General activity</masterLabel>
-            <translation><!-- DAG General activity --></translation>
+            <translation>[DAG]活動全般</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG New energy</masterLabel>
-            <translation><!-- DAG New energy --></translation>
+            <translation>[DAG]燃料電池/新エネルギー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG others</masterLabel>
-            <translation><!-- DAG others --></translation>
+            <translation>[DAG]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer - Environment And Facility of Rest Area/Workshop</masterLabel>
@@ -6547,35 +6582,35 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Fair</masterLabel>
-            <translation><!-- Dealer Fair --></translation>
+            <translation>[販売店/サービス工場]フェア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Others</masterLabel>
-            <translation><!-- Dealer Others --></translation>
+            <translation>[販売店/サービス工場]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Test drive</masterLabel>
-            <translation><!-- Dealer Test drive --></translation>
+            <translation>[販売店/サービス工場]試乗/展示</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer attitude</masterLabel>
-            <translation><!-- Dealer attitude --></translation>
+            <translation>[販売店/サービス工場]対応・姿勢</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer location</masterLabel>
-            <translation><!-- Dealer location --></translation>
+            <translation>[販売店/サービス工場]テリトリー/ロケーションに対するご要望</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer meeting</masterLabel>
-            <translation><!-- Dealer meeting --></translation>
+            <translation>[販売店/サービス工場]販売店相談</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer message</masterLabel>
-            <translation><!-- Dealer message --></translation>
+            <translation>[販売店/サービス工場]販売店への伝言依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer place phone</masterLabel>
-            <translation><!-- Dealer place phone --></translation>
+            <translation>[販売店/サービス工場]場所/電話番号/営業時間</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer-after sales service attitude</masterLabel>
@@ -6663,7 +6698,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance</masterLabel>
-            <translation><!-- Finance --></translation>
+            <translation>ファイナンス問合わせ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance &amp; Insurance</masterLabel>
@@ -6707,75 +6742,75 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Ad</masterLabel>
-            <translation><!-- MBJ Ad --></translation>
+            <translation>[MBJ（インポーター）]広告/宣伝</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ After sales campaign</masterLabel>
-            <translation><!-- MBJ After sales campaign --></translation>
+            <translation>[MBJ（インポーター）]活動（キャンペーン）アフタセールス関係</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ DM</masterLabel>
-            <translation><!-- MBJ DM --></translation>
+            <translation>[MBJ（インポーター）]活動（DM）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Event</masterLabel>
-            <translation><!-- MBJ Event --></translation>
+            <translation>[MBJ（インポーター）]活動（イベント）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Importer label</masterLabel>
-            <translation><!-- MBJ Importer label --></translation>
+            <translation>[MBJ（インポーター）]インポータラベル発行（販売店から依頼）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Loyalty</masterLabel>
-            <translation><!-- MBJ Loyalty --></translation>
+            <translation>[MBJ（インポーター）]活動（ロイヤリティ）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ MB Connection</masterLabel>
-            <translation><!-- MBJ MB Connection --></translation>
+            <translation>[MBJ（インポーター）]MBコネクション</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Magazine Test drive</masterLabel>
-            <translation><!-- MBJ Magazine Test drive --></translation>
+            <translation>[MBJ（インポーター）]活動（カタログ/試乗/見積その他請求）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Others</masterLabel>
-            <translation><!-- MBJ Others --></translation>
+            <translation>[MBJ（インポーター）]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Personal info</masterLabel>
-            <translation><!-- MBJ Personal info --></translation>
+            <translation>[MBJ（インポーター）]個人情報の取り扱い</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Philosophy</masterLabel>
-            <translation><!-- MBJ Philosophy --></translation>
+            <translation>[MBJ（インポーター）]フィロソフィー（MBJの考え方、キーワー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Publicity</masterLabel>
-            <translation><!-- MBJ Publicity --></translation>
+            <translation>[MBJ（インポーター）]記事/パブリシティ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Sales campaign</masterLabel>
-            <translation><!-- MBJ Sales campaign --></translation>
+            <translation>[MBJ（インポーター）]活動（キャンペーン）セールス関係</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Survey</masterLabel>
-            <translation><!-- MBJ Survey --></translation>
+            <translation>[MBJ（インポーター）]活動（調査/アンケート）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ culture</masterLabel>
-            <translation><!-- MBJ culture --></translation>
+            <translation>[MBJ（インポーター）]文化活動</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ place phone</masterLabel>
-            <translation><!-- MBJ place phone --></translation>
+            <translation>[MBJ（インポーター）]場所/電話番号</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ related company</masterLabel>
-            <translation><!-- MBJ related company --></translation>
+            <translation>[MBJ（インポーター）]関連会社情報</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ website</masterLabel>
-            <translation><!-- MBJ website --></translation>
+            <translation>[MBJ（インポーター）]ウェブサイト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Appointment Arrangement</masterLabel>
@@ -6815,7 +6850,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner Club</masterLabel>
@@ -6951,7 +6986,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unreasonable Criteria</masterLabel>
@@ -6963,19 +6998,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicel delivery</masterLabel>
-            <translation><!-- Vehicel delivery --></translation>
+            <translation>[車両]納期・在庫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Loan</masterLabel>
-            <translation><!-- Vehicle Loan --></translation>
+            <translation>[車両]ローン/リース/保険</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Quality</masterLabel>
-            <translation><!-- Vehicle Quality --></translation>
+            <translation>[車両]品質・故障耐久性</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Touring support</masterLabel>
-            <translation><!-- Vehicle Touring support --></translation>
+            <translation>[車両]ツーリングサポート転送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Warranty</masterLabel>
@@ -6983,43 +7018,43 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle foreign eximport</masterLabel>
-            <translation><!-- Vehicle foreign eximport --></translation>
+            <translation>[車両]海外輸出入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle insurance</masterLabel>
-            <translation><!-- Vehicle insurance --></translation>
+            <translation>[車両]保険会社/調査会社/その他民間協力分</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle others</masterLabel>
-            <translation><!-- Vehicle others --></translation>
+            <translation>[車両]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle public group</masterLabel>
-            <translation><!-- Vehicle public group --></translation>
+            <translation>[車両]警察/消防/陸事/その他公的機関協力分</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle recall</masterLabel>
-            <translation><!-- Vehicle recall --></translation>
+            <translation>[車両]リコール/改善対策</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle spec</masterLabel>
-            <translation><!-- Vehicle spec --></translation>
+            <translation>[車両]仕様・装備・性能（購入検討/情報収集）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle status change</masterLabel>
-            <translation><!-- Vehicle status change --></translation>
+            <translation>[車両]車両状態変更（車両を手放したなど）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle term</masterLabel>
-            <translation><!-- Vehicle term --></translation>
+            <translation>[車両]発売・変更時期</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle use</masterLabel>
-            <translation><!-- Vehicle use --></translation>
+            <translation>[車両]仕様・装備・性能（実車あり/使用方法）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle year number</masterLabel>
-            <translation><!-- Vehicle year number --></translation>
+            <translation>[車両]年式/グレード確認/並行車/車台番号/エンジン番号</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting Time Of Finance Service</masterLabel>
@@ -7031,7 +7066,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>personal</masterLabel>
-            <translation><!-- personal --></translation>
+            <translation>個人宛</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart</masterLabel>
@@ -7067,7 +7102,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Accident</masterLabel>
-            <translation><!-- Accident --></translation>
+            <translation>事故</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Advisory Mercedes-Benz driving Academy</masterLabel>
@@ -7079,7 +7114,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Breakdown</masterLabel>
-            <translation><!-- Breakdown --></translation>
+            <translation>故障</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CSR</masterLabel>
@@ -7091,7 +7126,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
+            <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Central</masterLabel>
@@ -7107,7 +7142,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection</masterLabel>
-            <translation><!-- Collection --></translation>
+            <translation>コレクション</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Complain &amp; feedback</masterLabel>
@@ -7127,11 +7162,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG</masterLabel>
-            <translation><!-- DAG --></translation>
+            <translation>DAG(メーカー）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
+            <translation>販売店/サービス工場</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer contact method</masterLabel>
@@ -7183,7 +7218,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ</masterLabel>
-            <translation><!-- MBJ --></translation>
+            <translation>MBJ（インポーター)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Marketing chance</masterLabel>
@@ -7207,7 +7242,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pre-Sales</masterLabel>
@@ -7259,7 +7294,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle</masterLabel>
-            <translation><!-- Vehicle --></translation>
+            <translation>車両</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7362,51 +7397,51 @@
         <name>Customer_Request__c</name>
         <picklistValues>
             <masterLabel>Alternative Car</masterLabel>
-            <translation><!-- Alternative Car --></translation>
+            <translation>代車を出してほしい</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Another Address regist</masterLabel>
-            <translation><!-- Another Address regist --></translation>
+            <translation>別送付先登録申請</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Apologize</masterLabel>
-            <translation><!-- Apologize --></translation>
+            <translation>謝罪</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Change Car</masterLabel>
-            <translation><!-- Change Car --></translation>
+            <translation>車両交換・買取</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Change Magazine number</masterLabel>
-            <translation><!-- Change Magazine number --></translation>
+            <translation>マガジン冊数変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Change personal info</masterLabel>
-            <translation><!-- Change personal info --></translation>
+            <translation>個人情報変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Discount</masterLabel>
-            <translation><!-- Discount --></translation>
+            <translation>無償・値引き</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Document</masterLabel>
-            <translation><!-- Document --></translation>
+            <translation>書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Education</masterLabel>
-            <translation><!-- Education --></translation>
+            <translation>指導・教育</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Explanation</masterLabel>
-            <translation><!-- Explanation --></translation>
+            <translation>説明・案内</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine sending opt-out</masterLabel>
-            <translation><!-- Magazine sending opt-out --></translation>
+            <translation>送付停止（マガジンコンセントNO）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Meeting</masterLabel>
-            <translation><!-- Meeting --></translation>
+            <translation>面談</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -7414,19 +7449,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Phone opt-out</masterLabel>
-            <translation><!-- Phone opt-out --></translation>
+            <translation>架電停止（電話コンセントNO）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Repari</masterLabel>
-            <translation><!-- Repari --></translation>
+            <translation>完全修理・改善・改良</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sending opt-out</masterLabel>
-            <translation><!-- Sending opt-out --></translation>
+            <translation>送付停止（コンセントNO）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Thank you</masterLabel>
-            <translation><!-- Thank you --></translation>
+            <translation>お礼をいいたい</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7454,7 +7489,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Compromised</masterLabel>
-            <translation><!-- Compromised --></translation>
+            <translation>妥協</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -7462,15 +7497,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Satisfied</masterLabel>
-            <translation><!-- Satisfied --></translation>
+            <translation>満足</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Understood</masterLabel>
-            <translation><!-- Understood --></translation>
+            <translation>納得</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unsatisfied</masterLabel>
-            <translation><!-- Unsatisfied --></translation>
+            <translation>不満</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7490,7 +7525,7 @@
         <name>Customer_Type__c</name>
         <picklistValues>
             <masterLabel>ADR/JAIA</masterLabel>
-            <translation><!-- ADR/JAIA --></translation>
+            <translation>消セン/ADR/JAIAなど</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
@@ -7498,11 +7533,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Court</masterLabel>
-            <translation><!-- Court --></translation>
+            <translation>裁判所</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Customs office</masterLabel>
-            <translation><!-- Customs office --></translation>
+            <translation>税関</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DCAG/DCAH</masterLabel>
@@ -7510,11 +7545,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Embassy</masterLabel>
-            <translation><!-- Embassy --></translation>
+            <translation>大使館</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>General</masterLabel>
-            <translation><!-- General --></translation>
+            <translation>一般</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Individual</masterLabel>
@@ -7522,87 +7557,87 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance company</masterLabel>
-            <translation><!-- Insurance company --></translation>
+            <translation>保険会社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Land transportation</masterLabel>
-            <translation><!-- Land transportation --></translation>
+            <translation>陸運局/陸運支局</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lawyer</masterLabel>
-            <translation><!-- Lawyer --></translation>
+            <translation>弁護士</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
-            <translation><!-- Media --></translation>
+            <translation>その他マスコミ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ministry of Land</masterLabel>
-            <translation><!-- Ministry of Land --></translation>
+            <translation>国土交通省</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Newspaper</masterLabel>
-            <translation><!-- Newspaper --></translation>
+            <translation>新聞社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other department</masterLabel>
-            <translation><!-- Other department --></translation>
+            <translation>他部署</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner</masterLabel>
-            <translation><!-- Owner --></translation>
+            <translation>オーナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner agent</masterLabel>
-            <translation><!-- Owner agent --></translation>
+            <translation>オーナーの代理</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parallel import owner</masterLabel>
-            <translation><!-- Parallel import owner --></translation>
+            <translation>並行オーナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation><!-- Prospect --></translation>
+            <translation>入電予告</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Publisher</masterLabel>
-            <translation><!-- Publisher --></translation>
+            <translation>出版社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Regular dealer</masterLabel>
-            <translation><!-- Regular dealer --></translation>
+            <translation>正規販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Regular owner</masterLabel>
-            <translation><!-- Regular owner --></translation>
+            <translation>正規オーナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TV</masterLabel>
-            <translation><!-- TV --></translation>
+            <translation>テレビ局</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tax office</masterLabel>
-            <translation><!-- Tax office --></translation>
+            <translation>県税事務所</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trader</masterLabel>
-            <translation><!-- Trader --></translation>
+            <translation>業者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ex-owner</masterLabel>
-            <translation><!-- ex-owner --></translation>
+            <translation>元オーナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>fire office</masterLabel>
-            <translation><!-- fire office --></translation>
+            <translation>消防署</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>police</masterLabel>
-            <translation><!-- police --></translation>
+            <translation>警察/消防/陸事/その他公的機関協力分　その他</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7610,7 +7645,7 @@
         <name>Data_Source__c</name>
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
-            <translation><!-- 24 hours Touring Support --></translation>
+            <translation>24時間ツーリングサポート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3rd party data</masterLabel>
@@ -7618,19 +7653,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
+            <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
+            <translation>販売店/サービス工場</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
-            <translation><!-- Dealers --></translation>
+            <translation>販売店対応相談窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
+            <translation>E-mail SNS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
@@ -7638,11 +7673,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>活動（イベント）その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fax</masterLabel>
-            <translation><!-- Fax --></translation>
+            <translation>FAX</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IB</masterLabel>
@@ -7650,39 +7685,39 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
-            <translation><!-- Letter --></translation>
+            <translation>手紙/ハガキ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
-            <translation><!-- Maybach call --></translation>
+            <translation>マイバッハ・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Call Catalogue</masterLabel>
-            <translation><!-- Mercedes Call Catalogue --></translation>
+            <translation>メルセデスコールカタログ受付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
-            <translation><!-- Mercedes Magazine Survey --></translation>
+            <translation>メルセデス・マガジン・アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
-            <translation><!-- Mercedes call --></translation>
+            <translation>メルセデス・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
-            <translation><!-- Mercedes-Benz Owner Hotline --></translation>
+            <translation>メルセデス・ベンツ オーナーホットライン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
-            <translation><!-- Mercedes-Benz School of Excelence --></translation>
+            <translation>メルセデス・ベンツ サークル　オブ　エクセレンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz phone</masterLabel>
-            <translation><!-- Mercedes-Benz phone --></translation>
+            <translation>代表電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Model-Year Reference desk</masterLabel>
-            <translation><!-- Model-Year Reference desk --></translation>
+            <translation>年式照会窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes</masterLabel>
@@ -7698,19 +7733,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
-            <translation><!-- Recall desk --></translation>
+            <translation>リコール専用窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Response Sheet</masterLabel>
-            <translation><!-- Response Sheet --></translation>
+            <translation>レスポンスシート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
-            <translation><!-- Survey --></translation>
+            <translation>アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
@@ -7994,15 +8029,15 @@
         <name>Dealer_Contact__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
+            <translation>承諾拒否</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>説明できず</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>了承済み</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8310,35 +8345,35 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes After-sales department</masterLabel>
-            <translation><!-- Mercedes After-sales department --></translation>
+            <translation>アフターセールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes CRM department</masterLabel>
-            <translation><!-- Mercedes CRM department --></translation>
+            <translation>CRM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Finance</masterLabel>
-            <translation><!-- Mercedes Finance --></translation>
+            <translation>ファイナンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Other department</masterLabel>
-            <translation><!-- Mercedes Other department --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Sales department</masterLabel>
-            <translation><!-- Mercedes Sales department --></translation>
+            <translation>セールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Technical department</masterLabel>
-            <translation><!-- Mercedes Technical department --></translation>
+            <translation>テクニカル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Used Car department</masterLabel>
-            <translation><!-- Mercedes Used Car department --></translation>
+            <translation>中古車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes fittings department</masterLabel>
-            <translation><!-- Mercedes fittings department --></translation>
+            <translation>フィッティング</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -9389,23 +9424,23 @@
         <name>Priority</name>
         <picklistValues>
             <masterLabel>A</masterLabel>
-            <translation><!-- A --></translation>
+            <translation>A : 安全性に関わる問題</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>B</masterLabel>
-            <translation><!-- B --></translation>
+            <translation>B : 安全性又は商品性に関わる問題</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C</masterLabel>
-            <translation><!-- C --></translation>
+            <translation>C : 商品性に関わる問題</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>D</masterLabel>
-            <translation><!-- D --></translation>
+            <translation>D : 活動に関する問題</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E</masterLabel>
-            <translation><!-- E --></translation>
+            <translation>E : その他問合せ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Green &lt;= 2</masterLabel>
@@ -9789,7 +9824,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
+            <translation>E-mail SNS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>FAX</masterLabel>
@@ -9797,11 +9832,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Meeting</masterLabel>
-            <translation><!-- Meeting --></translation>
+            <translation>面談</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Action</masterLabel>
-            <translation><!-- No Action --></translation>
+            <translation>アクションなし</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -9809,15 +9844,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Phone</masterLabel>
-            <translation><!-- Phone --></translation>
+            <translation>電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Response (official rep)</masterLabel>
-            <translation><!-- Response (official rep) --></translation>
+            <translation>返書（正式回答）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Response (received rep)</masterLabel>
-            <translation><!-- Response (received rep) --></translation>
+            <translation>返書（受領返信）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>電話</masterLabel>
@@ -9850,23 +9885,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>illegality</masterLabel>
-            <translation><!-- illegality --></translation>
+            <translation>法令違反/不正・不祥事</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>internet brand image</masterLabel>
-            <translation><!-- internet brand image --></translation>
+            <translation>ブランド・起用イメージ/インターネット情報</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>media company image</masterLabel>
-            <translation><!-- media company image --></translation>
+            <translation>ブランド・企業イメージ/マスコミ報道</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>poor service</masterLabel>
-            <translation><!-- poor service --></translation>
+            <translation>サービス不足/不十分</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>revenue lost</masterLabel>
-            <translation><!-- revenue lost --></translation>
+            <translation>収益損失甚大</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -9874,7 +9909,7 @@
         <name>Road_Assistant_Result__c</name>
         <picklistValues>
             <masterLabel>Emergency</masterLabel>
-            <translation><!-- Emergency --></translation>
+            <translation>応急</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -9882,11 +9917,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Self warehousing</masterLabel>
-            <translation><!-- Self warehousing --></translation>
+            <translation>自走入庫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Towing</masterLabel>
-            <translation><!-- Towing --></translation>
+            <translation>牽引</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -10034,7 +10069,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Closed</masterLabel>
-            <translation><!-- Closed --></translation>
+            <translation>完了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Closed (Final)</masterLabel>
@@ -10046,11 +10081,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Final approval done</masterLabel>
-            <translation><!-- Final approval done --></translation>
+            <translation>最終承認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final approval rejected</masterLabel>
-            <translation><!-- Final approval rejected --></translation>
+            <translation>最終承認差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finished</masterLabel>
@@ -10066,7 +10101,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>In progress</masterLabel>
-            <translation><!-- In progress --></translation>
+            <translation>進行中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insufficient Document</masterLabel>
@@ -10082,15 +10117,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>New</masterLabel>
-            <translation><!-- New --></translation>
+            <translation>未受付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No approval needed</masterLabel>
-            <translation><!-- No approval needed --></translation>
+            <translation>承認不要対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Processed</masterLabel>
@@ -10098,7 +10133,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation><!-- Prospect --></translation>
+            <translation>入電予告</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reopened</masterLabel>
@@ -10110,7 +10145,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Response approved</masterLabel>
-            <translation><!-- Response approved --></translation>
+            <translation>対応承認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Suspended</masterLabel>
@@ -10118,7 +10153,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>TS transfer</masterLabel>
-            <translation><!-- TS transfer --></translation>
+            <translation>TS転送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting Process</masterLabel>
@@ -12953,7 +12988,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class ESTATE</masterLabel>
-            <translation><!-- C-Class ESTATE --></translation>
+            <translation><!-- C-Class Estate --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Sedan</masterLabel>
@@ -13052,7 +13087,7 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupé</masterLabel>
+            <masterLabel>E-Class COUPE</masterLabel>
             <translation><!-- E-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
@@ -13259,7 +13294,7 @@
     <layouts>
         <layout>Chrysler Complaint Layout - CAC</layout>
         <sections>
-            <label><!-- Case Information --></label>
+            <label>ケース情報</label>
             <section>Case Information</section>
         </sections>
         <sections>
@@ -13267,7 +13302,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
+            <label>販売店情報</label>
             <section>Dealer Info</section>
         </sections>
         <sections>
@@ -13283,11 +13318,11 @@
             <section>Hidden</section>
         </sections>
         <sections>
-            <label><!-- System Info. --></label>
+            <label>システム情報</label>
             <section>System Info.</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Information --></label>
+            <label>車両情報</label>
             <section>Vehicle Information</section>
         </sections>
     </layouts>
@@ -13303,23 +13338,23 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
+            <label>販売店情報</label>
             <section>Dealer Info</section>
         </sections>
         <sections>
-            <label><!-- Description Information --></label>
+            <label>詳細情報</label>
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Inquiry Information --></label>
+            <label>問合わせ情報</label>
             <section>Inquiry Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -13334,22 +13369,22 @@
             <section>Case Feedback</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
+            <label>販売店情報</label>
             <section>Dealer Info</section>
         </sections>
         <sections>
-            <label><!-- Inquiry Information --></label>
+            <label>問合わせ情報</label>
             <section>Inquiry Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>MB Complaint Layout - CAC</layout>
         <sections>
-            <label><!-- Case Detail --></label>
+            <label>詳細情報</label>
             <section>Case Detail</section>
         </sections>
         <sections>
@@ -13357,7 +13392,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
+            <label>販売店情報</label>
             <section>Dealer Info</section>
         </sections>
         <sections>
@@ -13388,7 +13423,7 @@
     <layouts>
         <layout>MB Complaint Layout - Customer Care Team</layout>
         <sections>
-            <label><!-- Case Detail --></label>
+            <label>詳細情報</label>
             <section>Case Detail</section>
         </sections>
         <sections>
@@ -13400,7 +13435,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
+            <label>販売店情報</label>
             <section>Dealer Info</section>
         </sections>
         <sections>
@@ -13447,7 +13482,7 @@
             <section>Email Notification</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -13474,7 +13509,7 @@
             <section>Email Notification</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -13509,7 +13544,7 @@
             <section>Complainant Information</section>
         </sections>
         <sections>
-            <label><!-- Customer Information --></label>
+            <label>顧客情報</label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -13556,7 +13591,7 @@
             <section>Complainant Information</section>
         </sections>
         <sections>
-            <label><!-- Customer Information --></label>
+            <label>顧客情報</label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -13585,7 +13620,7 @@
         <name>Chrysler_Complaint</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Inquiry --></label>
+        <label>問合わせ</label>
         <name>Inquiry</name>
     </recordTypes>
     <recordTypes>
@@ -13621,7 +13656,7 @@
         <name>Touring_Support</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- You can&apos;t check Knowledge complete flag. --></errorMessage>
+        <errorMessage>ナレッジ化実施完了フラグをチェックする権限がありません。</errorMessage>
         <name>Cannot_Update_Knowledge_Complete_Flag</name>
     </validationRules>
     <validationRules>
@@ -13701,7 +13736,7 @@
         <name>Support_dealer_update_check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please enter a 17 digit US VIN. --></errorMessage>
+        <errorMessage>VINは17桁で入力して下さい。</errorMessage>
         <name>US_VIN_field_must_be_17_digits</name>
     </validationRules>
     <validationRules>
@@ -13729,7 +13764,7 @@
         <name>Car_Model_Comparison</name>
     </webLinks>
     <webLinks>
-        <label><!-- CloneForIB --></label>
+        <label>複製</label>
         <name>CloneForIB</name>
     </webLinks>
     <webLinks>
@@ -13745,7 +13780,7 @@
         <name>Follow_Up_Inquiry</name>
     </webLinks>
     <webLinks>
-        <label><!-- Generate_Pdf --></label>
+        <label>PDFを作成する</label>
         <name>Generate_Pdf</name>
     </webLinks>
     <webLinks>
@@ -13765,11 +13800,11 @@
         <name>New_Chrysler_ComplaintForVehicleShip</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Inquiry --></label>
+        <label>新規問合わせ</label>
         <name>New_Inquiry</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Lead --></label>
+        <label>リード新規作成</label>
         <name>New_Lead</name>
     </webLinks>
     <webLinks>
@@ -13797,7 +13832,7 @@
         <name>New_SSI_Complaint</name>
     </webLinks>
     <webLinks>
-        <label><!-- Repeated_Complaint --></label>
+        <label>頻出苦情</label>
         <name>Repeated_Complaint</name>
     </webLinks>
     <webLinks>
@@ -13812,4 +13847,13 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
+    <workflowTasks>
+        <name>approval</name>
+        <subject><!-- approval needed --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- Please check the Case Closing Approval Step 2 --></description>
+        <name>test_Approval_process_alert</name>
+        <subject><!-- test Approval process alert --></subject>
+    </workflowTasks>
 </CustomObjectTranslation>

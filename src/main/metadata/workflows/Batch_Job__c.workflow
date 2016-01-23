@@ -17,7 +17,7 @@
             <name>Send_the_email_of_fail_reason_to_recipient</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Batch_Job__c.Status__c</field>
             <operation>equals</operation>

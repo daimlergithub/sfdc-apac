@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>Dealer_Account_Edit_Only_for_CRM</fullName>
+        <sharedTo>
+            <role>MBJ_CRM_Department</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Account with record-type = &apos;Dealer&apos; and MD__c = &apos;JP&apos;, can only be modified by CRM Dept., IT Dept. and Data Management User</description>
+        <name>Dealer_Account_Edit_Only_for_CRM</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Account_Edit_Only_for_IT</fullName>
+        <sharedTo>
+            <role>MBJ_IT_Department</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Account with record-type = &apos;Dealer&apos; and MD__c = &apos;JP&apos; , can only be modified by CRM Dept., IT Dept. and Data Management User</description>
+        <name>Dealer_Account_Edit_Only_for_IT</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Account_Read_Only_for_OtherMBJ</fullName>
+        <sharedTo>
+            <role>Other_MBJ</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Account with record-type = &apos;Dealer&apos; and MD__c = &apos;JP&apos;, will be read-only for Other MBJ</description>
+        <name>Dealer_Account_Read_Only_for_OtherMBJ</name>
+        <opportunityAccessLevel>Read</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Account_Read_Only_for_Supervisor_Operator</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Supervisor</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Account with record-type = &apos;Dealer&apos; and MD__c = &apos;JP&apos;, will be read-only for Supervisor and Operator</description>
+        <name>Dealer_Account_Read_Only_for_Supervisor_Operator</name>
+        <opportunityAccessLevel>Read</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>External_Agency_View_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>External_Marketing_Agency</roleAndSubordinatesInternal>
@@ -20,6 +108,33 @@
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>External Agency View Dealers</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketAccount_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Person Account Soft Deleted</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketAccount_Readable_to_MBJ_IT_Dept</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Dealer_To_Regional_Office</fullName>

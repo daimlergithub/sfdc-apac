@@ -112,7 +112,7 @@
         <name>Lodgement_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -406,6 +406,7 @@
             <masterLabel>Unsuccessful communication</masterLabel>
             <translation><!-- Unsuccessful communication --></translation>
         </picklistValues>
+        
     </fields>
     <fields>
         <label>ステータス変更日時</label>
