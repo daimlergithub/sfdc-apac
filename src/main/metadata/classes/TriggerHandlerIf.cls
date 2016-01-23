@@ -9,6 +9,6 @@
 */
 public interface TriggerHandlerIf
 {
-    void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete);
-    void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete);
+    void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter);
+    void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter);
 }

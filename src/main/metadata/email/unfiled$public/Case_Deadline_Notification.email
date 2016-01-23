@@ -1,11 +1,11 @@
-Following case is near to deadline and need you to handle. 
+{!$Label.Case_Deadline_Notification_Text1}
 
-Company: {!Case.Account} 
-Case: {!Case.CaseNumber} : {!Case.Subject} 
+{!$Label.Case_Deadline_Notification_Company} : {!Case.Account} 
+{!$Label.Case_Deadline_Notification_Case}: {!Case.CaseNumber} : {!Case.Subject} 
 
-Please go to the following URL to login to CRM and view the details of the case.
+{!$Label.Case_Deadline_Notification_Text2}
 
-If you are wholesale user, please use the link 
+{!$Label.Case_Deadline_Notification_Text3} 
 https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
-If you are dealer user, please use the link
+{!$Label.Case_Deadline_Notification_Text4}
 https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com

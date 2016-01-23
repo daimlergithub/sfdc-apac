@@ -14,7 +14,7 @@
 public class TriggerCampaignTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
         Map<Id,Campaign> newmap = (Map<Id,Campaign>)trigger.newmap;
@@ -35,7 +35,7 @@ public class TriggerCampaignTriggerHandler
             CampaignHelper.beforeUpdateEvents(Trigger.new,oldmap);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
-        <label><!-- Central CRM --></label>
+        <label>セントラルCRM</label>
         <name>Central_CRM</name>
     </customApplications>
     <customApplications>
-        <label><!-- Central Dealer Portal --></label>
+        <label>セントラル販売店ポータル</label>
         <name>Central_Dealer_Portal</name>
     </customApplications>
     <customApplications>
@@ -13,7 +13,7 @@
         <name>Central_Lead_Management</name>
     </customApplications>
     <customApplications>
-        <label><!-- Central Marketing --></label>
+        <label>セントラルマーケティング</label>
         <name>Central_Marketing</name>
     </customApplications>
     <customApplications>
@@ -21,23 +21,23 @@
         <name>Force_com</name>
     </customApplications>
     <customApplications>
-        <label><!-- MBJ Catalogue Operation --></label>
+        <label>カタログオペレーション</label>
         <name>MBJ_Catalogue_Operation</name>
     </customApplications>
     <customApplications>
-        <label><!-- MBJ Data Management --></label>
+        <label>MBJデータ管理</label>
         <name>MBJ_Data_Management</name>
     </customApplications>
     <customApplications>
-        <label><!-- MBJ File Management --></label>
+        <label>MBJファイル管理</label>
         <name>MBJ_File_Management</name>
     </customApplications>
     <customApplications>
-        <label><!-- MBJ Master Data Management --></label>
+        <label>MBJマスタデータ管理</label>
         <name>MBJ_Master_Data_Management</name>
     </customApplications>
     <customApplications>
-        <label><!-- MBJ Reports and Dashboards --></label>
+        <label>MBJレポート/ダッシュボード</label>
         <name>MBJ_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
@@ -89,12 +89,36 @@
         <name>Add_to_Campaign</name>
     </customLabels>
     <customLabels>
+        <label><!-- AddressType Validation --></label>
+        <name>AddressType_Validation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddressValidation callout failure --></label>
+        <name>AddressValidation_callout_failure</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Address_1</name>
     </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Address_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Information --></label>
+        <name>Address_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Search --></label>
+        <name>Address_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address type Validation --></label>
+        <name>Address_type_Validation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address validation --></label>
+        <name>Address_validation</name>
     </customLabels>
     <customLabels>
         <label><!-- Aftersales --></label>
@@ -501,6 +525,38 @@
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
+        <label><!-- Case Deadline Notification Case --></label>
+        <name>Case_Deadline_Notification_Case</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Case Number --></label>
+        <name>Case_Deadline_Notification_Case_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Company --></label>
+        <name>Case_Deadline_Notification_Company</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text1 --></label>
+        <name>Case_Deadline_Notification_Text1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text2 --></label>
+        <name>Case_Deadline_Notification_Text2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text3 --></label>
+        <name>Case_Deadline_Notification_Text3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text4 --></label>
+        <name>Case_Deadline_Notification_Text4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text5 --></label>
+        <name>Case_Deadline_Notification_Text5</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Case Record Type --></label>
         <name>Case_Record_Type</name>
     </customLabels>
@@ -535,6 +591,10 @@
     <customLabels>
         <label><!-- Common Filter Name --></label>
         <name>Common_Filter_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Company Account Information --></label>
+        <name>Company_Account_Information</name>
     </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
@@ -1185,6 +1245,10 @@
         <name>Near_Dealer_Phone3</name>
     </customLabels>
     <customLabels>
+        <label><!-- New Account Information --></label>
+        <name>New_Account_Information</name>
+    </customLabels>
+    <customLabels>
         <label>新規作成</label>
         <name>New_Button</name>
     </customLabels>
@@ -1247,6 +1311,10 @@
     <customLabels>
         <label><!-- Parts Cross Promotion --></label>
         <name>Parts_Cross_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Account Information --></label>
+        <name>Person_Account_Information</name>
     </customLabels>
     <customLabels>
         <label><!-- Phone --></label>
@@ -1721,6 +1789,10 @@
         <name>VF_ToolkitSelect_Publish_Date</name>
     </customLabels>
     <customLabels>
+        <label><!-- Validate --></label>
+        <name>Validate</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Vehicle --></label>
         <name>Vehicle</name>
     </customLabels>
@@ -1809,6 +1881,22 @@
         <name>Yearly_TAs</name>
     </customLabels>
     <customLabels>
+        <label><!-- Yes --></label>
+        <name>Yes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Zipcode --></label>
+        <name>Zipcode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Zipcode not found --></label>
+        <name>Zipcode_not_found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Zipcode validation --></label>
+        <name>Zipcode_validation</name>
+    </customLabels>
+    <customLabels>
         <label><!-- /apex/AccountMerge?Id= --></label>
         <name>apex_AccountMerge_Id</name>
     </customLabels>
@@ -1819,6 +1907,10 @@
     <customLabels>
         <label><!-- applicationpdf --></label>
         <name>applicationpdf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Need contact Information --></label>
+        <name>contact_information</name>
     </customLabels>
     <customLabels>
         <label><!-- displayOnly --></label>
@@ -1976,10 +2068,6 @@
         <label><!-- Took Kit --></label>
         <name>Took_Kit</name>
     </customPageWebLinks>
-    <customTabs>
-        <label><!-- Campaign Calendar --></label>
-        <name>Campaign_Calendar</name>
-    </customTabs>
     <customTabs>
         <label><!-- Central Campaigns --></label>
         <name>Central_Campaigns</name>

@@ -4,8 +4,8 @@
  */
 @IsTest public with sharing class MyProfilePageControllerTest {
     
-    @IsTest(SeeAllData=true) static void testSetContactFields() {
-        
+     public static testmethod void testSetContactFields() {
+       // @IsTest(SeeAllData=true)
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
 
@@ -19,8 +19,8 @@
         System.assertEquals(c.lastname, u.lastname, 'lastname should have been set as the lastname of the user for the contact');
     }
 
-    @IsTest(SeeAllData=true) static void testSave() {
-        
+  public static testmethod  void testSave() {
+     // @IsTest(SeeAllData=true)    
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
 

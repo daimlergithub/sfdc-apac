@@ -277,4 +277,70 @@ public static void updatePrimaryContactInformation(list<Account> listNewAccounts
         }
         
     }
+    public static void createUCID(list<Account> TriggerNew,boolean isInsert)
+    {
+        system.debug('^^^^^^^^' +TriggerNew);
+        list<Account> accountlist = new list<Account>();
+		list<Account> acclist = new list<Account>();
+        set<id> AccIds = new set<id>();
+        for(Account acc : TriggerNew)
+        {
+            system.debug('&&&&&&&&');
+           
+        	if(UtilRecordType.getRecordTypeNameById('Account',acc.RecordTypeId) == 'Person Account')
+        	{
+                 AccIds.add(acc.id);
+        		 
+        	}
+            else 
+                if(UtilRecordType.getRecordTypeNameById('Account',acc.RecordTypeId) == 'Company')
+        	{
+                 AccIds.add(acc.id);
+        		 
+        	}
+            
+        	//accountlist.add(acc);
+       	 	
+    	}
+        system.debug('(&(^*I^*^*%&*%'+AccIds.size());
+        if(!AccIds.isEmpty())
+        {
+        accountlist = [select id,UCID__c,UCID_Sequence__c from account where id in :AccIds];
+        system.debug('!!!!'+ accountlist[0]);
+        if(!accountlist.isEmpty())
+        {
+        for(Account acc : accountlist)
+        {
+            if(UtilRecordType.getRecordTypeNameById('Account',acc.RecordTypeId) == 'Person Account'){
+                string ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
+            }
+            else
+                if(UtilRecordType.getRecordTypeNameById('Account',acc.RecordTypeId) == 'Company'){
+                string ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+            }
+                
+            string ucidsequence = 'JSP' + acc.UCID_Sequence__c;
+            system.debug('#########'+ucidsequence);
+            integer checksum=0;
+            integer i;
+			String ucid = ucidsequence;
+            for (i=0; i < 14; i++)
+		{ 
+			integer cp = ucid.codePointAt(i); 
+			checksum += cp; 
+		}
+            system.debug('^^^^^^^'+checksum);
+			String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+			integer mod = Math.mod(checksum, checksumSet.length());
+			ucid += checksumSet.substring(mod, mod+1);
+            system.debug('%%%%%%%%'+ucid);
+            acc.UCID__c = ucid;
+            system.debug('!!!!!!!'+ acc.UCID__c + '!!!!!!1' + acc.id );
+            acclist.add(acc);
+        }
+        update acclist;
+        }
+       system.debug('UCID #####'+accountlist);
+    }
+    }
 }

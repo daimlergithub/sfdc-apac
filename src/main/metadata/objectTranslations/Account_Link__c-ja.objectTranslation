@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Account Link --></value>
+        <value>アカウントリンク</value>
     </caseValues>
     <fields>
         <label>有効</label>
@@ -26,15 +26,15 @@
         <name>End_Date__c</name>
     </fields>
     <fields>
-        <label>MBCユーザーID</label>
+        <label>MBCカードID</label>
         <name>MBConnection__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- Origin --></label>
+        <label>マージ元</label>
         <name>Origin__c</name>
     </fields>
     <fields>
@@ -46,7 +46,7 @@
         <name>Portal_Mail_Opt_Out__c</name>
     </fields>
     <fields>
-        <label>Myメッセージ配信拒否フラグ</label>
+        <label>メールニュース拒否フラグ</label>
         <name>Portal_Message_Opt_Out__c</name>
     </fields>
     <fields>
@@ -58,19 +58,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>M-Care取込フラグ</label>
+        <label>MBJによるMyMアカウント作成</label>
         <name>Portal_Type__c</name>
         <picklistValues>
             <masterLabel>M-Care</masterLabel>
-            <translation><!-- M-Care --></translation>
+            <translation>M-Care会員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal</masterLabel>
-            <translation><!-- Normal --></translation>
+            <translation>通常会員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal (M-Care)</masterLabel>
-            <translation><!-- Normal (M-Care) --></translation>
+            <translation>通常会員（M-Care)</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -78,7 +78,7 @@
         <name>Position__c</name>
     </fields>
     <fields>
-        <label><!-- Primary --></label>
+        <label>有効</label>
         <name>Primary__c</name>
     </fields>
     <fields>
@@ -150,63 +150,63 @@
         <name>Role2__c</name>
         <picklistValues>
             <masterLabel>After-Sales</masterLabel>
-            <translation><!-- After-Sales --></translation>
+            <translation>アフターセールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
-            <translation><!-- Business partner --></translation>
+            <translation>取引先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Child</masterLabel>
-            <translation><!-- Child --></translation>
+            <translation>子</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation><!-- Colleague --></translation>
+            <translation>同僚</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>雇用会社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation><!-- Employee --></translation>
+            <translation>従業員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
-            <translation><!-- Friend --></translation>
+            <translation>知人・友人</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand child</masterLabel>
-            <translation><!-- Grand child --></translation>
+            <translation>孫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand parent</masterLabel>
-            <translation><!-- Grand parent --></translation>
+            <translation>祖父母</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
-            <translation><!-- Husband・Wife --></translation>
+            <translation>配偶者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Manager</masterLabel>
-            <translation><!-- Manager --></translation>
+            <translation>経営者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parent</masterLabel>
-            <translation><!-- Parent --></translation>
+            <translation>親</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partner</masterLabel>
-            <translation><!-- Partner --></translation>
+            <translation>パートナー(内縁）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Relative</masterLabel>
-            <translation><!-- Relative --></translation>
+            <translation>親族</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
-            <translation><!-- Sales --></translation>
+            <translation>セールス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -214,63 +214,63 @@
         <name>Role__c</name>
         <picklistValues>
             <masterLabel>After-Sales</masterLabel>
-            <translation><!-- After-Sales --></translation>
+            <translation>アフターセールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
-            <translation><!-- Business partner --></translation>
+            <translation>取引先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Child</masterLabel>
-            <translation><!-- Child --></translation>
+            <translation>子</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation><!-- Colleague --></translation>
+            <translation>同僚</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>雇用会社</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation><!-- Employee --></translation>
+            <translation>従業員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
-            <translation><!-- Friend --></translation>
+            <translation>知人・友人</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand child</masterLabel>
-            <translation><!-- Grand child --></translation>
+            <translation>孫</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand parent</masterLabel>
-            <translation><!-- Grand parent --></translation>
+            <translation>祖父母</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
-            <translation><!-- Husband・Wife --></translation>
+            <translation>配偶者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Manager</masterLabel>
-            <translation><!-- Manager --></translation>
+            <translation>経営者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parent</masterLabel>
-            <translation><!-- Parent --></translation>
+            <translation>親</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partner</masterLabel>
-            <translation><!-- Partner --></translation>
+            <translation>パートナー(内縁）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Relative</masterLabel>
-            <translation><!-- Relative --></translation>
+            <translation>親族</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
-            <translation><!-- Sales --></translation>
+            <translation>セールス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -314,27 +314,27 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Campaign/Project Dealer</masterLabel>
-            <translation><!-- Campaign/Project Dealer --></translation>
+            <translation>キャンペーン/プロジェクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Last Selling</masterLabel>
-            <translation><!-- Last Selling --></translation>
+            <translation>前回販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Last Servicing</masterLabel>
-            <translation><!-- Last Servicing --></translation>
+            <translation>前回サービス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Shop</masterLabel>
-            <translation><!-- My Shop --></translation>
+            <translation>マイショップ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Shops</masterLabel>
-            <translation><!-- My Shops --></translation>
+            <translation>マイショップ(複数)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Territory Dealer</masterLabel>
-            <translation><!-- Territory Dealer --></translation>
+            <translation>テリトリー</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -353,12 +353,12 @@
     <fields>
         <label>関係者1</label>
         <name>fromRole__c</name>
-        <relationshipLabel><!-- Account Links (Contact to Contact) --></relationshipLabel>
+        <relationshipLabel>顧客間関連情報</relationshipLabel>
     </fields>
     <fields>
         <label>関係者2</label>
         <name>toRole__c</name>
-        <relationshipLabel><!-- Account Links(External Link) --></relationshipLabel>
+        <relationshipLabel>他システム情報</relationshipLabel>
     </fields>
     <layouts>
         <layout>Account Link Layout</layout>
@@ -378,12 +378,23 @@
             <section>Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Contact Sector</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact to Contact</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -404,7 +415,7 @@
             <section>Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
@@ -419,7 +430,7 @@
             <section>Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
@@ -434,7 +445,7 @@
             <section>Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
@@ -449,29 +460,29 @@
             <section>Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Name --></nameFieldLabel>
+    <nameFieldLabel>アカウントリンク名</nameFieldLabel>
     <recordTypes>
         <label><!-- Company Customer External Link --></label>
         <name>CompanyExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Contact2Contact --></label>
+        <label>法人関係</label>
         <name>Contact2Contact</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- ContactSector --></label>
+        <label>販売店関係</label>
         <name>ContactSector</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Individual Customer External Link --></label>
+        <label>MyM顧客関係</label>
         <name>IndividualExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Vehicle External Link --></label>
+        <label>MyM車両関係</label>
         <name>Vehicle_External_Link</name>
     </recordTypes>
     <sharingReasons>

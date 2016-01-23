@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>JP_MarketVehicle_Relatioship_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Soft Deleted</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <name>JP_MarketVehicle Relatioship_Readable_to_MBJ_IT_Dept</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Read_Write_of_Vehicle_to_CAC</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
@@ -25,6 +44,25 @@
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>SoftDelete_Vehicle_Relationship_Only_for_IT</fullName>
+        <sharedTo>
+            <role>MBJ_IT_Department</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Soft Deleted</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Vehicle Relationship with record-type = &apos;Vehicle Relationship Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
+        <name>SoftDelete_Vehicle_Relationship__Only_for_IT</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>
