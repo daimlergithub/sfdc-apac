@@ -6,7 +6,6 @@
     <excludeButtons>AdvancedSetup</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>ManageMembers</excludeButtons>
-    <excludeButtons>SendEmail</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
