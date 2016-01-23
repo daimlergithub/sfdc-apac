@@ -3811,7 +3811,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -7246,7 +7246,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
         <label>MBJ Yanase Code</label>
-        <length>10</length>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -8654,6 +8654,15 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Sales Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__r.Id</field>
+                <operation>equals</operation>
+                <value>Account: Account ID</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
@@ -8717,11 +8726,11 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Sales Mail</label>
         <picklist>
             <picklistValues>
-                <fullName>E-mail2</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>E-mail1</fullName>
+                <fullName>E-mail2</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
