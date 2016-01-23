@@ -24,7 +24,7 @@
             <name>Set_CL_Successful_Call_Number_is_0</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Campaign_Lead__c.Lead_DataSource__c</field>
             <operation>notEqual</operation>
@@ -38,7 +38,7 @@
             <name>Set_CL_Successful_Call_Number_is_1</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>equals</operation>

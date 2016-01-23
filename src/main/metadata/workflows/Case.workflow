@@ -274,7 +274,7 @@
     </fieldUpdates>
     <rules>
         <fullName>Case 48%2672H Check Notification</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
@@ -304,18 +304,18 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Update_CheckFlag_After_72H</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>72</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
                 <name>Update_CheckFlag_After_48H</name>
                 <type>FieldUpdate</type>
             </actions>
             <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_CheckFlag_After_72H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>72</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -343,7 +343,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -367,7 +367,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -395,7 +395,7 @@
             <name>Update_Complaint_Creator_Department_toCA</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -419,7 +419,7 @@
             <name>Update_Complaint_Creator_Department_toCA</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -439,7 +439,7 @@
             <name>Update_Creator_Department_to_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -459,7 +459,7 @@
             <name>Update_Creator_Department_To_ROCO</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
@@ -485,7 +485,7 @@
             <name>Complaint_Update_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Case team memeber update a case on specific fields, system will send an email to case team members.</description>
         <formula>AND( OR( $Profile.Name == &apos;BMBS Regional CRM Manager&apos;, $Profile.Name == &apos;BMBS Service Technical Manager&apos;, $Profile.Name ==&apos;BMBS PL/WL Manager&apos;, CONTAINS($Profile.Name, &apos;Dealer&apos;)  ), AND(Urgent__c, OR(  ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_Central_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c)  )) )</formula>
         <triggerType>onAllChanges</triggerType>
@@ -496,7 +496,7 @@
             <name>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Retail_Case_Notice_Dealer_Flag__c</field>
             <operation>equals</operation>
@@ -514,7 +514,7 @@
             <name>update_workflow_order</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Workflow_Order__c</field>
             <operation>equals</operation>
@@ -532,7 +532,7 @@
             <name>Send_Email_to_Gate_Keeper</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.SendEmailToGateKeeper__c</field>
             <operation>equals</operation>
@@ -550,7 +550,7 @@
             <name>Update_Support_Dealer1_Email_FlgToFalse</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Send_Email_Support_Dealer1_Keeper__c</field>
             <operation>equals</operation>
@@ -568,7 +568,7 @@
             <name>Update_Support_Dealer2_Email_FlgToFalse</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Send_Email_Support_Dealer2_Keeper__c</field>
             <operation>equals</operation>
@@ -586,7 +586,7 @@
             <name>Update_Support_Dealer3_Email_FlgToFalse</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Send_Email_Support_Dealer3_Keeper__c</field>
             <operation>equals</operation>

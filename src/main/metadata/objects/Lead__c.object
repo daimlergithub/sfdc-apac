@@ -19008,6 +19008,42 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
+    <listViews>
+        <fullName>MBJ_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor</label>
+        <queue>Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -65818,7 +65854,7 @@ ISPICKVAL(CAC_Lead_Status__c, "Qualified")
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"), 
 
@@ -65836,7 +65872,7 @@ NOT(CONTAINS($Profile.Name,'Dealer'))
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-016) 
@@ -65890,7 +65926,7 @@ ISBLANK( Company_Account__c )&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Contact_Failed_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), 
 ISNULL(Contact_Failed_For_3_Days_Date__c)
@@ -65900,7 +65936,7 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)"), 
 
@@ -65918,7 +65954,7 @@ CONTAINS($Profile.Name,'Dealer')
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Sales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"), 
 OR( 
@@ -65936,7 +65972,7 @@ CONTAINS($Profile.Name,'Dealer')
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
 ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
 ISNULL(First_Contact_Customer_Date__c)
@@ -65954,7 +65990,7 @@ NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>InstructorMandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>Need_Contact__c  &amp;&amp;  ( OR(ISBLANK(Instructor__c), ISNULL(Instructor__c)))</errorConditionFormula>
         <errorDisplayField>Instructor__c</errorDisplayField>
         <errorMessage>Please fill in the Instructor.</errorMessage>
@@ -65970,7 +66006,7 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"), 
 ISNULL(Lost_Dealer_Date__c)
@@ -65980,7 +66016,7 @@ ISNULL(Lost_Dealer_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c)
@@ -65990,14 +66026,14 @@ ISNULL(Order_Placed_Date__c)
     </validationRules>
     <validationRules>
         <fullName>RecommendedDealerMandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>Visit_Dealer__c  &amp;&amp;  (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Recommended_Dealer__c )))</errorConditionFormula>
         <errorDisplayField>Recommended_Dealer__c</errorDisplayField>
         <errorMessage>Please fill in the Recommended Dealer.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
@@ -66026,7 +66062,7 @@ TEXT(Trade_In_Vehicle_Brand__c) == NULL
     </validationRules>
     <validationRules>
         <fullName>TradeIn_Fields_Required_Check_Others</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(
 ISPICKVAL(Trade_In_Vehicle_Brand__c,'Other brands'),       
 ISBLANK(Trade_In_Other_Vehicle_Model__c)
@@ -66036,7 +66072,7 @@ ISBLANK(Trade_In_Other_Vehicle_Model__c)
     </validationRules>
     <validationRules>
         <fullName>Visited_Showroom_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"), 
 ISNULL(Visited_Showroom_Date__c)

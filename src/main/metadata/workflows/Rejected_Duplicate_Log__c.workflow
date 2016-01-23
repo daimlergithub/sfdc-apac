@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <outboundMessages>
         <fullName>Rejected_Duplicate_Log_Sync</fullName>

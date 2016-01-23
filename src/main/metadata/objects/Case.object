@@ -263,6 +263,30 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <businessProcesses>
+        <fullName>test</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Finished</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Have tracked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Need track</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Reply</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
@@ -2465,7 +2489,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>MAYBACH</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -4204,7 +4228,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>MAYBACH</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -5950,7 +5974,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>MAYBACH</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -19500,6 +19524,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBJ_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
@@ -19735,6 +19768,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Sample Cases</label>
     </listViews>
     <listViews>
+        <fullName>Supervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor</label>
+        <queue>Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Support_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -19824,6 +19866,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
@@ -25117,10 +25177,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -25182,6 +25238,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26552,10 +26612,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -26617,6 +26673,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27987,10 +28047,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -28052,6 +28108,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35462,10 +35522,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -35527,6 +35583,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36897,10 +36957,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -36962,6 +37018,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38332,10 +38392,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -38397,6 +38453,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45223,10 +45283,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -45288,6 +45344,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46658,10 +46718,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -46723,6 +46779,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48093,10 +48153,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -48158,6 +48214,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54764,10 +54824,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -54829,6 +54885,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -56199,10 +56259,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -56264,6 +56320,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -57634,10 +57694,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -57699,6 +57755,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -72725,10 +72785,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -72790,6 +72846,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -74160,10 +74220,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -74225,6 +74281,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75595,10 +75655,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -75660,6 +75716,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -82782,10 +82842,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -82847,6 +82903,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -84217,10 +84277,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -84282,6 +84338,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -85652,10 +85712,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -85717,6 +85773,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -93307,10 +93367,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -93372,6 +93428,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -94742,10 +94802,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -94807,6 +94863,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -96177,10 +96237,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -96242,6 +96298,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100774,7 +100834,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </validationRules>
     <validationRules>
         <fullName>Case_Dealer_is_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 RecordType.Name == 'MB Complaint', 
 NOT( OR( 
@@ -100794,7 +100854,7 @@ $Profile.Name != 'Dealer Community User'
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_1st_rule</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Change "Progress Status" to "1st Position Released", click "Save" button. The system won't save and the following error message display:
 "Please fill in 1st FP Position Release Date"</description>
         <errorConditionFormula>AND(
@@ -100810,7 +100870,7 @@ ISNULL( X1st_FP_Position_Release_Date__c )
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_2nd_rule</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Change "Progress Status" to "2nd Final Position Released", click "Save" button. The system won't save and the following error message display:
 "Please fill in 2nd FP Position Release Date"</description>
         <errorConditionFormula>AND(
@@ -100826,7 +100886,7 @@ ISNULL( X2nd_FP_Position_Release_Date__c )
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_Closed_rule</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Login as Regional Office User, Change "Progress Status" to "Closed", click "Save" button. The system won't save and the following error message display:
 "Please fill in Resolved Date before Close the</description>
         <errorConditionFormula>AND(
@@ -100842,7 +100902,7 @@ OR ( $Profile.Name = 'Regional CRM Manager',
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_Suspended_rule</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Change "Progress Status" to "Suspended", click "Save" button. The system won't save and the following error message display:
 "Please fill in Suspended Date"</description>
         <errorConditionFormula>AND(
@@ -100860,7 +100920,7 @@ ISBLANK(Suspended_Reason__c)
     </validationRules>
     <validationRules>
         <fullName>Check_Case_Overdue</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check "Case Overdue" to Y, click "Save" button. The system won't save and the following error message display:
 "Please fill in Overdue Reason"</description>
         <errorConditionFormula>AND(
@@ -100876,7 +100936,7 @@ ISPICKVAL(Overdue_Reason__c, '')
     </validationRules>
     <validationRules>
         <fullName>Checking_Released_Date</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>(Isblank( Release_Date__c) ||
 Isblank( Suspended_Reason__c ))&amp;&amp;
 ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
@@ -100904,7 +100964,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>EU_FIN_field_must_be_17_or_18_digits</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>"EU FIN" must be 17 or 18 digits.</description>
         <errorConditionFormula>NOT(ISBLANK( EU_VIN__c ))&amp;&amp; 
 ((LEN( EU_VIN__c ) &lt;&gt; 17) &amp;&amp; (LEN( EU_VIN__c ) &lt;&gt; 18))&amp;&amp;  
@@ -100917,7 +100977,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Field_is_madatory_to_CO</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>The "Ref.No-Central"field is mandatory for co user.</description>
         <errorConditionFormula>AND(
     ISBLANK( Ref_No_Central__c ), 
@@ -100929,7 +100989,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Field_is_mandatory_for_RO</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>The "Ref.No-Central"field is mandatory for ro user.</description>
         <errorConditionFormula>AND(
   ISBLANK( Ref_No_Regional__c ), 
@@ -100941,7 +101001,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Mandatory_Fields_When_Goodwill_Checked</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 Special_Goodwill__c, 
 OR( 
@@ -100960,7 +101020,7 @@ $Profile.Name = 'Central PL/WL Manager'
     </validationRules>
     <validationRules>
         <fullName>Order_No_Vehicle_Must_be_Number</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 NOT(REGEX(Order_No__c, "^[0-9]*$")), 
 OR 
@@ -100978,7 +101038,7 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
     </validationRules>
     <validationRules>
         <fullName>Overdue_Reason_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 ISPICKVAL(Overdue__c,'Y'), 
 ISPICKVAL(Overdue_Reason__c ,'')
@@ -100988,7 +101048,7 @@ ISPICKVAL(Overdue_Reason__c ,'')
     </validationRules>
     <validationRules>
         <fullName>Overdue_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 OR(
 ISPICKVAL(Progress_Status__c,'1st FP Released'),
@@ -101024,14 +101084,14 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
     </validationRules>
     <validationRules>
         <fullName>PR_cannt_modify_status</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(CONTAINS($Profile.Name, 'PR'), ISCHANGED(Status))</errorConditionFormula>
         <errorDisplayField>Case_Status__c</errorDisplayField>
         <errorMessage>PR cann't modify current case status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Repeat_Complaint_Reason_is_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If Repeat Complaint Times is more than 1,  Repeat Complaint Reason is required.</description>
         <errorConditionFormula>AND(
 Repeat_Complaint_Times__c &gt; 1,
@@ -101048,7 +101108,7 @@ $Profile.Name = 'CAC Data Manager'
     </validationRules>
     <validationRules>
         <fullName>Support_dealer_update_check</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>support dealers could only update the “complaint description/resolution”.</description>
         <errorConditionFormula>AND(
 $Profile.Name = 'Dealer-Complaint Manager',
@@ -101098,7 +101158,7 @@ NOT(ISBLANK( US_VIN__c ))&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Update_Release_Date_to_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Update Release Date to Required</description>
         <errorConditionFormula>AND(
 ISCHANGED(Progress_Status__c),
@@ -101110,7 +101170,7 @@ ISNULL( Release_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Validate_Vehicle_Source</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR
 (
 AND(

@@ -16,7 +16,7 @@
             <name>Update_DM_Material_External_Id</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>User.IsActive</field>
             <operation>equals</operation>

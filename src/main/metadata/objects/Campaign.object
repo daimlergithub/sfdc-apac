@@ -11470,13 +11470,13 @@ Record Type =  CAS/Central Marketing campaign</description>
     </validationRules>
     <validationRules>
         <fullName>Expected_Outcome_Fields</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(Expected_Response_Rate__c &gt; 1,Expected_Participation__c &gt; 1,Expected_Registration__c &gt; 1, Expected_Lead__c &gt; 1)</errorConditionFormula>
         <errorMessage>Expected Outcome fields should not be more than 100.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 OR(
  RecordType.Name == 'S&amp;M Event Central Campaign',
@@ -11511,7 +11511,7 @@ OR(
     </validationRules>
     <validationRules>
         <fullName>Locked_for_MB_BP_when_Published</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 OR( 
 RecordType.DeveloperName == 'MB_Best_Practice', 
@@ -11539,7 +11539,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>MB_BP_fields_are_required_when_Publish</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 OR( 
 AND( 
@@ -11589,7 +11589,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     </validationRules>
     <validationRules>
         <fullName>Previous_Campaign_Execution_Parent</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,
 NOT(ISBLANK(Previous_Campaign_Execution__c))
@@ -11599,7 +11599,7 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
     </validationRules>
     <validationRules>
         <fullName>SMS_Task_Verified_is_True</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 SMS_Task_Verified__c  = True,
 NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
@@ -11609,7 +11609,7 @@ NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
     </validationRules>
     <validationRules>
         <fullName>SMS_eDM_Template_is_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 ISBLANK(Template__c), 
 OR( 
