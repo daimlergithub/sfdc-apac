@@ -1113,11 +1113,7 @@
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
-                <fullName>Australia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Zealand</fullName>
+                <fullName>Japan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
