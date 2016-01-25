@@ -161,11 +161,7 @@
         <label>Country</label>
         <picklist>
             <picklistValues>
-                <fullName>Australia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Zealand</fullName>
+                <fullName>Japan</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -607,13 +603,10 @@
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
-                <fullName>Australia</fullName>
+                <fullName>Japan</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
+            
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -860,11 +853,7 @@
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
-                <fullName>Australia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Zealand</fullName>
+                <fullName>Japan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
