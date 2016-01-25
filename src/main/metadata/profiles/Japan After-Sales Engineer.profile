@@ -144,10 +144,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountHelperJPtest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
