@@ -100811,7 +100811,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>Cannot_Update_Knowledge_Complete_Flag</fullName>
         <active>true</active>
         <description>The user who checked Knowledge complete flag is not call center supervisor or MBJ employee.</description>
-        <errorConditionFormula>AND( Knowledge_Complete_Flag__c  = TRUE,  OR($Profile.Name  = 'System Administrator', $Profile.Name  = 'Marketing User'),UPPER(MD__c) = 'JP') &amp;&amp; ($Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND( Knowledge_Complete_Flag__c  = TRUE,  OR($Profile.Name  = 'System Administrator', $Profile.Name  = 'Japan Call Center'),UPPER(MD__c) = 'JP') &amp;&amp; ($Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Knowledge_Complete_Flag__c</errorDisplayField>
         <errorMessage>You can't check Knowledge complete flag.</errorMessage>
     </validationRules>
