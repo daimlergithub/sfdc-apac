@@ -545,14 +545,6 @@
         <name>Case_Deadline_Notification_Text2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Deadline Notification Text3 --></label>
-        <name>Case_Deadline_Notification_Text3</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Case Deadline Notification Text4 --></label>
-        <name>Case_Deadline_Notification_Text4</name>
-    </customLabels>
-    <customLabels>
         <label><!-- Case Deadline Notification Text5 --></label>
         <name>Case_Deadline_Notification_Text5</name>
     </customLabels>

@@ -792,6 +792,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ToolKitTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -16282,27 +16286,27 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Account Link Layout</layout>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Account Link Layout</layout>
-        <recordType>Account_Link__c.IndividualExternalLink</recordType>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
+        <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Company Customer External Link</layout>
-        <recordType>Account_Link__c.Vehicle_External_Link</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Contact to Dealer</layout>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
         <recordType>Account_Link__c.ContactSector</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
+        <layout>Account_Link__c-Individual Customer External Link</layout>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
-        <recordType>Account_Link__c.Contact2Contact</recordType>
+        <layout>Account_Link__c-Vehicle External Link</layout>
+        <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Address__c-Address Layout</layout>
@@ -16461,10 +16465,10 @@
         <recordType>Case.Retail_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Case Close Master Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Case Close Master Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16814,6 +16818,10 @@
         <recordType>Task.DM</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Task-General Task Layout</layout>
+        <recordType>Task.General_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Task-IB Call</layout>
         <recordType>Task.IB_Call</recordType>
     </layoutAssignments>
@@ -16836,10 +16844,6 @@
     <layoutAssignments>
         <layout>Task-Social Media</layout>
         <recordType>Task.Social_Media</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Layout</layout>
-        <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -16935,11 +16939,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.Self_Registered</recordType>
+        <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
@@ -16950,7 +16953,8 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout</layout>
+        <layout>Vehicle__c-Self Registered Layout-CAC</layout>
+        <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <loginHours/>
     <loginIpRanges>
@@ -17512,6 +17516,10 @@
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SlickCTI_CSS</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
@@ -18119,6 +18127,10 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Account_Link__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Address__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

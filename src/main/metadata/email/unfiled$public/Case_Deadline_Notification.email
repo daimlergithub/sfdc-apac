@@ -4,8 +4,4 @@
 {!$Label.Case_Deadline_Notification_Case}: {!Case.CaseNumber} : {!Case.Subject} 
 
 {!$Label.Case_Deadline_Notification_Text2}
-
-{!$Label.Case_Deadline_Notification_Text3} 
-https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
-{!$Label.Case_Deadline_Notification_Text4}
-https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+https://login.salesforce.com
