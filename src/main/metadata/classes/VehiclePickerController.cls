@@ -343,22 +343,33 @@ global with sharing class VehiclePickerController {
         }
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC NULLS FIRST];
-            defaultVehicleIds.add(leadVehicleRelationships[0].Vehicle_ID__c);            
-            for (Vehicle_Relationship__c vr : leadVehicleRelationships){
-                allVehicleIds.add(vr.Vehicle_ID__c);
+            system.debug('Lead Contact...' +leadAcc);
+            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC];
+            system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
+            
+            if (!leadVehicleRelationships.isEmpty()){
+                defaultVehicleIds.add(leadVehicleRelationships[0].Vehicle_ID__c);
+                system.debug('Default Vehicle Ids...' +defaultVehicleIds);           
+                for (Vehicle_Relationship__c vr : leadVehicleRelationships){
+                    allVehicleIds.add(vr.Vehicle_ID__c);
+                }
             }
             //Search for Self Registered:
             Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
             system.debug('Self Registered Rec Id :' +selfRegisteredRec_TypeId);
-            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:leadAcc.Contact__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC NULLS FIRST];
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:leadAcc.Contact__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
-            defaultVehicleIds.add(selfRegisteredVehicles[0].Id);
-            for (Vehicle__c v : selfRegisteredVehicles){
-                allVehicleIds.add(v.Id);
+            
+            if (!selfRegisteredVehicles.isEmpty()){
+                defaultVehicleIds.add(selfRegisteredVehicles[0].Id);
+                for (Vehicle__c v : selfRegisteredVehicles){    
+                    allVehicleIds.add(v.Id);
+                }
+                system.debug('Default Vehicle Ids...' +defaultVehicleIds);
             }
             if (vin_number.equalsIgnoreCase('')){
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
+                system.debug('Default Vehicle Records...' +vehicle);
             }
             else{
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number];
