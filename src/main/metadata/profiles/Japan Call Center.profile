@@ -412,6 +412,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CpCallControllerClass_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -792,6 +796,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ToolKitTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ToolKitTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -974,6 +986,10 @@
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
@@ -14776,6 +14792,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>TestAndDelete__c.TestAndDeleteAuto__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Tool_Kit__c.Actual_End_Date__c</field>
         <readable>true</readable>
@@ -16461,10 +16482,10 @@
         <recordType>Case.Retail_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16886,6 +16907,9 @@
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
         <recordType>Template__c.eDM</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TestAndDelete__c-TestAndDelete Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Media Tool Kit</layout>
@@ -17498,6 +17522,10 @@
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SlickCTI_CSS</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
@@ -18235,6 +18263,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
