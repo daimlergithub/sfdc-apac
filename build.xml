@@ -237,6 +237,7 @@
 				<sf:include name="TriggerUtil"/>
 				<sf:include name="TriggerUtilTest"/>
 				<sf:include name="AccountHelperJP"/>
+				<sf:include name="AccountHelperJPTest"/>
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>

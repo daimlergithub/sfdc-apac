@@ -18,7 +18,7 @@
 public class TriggerRecallTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         Map<Id,Recall__c> oldmap = (Map<Id,Recall__c>)trigger.oldmap;
         Map<Id,Recall__c> newmap = (Map<Id,Recall__c>)trigger.newmap;
@@ -32,7 +32,7 @@ public class TriggerRecallTriggerHandler
             RecallHelper.beforeDeleteEvent(Trigger.old);
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

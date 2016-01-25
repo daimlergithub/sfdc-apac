@@ -35,7 +35,7 @@ public with sharing class AccountHelperJPtest
                                     FirstName = 'First Name',
                                     Salutation = 'Unknown',      
                                     Province__c = 'Shanghai',
-                                    ZipCode__c='七七七七七七七',
+                                    ZipCode__c= System.Label.Zipcode,
                                		Mobile__c = '023482832',
                                		Mobile2__c = '035456232',
 									Primary_Email__c = 'Email3',
@@ -64,20 +64,6 @@ public with sharing class AccountHelperJPtest
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = en_US,
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US,Market__c = 'JP');
         insert user1;               
-     }
-     public static testmethod void testupdateAccountFieldsinsert()
-     {
-         createuserrecord();
-         createTestData();
-         system.runAs(user1)
-         {
-         test.startTest();        
-         AccountHelperJP.updateAccountFields(accountlist, accountMap, true,false);
-         AccountHelperJP.updatePrimaryContactInformation(accountlist, accountMap, true,false);
-         test.stopTest();
-             
-         system.assertEquals(accountlist[0].SMS_Last_Modified_By__c,Userinfo.getName());
-         }
      }
     public static testmethod void testupdateAccountFieldsupdate()
     {

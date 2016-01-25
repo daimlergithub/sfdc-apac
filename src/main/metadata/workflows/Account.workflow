@@ -25,7 +25,7 @@
             <name>Change_Preferred_Phone</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
@@ -36,7 +36,7 @@
             <name>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 

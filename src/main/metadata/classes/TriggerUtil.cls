@@ -27,37 +27,35 @@ public class TriggerUtil
     
     public static void handleTrigger(String aTriggerName)
     {
-        system.debug('Trigger Name :' +aTriggerName);
+
         if(!userCreate){
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             userCreate = true;
         }
-        system.debug('User Information...' +usr);
         Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
 
-        system.debug('Trigger Information...' +triggerInfo);
         if (isTriggerEnabled(triggerInfo) ) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
-            system.debug('Trigger Handler...' +triggerHandler);
+            
             if (triggerHandler != null) {
                 if(usr.profile.Name!='IntegrationAPI')
-                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
+                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
                 else
-                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
+                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
             }
         }
     }
     
     public static Trigger__c getTriggerInfo(String aTriggerName, User user) 
     {
-        system.debug('User name and Profile details...' +aTriggerName +user);
-        system.debug('Trigger Information...' +Trigger__c.getAll().values());
+
         if (aTriggerName != null) {
             String profileName = user.profile.Name;
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
+                if (aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI')))
                 
-                if ((aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI'))) || (Test.isRunningTest()))               
                 {
+
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
                     }

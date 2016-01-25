@@ -6,14 +6,14 @@
 public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
     {
     
-            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
             {
                 /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
                 
                  if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
                      
-                    AddressHelperJP.validateSameAddressType(trigger.new);
+                    AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
                 }
                 
                  if ((Trigger.isAfter && Trigger.isUpdate)){
@@ -23,7 +23,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
             }
         
-                public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+                public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
             {
         

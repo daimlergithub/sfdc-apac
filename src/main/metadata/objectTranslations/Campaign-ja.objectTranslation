@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>費用(実績)</value>
+        </caseValues>
+        <name>actual_cost_campaign</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>費用(計画)</value>
+        </caseValues>
+        <name>budgeted_cost_campaign</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>返答数</value>
+        </caseValues>
+        <name>total_responses_campaign</name>
+    </fields>
+    <fields>
         <label><!-- ATL/BTL --></label>
         <name>ATL_BTL__c</name>
         <picklistValues>
@@ -142,7 +163,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>StarElite</masterLabel>
@@ -874,6 +895,10 @@
         <name>Is_Parent_Campaign_Active__c</name>
     </fields>
     <fields>
+        <label><!-- LastRunDate --></label>
+        <name>LastRunDate__c</name>
+    </fields>
+    <fields>
         <label>自動リード作成フラグ</label>
         <name>Lead_Creation_flag__c</name>
     </fields>
@@ -926,16 +951,20 @@
         <name>Min_Car_Age__c</name>
     </fields>
     <fields>
+        <label><!-- NextRunDate --></label>
+        <name>NextRunDate__c</name>
+    </fields>
+    <fields>
         <label><!-- OB SMS Template --></label>
         <name>OBSMSTemplate__c</name>
         <relationshipLabel><!-- Campaigns (OB) --></relationshipLabel>
     </fields>
     <fields>
-        <label>その他イベントタイプ</label>
+        <label>イベント詳細名</label>
         <name>Other_Event_Type__c</name>
     </fields>
     <fields>
-        <label>その他チャネルタイプ</label>
+        <label>チャネル詳細名</label>
         <name>Other_Media_Type__c</name>
     </fields>
     <fields>
@@ -1034,7 +1063,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- End --></label>
+        <label>終了日(定期)</label>
         <name>Repeat_End__c</name>
     </fields>
     <fields>
@@ -1066,7 +1095,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- From --></label>
+        <label>開始日(定期)</label>
         <name>Repeat_From__c</name>
     </fields>
     <fields>
@@ -1273,7 +1302,7 @@
     </fields>
     <fields>
         <help><!-- Region Budget + Dealer Budget --></help>
-        <label>総予算</label>
+        <label>費用詳細（text ）</label>
         <name>Total_Budget__c</name>
     </fields>
     <fields>
@@ -1298,21 +1327,21 @@
     <layouts>
         <layout>CAC CRM Campaign Layout</layout>
         <sections>
-            <label><!-- Expected Outcome --></label>
+            <label>期待される結果</label>
             <section>Expected Outcome</section>
         </sections>
     </layouts>
     <layouts>
         <layout>CAC Campaign Layout</layout>
         <sections>
-            <label><!-- Scheduling Details --></label>
+            <label>スケジュール詳細</label>
             <section>Scheduling Details</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Campaign Execution Complex layout</layout>
         <sections>
-            <label><!-- Campaign Statistics --></label>
+            <label>キャンペーンの統計</label>
             <section>Campaign Statistics</section>
         </sections>
         <sections>
@@ -1324,7 +1353,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1332,7 +1361,7 @@
             <section>SQL Statement</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1355,7 +1384,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1367,7 +1396,7 @@
             <section>SQL Statement</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1378,7 +1407,7 @@
     <layouts>
         <layout>Campaign Execution Simple layout</layout>
         <sections>
-            <label><!-- Campaign Statistics --></label>
+            <label>キャンペーンの統計</label>
             <section>Campaign Statistics</section>
         </sections>
         <sections>
@@ -1390,7 +1419,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1398,7 +1427,7 @@
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1417,7 +1446,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1425,7 +1454,7 @@
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1448,7 +1477,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1456,7 +1485,7 @@
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1479,7 +1508,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Interval Before This Execution --></label>
+            <label>前回キャンペーンからの期間</label>
             <section>Interval Before This Execution</section>
         </sections>
         <sections>
@@ -1487,7 +1516,7 @@
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Segmentation Settings --></label>
+            <label>セグメンテーション設定</label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1498,7 +1527,7 @@
     <layouts>
         <layout>Central Campaign Layout</layout>
         <sections>
-            <label><!-- Expected Outcome --></label>
+            <label>期待される結果</label>
             <section>Expected Outcome</section>
         </sections>
     </layouts>
@@ -1563,7 +1592,7 @@
         <name>CAC_CRM_Campaign</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- CAC Campaign --></label>
+        <label>キャンペーンチャネル</label>
         <name>CAC_Campaign</name>
     </recordTypes>
     <recordTypes>
@@ -1575,11 +1604,11 @@
         <name>Campaign_Execution</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Campaign Execution - Complex --></label>
+        <label>キャンペーンメンバー追加</label>
         <name>Campaign_Execution_Complex</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Central Marketing Campaign --></label>
+        <label>キャンペーン計画</label>
         <name>Central_Marketing_Campaign</name>
     </recordTypes>
     <recordTypes>
@@ -1603,11 +1632,11 @@
         <name>CAS_Marketing_Active</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You can&apos;t activate a not started CAS/Central Marketing campaign. --></errorMessage>
+        <errorMessage>キャンペーン状況が開始済みでない場合、有効にすることはできません。</errorMessage>
         <name>Campaign_Not_Yet_Started_Active</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- DM Material is reqired when execution type is DM. --></errorMessage>
+        <errorMessage>Execution Typeで「DM」を選択した場合、カタログを選択して下さい。</errorMessage>
         <name>DM_Material_is_Required</name>
     </validationRules>
     <validationRules>
@@ -1627,11 +1656,11 @@
         <name>MB_BP_fields_are_required_when_Publish</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Only Campaign with &quot;Started&quot; status can be activated. --></errorMessage>
+        <errorMessage>キャンペーン状況が開始済みでない場合、有効にすることはできません。</errorMessage>
         <name>Only_Started_Campaign_can_be_activated</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Parent campaign must be the same as the parent campaign of previous campaign execution. --></errorMessage>
+        <errorMessage>親キャンペーンは前回キャンペーンの親キャンペーンと同じものを選択して下さい。</errorMessage>
         <name>Parent_Campign_Not_Same</name>
     </validationRules>
     <validationRules>
@@ -1647,7 +1676,7 @@
         <name>SMS_eDM_Template_is_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- When you create new CAC camapgin, you can&apos;t check Active. --></errorMessage>
+        <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>
         <name>not_check_active_when_new_cac_camapgin</name>
     </validationRules>
     <webLinks>
@@ -1655,19 +1684,19 @@
         <name>Create_Batch_Tasks</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_CAC_Campaign --></label>
+        <label>キャンペーンチャネル作成</label>
         <name>Create_CAC_Campaign</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_Child_Campaign --></label>
+        <label>子キャンペーン作成</label>
         <name>Create_Child_Campaign</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_Complex_Execution --></label>
+        <label>キャンペーンメンバー作成</label>
         <name>Create_Complex_Execution</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_Simple_Execution --></label>
+        <label>簡易キャンペーン実施</label>
         <name>Create_Simple_Execution</name>
     </webLinks>
     <webLinks>
@@ -1675,7 +1704,7 @@
         <name>De_Dup</name>
     </webLinks>
     <webLinks>
-        <label><!-- Delete --></label>
+        <label>削除</label>
         <name>Delete</name>
     </webLinks>
     <webLinks>
@@ -1687,7 +1716,7 @@
         <name>Generate_Retail_BP_smart</name>
     </webLinks>
     <webLinks>
-        <label><!-- ViewAllCampaignMembers --></label>
+        <label>全てのマーケットアクティビティメンバーを見る</label>
         <name>ViewAllCampaignMembers</name>
     </webLinks>
     <webLinks>
@@ -1695,7 +1724,7 @@
         <name>ViewCampaignInfluenceReport</name>
     </webLinks>
     <webLinks>
-        <label><!-- View_Previous_Campaign_Members --></label>
+        <label>前回キャンペーンメンバーを見る</label>
         <name>View_Previous_Campaign_Members</name>
     </webLinks>
 </CustomObjectTranslation>

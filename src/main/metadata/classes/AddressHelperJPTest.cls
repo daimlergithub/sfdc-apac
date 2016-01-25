@@ -9,6 +9,8 @@ public class AddressHelperJPTest {
      private static Address__c address;
      private static User user1;
      private static  profile ProfileAdmin = [select Id from Profile where Name = 'System Administrator'];
+     public static Map<Id,Address__c> newmap = new Map<Id,Address__c>();
+     public static List<Address__c> addresslist =new List<Address__c>();
     
     public static testMethod void testUpdatePrimaryAddressOnAccount(){
        //create test data
@@ -18,7 +20,7 @@ public class AddressHelperJPTest {
         
         account= new Account();
         account.Phone='09844650654';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
+        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
         
         address=new Address__c();
         address.Address_Type__c='Home';
@@ -29,14 +31,16 @@ public class AddressHelperJPTest {
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=account.id;
-        insert address;     
-    
+        insert address;
+        
+        addresslist.add(address);
+        newmap.putAll(addresslist);
         account.Primary_Address_Reference__c=address.id;
         update account;
         
          //start test        
         test.startTest();
-         address.Address_Type__c='Business';
+        address.Address_Type__c='Business';
          update address;
         test.stopTest();
         

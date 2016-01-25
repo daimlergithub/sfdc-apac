@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Address --></value>
+        <value>Address</value>
     </caseValues>
     <fields>
         <label>住所コード</label>
@@ -21,23 +21,23 @@
         <name>Address_Type__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
-            <translation><!-- Business --></translation>
+            <translation>勤務先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Home</masterLabel>
-            <translation><!-- Home --></translation>
+            <translation>自宅</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 1</masterLabel>
-            <translation><!-- Other Address 1 --></translation>
+            <translation>その他1</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 2</masterLabel>
-            <translation><!-- Other Address 2 --></translation>
+            <translation>その他2</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Address 3</masterLabel>
-            <translation><!-- Other Address 3 --></translation>
+            <translation>その他3</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -49,7 +49,7 @@
         <name>City__c</name>
     </fields>
     <fields>
-        <label>宛名（カナ</label>
+        <label>宛名（カナ）</label>
         <name>Company_Name_Native__c</name>
     </fields>
     <fields>
@@ -106,7 +106,7 @@
         <name>Hardcopy_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -122,191 +122,191 @@
         <name>Province__c</name>
         <picklistValues>
             <masterLabel>Aichi</masterLabel>
-            <translation><!-- Aichi --></translation>
+            <translation>愛知</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Akita</masterLabel>
-            <translation><!-- Akita --></translation>
+            <translation>秋田</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aomori</masterLabel>
-            <translation><!-- Aomori --></translation>
+            <translation>青森</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Chiba</masterLabel>
-            <translation><!-- Chiba --></translation>
+            <translation>千葉</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ehime</masterLabel>
-            <translation><!-- Ehime --></translation>
+            <translation>愛媛県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fukui</masterLabel>
-            <translation><!-- Fukui --></translation>
+            <translation>福井県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fukuoka</masterLabel>
-            <translation><!-- Fukuoka --></translation>
+            <translation>福岡県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fukushima</masterLabel>
-            <translation><!-- Fukushima --></translation>
+            <translation>福島県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gifu</masterLabel>
-            <translation><!-- Gifu --></translation>
+            <translation>岐阜県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gunma</masterLabel>
-            <translation><!-- Gunma --></translation>
+            <translation>群馬県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hiroshima</masterLabel>
-            <translation><!-- Hiroshima --></translation>
+            <translation>広島県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hokkaido</masterLabel>
-            <translation><!-- Hokkaido --></translation>
+            <translation>北海道</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hyogo</masterLabel>
-            <translation><!-- Hyogo --></translation>
+            <translation>兵庫県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ibaraki</masterLabel>
-            <translation><!-- Ibaraki --></translation>
+            <translation>茨城県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ishikawa</masterLabel>
-            <translation><!-- Ishikawa --></translation>
+            <translation>石川県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Iwate</masterLabel>
-            <translation><!-- Iwate --></translation>
+            <translation>岩手県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kagawa</masterLabel>
-            <translation><!-- Kagawa --></translation>
+            <translation>香川県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kagoshima</masterLabel>
-            <translation><!-- Kagoshima --></translation>
+            <translation>鹿児島県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kanagawa</masterLabel>
-            <translation><!-- Kanagawa --></translation>
+            <translation>神奈川県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kochi</masterLabel>
-            <translation><!-- Kochi --></translation>
+            <translation>高知県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kumamoto</masterLabel>
-            <translation><!-- Kumamoto --></translation>
+            <translation>熊本県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kyoto</masterLabel>
-            <translation><!-- Kyoto --></translation>
+            <translation>京都府</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mie</masterLabel>
-            <translation><!-- Mie --></translation>
+            <translation>三重県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Miyagi</masterLabel>
-            <translation><!-- Miyagi --></translation>
+            <translation>宮城県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Miyazaki</masterLabel>
-            <translation><!-- Miyazaki --></translation>
+            <translation>宮崎県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Nagano</masterLabel>
-            <translation><!-- Nagano --></translation>
+            <translation>長野県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Nagasaki</masterLabel>
-            <translation><!-- Nagasaki --></translation>
+            <translation>長崎県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Nara</masterLabel>
-            <translation><!-- Nara --></translation>
+            <translation>奈良県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Niigata</masterLabel>
-            <translation><!-- Niigata --></translation>
+            <translation>新潟県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oita</masterLabel>
-            <translation><!-- Oita --></translation>
+            <translation>大分県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Okayama</masterLabel>
-            <translation><!-- Okayama --></translation>
+            <translation>岡山県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Okinawa</masterLabel>
-            <translation><!-- Okinawa --></translation>
+            <translation>沖縄県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Osaka</masterLabel>
-            <translation><!-- Osaka --></translation>
+            <translation>大阪府</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saga</masterLabel>
-            <translation><!-- Saga --></translation>
+            <translation>佐賀県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saitama</masterLabel>
-            <translation><!-- Saitama --></translation>
+            <translation>埼玉県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Shiga</masterLabel>
-            <translation><!-- Shiga --></translation>
+            <translation>滋賀県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Shimane</masterLabel>
-            <translation><!-- Shimane --></translation>
+            <translation>島根県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Shizuoka</masterLabel>
-            <translation><!-- Shizuoka --></translation>
+            <translation>静岡県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tochigi</masterLabel>
-            <translation><!-- Tochigi --></translation>
+            <translation>栃木県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tokushima</masterLabel>
-            <translation><!-- Tokushima --></translation>
+            <translation>徳島県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tokyo</masterLabel>
-            <translation><!-- Tokyo --></translation>
+            <translation>東京都</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tottori</masterLabel>
-            <translation><!-- Tottori --></translation>
+            <translation>鳥取県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Toyama</masterLabel>
-            <translation><!-- Toyama --></translation>
+            <translation>富山県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wakayama</masterLabel>
-            <translation><!-- Wakayama --></translation>
+            <translation>和歌山県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yamagata</masterLabel>
-            <translation><!-- Yamagata --></translation>
+            <translation>山形県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yamaguchi</masterLabel>
-            <translation><!-- Yamaguchi --></translation>
+            <translation>山口県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yamanashi</masterLabel>
-            <translation><!-- Yamanashi --></translation>
+            <translation>山梨県</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -318,7 +318,7 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Active</masterLabel>
-            <translation><!-- Active --></translation>
+            <translation>有効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dead Mail</masterLabel>
@@ -326,7 +326,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Incomplete</masterLabel>
-            <translation><!-- Incomplete --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Opt out</masterLabel>
@@ -338,11 +338,11 @@
         <name>TitleOfHonor__c</name>
         <picklistValues>
             <masterLabel>To Company</masterLabel>
-            <translation><!-- To Company --></translation>
+            <translation>御中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To Person</masterLabel>
-            <translation><!-- To Person --></translation>
+            <translation>様</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -360,33 +360,33 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Address --></nameFieldLabel>
+    <nameFieldLabel>住所番号</nameFieldLabel>
     <recordTypes>
-        <label><!-- Company --></label>
+        <label>法人</label>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Dealer --></label>
+        <label>販売店</label>
         <name>Dealer</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Individual --></label>
+        <label>個人顧客</label>
         <name>Individual</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- Address Type is required. --></errorMessage>
+        <errorMessage>住所区分を入力して下さい。</errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Company name is required when TitleOfHonor is &apos;Dear&apos;. --></errorMessage>
+        <errorMessage>敬称が御中の場合は、会社名を入力して下さい。</errorMessage>
         <name>Company_Name_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Company name native should be in double byte. --></errorMessage>
+        <errorMessage>会社名は全角で入力して下さい。</errorMessage>
         <name>Company_Name_Single</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
+        <errorMessage>郵便番号は７桁で入力してください。</errorMessage>
         <name>Invalid_ZipCode</name>
     </validationRules>
 </CustomObjectTranslation>

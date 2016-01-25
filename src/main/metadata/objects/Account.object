@@ -3811,7 +3811,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -7246,7 +7246,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
         <label>MBJ Yanase Code</label>
-        <length>10</length>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -8654,6 +8654,15 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Sales Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__r.Id</field>
+                <operation>equals</operation>
+                <value>Account: Account ID</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
@@ -8717,11 +8726,11 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Sales Mail</label>
         <picklist>
             <picklistValues>
-                <fullName>E-mail2</fullName>
+                <fullName>E-mail1</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>E-mail1</fullName>
+                <fullName>E-mail2</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -19421,7 +19430,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
         <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
@@ -19467,7 +19476,7 @@ AND ($Profile.Name != 'IntegrationAPI',
     </validationRules>
     <validationRules>
         <fullName>CP_Customer_Phone_Check</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu
 Used by: Person Account Record Type (US-CP-001)
@@ -19546,7 +19555,7 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
         <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
@@ -19924,7 +19933,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Phone</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>

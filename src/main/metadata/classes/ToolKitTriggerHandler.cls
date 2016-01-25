@@ -1,7 +1,7 @@
 public class ToolKitTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if(trigger.isAfter && trigger.isInsert)
         {
@@ -28,7 +28,7 @@ public class ToolKitTriggerHandler
              ToolKitTriggerHelper.beforeInsertUpdateDeleteEvents(Trigger.new,trigger.isinsert);  
         }
     }
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

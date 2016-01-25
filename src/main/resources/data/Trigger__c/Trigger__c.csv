@@ -1,7 +1,7 @@
 NAME,INSERT__C,UPDATE__C,DELETE__C,TRIGGER_NAME__C,BEFORE__C,AFTER__C,ENABLED__C,TRIGGER_HANDLER__C,MARKET__C
 TriggerAddress,TRUE,TRUE,TRUE,TriggerAddress,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerJP,JP
 AttachmentAfter,TRUE,TRUE,TRUE,AttachmentAfter,TRUE,TRUE,TRUE,AttachmentAfterTriggerHandlerJP,JP
-CampaignMemberAfterTrigger,TRUE,TRUE,TRUE,CampaignMemberAfterTrigger,TRUE,TRUE,TRUE,CampaignMemberAfterTriggerHandlerJP,JP
+CampaignMemberAfterTrigger,TRUE,TRUE,TRUE,CampaignMemberAfterTrigger,TRUE,TRUE,FALSE,CampaignMemberAfterTriggerHandlerJP,JP
 CaseTrigger,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerJP,JP
 ContactTrigger,TRUE,TRUE,TRUE,ContactTrigger,TRUE,TRUE,TRUE,ContactTriggerHandlerJP,JP
 RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdate,TRUE,TRUE,TRUE,RecallAfterInsertUpdateTriggerHandlerJP,JP
@@ -14,7 +14,7 @@ TriggerBatchJob,TRUE,TRUE,TRUE,TriggerBatchJob,TRUE,TRUE,TRUE,TriggerBatchJobTri
 TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignTriggerHandlerJP,JP
 TriggerCampaignCity,TRUE,TRUE,TRUE,TriggerCampaignCity,TRUE,TRUE,TRUE,TriggerCampaignCityTriggerHandlerJP,JP
 TriggerCampaignLead,TRUE,TRUE,TRUE,TriggerCampaignLead,TRUE,TRUE,TRUE,TriggerCampaignLeadTriggerHandlerJP,JP
-TriggerCampaignMembers,TRUE,TRUE,TRUE,TriggerCampaignMembers,TRUE,TRUE,TRUE,TriggerCampaignMembersTriggerHandlerJP,JP
+TriggerCampaignMembers,TRUE,TRUE,TRUE,TriggerCampaignMembers,TRUE,TRUE,TRUE,TriggerCampaignMembersTriggerHandler,JP
 TriggerCampaignOffering,TRUE,TRUE,TRUE,TriggerCampaignOffering,TRUE,TRUE,TRUE,TriggerCampaignOfferingTriggerHandlerJP,JP
 TriggerCampaignPackage,TRUE,TRUE,TRUE,TriggerCampaignPackage,TRUE,TRUE,TRUE,TriggerCampaignPackageTriggerHandlerJP,JP
 TriggerCase,TRUE,TRUE,TRUE,TriggerCase,TRUE,TRUE,TRUE,TriggerCaseTriggerHandlerJP,JP
@@ -24,4 +24,4 @@ TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequest
 TriggerLead,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,TriggerLeadTriggerHandlerJP,JP
 TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItem,TRUE,TRUE,TRUE,TriggerPackageItemTriggerHandlerJP,JP
 TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLinkTriggerHandlerJP,JP
-Vehicle Relationship,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerJP,JP
+TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerJP,JP

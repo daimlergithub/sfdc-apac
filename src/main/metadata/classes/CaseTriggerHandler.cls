@@ -25,7 +25,7 @@
 public class CaseTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if (trigger.isBefore) {
             CaseHelper.caseBeforeInsertUpdateEvents((List<Case>)Trigger.new, Trigger.isInsert, Trigger.isUpdate, (Map<Id,Case>)Trigger.oldMap);
@@ -34,7 +34,7 @@ public class CaseTriggerHandler
             CaseHelper.handleCaseAfterInsertOrUpdateEvents((List<Case>)Trigger.new, Trigger.isInsert, Trigger.isUpdate, (Map<Id,Case>)Trigger.oldMap, (Map<Id,Case>)Trigger.newMap);
         }
     }
-        public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+        public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
     	// Implementation to addedd as required in market
     }

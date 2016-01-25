@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey Question Response --></value>
+        <value>サーベイ回答</value>
     </caseValues>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -26,12 +26,12 @@
         <name>Response__c</name>
     </fields>
     <fields>
-        <label><!-- SurveyTaker --></label>
+        <label>Survey対象</label>
         <name>SurveyTaker__c</name>
         <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Survey Question --></label>
+        <label>質問</label>
         <name>Survey_Question__c</name>
         <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
     </fields>
@@ -50,5 +50,5 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Response ID --></nameFieldLabel>
+    <nameFieldLabel>サーベイ回答番号</nameFieldLabel>
 </CustomObjectTranslation>
