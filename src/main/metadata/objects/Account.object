@@ -19430,7 +19430,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
         <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
@@ -19476,7 +19476,7 @@ AND ($Profile.Name != 'IntegrationAPI',
     </validationRules>
     <validationRules>
         <fullName>CP_Customer_Phone_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu
 Used by: Person Account Record Type (US-CP-001)
@@ -19555,7 +19555,7 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
         <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
@@ -20379,8 +20379,10 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=012280000008ptb&amp;ent=Account&amp;00N28000007QqUf={!Account.FirstName}&amp;00N28000007QqUm={!Account.LastName}&amp;00N28000007QqUe={!Account.FirstName_Native_1__c}&amp;00N28000007QqUl={!Account.LastName_Native_1__c}
- &amp;00N28000007QqUg={!Account.Primary_Address_Display__c}&amp;00N28000007QqUr={!Account.Primary_Phone_Display__c}&amp;00N28000007QqUd={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
+        <url>/a0v/e?RecordType=012p00000008VGN&amp;ent=Account&amp;00Np0000000Kd5x={!Account.FirstName}&amp;00Np0000000Kd6Y={!Account.LastName}
+		&amp;00Np0000000Kd5w={!Account.FirstName_Native_1__c}&amp;00Np0000000Kd6X={!Account.LastName_Native_1__c}
+        &amp;00Np0000000Kd61={!Account.Primary_Address_Display__c}&amp;00Np0000000Kd7J={!Account.Primary_Phone_Display__c}&amp;
+		00Np0000000Kd5o={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>
