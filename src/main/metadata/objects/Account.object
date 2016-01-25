@@ -19430,7 +19430,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
         <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
@@ -19476,7 +19476,7 @@ AND ($Profile.Name != 'IntegrationAPI',
     </validationRules>
     <validationRules>
         <fullName>CP_Customer_Phone_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu
 Used by: Person Account Record Type (US-CP-001)
@@ -19555,7 +19555,7 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
         <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
