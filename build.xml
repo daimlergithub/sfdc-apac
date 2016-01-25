@@ -152,6 +152,9 @@
 			   <sf:include name="AddressSearchValidationController"/>
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
+			   <sf:include name="AddressSearchValidationControllerTest"/>
+			   <sf:include name="UtilWebserviceTest"/>
+			   <sf:include name="WebServiceMockImpl"/>
 			</sf:typeset>
 		</deploy>
     </target>

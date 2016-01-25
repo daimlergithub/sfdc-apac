@@ -962,20 +962,6 @@
         <value>Please go to the following URL to login to CRM and view the details of the case.</value>
     </labels>
     <labels>
-        <fullName>Case_Deadline_Notification_Text3</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Case Deadline Notification Text3</shortDescription>
-        <value>If you are wholesale user, please use the link</value>
-    </labels>
-    <labels>
-        <fullName>Case_Deadline_Notification_Text4</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Case Deadline Notification Text4</shortDescription>
-        <value>If you are dealer user, please use the link</value>
-    </labels>
-    <labels>
         <fullName>Case_Deadline_Notification_Text5</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3425,6 +3411,20 @@
         <value>Yearly Targets</value>
     </labels>
     <labels>
+        <fullName>Yes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>Zipcode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode</shortDescription>
+        <value>七七七七七七七</value>
+    </labels>
+    <labels>
         <fullName>Zipcode_not_found</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3748,13 +3748,6 @@
         <protected>false</protected>
         <shortDescription>slave</shortDescription>
         <value>slave</value>
-    </labels>
-    <labels>
-        <fullName>Yes</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Yes</shortDescription>
-        <value>Yes</value>
     </labels>
     <labels>
         <fullName>slaveId</fullName>
