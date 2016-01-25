@@ -412,10 +412,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CpCallControllerClass_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -800,10 +796,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ToolKitTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -986,10 +978,6 @@
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
@@ -14792,11 +14780,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>TestAndDelete__c.TestAndDeleteAuto__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Tool_Kit__c.Actual_End_Date__c</field>
         <readable>true</readable>
@@ -16907,9 +16890,6 @@
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
         <recordType>Template__c.eDM</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>TestAndDelete__c-TestAndDelete Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Event Tool Kit</layout>
