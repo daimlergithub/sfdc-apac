@@ -18338,7 +18338,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>SMS_Code__c.GenerateDownstreamSMS</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18418,7 +18418,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Template__c.Callscript</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18453,7 +18453,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Tool_Kit__c.Media</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
