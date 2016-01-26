@@ -23,7 +23,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            createTestData(today, today.addDays(1));          
            test.StartTest();         
            vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.Id, Start_Date__c=today, End_Date__c=today.addDays(1), End_Reason__c = 'DMS');
-           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship}, 'insert');
+           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship});
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
            system.assertNotEquals(list_VR, null);
            test.StopTest();
@@ -36,7 +36,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            createTestData(today, today.addDays(1));          
            test.StartTest();
            vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.id, Start_Date__c=today, End_Date__c=today.addDays(2), End_Reason__c = 'DMS');
-           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship}, 'insert');
+           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship});
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
            system.assertNotEquals(list_VR, null);
            test.StopTest();

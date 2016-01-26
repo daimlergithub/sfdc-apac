@@ -792,6 +792,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ToolKitTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -16461,10 +16465,10 @@
         <recordType>Case.Retail_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
+        <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -18235,6 +18239,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>

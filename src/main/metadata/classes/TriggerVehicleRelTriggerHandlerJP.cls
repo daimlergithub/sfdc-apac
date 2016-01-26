@@ -23,7 +23,7 @@ public class TriggerVehicleRelTriggerHandlerJP
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    { /*
+    { 
         VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
         Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
@@ -36,14 +36,14 @@ public class TriggerVehicleRelTriggerHandlerJP
             if (trigger.isInsert){
                 system.debug('Entered insert block...');
                 system.debug('Trigger Block...' +trigger.old);
-                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new,'insert');
+                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new);
             }else if (trigger.isUpdate){
                 system.debug('Entered update block...');
                 system.debug('Trigger Block...' +Trigger.oldMap);
-                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new, 'update');
+                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new);
             }
             
-        }*/
+        }
        // Update Status , Update Vehicle Relationship and Create Account Link 
         
        if(trigger.isAfter && (trigger.isInsert))
