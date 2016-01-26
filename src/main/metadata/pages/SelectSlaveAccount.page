@@ -43,7 +43,7 @@
         <apex:pageBlock title="{!$Label.Suspected_Duplicates}" id="resultBlock">
             <apex:pageBlockButtons id="pb_btn" rendered="{!NOT(hasSuspectAccounts)}">
                 <apex:actionRegion >
-                    <apex:commandButton value="{!$Label.Close}" action="{!previous}" onclick="closeTab();" />
+                     <apex:commandButton value="{!$Label.Close}" action="{!Previous}" onclick="window.close();"/>
                 </apex:actionRegion>
             </apex:pageBlockButtons>
             

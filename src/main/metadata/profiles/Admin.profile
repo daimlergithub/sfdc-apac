@@ -204,6 +204,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddressSearchValidationControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1209,6 +1213,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ViewTaskControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImpl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -16286,7 +16294,7 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Account Link Layout</layout>
+        <layout>Account_Link__c-Company Customer External Link</layout>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
