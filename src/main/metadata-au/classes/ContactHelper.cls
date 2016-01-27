@@ -152,7 +152,8 @@ public class ContactHelper {
         
     }
     public static void ValidateBusinessUnit(List<Contact> newContacts) {
-        Set<Id> AccountIds = new Set<Id>();
+        
+		Set<Id> AccountIds = new Set<Id>();
         map<id,Account> accountMap = new  map<id,Account>();
          for(Contact con : newContacts)
             {
@@ -162,16 +163,50 @@ public class ContactHelper {
             accountMap.put(acc.id, acc);
         }
         for(Contact con:newContacts){
-            if(accountMap.containsKey(con.AccountId)){
-                if((con.Business_Unit__c!=accountMap.get(con.AccountId).Business_Unit__c)&&(!con.Inactive__c ||accountMap.get(con.AccountId).Dealer_Active__c)){
-                    con.addError('Business units of the contact does not  align with the dealership');
-                }
+            if(accountMap.containsKey(con.AccountId)){ 
+                   boolean match = sortBusinessUnit(con.Business_Unit__c,accountMap.get(con.AccountId).Business_Unit__c);
+                if(match ==false)
+                {
+                con.addError('Business units of the contact does not  align with the dealership');
+                }                   
             }
             
         }
         
     }
-    
+     public static boolean sortBusinessUnit(String Contacts,string accounts)     
+     {
+         List<String> contactBusinessUnit=new List<String>();
+         List<String> accountBusinessUnit=new List<String>();
+         boolean compare = false;
+         String ContactsBu=Contacts;
+         String accountBu=accounts;
+             if(accountBu!=null)
+             {
+                String[] acc = accountBu.split('\\;');
+                 for(string s:acc)
+                 {
+                 accountBusinessUnit.add(s);
+                 }
+             }
+         accountBusinessUnit.sort();     
+         String[] con = ContactsBu.split('\\;');
+            for(string s:con)
+             {
+             contactBusinessUnit.add(s);
+             }
+            contactBusinessUnit.sort();
+         Set<String> contactset = new Set<String>(contactBusinessUnit);
+         Set<String> accountset = new Set<String>(accountBusinessUnit);
+         system.debug('contactset contactset contactset '+contactset );
+         system.debug('contactset contactset contactset '+accountset );
+                if(accountset.containsall(contactset))
+                compare =true;
+                else
+                 compare =false;
+              
+        return compare;
+     }
     public static void AfterInsertUpdateEvents(List<Contact> contacts)
     {
     try
