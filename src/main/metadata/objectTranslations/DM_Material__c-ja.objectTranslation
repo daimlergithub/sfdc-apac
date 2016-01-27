@@ -29,7 +29,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Car Model --></label>
+        <label>Car model</label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- DM Material --></relationshipLabel>
     </fields>
@@ -1579,5 +1579,9 @@
     <validationRules>
         <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
         <name>Format_DM_Material_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>ラベル印字名は必ず50文字以下で入力して下さい。</errorMessage>
+        <name>LabelPrint_NoOfDigit</name>
     </validationRules>
 </CustomObjectTranslation>

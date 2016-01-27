@@ -113,14 +113,6 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Deployment_Due_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Deployment Due Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>DM_Material_External_Id__c</fullName>
         <description>/*
 Created by:  Chris.Huang
@@ -169,6 +161,14 @@ Modify Reason:
         <summaryOperation>sum</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Deployment_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Deployment Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>English_Name__c</fullName>
@@ -258,6 +258,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Preliminary_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pre-Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Presentation_Date__c</fullName>
         <externalId>false</externalId>
         <label>Presentation Date</label>
@@ -272,14 +280,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preliminary_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Pre-Flag</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Remark__c</fullName>
@@ -1891,5 +1891,12 @@ Modify Reason:
         <errorConditionFormula>!ISCHANGED( Stock__c ) &amp;&amp; !ISCHANGED( SentTotal__c ) &amp;&amp; NOT(REGEX( Name , ".*-.*-.*"))</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Must input conversion: Brand-Series-Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LabelPrint_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 50,  MD__c ='JP', $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
+        <errorMessage>Label Printing Name should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
 </CustomObject>
