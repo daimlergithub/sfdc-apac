@@ -1110,7 +1110,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>3rd party data</masterLabel>
-            <translation><!-- 3rd party data --></translation>
+            <translation>第三者データ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
@@ -1118,7 +1118,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Cataloue Call</masterLabel>
-            <translation><!-- Cataloue Call --></translation>
+            <translation>カタログコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -1138,7 +1138,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>IB Call</masterLabel>
-            <translation><!-- IB Call --></translation>
+            <translation>IBコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
@@ -1146,11 +1146,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
-            <translation><!-- MB Magazine --></translation>
+            <translation>MBマガジン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB website</masterLabel>
-            <translation><!-- MB website --></translation>
+            <translation>MBウェブサイト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -1178,7 +1178,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Company call</masterLabel>
-            <translation><!-- Mercedes-Benz Company call --></translation>
+            <translation>代表電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
@@ -1202,7 +1202,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
-            <translation><!-- OB Call --></translation>
+            <translation>OBコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
@@ -1210,7 +1210,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Partners</masterLabel>
-            <translation><!-- Partners --></translation>
+            <translation>パートナー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -1222,7 +1222,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Road Assistant</masterLabel>
-            <translation><!-- Road Assistant --></translation>
+            <translation>ロードアシスタント</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -2697,19 +2697,19 @@ Allows up to 240 characters --></help>
         <name>Dealer_Region__c</name>
         <picklistValues>
             <masterLabel>EAST</masterLabel>
-            <translation><!-- EAST --></translation>
+            <translation>東</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NORTH</masterLabel>
-            <translation><!-- NORTH --></translation>
+            <translation>北</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SOUTH</masterLabel>
-            <translation><!-- SOUTH --></translation>
+            <translation>南</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>WEST</masterLabel>
-            <translation><!-- WEST --></translation>
+            <translation>西</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6604,7 +6604,7 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label></label>
             <section>Other information</section>
         </sections>
         <sections>
@@ -6719,19 +6719,7 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
-        <layout>MBJCTI Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label>コンタクト情報</label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts>
-    <layouts>
+   <!-- <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -6747,11 +6735,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6759,7 +6747,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6791,7 +6779,7 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label></label>
             <section>Other information</section>
         </sections>
         <sections>
@@ -6819,11 +6807,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6831,7 +6819,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6867,11 +6855,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6879,7 +6867,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6891,11 +6879,11 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>Main Contact and Concent</label>
+            <label></label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
@@ -6936,6 +6924,10 @@ Allows up to 240 characters --></help>
         <name>CP_Customer_Phone_Check</name>
     </validationRules>
     <validationRules>
+        <errorMessage>アカウント名は必ず80文字以下で入力して下さい。</errorMessage>
+        <name>CompAccountName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>法人名（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>Company_Name_Native_1_Fullchar</name>
     </validationRules>
@@ -6946,6 +6938,14 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage>ステージを「Discard」以外に手動で変更することはできません。</errorMessage>
         <name>Customer_Lifecycle_Phase_Discard</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>アカウント名は必ず100文字以下で入力して下さい。</errorMessage>
+        <name>DealerAccountName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>販売店住所1（日本語）は必ず100文字以下で入力して下さい。</errorMessage>
+        <name>DealerAddressCN_NoOfDigits</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- It&apos;s not allowed to change dealer name. --></errorMessage>
@@ -7228,4 +7228,3 @@ Allows up to 240 characters --></help>
         <name>eDM</name>
     </webLinks>
 </CustomObjectTranslation>
-
