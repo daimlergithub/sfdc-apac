@@ -409,8 +409,28 @@
     </layouts>
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
+        <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
+        <name>Address_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>宛名会社・部署・役職名は必ず100文字以下で入力して下さい。</errorMessage>
+        <name>Attention_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>発送形態で販売店を選択された際には、リードを入力して下さい。</errorMessage>
+        <name>Lead_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>都道府県は必ず10文字以下で入力して下さい。</errorMessage>
+        <name>Province_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>郵便番号は必ず7桁以下で入力して下さい。</errorMessage>
+        <name>ZipCode_NoOfDigits</name>
     </validationRules>
     <webLinks>
         <label>カタログダウンロード</label>

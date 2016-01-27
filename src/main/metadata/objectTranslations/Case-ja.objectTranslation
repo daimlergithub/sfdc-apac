@@ -12988,7 +12988,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class ESTATE</masterLabel>
-            <translation><!-- C-Class Estate --></translation>
+            <translation><!-- C-Class ESTATE --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Sedan</masterLabel>
@@ -13087,7 +13087,7 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class COUPE</masterLabel>
+            <masterLabel>E-Class Coupé</masterLabel>
             <translation><!-- E-Class Coupé --></translation>
         </picklistValues>
         <picklistValues>
@@ -13704,6 +13704,10 @@
         <name>Field_is_mandatory_for_RO</name>
     </validationRules>
     <validationRules>
+        <errorMessage>VINは半角英数字で入力して下さい。</errorMessage>
+        <name>Invalid_US_VIN</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Please check Goodwill first before input Goodwill Details, Goodwill Cost or Goodwill Category. --></errorMessage>
         <name>Mandatory_Fields_When_Goodwill_Checked</name>
     </validationRules>
@@ -13847,13 +13851,4 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
-    <workflowTasks>
-        <name>approval</name>
-        <subject><!-- approval needed --></subject>
-    </workflowTasks>
-    <workflowTasks>
-        <description><!-- Please check the Case Closing Approval Step 2 --></description>
-        <name>test_Approval_process_alert</name>
-        <subject><!-- test Approval process alert --></subject>
-    </workflowTasks>
 </CustomObjectTranslation>
