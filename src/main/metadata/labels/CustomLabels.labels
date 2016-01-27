@@ -36,6 +36,13 @@
         <value>If customer has no vehicle relationship, Status must not be ‘Customer’.</value>
     </labels>
     <labels>
+        <fullName>Account_Creation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Creation</shortDescription>
+        <value>Account Creation</value>
+    </labels>
+    <labels>
         <fullName>Account_Merge</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -962,6 +969,20 @@
         <value>Please go to the following URL to login to CRM and view the details of the case.</value>
     </labels>
     <labels>
+        <fullName>Case_Deadline_Notification_Text3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text3</shortDescription>
+        <value>If you are wholesale user, please use the link</value>
+    </labels>
+    <labels>
+        <fullName>Case_Deadline_Notification_Text4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Deadline Notification Text4</shortDescription>
+        <value>If you are dealer user, please use the link</value>
+    </labels>
+    <labels>
         <fullName>Case_Deadline_Notification_Text5</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1039,6 +1060,13 @@
         <protected>false</protected>
         <shortDescription>Company Account Information</shortDescription>
         <value>Company Account Information</value>
+    </labels>
+    <labels>
+        <fullName>Company_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Account Record Type</shortDescription>
+        <value>Company Account</value>
     </labels>
     <labels>
         <fullName>Company_Name_Department_Title</fullName>
@@ -2337,6 +2365,13 @@
         <protected>false</protected>
         <shortDescription>Person Account Information</shortDescription>
         <value>Person Account Information</value>
+    </labels>
+    <labels>
+        <fullName>Person_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person Account Record Type</shortDescription>
+        <value>Person Account</value>
     </labels>
     <labels>
         <fullName>Phone</fullName>

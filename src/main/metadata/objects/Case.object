@@ -19524,6 +19524,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBJ_CRM_Department_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBJ_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ CRM Department</label>
@@ -19867,7 +19876,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -100983,6 +100991,15 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
         <errorMessage>Please fulfill the Ref.No-Regional field.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Invalid_US_VIN</fullName>
+        <active>true</active>
+        <description>US VIN is enterd with double byte or symbols (or null)</description>
+        <errorConditionFormula>AND(NOT(ISNULL(  US_VIN__c )),
+NOT(ISBLANK(  US_VIN__c )),NOT(REGEX(  US_VIN__c  , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>US_VIN__c</errorDisplayField>
+        <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Mandatory_Fields_When_Goodwill_Checked</fullName>
         <active>false</active>
         <errorConditionFormula>AND( 
@@ -101496,7 +101513,7 @@ alert("Inquiry can't be used.Please contact System Administrator");
         <openType>replace</openType>
         <protected>false</protected>
         <url>/setup/ui/recordtypeselect.jsp?ent=01Ip00000004MV0&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa0v%2Fe?CF00Np0000000Kd5G_lkid={!Account.Id}&amp;CF00Np0000000Kd5G={!Account.Name}&amp;00Np0000000Kd57_lkid={!Case.Id}&amp;00Np0000000Kd57={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
-  </webLinks>
+    </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
         <availability>online</availability>
