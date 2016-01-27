@@ -303,7 +303,6 @@
         <fields>EuroVIN__c</fields>
     </miniLayout>
     <relatedLists>
-        <customButtons>New_Complaint</customButtons>
         <fields>NAME</fields>
         <fields>Validity__c</fields>
         <fields>Contact__c</fields>
@@ -317,8 +316,6 @@
         <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_MB_Complaint</customButtons>
-        <customButtons>New_Chrysler_Complaint</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>
@@ -355,7 +352,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000IeIX</masterLabel>
+        <masterLabel>00hO0000000QetY</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

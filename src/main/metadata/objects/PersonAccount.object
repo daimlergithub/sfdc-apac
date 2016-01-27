@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
-    <!--<enableHistory>true</enableHistory> -->
+    <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <recordTypes>
         <fullName>PersonAccount</fullName>
@@ -3480,6 +3480,21 @@
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opt_Out_Portal__c</picklist>
+            <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Vehicle Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
