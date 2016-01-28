@@ -15,9 +15,9 @@ Assigned Dealer: {!relatedTo.Assigned_Dealer__r.Name}<br/>
 <b>Contact Details</b><br/>
 Contact Name: {!relatedTo.Contact__r.FirstName} {!relatedTo.Contact__r.LastName}<br/>
 Work Phone: {!relatedTo.Work_Phone__c}<br/>
-Home Phone: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.PersonHomePhone,relatedTo.Company_Account__r.Phone)}<br/>
-Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
-Email:  {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Email__c,relatedTo.Company_Account__r.Email__c)}<br/>
+Home Phone: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Phone,relatedTo.Contact__r.Individual_Home_Phone__c)} <br/>
+Mobile: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Mobile__c,relatedTo.Contact__r.Mobile__c)}<br/>
+Email: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Email__c,relatedTo.Contact__r.Email__c)}<br/>
 <br/>
 <b>Qualification Information</b><br/>
 Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
