@@ -606,7 +606,6 @@
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
-            
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -1331,11 +1330,25 @@
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>AddressLine1_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  Address_Line_1__c  ) &gt; 100 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address Line 1 should be less than or equal to 100 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP', ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
         <errorDisplayField>Address_Type__c</errorDisplayField>
         <errorMessage>Address Type is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>City_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( City__c ) &gt; 24 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>City__c</errorDisplayField>
+        <errorMessage>City should be less than or equal to 24 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Name_Required</fullName>
@@ -1358,6 +1371,13 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native__c</errorDisplayField>
         <errorMessage>Company name native should be in double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>District_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  District__c  ) &gt; 36 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>District__c</errorDisplayField>
+        <errorMessage>Town should be less than or equal to 36 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_ZipCode</fullName>

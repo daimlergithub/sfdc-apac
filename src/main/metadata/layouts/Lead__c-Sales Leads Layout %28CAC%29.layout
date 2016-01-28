@@ -69,7 +69,7 @@
                 <field>Is_Assigned__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
@@ -127,7 +127,7 @@
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Dealer_Lost_Reason__c</field>
             </layoutItems>
             <layoutItems>
@@ -159,7 +159,7 @@
                 <field>Is_Qualify__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Network_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -618,6 +618,10 @@
         <fields>Actor</fields>
         <fields>Comments</fields>
         <relatedList>RelatedProcessHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>SurveyTaker__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

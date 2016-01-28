@@ -60,12 +60,8 @@
         <label><!-- Country --></label>
         <name>Country__c</name>
         <picklistValues>
-            <masterLabel>Australia</masterLabel>
-            <translation><!-- Australia --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>New Zealand</masterLabel>
-            <translation><!-- New Zealand --></translation>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -374,8 +370,16 @@
         <name>Individual</name>
     </recordTypes>
     <validationRules>
+        <errorMessage>住所1は必ず100文字以下で入力して下さい。</errorMessage>
+        <name>AddressLine1_NoOfDigit</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>住所区分を入力して下さい。</errorMessage>
         <name>Address_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>市区郡町村は必ず24文字以下で入力して下さい。</errorMessage>
+        <name>City_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage>敬称が御中の場合は、会社名を入力して下さい。</errorMessage>
@@ -384,6 +388,10 @@
     <validationRules>
         <errorMessage>会社名は全角で入力して下さい。</errorMessage>
         <name>Company_Name_Single</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>大字・通称名は必ず36文字以下で入力して下さい。</errorMessage>
+        <name>District_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage>郵便番号は７桁で入力してください。</errorMessage>

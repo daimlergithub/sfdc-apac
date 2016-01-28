@@ -19,7 +19,8 @@
 <apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false"  >
     <apex:form id="form1">
         <apex:pageMessages id="showmsg"></apex:pageMessages>
-        <apex:includeScript value="/support/console/24.0/integration.js"/>
+         <apex:includeScript value="/support/console/25.0/integration.js"/>
+        
        <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
            <apex:pageBlock id="myTable">
@@ -191,7 +192,30 @@
                
                <apex:pageBlockButtons location="bottom" style="align:left;"  >
                    <apex:commandbutton value="Edit"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!!editMode}" rerender="myTable"  />
-                   <apex:commandbutton value="Save"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTable" oncomplete="refreshParentPage()"/>
+                   <apex:commandbutton value="Save"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTable,redirectPanel,showmsg" />
+                   <apex:outputPanel id="redirectPanel">                   
+                        <apex:outputText rendered="{!refreshPage}">
+                            <script type="text/javascript">
+                            
+                            function testGetFocusedSubtabId() 
+                            {
+                                
+                                sforce.console.getFocusedSubtabId(showTabId);
+                            }
+                            
+                            var showTabId = function showTabId(result) {
+                                // Display the tab ID
+                                
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                
+                            };
+                            
+                            testGetFocusedSubtabId();
+                            window.open("/{!id}","_parent");
+                            </script>
+                       </apex:outputText>
+                   </apex:outputPanel>
                    <apex:commandbutton value="Cancel"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTable" />
                </apex:pageBlockButtons>
                
