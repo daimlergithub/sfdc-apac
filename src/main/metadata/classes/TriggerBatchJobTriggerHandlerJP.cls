@@ -24,4 +24,5 @@ public class TriggerBatchJobTriggerHandlerJP
     {
     	// Implementation to addedd as required in market specific implementation.
     }
+	
 }
