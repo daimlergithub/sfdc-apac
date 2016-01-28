@@ -41,7 +41,7 @@ public with sharing class TaskMassChangeOwner {
 	public void assignToOwnerClick(){        
 		if(task.OwnerId==null){            
 			Apexpages.addMessage(new Apexpages.Message(ApexPages.severity.ERROR,'New Owner Cannot be null.'));            
-			return;        
+		    return;    
 		}                
 		List<Id> relatedSSIIds = new List<Id>();
 
@@ -56,7 +56,7 @@ public with sharing class TaskMassChangeOwner {
 			update tasks;     
 			if(relatedSSIIds.size()>0){
 				updateRelatedSSIs(relatedSSIIds, task.OwnerId);
-			}          
+			}         
 		}    
 	}
 	/**
