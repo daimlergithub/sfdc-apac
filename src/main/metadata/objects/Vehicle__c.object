@@ -29190,7 +29190,7 @@ Related_From__c  &gt;  Related_To__c)) &amp;&amp;
         <active>true</active>
         <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
         <errorConditionFormula>AND(	NOT(ISNULL( UsVIN__c )),
-	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'MB')</errorConditionFormula>
+	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>US VIN Has Invalid Syntax.</errorMessage>
     </validationRules>
@@ -29198,7 +29198,7 @@ Related_From__c  &gt;  Related_To__c)) &amp;&amp;
         <fullName>UsVIN_Read_Only</fullName>
         <active>true</active>
         <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
-        <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP',$Profile.Name &lt;&gt; "Japan Data Manager")</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
     </validationRules>

@@ -8659,7 +8659,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <filterItems>
                 <field>Address__c.Customer__c</field>
                 <operation>equals</operation>
-                <value>Account: Account ID</value>
+                <valueField>$Source.Id</valueField>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -18349,6 +18349,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Opt_Out_Portal__c</picklist>
             <values>
+                <fullName>Full</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Vehicle Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -19533,6 +19541,13 @@ RecordType.DeveloperName = 'ThirdParty'
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>CompAccountName_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.Name="Company",LEN(Name) &gt; 80, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Name should be less than or equal to 80 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native_1__c,"[^\\x00-\\x7F]+")),
@@ -19559,6 +19574,20 @@ NOT(Dealer_Active__c)
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
         <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DealerAccountName_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Name) &gt; 100, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Name should be less than or equal to 100 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DealerAddressCN_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Dealer_Address_CN__c) &gt; 100, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Dealer_Address_CN__c</errorDisplayField>
+        <errorMessage>Dealer Address Native should be less than or equal to 100 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Name_Read_only</fullName>

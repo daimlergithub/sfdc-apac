@@ -2,14 +2,24 @@
 <apex:page standardController="Account" extensions="AddressSearchValidationController">
     
     <apex:pageMessages id="msgs" escape="False" /> 
-    
+    <apex:includeScript value="/support/console/20.0/integration.js"/>
     <script type="text/javascript">
     function CallSetRecType()
     {  
         setRecType();
     }
     
-    
+     function testSetTabTitle() {
+            //Set the current tab's title
+            sforce.console.setTabTitle('{!$Label.Account_Creation}');
+        }
+        var pageLoad = window.onload;
+          window.onload = function() {
+                if (pageLoad) {
+                        pageLoad();
+                }
+                  testSetTabTitle();
+          }
     
     
     </script>
