@@ -153,7 +153,7 @@ public class ContactHelper {
     }
     public static void ValidateBusinessUnit(List<Contact> newContacts) {
         
-		Set<Id> AccountIds = new Set<Id>();
+        Set<Id> AccountIds = new Set<Id>();
         map<id,Account> accountMap = new  map<id,Account>();
          for(Contact con : newContacts)
             {
@@ -189,22 +189,27 @@ public class ContactHelper {
                  accountBusinessUnit.add(s);
                  }
              }
-         accountBusinessUnit.sort();     
+         accountBusinessUnit.sort();
+         if(ContactsBu !=null)
+         {     
          String[] con = ContactsBu.split('\\;');
             for(string s:con)
              {
              contactBusinessUnit.add(s);
              }
+         }
             contactBusinessUnit.sort();
          Set<String> contactset = new Set<String>(contactBusinessUnit);
          Set<String> accountset = new Set<String>(accountBusinessUnit);
          system.debug('contactset contactset contactset '+contactset );
          system.debug('contactset contactset contactset '+accountset );
+         if(accountset != null)
+         {
                 if(accountset.containsall(contactset))
                 compare =true;
                 else
                  compare =false;
-              
+          }    
         return compare;
      }
     public static void AfterInsertUpdateEvents(List<Contact> contacts)
