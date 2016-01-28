@@ -1381,6 +1381,9 @@
         <mapping>
             <tab>standard-Account</tab>
         </mapping>
+		<mapping>
+            <tab>standard-home</tab>
+        </mapping>
         <mapping>
             <fieldName>ParentId</fieldName>
             <tab>standard-Campaign</tab>
