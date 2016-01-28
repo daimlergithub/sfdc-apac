@@ -5,7 +5,7 @@
 */
 
 @isTest
-public with sharing class AccountHelperJPtest 
+public with sharing class AccountHelperJPTest 
 {
     private static Account personAcc;
     private static User user1;

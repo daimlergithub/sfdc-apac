@@ -64,12 +64,8 @@
         <label><!-- Country --></label>
         <name>Country__c</name>
         <picklistValues>
-            <masterLabel>Australia</masterLabel>
-            <translation><!-- Australia --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>New Zealand</masterLabel>
-            <translation><!-- New Zealand --></translation>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -378,8 +374,16 @@
     </recordTypes>
     <startsWith>Consonant</startsWith>
     <validationRules>
+        <errorMessage><!-- Address Line 1 should be less than or equal to 100 letters. --></errorMessage>
+        <name>AddressLine1_NoOfDigit</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Address Type is required. --></errorMessage>
         <name>Address_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- City should be less than or equal to 24 letters. --></errorMessage>
+        <name>City_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Company name is required when TitleOfHonor is &apos;Dear&apos;. --></errorMessage>
@@ -388,6 +392,10 @@
     <validationRules>
         <errorMessage><!-- Company name native should be in double byte. --></errorMessage>
         <name>Company_Name_Single</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Town should be less than or equal to 36 letters. --></errorMessage>
+        <name>District_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
