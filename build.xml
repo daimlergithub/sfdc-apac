@@ -276,7 +276,6 @@
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
-				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
@@ -892,7 +891,7 @@
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
 			<sf:feature name="include-personaccount"/>
-			<sf:feature name="package-namespaces" param="AES_SFConnector"/>
+			<sf:feature name="package-namespaces" param="AES_SFConnector,NttDataEpa"/>
 		</sf:retrieve>
 		
 		<!-- retrieves all metadata -->

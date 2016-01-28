@@ -38,7 +38,23 @@ public class MassApproveToolKitControllerTest {
             Approver__c = Userinfo.getUserId()
         );
         insert toolKit;
-        
+           Tool_Kit__c toolKit1 = new Tool_Kit__c(
+            RecordTypeId = Schema.SObjectType.Tool_Kit__c.getRecordTypeInfosByName().get('Event').getRecordTypeId(), 
+            Name = 'test tool kit',
+            Dealer_Name__c = dealer.id,
+            Plan_Start_Date__c = System.today(),
+            Plan_End_Date__c = System.today() + 20,
+            Apply_Status__c = 'Planned',
+            Feedback_Status__c = 'Planned',
+            Brand__c = 'AMG',
+            Event_Type__c = 'Road Show',
+            Event_Director__c = 'test',
+            Event_Participant__c = 'Media',
+            Location__c = 'test',
+            Location_Size__c = 10,
+            Approver__c = Userinfo.getUserId()
+        );
+        insert toolKit1;
         Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
         req1.setComments('Submitting request for approval.');
         req1.setObjectId(toolKit.id);

@@ -13,7 +13,7 @@ public class ContactTableController
     public boolean editMode {get; set;} 
     public string AccId {get; set;}
     public Account ParAcc {get; set;}
-    
+    public boolean refreshPage {get; set;}
     /**
   *@Description : Constructor.
   *@Date : 26/10/2015
@@ -65,11 +65,14 @@ public class ContactTableController
         try
         {
             if(ParAcc != null)
+                refreshPage = true;
                 update ParAcc;
+            
         }
         
         catch(DMLException de)
         {
+            refreshPage = false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
             
         }

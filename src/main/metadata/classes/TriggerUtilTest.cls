@@ -322,4 +322,14 @@ public class TriggerUtilTest
         // verify
         System.assert(!triggerHandlerCalled);
     }
+    public static testmethod void TestTriggerHandler(){
+        TestTriggerHandler TriggerHandler =new TestTriggerHandler();
+          TriggerHandler.handleTrigger(false,false,false,false,false);
+         TriggerHandler.handleIntegrationTrigger(false,false,false,false,false);
+    }
+    public static testmethod void TaskTriggerHandlerJP(){
+        TaskTriggerHandlerJP TriggerHandlers =new TaskTriggerHandlerJP();
+        TriggerHandlers.handleTrigger(false,false,false,false,false);
+        TriggerHandlers.handleIntegrationTrigger(false,false,false,false,false);
+    }
 }

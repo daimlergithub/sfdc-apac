@@ -14,15 +14,15 @@
                     <label>Related Lists</label>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
+                        <name>Vehicle_Relationship__c.Contact__c</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>true</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
                         <name>Lead__c.Contact__c</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
-                        <name>Vehicle_Relationship__c.Contact__c</name>
                     </relatedLists>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
@@ -36,9 +36,6 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -675,7 +672,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>SurveyTaker__c.Contact__c</relatedList>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
