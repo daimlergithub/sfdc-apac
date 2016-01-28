@@ -276,7 +276,6 @@
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
-				<sf:include name="TriggerBatchJobTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
