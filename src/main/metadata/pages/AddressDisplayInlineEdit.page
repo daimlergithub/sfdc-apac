@@ -1,14 +1,6 @@
 <apex:page standardController="Account" extensions="AddressDisplayInlineEditController">
- <!--<script  type="text/javascript">
-                function refreshParentPage(){
-                alert('Hello  '+{!refreshPage});
-                      var stringvalue='{!refreshPage}';
-                      if(stringvalue == false)){ 
-                      alert('Hello  '+stringvalue );                 
-                     window.open("/{!id}","_parent");
-                     }       
-                }
-              </script>  -->
+    <apex:includeScript value="/support/console/25.0/integration.js"/>
+     
     <!--form starts here-->
     <apex:form id="addfrm" >
         <!--OutPutPanel starts here-->
@@ -18,100 +10,100 @@
             <apex:pageBlock title="Addresses" id="pageBlock">
                 <apex:pageMessages id="pgmsg"/> 
                 
-                 
-                 <!--PageBlockTable  starts here-->
+                
+                <!--PageBlockTable  starts here-->
                 <apex:pageBlockTable id="acc_address" value="{!adds}" var="row">                                                                    
-                     
-                     <apex:column width="8%">
-                     
+                    
+                    <apex:column width="8%">
+                        
                         <!--Link to  edit a address record -->
-                         <apex:commandLink action="{!EditOptions}" value="{!$Label.Edit}" style="color:blue">
+                        <apex:commandLink action="{!EditOptions}" value="{!$Label.Edit}" style="color:blue">
                             <!--pass row id parameter to controller  -->
                             <apex:param name="edit" value="{!row.Id}" assignTo="{!editaddressId}"/>
-                         </apex:commandLink> &nbsp;|&nbsp;
-                     
-                         <!--Link to  delete a address record -->
-                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')" value="{!$Label.Delete}" style="color:blue">
+                        </apex:commandLink> &nbsp;|&nbsp;
+                        
+                        <!--Link to  delete a address record -->
+                        <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')" value="{!$Label.Delete}" style="color:blue">
                             <!--pass row id parameter to controller  -->
                             <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
-                            </apex:commandLink>                                                           
-                                                        
-                     </apex:column>
-                     
+                        </apex:commandLink>                                                           
+                        
+                    </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
-                          <!--out put field to display address Type  --> 
-                          <apex:outputField value="{!row.Address_Type__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
-                          <apex:outputField value="{!row.ZipCode__c}"  style="width:10%;">                              
-                          </apex:outputField>
-                     </apex:column> 
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}" >
-                          <apex:outputField value="{!row.Province__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
-                          <apex:outputField value="{!row.City__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column> 
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}" >
-                          <apex:outputField value="{!row.District__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}" >
-                          <apex:outputField value="{!row.Block__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
-                          <apex:outputField value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
-                          <apex:outputField value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}">
-                          <apex:outputField value="{!row.Company_Name__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
-                          <apex:outputField value="{!row.Company_Name_Native__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}">
-                          <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}">
-                          <apex:outputField value="{!row.Preferred__c}" style="width:2%;">
-                          </apex:outputField>
-                     </apex:column>
-                     
-                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
-                          <apex:outputField value="{!row.Status__c}" style="width:4%;">
-                          </apex:outputField>
-                     </apex:column>
-                 </apex:pageBlockTable>
-                 
-              <!--buttons to add, save edit  and edit cancel-->
-              <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" />
-              <apex:commandButton id="saveButton" value="{!$Label.Save_Button}" action="{!saveEditedRecords}" style="display:none" />
-              <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
-
-             
-
+                        <!--out put field to display address Type  --> 
+                        <apex:outputField value="{!row.Address_Type__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
+                        <apex:outputField value="{!row.ZipCode__c}"  style="width:10%;">                              
+                        </apex:outputField>
+                    </apex:column> 
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}" >
+                        <apex:outputField value="{!row.Province__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
+                        <apex:outputField value="{!row.City__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column> 
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}" >
+                        <apex:outputField value="{!row.District__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}" >
+                        <apex:outputField value="{!row.Block__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
+                        <apex:outputField value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
+                        <apex:outputField value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}">
+                        <apex:outputField value="{!row.Company_Name__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
+                        <apex:outputField value="{!row.Company_Name_Native__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}">
+                        <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}">
+                        <apex:outputField value="{!row.Preferred__c}" style="width:2%;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
+                        <apex:outputField value="{!row.Status__c}" style="width:4%;">
+                        </apex:outputField>
+                    </apex:column>
+                </apex:pageBlockTable>
+                
+                <!--buttons to add, save edit  and edit cancel-->
+                <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" />
+                <apex:commandButton id="saveButton" value="{!$Label.Save_Button}" action="{!saveEditedRecords}" style="display:none" />
+                <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
+                
+                
+                
             </apex:pageBlock>
             <apex:pageBlock id="hiddenBlock" rendered="false"></apex:pageBlock>
             <apex:pageBlock rendered="{!ShowpageBlockFlag}">                 
@@ -133,21 +125,39 @@
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
-                <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}"/>
-                <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}"/>
-                <apex:commandbutton value="{!$Label.Save_Button}" action="{!SaveAddress}" reRender="redirectPanel,pgmsg"/>
-                     <apex:outputPanel id="redirectPanel">                   
-                     <apex:outputText rendered="{!refreshPage}">
-                         <script type="text/javascript">
-                             window.open("/{!id}","_parent");       
-                         </script>                       
-                   </apex:outputText>                    
-                </apex:outputPanel>
-                <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
-                
+                    <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}"/>
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}"/>
+                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   />
+                    <apex:outputPanel id="redirectPanel">                   
+                        <apex:outputText rendered="{!refreshPage}">
+                            <script type="text/javascript">
+                            
+                            function testGetFocusedSubtabId() 
+                            {
+                                
+                                sforce.console.getFocusedSubtabId(showTabId);
+                            }
+                            
+                            var showTabId = function showTabId(result) {
+                                // Display the tab ID
+                                
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                
+                            };
+                            
+                            testGetFocusedSubtabId();
+                            window.open("/{!id}","_parent");
+                            </script>                     
+                        </apex:outputText> 
+                    </apex:outputPanel>
+                    
+                    
+                    <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
+                    
                 </apex:pageBlockButtons>
             </apex:pageBlock>
-
+            
         </apex:outputPanel>
     </apex:form>
 </apex:page>
