@@ -260,7 +260,6 @@
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
-				<sf:include name="TriggerCampaignMembersTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignTriggerHandlerJP"/>
@@ -449,6 +448,7 @@
 			<sf:include name="TaskTriggerHandler"/>
 			<sf:include name="TaskTriggerHandlerTest"/>
 			<sf:include name="AvatoHelper"/>
+			<sf:include name="AvatoHelperTest"/>
 			<sf:include name="NiceWebServices"/>
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
@@ -530,6 +530,7 @@
 			<sf:include name="LeadSharingWrapService"/>
 			<sf:include name="TriggerLeadTriggerHandler"/>
 			<sf:include name="UtilLead"/>
+			<sf:include name="UtilLeadTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerRecallTriggerHandler"/>
 			<sf:include name="RecallHelper"/>	
@@ -584,6 +585,7 @@
 			<sf:include name="Paginator"/>
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
+			<sf:include name="UtilDealerOfferingTest"/>
 			<sf:include name="AddressDisplayInlineEditController"/>
 			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
@@ -736,6 +738,7 @@
 			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
 			<sf:include name="UtilCaseShare"/>
+			<sf:include name="UtilCaseShareTest"/>
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>

@@ -214,6 +214,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The date when the deliver was ordered to the mail sender --></help>
         <label>発送指示日</label>
         <name>Sent_Date__c</name>
     </fields>
@@ -407,13 +408,14 @@
             <section>Other Information</section>
         </sections>
     </layouts>
+    
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
-        <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
+        <errorMessage>住所は必ず92文字以下で入力して下さい。</errorMessage>
         <name>Address_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>宛名会社・部署・役職名は必ず100文字以下で入力して下さい。</errorMessage>
+        <errorMessage>宛名会社・部署・役職名は必ず50文字以下で入力して下さい。</errorMessage>
         <name>Attention_NoOfDigits</name>
     </validationRules>
     <validationRules>
