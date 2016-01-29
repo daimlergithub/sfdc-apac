@@ -20363,7 +20363,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openSubTab(result) { 
 		sforce.console.openSubtab(result.id, 
-		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge'); 		
+		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, '{!$Label.NewAccount}'); 		
 		} 
 		) 
 		} 
@@ -20395,23 +20395,25 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <fullName>New_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Leads</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/a0v/e?RecordType=012p00000008VGN&amp;ent=Account&amp;00Np0000000Kd5x={!Account.FirstName}&amp;00Np0000000Kd6Y={!Account.LastName}
-		&amp;00Np0000000Kd5w={!Account.FirstName_Native_1__c}&amp;00Np0000000Kd6X={!Account.LastName_Native_1__c}
-        &amp;00Np0000000Kd61={!Account.Primary_Address_Display__c}&amp;00Np0000000Kd7J={!Account.Primary_Phone_Display__c}&amp;
-		00Np0000000Kd5o={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubTab(result) { 
+sforce.console.openSubtab(result.id, 
+   '/a0u/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 		
+		} 
+		) 
+        }		
+		else { 
+window.open("/a0u/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","width = 800, height = 600");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>
@@ -20528,11 +20530,24 @@ window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}"
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>replace</openType>
-        <page>ViewHierarchy</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+        if (sforce.console.isInConsole()) { 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openSubTab(result) { 
+		sforce.console.openSubtab(result.id, 
+		'/apex/ViewHierarchy',true,'{!$Label.ViewHierarchy}'); 		
+		} 
+		) 
+		} 
+		else { 
+		window.open("/apex/ViewHierarchy", "","width = 800, height = 600"); 
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
