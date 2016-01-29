@@ -260,7 +260,6 @@
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
-				<sf:include name="TriggerCampaignMembersTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignTriggerHandlerJP"/>
