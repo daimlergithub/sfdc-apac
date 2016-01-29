@@ -514,7 +514,7 @@
         <label>Description Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
             <layoutItems>
