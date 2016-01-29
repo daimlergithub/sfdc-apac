@@ -1153,6 +1153,10 @@
             <translation>MBウェブサイト</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MCare</masterLabel>
+            <translation><!-- MCare --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Maybach call</masterLabel>
             <translation>マイバッハ・コール</translation>
         </picklistValues>
@@ -6931,6 +6935,7 @@ Allows up to 240 characters --></help>
             <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
+<<<<<<< HEAD
     </layouts> -->
    
    <!-- <layouts>
@@ -6982,8 +6987,12 @@ Allows up to 240 characters --></help>
         <name>CP_Customer_Phone_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage>アカウント名は必ず80文字以下で入力して下さい。</errorMessage>
+        <errorMessage>アカウント名は必ず40文字以下で入力して下さい。</errorMessage>
         <name>CompAccountName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>法人格含む法人名は必ず40文字以下で入力して下さい。</errorMessage>
+        <name>CompanyNameAccount_NoOfDigits</name>
     </validationRules>
     <validationRules>
         <errorMessage>法人名（カナ）は必ず全角で入力して下さい。</errorMessage>
@@ -7002,8 +7011,12 @@ Allows up to 240 characters --></help>
         <name>DealerAccountName_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>販売店住所1（日本語）は必ず100文字以下で入力して下さい。</errorMessage>
+        <errorMessage>販売店住所1（日本語）は必ず50文字以下で入力して下さい。</errorMessage>
         <name>DealerAddressCN_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>拠点名（日本語）は必ず50文字以下で入力して下さい。</errorMessage>
+        <name>DealerBranchName_NoOfDigits</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- It&apos;s not allowed to change dealer name. --></errorMessage>

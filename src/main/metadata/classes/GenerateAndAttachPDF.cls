@@ -20,11 +20,13 @@ public with sharing class GenerateAndAttachPDF {
      * @return records of vehicle Relationship 
      */  
     public Vehicle_Relationship__c  getvehicleRelation(){
-       VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c 
+        if(cas.Vehicle__c!=Null && cas.AccountId!=Null){
+                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c 
                                     from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
+         }
         if(VehicleRelationshipList!=Null){
           return VehicleRelationshipList;
-        }
+          }
         else{
          return null;
         }        

@@ -586,11 +586,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
