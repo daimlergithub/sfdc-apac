@@ -448,6 +448,7 @@
 			<sf:include name="TaskTriggerHandler"/>
 			<sf:include name="TaskTriggerHandlerTest"/>
 			<sf:include name="AvatoHelper"/>
+			<sf:include name="AvatoHelperTest"/>
 			<sf:include name="NiceWebServices"/>
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>

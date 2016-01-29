@@ -20521,7 +20521,7 @@ window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}"
         <displayType>button</displayType>
         <linkType>page</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>replace</openType>
+        <openType>newWindow</openType>
         <page>ViewHierarchy</page>
         <protected>false</protected>
     </webLinks>
