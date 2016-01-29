@@ -214,6 +214,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The date when the deliver was ordered to the mail sender --></help>
         <label>発送指示日</label>
         <name>Sent_Date__c</name>
     </fields>
@@ -404,6 +405,25 @@
         </sections>
         <sections>
             <label>その他</label>
+            <section>Other Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised DM Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- DM Material Information --></label>
+            <section>DM Material Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
     </layouts>

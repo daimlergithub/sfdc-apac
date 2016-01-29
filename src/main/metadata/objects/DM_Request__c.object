@@ -559,6 +559,7 @@ Modify Reason:
     <fields>
         <fullName>Sent_Date__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>The date when the deliver was ordered to the mail sender</inlineHelpText>
         <label>Sent Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -721,7 +722,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -793,6 +794,24 @@ Modify Reason:
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>CAC_Surpervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CRM_Approver_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
@@ -810,6 +829,24 @@ Modify Reason:
         </filters>
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_CRM_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -878,6 +915,33 @@ Modify Reason:
         </filters>
         <label>Direct request has been sent</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor</label>
+        <queue>Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
