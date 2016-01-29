@@ -901,20 +901,20 @@ Modify Reason:
     <validationRules>
         <fullName>Address_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Address__c)&gt;184, 
+        <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Address__c</errorDisplayField>
-        <errorMessage>Address should be less than or equal to 184 letters.</errorMessage>
+        <errorMessage>Address should be less than or equal to 92 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Attention_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Attention__c)&gt;100,
+        <errorConditionFormula>AND(LEN(Attention__c)&gt;50,
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Attention__c</errorDisplayField>
-        <errorMessage>Attention should be less than or equal to 100 letters.</errorMessage>
+        <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Insufficient_Stock</fullName>
