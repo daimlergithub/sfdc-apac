@@ -238,9 +238,11 @@ public class ContactHelper {
         system.debug('End of method @@@@@@@ ');
     }
     
-        public static void CopyFirstNameLastNameToDRM(List<Contact> contacts) {
+        public static void copyFirstNameLastNameToDRM(List<Contact> contacts) {
     try
     {
+	if(contacts!=null && !contacts.isEmpty())
+	{
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
     
         Set<Id> accountIds = new Set<Id>(); 
@@ -272,7 +274,7 @@ public class ContactHelper {
             
                UtilSobject.updateSobjects(dealersToUpdate.values());
         }
-        
+        }
        }
       catch(DMLException ex)
       {
