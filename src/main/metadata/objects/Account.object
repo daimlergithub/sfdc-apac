@@ -20356,21 +20356,10 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 
 
 		if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){ 
-		alert('No duplicate records found to be merged!!!'); 
+		   alert('No duplicate records found to be merged!!!'); 
 		} else { 
-
-		if (sforce.console.isInConsole()) { 
-		javascript:sforce.console.getEnclosingPrimaryTabId( 
-		function openSubTab(result) { 
-		sforce.console.openSubtab(result.id, 
-		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, '{!$Label.NewAccount}'); 		
-		} 
-		) 
-		} 
-		else { 
-		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
-		} 
-		}</url>
+		   window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 		
+		}	</url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
@@ -20526,28 +20515,15 @@ else{
 window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");	
 }</url>
     </webLinks>
-    <webLinks>
+       <webLinks>
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <linkType>page</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>replace</openType>
+        <page>ViewHierarchy</page>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
-        if (sforce.console.isInConsole()) { 
-		javascript:sforce.console.getEnclosingPrimaryTabId( 
-		function openSubTab(result) { 
-		sforce.console.openSubtab(result.id, 
-		'/apex/ViewHierarchy',true,'{!$Label.ViewHierarchy}'); 		
-		} 
-		) 
-		} 
-		else { 
-		window.open("/apex/ViewHierarchy", "","width = 800, height = 600"); 
-		}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
