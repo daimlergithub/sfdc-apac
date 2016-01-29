@@ -146,8 +146,8 @@
                 <field>Vehicle_Brand__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Modeltest__c</field>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
