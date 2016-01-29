@@ -559,6 +559,7 @@ Modify Reason:
     <fields>
         <fullName>Sent_Date__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>The date when the deliver was ordered to the mail sender</inlineHelpText>
         <label>Sent Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -721,7 +722,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -792,6 +793,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -810,6 +812,24 @@ Modify Reason:
         </filters>
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_CRM_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ CRM Department</label>
+        <queue>MBJ_CRM_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -879,6 +899,16 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor</label>
+        <queue>Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -901,20 +931,20 @@ Modify Reason:
     <validationRules>
         <fullName>Address_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Address__c)&gt;184, 
+        <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Address__c</errorDisplayField>
-        <errorMessage>Address should be less than or equal to 184 letters.</errorMessage>
+        <errorMessage>Address should be less than or equal to 92 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Attention_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Attention__c)&gt;100,
+        <errorConditionFormula>AND(LEN(Attention__c)&gt;50,
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Attention__c</errorDisplayField>
-        <errorMessage>Attention should be less than or equal to 100 letters.</errorMessage>
+        <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Insufficient_Stock</fullName>

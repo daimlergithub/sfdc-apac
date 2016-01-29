@@ -30,7 +30,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>Create_Vehicle</content>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -29157,7 +29159,7 @@ Modify Reason:
         <errorConditionFormula>AND(
 NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
 (LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
-
+(RecordType.DeveloperName = 'MB') &amp;&amp;
  UPPER( MD__c ) = 'JP' &amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>

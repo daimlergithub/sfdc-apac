@@ -6,6 +6,7 @@
     <apex:includeScript value="{!$Resource.UiBootstrap}" />
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
+    <apex:includeScript value="/support/console/25.0/integration.js"/>
     <html>
     <head>
     <style type="text/css">
@@ -446,8 +447,19 @@
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}"; 
-                             
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }                            
               });
           };
        
@@ -461,7 +473,19 @@
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}";
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }
               });
           };
           
@@ -622,7 +646,19 @@
                  '{!$RemoteAction.VehiclePickerController.clearVehicleFromLead}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}";
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }
               });
           }
           

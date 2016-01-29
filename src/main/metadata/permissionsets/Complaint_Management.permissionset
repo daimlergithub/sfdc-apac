@@ -189,14 +189,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BatchCalcAmountOfAssignedLeads</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BatchCreateDealerOBEmails</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BatchJobHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -238,10 +230,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CampaignMemberAfterTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -778,10 +766,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignMembersTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCampaignMembersTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

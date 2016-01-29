@@ -2295,6 +2295,20 @@
         <value>Near Dealer Phone3</value>
     </labels>
     <labels>
+        <fullName>NewAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Account</shortDescription>
+        <value>New Account</value>
+    </labels>
+    <labels>
+        <fullName>NewLead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Lead</shortDescription>
+        <value>New Lead</value>
+    </labels>
+    <labels>
         <fullName>New_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -3431,6 +3445,13 @@
         <protected>false</protected>
         <shortDescription>Time period for Vehicle Relationship should not overlap</shortDescription>
         <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
+    </labels>
+    <labels>
+        <fullName>ViewHierarchy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ViewHierarchy</shortDescription>
+        <value>ViewHierarchy</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>

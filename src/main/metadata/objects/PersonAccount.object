@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
-    <!--<enableHistory>true</enableHistory> -->
+    <!--<enableHistory>true</enableHistory>-->
     <externalSharingModel>Private</externalSharingModel>
     <recordTypes>
         <fullName>PersonAccount</fullName>
@@ -586,11 +586,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>

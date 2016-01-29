@@ -218,6 +218,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The date when the deliver was ordered to the mail sender --></help>
         <label><!-- Sent Date --></label>
         <name>Sent_Date__c</name>
     </fields>
@@ -411,10 +412,31 @@
             <section>Other Information</section>
         </sections>
     </layouts>
+    
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Address should be less than or equal to 92 letters. --></errorMessage>
+        <name>Address_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Attention should be less than or equal to 50 letters. --></errorMessage>
+        <name>Attention_NoOfDigits</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lead is required if your delivery type is 4. --></errorMessage>
+        <name>Lead_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Province should be less than or equal to 10 letters. --></errorMessage>
+        <name>Province_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Zip Code should be less than or equal to 7 letters. --></errorMessage>
+        <name>ZipCode_NoOfDigits</name>
     </validationRules>
     <webLinks>
         <label><!-- Download_Catalogue --></label>
