@@ -16,7 +16,7 @@
    
       <apex:pageBlock >
          <apex:pageBlockButtons >
-           <apex:commandButton action="{!cancel}" value="{!$Label.Close}"/>      
+           <apex:commandButton action="{!cancel}" value="{!$Label.Close}" onclick="window.close();"/>      
          </apex:pageBlockButtons> 
         <div class="tree">              
              <ul> 

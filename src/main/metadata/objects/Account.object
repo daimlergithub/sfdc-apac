@@ -1691,6 +1691,10 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11523,6 +11527,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
@@ -19543,9 +19551,15 @@ RecordType.DeveloperName = 'ThirdParty'
     <validationRules>
         <fullName>CompAccountName_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($RecordType.Name="Company",LEN(Name) &gt; 80, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Name should be less than or equal to 80 letters.</errorMessage>
+        <errorConditionFormula>AND($RecordType.Name="Company",LEN(Name) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Assigned_Lead_Amount_of_Everyday__c</errorDisplayField>
+        <errorMessage>Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CompanyNameAccount_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.Name="Company",LEN(Company_Name__c) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Company Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
@@ -19585,9 +19599,15 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>DealerAddressCN_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Dealer_Address_CN__c) &gt; 100, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Dealer_Address_CN__c) &gt; 50, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Dealer_Address_CN__c</errorDisplayField>
-        <errorMessage>Dealer Address Native should be less than or equal to 100 letters.</errorMessage>
+        <errorMessage>Dealer Address Native should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DealerBranchName_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Name) &gt; 50, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Branch name (CHS) should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Name_Read_only</fullName>
@@ -20356,20 +20376,9 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 
 
 		if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){ 
-		alert('No duplicate records found to be merged!!!'); 
+		   alert('No duplicate records found to be merged!!!'); 
 		} else { 
-
-		if (sforce.console.isInConsole()) { 
-		javascript:sforce.console.getEnclosingPrimaryTabId( 
-		function openSubTab(result) { 
-		sforce.console.openSubtab(result.id, 
-		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, '{!$Label.NewAccount}'); 		
-		} 
-		) 
-		} 
-		else { 
-		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
-		} 
+		   window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 		
 		}</url>
     </webLinks>
     <webLinks>
@@ -20512,19 +20521,19 @@ if (sforce.console.isInConsole()) {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
  
-// query the record
-var qr = sforce.connection.query("SELECT Id,Dup_Reason__c FROM Account where Id='" + "{!Account.Id}" + "'");
-var records = qr.getArray("records");
- 
-// display the field from the query
-alert("Dup Reason: " +qr.records.Dup_Reason__c);
+		// query the record
+		var qr = sforce.connection.query("SELECT Id,Dup_Reason__c FROM Account where Id='" + "{!Account.Id}" + "'");
+		var records = qr.getArray("records");
+		 
+		// display the field from the query
+		alert("Dup Reason: " +qr.records.Dup_Reason__c);
 
-if(qr.records.Dup_Reason__c==null){
-   alert('No record found to be merged');
-}
-else{
-window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");	
-}</url>
+		if(qr.records.Dup_Reason__c==null){
+		   alert('No record found to be merged');
+		}
+		else{
+		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");	
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>View_Hierarchy</fullName>
@@ -20537,17 +20546,8 @@ window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}"
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
-        if (sforce.console.isInConsole()) { 
-		javascript:sforce.console.getEnclosingPrimaryTabId( 
-		function openSubTab(result) { 
-		sforce.console.openSubtab(result.id, 
-		'/apex/ViewHierarchy',true,'{!$Label.ViewHierarchy}'); 		
-		} 
-		) 
-		} 
-		else { 
-		window.open("/apex/ViewHierarchy", "","width = 800, height = 600"); 
-		}</url>
+			  
+		window.open("/apex/ViewHierarchy", "","width = 800, height = 600");</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>

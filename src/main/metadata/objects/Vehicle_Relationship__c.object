@@ -2011,12 +2011,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>MOT_Expired_Date__c</fullName>
         <externalId>false</externalId>
         <label>MOT Expired Date</label>
-        <length>63</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>MOT_Owner_Address__c</fullName>
@@ -3983,7 +3981,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
     <fields>
         <fullName>Vehicle_Model__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Vehicle_ID__r.Model__c)</formula>
+        <formula>Vehicle_ID__r.Model_Description__c</formula>
         <label>Vehicle Model</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

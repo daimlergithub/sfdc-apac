@@ -7,7 +7,7 @@
 **/
 
 public with sharing class VehicleDataSharingHandler extends SharingDataHandlerBase{
-	
+    
     private Id recordTypeRetail = 
         UtilRecordType.getRecordTypeIdByName('Vehicle_Relationship__c', 'Vehicle Relationship Retail');
     
@@ -15,14 +15,14 @@ public with sharing class VehicleDataSharingHandler extends SharingDataHandlerBa
         super('Vehicle__c', 'Read');
     }
 
-	/**
-	*@Description :This mehtod fetches the vehicles and shares it to the user group by using the CRM Codes.
-	*@Author :Shrinivas Desai.
-	*@Date : 27/10/2015
-	*@param:List of sObjects.
-	*@return:This mehtod does not return any value.
-	*@see:executeProcessByCRMCode
-	*/
+    /**
+    *@Description :This mehtod fetches the vehicles and shares it to the user group by using the CRM Codes.
+    *@Author :Shrinivas Desai.
+    *@Date : 27/10/2015
+    *@param:List of sObjects.
+    *@return:This mehtod does not return any value.
+    *@see:executeProcessByCRMCode
+    */
     public override void executeProcessByCRMCode(List<sObject> scope) {
         system.debug('I am runing' +scope);
         CMap dmsAndDealer = super.filterDealer(scope);
@@ -51,16 +51,24 @@ public with sharing class VehicleDataSharingHandler extends SharingDataHandlerBa
                                           and Owner_Dealer__c in :dealerIds]){
             vehicleAndDealer.add(vrc.Owner_Dealer__c, vrc.Vehicle_ID__c);
         }
-
+        System.debug('vehicleAndDealer@@@'+vehicleAndDealer);
         //make them use crm code
         for(String crmCode : dmsAndDealer.KeySet()){
             for(String accountid : dmsAndDealer.get(crmCode)){
-                parentIds.addAll(crmCode, vehicleAndDealer.get(accountid));
-                userOrGroupIds.addAll(crmCode, userAndDealer.get(accountid));
+                System.debug('parentIds@@@'+crmCode+'@@@@'+vehicleAndDealer.get(accountid));
+                if(vehicleAndDealer.get(accountid) != null){
+                  parentIds.addAll(crmCode, vehicleAndDealer.get(accountid));
+                }
+                if(userAndDealer.get(accountid) != null){
+                   userOrGroupIds.addAll(crmCode, userAndDealer.get(accountid));
+                }
             }
         }
-
-        List<sObject> shareRecs = makeInserRecords(parentIds, userOrGroupIds);
+        system.debug('vehicle-->'+parentIds+'--user--'+userOrGroupIds);
+        List<sObject> shareRecs ;
+        if(parentIds != null && userOrGroupIds != null ){
+          shareRecs = makeInserRecords(parentIds, userOrGroupIds);
+        }
 
         try {
             List<Database.SaveResult> result = Database.insert(shareRecs,false);  
