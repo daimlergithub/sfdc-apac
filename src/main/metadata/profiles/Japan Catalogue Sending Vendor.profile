@@ -233,7 +233,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AvatoHelperTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BatchAssignTasks</apexClass>
@@ -656,10 +656,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SSITriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SelectAssignedDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1008,6 +1004,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilAccountTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignCity</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1124,6 +1124,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilTaskTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilTestData</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1141,6 +1145,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleDataSharingHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1237,6 +1245,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>campaignHistoryLogGenerationTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -5453,9 +5465,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Car_Model__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9353,9 +9365,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Dealer_Lost_Reason__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16485,7 +16497,7 @@
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseDeadelineCalc__mdt-CaseDeadelineCalc Layout</layout>
+        <layout>CaseDeadelineCalc__mdt-CaseDeadelineCalc1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseInteraction-Case Feed Layout</layout>
