@@ -1004,6 +1004,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilAccountTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignCity</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -17889,6 +17893,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>SMSSendResult</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>SelectAssignedDealer</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17910,10 +17918,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>SlickCTI_CSS</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18905,10 +18909,7 @@
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ImportCustomObjects</name>
-    </userPermissions>
+    
     <userPermissions>
         <enabled>true</enabled>
         <name>ImportLeads</name>
@@ -19049,10 +19050,7 @@
         <enabled>true</enabled>
         <name>ManageProfilesPermissionsets</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManagePvtRptsAndDashbds</name>
-    </userPermissions>
+    
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRemoteAccess</name>
@@ -19069,10 +19067,7 @@
         <enabled>true</enabled>
         <name>ManageSolutions</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageSynonyms</name>
-    </userPermissions>
+    
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageTranslation</name>
