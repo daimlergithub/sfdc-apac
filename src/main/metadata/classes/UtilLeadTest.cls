@@ -107,7 +107,7 @@ public With Sharing class UtilLeadTest
         accList.add(accObj);
         insert accList;
         Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
+        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll8',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
         insert vehicleObj;
         
         vehicleRelationshipObj = new Vehicle_Relationship__c(Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accList.get(2).Id );
@@ -122,5 +122,8 @@ public With Sharing class UtilLeadTest
         leadObj = new Lead__c(Current_Vehicle__c = vehicleObj.Id,Contact__c = accList.get(2).Id,VehicleRel_No__c = vehicleRelationshipObj.Id,RecordTypeId = salesRecordTypeId,Assigned_Date_Time__c = system.now());
         leadlst.add(leadObj);
         insert leadlst;
+       
+        
+        
     }
 }
