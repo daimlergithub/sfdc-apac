@@ -93,9 +93,7 @@ public With Sharing class UtilLeadTest
           
         Test.stopTest();
     }
-    public static testmethod void UtilTask_test()
-    {
-    }
+    
     public static void createData(){
         accList = new List<Account>();
         Id recordTypeAccObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
@@ -105,7 +103,7 @@ public With Sharing class UtilLeadTest
         accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez');
         accList.add(accObj);
         Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='9874760605');
+        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
         accList.add(accObj);
         insert accList;
         Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
@@ -124,8 +122,5 @@ public With Sharing class UtilLeadTest
         leadObj = new Lead__c(Current_Vehicle__c = vehicleObj.Id,Contact__c = accList.get(2).Id,VehicleRel_No__c = vehicleRelationshipObj.Id,RecordTypeId = salesRecordTypeId,Assigned_Date_Time__c = system.now());
         leadlst.add(leadObj);
         insert leadlst;
-       
-        
-        
     }
 }
