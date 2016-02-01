@@ -34,6 +34,12 @@ public  class UtilCustomSettingsKernel {
        Trigger__c triggerCampaign = new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
        updatecustomsetting.add(triggerCampaign);
        
+       TriggerPackageItem = new Trigger__c(Name='TriggerRecall',Trigger_Name__c='TriggerRecall',Trigger_Handler__c='TriggerRecallTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+       updatecustomsetting.add(TriggerPackageItem );
+       
+       TriggerPackageItem = new Trigger__c(Name='TriggerRetailTask',Trigger_Name__c='TriggerRetailTask',Trigger_Handler__c='TriggerRetailTaskTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+       updatecustomsetting.add(TriggerPackageItem );
+
        return updatecustomsetting;
    }
    
