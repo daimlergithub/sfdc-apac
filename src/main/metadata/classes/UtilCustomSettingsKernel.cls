@@ -16,11 +16,23 @@ public  class UtilCustomSettingsKernel {
   *@Date : 15/12/2015
   *@param:None
   *@return:This mehtod Returns List of custom settings(Trigger__C).
-
   */ 
+  
   public static  List<Trigger__c> customSettingDetails(){
        Trigger__c TriggerPackageItem=new Trigger__c(Name='TriggerPackageItem',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelationshipTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
        updatecustomsetting.add(TriggerPackageItem);
+              
+       Trigger__c caseTrigger = new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       updatecustomsetting.add(caseTrigger);
+       
+       Trigger__c campaignOfferingTrigger = new Trigger__c(Name='TriggerCampaignOffering',Trigger_Name__c='TriggerCampaignOffering',Trigger_Handler__c='TriggerCampaignOfferingTriggerHandler ',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       updatecustomsetting.add(campaignOfferingTrigger);
+       
+       Trigger__c CampaignPackageTrigger = new Trigger__c(Name='TriggerCampaignPackage',Trigger_Name__c='TriggerCampaignPackage',Trigger_Handler__c='TriggerCampaignPackageTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       updatecustomsetting.add(CampaignPackageTrigger);
+       
+       Trigger__c triggerCampaign = new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       updatecustomsetting.add(triggerCampaign);
        
        return updatecustomsetting;
    }
