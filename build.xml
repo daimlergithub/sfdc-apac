@@ -279,7 +279,10 @@
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
-				
+				<sf:include name="campaignHistoryLogGenerationTest"/>
+				<sf:include name="UtilLeadTest"/>
+				<sf:include name="UtilTaskTest"/>
+				<sf:include name="VehicleDataSharingHandlerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
