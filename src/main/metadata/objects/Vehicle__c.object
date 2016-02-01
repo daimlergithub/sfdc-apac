@@ -29163,7 +29163,7 @@ NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
  UPPER( MD__c ) = 'JP' &amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>US-VIN must be 17 characters.</errorMessage>
+        <errorMessage>US VIN must be 17 digits when the record type is MB.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Euro_VIN_Invalid_Syntax</fullName>
