@@ -408,25 +408,7 @@
             <section>Other Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised DM Request Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Customer Information --></label>
-            <section>Customer Information</section>
-        </sections>
-        <sections>
-            <label><!-- DM Material Information --></label>
-            <section>DM Material Information</section>
-        </sections>
-        <sections>
-            <label><!-- Other Information --></label>
-            <section>Other Information</section>
-        </sections>
-    </layouts>
+    
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
         <errorMessage>住所は必ず92文字以下で入力して下さい。</errorMessage>
