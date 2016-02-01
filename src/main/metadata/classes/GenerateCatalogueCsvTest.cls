@@ -4,8 +4,11 @@ public class GenerateCatalogueCsvTest
     public Static Account objAccount;
     public Static Account DealerAccount;
     public static DM_Request__c Dmr;
-    public static Dealer_Locator__c Dl ;    
+    public static Dealer_Locator__c Dl ;
+    public static Dealer_Locator__c Dl2 ;
+    public static Dealer_Locator__c Dl3;
     public static DM_Material__c Dmm;
+    
     public static User usr ;
     public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -18,27 +21,36 @@ public class GenerateCatalogueCsvTest
         createTestData();
         
         test.startTest();
+        insert Dl;
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
-        GenerateCatalogueCsv.DMRequests.add(Dmr);
-        GenerateCatalogueCsv.DlList.add(Dl);
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
         
     }
     
-   
+   public static testMethod void test_getDMRequestsWithoutDl()
+    {   
+         
+        createTestData();
+        
+        test.startTest();
+        
+        GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
+        string retString = GenerateCatalogueCsv.getDMRequests();
+        test.stopTest();
+        system.assertEquals('true', retString);
+        system.assertEquals(0, GenerateCatalogueCsv.DlList.Size());
+        
+    }
     
     public static testMethod void test_getDMRequest1()
     {
         createTestData();
         
-        Dl.Sequence_No__c = '2';
-        update Dl;
+       
         test.startTest();
-        GenerateCatalogueCsv.DMRequests.add(Dmr);
-        GenerateCatalogueCsv.DlList.add(Dl);
-        system.debug('!!!!!!!!'+GenerateCatalogueCsv.DlList.size() );
+        insert Dl2;
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
@@ -50,25 +62,23 @@ public class GenerateCatalogueCsvTest
         
         createTestData();
         
-        Dl.Post_Code__c = '六六六六六六六';
-        update Dl;
         test.startTest();
-        GenerateCatalogueCsv.DMRequests.add(Dmr);
+        insert Dl2;
+        insert Dl3;
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        system.assertEquals(0,GenerateCatalogueCsv.DlList.size());
+        system.assertEquals(2, GenerateCatalogueCsv.DlList.Size());
+        
         
     }
     
      public static testMethod void test_getDMRequest3()
     {
         createTestData();
-        
-        Dl.Sequence_No__c = '3';
-        update Dl;
+        insert Dl;
+        insert Dl2;
+        insert Dl3;
         test.startTest();
-        GenerateCatalogueCsv.DMRequests.add(Dmr);
-        GenerateCatalogueCsv.DlList.add(Dl);
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
         system.assertEquals('true', retString);
@@ -104,7 +114,7 @@ public class GenerateCatalogueCsvTest
         DealerAccount.City__c='Test';
         DealerAccount.Email__c='test@mbj.com';
         DealerAccount.Mobile__c ='0435488899';
-        
+        DealerAccount.ZipCode__c = '1040031';
         
         insert DealerAccount;
         
@@ -115,7 +125,7 @@ public class GenerateCatalogueCsvTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
-        objAccount.ZipCode__c = '五五五五五五五';
+        objAccount.ZipCode__c = '1040031';
         objAccount.Email__c='test@mbj.com';
         objAccount.Mobile__c ='0435488899';
         objAccount.Phone = '08022420181';
@@ -127,6 +137,7 @@ public class GenerateCatalogueCsvTest
          Dmm.Name = 'DM Material';   
          Dmm.Type__c = 'Car Book';
          Dmm.Preliminary_Flag__c = false;
+         Dmm.Label_Printing_Name__c = 'Test Name';
          insert Dmm; 
          
         Dmr = new DM_Request__c();
@@ -141,10 +152,23 @@ public class GenerateCatalogueCsvTest
         insert Dmr;
         
         Dl = new Dealer_Locator__c();
-        Dl.Post_Code__c = '五五五五五五五';
+        Dl.Post_Code__c = '1040031';
         Dl.Dealer_Name__c = DealerAccount.id;
         Dl.Sequence_No__c = '1';
-        insert Dl;
+        //insert Dl;
+        
+         Dl2 = new Dealer_Locator__c();
+        Dl2.Post_Code__c = '1040031';
+        Dl2.Dealer_Name__c = DealerAccount.id;
+        Dl2.Sequence_No__c = '1';
+        //insert Dl2;
+        
+         Dl3 = new Dealer_Locator__c();
+        Dl3.Post_Code__c = '1040031';
+        Dl3.Dealer_Name__c = DealerAccount.id;
+        Dl3.Sequence_No__c = '1';
+        //insert Dl3;
+        
         
         
         

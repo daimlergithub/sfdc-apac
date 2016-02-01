@@ -374,19 +374,31 @@
     </recordTypes>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage><!-- Address Line 1 should be less than or equal to 100 letters. --></errorMessage>
+        <errorMessage><!-- Address Line 1 should be less than or equal to 50 letters. --></errorMessage>
         <name>AddressLine1_NoOfDigit</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Address Line 2 should be less than or equal to 50 letters. --></errorMessage>
+        <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Address Type is required. --></errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- City should be less than or equal to 24 letters. --></errorMessage>
+        <errorMessage><!-- Block should be less than or equal to 12 letters. --></errorMessage>
+        <name>Block_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- City should be less than or equal to 12 letters. --></errorMessage>
         <name>City_NoOfDigit</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Company name is required when TitleOfHonor is &apos;Dear&apos;. --></errorMessage>
+        <errorMessage><!-- Company Name should be less than or equal to 50 letters. --></errorMessage>
+        <name>CompanyName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Company name is required when TitleOfHonor is &apos;To Company&apos;. --></errorMessage>
         <name>Company_Name_Required</name>
     </validationRules>
     <validationRules>
@@ -394,7 +406,7 @@
         <name>Company_Name_Single</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Town should be less than or equal to 36 letters. --></errorMessage>
+        <errorMessage><!-- Town should be less than or equal to 18 letters. --></errorMessage>
         <name>District_NoOfDigit</name>
     </validationRules>
     <validationRules>

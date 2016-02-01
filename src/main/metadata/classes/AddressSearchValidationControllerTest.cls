@@ -47,8 +47,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.saveAccount();
         JPAcccontroller.objPersonAccount = personAcc1;
         JPAcccontroller.saveAccount();
-        test.stopTest();
-        system.assertEquals(null, personAcc1.id);
+        test.stopTest();      
     }
     
     static testmethod void AddressSearchValidationControllerTest3()

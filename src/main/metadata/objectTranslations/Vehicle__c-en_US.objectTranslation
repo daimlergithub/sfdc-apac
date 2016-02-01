@@ -5542,6 +5542,7 @@
             <section>Vehicle information</section>
         </sections>
     </layouts>
+    
     <layouts>
         <layout>Self Registered Layout-CAC</layout>
         <sections>
@@ -5607,7 +5608,7 @@
         <name>CP_EURO_VIN_Lenght_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- US-VIN must be 17 characters. --></errorMessage>
+        <errorMessage><!-- US VIN must be 17 digits when the record type is MB. --></errorMessage>
         <name>CP_US_VIN_Length_Check</name>
     </validationRules>
     <validationRules>
