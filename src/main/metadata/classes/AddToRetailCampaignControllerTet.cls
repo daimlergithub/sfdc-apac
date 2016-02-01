@@ -10,7 +10,7 @@ public class AddToRetailCampaignControllerTet
     final static String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
     static Vehicle__c ve1; 
     static Vehicle__c ve2;
-    static Vehicle_Relationship__c vrData1;
+    static Vehicle_Relationship__c vrData1; 
     static Vehicle_Relationship__c vrData2;
     static  Community_License_Switch__c cls;
     static Account dealer;

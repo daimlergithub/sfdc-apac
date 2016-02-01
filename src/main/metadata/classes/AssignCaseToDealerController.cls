@@ -109,7 +109,7 @@ public with sharing class AssignCaseToDealerController {
           // If no query result, system alert no search result.
          hasQueryResult = (oblist.size() > 0);
             system.debug('++++hasQueryResult'+hasQueryResult);
-         //TO DO : Old condition was  if(!hasQueryResult)
+         
             if (hasQueryResult) {                
                 UserWithAccountInfo uai = null;
               if(oblist!=Null && !oblist.isEmpty()){
