@@ -888,6 +888,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -17824,10 +17828,7 @@
         <enabled>true</enabled>
         <name>EditTopics</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningExperienceUser</name>
-    </userPermissions>
+    
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewGlobalHeader</name>
