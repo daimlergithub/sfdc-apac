@@ -11711,6 +11711,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.DUPNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Rejected_Duplicate_Log__c.Master_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>

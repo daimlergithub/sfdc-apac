@@ -23,6 +23,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DUPNumber__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Duplicate_Account__c</field>
             </layoutItems>
         </layoutColumns>
