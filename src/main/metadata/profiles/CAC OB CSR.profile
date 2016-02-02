@@ -416,6 +416,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomLogUtilTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -884,18 +888,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerCaseTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCaseTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -917,10 +909,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerPackageItemTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -16309,6 +16297,9 @@
     <layoutAssignments>
         <layout>Account-Dealer Layout-CAC</layout>
         <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AccountContactRole-Account Contact Role Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
