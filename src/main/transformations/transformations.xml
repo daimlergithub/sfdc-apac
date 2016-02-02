@@ -4,7 +4,7 @@
 		<filename>workflows/Lead__c.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Link_Social_Media_Leads']/integrationUser/text()</xpath>
 		<token>WORKFLOW_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>  
 	<changetext>
 		<filename>workflows\Lead__c.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Send_Assigned_Dealer_to_EP']/integrationUser/text()</xpath>
