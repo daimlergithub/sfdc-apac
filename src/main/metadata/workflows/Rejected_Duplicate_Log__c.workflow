@@ -6,6 +6,7 @@
         <endpointUrl>https://crm-int.mercedes-benz.com.cn/webservices/RejectedDuplicateLogSync</endpointUrl>
         <fields>Duplicate_Account__c</fields>
         <fields>Duplicate_Reason_Code__c</fields>
+		<fields>DUPNumber__c</fields>
         <fields>Id</fields>
         <fields>MD__c</fields>
         <fields>Master_Account__c</fields>

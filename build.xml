@@ -266,7 +266,6 @@
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
-				<sf:include name="TriggerPackageItemTriggerHandlerJP"/>
 				<sf:include name="TriggerRecallTriggerHandlerJP"/>
 				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
 				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
@@ -339,7 +338,7 @@
 	
 	<target name="deploy30">
 		<deploy transformations="transformations29.xml">
-		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>			
+		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
 		</deploy>
 	</target>
 	
@@ -593,9 +592,6 @@
 			<sf:include name="AddressDisplayInlineEditController"/>
 			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
-		<sf:typeset name="triggers">
-			<sf:include name="TriggerPackageItem"/>
-		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="Yearly_TA_Report"/>
 				<sf:include name="YearlyTA"/>
@@ -746,12 +742,11 @@
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
-			<sf:include name="TriggerCaseTest"/>
-			<sf:include name="TriggerCaseTriggerHandler"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="ContactTableController"/>
+		    <sf:include name="ContactTableControllerTest"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="superSortTest"/>
@@ -789,11 +784,15 @@
 				<sf:exclude name="YearlyTAAchievementTracingReport"/>
 				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
-			<sf:typeset name="triggers"/>			
+			<sf:typeset name="triggers">
+				<sf:exclude name="TriggerCase"/>
+				<sf:exclude name="TriggerPackageItem"/>
+			</sf:typeset>
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
