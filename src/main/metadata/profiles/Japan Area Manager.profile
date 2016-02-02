@@ -888,6 +888,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -5543,9 +5547,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16297,6 +16301,9 @@
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AccountContactRole-Account Contact Role Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Company Customer External Link</layout>
