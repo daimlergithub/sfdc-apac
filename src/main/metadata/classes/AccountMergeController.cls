@@ -45,7 +45,8 @@ public with sharing class AccountMergeController{
            Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
             Master_Account__c = master.Id,
             Duplicate_Account__c = chosenSlaveId ,
-            Duplicate_Reason_Code__c = chosenDupReason 
+            Duplicate_Reason_Code__c = chosenDupReason,
+			DUPNumber__c = master.DUPNumber__c
           );
         // If this rejected account is the last one, just return master record
         // detail page
