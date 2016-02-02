@@ -3,9 +3,8 @@
  */
 @IsTest public with sharing class CommunitiesLandingControllerTest {
     @IsTest(SeeAllData=true) public static void testCommunitiesLandingController() {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-    insert updatecustomsettings;
         // Instantiate a new controller with all parameters in the page
         CommunitiesLandingController controller = new CommunitiesLandingController();
+        controller.forwardToStartPage();
       }
 }

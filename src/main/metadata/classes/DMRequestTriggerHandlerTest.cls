@@ -6,9 +6,10 @@ private with sharing class DMRequestTriggerHandlerTest {
        
         User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-           
+         
+            Trigger__c TriggerDMRequest = new Trigger__c(Name='DMRequest',Trigger_Name__c='TriggerDMRequest',Trigger_Handler__c='TriggerDMRequestTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+            upsert TriggerDMRequest;
+            
             Test.startTest();
             // DM Material
             DM_Material__c dm1 = new DM_Material__c(Name='TEST-DM-1'+DateTime.now().formatLong(),Active__c=true);

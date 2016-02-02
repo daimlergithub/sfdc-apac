@@ -26,6 +26,8 @@ public class LeadHelperJPTest
         update lead1;
         
         Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount2.Id];
+        TriggerLeadTriggerHandlerJP TriggerLeadHandlerJP = new TriggerLeadTriggerHandlerJP();
+        TriggerLeadHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
         
         system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
         

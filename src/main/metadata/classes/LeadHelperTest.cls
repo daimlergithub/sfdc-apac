@@ -26,6 +26,7 @@ public with sharing class LeadHelperTest {
     
 
     private static User createUser(String userRolex, String profilex) {
+        
         User usr = new User();
         usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
         usr.UserRoleId = userRolex;
@@ -51,6 +52,7 @@ public with sharing class LeadHelperTest {
         insert user1;
 
           system.runAs( user1 ) {
+          
            preparedTestData();
             set<id> setDealerId = new set<id>();
             setDealerId.add(dealer.id);
@@ -87,8 +89,11 @@ public with sharing class LeadHelperTest {
    @istest
     public static void TestLeadHelper() {
         
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+       // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+       // insert updatecustomsettings;
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+		insert updatecustomsettings;
 
         createuserrecord();
         system.runAs(user1) {
