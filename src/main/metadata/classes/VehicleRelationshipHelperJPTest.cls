@@ -8,6 +8,9 @@ public with sharing class VehicleRelationshipHelperJPTest{
        
        public static void createTestData(Date startDate, Date endDate){ 
            
+           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+           insert updatecustomsettings;
+      
            testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
            vehicle_relationship = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilTestData.VEHICLE_RELATIONSHIP);
            vehicle_relationship.Start_Date__c = startDate;

@@ -458,6 +458,7 @@
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
+			<sf:include name="SharingWrapperTest"/>
 			<sf:include name="VehicleSharingWrapService"/>
 			<sf:include name="UserService"/>
 			<sf:include name="AccountLinkHelper"/>
@@ -551,6 +552,7 @@
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
 			<sf:include name="UtilAccount"/>
+			<sf:include name="UtilAccountTest"/>
 			<sf:include name="TriggerAccountTest"/>
 			<sf:include name="TriggerAccountTriggerHandler"/>
 			<sf:include name="RetailCampaignMemberHelperTest"/>
