@@ -1,5 +1,5 @@
 @istest
-public class contactTableControllerTest 
+public class ContactTableControllerTest 
 {
     public Static Account objAccount;
     private static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
