@@ -37,15 +37,13 @@
              <td width="25%"/>       
              <td colspan="3" align="left">{!$Label.Dono}</td>                   
           </tr> 
-          </table>
-       
+          </table>       
         <table rules="rows" width="100%">
             <tr align="right"><td><p>    
                         {!$Label.CustomerAssistanceCenter}<br/>
                         {!$Label.TelFax}<br/> 
              </p></td></tr> 
-         </table>  
-         <br/>   
+         </table>             
          <table border="1" width="100%" rules="rows">
           <tr>
              <td align="right" width="20%">{!$Label.DateTime}</td>
@@ -119,33 +117,32 @@
              <td align="left" width="20%" colspan="2">{!Case.Account.UCID__c }</td>
           </tr>
       </table> 
-     <div class="page-break">
+     <!-- <div class="page-break"> -->
       <table border="1" width="100%" rules="rows">  
           <tr>
            <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
           </tr>
           <tr>
-           <td align="left" width="100%" height="250">
-               
-               <apex:outputText escape="false">{!Case.Customer_Statement__c}</apex:outputText>
+           <td align="left" width="100%" height="40">  
+                <apex:outputText value="{!left(Case.Customer_Statement__c,200)}"/>
            </td>
          </tr> 
       </table>  
-      </div>     
+ <!--    </div>     -->
     
       <table border="1" width="100%" rules="rows">
           <tr>
              <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
           </tr>
           <tr>
-             <td align="left" width="100%" height="100"><apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/></td>          
+             <td align="left" width="100%" height="40"><apex:outputText value="{!left(Case.PR_Comment_for_Dealer__c,200)}"/></td>                      
           </tr>         
       </table>
        
    
       <table border="1" width="100%" rules="rows">  
           <tr>                    
-           <td align="center" width="60%" bgcolor="#4169E1">{!$Label.Informationsharing}<br/>              
+           <td rowspan="2" align="center" width="60%" bgcolor="#4169E1">{!$Label.Informationsharing}<br/>              
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='Yes' ,true,false)}">
                   <img src="/img/checkbox_checked.gif"></img>
               </apex:outputPanel>
@@ -168,9 +165,10 @@
               </apex:outputPanel>
               {!$Label.NotAccepted}
             </td>             
-           <td width="2%" bgcolor="#4169E1">{!$Label.Request}</td>
-           <td width="13%"><apex:outputField value="{!Case.Customer_Care_Owner__r.LastName}"/></td>
-           <td align="center" width="25%"></td>            
+            <td width="15%" height="5" bgcolor="#4169E1">{!$Label.Request}</td>    
+            <td align="center" width="25%" rowspan="2"></td>        
+            </tr> 
+            <tr><td height="100"><apex:outputField value="{!Case.Customer_Care_Owner__r.LastName}"/></td>                
            </tr>    
       </table>     
        <table width="100%" border="1" rules="rows">
@@ -178,8 +176,7 @@
            <td align="right" width="20%">{!$Label.CaseCategory}</td>  
            <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
          </tr>
-      </table> 
-      <br/>
+      </table>     
     </body>  
   </html> 
 </apex:page>
