@@ -6,9 +6,9 @@ private class ContactHelperTest {
     public static String testEmail = 'test@test.com';
     public static List<Contact> contacts;
     
-    public static testMethod void ValidateGateKeepersAndManagerTest() {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-    insert updatecustomsettings;
+    public static testMethod void ValidateGateKeepersAndManagerTest() { 
+        Trigger__c TriggerContact = new Trigger__c(Name='ContactHandler',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        upsert TriggerContact;
         // Create Dealer 
         
         createTestData();
@@ -21,14 +21,15 @@ private class ContactHelperTest {
     
      Public static testMethod void CopyPresalesInfoToDealerTest()
       {
-      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+      Trigger__c TriggerContact = new Trigger__c(Name='ContactHandler',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        upsert TriggerContact;
          // Create Dealer         
           createTestData();
           test.startTest();
           Contact con2 = new Contact(AccountId = account.Id, LastName = 'b', Phone = '12123131', email = 's@s.s1', Dealer_Complaint_Gate_Keeper__c = true);       
          insert con2;              
-        
+        con2.LastName='a';
+          update con2;
            ContactHelper.CopyPresalesInfoToDealer(contacts);
            test.stopTest();
             System.assert(!contacts.isempty());
@@ -36,8 +37,8 @@ private class ContactHelperTest {
       
         Public static testMethod void CopyCRMManagerInfoToDealerTest()
       {
-      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+       Trigger__c TriggerContact = new Trigger__c(Name='ContactHandler',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        upsert TriggerContact;
          // Create Dealer         
           createTestData();
           test.startTest();
@@ -50,8 +51,8 @@ private class ContactHelperTest {
       
        Public static testMethod void copyMarketingManagerInfoToDealerTest()
       {
-      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+       Trigger__c TriggerContact = new Trigger__c(Name='ContactHandler',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        upsert TriggerContact;
          // Create Dealer         
           createTestData();
           test.startTest();
@@ -61,8 +62,8 @@ private class ContactHelperTest {
       }
       
     private static testMethod void CopyContactInfoToDealerTest() {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-    insert updatecustomsettings;
+     Trigger__c TriggerContact = new Trigger__c(Name='ContactHandler',Trigger_Name__c='ContactTrigger',Trigger_Handler__c='ContactTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        upsert TriggerContact;
        
         createTestData();
         Test.StartTest();
