@@ -60,8 +60,8 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
         String fileRow = '';
         
         // Query to fetch all the DM Requests with Status = "to be sent"  limit 1000.
-        DMRequests = [select id,Status1__c,Status2__c,Status3__c,Zip_Code__c,Province__c,Additional_Address__c,Address__c,Name,Customer_Name__c,Customer_Name__r.ZipCode__c,Attention__c,
-                      Customer_Name__r.Name,Expected_DM_Material1__r.Preliminary_Flag__c,Expected_DM_Material1__r.Label_Printing_Name__c ,Expected_DM_Material2__r.Preliminary_Flag__c,Expected_DM_Material3__r.Preliminary_Flag__c,
+        DMRequests = [select id,TitleOfHonor__c,Status1__c,Status2__c,Status3__c,Zip_Code__c,Province__c,Additional_Address__c,Address__c,Name,Customer_Name__c,Customer_Name__r.ZipCode__c,Attention__c,
+                      Customer_Name__r.Name,Customer_Name__r.RecordType.Name,Customer_Name__r.Company_Name__c,Expected_DM_Material1__r.Preliminary_Flag__c,Expected_DM_Material1__r.Label_Printing_Name__c ,Expected_DM_Material2__r.Preliminary_Flag__c,Expected_DM_Material3__r.Preliminary_Flag__c,
                       Customer_Name__r.Main_Dealer__r.Dealer_Address_CN__c,Customer_Name__r.Main_Dealer__r.Phone,Delivery_Type__c,Customer_Name__r.Main_Dealer__r.Name,
                       Expected_DM_Material2__r.Label_Printing_Name__c,Expected_DM_Material3__r.Label_Printing_Name__c, status__c from DM_Request__c where Status__c = 'to be sent' Limit 1000];
         
@@ -129,7 +129,25 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 fileRow = dmr.Name;
                 fileRow += ','+ ((dmr.Attention__c != null) ? dmr.Attention__c  : '' );
-                fileRow += ','+ dmr.Customer_Name__r.Name;
+                
+                if(dmr.Customer_Name__r.RecordType.Name == 'Company')
+                {
+                
+                fileRow += ','+ ((dmr.Customer_Name__r.Company_Name__c != null && dmr.Customer_Name__r.Company_Name__c != '' ) ? dmr.Customer_Name__r.Company_Name__c  : dmr.Customer_Name__r.Name   );
+                
+                }
+                
+                else if(dmr.Customer_Name__r.RecordType.Name == 'Person Account' && dmr.TitleOfHonor__c == 'To Person')
+                {
+                	fileRow += ','+ dmr.Customer_Name__r.Name;
+                	
+                }
+                else
+                {
+                	fileRow += ',' + '';
+                }
+                
+                
                 fileRow += ','+ ((dmr.Zip_Code__c != null) ? dmr.Zip_Code__c  : ''   );
                 fileRow += ','+ ((dmr.Province__c != null) ?  dmr.Province__c : '' );
                 fileRow += ','+ ((dmr.Address__c != null) ? dmr.Address__c  : '' );
