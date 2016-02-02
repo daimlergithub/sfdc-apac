@@ -275,7 +275,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 // change the status of DM request to "Sent"  after writing it to CSV.
                 
                 
-                if(Dmr.Status1__c == 'Success' && Dmr.Status2__c == 'Success' && Dmr.Status3__c == 'Success')
+                if(Dmr.Status1__c != 'to be sent' && Dmr.Status2__c != 'to be sent' && Dmr.Status3__c != 'to be sent')
                 {
                 Dmr.Status__c = 'Sent';
                 }
