@@ -27,7 +27,8 @@ public class AddressDisplayInlineEditControllerTest
         init();
         
         test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);        
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);
+        ApexPages.currentPage().getParameters().put('addressobj',editadds[0].id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
         objAddressDisplayInlineEditController.addressobj = editadds[0];
@@ -35,6 +36,7 @@ public class AddressDisplayInlineEditControllerTest
         test.stopTest();
         system.assertEquals(null,addressobj);
     }
+    
     /**    
      * @Description : load updated data after deletion of address
      * @author      : Sudhir
@@ -42,7 +44,8 @@ public class AddressDisplayInlineEditControllerTest
    **/
     public static testMethod void testLoadData()
     {
-        init();        
+        init();
+        
         test.startTest();
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
@@ -78,24 +81,22 @@ public class AddressDisplayInlineEditControllerTest
      * @Description : creation of new address record
      * @author      : Sudhir
      * @Date        : 12/7/2015 
-     * @Modified By : Sneha
-     * @Modified Date: 2/1/2016
    **/
     
     public static testMethod void testSaveAddress()
     {
-        init();        
+        init();
+        
         test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);
+        ApexPages.currentPage().getParameters().put('editaddressId',objaddress.id);
+        ApexPages.currentPage().getParameters().put('addressId',objaddress.id);
+        ApexPages.currentPage().getParameters().put('addressobj',editadds[0].id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
-        objAddressDisplayInlineEditController.saveAddress(); 
-        objAddressDisplayInlineEditController.Address_Validated_Flag=true;
-        objAddressDisplayInlineEditController.saveAddress();       
-        objAddressDisplayInlineEditController.editaddressId=editadds[0].Id;
-        objAddressDisplayInlineEditController.saveAddress();        
-        objAddressDisplayInlineEditController.editaddressId=editadds[0].Id;
-        objAddressDisplayInlineEditController.Address_Validated_Flag=true;
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
+        objAddressDisplayInlineEditController.editaddressId =objaddress.id;
+        objAddressDisplayInlineEditController.addressId=objaddress.Id;
+        objAddressDisplayInlineEditController.addressobj = editadds[0];
         objAddressDisplayInlineEditController.saveAddress();
         test.stopTest();
         system.assertEquals(null, editaddressId, objaddress);
@@ -108,7 +109,8 @@ public class AddressDisplayInlineEditControllerTest
    **/ 
     public static testMethod void testAddEditOptions()
     {
-        init();        
+        init();
+        
         test.startTest();
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
@@ -127,9 +129,12 @@ public class AddressDisplayInlineEditControllerTest
     
     public static testMethod void testEditOptions()
     {
-        init();        
+        init();
+        
         test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);       
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);
+        ApexPages.currentPage().getParameters().put('editaddressId',objaddress.id);
+        ApexPages.currentPage().getParameters().put('addressobj',editadds[0].id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
         objAddressDisplayInlineEditController.editaddressId =objaddress.id;
@@ -147,9 +152,13 @@ public class AddressDisplayInlineEditControllerTest
     
     public static testMethod void testDelAccountAddress()
     {
-        init();        
+        init();
+        
         test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);       
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);
+        ApexPages.currentPage().getParameters().put('editaddressId',objaddress.id);
+        ApexPages.currentPage().getParameters().put('addressId',objaddress.id);
+        ApexPages.currentPage().getParameters().put('addressobj',editadds[0].id);
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
         objAddressDisplayInlineEditController.editaddressId =objaddress.id;
@@ -160,62 +169,7 @@ public class AddressDisplayInlineEditControllerTest
         system.assertEquals(null,addressId);
         system.assertNotEquals(objaddress.id,editaddressId);        
     }
-   /**    
-     * @Description : For creation of Account and Address record
-     * @author      : Sneha
-     * @Date        : 1/2/2016 
-   **/ 
-    public static testMethod void testValidateAddressSearch()
-    {  
-        init(); 
-        test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
-        objAddressDisplayInlineEditController.ValidateAddressSearch();
-        test.stopTest();  
-        system.assert(objAddressDisplayInlineEditController.addressobj!=Null);        
-    }
-   /**    
-     * @Description : For creation of Account and Address record
-     * @author      : Sneha
-     * @Date        : 1/2/2016 
-   **/
-   public static testMethod void testZipCodeValidateAddressSearch()
-    {  
-        init(); 
-        test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
-        objAddressDisplayInlineEditController.addressobj=editadds[0];
-        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        objAddressDisplayInlineEditController.ValidateAddressSearch();
-        test.stopTest();    
-        system.assert(objAddressDisplayInlineEditController.addressobj!=Null);     
-    }
     
-       /**    
-     * @Description : Search functionality 
-     * @author      : Sneha
-     * @Date        : 1/28/2016 
-   **/  
-    public static testMethod void testAddressSearch()
-    {
-        init();        
-        test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);     
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
-        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        objAddressDisplayInlineEditController.AddressSearch(); 
-        //If ZipCode is not null
-        objAddressDisplayInlineEditController.addressobj=editadds[0];
-        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        objAddressDisplayInlineEditController.AddressSearch();       
-        test.stopTest();
-        system.assert(objAddressDisplayInlineEditController.addressobj!=Null);
-    }  
     /**    
      * @Description : For creation of Account and Address record
      * @author      : Sudhir
@@ -250,8 +204,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.Customer__c=objAccount.Id; 
         objAddress.Preferred__c=true;
         objAddress.Province__c='ACT'; 
-        objAddress.Address_Type__c = 'Home';  
-        objAddress.ZipCode__c ='1234567';    
+        objAddress.Address_Type__c = 'Home';       
         insert objAddress;
         system.debug('objAddress>>>>>'+objAddress.Id);
         
@@ -264,4 +217,11 @@ public class AddressDisplayInlineEditControllerTest
         update editadds;
         
     }
-}
+    /* Description :Coverage for TriggerAddressTriggerHandlerJP */
+
+    public static testmethod void TestTriggerAddressTriggerHandlerJP(){
+        TriggerAddressTriggerHandlerJP AddressTriggerHandlerJP=new TriggerAddressTriggerHandlerJP();
+          AddressTriggerHandlerJP.handleTrigger(false,false,false,false,false);
+          AddressTriggerHandlerJP.handleIntegrationTrigger(false,false,false,false,false);
+    }
+ }

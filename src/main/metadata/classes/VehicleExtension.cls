@@ -19,16 +19,18 @@ public with sharing class VehicleExtension {
     public String steering{get;set;}
     public String compModel{get;set;}
     public PageReference nextPage;
-    
+    private ApexPages.StandardController stdController;
     
 
     /*Constructor Method*/
-    public VehicleExtension(ApexPages.StandardController controller) {
+    public VehicleExtension(ApexPages.StandardController stdController) {
+        
         
         String type;
         check=true;
-        vehicle = new Vehicle__c();
-     
+        vehicle = (Vehicle__C)stdController.getRecord();
+        
+        
     }
         
     /**    

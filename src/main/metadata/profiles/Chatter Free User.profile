@@ -416,6 +416,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomLogUtilTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -884,14 +888,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerCaseTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCaseTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -917,10 +913,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerPackageItemTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -17848,7 +17840,6 @@
         <enabled>true</enabled>
         <name>EditTopics</name>
     </userPermissions>
-    
     <userPermissions>
         <enabled>true</enabled>
         <name>PasswordNeverExpires</name>

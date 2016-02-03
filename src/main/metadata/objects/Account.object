@@ -19864,16 +19864,14 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Invalid_ZipCode</fullName>
         <active>true</active>
         <description>Zipcode is not 7 digits long</description>
-        <errorConditionFormula>AND(LEN(ZipCode__c)&lt;&gt;7,
-NOT(ISBLANK(ZipCode__c)),
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,"[0-9]{7}")), 
+$Profile.Name != 'IntegrationAPI', MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zipcode is not 7 digits long</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_ZipCode_2</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(REGEX(ZipCode__c,"[^\\x00-\\x7F]+")),
 NOT(ISBLANK(ZipCode__c)),
 $Profile.Name != 'IntegrationAPI', 

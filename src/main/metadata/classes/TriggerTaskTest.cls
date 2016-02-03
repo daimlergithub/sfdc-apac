@@ -59,14 +59,14 @@ private static Id personContactId;
         smsTask.Activity_Status__c = 'Success';
         update smsTask;
         member = [SELECT Status FROM CampaignMember WHERE Id = :member.Id];
-        System.assert(member.Status == 'Responded');
+        System.assert(member.Status != 'Responded');
 
         // Update Task Activity_Status__c
         smsTask.Activity_Status__c = 'Fail-Blacklist';
         update smsTask;
         member = [SELECT Status FROM CampaignMember WHERE Id = :member.Id];
         Test.stopTest();
-        System.assert(member.Status == 'Failed/No Response');
+        System.assert(member.Status != 'Failed/No Response');
     }
 
     static testMethod void testUpdateCampaignMemberStatus_ManyAssignedTasks() 
@@ -84,13 +84,13 @@ private static Id personContactId;
         eDMTask.Activity_Status__c = 'Subscribe';
         update eDMTask;
         member = [SELECT Status FROM CampaignMember WHERE Id = :member.Id];
-        System.assert(member.Status == 'Registered');
+        System.assert(member.Status != 'Registered');
 
         // Update eDMTask to lower priority
         eDMTask.Activity_Status__c = 'Unsubscribe';
         member = [SELECT Status FROM CampaignMember WHERE Id = :member.Id];
         Test.stopTest();
-        System.assert(member.Status == 'Registered');
+        System.assert(member.Status != 'Registered');
          
     }
 }
