@@ -28,7 +28,7 @@
     }
      public static void preparedTestData()
      {
-		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
 		insert updatecustomsettings;
 
        topCampaignIds = new Set<String>();
@@ -77,6 +77,9 @@
         }
         if(campaignIds!=null && !campaignIds.isEmpty())
        CampaignHelper.copyTopCampaignStatusValueToSavedCampaign(campaignIds);
+       TriggerCampaignTriggerHandlerJP CampaignHandlerJP= new TriggerCampaignTriggerHandlerJP();
+       CampaignHandlerJP.handleTrigger(false, false, false, false, false); 
+       CampaignHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
        Test.stopTest();
        system.assertNotEquals(null, listcampaigns[0].parentId);
     }
@@ -147,6 +150,9 @@
          CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
          CampaignHelper.afterInsertEvents(listcampaigns);
          CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
+         TriggerCampaignTriggerHandlerJP CampaignHandlerJP= new TriggerCampaignTriggerHandlerJP();
+       CampaignHandlerJP.handleTrigger(false, false, false, false, false); 
+       CampaignHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
          Test.StopTest();
          system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
@@ -190,6 +196,9 @@
            updatecampain.add(cam); 
       }
       update updatecampain;
+         TriggerCampaignTriggerHandlerJP CampaignHandlerJP= new TriggerCampaignTriggerHandlerJP();
+       CampaignHandlerJP.handleTrigger(false, false, false, false, false); 
+       CampaignHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
       Test.StopTest();
         system.assertNotEquals(null, updatecampain[0].StartDate); 
      
@@ -228,6 +237,9 @@
             ParentId = top4.Id);
             campaignNew.add(cac); 
             insert campaignNew;
+            TriggerCampaignTriggerHandlerJP CampaignHandlerJP= new TriggerCampaignTriggerHandlerJP();
+            CampaignHandlerJP.handleTrigger(false, false, false, false, false); 
+            CampaignHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
             Test.StopTest();
          system.assertEquals(false, campaignNew[0].SMS_Task_Verified__c);
      }
@@ -312,6 +324,9 @@
         
         objcampaign.Status=Published;
         update objcampaign;
+        TriggerCampaignTriggerHandlerJP CampaignHandlerJP= new TriggerCampaignTriggerHandlerJP();
+        CampaignHandlerJP.handleTrigger(false, false, false, false, false); 
+        CampaignHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
         Test.StopTest();
         CampaignShare TestShareAs = [select id from CampaignShare where CampaignId =:cac.id limit 1];   
          system.assertNotEquals(null, TestShareAs);

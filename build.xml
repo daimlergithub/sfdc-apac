@@ -266,7 +266,6 @@
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
-				<sf:include name="TriggerPackageItemTriggerHandlerJP"/>
 				<sf:include name="TriggerRecallTriggerHandlerJP"/>
 				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
 				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
@@ -279,7 +278,10 @@
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
-				
+				<sf:include name="campaignHistoryLogGenerationTest"/>
+				<sf:include name="UtilLeadTest"/>
+				<sf:include name="UtilTaskTest"/>
+				<sf:include name="VehicleDataSharingHandlerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -336,7 +338,7 @@
 	
 	<target name="deploy30">
 		<deploy transformations="transformations29.xml">
-		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>			
+		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
 		</deploy>
 	</target>
 	
@@ -458,7 +460,8 @@
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
-			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="SharingWrapperTest"/>
+			<sf:include name="VehicleSharingWrapService"/> 
 			<sf:include name="UserService"/>
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
@@ -474,6 +477,7 @@
 		</sf:typeset>	
 		</deploy>				
     </target>
+	
 	
 	<target name="deploy36">
 		<deploy runAllTests="${sfdc.runAllTests}">
@@ -551,6 +555,7 @@
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
 			<sf:include name="UtilAccount"/>
+			<sf:include name="UtilAccountTest"/>
 			<sf:include name="TriggerAccountTest"/>
 			<sf:include name="TriggerAccountTriggerHandler"/>
 			<sf:include name="RetailCampaignMemberHelperTest"/>
@@ -589,9 +594,6 @@
 			<sf:include name="AddressDisplayInlineEditController"/>
 			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
-		<sf:typeset name="triggers">
-			<sf:include name="TriggerPackageItem"/>
-		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="Yearly_TA_Report"/>
 				<sf:include name="YearlyTA"/>
@@ -640,7 +642,9 @@
 			<sf:include name="RetailCampaignTriggerHandler"/>
 			<sf:include name="RetailTaskSharingTest"/>
 			<sf:include name="RetailTaskSharingWrapService"/>
+			<sf:include name="TestUserTriggerCalloutRequestMock"/>
 			<sf:include name="RuishiWebService"/>
+			<sf:include name="RuishiWebServiceTest"/>			
 			<sf:include name="TriggerRetailCampaignMemberHandler"/>
 			<sf:include name="TriggerRetailCampaignTest"/>
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
@@ -742,12 +746,11 @@
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
-			<sf:include name="TriggerCaseTest"/>
-			<sf:include name="TriggerCaseTriggerHandler"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="ContactTableController"/>
+		    <sf:include name="ContactTableControllerTest"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="superSortTest"/>
@@ -785,11 +788,15 @@
 				<sf:exclude name="YearlyTAAchievementTracingReport"/>
 				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
-			<sf:typeset name="triggers"/>			
+			<sf:typeset name="triggers">
+				<sf:exclude name="TriggerCase"/>
+				<sf:exclude name="TriggerPackageItem"/>
+			</sf:typeset>
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>

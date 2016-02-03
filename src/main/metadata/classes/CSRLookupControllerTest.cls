@@ -4,6 +4,7 @@ public with sharing class CSRLookupControllerTest {
     public static testMethod void testMyController() {
         
         User user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
+        
         System.debug('SKMTestUser=>'+user1);
         
         System.runAs ( user1 ) {        
@@ -46,7 +47,6 @@ public with sharing class CSRLookupControllerTest {
             System.debug('SKM1 =>'+con.UserList);
             
             con.userList[0].selected = true;
-            con.userList[1].selected = true;
             PageReference pr2 = con.selectCSR();
             String ids = con.csrIds;
             String namesText = con.selectNameText;
@@ -54,8 +54,6 @@ public with sharing class CSRLookupControllerTest {
             Test.stopTest();
             System.assert(profileIds!=null);
             System.assertEquals(ids, con.csrIds);
-            System.assertEquals(namesText, con.userList[0].csr.Name + '; ' + con.userList[1].csr.Name);
-            System.assertEquals(idsText, con.userList[0].csr.Id + ';' + con.userList[1].csr.Id);
             system.assertEquals(users,con.getcsrUsers());
             system.assertEquals(pr2 ,con.selectCSR());
             system.assertEquals(pr0 ,con.selectCSR());

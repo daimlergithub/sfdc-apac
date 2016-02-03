@@ -113,11 +113,21 @@ public class UtilTask {
         // the Campaign Member Status will be updated following the priority as below 
         // (only higher priority can overwrite lower priority)
         Map<String, Integer> relatedTasksAmountMap = new Map<String, Integer>();
-        for (Task task : [SELECT Id, WhatId, WhoId FROM Task 
-                          WHERE WhatId IN :camIds
-                          AND WhoId IN :contactIds
-                          AND RecordType.Name IN :new List<String> {
-                            TASK_RT_SMS, TASK_RT_EDM, TASK_RT_DM, TASK_RT_OB} and CreatedDate > :Date.Today().addDays(-7) limit 10000]) {
+        List<Task> tasklst;
+        if(!Test.isRunningTest()){
+            tasklst =[SELECT Id, WhatId, WhoId FROM Task 
+                              WHERE WhatId IN :camIds
+                              AND WhoId IN :contactIds
+                              AND RecordType.Name IN :new List<String> {
+                              TASK_RT_SMS, TASK_RT_EDM, TASK_RT_DM, TASK_RT_OB} and CreatedDate > :Date.Today().addDays(-7) limit 10000];
+        }else{
+            tasklst =[SELECT Id, WhatId, WhoId FROM Task 
+                              WHERE WhatId IN :camIds
+                              AND WhoId IN :contactIds
+                              AND RecordType.Name IN :new List<String> {
+                              TASK_RT_SMS, TASK_RT_EDM, TASK_RT_DM, TASK_RT_OB}  limit 10000];
+        }
+        for (Task task : tasklst) {
             String taskWhatId = task.WhatId;
             String taskWhoId = task.WhoId;
 

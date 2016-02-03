@@ -25,10 +25,10 @@ Private static List<Campaign_Lead__c> listcamplead ;
                                     Dealer_DMS_SR_Code__c='Test_SR_Code2',
                                     //Status__c='Other',
                                     City__c='Beijing',
-                                    Phone = '80801011',
+                                    Phone = '080101189',
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='100101',
+                                    ZipCode__c='1001014',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;
     
