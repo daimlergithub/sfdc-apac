@@ -15,6 +15,8 @@ public class RetailCampaignMemberHelperTest {
                  prepareTestData();
                  test.startTest();
                  RetailCampaignMemberHelper.retailCampaignMemberDuplicateCheck(listRCM); 
+                  RetailCampaignTriggerHandlerJP RetailCampaignjp=new RetailCampaignTriggerHandlerJP();
+                  RetailCampaignjp.handleIntegrationTrigger(false, false, false, false, false);
                  test.stopTest();
                  system.assert(rc!=null);
               }

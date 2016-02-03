@@ -5,7 +5,7 @@ public with sharing class UtilAccountTest
     public static List<Account> acc1 = Database.query('select id from Account where Id =:accPerson_RecordTypeId');
     public static Account personAcc;
     public static Account personAcc2;
-    public static Lead__c testLead;
+    public static Lead__c testLead;  
     
     
     public static testmethod void test_updateLeadForDataSharing()
@@ -46,7 +46,7 @@ public with sharing class UtilAccountTest
                                     FirstName = 'First Name',
                                     Salutation = 'Unknown',      
                                     Province__c = 'Shanghai',
-                                    ZipCode__c='九九九九九九九',
+                                    ZipCode__c='1004563',
                                     Allow_Data_Sharing__c='yes',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
@@ -66,7 +66,7 @@ public with sharing class UtilAccountTest
                                     FirstName = 'First Name',
                                     Salutation = 'Unknown',      
                                     Province__c = 'Shanghai',
-                                    ZipCode__c='九九九九九九九',
+                                    ZipCode__c='1004356',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
@@ -88,5 +88,6 @@ public with sharing class UtilAccountTest
         insert testLead;
         
     }
+
 
 }

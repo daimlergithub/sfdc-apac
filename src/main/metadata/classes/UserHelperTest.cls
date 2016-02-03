@@ -31,8 +31,17 @@ public With Sharing class UserHelperTest
     public static String Edit = 'Edit';
     public static UserHelper ush;
     public Static String ErrorMessageFirstPart = 'You have reached the max no. of license ';
-    static ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId(); 
+    static ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
     public static Id C_MB_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MB_COMPLAINT).getRecordTypeId();
+   
+    public static string accesslevel = 'Read';
+    public static string tstuser;
+    public static id useid;
+    public static set<id> setid;
+    public static List<User> user = Database.query('select id from user');
+    public static  String sobjectNameStr;
+    public static Id vechID = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+    public static Id vechrelaID = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
     
         
     
@@ -257,12 +266,124 @@ public With Sharing class UserHelperTest
        List<Contact> cons =  [select Id,Portal_user__c from Contact where Id = :con.id ];
        system.assertEquals(true,cons[0].Portal_user__c) ;
         
-    }   
+    } 
     
+//  Testmethod for ShareDataToNewUserBatch class    
+ 
+     public static testmethod void testbatch1()
+    {
+        Account acc1 = new Account();
+        acc1.LastName ='testaccount';
+        acc1.Mobile__c ='074389594';
+        acc1.FirstName ='batch';
+        acc1.Email__c ='ssibatch@test.com';
+        acc1.Salutation ='Brother';
+        insert acc1;
+        
+        
+       
+       createTestData();
+        AccountShare share = new AccountShare();
+        share.AccountAccessLevel = accesslevel;
+        share.AccountId = acc1.Id;
+        share.UserOrGroupId = usr.id;
+        share.OpportunityAccessLevel = accesslevel;
+        insert share;
+        
+        tstuser = string.valueOf(usr.Id);
+        useid =Id.valueOf(tstuser);
+        setid =(new Map<Id,SObject>(user)).keyset();
+        sobjectNameStr = 'Account';
+             
+        usr =[select id,Username from user where ID =:usr.Id]; 
+        
+        test.startTest();
+        ShareDataToNewUserBatch schdata = new ShareDataToNewUserBatch(useid,setid,sobjectNameStr);
+        Database.executeBatch(schdata);
+        test.stopTest();
+        system.assertEquals('Account', sobjectNameStr, share);
+    }
+//  Testmethod for ShareDataToNewUserBatch class 
+public static testmethod void testbatch2()
+    {
+        
+        Vehicle__c vehc1 = new Vehicle__c();
+        vehc1.Vehicle_Name__c ='Test1';
+        vehc1.UsVIN__c ='abchgdtrsghtredfr';
+        vehc1.RecordTypeId = vechID;
+        insert vehc1;
+        
+       createTestData();
+        Vehicle__Share vehshare = new Vehicle__Share();
+        vehshare.AccessLevel = accesslevel;
+        vehshare.ParentId = vehc1.Id ;
+        vehshare.RowCause = Schema.Vehicle__Share.RowCause.Manual;
+        vehshare.UserOrGroupId = usr.Id ;
+        insert vehshare;
+        
+        
+        tstuser = string.valueOf(usr.Id);
+        useid =Id.valueOf(tstuser);
+        setid =(new Map<Id,SObject>(user)).keyset();
+        sobjectNameStr = 'Vehicle';
+        
+        
+        usr =[select id,Username from user where ID =:usr.Id]; 
+        
+        test.startTest();
+        ShareDataToNewUserBatch schdata = new ShareDataToNewUserBatch(useid,setid,sobjectNameStr);
+        Database.executeBatch(schdata);
+        test.stopTest();
+        system.assertEquals('Vehicle',sobjectNameStr,vehshare);
+    }
+  //  Testmethod for ShareDataToNewUserBatch class   
+    public static testmethod void testbatch3()        
+    {
+        
+         
+        Vehicle__c vehc1 = new Vehicle__c();
+        vehc1.Vehicle_Name__c ='Test1';
+        vehc1.UsVIN__c ='abchgdtrsghtredfr';
+        vehc1.RecordTypeId = vechID;
+        insert vehc1;
+        
+        
+        Vehicle_Relationship__c vehcrel =new Vehicle_Relationship__c();
+        vehcrel.RecordTypeId = vechrelaID;
+        vehcrel.Car_Relation__c ='Driver';
+        vehcrel.Vehicle_ID__c = vehc1.Id ;
+        insert vehcrel;
+        
+        createTestData();       
+        Vehicle_Relationship__Share vehrelshare = new Vehicle_Relationship__Share();
+        vehrelshare.AccessLevel = 'Read';
+        vehrelshare.ParentId = vehcrel.Id ;
+        vehrelshare.RowCause = Schema.Vehicle__Share.RowCause.Manual;
+        vehrelshare.UserOrGroupId = usr.Id;
+        insert vehrelshare;
+        
+        tstuser = string.valueOf(usr.Id);
+        useid =Id.valueOf(tstuser);
+        setid =(new Map<Id,SObject>(user)).keyset();
+        sobjectNameStr = 'VehicleRelation';
+        
+        
+        usr =[select id,Username from user where ID =:usr.Id]; 
+        
+        test.startTest();
+        ShareDataToNewUserBatch schdata = new ShareDataToNewUserBatch(useid,setid,sobjectNameStr);
+        Database.executeBatch(schdata);
+        test.stopTest();
+        system.assertEquals('VehicleRelation',sobjectNameStr,vehrelshare);
+    }
   
     
     public Static  void createTestData()
     {
+        
+        Trigger__c TriggerUser=new Trigger__c(Name='TriggerUser',Trigger_Name__c='UserTrigger',Trigger_Handler__c='UserTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+       
+           insert TriggerUser;
         
         // create a Dealer
          dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
@@ -273,7 +394,8 @@ public With Sharing class UserHelperTest
         insert con;
         
         //create user  
-        
+        User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+        System.runAs (thisUser) {
         usr = new User(
             Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
@@ -290,8 +412,11 @@ public With Sharing class UserHelperTest
         );
         
         insert usr;
-        //  Insert person Account 
         
+        //Sandeep - After insert for trigger helper class coverage.
+        update usr;
+        //  Insert person Account 
+        }
         Account person = new Account(
             RecordTypeId = personRecordtypeid,
             PersonMobilePhone = '1861001001',

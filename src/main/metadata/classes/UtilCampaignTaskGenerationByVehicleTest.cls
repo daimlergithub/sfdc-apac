@@ -21,7 +21,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                     Phone = '080801011',
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='???????',
+                                    ZipCode__c='1004324',
                                     Salutation='Brother',
                                     FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);

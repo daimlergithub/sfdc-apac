@@ -21,12 +21,12 @@ public static User user;
         insert updatecustomsettings;
         
        objMaster= new Account(Master_Record__c = true,                                      
-                                     Phone = '1234575',DUP_Number__pc='110',
+                                     Phone = '1234575',DUPNumber__c='110',
                                      Last_Successful_Call_Office_Phone__c = System.today() - 10,
                                      DMS_Address__c = 'dmsaddress1');       
        objMaster = (Account)UtilTestData.createSobject(objMaster,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
        objSlave= new Account(Master_Record__c = false,                                     
-                                    Phone = '1234572',DUP_Number__pc='110',
+                                    Phone = '1234572',DUPNumber__c='110',
                                     Last_Successful_Call_Office_Phone__c = System.today(),
                                     DMS_Address__c = 'dmsaddress2');
        objSlave = (Account)UtilTestData.createSobject(objSlave,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
@@ -59,7 +59,7 @@ public static User user;
         Test.startTest();
         objAccountController.rejectDup();      
         Test.stopTest(); 
-        Rejected_Duplicate_Log__c duplicateLog =[Select id,Master_Account__c,Duplicate_Account__c from Rejected_Duplicate_Log__c Where Master_Account__c=:objMaster.Id];   
+        Rejected_Duplicate_Log__c duplicateLog =[Select id,DUPNumber__c,Master_Account__c,Duplicate_Account__c from Rejected_Duplicate_Log__c Where Master_Account__c=:objMaster.Id];   
         system.assert(duplicateLog!=Null); 
         system.assertEquals(duplicateLog.Duplicate_Account__c,objSlave.Id);                
      }
@@ -90,8 +90,8 @@ public static User user;
         objAccountController.mergeAccount();
         // Stop Test
         Test.stopTest();
-        Account salveAcct=[select id,DUP_Number__pc,Dup_Reason__c,Master_Account_Id__c,RecordTypeId,OwnerId from Account Where Id=:objSlave.Id];
-        Account masterAcct=[select id,DUP_Number__pc,Dup_Reason__c,Master_Record__c,RecordTypeId from Account Where Id=:objMaster.Id];
+        Account salveAcct=[select id,DUPNumber__c,Dup_Reason__c,Master_Account_Id__c,RecordTypeId,OwnerId from Account Where Id=:objSlave.Id];
+        Account masterAcct=[select id,DUPNumber__c,Dup_Reason__c,Master_Record__c,RecordTypeId from Account Where Id=:objMaster.Id];
         User usr = [SELECT Id FROM User 
                    WHERE Profile.Name = 
                    :UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED  And IsActive = true 

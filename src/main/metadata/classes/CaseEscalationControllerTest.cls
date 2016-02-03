@@ -31,7 +31,7 @@ public with sharing class CaseEscalationControllerTest {
         dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Name='shrek';
         dealer.Gender__c = '0=Male';
-        dealer.ZipCode__c = '???????';
+        dealer.ZipCode__c = '1009823';
         dealer.Type = '0=Company';
         dealer.Phone = '00000000'; 
         dealer.Status__c = '0=contac1';
@@ -65,8 +65,8 @@ public with sharing class CaseEscalationControllerTest {
         c.Occupation__c = 'test Occupation';
         c.Owner_Tele__c = 'test Owner';
         c.Owned_MB_Vehicle_PL__c = '1';
-        c.EU_VIN__c = 'test EU';
-        c.US_VIN__c = 'test US';
+        c.EU_VIN__c = '123456abc7';
+        c.US_VIN__c = '123456abc78902222';
         c.Order_No__c = '1';
         c.Vehicle_Class__c = 'test Vehicle';
         c.CLB__c = 'test CLB';
