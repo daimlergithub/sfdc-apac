@@ -1,62 +1,93 @@
-/*
-This test class has been created to cover a class UtilAccount
-
-*/
-@isTest
-public With Sharing class UtilAccountTest
+@istest
+public with sharing class UtilAccountTest 
 {
-     public static List<Account> accList;
-     public static Account accObj;
-     public static Account dealer;
-     public static Account pAccount;
-     public static Vehicle__c vehicleObj;
-     public static Vehicle_Relationship__c vehicleRelationshipObj;
-     public static Lead__c leadObj;
-     public static List<Lead__c> leadlst;
-
-     public static testmethod void testBeforeAccDealerInfo()
-     {
-         Test.startTest();
-         createData();
-         System.debug('SKM ->'+accList.get(1));
-         //accList.get(1).Dealer_DMS_SR_Code__c = 'TEST';
-         accList.get(1).Status__c = 'Customer';
-         accList.get(1).City_CN__c = 'CA';
-         accList.get(1).Allow_Data_Sharing__c = 'Yes';
-         accList.get(2).Allow_Data_Sharing__c = 'Yes';
-         update accList;
-         Test.stopTest();
-     }
-     public static void createData(){
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
-        insert updatecustomsettings;
-
-        accList = new List<Account>();
-        Id recordTypeAccObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccObjId,Name = 'Mercedez');
-        accList.add(accObj);
+    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static List<Account> acc1 = Database.query('select id from Account where Id =:accPerson_RecordTypeId');
+    public static Account personAcc;
+    public static Account personAcc2;
+    public static Lead__c testLead;
+    
+    
+    public static testmethod void test_updateLeadForDataSharing()
+    {
+        CreateTestData();
+        test.startTest();
+        Set<Id> accIds = new set<Id>();
+        accIds = (new Map<Id,SObject>(acc1)).keyset();
+        List<Account> accList = new List<Account>();
+        Map<id,Account> accMap = new Map<id,Account>();
+        accList.add(personAcc);
+        accMap.put(personAcc.id, personAcc);
+        UtilAccount.beforeAccDealerInfo(accList, accMap, true, false);
+        UtilAccount.beforeAccDealerInfo(accList, accMap, false, true);
+        UtilAccount.accountSetForUpdateLead(accList, accMap);
+       // accIds.add(personAcc.id);
+        //accIds.add(personAcc2.id);
+        UtilAccount.updateLeadForDataSharing(accIds);
         
-        Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez', Dealer_Default_Flag__c = true, City_CN__c = 'MA');
-        accList.add(accObj);
+        test.stopTest();
         
-        Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='No',Phone ='0874760605');
-        accList.add(accObj);
+        system.assertNotEquals(true, testLead.Allow_Data_Sharing__c);
         
-        insert accList;
-        
-        Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkkllllll',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
-        insert vehicleObj;
-        
-        vehicleRelationshipObj = new Vehicle_Relationship__c(Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accList.get(2).Id );
-        insert vehicleRelationshipObj;
-        
-        leadlst = new List<Lead__c>();
-        Id salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
-        leadObj = new Lead__c(Current_Vehicle__c = vehicleObj.Id,Contact__c = accList.get(2).Id,VehicleRel_No__c = vehicleRelationshipObj.Id,RecordTypeId = salesRecordTypeId,Assigned_Date_Time__c = system.now());
-        leadlst.add(leadObj);
-        insert leadlst;
     }
+    
+    
+    
+    static void CreateTestData()
+    {
+        personAcc = new Account(Dealer_Default_Flag__c=true,
+                                   // Dealer_DMS_SR_Code__c='test code 2',
+                                    Status__c='NoCustomer',
+                                    City__c='Beijing',
+                                    Gender__c = 'Male',
+                                    Phone = '001801010',
+                                    Area_code__c = '0101',
+                                    LastName = 'galaxy1',
+                                    FirstName = 'First Name',
+                                    Salutation = 'Unknown',      
+                                    Province__c = 'Shanghai',
+                                    ZipCode__c='九九九九九九九',
+                                    Allow_Data_Sharing__c='yes',
+                                    Preferred_Language__c = 'English',
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
+                                    
+                                    RecordTypeId=accPerson_RecordTypeId);
+       
+       insert personAcc;
+       
+       personAcc2 = new Account(Dealer_Default_Flag__c=false,
+                                    Dealer_DMS_SR_Code__c='test code 1',
+                                    Status__c='NoCustomer',
+                                    City__c='Beijin',
+                                    Gender__c = 'Male',
+                                    Phone = '08080101',
+                                    Area_code__c = '0100',
+                                    LastName = 'galaxy1',
+                                    FirstName = 'First Name',
+                                    Salutation = 'Unknown',      
+                                    Province__c = 'Shanghai',
+                                    ZipCode__c='九九九九九九九',
+                                    Allow_Data_Sharing__c='no',
+                                    Preferred_Language__c = 'English',
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
+                                    
+                                    RecordTypeId=accPerson_RecordTypeId);
+       
+       insert personAcc2;
+        
+        testLead = new Lead__c();
+        //testLead.Need_Assign_To_Dealer__c = 'Need';
+        testLead.Contact__c = personAcc.id;
+        testLead.RecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+        testLead.Lead_Type__c = 'New Car';
+        testLead.Relation_With_The_Leads__c = 'I owner';
+        testLead.Purchase_Time__c = '0 - 3 months';
+        testLead.Interested_Vehicle_Brand__c = 'MB';
+        testLead.Purchase_Time__c = '0 - 3 months';
+        
+        insert testLead;
+        
+    }
+
+
 }

@@ -279,7 +279,10 @@
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
-				
+				<sf:include name="campaignHistoryLogGenerationTest"/>
+				<sf:include name="UtilLeadTest"/>
+				<sf:include name="UtilTaskTest"/>
+				<sf:include name="VehicleDataSharingHandlerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -750,6 +753,7 @@
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="ContactTableController"/>
+		    <sf:include name="ContactTableControllerTest"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="superSortTest"/>
@@ -792,6 +796,7 @@
 			<sf:typeset name="classes">
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>

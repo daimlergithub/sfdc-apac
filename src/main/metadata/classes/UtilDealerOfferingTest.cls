@@ -40,6 +40,8 @@ public With Sharing class UtilDealerOfferingTest
             update campaignPackageObj;
             campaignPackagelst.add(campaignPackageObj);
             UtilDealerOffering.DelDealerOfferingRecords(participatinglst,campaignPackagelst);
+            campaignPackagelst.clear();
+            UtilDealerOffering.DelDealerOfferingRecords(participatinglst,campaignPackagelst);
         Test.stopTest();
     }
     public static testmethod void DelDealerOffering_Test()
@@ -59,7 +61,20 @@ public With Sharing class UtilDealerOfferingTest
             packeageItemlst.add(pacakegeItem);
             UtilDealerOffering.UpdateDOByPackageItem(packeageItemlst,'insert');
              UtilDealerOffering.UpdateDOByPackageItem(packeageItemlst,'delete');
+             packeageItemlst.clear();
+             UtilDealerOffering.UpdateDOByPackageItem(packeageItemlst,'delete');
         Test.stopTest();
+    }
+    public static testMethod void InsertDealerOfferingRecords_Part(){
+        createData();
+        Test.startTest();
+            List<Campaign_Package__c> campaignPackageNewList = [Select Id,Campaign__c,Package_Description__c,Package_Items__c,(Select Id, Offering__r.Campaign__c, Package_Name__c,Related_Campaign_ID__c from Package_Items__r) FROM Campaign_Package__c];
+            List<Participating_Dealer__c> participatingDealerlst = [Select Id,Campaign__c,Campaign_Package__c,Dealer__c,Session_End_Date__c,Session_Start_Date__c FROM Participating_Dealer__c];
+            
+            
+            UtilDealerOffering.InsertDealerOfferingRecords(participatingDealerlst,campaignPackageNewList );
+        Test.stopTest();
+        
     }
     public static void createData(){
         
