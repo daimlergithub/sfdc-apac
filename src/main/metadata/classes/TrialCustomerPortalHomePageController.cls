@@ -15,77 +15,66 @@ public class TrialCustomerPortalHomePageController {
    public String previousSortField3 {get; set;}
    public String sortField4 {get; set;}
    public String previousSortField4 {get; set;}
-    public String sortField5 {get; set;}
-   public String previousSortField5 {get; set;}
-    public String sortField6 {get; set;}
-   public String previousSortField6 {get; set;}
-   public static string ascString='asc';
-   public static string descString='desc';
-   
             
    public TrialCustomerPortalHomePageController() {
-        
-        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,createddate
+        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,CreatedById 
                                 from Asset 
                                 where ContactId = :loggedInUser.ContactId 
                                 order by SerialNumber desc limit 3];
-        
-        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate,CreatedById
+        system.debug('Logged In user..' +loggedInUser);
+        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate 
                          from Case 
                          where ContactId = :loggedInUser.ContactId 
                          order by LastModifiedDate desc limit 3];
-        
-        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate,CreatedById 
+        system.debug('Cases..' +MyRecentCases);
+        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate 
                         from Solution 
                         order by TimesUsed desc limit 3];
-                           
-        PopularIdeas = [select id,Title,Categories,VoteTotal,CreatedById,lastmodifiedbyid
+                              
+        PopularIdeas = [select id,Title,Categories,VoteTotal 
                         from Idea 
                         order by VoteTotal desc limit 3];
    }
    
-  /*  public void SortProducts(){
-        system.debug('@@@@ MyRegisteredProducts'+MyRegisteredProducts);
-        String order = ascString;
+   public void SortProducts(){
+        String order = 'asc';
         if(previousSortField1 == sortField1){
-            order = descString;
+            order = 'desc';
             previousSortField1 = null;
         }else{
             previousSortField1 = sortField1;
         }
-       system.debug('@@@@ MyRegisteredProducts1'+MyRegisteredProducts);
         superSort.sortList(MyRegisteredProducts,sortField1,order);
-    } */
-   /*  public void SortCases(){
-       String order = ascString;
+    }
+    public void SortCases(){
+        String order = 'asc';
         if(previousSortField2 == sortField2){
-            order = descString;
+            order = 'desc';
             previousSortField2 = null;
         }else{
             previousSortField2 = sortField2;
         }
         superSort.sortList(MyRecentCases,sortField2,order);
-    } */
+    }
     public void SortSolutions(){
-        String order = ascString;
+        String order = 'asc';
         if(previousSortField3 == sortField3){
-            order =descString;
+            order = 'desc';
             previousSortField3 = null;
         }else{
             previousSortField3 = sortField3;
         }
-                                     
         superSort.sortList(TopSolutions,sortField3,order);
     }
-  /*  public void SortIdeas(){
-        String order = ascString;
+    public void SortIdeas(){
+        String order = 'asc';
         if(previousSortField4 == sortField4){
-            order = descString;
+            order = 'desc';
             previousSortField4 = null;
         }else{
             previousSortField4 = sortField4;
         }
         superSort.sortList(PopularIdeas,sortField4,order);
-    } */
+    }
     
 }
