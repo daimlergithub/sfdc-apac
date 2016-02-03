@@ -216,6 +216,5 @@ public class AddressDisplayInlineEditControllerTest
         editadds[0].Address_Type__c ='Company';        
         update editadds;
         
-    }
-    }
+    }    
  }
