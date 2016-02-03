@@ -461,7 +461,7 @@
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
 			<sf:include name="SharingWrapperTest"/>
-			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="VehicleSharingWrapService"/> 
 			<sf:include name="UserService"/>
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
@@ -477,6 +477,7 @@
 		</sf:typeset>	
 		</deploy>				
     </target>
+	
 	
 	<target name="deploy36">
 		<deploy runAllTests="${sfdc.runAllTests}">

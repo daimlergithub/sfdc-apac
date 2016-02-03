@@ -17,6 +17,7 @@ public static testMethod void testSharingDataHandlerBase()
         User usr2 = UtilTestData.createUser('Dealer User', 'System Administrator');
         CMap parentIds = new CMap();
         parentIds.add('usr1', usr.Id);
+        
             
         CMap userOrGroupIds = new CMap();
         userOrGroupIds.add('usr1', usr2.Id);
