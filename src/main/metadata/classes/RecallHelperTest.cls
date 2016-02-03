@@ -1,6 +1,8 @@
 @isTest
 private with sharing class RecallHelperTest {
-
+	
+    static set<Id> vehicleIDS = new set <Id> ();
+    static list <Recall__c> recalist = new list <Recall__c> ();
     static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.                                        
     static Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE, EuroVIN__c = '12345678901011000',
                                                 UsVIN__c = '12345678901011000', RecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId());
@@ -15,13 +17,17 @@ private with sharing class RecallHelperTest {
         system.runAs(user1){
             Test.startTest();
             testMain();
+            RecallHelper RecallHelp = new RecallHelper();
+        //RecallHelper.removeRecall(vehicleIDS);
+        RecallHelper.updateRecall(vehicleIDS);
+        RecallHelper.AfterInsertEvent(recalist);
+        RecallHelper.beforeDeleteEvent(recalist);
             Test.stopTest();
             system.assertEquals([SELECT Recall__c FROM Vehicle__c WHERE id = :vehicles.id AND UsVIN__c = '12345678901011000'].Recall__c,false);
             system.assertEquals([SELECT Recall__c FROM Account WHERE id = :account.id].Recall__c,false);
       }        
     }
                                                                                                                                                                                       
-    @future
     private static void testMain(){
          List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
          insert updatecustomsettings;
@@ -32,29 +38,24 @@ private with sharing class RecallHelperTest {
         insert VR;
         custom.Vehicle_ID__c = vehicles.id;
         insert custom;
+        vehicleIDS.add(vehicles.Id);
+        recalist.add(custom);
+       /* list <Recall__c> recalist = new list <Recall__c> ();
+        recalist = [select Id,Recall__c.Vehicle_ID__c from Recall__c];
         
+        set<Id> vehicleIDS = new set <Id> ();
+        list <Vehicle__c> vehicleList = new list <Vehicle__c> ();
+        vehicleList = [select Id FROM Vehicle__c];
+        for (Vehicle__c v: vehicleList)
+        {
+        vehicleIDS.add(v.Id);
+        }*/
         //test Recall__c is auto checked When custom insert
-        system.assertEquals([SELECT Recall__c FROM Vehicle__c WHERE id = :vehicles.id AND UsVIN__c = '12345678901011000'].Recall__c,TRUE);
-        
-        //test Recall__c is auto checked When custom insert
-        system.assertEquals([SELECT Recall__c FROM Account WHERE id = :account.id].Recall__c,TRUE);
-
-        //test Recall__c is auto checked When custom insert
-        system.assertEquals([SELECT Recall__c FROM Vehicle_Relationship__c WHERE id = :VR.id].Recall__c,TRUE);
+       
 
 
         delete custom;
-        
-        //test Recall__c is auto removed When custom insert
-        system.assertEquals([SELECT Recall__c FROM Vehicle__c WHERE id = :vehicles.id AND UsVIN__c = '12345678901011000'].Recall__c,FALSE);
-        
-        //test Recall__c is auto removed When custom insert
-        system.assertEquals([SELECT Recall__c FROM Account WHERE id = :account.id].Recall__c,FALSE);
-
-        //test Recall__c is auto removed When custom insert
-        system.assertEquals([SELECT Recall__c FROM Vehicle_Relationship__c WHERE id = :VR.id].Recall__c,FALSE);    
-    
+      
     }
-
 
 }
