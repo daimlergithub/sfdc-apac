@@ -29,8 +29,8 @@ public with sharing class AccountMergeController{
     private ApexPages.StandardController controller;
     /** 
      * @Description : Reject duplicate Accouts and create new log by creating record on "Rejected_Duplicate_Log__c".
-       @            : Update slave "DUP_Number__pc" and "Dup_Reason__c" as Null and choosen MasterId on Slave Account
-       @            : Update master "DUP_Number__pc" as "Null" and Master_Record__c as "False"
+       @            : Update slave "DUPNumber__c" and "Dup_Reason__c" as Null and choosen MasterId on Slave Account
+       @            : Update master "DUPNumber__c" as "Null" and Master_Record__c as "False"
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)   
      * @return : Master account record would be appeared.
@@ -41,17 +41,18 @@ public with sharing class AccountMergeController{
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
             return Null;           
             } else{  
-            getMasterAndslaveId();               
-           Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
+            getMasterAndslaveId();            
+            master=getQueriedAccount(chosenMasterId);      
+            Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
             Master_Account__c = master.Id,
             Duplicate_Account__c = chosenSlaveId ,
             Duplicate_Reason_Code__c = chosenDupReason,
-			DUPNumber__c = master.DUPNumber__c
+            DUPNumber__c = master.DUPNumber__c
           );
         // If this rejected account is the last one, just return master record
         // detail page
         Integer dupCount = [SELECT COUNT() FROM Account 
-                                 WHERE DUP_Number__pc = :master.DUP_Number__pc 
+                                 WHERE DUPNumber__c = :master.DUPNumber__c 
                                  AND Master_Record__c = False];
         SavePoint sp = Database.setSavepoint();
        
@@ -137,11 +138,11 @@ public with sharing class AccountMergeController{
         controller = con;  
         Account acc = this.getQueriedAccount(con.getId());
         // Populate dupNummer used in  soql
-        String dupNummer = acc.DUP_Number__pc;       
+        String dupNummer = acc.DUPNumber__c;       
         slaves=new List<Account>();
         slaves=  [Select Name,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                 DUP_Number__pc,Id,(Select Name from Account_Links1__r) FROM Account
-                 WHERE DUP_Number__pc =:dupNummer AND DUP_Number__pc != null];            
+                 DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
+                 WHERE DUPNumber__c =:dupNummer AND DUPNumber__c != null];            
           
          
         // Initiate hasMessage and wraps
@@ -150,8 +151,8 @@ public with sharing class AccountMergeController{
         getMasterAndslaveId();
         try{           
           master = Database.query('SELECT ' + this.getSOQLFieldList(this.fieldAPIList) +                
-                ' Phone,IsPersonAccount,DUP_Number__pc, Name,Id FROM Account ' +
-                ' WHERE DUP_Number__pc =\''+dupNummer+'\''+
+                ' Phone,IsPersonAccount,DUPNumber__c, Name,Id FROM Account ' +
+                ' WHERE DUPNumber__c =\''+dupNummer+'\''+
                 ' AND Master_Record__c = true');
          slave = this.getQueriedAccount(chosenSlaveId);      
                 }
@@ -181,18 +182,19 @@ public with sharing class AccountMergeController{
         String soql = 'SELECT ' + this.getSOQLFieldList(this.fieldAPIList) /*+ 
            this.getSOQLFieldList(FieldMappingConstant.PHONE_DMS_FIELDS_MAPPING.values())*/;
         
-        // Prevent duplicate Master_Record__c and DUP_Number__pc in SOQL Field List,
+        // Prevent duplicate Master_Record__c and DUPNumber__c in SOQL Field List,
         if (!soql.contains('Master_Record__c')) {
            soql += 'Master_Record__c, ';
         }
         
-        if (!soql.contains('DUP_Number__pc')) {
-           soql += 'DUP_Number__pc, ';
+        if (!soql.contains('DUPNumber__c')) {
+           soql += 'DUPNumber__c, ';
         }
         
         if (!soql.contains('Dup_Reason__c')) {
            soql += 'Dup_Reason__c, ';
         }
+        
         
         return Database.query(soql + 
             ' IsPersonAccount,phone,Name,Id,PersonEmail  FROM Account WHERE Id =\''+accId+'\'');
