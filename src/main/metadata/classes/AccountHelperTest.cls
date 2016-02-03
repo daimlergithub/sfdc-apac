@@ -11,7 +11,7 @@ Private static Lead__c le1;
 public static void preparedTestData()
 {
 
-List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();   
 insert updatecustomsettings; 
 customer1 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='',
@@ -87,4 +87,9 @@ customer1 = new Account(Dealer_Default_Flag__c=false,
       customer1id.add(customer1.id);
       AccountHelper.updateLeads(customer1id);
     } 
+    /*public static testmethod void TriggerAccountTriggerHandler(){
+        TriggerAccountTriggerHandler AccountTriggerHandler =new TriggerAccountTriggerHandler();
+          AccountTriggerHandler.handleTrigger(false,true,true,false,true);
+         AccountTriggerHandler.handleIntegrationTrigger(false,false,false,false,false);
+    }*/
 }

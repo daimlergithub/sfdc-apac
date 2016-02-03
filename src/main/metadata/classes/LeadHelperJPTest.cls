@@ -26,8 +26,6 @@ public class LeadHelperJPTest
         update lead1;
         
         Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount2.Id];
-        TriggerLeadTriggerHandlerJP TriggerLeadHandlerJP = new TriggerLeadTriggerHandlerJP();
-        TriggerLeadHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
         
         system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
         
@@ -159,6 +157,11 @@ public class LeadHelperJPTest
         AccLink.toRole__c = DealerAccount.id;
         insert AccLink; 
         
+    }
+    public static testmethod void TriggerAccountLinkTriggerHandlerJP(){
+       TriggerAccountLinkTriggerHandlerJP AccountLinkTriggerHandlerJP =new TriggerAccountLinkTriggerHandlerJP();
+          AccountLinkTriggerHandlerJP.handleTrigger(false,false,false,false,false);
+         AccountLinkTriggerHandlerJP.handleIntegrationTrigger(false,false,false,false,false);
     }
     
     
