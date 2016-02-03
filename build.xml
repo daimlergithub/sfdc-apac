@@ -640,7 +640,9 @@
 			<sf:include name="RetailCampaignTriggerHandler"/>
 			<sf:include name="RetailTaskSharingTest"/>
 			<sf:include name="RetailTaskSharingWrapService"/>
+			<sf:include name="TestUserTriggerCalloutRequestMock"/>
 			<sf:include name="RuishiWebService"/>
+			<sf:include name="RuishiWebServiceTest"/>			
 			<sf:include name="TriggerRetailCampaignMemberHandler"/>
 			<sf:include name="TriggerRetailCampaignTest"/>
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
