@@ -114,7 +114,7 @@ public class GenerateCatalogueCsvTest
         DealerAccount.City__c='Test';
         DealerAccount.Email__c='test@mbj.com';
         DealerAccount.Mobile__c ='0435488899';
-        DealerAccount.ZipCode__c = '七七七七七七七';
+        DealerAccount.ZipCode__c = '1021421';
         
         insert DealerAccount;
         
@@ -125,7 +125,7 @@ public class GenerateCatalogueCsvTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
-        objAccount.ZipCode__c = '七七七七七七七';
+        objAccount.ZipCode__c = '1003425';
         objAccount.Email__c='test@mbj.com';
         objAccount.Mobile__c ='0435488899';
         objAccount.Phone = '08022420181';

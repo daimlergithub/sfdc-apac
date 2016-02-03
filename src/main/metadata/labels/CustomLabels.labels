@@ -2659,7 +2659,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Request</shortDescription>
-        <value>R e c e p t i o n</value>
+        <value>Reception</value>
     </labels>
     <labels>
         <fullName>RequestContenttoDealer</fullName>

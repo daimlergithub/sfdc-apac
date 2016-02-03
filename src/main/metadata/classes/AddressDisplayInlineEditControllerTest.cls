@@ -52,28 +52,7 @@ public class AddressDisplayInlineEditControllerTest
         system.assertEquals(objAddress.Customer__c, objAccount.id);
         
     }
-    
-    /**    
-     * @Description : saves edited records
-     * @author      : Sudhir
-     * @Date        : 12/7/2015 
-   **/
-    
-    public static testMethod void testSaveEditedRecords()
-    {
-        init();
-        
-        test.startTest();
-        ApexPages.currentPage().getParameters().put('Id',objAccount.id);
-        ApexPages.currentPage().getParameters().put('editaddressId',objaddress.id);
-        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);
-        objAddressDisplayInlineEditController.addressobj = editadds[0];
-        objAddressDisplayInlineEditController.saveEditedRecords();
-        test.stopTest();
-        system.assertEquals(null,editaddressId,editadds[0]);
-    }
-    
+
     /**    
      * @Description : creation of new address record
      * @author      : Sudhir
