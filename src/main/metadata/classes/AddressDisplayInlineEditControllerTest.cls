@@ -217,11 +217,5 @@ public class AddressDisplayInlineEditControllerTest
         update editadds;
         
     }
-    /* Description :Coverage for TriggerAddressTriggerHandlerJP */
-
-    public static testmethod void TestTriggerAddressTriggerHandlerJP(){
-        TriggerAddressTriggerHandlerJP AddressTriggerHandlerJP=new TriggerAddressTriggerHandlerJP();
-          AddressTriggerHandlerJP.handleTrigger(false,false,false,false,false);
-          AddressTriggerHandlerJP.handleIntegrationTrigger(false,false,false,false,false);
     }
  }

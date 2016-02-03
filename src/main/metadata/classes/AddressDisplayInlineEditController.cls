@@ -49,23 +49,7 @@ public class AddressDisplayInlineEditController {
              editaddressId=Null;
          }             
     }
-    
-   
-    /**    
-     * @Description : saves edited records
-     * @author      : Srinivas
-     * @Date        : 11/3/2015    
-      
-    **/  
-   public void saveEditedRecords(){
-       system.debug('@Changed Address Records :' +adds);
-           try{
-            update adds;
-           }catch (DmlException e) {
-             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
-           }
-   }
-   
+	
    
     /**    
      * @Description : to load updated data after deletion of address
@@ -218,7 +202,7 @@ public class AddressDisplayInlineEditController {
                     else 
                     {
                     	refreshPage= true;                
-                    	insert addressobj;
+                    	update addressobj;
                     }
                 }
             catch (DmlException e) 
