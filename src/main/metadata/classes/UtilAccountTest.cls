@@ -5,7 +5,7 @@ public with sharing class UtilAccountTest
     public static List<Account> acc1 = Database.query('select id from Account where Id =:accPerson_RecordTypeId');
     public static Account personAcc;
     public static Account personAcc2;
-    public static Lead__c testLead;
+    public static Lead__c testLead; 
     
     
     public static testmethod void test_updateLeadForDataSharing()
