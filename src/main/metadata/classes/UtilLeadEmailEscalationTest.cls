@@ -19,7 +19,7 @@ public static void preparedTestData()
                                     Area_code__c = '010',
                                     LastName = 'galaxy1',
                                     Province__c = 'Shanghai',
-                                    ZipCode__c='???????',
+                                    ZipCode__c='1002435',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce'); 
@@ -28,7 +28,7 @@ public static void preparedTestData()
                      listacc = new List<Account>();
                      for (Integer i=0;i<1;i++)
                       {
-                     customer3 = new Account(name='test',Status__c='Other',City__c='Beijing',Phone = '080801010',Area_code__c = '010',ZipCode__c='???????');
+                     customer3 = new Account(name='test',Status__c='Other',City__c='Beijing',Phone = '080801010',Area_code__c = '010',ZipCode__c='1006785');
                      listacc.add(customer3);                    
                       }
                       insert listacc;

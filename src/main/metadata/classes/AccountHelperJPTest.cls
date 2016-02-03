@@ -8,6 +8,7 @@
 public with sharing class AccountHelperJPTest 
 {
     private static Account personAcc;
+    private static Account companyacc;
     private static User user1;
     private static Address__c address;
     private static List<Account> accountlist = new List<Account>();
@@ -15,37 +16,58 @@ public with sharing class AccountHelperJPTest
     private static Profile profile = [select Id from Profile where Name = 'System Administrator'];
     private static string en_US='en_US';
     Private static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    Private static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     
     //Create Test data
-    public static void createTestData()
+   public static void createTestData()
    {       
-       //Create Custom Settings 
+                   //Create Custom Settings         
        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
        insert updatecustomsettings;
        
        personAcc = new Account(Dealer_Default_Flag__c=false,
-                                    Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
-                                    Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                                    City__c='Beijing',
-                                    Gender__c = 'Male',
-                                    Phone = '0801801010',
-                                    Area_code__c = '0101',
-                                    MD__c = 'JP',
-                                    LastName = 'galaxy1',
-                                    FirstName = 'First Name',
-                                    Salutation = 'Unknown',      
-                                    Province__c = 'Shanghai',
-                                    ZipCode__c= System.Label.Zipcode,
-                                    Mobile__c = '023482832',
-                                    Mobile2__c = '035456232',
-                                    Primary_Email__c = 'Email3',
-                                    Primary_Fax__c = 'FAX2',
-                                    Primary_Phone__c ='Other2',
-                                    RecordTypeId=accPerson_RecordTypeId);
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801010',
+                               Area_code__c = '0101',
+                               MD__c = 'JP',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'Email3',
+                               Primary_Fax__c = 'FAX2',
+                               Primary_Phone__c ='Other2',
+                               RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
        accountlist.add(personAcc);
+       companyacc = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown',      
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '023482832',
+                                Mobile2__c = '035456232',
+                                Primary_Email__c = 'Email3',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                RecordTypeId=accCompany_RecordTypeId);
        
+       insert companyacc;
+
     address=new Address__c();
         address.Address_Type__c='Home';
         address.Province__c='test1';
@@ -62,7 +84,7 @@ public with sharing class AccountHelperJPTest
      user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = en_US,
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US,Market__c = 'JP');
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US);
         insert user1;               
      }
     public static testmethod void testupdateAccountFieldsupdate()
@@ -88,9 +110,9 @@ public with sharing class AccountHelperJPTest
         update personAcc;
         test.stopTest();
             
-        personAcc = [select Primary_Phone_Display__c,Mobile2__c from Account ];
+        personAcc = [select Primary_Phone_Display__c,Mobile2__c from Account where id =:personAcc.Id];
         system.assertEquals(personAcc.Primary_Phone_Display__c, personAcc.Mobile2__c);
-        }
+                }
     }    
     public static testmethod void testupdatePrimaryAddressdisplay()
     {
@@ -105,7 +127,7 @@ public with sharing class AccountHelperJPTest
         
         personAcc = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
         system.assertEquals(personAcc.Primary_Address_Display__c, address.Province__c+address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c+address.Address_Line_2__c);
-        }
+                }
     }   
     public static testmethod void testupdatePrimaryContactInformation()
     {
@@ -120,14 +142,8 @@ public with sharing class AccountHelperJPTest
         personAcc.Primary_Phone__c = 'Home Phone';
         update personAcc;
         test.stopTest();
-        personAcc = [select Primary_Email_Display__c,Email__c from Account ];
+        personAcc = [select Primary_Email_Display__c,Email__c from Account where ID =:personacc.Id];
         system.assertEquals(personAcc.Primary_Email_Display__c, personAcc.Email__c);
         }
-    } 
-     public static testmethod void TriggerAccountTriggerHandlerJP(){
-        TriggerAccountTriggerHandlerJP AccountTriggerHandlerJP=new TriggerAccountTriggerHandlerJP();
-          AccountTriggerHandlerJP.handleTrigger(false,false,false,false,false);
-          AccountTriggerHandlerJP.handleIntegrationTrigger(false,false,false,false,false);
-    } 
-    
+    }    
 }

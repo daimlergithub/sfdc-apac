@@ -30,7 +30,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
-                                      ZipCode__c='五五五五五五五',
+                                      ZipCode__c='1024371',
                                       PersonMobilePhone='1235678910',
                                       RecordTypeId=accPerson_RecordTypeId
                                      );        

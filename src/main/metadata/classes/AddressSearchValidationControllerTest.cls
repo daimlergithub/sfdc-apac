@@ -153,7 +153,7 @@ public class AddressSearchValidationControllerTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
-        objAccount.ZipCode__c = '五五五五五五五';
+        objAccount.ZipCode__c = '1004236';
         objAccount.Email__c='test@mbj.com';
         objAccount.Mobile__c ='0435488899';
         objAccount.Phone = '08022420181';
@@ -175,7 +175,7 @@ public class AddressSearchValidationControllerTest
         personAcc.Status__c='Active';
         personAcc.Province__c='Province1';
         personAcc.City__c='Test';
-        personAcc.ZipCode__c = '五五五五五五五';
+        personAcc.ZipCode__c = '1004287';
         personAcc.Email__c='test@mbj.com';
         personAcc.Mobile__c ='0435488899';
         personAcc.Phone = '08022420181';
