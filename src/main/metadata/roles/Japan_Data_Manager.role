@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>Supervisor</description>
+    <description>Japan Data Manager</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Supervisor</name>
+    <name>Japan Data Manager</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
-    <parentRole>MBJ_CRM_Department</parentRole>
+    <parentRole>MBJ_IT_Department</parentRole>
 </Role>
