@@ -1,24 +1,19 @@
 /*
     Type:      class
     Purpose:   Test class for AccountHelperJP
-    Create By: Sudhir Kumar Acharya
+    Create By: Sneha Chail
+    Created Date :2/4/2016
 */
-
 @isTest
 public with sharing class AccountHelperJPTest 
 {
-    private static Account personAcc;
-    private static Account companyacc;
-    private static User user1;
-    private static Address__c address;
-    private static List<Account> accountlist = new List<Account>();
-    Private static map<id,Account> accountMap =  new map<id,Account>();
-    private static Profile profile = [select Id from Profile where Name = 'System Administrator'];
-    private static string en_US='en_US';
-    Private static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-    Private static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-    
-    //Create Test data
+   private static List<Account> accountlist = new List<Account>();
+   Private static map<id,Account> accountMap =  new map<id,Account>();
+   private static User user1;
+   private static Account personAcc;
+   private static Account companyacc;
+   
+     //Create Test data
    public static void createTestData()
    {       
                    //Create Custom Settings         
@@ -30,7 +25,7 @@ public with sharing class AccountHelperJPTest
                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                City__c='Beijing',
                                Gender__c = 'Male',
-                               Phone = '0801801010',
+                               Phone = '0801801110',
                                Area_code__c = '0101',
                                MD__c = 'JP',
                                LastName = 'galaxy1',
@@ -40,12 +35,12 @@ public with sharing class AccountHelperJPTest
                                ZipCode__c= '1002347',
                                Mobile__c = '023482832',
                                Mobile2__c = '035456232',
-                               Primary_Email__c = 'Email3',
+                               Primary_Email__c = 'Email1',
                                Primary_Fax__c = 'FAX2',
                                Primary_Phone__c ='Other2',
-                               RecordTypeId=accPerson_RecordTypeId);
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
        
-       insert personAcc;
+      // insert personAcc;
        accountlist.add(personAcc);
        companyacc = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
@@ -59,42 +54,33 @@ public with sharing class AccountHelperJPTest
                                 //Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
                                 ZipCode__c= '1003465',
-                                Mobile__c = '023482832',
-                                Mobile2__c = '035456232',
-                                Primary_Email__c = 'Email3',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
-                                RecordTypeId=accCompany_RecordTypeId);
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
-       insert companyacc;
-
-    address=new Address__c();
-        address.Address_Type__c='Home';
-        address.Province__c='test1';
-        address.City__c='bangalore';
-        address.District__c='test2';
-        address.Block__c='test3';
-        address.Address_Line_1__c='testaddress1';
-        address.Address_Line_2__c='testaddress2';
-        address.Customer__c=personAcc.id;
-        insert address;     
+      //insert companyacc;
+      accountlist.add(companyacc);
+      insert accountlist;  
+      for(Account acc: accountlist){
+         accountMap.put(acc.Id,acc);
+       }
    }
-    public static void createuserrecord()
-     {
-     user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = en_US,
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = en_US);
-        insert user1;               
+    Public static testmethod void testUpdateAccountFieldsBeforeInsert()
+     { 
+      createTestData();      
+      Test.Starttest();     
+      AccountHelperJP.updateAccountFieldsBeforeInsert(accountlist,true);
+      Test.Stoptest();
+      system.assertEquals(personAcc.Email_Last_Modified_By3__c,UserInfo.getName());
+      system.assertEquals(personAcc.Email_Last_Modified_Date3__c,System.now());
      }
-    public static testmethod void testupdateAccountFieldsupdate()
-    {
-        createuserrecord();
-        createTestData();
-        accountMap.putAll(accountlist);
-        system.runAs(user1)
-        {
-        test.startTest();
+    Public static testmethod void testUpdateAccountFieldsBeforeUpdate()
+     {
+      createTestData(); 
+      Test.Starttest(); 
         personAcc.Mobile__c = '054323424';
         personAcc.Mobile2__c = '054234423';
         personAcc.Individual_Home_Phone__c = '06585855';
@@ -106,44 +92,43 @@ public with sharing class AccountHelperJPTest
         personAcc.Email3__c = 'testemail333@test.com';
         personAcc.Primary_Fax__c = 'FAX1';
         personAcc.Primary_Email__c = 'Email2';
-        personAcc.Primary_Phone__c = 'Work Mobile';
+        personAcc.Primary_Phone__c = 'Work Mobile';   
         update personAcc;
-        test.stopTest();
-            
-        personAcc = [select Primary_Phone_Display__c,Mobile2__c from Account where id =:personAcc.Id];
-        system.assertEquals(personAcc.Primary_Phone_Display__c, personAcc.Mobile2__c);
-                }
-    }    
-    public static testmethod void testupdatePrimaryAddressdisplay()
-    {
-        createuserrecord();
-        createTestData();
-        system.runAs(user1)
-        {
-        test.startTest();
-        personAcc.Primary_Address_Reference__c=address.id;
-        update personAcc;
-        test.stopTest();
-        
-        personAcc = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
-        system.assertEquals(personAcc.Primary_Address_Display__c, address.Province__c+address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c+address.Address_Line_2__c);
-                }
-    }   
-    public static testmethod void testupdatePrimaryContactInformation()
-    {
-        createuserrecord();
-        createTestData();
-        accountMap.putAll(accountlist);
-        system.runAs(user1)
-        {
-        test.startTest();
-        personAcc.Primary_Fax__c = 'FAX2';
-        personAcc.Primary_Email__c = 'Email1';
-        personAcc.Primary_Phone__c = 'Home Phone';
-        update personAcc;
-        test.stopTest();
-        personAcc = [select Primary_Email_Display__c,Email__c from Account where ID =:personacc.Id];
-        system.assertEquals(personAcc.Primary_Email_Display__c, personAcc.Email__c);
-        }
-    }    
-}
+        AccountHelperJP.updateAccountFieldsBeforeUpdate(accountlist,accountMap,true);
+      Test.Stoptest();           
+    } 
+     Public static testmethod void testUpdatePrimaryAddressdisplay()
+      {
+       createTestData(); 
+       Test.Starttest(); 
+       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,true);
+       Test.Stoptest();      
+     }  
+    Public static testmethod void testUpdatePrimaryContactInformationBeforeInsert()
+     {  
+      createTestData(); 
+      Test.Starttest(); 
+       AccountHelperJP.updatePrimaryContactInformationBeforeInsert(accountlist,true);
+      Test.Stoptest();         
+     } 
+    public static testmethod void testUpdatePrimaryContactInformationBeforeUpdate()
+     {  
+      createTestData(); 
+      Test.Starttest();  
+      personAcc.Primary_Fax__c = 'FAX1';
+      personAcc.Primary_Email__c = 'Email3';
+      personAcc.Primary_Phone__c = 'Home Phone';
+      update personAcc;  
+       AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(accountlist,accountMap,true);
+      Test.Stoptest();      
+     }
+   public static testmethod void testcreateUCID()
+     {  
+      createTestData(); 
+      Test.Starttest();     
+       AccountHelperJP.createUCID(accountlist,true);
+      Test.Stoptest();      
+     }
+      
+  }    
+  
