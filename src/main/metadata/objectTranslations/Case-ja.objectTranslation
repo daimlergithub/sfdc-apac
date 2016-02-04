@@ -13647,25 +13647,7 @@
             <section>Vehicle Owner Details</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Inquiry Layout - CAC(IB/OB)</layout>
-        <sections>
-            <label><!-- Case Feedback --></label>
-            <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Info --></label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label><!-- Inquiry Information --></label>
-            <section>Inquiry Information</section>
-        </sections>
-        <sections>
-            <label><!-- Other Information --></label>
-            <section>Other Information</section>
-        </sections>
-    </layouts>
+    
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
         <name>Chrysler_Complaint</name>
