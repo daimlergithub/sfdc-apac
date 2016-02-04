@@ -265,6 +265,8 @@
 				<sf:include name="TriggerCampaignTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
+				<sf:include name="DMRequestHelperJP"/>
+				<sf:include name="DMRequestHelperJPTest"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
 				<sf:include name="TriggerRecallTriggerHandlerJP"/>
 				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
@@ -657,7 +659,6 @@
 			<sf:include name="CampaignHelper"/>
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
-			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
@@ -791,6 +792,7 @@
 			<sf:typeset name="triggers">
 				<sf:exclude name="TriggerCase"/>
 				<sf:exclude name="TriggerPackageItem"/>
+				<sf:exclude name="chatter_answers_question_escalation_to_case_trigger"/>
 			</sf:typeset>
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">

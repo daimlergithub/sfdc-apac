@@ -3,7 +3,7 @@
     <outboundMessages>
         <fullName>Rejected_Duplicate_Log_Sync</fullName>
         <apiVersion>35.0</apiVersion>
-        <endpointUrl>https://crm-int.mercedes-benz.com.cn/webservices/RejectedDuplicateLogSync</endpointUrl>
+        <endpointUrl>https://crm-salesforce-int.mercedes-benz.com/webservices/SuspectedDuplicateNotification</endpointUrl>
         <fields>Duplicate_Account__c</fields>
         <fields>Duplicate_Reason_Code__c</fields>
 		<fields>DUPNumber__c</fields>
