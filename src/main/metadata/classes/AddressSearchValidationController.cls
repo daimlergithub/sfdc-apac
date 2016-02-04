@@ -15,7 +15,7 @@ public class AddressSearchValidationController
     public string selectedRecordType{get;set;}
     public Account objAccount{get;set;}
     public Account objPersonAccount{get;set;}
-    public string strHeaderTitle{get;set;}
+    public boolean refreshPage {get; set;}
     public string accountOwner{get;set;}
     public string recordType{get;set;}
     public id recordTypeId;
@@ -30,13 +30,14 @@ public class AddressSearchValidationController
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
+       // refreshPage = false;
     }
     
 /**  Save Account based on two scenarios 
  * 1. With Validated Address information record.
  * 2.Without Address record.
 **  Created By: Narasimha  
-**  Date: 2016-1-19
+**  Date: 2016-1-19 
 **/
     public pagereference saveAccount()
     {
@@ -60,6 +61,7 @@ public class AddressSearchValidationController
                     }
                     else
                     {
+                        refreshPage = true;
                         insert objAccount ;
                         PageReference pageRef = new PageReference('/'+objAccount.Id); 
                         return PageRef;
@@ -80,6 +82,7 @@ public class AddressSearchValidationController
                     }
                     else
                     {
+                        refreshPage = true;
                         insert objPersonAccount ;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id); 
                         return PageRef;
@@ -92,6 +95,7 @@ public class AddressSearchValidationController
             }
             catch(DMLException e)
             {
+                refreshPage = false;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));      
             }
             
@@ -119,6 +123,7 @@ public class AddressSearchValidationController
                     }
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {
+                        refreshPage = true;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         insert AddressObj;
@@ -147,6 +152,7 @@ public class AddressSearchValidationController
                     
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {
+                        refreshPage = true;
                         insert objPersonAccount ;
                         AddressObj.Customer__c = objPersonAccount.id;
                         
@@ -162,6 +168,7 @@ public class AddressSearchValidationController
                 }
             }
             catch(DMLException e){
+                refreshPage = false;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));      
             }
         }
@@ -193,6 +200,7 @@ public class AddressSearchValidationController
     
     public void AddressSearchbyZipCode()
     {
+        
         if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
         {
             AddressObj.Address_Code__c = '';
@@ -205,22 +213,60 @@ public class AddressSearchValidationController
             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
         }
-        if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
+        
+        if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Block__c != null || AddressObj.City__c != null ||
+          AddressObj.District__c != null || AddressObj.Province__c != null )
         {
-            system.debug('!!!!!!!' +'entering block after data correction');
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null)); 
+            
+        }
+        
+        
+       else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
+        {
+            
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
             response =  UtilWebservice.validateAddressByZipCode(AddressObj);
+            
             if(response != null && response.ValidationStatus == 'OK')
             {
-                
                 AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-                AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
-                AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
-                AddressObj.Block__c = response.Addresses[0].Block;
-                AddressObj.City__c = response.Addresses[0].City;
-                AddressObj.District__c = response.Addresses[0].District;
-                AddressObj.Province__c = response.Addresses[0].Province;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+                
+                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
+                {
+                    String ValidStr = response.Addresses[0].ValidFields;
+                    system.debug('valid string ------'+ ValidStr );
+                    
+                    if(ValidStr.contains('Address_Line_1__c'))
+                    {
+                       
+                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                    }
+                    if(ValidStr.contains('Address_Line_2__c'))
+                    {
+                        
+                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                    }
+                    if(ValidStr.contains('Block__c'))
+                    {
+                        
+                         AddressObj.Block__c = response.Addresses[0].Block;
+                    }
+                    if(ValidStr.contains('City__c'))
+                    {
+                         AddressObj.City__c = response.Addresses[0].City;
+                    }
+                    if(ValidStr.contains('District__c'))
+                    {
+                         AddressObj.District__c = response.Addresses[0].District;
+                    }
+                    if(ValidStr.contains('Province__c'))
+                    {
+                        AddressObj.Province__c = response.Addresses[0].Province;
+                    }
+                
+                }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
             {
@@ -267,13 +313,37 @@ EP/Tolerant for Validation.
             {
                 Address_Validated_Flag = true;
                 AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-                AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
-                AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
-                AddressObj.Block__c = response.Addresses[0].Block;
-                AddressObj.City__c = response.Addresses[0].City;
-                AddressObj.District__c = response.Addresses[0].District;
-                AddressObj.Province__c = response.Addresses[0].Province;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+                
+                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
+                {
+                    String ValidStr = response.Addresses[0].ValidFields;
+                    if(ValidStr.contains('Address_Line_1__c'))
+                    {
+                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                    }
+                    if(ValidStr.contains('Address_Line_2__c'))
+                    {
+                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                    }
+                    if(ValidStr.contains('Block__c'))
+                    {
+                         AddressObj.Block__c = response.Addresses[0].Block;
+                    }
+                    if(ValidStr.contains('City__c'))
+                    {
+                         AddressObj.City__c = response.Addresses[0].City;
+                    }
+                    if(ValidStr.contains('District__c'))
+                    {
+                         AddressObj.District__c = response.Addresses[0].District;
+                    }
+                    if(ValidStr.contains('Province__c'))
+                    {
+                        AddressObj.Province__c = response.Addresses[0].Province;
+                    }
+                
+                }
                 
             }
             if(response != null && response.ValidationStatus == 'ERROR')
