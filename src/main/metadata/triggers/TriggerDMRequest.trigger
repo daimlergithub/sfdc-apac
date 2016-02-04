@@ -9,7 +9,7 @@
     11-Mar-2013 Chris Huang (Breakingpoint)    Created
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerDMRequestTriggerHandler
 */
-trigger TriggerDMRequest on DM_Request__c (after insert, after update) 
+trigger TriggerDMRequest on DM_Request__c (after insert, after update,before insert,before update) 
 {
-    TriggerUtil.handleTrigger('TriggerDMRequest');
+    TriggerUtil.handleTrigger('TriggerDMRequest'); 
 }

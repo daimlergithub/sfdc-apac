@@ -213,6 +213,7 @@ public class TaskTriggerHandler
     
     public static void generateWelcomeCall(Task tk, Task old){
         getRecordTypeId();
+        system.debug('1::'+tk.RecordTypeId+':::2::'+tk.Subject+'###3'+tk.AccountId+'::4'+ tk.Status+'$$5$$$'+old.Status);
         // By Shuang Li US-smart_SSI-008---- start
         if (tk.RecordTypeId == SSIRTID && tk.Subject == WELAND1STSURVEY && tk.AccountId !=null 
             && tk.Status == UtilConstant.CLOSED && old.Status != UtilConstant.CLOSED

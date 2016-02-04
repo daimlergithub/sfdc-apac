@@ -338,6 +338,10 @@
             <translation><!-- Open --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Returned</masterLabel>
             <translation><!-- Returned --></translation>
         </picklistValues>
@@ -423,12 +427,36 @@
         <name>Attention_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Please make sure both Expected DM Material and the status has a value. --></errorMessage>
+        <name>Expected_DM_Material1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Pleaes make sure both Expected DM Material and the status has a value. --></errorMessage>
+        <name>Expected_DM_Material2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Pleaes make sure both Expected DM Material and the status has a value. --></errorMessage>
+        <name>Expected_DM_Material3</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Lead is required if your delivery type is 4. --></errorMessage>
         <name>Lead_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Rejected&quot;. --></errorMessage>
+        <name>Manual_Status_Change_Reject</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Approving&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Approve_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;to be sent&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Be_Sent</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Province should be less than or equal to 10 letters. --></errorMessage>

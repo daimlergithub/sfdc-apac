@@ -6058,6 +6058,26 @@ Allows up to 240 characters --></help>
         <label>参照番号（福祉車両）等級</label>
         <name>Special_Needs_Class__c</name>
         <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
         </picklistValues>
@@ -6936,6 +6956,7 @@ Allows up to 240 characters --></help>
             <section>Profile Information</section>
         </sections>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </layouts> -->
    
    <!-- <layouts>
@@ -6959,11 +6980,11 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>-->
     <recordTypes>
-        <label>法人</label>
+        <label>Company</label>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label>販売店</label>
+        <label>Dealer</label>
         <name>Dealer</name>
     </recordTypes>
     <validationRules>
