@@ -348,10 +348,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ChatterAnswersEscalationTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ChatterAnswersEscalationTriggerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -648,6 +644,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>RuishiWebServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -701,6 +701,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SharingWrapperService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SharingWrapperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -777,6 +781,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestUserCreate</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestUserTriggerCalloutRequestMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -885,6 +893,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignTriggerHandlerJP</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -6064,6 +6076,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Improvement_Department__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Info_Source__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6565,6 +6582,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Registration_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Related_Department__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11835,6 +11857,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Recall__c.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Rejected_Duplicate_Log__c.DUPNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

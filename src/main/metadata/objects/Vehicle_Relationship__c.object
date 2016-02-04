@@ -1359,7 +1359,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
             <filterItems>
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
-                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+                <value>Company, PersonAccount, Person_Account_Manual_Merge, Person_Account_Soft_Deleted</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

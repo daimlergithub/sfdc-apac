@@ -6053,6 +6053,22 @@
             <translation><!-- Closed --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Escalation Confirmed</masterLabel>
+            <translation><!-- Escalation Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Raised</masterLabel>
+            <translation><!-- Escalation Raised --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
+            <translation><!-- Escalation Raised &amp; Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Request</masterLabel>
+            <translation><!-- Escalation Request --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Final approval done</masterLabel>
             <translation>最終承認済</translation>
         </picklistValues>
@@ -8767,6 +8783,14 @@
         <name>Has_Feedback__c</name>
     </fields>
     <fields>
+        <label><!-- Improvement Department --></label>
+        <name>Improvement_Department__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Info Source --></label>
         <name>Info_Source__c</name>
         <picklistValues>
@@ -9782,6 +9806,14 @@
     <fields>
         <label><!-- Registration Number --></label>
         <name>Registration_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Department --></label>
+        <name>Related_Department__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>車両保証情報</label>
@@ -13615,6 +13647,7 @@
             <section>Vehicle Owner Details</section>
         </sections>
     </layouts>
+    
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
         <name>Chrysler_Complaint</name>
@@ -13678,6 +13711,22 @@
     <validationRules>
         <errorMessage><!-- Please fill in Suspended Date &amp; Suspended Reason --></errorMessage>
         <name>Change_Progress_Status_to_Suspended_rule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>MBJ/MBFステータスを手動で「完了」に変更することはできません。</errorMessage>
+        <name>Change_To_Closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>MBJ/MBFステータスを手動で「最終承認済」に変更することはできません。</errorMessage>
+        <name>Change_To_Final_Approval_Done</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>MBJ/MBFステータスを手動で「最終承認差し戻し」に変更することはできません。</errorMessage>
+        <name>Change_To_Final_Approval_Rejected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>MBJ/MBFステータスを手動で「最終承認依頼（CM対応完了承認依頼）」に変更することはできません。</errorMessage>
+        <name>Change_To_Waiting_for_Final_Approval</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Please fill in Overdue Reason --></errorMessage>
@@ -13851,4 +13900,13 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
+    <workflowTasks>
+        <name>approval</name>
+        <subject><!-- approval needed --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- Please check the Case Closing Approval Step 2 --></description>
+        <name>test_Approval_process_alert</name>
+        <subject><!-- test Approval process alert --></subject>
+    </workflowTasks>
 </CustomObjectTranslation>

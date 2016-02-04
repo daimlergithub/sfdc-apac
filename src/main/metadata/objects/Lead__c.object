@@ -2374,6 +2374,10 @@
                 <fullName>Not Allocated</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7635,6 +7639,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19011,8 +19019,8 @@ Company_Account__r.Work_Phone__c  ,
     <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -19020,8 +19028,8 @@ Company_Account__r.Work_Phone__c  ,
     <listViews>
         <fullName>MBJ_Lead</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -19029,12 +19037,22 @@ Company_Account__r.Work_Phone__c  ,
     <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
-        <label>Supervisor</label>
-        <queue>Supervisor</queue>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -44952,6 +44970,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -47755,6 +47777,10 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
                 <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -66004,6 +66030,30 @@ ISNULL(Lost_Dealer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Lost_Dealer_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Approve_Check</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Approving".</description>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approving')</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Approving".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Approved_Check</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Approved".</description>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approved')</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Approved".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Rejected_Check</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Rejected".</description>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Rejected')</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer</fullName>
