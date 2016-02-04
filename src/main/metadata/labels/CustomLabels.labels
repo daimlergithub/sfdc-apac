@@ -130,6 +130,14 @@
         <value>Address Search</value>
     </labels>
     <labels>
+        <fullName>Address_fields_not_null</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address fields not null</shortDescription>
+        <value>Please only input Post Code when you want to perform Address Search.</value>
+    </labels>
+    <labels>
         <fullName>Address_type_Validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
