@@ -1781,6 +1781,10 @@
             <translation><!-- Received --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
         </picklistValues>
@@ -5591,6 +5595,10 @@
         <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation><!-- Buy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Catalogue</masterLabel>
@@ -14102,6 +14110,8 @@
         <label><!-- *72H Untouched --></label>
         <name>X72H_Untouched__c</name>
     </fields>
+    
+    
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
@@ -14311,6 +14321,18 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required. --></errorMessage>
         <name>Lost_Dealer_Required_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Approving&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Approve_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Approved&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Approved_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Rejected&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Rejected_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Order Placed, Order Placed Date is required. --></errorMessage>

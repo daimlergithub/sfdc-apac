@@ -573,7 +573,7 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Duplicate</fullName>
@@ -612,7 +612,7 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Duplicate</fullName>
@@ -651,7 +651,7 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Duplicate</fullName>
@@ -718,6 +718,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Not send</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -816,8 +820,8 @@ Modify Reason:
     <listViews>
         <fullName>MBJ_CRM_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -825,8 +829,8 @@ Modify Reason:
     <listViews>
         <fullName>MBJ_DM_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -902,8 +906,17 @@ Modify Reason:
     <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>Supervisor</label>
-        <queue>Supervisor</queue>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -947,6 +960,33 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Expected_DM_Material1</fullName>
+        <active>true</active>
+        <description>Expected DM Material1 has a value, but the Status 1 is null.
+OR Status 1 is selected, but the Expected DM Material1 is null.</description>
+        <errorConditionFormula>(Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
+        <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_DM_Material2</fullName>
+        <active>true</active>
+        <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
+OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
+        <errorConditionFormula>(Expected_DM_Material2__c != Null &amp;&amp;  ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
+        <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_DM_Material3</fullName>
+        <active>true</active>
+        <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
+OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
+        <errorConditionFormula>(Expected_DM_Material3__c != Null &amp;&amp;  ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))</errorConditionFormula>
+        <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
+        <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Insufficient_Stock</fullName>
         <active>false</active>
         <description>US-DM-003:
@@ -970,6 +1010,30 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Lead__c</errorDisplayField>
         <errorMessage>Lead is required if your delivery type is 4.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_Reject</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Rejected".</description>
+        <errorConditionFormula>ISPICKVAL( Status__c , 'Rejected')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Rejected".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Approve_Check</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Approving".</description>
+        <errorConditionFormula>ISPICKVAL( Status__c , 'Approving')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Approving".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Be_Sent</fullName>
+        <active>true</active>
+        <description>You cannot manually select "to be sent".</description>
+        <errorConditionFormula>ISPICKVAL( Status__c , 'to be sent')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Province_NoOfDigits</fullName>

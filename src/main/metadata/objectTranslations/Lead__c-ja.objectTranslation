@@ -1777,6 +1777,10 @@
             <translation><!-- Received --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
         </picklistValues>
@@ -5587,6 +5591,10 @@
         <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation>商談</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Catalogue</masterLabel>
@@ -14098,6 +14106,8 @@
         <label>未対応フラグ(72H)</label>
         <name>X72H_Untouched__c</name>
     </fields>
+    
+    
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
@@ -14307,6 +14317,18 @@
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required. --></errorMessage>
         <name>Lost_Dealer_Required_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>コールセンターステータスを手動で「承認中」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Approve_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>コールセンターステータスを手動で「承認済」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Approved_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>コールセンターステータスを手動で「承認差し戻し」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Rejected_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Order Placed, Order Placed Date is required. --></errorMessage>

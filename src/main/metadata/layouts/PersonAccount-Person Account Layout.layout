@@ -36,9 +36,6 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -464,6 +461,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Needs_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Special_Care__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
