@@ -11,7 +11,7 @@ public with sharing class AccountHelperJPTest
    Private static map<id,Account> accountMap =  new map<id,Account>();
    private static User user1;
    private static Account personAcc;
-   private static Account companyacc;
+   private static Account companyacc; 
    
      //Create Test data
    public static void createTestData()
