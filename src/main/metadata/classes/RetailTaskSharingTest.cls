@@ -13,7 +13,7 @@ private class RetailTaskSharingTest {
     Private static Vehicle__c vehicle;
     
     public static void preparedTestData()
-       {List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+       {List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
             insert updatecustomsettings;
         //Inserting record for Account
         accDealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(), Name = 'test dealer');
