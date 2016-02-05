@@ -89,7 +89,7 @@ RecordType.Name,
         <endpointUrl>https://crm-salesforce-int.mercedes-benz.com/webservices/CampaignUpdateNotification</endpointUrl>
         <fields>Id</fields>
         <includeSessionId>false</includeSessionId>
-        <integrationUser>arun.iyer.ntt@asia.daimler-apac.com</integrationUser>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
         <name>Send Campaign ID to EP</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
