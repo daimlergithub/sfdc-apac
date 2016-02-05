@@ -27,6 +27,7 @@ public With Sharing class UtilDealerOfferingTest
             participatinglst.clear();
             campaignPackagelst.clear();
             UtilDealerOffering.InsertDealerOfferingRecords(participatinglst,campaignPackagelst);
+            system.assertNotEquals(participatinglst,null);
            
         Test.stopTest();
     }
@@ -42,6 +43,7 @@ public With Sharing class UtilDealerOfferingTest
             UtilDealerOffering.DelDealerOfferingRecords(participatinglst,campaignPackagelst);
             campaignPackagelst.clear();
             UtilDealerOffering.DelDealerOfferingRecords(participatinglst,campaignPackagelst);
+            system.assertNotEquals(participatinglst,null);
         Test.stopTest();
     }
     public static testmethod void DelDealerOffering_Test()
@@ -51,6 +53,7 @@ public With Sharing class UtilDealerOfferingTest
             List<Participating_Dealer__c> participatinglst = new List<Participating_Dealer__c>();
             participatinglst.add(pDealerObj);
             UtilDealerOffering.DelDealerOfferingRecords(participatinglst);
+            system.assertNotEquals(participatinglst,null);
         Test.stopTest();
     }
     public static testmethod void UpdateDOByPackageItem_Test()
@@ -63,6 +66,7 @@ public With Sharing class UtilDealerOfferingTest
              UtilDealerOffering.UpdateDOByPackageItem(packeageItemlst,'delete');
              packeageItemlst.clear();
              UtilDealerOffering.UpdateDOByPackageItem(packeageItemlst,'delete');
+             system.assertNotEquals(packeageItemlst ,null);
         Test.stopTest();
     }
     public static testMethod void InsertDealerOfferingRecords_Part(){
@@ -73,6 +77,7 @@ public With Sharing class UtilDealerOfferingTest
             
             
             UtilDealerOffering.InsertDealerOfferingRecords(participatingDealerlst,campaignPackageNewList );
+            system.assertNotEquals(participatingDealerlst ,null);
         Test.stopTest();
         
     }
