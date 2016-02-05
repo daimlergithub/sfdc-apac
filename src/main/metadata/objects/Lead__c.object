@@ -19017,6 +19017,24 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
@@ -19052,7 +19070,24 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -66035,7 +66070,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approving')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approving') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -66043,7 +66078,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Approved_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approved".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approved')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approved') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approved".</errorMessage>
     </validationRules>
@@ -66051,7 +66086,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Rejected_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Rejected')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Rejected') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
