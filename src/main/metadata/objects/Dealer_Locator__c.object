@@ -50,7 +50,7 @@
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -130,6 +130,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -152,6 +153,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -160,6 +162,7 @@
         <externalId>false</externalId>
         <label>Comment</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -172,6 +175,7 @@
         <relationshipLabel>Dealer Locators</relationshipLabel>
         <relationshipName>Dealer_Locators</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -182,6 +186,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Number</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -192,6 +197,7 @@
         <label>External ID</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -201,6 +207,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Inactive</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -210,6 +217,7 @@
         <description>Flag to identify dealer to be allocated next.</description>
         <externalId>false</externalId>
         <label>Last Usage Flag</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -223,6 +231,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>true</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -246,6 +255,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -280,6 +290,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -846,6 +857,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -855,6 +867,7 @@
         <label>Post Code</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -890,6 +903,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -900,6 +914,7 @@
         <label>Sequence No</label>
         <length>2</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -943,6 +958,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -952,6 +968,7 @@
         <label>Suburb</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -965,6 +982,7 @@
     <nameField>
         <displayFormat>{000000000}</displayFormat>
         <label>Dealer Locator</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Dealer Locators</pluralLabel>

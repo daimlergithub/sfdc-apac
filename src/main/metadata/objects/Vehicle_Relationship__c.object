@@ -1367,7 +1367,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <relationshipLabel>Vehicle Relationships</relationshipLabel>
         <relationshipName>Vehicle_Relationships2</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

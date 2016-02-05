@@ -87,10 +87,12 @@ public  class UtilCustomSettingsKernel {
       
       Trigger__c TriggerLead=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
       updatecustomsetting.add(TriggerLead);
-		
-	  Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelationshipTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
-   	  updatecustomsetting.add(TriggerVehicleRelationship);	      
-   
+        
+      Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelationshipTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerVehicleRelationship);  
+            
+      Trigger__c TriggerRetailTask=new Trigger__c(Name='TriggerRetailTask',Trigger_Name__c='TriggerRetailTask',Trigger_Handler__c='TriggerRetailTaskTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerRetailTask);
       
    return updatecustomsetting;
    }

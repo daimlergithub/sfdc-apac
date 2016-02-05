@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -48,6 +48,10 @@
         <assignedApprover>
             <approver>
                 <name>Supervisor_Team_A</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -100,6 +104,10 @@
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -149,6 +157,10 @@
             </action>
         </approvalActions>
         <assignedApprover>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <approver>
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
@@ -206,6 +218,10 @@
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -251,6 +267,10 @@
             </action>
         </approvalActions>
         <assignedApprover>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <approver>
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
@@ -304,6 +324,10 @@
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -353,6 +377,10 @@
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -393,8 +421,8 @@ ISPICKVAL( Status__c , &apos;Returned&apos;) ||
 ISPICKVAL( Status__c , &apos;Success&apos;) ||
 ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp;
 ISPICKVAL(Delivery_Type__c, &apos;4&apos;)  &amp;&amp; 
-(ISNULL(Expected_DM_Material1__c) || ISNULL(Expected_DM_Material2__c) ||
-ISNULL(Expected_DM_Material3__c))</formula>
+(NOT(ISNULL(Expected_DM_Material1__c)) || NOT(ISNULL(Expected_DM_Material2__c)) ||
+NOT(ISNULL(Expected_DM_Material3__c)))</formula>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>

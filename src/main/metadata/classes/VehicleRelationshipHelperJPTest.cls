@@ -23,6 +23,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicle_relationship.Contact__c = testAccount.Id;
            vehicle_relationship.End_Reason__c = 'DMS';
            update vehicle_relationship;
+           system.assertNotEquals(vehicle_relationship,null);
        }
        
        public static testMethod void testInsertValidation(){
@@ -55,12 +56,14 @@ public with sharing class VehicleRelationshipHelperJPTest{
               
                VehicleRelationshipHelperJP vrjpObj = new VehicleRelationshipHelperJP();
                vrjpObj.validateOverlappingVehicleRelationship(vrlst);
+               system.assertNotEquals(vrjpObj ,null);
            Test.stopTest();
        }
        public static testMethod void OnAfterInsert_test(){
            creatTestData();
            Test.startTest();
                VehicleRelationshipHelperJP.OnAfterInsert(vrlst);
+                system.assertNotEquals(vrlst,null);
            Test.stopTest();
        }
         public static testMethod void OnAfterUpdate_test(){
@@ -77,12 +80,14 @@ public with sharing class VehicleRelationshipHelperJPTest{
                Map<Id,Vehicle_Relationship__c> vrlstold = new  Map<Id,Vehicle_Relationship__c>();
                vrlstold.put(vrlst.get(0).Id,vrlst.get(0));
                VehicleRelationshipHelperJP.OnAfterUpdate(vrlstnew,vrlstold);
+               system.assertNotEquals(vrlstold,null);
            Test.stopTest();
        }
         public static testMethod void OnAfterDelete_test(){
            creatTestData();
            Test.startTest();
                VehicleRelationshipHelperJP.OnAfterDelete(vrlst);
+               system.assertNotEquals(vrlst,null);
            Test.stopTest();
        }
        public static void creatTestData(){
