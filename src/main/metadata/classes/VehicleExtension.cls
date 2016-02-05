@@ -171,10 +171,14 @@ public with sharing class VehicleExtension {
      * @return      : Account record detail Page URL
      * @see         : VehicleExtension
     **/  
-     public PageReference Cancel()
+    public PageReference Cancel()
     { 
           string returnId = ApexPages.currentPage().getParameters().get('accId');
+        if(returnId!=null){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
+        }else{
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/a04/o');
+        }
           nextPage.setRedirect(true);
           return nextPage;
     }
