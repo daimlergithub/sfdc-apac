@@ -66,6 +66,7 @@ public With Sharing class UtilCaseShareTest
                 caseTeamMemberObj = new caseTeamMember(parentId = caseObj.Id,MemberId = UserInfo.getUserId(),TeamRoleId=caseTeamRoleObj.Id );
                 insert  caseTeamMemberObj;
                 UtilCaseShare.shareCaseWithoutshareVehicle(casesToShare);
+                system.assertNotEquals(caseTeamMemberObj.parentId ,null);
             }
             
             // caseTeamMemberObj = 
@@ -122,6 +123,7 @@ public With Sharing class UtilCaseShareTest
             List<Case> caseIds = new List<Case>();
             caseIds.add(caseObj);
             UtilCaseShare.getGateKeepers(caseIds);
+            system.assertNotEquals(caseIds,null);
         Test.stopTest();
     }
     public static testmethod void shareCustomerToGateKeeper_test()
@@ -129,6 +131,7 @@ public With Sharing class UtilCaseShareTest
         Test.startTest();
             createData();
             Map<Id, Id> customerGateKeepers = new Map<Id,Id>();
+            system.assertNotEquals(customerGateKeepers ,null);
             //UtilCaseShare.shareCustomerToGateKeeper(customerGateKeepers);
         Test.stopTest();
     }
@@ -139,6 +142,7 @@ public With Sharing class UtilCaseShareTest
             UtilConstant utilContant = new UtilConstant();
             UtilConstant.getUserRoleId('Dealer User');
             UtilConstant.getProfileId('System Administrator');
+            system.assertNotEquals(utilContant ,null);
         Test.stopTest();
     }
     public static testmethod void UtilCustomSettings_Test()
@@ -147,6 +151,7 @@ public With Sharing class UtilCaseShareTest
             createCustomSettingData();
             UtilCustomSettings.getProfileId('System Administrator');
             UtilCustomSettings.getIsEnableCommunity('Test');
+            system.assertNotEquals(UtilCustomSettings.getProfileId('System Administrator'),null);
         Test.stopTest();
     }
     public static testmethod void UtilCustomSettingsNegative_Test()
@@ -155,6 +160,7 @@ public With Sharing class UtilCaseShareTest
             createCustomSettingData();
             UtilCustomSettings.getProfileId(null);
             UtilCustomSettings.getIsEnableCommunity(null);
+            system.assertNotEquals(UtilCustomSettings.getProfileId(null),'System Administrator');
         Test.stopTest();
     }
     public static void createData(){

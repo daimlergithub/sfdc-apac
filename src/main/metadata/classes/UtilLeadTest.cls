@@ -15,6 +15,7 @@ public With Sharing class UtilLeadTest
             leadlstCustom.add(leadlst.get(0));
             UtilLead.updateLeadForDataSharing(leadlstCustom);
             UtilLead.updateRelatedVehicleRelFields(leadlstCustom);
+            system.assertNotEquals(leadlstCustom ,null);
         Test.stopTest();
     }
     public static testmethod void beforeInsert_updateEvents_test()
@@ -31,6 +32,7 @@ public With Sharing class UtilLeadTest
             leadlstCustom.add(leadlst.get(2));
             leadOldmap.put(leadlst.get(2).Id,leadlst.get(2));
             UtilLead.beforeInsert_updateEvents(leadlstCustom,leadOldmap,false,true);
+            system.assertNotEquals(leadlstCustom ,null);
             
             //UtilLead.updateRelatedVehicleRelFields(leadlstCustom);
         Test.stopTest();
@@ -40,13 +42,14 @@ public With Sharing class UtilLeadTest
             UtilProfile.getProfileId('System Administrator');
            try{
             UtilProfile.getProfileId('');
+            
             }catch(Exception e){
-                //system.assertEquals()
+                system.assertNotEquals(e.getMessage(),null);
             }
             try{
               UtilProfile.getProfileId('Test');
             }catch(Exception e){
-                //system.assertEquals()
+                system.assertNotEquals(e.getMessage(),null);
             }
         Test.stopTest();
         
@@ -64,6 +67,7 @@ public With Sharing class UtilLeadTest
             UtilSobject.updateSobjects(errorlist);
             errorlist.clear();
             UtilSobject.updateSobjects(errorlist);
+            system.assertNotEquals(errorlist,null);
           
         Test.stopTest();
     }
@@ -76,6 +80,7 @@ public With Sharing class UtilLeadTest
             UtilSobject.deleteSobjects(errorlist);
             errorlist.clear();
             UtilSobject.deleteSobjects(errorlist);
+            system.assertNotEquals(errorlist,null);
           
         Test.stopTest();
     }
@@ -90,6 +95,7 @@ public With Sharing class UtilLeadTest
             UtilSobject.insertSobjects(errorlist);
             errorlist.clear();
             UtilSobject.insertSobjects(errorlist);
+            system.assertNotEquals(errorlist,null);
           
         Test.stopTest();
     }

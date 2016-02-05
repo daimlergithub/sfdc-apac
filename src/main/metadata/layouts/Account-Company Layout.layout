@@ -4,7 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
-    <!--<customConsoleComponents>
+    <customConsoleComponents>
         <primaryTabComponents>
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
@@ -30,9 +30,8 @@
                 <width>20</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents> -->
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    </customConsoleComponents>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -255,6 +254,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Needs_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Special_Care__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

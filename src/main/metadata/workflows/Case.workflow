@@ -156,6 +156,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Change_Status_to_Waiting_for_Reponse_app</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Change Status to Waiting for Reponse app</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Waiting_for_final_appr</fullName>
         <field>Status</field>
         <literalValue>Waiting for final approval</literalValue>
@@ -304,18 +313,18 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Update_CheckFlag_After_48H</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>48</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
                 <name>Update_CheckFlag_After_72H</name>
                 <type>FieldUpdate</type>
             </actions>
             <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_CheckFlag_After_48H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
