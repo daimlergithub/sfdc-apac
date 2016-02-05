@@ -26,6 +26,10 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
+            <approver>
                 <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>

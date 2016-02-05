@@ -455,6 +455,10 @@
         <name>Manual_Status_Change_To_Be_Sent</name>
     </validationRules>
     <validationRules>
+        <errorMessage>全体ステータスを手動で「未送付」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Not_Send</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>都道府県は必ず10文字以下で入力して下さい。</errorMessage>
         <name>Province_NoOfDigits</name>
     </validationRules>

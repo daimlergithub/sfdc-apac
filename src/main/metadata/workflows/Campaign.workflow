@@ -83,6 +83,17 @@ RecordType.Name,
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <outboundMessages>
+        <fullName>Send_Campaign_ID_to_EP</fullName>
+        <apiVersion>35.0</apiVersion>
+        <endpointUrl>https://crm-salesforce-int.mercedes-benz.com/webservices/CampaignUpdateNotification</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
+        <name>Send Campaign ID to EP</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
     <rules>
         <fullName>Activate Campaign When Status Changes to %22Started%22</fullName>
         <actions>
@@ -164,6 +175,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <value>Published</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Campaign ID to EP</fullName>
+        <actions>
+            <name>Send_Campaign_ID_to_EP</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <formula>AND (  RecordType.DeveloperName=&apos;CAC Campaign&apos;, OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>To update Content Preview</fullName>
