@@ -257,7 +257,6 @@
 				<sf:include name="SSITriggerHandlerJP"/>
 				<sf:include name="SSITriggerHandler"/>
 				<sf:include name="SSITriggerHandlerTest"/>
-				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
