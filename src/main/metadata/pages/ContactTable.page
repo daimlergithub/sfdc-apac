@@ -181,6 +181,10 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
                        </td>   
+                       <td></td>
+                       <td></td>
+                       
+                       
                        
                    </tr> 
                    
@@ -192,7 +196,8 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
                        </td>   
-                       
+                       <td></td>
+                       <td></td>
                    </tr> 
                </table>    
                

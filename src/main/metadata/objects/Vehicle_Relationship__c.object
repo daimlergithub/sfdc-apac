@@ -1355,10 +1355,11 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <label>Contact</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper account.</errorMessage>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
-                <value>Company, Person Account, Person Account Manual Merge, Person Account Retail, Person Account Soft Deleted</value>
+                <value>Company, PersonAccount, Person_Account_Manual_Merge, Person_Account_Soft_Deleted</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -1883,8 +1884,9 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <label>Last Service Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
@@ -2274,7 +2276,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <externalId>false</externalId>
         <label>Owner Dealer</label>
         <lookupFilter>
-            <active>true</active>
+            <active>false</active>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
@@ -3438,8 +3440,9 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <label>Selling Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
@@ -4137,6 +4140,16 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Vehicle Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper address linked to the contact.</errorMessage>
+            <filterItems>
+                <field>$Source.Contact__c</field>
+                <operation>equals</operation>
+                <valueField>Address__c.Customer__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Vehicle Relationship</relationshipLabel>
         <relationshipName>Vehicle_Relationship</relationshipName>

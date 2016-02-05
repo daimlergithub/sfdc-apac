@@ -14,18 +14,23 @@ public class TriggerAccountTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-        if(isBefore && (isInsert || isUpdate))
+        if(isBefore && isInsert )
             {
                 system.debug('*****');
-                AccountHelperJP.updateAccountFields(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
-                AccountHelperJP.updatePrimaryContactInformation(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
-				AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+                AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
             }
+        if(isBefore && isUpdate)
+        	{
+            	AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+            	AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+            	AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+        	}
         if(isAfter && isInsert)
-        {
-            system.debug('#######');
-            AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
-        }
+        	{
+            	system.debug('#######');
+	            AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+        	} 
     }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

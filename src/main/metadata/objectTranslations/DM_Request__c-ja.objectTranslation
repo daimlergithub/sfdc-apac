@@ -334,6 +334,10 @@
             <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Returned</masterLabel>
             <translation>返却</translation>
         </picklistValues>
@@ -419,12 +423,40 @@
         <name>Attention_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage>カタログ名1とカタログ1ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>カタログ名2とカタログ2ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>カタログ名3とカタログ3ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material3</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
     </validationRules>
     <validationRules>
         <errorMessage>発送形態で販売店を選択された際には、リードを入力して下さい。</errorMessage>
         <name>Lead_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「承認差し戻し」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_Reject</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「承認中」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Approve_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「送付待ち」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Be_Sent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「未送付」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Not_Send</name>
     </validationRules>
     <validationRules>
         <errorMessage>都道府県は必ず10文字以下で入力して下さい。</errorMessage>

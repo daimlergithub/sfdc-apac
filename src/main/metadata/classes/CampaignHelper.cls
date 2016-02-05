@@ -11,14 +11,15 @@ public class CampaignHelper {
     public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
     public static string CacCampaign ='CAC Campaign';
+    
+    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
-         /**
+ /**
   *@Description : Copies Top Campaigns Status value to Saved Campaign.
   *@Date : 3/11/2015
   *@param:Set of Campaign Ids.
   *@return:This mehtod does not return any value.
-
   */
         
         Set<String> topCampaignIds = new Set<String>();
@@ -32,6 +33,8 @@ public class CampaignHelper {
         List<CampaignMemberStatus> savedStatus = new List<CampaignMemberStatus>();
         for(CampaignMemberStatus status : [select CampaignId, HasResponded, IsDefault, Label, SortOrder from CampaignMemberStatus 
                                             where CampaignId in :topCampaignIds]){
+                                            
+            
             for(Campaign cam : campaigns){
                 if(cam.Parent.ParentId == status.CampaignId){
                     CampaignMemberStatus newStatus = status.clone();
@@ -54,16 +57,14 @@ public class CampaignHelper {
         }
     }
     
-    public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){
-    	
-    	/**
-  *@Description : Updates Campaign Member status to Related Campaigns.
-  *@Date : 3/11/2015
-  *@param:List of Campaign Members.
-  *@return:This mehtod does not return any value.
-
-  */
-        
+    
+	/**
+	  *@Description : Updates Campaign Member status to Related Campaigns.
+	  *@Date : 3/11/2015
+	  *@param:List of Campaign Members.
+	  *@return:This mehtod does not return any value.	
+	  */
+    public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){  
         Set<String> topCampaignIds = new Set<String>();
         Set<String> obcallCampaignIds = new Set<String>();
         Set<String> unknownCampaignIds = new Set<String>();
@@ -108,19 +109,17 @@ public class CampaignHelper {
         }
     }
     
+    /**
+	  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+	  				  which gets invoked by Trigger on Campaign Object.
+	  *@Date : 3/11/2015
+	  *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
+	  *@return:This mehtod does not return any value.
+	
+	  */
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
-    	
-    	
-    	/**
-  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
-  which gets invoked by Trigger on Campaign Object.
-  *@Date : 3/11/2015
-  *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
-  *@return:This mehtod does not return any value.
 
-  */
-        
         /* START Variable Definition    */
         Set<ID> cpIdSet = new Set<ID>(); // Campaign ID Set       
         List<Campaign> cpAccList = new List<Campaign>(); // Campaign Exection List by Contact 
@@ -228,17 +227,17 @@ public class CampaignHelper {
     
     }
     
+    
+	 /**
+	  *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
+	  which gets invoked by Trigger on Campaign Object.
+	  *@Date : 3/11/2015
+	  *@param:List of campaign.New. Campaign.Oldmap.
+	  *@return:This mehtod does not return any value.
+	  */ 
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
-    	/**
-  *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
-  which gets invoked by Trigger on Campaign Object.
-  *@Date : 3/11/2015
-  *@param:List of campaign.New. Campaign.Oldmap.
-  *@return:This mehtod does not return any value.
-
-  */
-        
+      
         Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
         Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
         Set<Id> campaignIds = new Set<Id>();
@@ -272,18 +271,17 @@ public class CampaignHelper {
      * 2014-2-17 added by Justin for copying the status
      *  in the top level campaign to the OB campaign
      */
-    public static void afterInsertEvents(list<Campaign> campaignNew)
-    {
-    	
-    	/**
+     
+ /**
   *@Description : Actions which are performed as a part of After Insert. This gets called from Campaign TriggerHandler
   This method sends the campaigns with execution type = OB Call  to method copyTopCampaignStatusValueToSavedCampaign().
   which gets invoked by Trigger on Campaign Object.
   *@Date : 3/11/2015
   *@param:List of campaign.New. 
   *@return:This mehtod does not return any value.
-
   */
+    public static void afterInsertEvents(list<Campaign> campaignNew)
+    {
         Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaignNew){
             if(campaign.Execution_Type__c == 'OB Call')
@@ -295,18 +293,16 @@ public class CampaignHelper {
             copyTopCampaignStatusValueToSavedCampaign(campaignIds);
     }
     
-    public static void afterUpdateEvents(list<Campaign> campaignNew,list<Campaign> campaignOld)
-    {
-    	/**
+ /**
   *@Description : Actions which are performed as a part of After Update. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object. This method picks up the campaigns with SMS Task verified = true and updates it to flase if their parent campaign is a 
   repeated campaign.  
   *@Date : 3/11/2015
   *@param:List of campaign.New and Campaign.Old.
   *@return:This mehtod does not return any value.
-
   */
-    	
+    public static void afterUpdateEvents(list<Campaign> campaignNew,list<Campaign> campaignOld)
+    { 
         List<Id> cpSIds = new List<Id>();
         
         
@@ -332,151 +328,149 @@ public class CampaignHelper {
         }
     }
     
-    public static void afterInsertEvents_CampaignShare(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
-    {
-    	
-    	/**
+ /**
   *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object.
   This method updates the campaignshares. Shares campaign to Participating Dealers.
   *@Date : 3/11/2015
   *@param:List of campaign.New. Map Campaign.Oldmap.
   *@return:This mehtod does not return any value.
-
   */
+    public static void afterInsertEvents_CampaignShare(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
+    {
         //Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        Id pIdDealerUser = null;
-	        Id pIdDealerAdmin = null;
-	        for (Profile pro : [select Id, Name from Profile where Name = 'Dealer Community User' or Name = 'Dealer Delegate Admin'])
-	        {
-	            if (pro.Name == 'Dealer Community User')
-	            {
-	                pIdDealerUser = pro.Id;
-	            } else
-	            {
-	                pIdDealerAdmin = pro.Id;
-	            }
-	        }
-	        
-	        Id rtIdMbBp = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();
-	        Id rtIdSmartBp = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('smart Best Practice').getRecordTypeId();
-	        Id rtIdSmEvent = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
-	        Id rtIdSmMedia = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
-	        Id rtIdAs = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
-	        Set<Id> cpnRtIds = new Set<Id>{rtIdMbBp, rtIdSmartBp, rtIdSmEvent, rtIdSmMedia, rtIdAs};
-	        Set<Id> cpnIds = new Set<Id>();
-	        Set<Id> dealerIds = new Set<Id>();
-	        Map<Id, String> cpnPermSetMap = new Map<Id, String>();
-	        Map<Id, Set<Id>> cpnDealerMap = new Map<Id, Set<Id>>();
-	        List<CampaignShare> cpnShares = new List<CampaignShare>();
-	        List<Task> taskList = new List<Task>();
-	        Set<Id> mbBpCampaignIds = new Set<Id>();
-	        Map<Id, Id> dealerBrandOwnerIds = new Map<Id, Id>();
-	        String pSetAsRetail = 'AS_Retail_Campaign';
-	        String pSetSmRetail = 'S_M_Retail_Campaign';
-	        String pSetBp = 'Best_Practise';
-	        
-	        for(Campaign cpNew : campaignNew)
-	        {
-	            if (cpnRtIds.contains(cpNew.RecordTypeId) && cpNew.Status == 'Published' && campaignOldMap.get(cpNew.Id).Status != 'Published')
-	            {
-	                cpnIds.add(cpNew.Id);
-	                if (cpNew.RecordTypeId == rtIdAs)
-	                {
-	                    cpnPermSetMap.put(cpNew.Id, pSetAsRetail);
-	                } 
-	                else if (cpNew.RecordTypeId == rtIdSmEvent || cpNew.RecordTypeId == rtIdSmMedia)
-	                {
-	                    cpnPermSetMap.put(cpNew.Id, pSetSmRetail);
-	                } 
-	                else 
-	                {
-	                    cpnPermSetMap.put(cpNew.Id, pSetBp);
-	                }
-	                if (cpNew.RecordTypeId == rtIdMbBp)
-	                {
-	                    mbBpCampaignIds.add(cpNew.Id);
-	                }
-	            }
-	        }
-	        
-	        if (cpnIds.isEmpty()) {
-	            return;
-	        }
-	        
-	        for (Participating_Dealer__c pd : [Select Campaign__c, Dealer__c, Dealer__r.Retail_MB_Owner__c from Participating_Dealer__c Where Campaign__c In :cpnIds])
-	        {
-	            if (cpnDealerMap.get(pd.Campaign__c) == null)
-	            {
-	                cpnDealerMap.put(pd.Campaign__c, new Set<Id>());
-	            }
-	            cpnDealerMap.get(pd.Campaign__c).add(pd.Dealer__c);
-	            dealerIds.add(pd.Dealer__c);
-	            if (pd.Dealer__r.Retail_MB_Owner__c != null)
-	            {
-	                dealerBrandOwnerIds.put(pd.Dealer__c, pd.Dealer__r.Retail_MB_Owner__c);
-	            }
-	        }
-	        
-	        for (User u : [select Id, ProfileId, AccountId, ContactId, Contact.Permission_Set_Settings__c from User where AccountId in :dealerIds and isActive = true and (ProfileId = :pIdDealerAdmin or (ProfileId = :pIdDealerUser and Contact.Permission_Set_Settings__c includes(:pSetAsRetail, :pSetSmRetail, :pSetBp)))])
-	        {
-	            for (Id cpnId : cpnIds)
-	            {
-	                if (cpnDealerMap.get(cpnId) != null && cpnDealerMap.get(cpnId).contains(u.AccountId) && (u.ProfileId == pIdDealerAdmin || (u.Contact.Permission_Set_Settings__c != null && u.Contact.Permission_Set_Settings__c.contains(cpnPermSetMap.get(cpnId)))))
-	                {
-	                    CampaignShare share = new CampaignShare();
-	                    share.CampaignAccessLevel = UtilConstant.read_Access;
-	                    share.CampaignId = cpnId;
-	                    share.UserOrGroupId = u.id;
-	                    cpnShares.add(share);
-	                    taskList.add(new Task(
-	                        Subject= 'You have new joint marketing activities to participate in.', 
-	                        RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
-	                        OwnerId = u.id,
-	                        Status = 'open',
-	                        WhoId = u.ContactId,
-	                        WhatId = cpnId,
-	                        ActivityDate = date.today()));
-	                }
-	            }
-	        }
-	        
-	        for (Id cpnId : mbBpCampaignIds)
-	        {
-	            if (cpnDealerMap.get(cpnId) != null)
-	            {
-	                for (Id dealerId : cpnDealerMap.get(cpnId))
-	                {
-	                    if (dealerBrandOwnerIds.get(dealerId) != null)
-	                    {
-	                        CampaignShare share = new CampaignShare();
-	                        share.CampaignAccessLevel = UtilConstant.read_Access;
-	                        share.CampaignId = cpnId;
-	                        share.UserOrGroupId = dealerBrandOwnerIds.get(dealerId);
-	                        cpnShares.add(share);
-	                    }
-	                }
-	            }
-	        }
-	        
-	        // Insert sharing records
-	        if (!cpnShares.isEmpty()) {
-	            try {
-	                insert cpnShares;
-	            } catch (DMLException e) {
-	                System.debug('DMLException Exception occured when sharing Campaign to Participating Dealer: ' + e);
-	            }
-	        }
-	        if(!taskList.isEmpty()){
-	            try {
-	                insert taskList;
-	            }
-	            catch(Exception ex) {
-	                System.debug('Exception message is :' + ex.getMessage());
-	            }
-	        }
-	    }
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            Id pIdDealerUser = null;
+            Id pIdDealerAdmin = null;
+            for (Profile pro : [select Id, Name from Profile where Name = 'Dealer Community User' or Name = 'Dealer Delegate Admin'])
+            {
+                if (pro.Name == 'Dealer Community User')
+                {
+                    pIdDealerUser = pro.Id;
+                } else
+                {
+                    pIdDealerAdmin = pro.Id;
+                }
+            }
+            
+            Id rtIdMbBp = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();
+            Id rtIdSmartBp = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('smart Best Practice').getRecordTypeId();
+            Id rtIdSmEvent = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
+            Id rtIdSmMedia = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
+            Id rtIdAs = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+            Set<Id> cpnRtIds = new Set<Id>{rtIdMbBp, rtIdSmartBp, rtIdSmEvent, rtIdSmMedia, rtIdAs};
+            Set<Id> cpnIds = new Set<Id>();
+            Set<Id> dealerIds = new Set<Id>();
+            Map<Id, String> cpnPermSetMap = new Map<Id, String>();
+            Map<Id, Set<Id>> cpnDealerMap = new Map<Id, Set<Id>>();
+            List<CampaignShare> cpnShares = new List<CampaignShare>();
+            List<Task> taskList = new List<Task>();
+            Set<Id> mbBpCampaignIds = new Set<Id>();
+            Map<Id, Id> dealerBrandOwnerIds = new Map<Id, Id>();
+            String pSetAsRetail = 'AS_Retail_Campaign';
+            String pSetSmRetail = 'S_M_Retail_Campaign';
+            String pSetBp = 'Best_Practise';
+            
+            for(Campaign cpNew : campaignNew)
+            {
+                if (cpnRtIds.contains(cpNew.RecordTypeId) && cpNew.Status == 'Published' && campaignOldMap.get(cpNew.Id).Status != 'Published')
+                {
+                    cpnIds.add(cpNew.Id);
+                    if (cpNew.RecordTypeId == rtIdAs)
+                    {
+                        cpnPermSetMap.put(cpNew.Id, pSetAsRetail);
+                    } 
+                    else if (cpNew.RecordTypeId == rtIdSmEvent || cpNew.RecordTypeId == rtIdSmMedia)
+                    {
+                        cpnPermSetMap.put(cpNew.Id, pSetSmRetail);
+                    } 
+                    else 
+                    {
+                        cpnPermSetMap.put(cpNew.Id, pSetBp);
+                    }
+                    if (cpNew.RecordTypeId == rtIdMbBp)
+                    {
+                        mbBpCampaignIds.add(cpNew.Id);
+                    }
+                }
+            }
+            
+            if (cpnIds.isEmpty()) {
+                return;
+            }
+            
+            for (Participating_Dealer__c pd : [Select Campaign__c, Dealer__c, Dealer__r.Retail_MB_Owner__c from Participating_Dealer__c Where Campaign__c In :cpnIds])
+            {
+                if (cpnDealerMap.get(pd.Campaign__c) == null)
+                {
+                    cpnDealerMap.put(pd.Campaign__c, new Set<Id>());
+                }
+                cpnDealerMap.get(pd.Campaign__c).add(pd.Dealer__c);
+                dealerIds.add(pd.Dealer__c);
+                if (pd.Dealer__r.Retail_MB_Owner__c != null)
+                {
+                    dealerBrandOwnerIds.put(pd.Dealer__c, pd.Dealer__r.Retail_MB_Owner__c);
+                }
+            }
+            
+            for (User u : [select Id, ProfileId, AccountId, ContactId, Contact.Permission_Set_Settings__c from User where AccountId in :dealerIds and isActive = true and (ProfileId = :pIdDealerAdmin or (ProfileId = :pIdDealerUser and Contact.Permission_Set_Settings__c includes(:pSetAsRetail, :pSetSmRetail, :pSetBp)))])
+            {
+                for (Id cpnId : cpnIds)
+                {
+                    if (cpnDealerMap.get(cpnId) != null && cpnDealerMap.get(cpnId).contains(u.AccountId) && (u.ProfileId == pIdDealerAdmin || (u.Contact.Permission_Set_Settings__c != null && u.Contact.Permission_Set_Settings__c.contains(cpnPermSetMap.get(cpnId)))))
+                    {
+                        CampaignShare share = new CampaignShare();
+                        share.CampaignAccessLevel = UtilConstant.read_Access;
+                        share.CampaignId = cpnId;
+                        share.UserOrGroupId = u.id;
+                        cpnShares.add(share);
+                        taskList.add(new Task(
+                            Subject= 'You have new joint marketing activities to participate in.', 
+                            RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
+                            OwnerId = u.id,
+                            Status = 'open',
+                            WhoId = u.ContactId,
+                            WhatId = cpnId,
+                            ActivityDate = date.today()));
+                    }
+                }
+            }
+            
+            for (Id cpnId : mbBpCampaignIds)
+            {
+                if (cpnDealerMap.get(cpnId) != null)
+                {
+                    for (Id dealerId : cpnDealerMap.get(cpnId))
+                    {
+                        if (dealerBrandOwnerIds.get(dealerId) != null)
+                        {
+                            CampaignShare share = new CampaignShare();
+                            share.CampaignAccessLevel = UtilConstant.read_Access;
+                            share.CampaignId = cpnId;
+                            share.UserOrGroupId = dealerBrandOwnerIds.get(dealerId);
+                            cpnShares.add(share);
+                        }
+                    }
+                }
+            }
+            
+            // Insert sharing records
+            if (!cpnShares.isEmpty()) {
+                try {
+                    insert cpnShares;
+                } catch (DMLException e) {
+                    System.debug('DMLException Exception occured when sharing Campaign to Participating Dealer: ' + e);
+                }
+            }
+            if(!taskList.isEmpty()){
+                try {
+                    insert taskList;
+                }
+                catch(Exception ex) {
+                    System.debug('Exception message is :' + ex.getMessage());
+                }
+            }
+        }
     }
 }

@@ -9826,10 +9826,30 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
     <fields>
         <fullName>Special_Needs_Class__c</fullName>
         <externalId>false</externalId>
-        <label>Reference number (welfare vehicle) class</label>
+        <label>Special Needs Class</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13010,10 +13030,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Email_Status_3__c</picklist>
             <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
@@ -15054,6 +15070,26 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Special_Needs_Class__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -17253,10 +17289,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status_3__c</picklist>
-            <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
@@ -20537,15 +20569,20 @@ if (sforce.console.isInConsole()) {
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>newWindow</openType>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
-			  
-		window.open("/apex/ViewHierarchy", "","width = 800, height = 600");</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/ViewHierarchy?id={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>

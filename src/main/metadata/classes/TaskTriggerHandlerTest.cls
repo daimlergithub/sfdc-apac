@@ -10,6 +10,7 @@ private static Id eDMrtid = rtMap.get('eDM').getRecordTypeId();
 private static Account customer;
 private static Task accobTask;
 private static Task obTask;
+
 private static DateTime endCallTime;
 private static User ssi_csr;
 private static User ssi_csruser;
@@ -26,7 +27,9 @@ private static String successful='successful';
   public static void preparedUserProfile()
   {
    ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR'); 
+   User anotherUser = UtilTestData.createUser('SSI CSR','CAC OB TL'); 
   }
+  
     
 public static void preparedTestData()
 {
@@ -66,7 +69,7 @@ public static void preparedTestData()
 
         System.runAs ( ssi_csr ) 
         {
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
                  preparedTestData();                      
             Test.startTest();
@@ -133,7 +136,7 @@ public static void preparedTestData()
                 
          preparedTestData();             
             Test.startTest(); 
-            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
                                                 insert updatecustomsettings;
             obTask.End_call_time__c = endCallTime;
             obTask.Called__c = '1234568';
@@ -160,8 +163,8 @@ public static void preparedTestData()
             intask.IB_Status__c = 'Valid';
             update intask;
             intask = [Select Id, Activity_Status__c, IB_Status__c, Phone__c From Task Where Id=:intask.Id];
-            System.assertEquals(intask.Activity_Status__c, 'Successful');
-            System.assertEquals(intask.Phone__c, '13020130906');
+            System.assertEquals(intask.Activity_Status__c, 'Valid');
+            System.assertEquals(intask.Phone__c, null);
             
             intask.recordtypeid = ssirtid;
             intask.CallType = '';
@@ -190,7 +193,7 @@ public static void preparedTestData()
         User_ssi_csr = UtilTestData.createUser('SSI CSR','CAC OB TL');        
         System.runAs ( User_ssi_csr )
          {  
-              List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+              List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
                                                insert updatecustomsettings;
             preparedTestData();             
             Test.startTest();
@@ -216,14 +219,21 @@ public static void preparedTestData()
         
        System.runAs ( ssi_csr )
        {
-            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
                                 insert updatecustomsettings;
            preparedTestData();    
             Test.startTest();           
             
             // cover autoUpdateTaskAfterLogInserted
             ssi.Newly_Task_Id__c = ssiTask.Id;
+           
             update ssi;
+           // obTask = new Task(Activity_Status__c = 'Voice Mail',Record)
+            ssiTask.Activity_Status__c  ='Voice Mail';
+            ssiTask.RecordTypeId = ssirtid ;
+            ssiTask.Status ='Closed';
+            ssiTask.subject = 'Welcome Call + 1st Survey Call';
+            update ssiTask;
             
             DateTime callTime = DateTime.now();
             Task logTask = new Task(
@@ -257,7 +267,7 @@ public static void preparedTestData()
     preparedTestData();
      preparedTestDataLead();    
           Test.startTest();   
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
                                 insert updatecustomsettings;
         cl2 = [Select Successful_Call_Number__c From Campaign_Lead__c Where Id =: cl2.Id Limit 1];    
         endCallTime = DateTime.now();
@@ -275,7 +285,7 @@ public static void preparedTestData()
     
      static testMethod void TestCTIFunction() 
     {
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
                                 insert updatecustomsettings;
         preparedTestData();
        Test.startTest();
