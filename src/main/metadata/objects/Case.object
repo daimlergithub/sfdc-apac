@@ -93,7 +93,22 @@
             <fullName>Closed</fullName>
             <default>false</default>
         </values>
-        
+        <values>
+            <fullName>Escalation Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Raised</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Raised %26 Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Request</fullName>
+            <default>false</default>
+        </values>
         <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
@@ -19396,7 +19411,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
+    <listViews>
+        <fullName>CAC_Surpervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CRM_Approver_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -19928,6 +19960,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
@@ -101110,7 +101160,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Closed</fullName>
         <active>true</active>
         <description>Status is changed to "Closed"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Closed')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Closed') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Closed".</errorMessage>
     </validationRules>
@@ -101118,7 +101168,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Done</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Done"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Final approval done')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Final approval done') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval done".</errorMessage>
     </validationRules>
@@ -101126,7 +101176,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Rejected</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Rejected"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Final approval rejected')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Final approval rejected') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval rejected".</errorMessage>
     </validationRules>
@@ -101134,7 +101184,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Waiting_for_Final_Approval</fullName>
         <active>true</active>
         <description>Status is changed to "Waiting for Final Approval"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Waiting for final approval')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Status , 'Waiting for final approval') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Waiting for final approval".</errorMessage>
     </validationRules>
