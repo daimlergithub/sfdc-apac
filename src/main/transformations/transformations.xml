@@ -19,7 +19,7 @@
 		<filename>workflows\Campaign.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Send_Campaign_ID_to_EP']/integrationUser/text()</xpath>
 		<token>WORKFLOW_INTEGRATION_USER</token>
-	</changetext
+	</changetext>
     <changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
