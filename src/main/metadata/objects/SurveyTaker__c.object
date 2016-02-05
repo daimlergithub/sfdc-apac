@@ -50,7 +50,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -64,6 +64,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -76,6 +77,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -87,6 +89,7 @@
         <referenceTo>Case</referenceTo>
         <relationshipName>SurveyTakers</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -99,6 +102,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>SurveyTakers1</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -109,6 +113,7 @@
         <label>Created By EP Transaction</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -122,6 +127,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -134,6 +140,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -146,6 +153,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -159,6 +167,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -177,6 +186,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -188,6 +198,7 @@
         <referenceTo>Survey__c</referenceTo>
         <relationshipName>SurveyTakers1</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -198,6 +209,7 @@
         <label>Taken</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -208,6 +220,7 @@
         <label>Task ID</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -219,6 +232,7 @@
         <label>Updated By EP Transactions</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -231,6 +245,7 @@
         <referenceTo>User</referenceTo>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -243,6 +258,7 @@
     <nameField>
         <displayFormat>{0000000}</displayFormat>
         <label>ID</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Surveys Taken</pluralLabel>

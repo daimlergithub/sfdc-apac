@@ -5734,7 +5734,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <relationshipLabel>Other_Vehicles</relationshipLabel>
         <relationshipName>Vehicles</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -6805,7 +6805,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
