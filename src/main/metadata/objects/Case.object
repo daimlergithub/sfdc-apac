@@ -15061,6 +15061,11 @@ Modify Reason:
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Escalation Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Escaltaion Confirmed</fullName>
                 <closed>false</closed>
