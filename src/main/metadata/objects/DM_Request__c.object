@@ -271,7 +271,7 @@ Modify Reason:
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -601,7 +601,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -640,7 +640,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -679,7 +679,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -964,7 +964,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>(Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -973,7 +973,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>(Expected_DM_Material2__c != Null &amp;&amp;  ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp;  ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -982,7 +982,7 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>(Expected_DM_Material3__c != Null &amp;&amp;  ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp;  ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1034,6 +1034,14 @@ MD__c = 'JP')</errorConditionFormula>
         <errorConditionFormula>ISPICKVAL( Status__c , 'to be sent')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Status_Change_To_Not_Send</fullName>
+        <active>true</active>
+        <description>You cannot manually select "Not send".</description>
+        <errorConditionFormula>ISPICKVAL( Status__c , 'Not send')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Province_NoOfDigits</fullName>

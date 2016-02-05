@@ -459,6 +459,10 @@
         <name>Manual_Status_Change_To_Be_Sent</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- You cannot manually select &quot;Not send&quot;. --></errorMessage>
+        <name>Manual_Status_Change_To_Not_Send</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Province should be less than or equal to 10 letters. --></errorMessage>
         <name>Province_NoOfDigits</name>
     </validationRules>
