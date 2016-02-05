@@ -93,22 +93,7 @@
             <fullName>Closed</fullName>
             <default>false</default>
         </values>
-        <values>
-            <fullName>Escalation Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Escalation Raised</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Escalation Raised %26 Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Escalation Request</fullName>
-            <default>false</default>
-        </values>
+        
         <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
@@ -19411,24 +19396,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>CAC_Surpervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>CRM_Approver_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -19961,24 +19929,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>test_CAC_Surpervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CRM_Approver_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
