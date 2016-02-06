@@ -448,7 +448,7 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
+            <label>New Section</label>
             <section>New Section</section>
         </sections>
     </layouts>
@@ -462,14 +462,14 @@
     <layouts>
         <layout>General Task Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>コール詳細</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>IB Call</layout>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Call Detail --></label>
             <section>Call Detail</section>
         </sections>
         <sections>
@@ -477,14 +477,14 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>コール詳細</label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>OB Call</layout>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Call Detail --></label>
             <section>Call Detail</section>
         </sections>
         <sections>
@@ -501,6 +501,43 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised General Task Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised IB Call</layout>
+        <sections>
+            <label><!-- Call Detail --></label>
+            <section>Call Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised OB Call</layout>
+        <sections>
+            <label><!-- Call Detail --></label>
+            <section>Call Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
@@ -561,11 +598,11 @@
         <name>DM</name>
     </recordTypes>
     <recordTypes>
-        <label>一般</label>
+        <label>General Task</label>
         <name>General_Task</name>
     </recordTypes>
     <recordTypes>
-        <label>インバウンドコール</label>
+        <label>IB Call</label>
         <name>IB_Call</name>
     </recordTypes>
     <recordTypes>
@@ -577,7 +614,7 @@
         <name>MMS</name>
     </recordTypes>
     <recordTypes>
-        <label>アウトバウンドコール</label>
+        <label>OB Call</label>
         <name>OB_Call</name>
     </recordTypes>
     <recordTypes>

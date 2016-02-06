@@ -42,11 +42,11 @@
         <name>Portal_Email__c</name>
     </fields>
     <fields>
-        <label>MyMメッセージ通知メール拒否フラグ</label>
+        <label>メール拒否フラグ</label>
         <name>Portal_Mail_Opt_Out__c</name>
     </fields>
     <fields>
-        <label>メールニュース拒否フラグ</label>
+        <label>MyMessage拒否フラグ</label>
         <name>Portal_Message_Opt_Out__c</name>
     </fields>
     <fields>
@@ -353,12 +353,12 @@
     <fields>
         <label>関係者1</label>
         <name>fromRole__c</name>
-        <relationshipLabel>顧客間関連情報</relationshipLabel>
+        <relationshipLabel>関係者1</relationshipLabel>
     </fields>
     <fields>
         <label>関係者2</label>
         <name>toRole__c</name>
-        <relationshipLabel>他システム情報</relationshipLabel>
+        <relationshipLabel>関係者2</relationshipLabel>
     </fields>
     <layouts>
         <layout>Account Link Layout</layout>
@@ -393,7 +393,17 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Contact to Contact</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Contact to Dealer</layout>
         <sections>
@@ -440,6 +450,34 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Revised Contact to Dealer</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Contact2Contact</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised ExternalLink</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Vehicle External Link</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Vehicle External Link</layout>
         <sections>
             <label><!-- Custom Links --></label>
@@ -460,19 +498,19 @@
         <name>CompanyExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label>法人関係</label>
+        <label>Contact2Contact</label>
         <name>Contact2Contact</name>
     </recordTypes>
     <recordTypes>
-        <label>販売店関係</label>
+        <label>ContactSector</label>
         <name>ContactSector</name>
     </recordTypes>
     <recordTypes>
-        <label>MyM顧客関係</label>
+        <label>Individual Customer External Link</label>
         <name>IndividualExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label>MyM車両関係</label>
+        <label>Vehicle External Link</label>
         <name>Vehicle_External_Link</name>
     </recordTypes>
     <sharingReasons>

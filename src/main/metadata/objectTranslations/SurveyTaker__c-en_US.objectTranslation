@@ -85,7 +85,13 @@
         <name>User__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
     </fields>
-    
+    <layouts>
+        <layout>Revised SurveyTaker Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>SurveyTaker Layout</layout>
         <sections>

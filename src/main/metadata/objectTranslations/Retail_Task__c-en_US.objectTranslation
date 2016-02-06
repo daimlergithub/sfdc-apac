@@ -644,6 +644,10 @@
     </fields>
     <fields>
         <label><!-- Related Dealer --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+            <informationalMessage><!-- Search and select dealer account. --></informationalMessage>
+        </lookupFilter>
         <name>Related_Dealer__c</name>
         <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
@@ -1149,7 +1153,17 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised Retail Task Layout(Contract)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+    </layouts>
     <recordTypes>
         <label><!-- Contract --></label>
         <name>Contract</name>

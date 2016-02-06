@@ -1016,7 +1016,7 @@
     <fields>
         <label>アンケート</label>
         <name>Questionnaire__c</name>
-        <relationshipLabel><!-- Campaign Executions --></relationshipLabel>
+        <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
     <fields>
         <label>実行可能</label>
@@ -1298,7 +1298,7 @@
         <help><!-- Select Callscript, eDM name,  SMS or MMS template based on the Execution Type --></help>
         <label><!-- SMS/MMS/eDM Template --></label>
         <name>Template__c</name>
-        <relationshipLabel><!-- Campaign Executions --></relationshipLabel>
+        <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
     <fields>
         <help><!-- Region Budget + Dealer Budget --></help>
@@ -1551,6 +1551,51 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Revised CAC Campaign Layout</layout>
+        <sections>
+            <label><!-- Scheduling Details --></label>
+            <section>Scheduling Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Campaign Execution Complex layout</layout>
+        <sections>
+            <label><!-- Campaign Statistics --></label>
+            <section>Campaign Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- SQL Statement --></label>
+            <section>SQL Statement</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Central Campaign Layout</layout>
+        <sections>
+            <label><!-- Expected Outcome --></label>
+            <section>Expected Outcome</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>S&amp;M Event Central Campaign</layout>
         <sections>
             <label><!-- Financial Information --></label>
@@ -1592,7 +1637,7 @@
         <name>CAC_CRM_Campaign</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーンチャネル</label>
+        <label>CAC Campaign</label>
         <name>CAC_Campaign</name>
     </recordTypes>
     <recordTypes>
@@ -1604,11 +1649,11 @@
         <name>Campaign_Execution</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーンメンバー追加</label>
+        <label>Campaign Execution - Complex</label>
         <name>Campaign_Execution_Complex</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーン計画</label>
+        <label>Central Marketing Campaign</label>
         <name>Central_Marketing_Campaign</name>
     </recordTypes>
     <recordTypes>

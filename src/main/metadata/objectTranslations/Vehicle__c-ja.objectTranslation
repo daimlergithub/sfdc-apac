@@ -37,7 +37,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Baumuster --></label>
+        <label>バウマスタ</label>
         <name>Baumuster__c</name>
     </fields>
     <fields>
@@ -5538,7 +5538,44 @@
             <section>Vehicle information</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised Competitor Vehicle Layout-CAC</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised MB Vehicle Layout-CAC</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Self Registered Layout-CAC</layout>
         <sections>
@@ -5572,7 +5609,7 @@
     </layouts>
     <nameFieldLabel>車両番号</nameFieldLabel>
     <recordTypes>
-        <label>競合他車</label>
+        <label>Competitor</label>
         <name>Competitor</name>
     </recordTypes>
     <recordTypes>
@@ -5580,7 +5617,7 @@
         <name>MB</name>
     </recordTypes>
     <recordTypes>
-        <label>自主登録車</label>
+        <label>Self Registered</label>
         <name>Self_Registered</name>
     </recordTypes>
     <recordTypes>
@@ -5588,7 +5625,7 @@
         <name>Vehicle_Product</name>
     </recordTypes>
     <recordTypes>
-        <label>車両(論理削除)</label>
+        <label>Vehicle Soft Deleted</label>
         <name>Vehicle_Soft_Deleted</name>
     </recordTypes>
     <sharingReasons>
@@ -5624,7 +5661,7 @@
         <name>UsVIN_Read_Only</name>
     </validationRules>
     <webLinks>
-        <label>車両手放情報登録</label>
+        <label>車両手放し情報登録</label>
         <name>TerminateVehicleRelationships</name>
     </webLinks>
 </CustomObjectTranslation>

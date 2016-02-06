@@ -59,10 +59,17 @@
     <fields>
         <label>車両ID</label>
         <name>Vehicle_ID__c</name>
-        <relationshipLabel><!-- Recalls --></relationshipLabel>
+        <relationshipLabel>改善措置</relationshipLabel>
     </fields>
     <layouts>
         <layout>Recall Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Recall Layout</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>

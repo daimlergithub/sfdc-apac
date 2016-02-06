@@ -1575,14 +1575,20 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised DM Material Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>カタログ名</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>
         <name>Format_DM_Material_Name</name>
     </validationRules>
     <validationRules>
-        <errorMessage>ラベル印字名は必ず23文字以下で入力して下さい。</errorMessage>
+        <errorMessage>ラベル印字名は必ず50文字以下で入力して下さい。</errorMessage>
         <name>LabelPrint_NoOfDigit</name>
     </validationRules>
 </CustomObjectTranslation>

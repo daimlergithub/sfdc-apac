@@ -7,12 +7,12 @@
     <fields>
         <label>対象顧客</label>
         <name>Account__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label>キャンペーン</label>
         <name>Campaign__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label>ケース</label>
@@ -22,7 +22,7 @@
     <fields>
         <label><!-- Survey Taken By Contact --></label>
         <name>Contact__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -31,12 +31,12 @@
     <fields>
         <label><!-- Last Answered Question --></label>
         <name>Last_Answered_Question__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label>対象リード</label>
         <name>Lead__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Market Discriminator --></label>
@@ -45,7 +45,7 @@
     <fields>
         <label>対象車両関係</label>
         <name>SurveyTakenByVehicle__c</name>
-        <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+        <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
         <label>Surveyステータス</label>
@@ -81,7 +81,13 @@
         <name>User__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
     </fields>
-    
+    <layouts>
+        <layout>Revised SurveyTaker Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>SurveyTaker Layout</layout>
         <sections>
