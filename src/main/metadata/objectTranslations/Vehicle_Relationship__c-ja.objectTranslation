@@ -1164,7 +1164,7 @@
     <fields>
         <label><!-- Considered Model 1 --></label>
         <name>Considered_Model_1__c</name>
-        <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
+        <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Considered Model 2 --></label>
@@ -1174,8 +1174,11 @@
     <fields>
         <help><!-- ID of related person --></help>
         <label>コンタクト</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper account. --></errorMessage>
+        </lookupFilter>
         <name>Contact__c</name>
-        <relationshipLabel><!-- Vehicle Relationships --></relationshipLabel>
+        <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Corporate Sale --></label>
@@ -1512,6 +1515,9 @@
     <fields>
         <help><!-- Name of last service dealer --></help>
         <label>サービス拠点</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+        </lookupFilter>
         <name>Last_Service_Dealer__c</name>
         <relationshipLabel><!-- Vehicle Relationships(Vehicle Relationship Last Service Dealer) --></relationshipLabel>
     </fields>
@@ -2547,7 +2553,7 @@
     <fields>
         <label><!-- SSI Matched --></label>
         <name>SSI__c</name>
-        <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
+        <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
         <help><!-- What factors were influential in your purchase decision?
@@ -2587,6 +2593,9 @@
     <fields>
         <help><!-- Name of the last dealer who sold the vehicle --></help>
         <label>販売拠点</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+        </lookupFilter>
         <name>Selling_Dealer__c</name>
         <relationshipLabel><!-- Vehicle Relationships(Vehicle Relationship Selling Dealer) --></relationshipLabel>
     </fields>
@@ -2902,20 +2911,20 @@
         <name>Vehicle_Amount__c</name>
     </fields>
     <fields>
-        <label>ブランド Franchise</label>
+        <label>ブランド</label>
         <name>Vehicle_Brand__c</name>
     </fields>
     <fields>
-        <label>クラス Model</label>
+        <label>クラス</label>
         <name>Vehicle_Class__c</name>
     </fields>
     <fields>
         <label>車両番号</label>
         <name>Vehicle_ID__c</name>
-        <relationshipLabel>保有車両</relationshipLabel>
+        <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>モデル Variant</label>
+        <label>モデル</label>
         <name>Vehicle_Model__c</name>
     </fields>
     <fields>
@@ -3014,8 +3023,11 @@
     </fields>
     <fields>
         <label>宛先コンタクト先住所</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper address linked to the contact. --></errorMessage>
+        </lookupFilter>
         <name>vehicle_address__c</name>
-        <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
+        <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
         <label>宛先コンタクト先FAX</label>
@@ -3025,6 +3037,7 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
+    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
@@ -3065,7 +3078,7 @@
     </layouts>
     <nameFieldLabel>車両顧客関係番号</nameFieldLabel>
     <recordTypes>
-        <label>車両顧客関係</label>
+        <label>Vehicle Relationship</label>
         <name>Vehicle_Relationship</name>
     </recordTypes>
     <recordTypes>
@@ -3073,7 +3086,7 @@
         <name>Vehicle_Relationship_Retail</name>
     </recordTypes>
     <recordTypes>
-        <label>車両顧客関係(論理削除)</label>
+        <label>Vehicle Relationship Soft Deleted</label>
         <name>Vehicle_Relationship_Soft_Deleted</name>
     </recordTypes>
     <sharingReasons>

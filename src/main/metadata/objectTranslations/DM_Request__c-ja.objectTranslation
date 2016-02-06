@@ -38,12 +38,12 @@
     <fields>
         <label>キャンペーンID</label>
         <name>Campaign__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>モデル</label>
         <name>Car_Model__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Car Series --></label>
@@ -52,7 +52,7 @@
     <fields>
         <label>ケース番号</label>
         <name>Case_Number__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>タッチポイント</label>
@@ -85,12 +85,12 @@
     <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>顧客名</label>
         <name>Customer_Name__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- DM Request External Id --></label>
@@ -154,7 +154,7 @@
     <fields>
         <label>リード</label>
         <name>Lead__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Market Discriminator --></label>
@@ -415,11 +415,11 @@
     
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
-        <errorMessage>住所は必ず92文字以下で入力して下さい。</errorMessage>
+        <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
         <name>Address_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>宛名会社・部署・役職名は必ず50文字以下で入力して下さい。</errorMessage>
+        <errorMessage>宛名会社・部署・役職名は必ず100文字以下で入力して下さい。</errorMessage>
         <name>Attention_NoOfDigits</name>
     </validationRules>
     <validationRules>
