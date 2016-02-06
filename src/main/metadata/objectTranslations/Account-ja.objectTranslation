@@ -7047,30 +7047,6 @@ Allows up to 240 characters --></help>
             <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    </layouts> -->
-<<<<<<< HEAD
-   
-   <!-- <layouts>
-        <layout>Revised Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Main Contact and Consent</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>New Section</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
     </layouts>-->
 
     <recordTypes>
