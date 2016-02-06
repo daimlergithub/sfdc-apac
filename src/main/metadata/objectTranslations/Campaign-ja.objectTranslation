@@ -1550,65 +1550,7 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised CAC Campaign Layout</layout>
-        <sections>
-            <label><!-- Scheduling Details --></label>
-            <section>Scheduling Details</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Campaign Execution Complex layout</layout>
-        <sections>
-            <label><!-- Campaign Statistics --></label>
-            <section>Campaign Statistics</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Interval Before This Execution --></label>
-            <section>Interval Before This Execution</section>
-        </sections>
-        <sections>
-            <label><!-- SQL Statement --></label>
-            <section>SQL Statement</section>
-        </sections>
-        <sections>
-            <label><!-- Segmentation Settings --></label>
-            <section>Segmentation Settings</section>
-        </sections>
-        <sections>
-            <label><!-- Template --></label>
-            <section>Template</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Revised Central Campaign Layout</layout>
-        <sections>
-            <label><!-- Expected Outcome --></label>
-            <section>Expected Outcome</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>S&amp;M Event Central Campaign</layout>
-        <sections>
-            <label><!-- Financial Information --></label>
-            <section>Financial Information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>S&amp;M Media Central Campaign</layout>
-        <sections>
-            <label><!-- Financial Information --></label>
-            <section>Financial Information</section>
-        </sections>
-    </layouts>
+    
     <layouts>
         <layout>smart BP</layout>
         <sections>
