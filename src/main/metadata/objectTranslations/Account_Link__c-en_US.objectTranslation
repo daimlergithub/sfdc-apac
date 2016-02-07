@@ -399,10 +399,7 @@
     </layouts>
     <layouts>
         <layout>Contact to Contact</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
+
         <sections>
             <label><!-- Fields --></label>
             <section>Fields</section>
