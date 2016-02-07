@@ -1004,12 +1004,96 @@
         <label>国籍</label>
         <name>Country__c</name>
         <picklistValues>
+            <masterLabel>Argentina</masterLabel>
+            <translation><!-- Argentina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brazil</masterLabel>
+            <translation><!-- Brazil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>China</masterLabel>
             <translation>中国</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany</masterLabel>
+            <translation><!-- Germany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>India</masterLabel>
+            <translation><!-- India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indonesia</masterLabel>
+            <translation><!-- Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italia</masterLabel>
+            <translation><!-- Italia --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Japan</masterLabel>
             <translation>日本</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mexico</masterLabel>
+            <translation><!-- Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Philippines</masterLabel>
+            <translation><!-- Philippines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russia</masterLabel>
+            <translation><!-- Russia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saudi Arabia</masterLabel>
+            <translation><!-- Saudi Arabia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singapore</masterLabel>
+            <translation><!-- Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Africa</masterLabel>
+            <translation><!-- South Africa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Korea</masterLabel>
+            <translation><!-- South Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation><!-- Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Kingdom</masterLabel>
+            <translation><!-- United Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United States</masterLabel>
+            <translation><!-- United States --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnam</masterLabel>
+            <translation><!-- Vietnam --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1062,7 +1146,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Discard</masterLabel>
-            <translation>削除</translation>
+            <translation>ディスカード</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales &amp; Service Lead</masterLabel>
@@ -3041,7 +3125,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>生存フラグ</label>
+        <label>死亡フラグ</label>
         <name>Deceased__c</name>
     </fields>
     <fields>
@@ -4935,7 +5019,7 @@ Allows up to 240 characters --></help>
         <name>Opt_In_Contact_Reason_Details__c</name>
     </fields>
     <fields>
-        <label>可能アクティビティ</label>
+        <label>拒否アクティビティ</label>
         <name>Opt_In_Contact_Reason__c</name>
         <picklistValues>
             <masterLabel>Campaign (Aftersales)</masterLabel>
@@ -5405,6 +5489,10 @@ Allows up to 240 characters --></help>
             <translation>広東語</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>English</masterLabel>
             <translation>英語</translation>
         </picklistValues>
@@ -5415,6 +5503,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Mandarin Chinese</masterLabel>
             <translation>中国語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6011,7 +6103,7 @@ Allows up to 240 characters --></help>
         <name>Southpac_SAP_No__c</name>
     </fields>
     <fields>
-        <label><!-- Special Care --></label>
+        <label>参照番号(福祉車両)</label>
         <name>Special_Care__c</name>
     </fields>
     <fields>
@@ -6055,7 +6147,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>参照番号（福祉車両）等級</label>
+        <label>代車等級</label>
         <name>Special_Needs_Class__c</name>
         <picklistValues>
             <masterLabel>A</masterLabel>
@@ -6628,7 +6720,7 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
@@ -6747,7 +6839,7 @@ Allows up to 240 characters --></help>
         <layout>MBJCTI Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
@@ -6775,11 +6867,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6787,7 +6879,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6819,7 +6911,7 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
@@ -6847,11 +6939,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6859,7 +6951,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6895,11 +6987,11 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -6907,7 +6999,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -6955,30 +7047,8 @@ Allows up to 240 characters --></help>
             <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    </layouts> -->
-   
-   <!-- <layouts>
-        <layout>Revised Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Main Contact and Consent</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>New Section</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
     </layouts>-->
+
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
@@ -7008,7 +7078,7 @@ Allows up to 240 characters --></help>
         <name>CP_Customer_Phone_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage>アカウント名は必ず40文字以下で入力して下さい。</errorMessage>
+        <errorMessage>アカウント名は必ず80文字以下で入力して下さい。</errorMessage>
         <name>CompAccountName_NoOfDigits</name>
     </validationRules>
     <validationRules>
@@ -7032,7 +7102,7 @@ Allows up to 240 characters --></help>
         <name>DealerAccountName_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>販売店住所1（日本語）は必ず50文字以下で入力して下さい。</errorMessage>
+        <errorMessage>販売店住所1（日本語）は必ず100文字以下で入力して下さい。</errorMessage>
         <name>DealerAddressCN_NoOfDigits</name>
     </validationRules>
     <validationRules>

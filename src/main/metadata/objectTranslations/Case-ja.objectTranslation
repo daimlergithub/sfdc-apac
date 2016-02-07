@@ -115,7 +115,7 @@
     <fields>
         <label>キャンペーンID</label>
         <name>Campaign__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Car Brand 1 --></label>
@@ -353,10 +353,6 @@
             <translation><!-- MARCO POLO --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -371,6 +367,10 @@
         <picklistValues>
             <masterLabel>ML63 AMG</masterLabel>
             <translation><!-- ML63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NEW E-Class Sport Sedan</masterLabel>
@@ -605,10 +605,6 @@
             <translation><!-- MARCO POLO --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -623,6 +619,10 @@
         <picklistValues>
             <masterLabel>ML63 AMG</masterLabel>
             <translation><!-- ML63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NEW E-Class Sport Sedan</masterLabel>
@@ -857,10 +857,6 @@
             <translation><!-- MARCO POLO --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (Not Current Series)</masterLabel>
             <translation><!-- MB100 (Not Current Series) --></translation>
         </picklistValues>
@@ -875,6 +871,10 @@
         <picklistValues>
             <masterLabel>ML63 AMG</masterLabel>
             <translation><!-- ML63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NEW E-Class Sport Sedan</masterLabel>
@@ -5278,7 +5278,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>モデル</label>
+        <label>Car Model</label>
         <name>Car_Model__c</name>
         <picklistValues>
             <masterLabel>2013 smart Chocolate Special Edition</masterLabel>
@@ -6078,15 +6078,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>In-progress</masterLabel>
-            <translation>進行中</translation>
+            <translation>In-progress</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New</masterLabel>
-            <translation>未受付</translation>
+            <translation>New</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No approval needed</masterLabel>
-            <translation>承認不要対応</translation>
+            <translation>No approval needed</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
@@ -6098,7 +6098,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Response approved</masterLabel>
-            <translation>対応承認済</translation>
+            <translation>CM対応中(SV確認済)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TS transfer</masterLabel>
@@ -6106,11 +6106,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for Response approval</masterLabel>
-            <translation>対応承認依頼</translation>
+            <translation>CM対応中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for final approval</masterLabel>
-            <translation>最終承認依頼</translation>
+            <translation>最終承認依頼（CM対応完了承認依頼）</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7381,7 +7381,7 @@
     <fields>
         <label><!-- CRM1 Contract Number --></label>
         <name>Contract_Number_or_Policy_Number__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Correction --></label>
@@ -7869,7 +7869,7 @@
         <name>Date_of_Warranty_Expiry__c</name>
     </fields>
     <fields>
-        <label>指定終了日</label>
+        <label>指定終了日時</label>
         <name>DeadLine__c</name>
     </fields>
     <fields>
@@ -8604,7 +8604,7 @@
     <fields>
         <label><!-- Follow Up Inquiry --></label>
         <name>Follow_Up_Inquiry__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Fourth OB By --></label>
@@ -9033,7 +9033,7 @@
     <fields>
         <label>関連リード</label>
         <name>Lead__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Licence Number --></label>
@@ -9761,7 +9761,7 @@
     <fields>
         <label>リコール番号</label>
         <name>Recall_ID__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Record Status --></label>
@@ -9902,7 +9902,7 @@
     <fields>
         <label><!-- Retail Campaign --></label>
         <name>Retail_Campaign__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Retail Case Notice Dealer Flag --></label>
@@ -10108,6 +10108,26 @@
             <translation><!-- Closed (Final) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Escalation Confirmed</masterLabel>
+            <translation><!-- Escalation Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Raised</masterLabel>
+            <translation><!-- Escalation Raised --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
+            <translation><!-- Escalation Raised &amp; Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Request</masterLabel>
+            <translation><!-- Escalation Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escaltaion Confirmed</masterLabel>
+            <translation><!-- Escaltaion Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Final Position Released</masterLabel>
             <translation><!-- Final Position Released --></translation>
         </picklistValues>
@@ -10133,7 +10153,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>In progress</masterLabel>
-            <translation>進行中</translation>
+            <translation>In progress</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insufficient Document</masterLabel>
@@ -10149,11 +10169,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>New</masterLabel>
-            <translation>未受付</translation>
+            <translation>New</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No approval needed</masterLabel>
-            <translation>承認不要対応</translation>
+            <translation>No approval needed</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
@@ -10177,7 +10197,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Response approved</masterLabel>
-            <translation>対応承認済</translation>
+            <translation>CM対応中(SV確認済)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Suspended</masterLabel>
@@ -10197,11 +10217,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for Response approval</masterLabel>
-            <translation><!-- Waiting for Response approval --></translation>
+            <translation>CM対応中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for final approval</masterLabel>
-            <translation><!-- Waiting for final approval --></translation>
+            <translation>最終承認依頼（CM対応完了承認依頼）</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -10327,7 +10347,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>製品ID</label>
+        <label>車台番号</label>
         <name>US_VIN__c</name>
     </fields>
     <fields>
@@ -12939,7 +12959,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Vehicle Model --></label>
+        <label>レンジ</label>
         <name>Vehicle_Modeltest__c</name>
     </fields>
     <fields>
@@ -12948,7 +12968,7 @@
             <errorMessage><!-- Account must be the same as Vehicle Relationship Account --></errorMessage>
         </lookupFilter>
         <name>Vehicle_Relationship__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Vehicle Source --></label>
@@ -12981,7 +13001,7 @@
     <fields>
         <label>関連車両</label>
         <name>Vehicle__c</name>
-        <relationshipLabel><!-- Cases --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Vehicle In Workshop(checkbox) --></label>
@@ -13647,13 +13667,13 @@
             <section>Vehicle Owner Details</section>
         </sections>
     </layouts>
-    
+   
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
         <name>Chrysler_Complaint</name>
     </recordTypes>
     <recordTypes>
-        <label>問合わせ</label>
+        <label>Inquiry</label>
         <name>Inquiry</name>
     </recordTypes>
     <recordTypes>
@@ -13853,7 +13873,7 @@
         <name>New_Chrysler_ComplaintForVehicleShip</name>
     </webLinks>
     <webLinks>
-        <label>新規問合わせ</label>
+        <label>新規ケース</label>
         <name>New_Inquiry</name>
     </webLinks>
     <webLinks>

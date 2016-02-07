@@ -928,6 +928,10 @@
         <relationshipLabel><!-- Campaign Leads --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
         <label><!-- Participate Status --></label>
         <name>Participate_Status__c</name>
     </fields>

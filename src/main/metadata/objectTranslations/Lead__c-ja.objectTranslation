@@ -14107,7 +14107,6 @@
         <name>X72H_Untouched__c</name>
     </fields>
     
-    
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
@@ -14198,7 +14197,7 @@
             <section>Miscelleneous Section</section>
         </sections>
         <sections>
-            <label><!-- Referal/Referee Information --></label>
+            <label>参照情報</label>
             <section>Referal/Referee Information</section>
         </sections>
         <sections>
@@ -14255,11 +14254,11 @@
         <name>Retail_Sales_Leads</name>
     </recordTypes>
     <recordTypes>
-        <label>セールスリード</label>
+        <label>Sales Leads</label>
         <name>Sales_Leads</name>
     </recordTypes>
     <recordTypes>
-        <label>セールスリード(論理削除)</label>
+        <label>Sales Leads Soft Deleted</label>
         <name>Sales_Leads_Soft_Deleted</name>
     </recordTypes>
     <sharingReasons>
