@@ -118,19 +118,19 @@
         <name>Province__c</name>
         <picklistValues>
             <masterLabel>Aichi</masterLabel>
-            <translation>愛知</translation>
+            <translation>愛知県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Akita</masterLabel>
-            <translation>秋田</translation>
+            <translation>秋田県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aomori</masterLabel>
-            <translation>青森</translation>
+            <translation>青森県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Chiba</masterLabel>
-            <translation>千葉</translation>
+            <translation>千葉県</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ehime</masterLabel>
@@ -326,7 +326,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Opt out</masterLabel>
-            <translation>郵送拒否</translation>
+            <translation>Opt out</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -358,15 +358,15 @@
     </layouts>
     <nameFieldLabel>住所番号</nameFieldLabel>
     <recordTypes>
-        <label>法人</label>
+        <label>Company</label>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label>販売店</label>
+        <label>Dealer</label>
         <name>Dealer</name>
     </recordTypes>
     <recordTypes>
-        <label>個人顧客</label>
+        <label>Individual</label>
         <name>Individual</name>
     </recordTypes>
     <validationRules>

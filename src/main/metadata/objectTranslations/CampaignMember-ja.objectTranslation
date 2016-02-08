@@ -406,7 +406,6 @@
             <masterLabel>Unsuccessful communication</masterLabel>
             <translation><!-- Unsuccessful communication --></translation>
         </picklistValues>
-        
     </fields>
     <fields>
         <label>ステータス変更日時</label>

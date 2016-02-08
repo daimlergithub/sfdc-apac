@@ -1016,7 +1016,7 @@
     <fields>
         <label>アンケート</label>
         <name>Questionnaire__c</name>
-        <relationshipLabel><!-- Campaign Executions --></relationshipLabel>
+        <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
     <fields>
         <label>実行可能</label>
@@ -1298,7 +1298,7 @@
         <help><!-- Select Callscript, eDM name,  SMS or MMS template based on the Execution Type --></help>
         <label><!-- SMS/MMS/eDM Template --></label>
         <name>Template__c</name>
-        <relationshipLabel><!-- Campaign Executions --></relationshipLabel>
+        <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
     <fields>
         <help><!-- Region Budget + Dealer Budget --></help>
@@ -1550,20 +1550,7 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>S&amp;M Event Central Campaign</layout>
-        <sections>
-            <label><!-- Financial Information --></label>
-            <section>Financial Information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>S&amp;M Media Central Campaign</layout>
-        <sections>
-            <label><!-- Financial Information --></label>
-            <section>Financial Information</section>
-        </sections>
-    </layouts>
+    
     <layouts>
         <layout>smart BP</layout>
         <sections>
@@ -1592,7 +1579,7 @@
         <name>CAC_CRM_Campaign</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーンチャネル</label>
+        <label>CAC Campaign</label>
         <name>CAC_Campaign</name>
     </recordTypes>
     <recordTypes>
@@ -1604,11 +1591,11 @@
         <name>Campaign_Execution</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーンメンバー追加</label>
+        <label>Campaign Execution - Complex</label>
         <name>Campaign_Execution_Complex</name>
     </recordTypes>
     <recordTypes>
-        <label>キャンペーン計画</label>
+        <label>Central Marketing Campaign</label>
         <name>Central_Marketing_Campaign</name>
     </recordTypes>
     <recordTypes>

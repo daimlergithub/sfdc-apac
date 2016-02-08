@@ -3,9 +3,6 @@
     <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
-        <type>owner</type>
-    </allowedSubmitters>
-    <allowedSubmitters>
         <submitter>Operator_Team_A</submitter>
         <type>role</type>
     </allowedSubmitters>
