@@ -64,12 +64,12 @@ public With Sharing class CaseHelperTest {
         insert contact;
         
         User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
-        User usr=new User();       
+        User usr=new User();
         System.runAs ( runUser ) {               
                 usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
-                usr.ProfileId=UtilTestData.getProfileId('Dealer Community User');
-                // usr.UserRoleId=userRoleId;
-                usr.LastName = 'Test User';
+                usr.ProfileId=UtilTestData.getProfileId('CAC Data Manager');
+                usr.UserRoleId=UtilTestData.getUserRoleId('Dealer User');
+                usr.LastName = 'TestCreateUser';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = 'test1';
                 usr.TimeZoneSidKey = 'Asia/Shanghai';
@@ -77,9 +77,27 @@ public With Sharing class CaseHelperTest {
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
                 usr.isActive = true;
-                usr.ContactId =contact.Id;
                 Database.insert(usr); 
                 system.debug('!!!!! User Records'+usr); 
+        }
+        
+        User runUser1 = [select Id from User Where LastName = 'TestCreateUser'];
+        User usr1=new User();       
+        System.runAs ( runUser ) {               
+                usr1.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+                usr1.ProfileId=UtilTestData.getProfileId('Dealer Community User');
+                //usr.UserRoleId=UtilTestData.getUserRoleId('Dealer User');
+                usr1.LastName = 'Test User';
+                usr1.Email = 'test001@daimler.com.full';
+                usr1.Alias = 'test1';
+                usr1.TimeZoneSidKey = 'Asia/Shanghai';
+                usr1.EmailEncodingKey = 'UTF-8';
+                usr1.LanguageLocaleKey = 'en_US';
+                usr1.localesidkey='en_US';
+                usr1.isActive = true;
+                usr1.ContactId =contact.Id;
+                Database.insert(usr1); 
+                system.debug('!!!!! User Records'+usr1); 
          }                           
   }
   
