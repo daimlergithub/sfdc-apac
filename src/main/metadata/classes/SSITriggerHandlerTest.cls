@@ -10,6 +10,7 @@ private with sharing class SSITriggerHandlerTest {
     
     
      static{
+         
           customer = new Account(
                 FirstName = 'Test-',
                 LastName =  DateTime.now().formatLong(),
@@ -19,7 +20,7 @@ private with sharing class SSITriggerHandlerTest {
                 PersonHomePhone = '1234567', 
                 PersonAssistantPhone = '1234567'
             );
-        
+                 
     }
 
     
@@ -38,7 +39,9 @@ private with sharing class SSITriggerHandlerTest {
             insert ssi;
             
             Test.startTest();
-
+			
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         	insert updatecustomsettings;
             // create ssi task related to ssi record
             Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
             Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = 'Welcome Call');
@@ -56,7 +59,7 @@ private with sharing class SSITriggerHandlerTest {
             System.assertEquals(ssiTask.Subject, 'Welcome Call');
 
             
-       }    
+        }  
         
     }
     
@@ -84,7 +87,8 @@ private with sharing class SSITriggerHandlerTest {
             insert ssiTask;
 
             Test.startTest();
-
+			List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         	insert updatecustomsettings;
             ssiTask.recordtypeid = ibrtid;
             ssiTask.CallType = 'Inbound';
             ssiTask.Activity_Status__c = ActivityStatus;
@@ -117,27 +121,91 @@ private with sharing class SSITriggerHandlerTest {
        }    
         
     }
-        static testMethod void fieldsValidationRule() {
+    static testMethod void myUnitTest3() {
         
-         ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+          ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
         
-        System.runAs ( ssi_sv ) {                   
+        System.runAs ( ssi_sv ) {
+                    
+            
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
             String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
 
             // create new ssi record
-            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched',DealerCheck_Status__c = ActivityStatus,CarModelCheck_Status__c = ActivityStatus);
+            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
+            insert ssi;
+            
+            // cover TriggerTask.trigger    
+            Id ibrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
+            Id obrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+            Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+            
+            Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = '2nd Survey Call');
+            insert ssiTask;
+
+            Test.startTest();
+			List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         	insert updatecustomsettings;
+            ssiTask.recordtypeid = ibrtid;
+            ssiTask.CallType = 'Inbound';
+            ssiTask.Activity_Status__c = ActivityStatus;
+            ssiTask.IB_Status__c = ActivityStatus;
+            update ssiTask;
+            ssiTask = [Select Id, Activity_Status__c, IB_Status__c From Task Where Id=:ssiTask.Id];
+            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatus);
+            
+            ssitask.recordtypeid = recordtype;
+            ssiTask.CallType = '';
+            ssiTask.Activity_Status__c = ActivityStatusValue;
+            ssiTask.OB_Status__c = 'Invalid';
+            update ssiTask;
+            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
+            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusValue);
+            
+            ssiTask.recordtypeid = obrtid;
+            ssiTask.CallType = 'Outbound';
+            ssiTask.Activity_Status__c = ActivityStatusInvalid;
+            ssiTask.OB_Status__c = 'Invalid';
+            update ssiTask;
+            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
+            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusInvalid);
+            
+            ssi.DealerCheck_Status__c = 'Accept';
+            ssi.CarModelCheck_Status__c = 'Accept';
+            ssi.Comments__c = 'OK';
+            update ssi;
+            
+            Test.stopTest();
+       }    
+        
+    }
+        static testMethod void fieldsValidationRule() {
+                                          
+            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+            String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
+
+            // create new ssi record
+            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched',DealerCheck_Status__c = ActivityStatus,CarModelCheck_Status__c = ActivityStatus,Need_2nd_Survey__c = false);
             insert ssi;            
             
             // cover TriggerTask.trigger                
            Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();            
-            Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = SubjectValue);            
+                       
              Test.startTest();
-             insert ssiTask;      
+             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         	 insert updatecustomsettings;
+             Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = '2nd Survey Call'); 
+             insert ssiTask;
+             ssi.Need_2nd_Survey__c = true;
+             update ssi;
+             List<Task> generatetask = new List<Task>();
+             Map<Id,SSI__c> updateMap = new Map<Id,SSI__c>();
+             updateMap.put(ssi.Id, ssi);
+             generatetask.add(ssiTask);
              Test.stopTest();            
              ssiTask = [Select Id, Subject, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Subject, SubjectValue);
-        }    
+            System.assertEquals(ssiTask.Subject, '2nd Survey Call');
+            
         
     }
 }

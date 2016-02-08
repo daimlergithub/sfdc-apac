@@ -41,7 +41,7 @@
     <fields>
         <label>対象Survey</label>
         <name>Survey__c</name>
-        <relationshipLabel><!-- SurveyQuestions --></relationshipLabel>
+        <relationshipLabel>サーベイ質問</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Total Responses --></label>

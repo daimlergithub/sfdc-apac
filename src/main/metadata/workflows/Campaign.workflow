@@ -85,7 +85,7 @@ RecordType.Name,
     </fieldUpdates>
     <outboundMessages>
         <fullName>Send_Campaign_ID_to_EP</fullName>
-        <apiVersion>36.0</apiVersion>
+        <apiVersion>35.0</apiVersion>
         <endpointUrl>https://crm-salesforce-int.mercedes-benz.com/webservices/CampaignUpdateNotification</endpointUrl>
         <fields>Id</fields>
         <includeSessionId>false</includeSessionId>

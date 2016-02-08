@@ -2528,7 +2528,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <relationshipName>Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -2590,7 +2590,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <relationshipName>Lead_Contact</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

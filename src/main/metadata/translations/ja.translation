@@ -49,15 +49,15 @@
         <name>Retail_CRM</name>
     </customApplications>
     <customLabels>
-        <label><!-- Accepted --></label>
+        <label>了承済み</label>
         <name>Accepted</name>
     </customLabels>
     <customLabels>
-        <label><!-- Account --></label>
+        <label>アカウント</label>
         <name>Account</name>
     </customLabels>
     <customLabels>
-        <label><!-- AccountLink --></label>
+        <label>アカウントリンク</label>
         <name>AccountLink</name>
     </customLabels>
     <customLabels>
@@ -67,6 +67,10 @@
     <customLabels>
         <label><!-- Account Cann&apos;t be Customer --></label>
         <name>Account_Cann_t_be_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label>アカウント作成</label>
+        <name>Account_Creation</name>
     </customLabels>
     <customLabels>
         <label><!-- Account Merge --></label>
@@ -89,6 +93,10 @@
         <name>Add_to_Campaign</name>
     </customLabels>
     <customLabels>
+        <label><!-- Address --></label>
+        <name>Address</name>
+    </customLabels>
+    <customLabels>
         <label><!-- AddressType Validation --></label>
         <name>AddressType_Validation</name>
     </customLabels>
@@ -105,12 +113,16 @@
         <name>Address_2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address Information --></label>
+        <label>住所情報</label>
         <name>Address_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address Search --></label>
+        <label>郵便番号検索</label>
         <name>Address_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address fields not null --></label>
+        <name>Address_fields_not_null</name>
     </customLabels>
     <customLabels>
         <label><!-- Address type Validation --></label>
@@ -123,6 +135,14 @@
     <customLabels>
         <label><!-- Aftersales --></label>
         <name>Aftersales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AftersalesContacTarget1 --></label>
+        <name>AftersalesContacTarget1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AftersalesContactTarget2 --></label>
+        <name>AftersalesContactTarget2</name>
     </customLabels>
     <customLabels>
         <label><!-- And Criteria --></label>
@@ -173,7 +193,7 @@
         <name>AttachedPdfError</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker label --></label>
+        <label>メーカー</label>
         <name>Brand</name>
     </customLabels>
     <customLabels>
@@ -281,7 +301,7 @@
         <name>CSR_Lookup_User_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Call Center Case Information --></label>
+        <label>電話等による情報受付</label>
         <name>CallCenterCaseInformation</name>
     </customLabels>
     <customLabels>
@@ -517,15 +537,15 @@
         <name>CaseCategory</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Content/Status --></label>
+        <label>申立内容・状況</label>
         <name>CaseContentStatus</name>
     </customLabels>
     <customLabels>
-        <label><!-- CaseNumber : --></label>
+        <label>伝票番号</label>
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Deadline Notification Case --></label>
+        <label>ケース</label>
         <name>Case_Deadline_Notification_Case</name>
     </customLabels>
     <customLabels>
@@ -533,16 +553,24 @@
         <name>Case_Deadline_Notification_Case_Number</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Deadline Notification Company --></label>
+        <label>アカウント名</label>
         <name>Case_Deadline_Notification_Company</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Deadline Notification Text1 --></label>
+        <label>下記ケースの指定終了日時が迫っています。</label>
         <name>Case_Deadline_Notification_Text1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Deadline Notification Text2 --></label>
+        <label>URLよりログインし、上記ケースについてご確認ください。</label>
         <name>Case_Deadline_Notification_Text2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text3 --></label>
+        <name>Case_Deadline_Notification_Text3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Case Deadline Notification Text4 --></label>
+        <name>Case_Deadline_Notification_Text4</name>
     </customLabels>
     <customLabels>
         <label><!-- Case Deadline Notification Text5 --></label>
@@ -553,11 +581,15 @@
         <name>Case_Record_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Child --></label>
+        <name>Child</name>
+    </customLabels>
+    <customLabels>
         <label><!-- City --></label>
         <name>City</name>
     </customLabels>
     <customLabels>
-        <label><!-- For Vehicle Picker --></label>
+        <label>クラス</label>
         <name>Class</name>
     </customLabels>
     <customLabels>
@@ -565,7 +597,7 @@
         <name>Clear_Button</name>
     </customLabels>
     <customLabels>
-        <label><!-- Close --></label>
+        <label>閉じる</label>
         <name>Close</name>
     </customLabels>
     <customLabels>
@@ -573,7 +605,7 @@
         <name>Cluster</name>
     </customLabels>
     <customLabels>
-        <label><!-- For Vehicle Picker --></label>
+        <label>外装色</label>
         <name>Colour</name>
     </customLabels>
     <customLabels>
@@ -585,8 +617,12 @@
         <name>Common_Filter_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Company Account Information --></label>
+        <label>法人アカウント情報</label>
         <name>Company_Account_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Company Account Record Type --></label>
+        <name>Company_Account_Record_Type</name>
     </customLabels>
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
@@ -597,7 +633,7 @@
         <name>Completenes</name>
     </customLabels>
     <customLabels>
-        <label><!-- Confirmation for delete address --></label>
+        <label>本当に住所を削除しますか？</label>
         <name>Confirmation_for_delete_address</name>
     </customLabels>
     <customLabels>
@@ -617,11 +653,11 @@
         <name>Convert_To_Lead</name>
     </customLabels>
     <customLabels>
-        <label><!-- Could not explain --></label>
+        <label>説明できず</label>
         <name>Couldnotexplain</name>
     </customLabels>
     <customLabels>
-        <label><!-- Create Vehicle --></label>
+        <label>車両作成</label>
         <name>Create_Vehicle</name>
     </customLabels>
     <customLabels>
@@ -633,11 +669,12 @@
         <name>Custom_Debug_Log_Switch</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer --></label>
+        <label>顧客名</label>
         <name>Customer</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customer・Assistance・Center --></label>
+        <label>メルセデス・ベンツ日本株式会社
+カスタマー・アシスタンス・センター</label>
         <name>CustomerAssistanceCenter</name>
     </customLabels>
     <customLabels>
@@ -645,15 +682,19 @@
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Date/Time : --></label>
+        <label><!-- DMRequest validation error --></label>
+        <name>DMRequest_validation_error</name>
+    </customLabels>
+    <customLabels>
+        <label>受付日</label>
         <name>DateTime</name>
     </customLabels>
     <customLabels>
-        <label><!-- Date Information --></label>
+        <label>日付情報</label>
         <name>Date_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Dealer : --></label>
+        <label>販売会社</label>
         <name>Dealer</name>
     </customLabels>
     <customLabels>
@@ -689,6 +730,10 @@
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Dono --></label>
+        <name>Dono</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Downloadedfile --></label>
         <name>Downloadedfile</name>
     </customLabels>
@@ -697,11 +742,15 @@
         <name>Edit</name>
     </customLabels>
     <customLabels>
+        <label><!-- Employee --></label>
+        <name>Employee</name>
+    </customLabels>
+    <customLabels>
         <label><!-- End Time Greater Start Time --></label>
         <name>End_Time_Greater_Start_Time</name>
     </customLabels>
     <customLabels>
-        <label><!-- For Vehicle Picker --></label>
+        <label>車台番号を入れる</label>
         <name>Enter_VIN_number</name>
     </customLabels>
     <customLabels>
@@ -765,6 +814,14 @@
         <name>GenericUploaderLengthErrorMsg</name>
     </customLabels>
     <customLabels>
+        <label><!-- Grandchild --></label>
+        <name>GrandChild</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GrandParent --></label>
+        <name>GrandParent</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Has Attended Campaign --></label>
         <name>Has_Attended_Campaign</name>
     </customLabels>
@@ -789,7 +846,7 @@
         <name>Idle_Hour_Promotion</name>
     </customLabels>
     <customLabels>
-        <label><!-- Information sharing --></label>
+        <label>*販売店/社内関係部門への情報展開</label>
         <name>Informationsharing</name>
     </customLabels>
     <customLabels>
@@ -805,7 +862,7 @@
         <name>Interest_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Kana : --></label>
+        <label>フリガナ</label>
         <name>Kana</name>
     </customLabels>
     <customLabels>
@@ -1089,6 +1146,10 @@
         <name>Maintenance_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- Manager --></label>
+        <name>Manager</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Marketing survey --></label>
         <name>Marketing_survey</name>
     </customLabels>
@@ -1137,11 +1198,11 @@
         <name>Mass_Calibration_Page_Block_Title</name>
     </customLabels>
     <customLabels>
-        <label><!-- Master Account --></label>
+        <label>マージ先アカウント</label>
         <name>Master_Account</name>
     </customLabels>
     <customLabels>
-        <label><!-- Master Record --></label>
+        <label>マージ先レコード</label>
         <name>Master_Record</name>
     </customLabels>
     <customLabels>
@@ -1149,7 +1210,7 @@
         <name>Media_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Merge --></label>
+        <label>マージ</label>
         <name>Merge</name>
     </customLabels>
     <customLabels>
@@ -1173,15 +1234,15 @@
         <name>Message_No_Valid_Records</name>
     </customLabels>
     <customLabels>
-        <label><!-- For Vehicle Picker --></label>
+        <label>走行距離</label>
         <name>Mileage</name>
     </customLabels>
     <customLabels>
-        <label>携帯電話番号</label>
+        <label>携帯電話</label>
         <name>Mobile</name>
     </customLabels>
     <customLabels>
-        <label><!-- Model --></label>
+        <label>モデル</label>
         <name>Model</name>
     </customLabels>
     <customLabels>
@@ -1237,7 +1298,15 @@
         <name>Near_Dealer_Phone3</name>
     </customLabels>
     <customLabels>
-        <label><!-- New Account Information --></label>
+        <label><!-- New Account --></label>
+        <name>NewAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Lead --></label>
+        <name>NewLead</name>
+    </customLabels>
+    <customLabels>
+        <label>新規アカウント情報</label>
         <name>New_Account_Information</name>
     </customLabels>
     <customLabels>
@@ -1253,12 +1322,16 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
-        <label><!-- Not-Accepted --></label>
+        <label>承認拒否</label>
         <name>NotAccepted</name>
     </customLabels>
     <customLabels>
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Onchu --></label>
+        <name>Onchu</name>
     </customLabels>
     <customLabels>
         <label><!-- Operation --></label>
@@ -1269,7 +1342,7 @@
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
-        <label><!-- Other Information --></label>
+        <label>その他情報</label>
         <name>Other_Information</name>
     </customLabels>
     <customLabels>
@@ -1301,15 +1374,23 @@
         <name>Page_Element_Previous</name>
     </customLabels>
     <customLabels>
+        <label><!-- Parent --></label>
+        <name>Parent</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Parts Cross Promotion --></label>
         <name>Parts_Cross_Promotion</name>
     </customLabels>
     <customLabels>
-        <label><!-- Person Account Information --></label>
+        <label>個人顧客情報</label>
         <name>Person_Account_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Phone --></label>
+        <label><!-- Person Account Record Type --></label>
+        <name>Person_Account_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>固定電話</label>
         <name>Phone</name>
     </customLabels>
     <customLabels>
@@ -1321,15 +1402,19 @@
         <name>Please_select_only_one_Master_Record</name>
     </customLabels>
     <customLabels>
+        <label><!-- Post --></label>
+        <name>Post</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Previous --></label>
         <name>Previous</name>
     </customLabels>
     <customLabels>
-        <label><!-- Priority --></label>
+        <label>品質重要度</label>
         <name>Priority</name>
     </customLabels>
     <customLabels>
-        <label><!-- Product ID --></label>
+        <label>車体番号</label>
         <name>Product_ID</name>
     </customLabels>
     <customLabels>
@@ -1381,15 +1466,15 @@
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration --></label>
+        <label>登録日</label>
         <name>Registration</name>
     </customLabels>
     <customLabels>
-        <label><!-- Registration No --></label>
+        <label>登録番号</label>
         <name>RegistrationNo</name>
     </customLabels>
     <customLabels>
-        <label><!-- Reject --></label>
+        <label>マージ候補から外す</label>
         <name>Reject</name>
     </customLabels>
     <customLabels>
@@ -1405,11 +1490,11 @@
         <name>Report_Title2_TA_Tracing</name>
     </customLabels>
     <customLabels>
-        <label><!-- Request --></label>
+        <label>受付</label>
         <name>Request</name>
     </customLabels>
     <customLabels>
-        <label><!-- Request Content(to Dealer) --></label>
+        <label>処理依頼事項</label>
         <name>RequestContenttoDealer</name>
     </customLabels>
     <customLabels>
@@ -1417,7 +1502,7 @@
         <name>Required_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Resource --></label>
+        <label>情報源</label>
         <name>Resource</name>
     </customLabels>
     <customLabels>
@@ -1429,7 +1514,7 @@
         <name>Response_Date_To</name>
     </customLabels>
     <customLabels>
-        <label><!-- Retail Task --></label>
+        <label>保証/契約</label>
         <name>RetailTask</name>
     </customLabels>
     <customLabels>
@@ -1493,8 +1578,16 @@
         <name>SSI_Vin_Match_Page_Section_Title</name>
     </customLabels>
     <customLabels>
+        <label><!-- SalesContactTarget --></label>
+        <name>SalesContactTarget</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Sales &amp; Marketing --></label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Same --></label>
+        <name>Same</name>
     </customLabels>
     <customLabels>
         <label>保存</label>
@@ -1513,7 +1606,7 @@
         <name>Sccussful</name>
     </customLabels>
     <customLabels>
-        <label><!-- Search --></label>
+        <label>検索</label>
         <name>Search</name>
     </customLabels>
     <customLabels>
@@ -1537,7 +1630,7 @@
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
-        <label><!-- Service Work: --></label>
+        <label>サービス工場</label>
         <name>Service_Work</name>
     </customLabels>
     <customLabels>
@@ -1561,11 +1654,15 @@
         <name>Status_Confirmed</name>
     </customLabels>
     <customLabels>
+        <label><!-- Subject --></label>
+        <name>Subject</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Success_message</name>
     </customLabels>
     <customLabels>
-        <label><!-- Suspected Duplicates --></label>
+        <label>重複の可能性があるアカウント</label>
         <name>Suspected_Duplicates</name>
     </customLabels>
     <customLabels>
@@ -1665,11 +1762,11 @@
         <name>Task_Subject</name>
     </customLabels>
     <customLabels>
-        <label><!-- TelFax --></label>
+        <label>TEL：03-5545-6234 FAX：03-6369-7791</label>
         <name>TelFax</name>
     </customLabels>
     <customLabels>
-        <label><!-- TerminateVehicleRelationship --></label>
+        <label>車両手放し情報</label>
         <name>TerminateVehicleRelationship</name>
     </customLabels>
     <customLabels>
@@ -1709,12 +1806,16 @@
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
     </customLabels>
     <customLabels>
-        <label><!-- For Vehicle Picker --></label>
+        <label>内装色</label>
         <name>Trim</name>
     </customLabels>
     <customLabels>
-        <label><!-- UCID --></label>
+        <label>顧客ID</label>
         <name>UCID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unknown --></label>
+        <name>Unknown</name>
     </customLabels>
     <customLabels>
         <label><!-- Used-car buy-back/Trade-in --></label>
@@ -1781,19 +1882,19 @@
         <name>VF_ToolkitSelect_Publish_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Validate --></label>
+        <label>住所確認（必須）</label>
         <name>Validate</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle --></label>
+        <label>車両</label>
         <name>Vehicle</name>
     </customLabels>
     <customLabels>
-        <label><!-- VehicleRelationship --></label>
+        <label>車両顧客関係</label>
         <name>VehicleRelationship</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Detail --></label>
+        <label>車両情報詳細</label>
         <name>Vehicle_Detail</name>
     </customLabels>
     <customLabels>
@@ -1801,7 +1902,7 @@
         <name>Vehicle_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Information --></label>
+        <label>車両情報</label>
         <name>Vehicle_Information</name>
     </customLabels>
     <customLabels>
@@ -1809,7 +1910,11 @@
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
-        <label>勤務先FAX</label>
+        <label><!-- ViewHierarchy --></label>
+        <name>ViewHierarchy</name>
+    </customLabels>
+    <customLabels>
+        <label>勤務先Fax</label>
         <name>Work_Fax</name>
     </customLabels>
     <customLabels>

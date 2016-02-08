@@ -9,6 +9,10 @@
         <value>Rejected Duplicate Logs</value>
     </caseValues>
     <fields>
+        <label><!-- DUP Number --></label>
+        <name>DUPNumber__c</name>
+    </fields>
+    <fields>
         <label><!-- Duplicate Account --></label>
         <name>Duplicate_Account__c</name>
         <relationshipLabel><!-- Rejected Duplicate Logs (Duplicate Account) --></relationshipLabel>

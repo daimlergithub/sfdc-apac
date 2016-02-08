@@ -19,9 +19,10 @@ public class AccountHelperJP
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
-        
-        for(Account Acc : listNewAccounts)
+        If(!listNewAccounts.isEmpty())
         {
+        	for(Account Acc : listNewAccounts)
+        	{
             
                 if(Acc.Mobile__c != Null || Acc.Mobile__c != '')
                 {
@@ -79,14 +80,17 @@ public class AccountHelperJP
                 }
             }
         }
+    }
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are updated.
 **  Created By: Sudhir 
 **  Date: 2015-12-22
 **/
 	public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
-    {		
-        for(Account Acc : listNewAccounts)
+    {
+        If(!listNewAccounts.isEmpty())
         {
+        	for(Account Acc : listNewAccounts)
+        	{
                 Account OldAcc = accountOldMap.get(Acc.id);
                 system.debug('$$$$$');
                 if(Acc.Mobile__c != OldAcc.Mobile__c)
@@ -147,6 +151,7 @@ public class AccountHelperJP
             }
             
         }
+    }
     /** Upadte Primary address display field based on primary address reference lookup field.
 ** Created By: Sudhir 
 ** Date: 2015-12-22
@@ -192,8 +197,10 @@ public class AccountHelperJP
 **/
     public static void updatePrimaryContactInformationBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
-        for(Account Acc : listNewAccounts)
+        If(!listNewAccounts.isEmpty())
         {
+        	for(Account Acc : listNewAccounts)
+        	{
                 if((acc.Primary_Fax__c != Null || acc.Primary_Fax__c != '' ) && acc.Primary_Fax__c == 'FAX1')
                 {
                     acc.Primary_Fax_Display__c = acc.Fax;
@@ -236,15 +243,18 @@ public class AccountHelperJP
                 }
             }
         }
+    }
         
     /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
 ** Date: 2015-12-23 
 **/
     public static void updatePrimaryContactInformationBeforeUpdate(list<Account> listNewAccounts,map<id,Account> OldMap,boolean isUpdate)
-    {    
-        for(Account Acc : listNewAccounts)
+    {
+        If(!listNewAccounts.isEmpty())
         {
+        	for(Account Acc : listNewAccounts)
+        	{
                 Account OldAcc = OldMap.get(Acc.id);
                 if((acc.Primary_Fax__c != OldAcc.Primary_Fax__c) && acc.Primary_Fax__c == 'FAX1')
                 {
@@ -287,6 +297,7 @@ public class AccountHelperJP
                     acc.Primary_Phone_Display__c = acc.Phone;
                 }
             }
+    	}
     }
 
     public static void createUCID(list<Account> TriggerNew,boolean isInsert)
