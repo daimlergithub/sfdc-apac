@@ -157,8 +157,10 @@ public class AccountHelperJP
 ** Date: 2015-12-22
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
-    {   
+    {
         
+        string regexForNullValue ='null';
+        string nullValue ='';
         system.debug('$$$$$$$');  
         set<id> addressid = new set<id>();        
         For(Account a:listNewAccounts)
@@ -183,7 +185,8 @@ public class AccountHelperJP
                     {
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         system.debug('!!!!!!!'+add.id);
-                        acc.Primary_Address_Display__c = add.Province__c + add.City__c + add.District__c + add.Block__c + add.Address_Line_1__c + add.Address_Line_2__c ; 
+                        acc.Primary_Address_Display__c = String.valueOf(add.Province__c)+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                     }
                 }              
             }     
