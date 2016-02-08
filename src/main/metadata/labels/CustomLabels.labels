@@ -79,6 +79,13 @@
         <value>Add to Campaign</value>
     </labels>
     <labels>
+        <fullName>Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
         <fullName>AddressType_Validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -123,6 +130,14 @@
         <value>Address Search</value>
     </labels>
     <labels>
+        <fullName>Address_fields_not_null</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address fields not null</shortDescription>
+        <value>Please only input Post Code when you want to perform Address Search.</value>
+    </labels>
+    <labels>
         <fullName>Address_type_Validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -143,6 +158,20 @@
         <protected>false</protected>
         <shortDescription>Aftersales</shortDescription>
         <value>Aftersales</value>
+    </labels>
+    <labels>
+        <fullName>AftersalesContacTarget1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AftersalesContacTarget1</shortDescription>
+        <value>Aftersales Contact Target 1</value>
+    </labels>
+    <labels>
+        <fullName>AftersalesContactTarget2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AftersalesContactTarget2</shortDescription>
+        <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
         <fullName>And_Criteria</fullName>
@@ -997,6 +1026,13 @@
         <value>Case Type</value>
     </labels>
     <labels>
+        <fullName>Child</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Child</shortDescription>
+        <value>Child</value>
+    </labels>
+    <labels>
         <fullName>City</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -1170,6 +1206,13 @@
         <value>Customer Filter</value>
     </labels>
     <labels>
+        <fullName>DMRequest_validation_error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DMRequest validation error</shortDescription>
+        <value>Specified address type record could not be found. Please check again</value>
+    </labels>
+    <labels>
         <fullName>DateTime</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1249,6 +1292,13 @@
         <value>Detailed Model Name</value>
     </labels>
     <labels>
+        <fullName>Dono</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dono</shortDescription>
+        <value>Dono</value>
+    </labels>
+    <labels>
         <fullName>Downloadedfile</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1261,6 +1311,13 @@
         <protected>false</protected>
         <shortDescription>Edit</shortDescription>
         <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Employee</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Employee</shortDescription>
+        <value>Employee</value>
     </labels>
     <labels>
         <fullName>End_Time_Greater_Start_Time</fullName>
@@ -1383,6 +1440,20 @@
         <protected>false</protected>
         <shortDescription>GenericUploaderLengthErrorMsg</shortDescription>
         <value>The records are more than 10000, can not upload.</value>
+    </labels>
+    <labels>
+        <fullName>GrandChild</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Grandchild</shortDescription>
+        <value>Grand child</value>
+    </labels>
+    <labels>
+        <fullName>GrandParent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GrandParent</shortDescription>
+        <value>Grand parent</value>
     </labels>
     <labels>
         <fullName>Has_Attended_Campaign</fullName>
@@ -1956,6 +2027,13 @@
         <value>Maintenance Promotion</value>
     </labels>
     <labels>
+        <fullName>Manager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Manager</shortDescription>
+        <value>Manager</value>
+    </labels>
+    <labels>
         <fullName>Marketing_survey</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2232,6 +2310,20 @@
         <value>Near Dealer Phone3</value>
     </labels>
     <labels>
+        <fullName>NewAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Account</shortDescription>
+        <value>New Account</value>
+    </labels>
+    <labels>
+        <fullName>NewLead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Lead</shortDescription>
+        <value>New Lead</value>
+    </labels>
+    <labels>
         <fullName>New_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -2274,6 +2366,13 @@
         <protected>false</protected>
         <shortDescription>Not found QC</shortDescription>
         <value>Not Found QC</value>
+    </labels>
+    <labels>
+        <fullName>Onchu</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Onchu</shortDescription>
+        <value>Onchu</value>
     </labels>
     <labels>
         <fullName>Operation</fullName>
@@ -2351,6 +2450,13 @@
         <value>Previous</value>
     </labels>
     <labels>
+        <fullName>Parent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Parent</shortDescription>
+        <value>Parent</value>
+    </labels>
+    <labels>
         <fullName>Parts_Cross_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2378,7 +2484,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Phone</shortDescription>
-        <value>Phone</value>
+        <value>Fixed</value>
     </labels>
     <labels>
         <fullName>Please_enter_the_filter_name</fullName>
@@ -2393,6 +2499,13 @@
         <protected>false</protected>
         <shortDescription>Please select only one Master Record</shortDescription>
         <value>Please select only one Master Record</value>
+    </labels>
+    <labels>
+        <fullName>Post</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post</shortDescription>
+        <value>Post</value>
     </labels>
     <labels>
         <fullName>Previous</fullName>
@@ -2561,7 +2674,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Request</shortDescription>
-        <value>Request</value>
+        <value>Reception</value>
     </labels>
     <labels>
         <fullName>RequestContenttoDealer</fullName>
@@ -2719,12 +2832,26 @@
         <value>Invoice Date</value>
     </labels>
     <labels>
+        <fullName>SalesContactTarget</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesContactTarget</shortDescription>
+        <value>Sales Contact Target</value>
+    </labels>
+    <labels>
         <fullName>Sales_Marketing</fullName>
         <categories>Yearly TA</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sales &amp; Marketing</shortDescription>
         <value>Sales &amp; Marketing</value>
+    </labels>
+    <labels>
+        <fullName>Same</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Same</shortDescription>
+        <value>Same</value>
     </labels>
     <labels>
         <fullName>Save_Button</fullName>
@@ -2842,6 +2969,13 @@
         <protected>false</protected>
         <shortDescription>Status - Confirmed</shortDescription>
         <value>Confirmed</value>
+    </labels>
+    <labels>
+        <fullName>Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
     </labels>
     <labels>
         <fullName>Success_message</fullName>
@@ -3143,6 +3277,13 @@
         <value>UCID</value>
     </labels>
     <labels>
+        <fullName>Unknown</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unknown</shortDescription>
+        <value>Unknown</value>
+    </labels>
+    <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -3319,6 +3460,13 @@
         <protected>false</protected>
         <shortDescription>Time period for Vehicle Relationship should not overlap</shortDescription>
         <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
+    </labels>
+    <labels>
+        <fullName>ViewHierarchy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ViewHierarchy</shortDescription>
+        <value>ViewHierarchy</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>

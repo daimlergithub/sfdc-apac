@@ -94,6 +94,26 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Escalation Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Raised</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Raised %26 Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalation Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escaltaion Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
@@ -102,16 +122,8 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>New</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>No approval needed</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Open</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>Prospect</fullName>
@@ -127,7 +139,7 @@
         </values>
         <values>
             <fullName>Waiting for Response approval</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Waiting for final approval</fullName>
@@ -352,7 +364,7 @@
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -796,7 +808,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -1114,7 +1126,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -1433,7 +1445,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -2490,17 +2502,17 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62 Zeppelin</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4229,17 +4241,17 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62 Zeppelin</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5975,17 +5987,17 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62 Zeppelin</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7709,7 +7721,7 @@ Modify Reason:
         <relationshipName>Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -8039,6 +8051,22 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>No approval needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised &amp; Confirmed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12156,6 +12184,23 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Improvement_Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Improvement Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Info_Source__c</fullName>
         <externalId>false</externalId>
         <label>Info Source</label>
@@ -14139,6 +14184,23 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Related_Warranty__c</fullName>
         <externalId>false</externalId>
         <label>Warranty Contract</label>
@@ -14867,7 +14929,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>New</fullName>
                 <closed>false</closed>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Open</fullName>
@@ -14957,7 +15019,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Waiting for Response approval</fullName>
                 <closed>false</closed>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Response approved</fullName>
@@ -14991,6 +15053,31 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>No approval needed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Request</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Escalation Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escaltaion Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised &amp; Confirmed</fullName>
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
@@ -19353,6 +19440,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
+    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -19526,8 +19614,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <listViews>
         <fullName>MBJ_CRM_Department_Case</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -19535,8 +19623,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <listViews>
         <fullName>MBJ_Case</fullName>
         <filterScope>Queue</filterScope>
-        <label>MBJ CRM Department</label>
-        <queue>MBJ_CRM_Department</queue>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -19779,8 +19876,26 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <listViews>
         <fullName>Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
-        <label>Supervisor</label>
-        <queue>Supervisor</queue>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_A_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -19876,6 +19991,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
+    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -21637,6 +21753,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -22169,6 +22292,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23631,10 +23761,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -23648,6 +23774,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23882,10 +24012,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -23899,6 +24025,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24133,10 +24263,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -24150,6 +24276,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28923,23 +29053,27 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Status__c</picklist>
             <values>
+                <fullName>Escalation Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Raised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Raised %26 Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalation Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Final approval done</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Final approval rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In-progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No approval needed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30575,6 +30709,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -31195,6 +31336,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33976,10 +34124,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -33993,6 +34137,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34227,10 +34375,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -34244,6 +34388,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34478,10 +34626,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -34495,6 +34639,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40716,6 +40864,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -41252,6 +41407,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -43737,10 +43899,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -43754,6 +43912,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43988,10 +44150,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -44005,6 +44163,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44239,10 +44401,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -44256,6 +44414,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50253,6 +50415,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -50789,6 +50958,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -53278,10 +53454,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -53295,6 +53467,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53529,10 +53705,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -53546,6 +53718,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53780,10 +53956,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -53797,6 +53969,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -59702,6 +59878,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -60238,6 +60421,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64880,6 +65070,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -65404,6 +65601,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -69174,6 +69378,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -69706,6 +69917,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -71239,10 +71457,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -71256,6 +71470,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -71490,10 +71708,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -71507,6 +71721,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -71741,10 +71959,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -71758,6 +71972,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78271,6 +78489,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -78807,6 +79032,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -81296,10 +81528,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -81313,6 +81541,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -81547,10 +81779,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -81564,6 +81792,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -81798,10 +82030,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -81815,6 +82043,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88416,6 +88648,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -89028,6 +89267,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91821,10 +92067,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -91838,6 +92080,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92072,10 +92318,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -92089,6 +92331,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92323,10 +92569,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB100 %28Not Current Series%29</fullName>
                 <default>false</default>
             </values>
@@ -92340,6 +92582,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98245,6 +98491,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Improvement_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Info_Source__c</picklist>
             <values>
                 <fullName>Dealer Exhibition Hall</fullName>
@@ -98781,6 +99034,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>West</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Related_Department__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -100910,6 +101170,38 @@ ISBLANK(Suspended_Reason__c)
         <errorMessage>Please fill in Suspended Date &amp; Suspended Reason</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Change_To_Closed</fullName>
+        <active>true</active>
+        <description>Status is changed to "Closed"</description>
+        <errorConditionFormula>ISPICKVAL( Status , 'Closed') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You cannot manually select "Closed".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_To_Final_Approval_Done</fullName>
+        <active>true</active>
+        <description>Status is changed to "Final Approval Done"</description>
+        <errorConditionFormula>ISPICKVAL( Status , 'Final approval done') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You cannot manually select "Final approval done".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_To_Final_Approval_Rejected</fullName>
+        <active>true</active>
+        <description>Status is changed to "Final Approval Rejected"</description>
+        <errorConditionFormula>ISPICKVAL( Status , 'Final approval rejected') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You cannot manually select "Final approval rejected".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Change_To_Waiting_for_Final_Approval</fullName>
+        <active>true</active>
+        <description>Status is changed to "Waiting for Final Approval"</description>
+        <errorConditionFormula>ISPICKVAL( Status , 'Waiting for final approval') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>You cannot manually select "Waiting for final approval".</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Check_Case_Overdue</fullName>
         <active>false</active>
         <description>Check "Case Overdue" to Y, click "Save" button. The system won't save and the following error message display:
@@ -101476,31 +101768,25 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
 
-var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ;
 
-if (qr.records != null){
+
 
 if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
+sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
+window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case"); 
 } 
 
 } 
 else { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "", "width = 1000,height = 800"); 
-}
-
-}
-else{
-alert("Inquiry can't be used.Please contact System Administrator");
+window.open("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case", "", "width = 1000,height = 800"); 
 }</url>
     </webLinks>
     <webLinks>

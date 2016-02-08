@@ -26,6 +26,8 @@ public class LeadHelperJPTest
         update lead1;
         
         Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount2.Id];
+        TriggerLeadTriggerHandlerJP TriggerLeadHandlerJP = new TriggerLeadTriggerHandlerJP();
+        TriggerLeadHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
         
         system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
         
@@ -88,7 +90,7 @@ public class LeadHelperJPTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
-        objAccount.ZipCode__c = '五五五五五五五';
+        objAccount.ZipCode__c = '1004235';
         objAccount.Email__c='test@mbj.com';
         objAccount.Mobile__c ='0435488899';
         objAccount.Phone = '08022420181';
@@ -104,7 +106,7 @@ public class LeadHelperJPTest
         objAccount2.Status__c='Active';
         objAccount2.Province__c='Province1';
         objAccount2.City__c='Test';
-        objAccount2.ZipCode__c = '五五五五五五五';
+        objAccount2.ZipCode__c = '1004209';
         objAccount2.Email__c='test@mbj.com';
         objAccount2.Mobile__c ='0435488899';
         objAccount2.Phone = '08022420181';
@@ -120,7 +122,7 @@ public class LeadHelperJPTest
         objAccount3.Status__c='Active';
         objAccount3.Province__c='Province1';
         objAccount3.City__c='Test';
-        objAccount3.ZipCode__c = '五五五五五五五';
+        objAccount3.ZipCode__c = '1063723';
         objAccount3.Email__c='test@mbj.com';
         objAccount3.Mobile__c ='0435488899';
         objAccount3.Phone = '08022420181';

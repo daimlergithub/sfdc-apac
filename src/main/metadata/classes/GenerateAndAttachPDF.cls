@@ -7,9 +7,29 @@
 public with sharing class GenerateAndAttachPDF {
    public Case cas{get;set;}
    public String attachmentName;
+   public Vehicle_Relationship__c VehicleRelationshipList{get;set;}
   
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
       this.cas=(Case)controller.getRecord(); 
+      
+    }
+    /**     
+     * @Description Get the Vehicle_relationship records having same Account and vehicle as case .  
+     * @author  Sneha chail
+     * @Date 1/27/2016(mm/dd/yy)   
+     * @return records of vehicle Relationship 
+     */  
+    public Vehicle_Relationship__c  getvehicleRelation(){
+        if(cas.Vehicle__c!=Null && cas.AccountId!=Null){
+                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c 
+                                    from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
+         }
+        if(VehicleRelationshipList!=Null){
+          return VehicleRelationshipList;
+          }
+        else{
+         return null;
+        }        
     }
     /**     
      * @Description Get the current record Id.  

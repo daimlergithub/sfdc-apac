@@ -50,7 +50,7 @@
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -61,6 +61,7 @@
         <label>Address Code</label>
         <length>11</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -71,6 +72,7 @@
         <label>Address Line 1</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -81,6 +83,7 @@
         <label>Address Line 2</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -112,6 +115,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -121,6 +125,7 @@
         <label>Block</label>
         <length>24</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -131,6 +136,7 @@
         <label>City</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -141,6 +147,7 @@
         <label>Company Name Native</label>
         <length>80</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -151,6 +158,7 @@
         <label>Company Name</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -166,6 +174,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -176,6 +185,7 @@
         <label>Created By EP Transaction</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -189,6 +199,7 @@
         <relationshipName>Addresses</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
@@ -199,6 +210,7 @@
         <label>Delivery Point ID</label>
         <length>8</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -209,6 +221,7 @@
         <label>Town</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -219,6 +232,7 @@
         <label>FS Mail Last Modified By</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -228,6 +242,7 @@
         <externalId>false</externalId>
         <label>FS Mail Last Modified Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -236,6 +251,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>FS Opt In Mail</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -245,6 +261,7 @@
         <label>Mail Last Modified By</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -254,6 +271,7 @@
         <externalId>false</externalId>
         <label>Mail Last Modified Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -267,6 +285,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>true</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -276,6 +295,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In Mail</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -284,6 +304,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Preferred</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -482,6 +503,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -491,6 +513,7 @@
         <label>Source System</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -518,6 +541,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -536,6 +560,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -546,6 +571,7 @@
         <label>Updated By EP Transactions</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -556,6 +582,7 @@
         <label>Post Code</label>
         <length>8</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -569,9 +596,11 @@
     <nameField>
         <displayFormat>A-{0000000}</displayFormat>
         <label>Address</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Addresses</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Company</fullName>
         <active>true</active>
@@ -606,7 +635,6 @@
                 <fullName>Japan</fullName>
                 <default>false</default>
             </values>
-            
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -1331,6 +1359,19 @@
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>AddressLine1_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  Address_Line_1__c  ) &gt; 50 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address Line 1 should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AddressLine2_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
+        <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP', ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
@@ -1338,16 +1379,35 @@
         <errorMessage>Address Type is required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Block_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Block__c ) &gt; 12 ,true,false) )</errorConditionFormula>
+        <errorMessage>Block should be less than or equal to 12 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>City_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( City__c ) &gt; 12 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>City__c</errorDisplayField>
+        <errorMessage>City should be less than or equal to 12 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CompanyName_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Company_Name__c ) &gt; 50 ,true,false) )</errorConditionFormula>
+        <errorMessage>Company Name should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Company_Name_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(TitleOfHonor__c),ISNEW()),
-ISPICKVAL(TitleOfHonor__c,'Dear'),
+ISPICKVAL(TitleOfHonor__c,'To Company'),
 ISBLANK(Company_Name__c), 
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP'   
 )</errorConditionFormula>
         <errorDisplayField>Company_Name__c</errorDisplayField>
-        <errorMessage>Company name is required when TitleOfHonor is 'Dear'.</errorMessage>
+        <errorMessage>Company name is required when TitleOfHonor is 'To Company'.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Name_Single</fullName>
@@ -1358,6 +1418,13 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native__c</errorDisplayField>
         <errorMessage>Company name native should be in double byte.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>District_NoOfDigit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  District__c  ) &gt; 18 ,true,false) )</errorConditionFormula>
+        <errorDisplayField>District__c</errorDisplayField>
+        <errorMessage>Town should be less than or equal to 18 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_ZipCode</fullName>

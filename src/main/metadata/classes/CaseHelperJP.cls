@@ -132,7 +132,7 @@ public with sharing class CaseHelperJP {
         system.debug('Case deadline values...' +caseDeadline);
         
         for (Case c : cases){
-            if (c.Case_Class__c == 'Others' && c.MD__c == 'JP'){
+            if (c.Case_Class__c == 'Others' && c.MD__c == 'JP' && c.RecordTypeId == caseInquiryRec_Id){
                 if(c.Priority == 'A'){
                     system.debug('Case Deadlines...' +caseDeadline);
                     days = (Integer)caseDeadline.CaseDeadelineCalc1__c;

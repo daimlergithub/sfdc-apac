@@ -19,16 +19,18 @@ public with sharing class VehicleExtension {
     public String steering{get;set;}
     public String compModel{get;set;}
     public PageReference nextPage;
-    
+    private ApexPages.StandardController stdController;
     
 
     /*Constructor Method*/
-    public VehicleExtension(ApexPages.StandardController controller) {
+    public VehicleExtension(ApexPages.StandardController stdController) {
+        
         
         String type;
         check=true;
-        vehicle = new Vehicle__c();
-     
+        vehicle = (Vehicle__C)stdController.getRecord();
+        
+        
     }
         
     /**    
@@ -169,10 +171,14 @@ public with sharing class VehicleExtension {
      * @return      : Account record detail Page URL
      * @see         : VehicleExtension
     **/  
-     public PageReference Cancel()
+    public PageReference Cancel()
     { 
           string returnId = ApexPages.currentPage().getParameters().get('accId');
+        if(returnId!=null){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
+        }else{
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/a04/o');
+        }
           nextPage.setRedirect(true);
           return nextPage;
     }

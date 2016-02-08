@@ -43,7 +43,9 @@ public class CaseHelperJPTest{
            testCase2.AccountId = testAccount2.Id;
            testCase2.MD__c = 'JP';
            update testCase2;
-           
+           TriggerCaseTriggerHandlerJP TriggerCaseTriggerJP = new TriggerCaseTriggerHandlerJP();
+           TriggerCaseTriggerJP.handleTrigger(false, false, false, false, false);
+           TriggerCaseTriggerJP.handleIntegrationTrigger(false, false, false, false, false);
            system.debug('Case 1' +testCase1);
            system.debug('Case 2' +testCase2);
        }

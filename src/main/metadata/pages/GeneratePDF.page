@@ -1,126 +1,182 @@
-<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" applyBodyTag="false" standardStylesheets="false">
+<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
  <html>
- <head>
+  <head>
     <style type="text/css">
-        body { font-family: Arial Unicode MS; }
+          body {
+                font-family: Arial Unicode MS;
+            }
+          @page {
+                size: letter;
+                margin: 15mm;
+              
+               @top-right{
+                    content: "Page " counter(page) "/" counter(pages);
+                }
+             }
+         .page-break {
+                display:block;
+                page-break-after:always;
+            }
     </style>
- </head>
+  </head>
+  <body>
      <table width="100%" rules="rows">                                       
          <tr><td><h1>{!$Label.CallCenterCaseInformation}</h1></td></tr> 
       </table> 
       <table width="100%">  
            <tr>               
              <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
-             <td><apex:outputField value="{!Case.CaseNumber}"/></td>
+             <td width="25%"><apex:outputField value="{!Case.CaseNumber}"/></td>
           </tr>
           <tr>               
              <td width="25%" align="right">{!$Label.DealerName}</td> 
-             <td width="70%"><apex:outputField value="{!Case.Case_Dealer__c}"/></td>                      
+             <td width="70%" align="left" colspan="4">{!Case.Case_Dealer__r.Name}&nbsp;{!$Label.Onchu}</td>                      
           </tr>
           <tr>
-             <td width="25%" align="right">{!$Label.DealerPersonName}</td> 
-             <td width="75%"><apex:outputField value="{!Case.Case_Dealer_User__c}"/></td>                   
+             <td width="25%" align="right">{!$Label.DealerPersonName}</td>       
+             <td width="25%"/>       
+             <td colspan="3" align="left">{!$Label.Dono}</td>                   
           </tr> 
-          </table>
+          </table>       
         <table rules="rows" width="100%">
             <tr align="right"><td><p>    
                         {!$Label.CustomerAssistanceCenter}<br/>
                         {!$Label.TelFax}<br/> 
              </p></td></tr> 
-         </table>  
-         <br/>   
+         </table>             
          <table border="1" width="100%" rules="rows">
           <tr>
              <td align="right" width="20%">{!$Label.DateTime}</td>
-             <td align="right" width="30%"></td>
-             <td align="right" width="20%">{!$Label.Dealer}</td>
-             <td align="right" width="30%"></td>
+             <td align="right" width="35%">{!Case.CreatedDate}</td>
+             <td align="right" width="15%">{!$Label.Dealer}</td>
+             <td align="right" width="30%">{!VehicleRelationshipList.Selling_Dealer__r.Name}</td>
           </tr> 
           <tr>
              <td align="right" width="20%">{!$Label.Kana}</td>
-             <td align="right" width="30%"></td>
+             <td align="left" width="25%">    
+                    <apex:outputField value="{!case.Account.FirstName_Native_1__c}"/>&nbsp;
+                    <apex:outputField value="{!case.Account.LastName_Native_1__c}"/>
+             </td>
              <td align="right" width="20%">{!$Label.Service_Work}</td>
-             <td align="right" width="30%"></td>
+             <td align="left" width="30%">{!VehicleRelationshipList.Last_Service_Dealer__r.Name}</td>
           </tr>
-          <tr>
+        </table>  
+        <table border="1" width="100%" rules="rows">
+           <tr>
              <td align="right" width="20%">{!$Label.Customer}</td>
-             <td align="right" width="30%"></td>
-             <td align="right" width="20%"></td>
-             <td align="right" width="30%"></td> 
+             <td align="left" width="80%">
+                 <apex:outputField value="{!case.Account.FirstName}"/>&nbsp;
+                 <apex:outputField value="{!case.Account.LastName}"/>
+             </td>                                                                   
            </tr>        
-        </table>
-        <table border="1" width="100%" rules="rows">  
+         </table>
+       <table border="1" width="100%" rules="rows">
+           <tr>
+             <td align="right" width="20%">{!$Label.Address}</td>
+             <td align="left" width="80%">
+                 <apex:outputField value="{!Case.Account.Primary_Address_Reference__c}"/>&nbsp;
+                 <apex:outputLabel rendered="{! If(Case.Account.Primary_Address_Reference__c!=Null ,true,false) }">{!$Label.Post}</apex:outputLabel>
+                  &nbsp;<apex:outputLabel rendered="{! If(Case.Account.ZipCode__c!=Null ,true,false) }"> + </apex:outputLabel> &nbsp;                                
+                 <apex:outputField value="{!Case.Account.ZipCode__c}"/> &nbsp;
+                 <apex:outputLabel rendered="{! If(Case.Account.Primary_Address_Display__c!=Null ,true,false) }">+</apex:outputLabel>&nbsp;
+                 <apex:outputField value="{!Case.Account.Primary_Address_Display__c}"/>
+             </td>             
+           </tr>        
+        </table>   
+      <table border="1" width="100%" rules="rows">  
            <tr>
              <td align="right" width="13%">{!$Label.Phone}</td>
-             <td align="right" width="20%"></td>
-             <td align="right" width="13%">{!$Label.Mobile}</td>
-             <td align="right" width="20%"></td>
-             <td align="right" width="13%">{!$Label.Registration}</td>
-             <td align="right" width="20%"></td>
+             <td align="left" width="20%"><apex:outputField value="{!case.Account.Individual_Home_Phone__c}"/></td>
+             <td align="right" width="5%">{!$Label.Mobile}</td>
+             <td align="left" width="20%"><apex:outputField value="{!case.Account.Mobile__c}"/></td>
+             <td align="right" width="8%">{!$Label.Registration}</td>
+             <td align="left" width="30%"><apex:outputField value="{!VehicleRelationshipList.Registration_Date__c}"/></td>
           </tr>
           <tr>        
-             <td align="right" width="13%" colspan="5">{!$Label.RegistrationNo}</td>
-             <td align="right" width="20%"></td>
+             <td align="right" width="65%" colspan="4">{!$Label.RegistrationNo}</td>
+             <td align="left" width="35%" colspan="2"><apex:outputField value="{!VehicleRelationshipList.Registration_Number__c}"/></td>
           </tr>
            <tr>
              <td align="right" width="13%">{!$Label.Model}</td>
-             <td align="right" width="20%"></td>
+             <td align="left" width="20%" >{!Case.Vehicle__r.Car_Model__r.Model_Name__c}</td>   
              <td align="right" width="13%">{!$Label.DetailedModelName}</td>
-             <td align="right" width="20%"></td>
-             <td align="right" width="13%">{!$Label.Product_ID}</td>
-             <td align="right" width="20%"></td>
+             <td align="left" width="20%" >{!Case.Vehicle__r.Car_Model__r.Name}</td>            
+             <td align="right" width="14%">{!$Label.Product_ID}</td>
+             <td align="left" width="30%" ><apex:outputField value="{!Case.Vehicle__r.UsVIN__c}"/></td>
           </tr>
            <tr>
              <td align="right" width="13%">{!$Label.Resource}</td>
-             <td align="right" width="20%" colspan="3"></td>            
+             <td align="left" width="20%" colspan="2">{!Case.Data_Source__c}</td>            
              <td align="right" width="13%">{!$Label.Priority}</td>
-             <td align="right" width="20%"></td>
+             <td align="left" width="20%" colspan="2">{!Case.Priority}</td>
           </tr>
            <tr>
-             <td align="right" width="13%">{!$Label.Customer}</td>
-             <td align="right" width="20%" colspan="3"></td>            
+             <td align="right" width="13%">{!$Label.Subject}</td>
+             <td align="left" width="20%" colspan="2">{!Case.Subject}</td>            
              <td align="right" width="13%">{!$Label.UCID}</td>
-             <td align="right" width="20%"></td>
+             <td align="left" width="20%" colspan="2">{!Case.Account.UCID__c }</td>
           </tr>
       </table> 
+     <!-- <div class="page-break"> -->
       <table border="1" width="100%" rules="rows">  
           <tr>
            <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
           </tr>
           <tr>
-           <td align="left" width="75%" height="100"><apex:outputField value="{!Case.Customer_Statement__c}"/></td>          
+           <td align="left" width="100%" height="40">  
+                <apex:outputText value="{!left(Case.Customer_Statement__c,200)}"/>
+           </td>
          </tr> 
-      </table> 
-      <br/>
-      <table border="1" width="100%" rules="rows">  
+      </table>  
+ <!--    </div>     -->
+    
+      <table border="1" width="100%" rules="rows">
           <tr>
-           <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
+             <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
           </tr>
           <tr>
-           <td align="left" width="75%" height="100"><apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/></td>          
-         </tr> 
-      </table> 
+             <td align="left" width="100%" height="40"><apex:outputText value="{!left(Case.PR_Comment_for_Dealer__c,200)}"/></td>                      
+          </tr>         
+      </table>
+       
+   
       <table border="1" width="100%" rules="rows">  
-          <tr>
-           <td align="center" width="60%" bgcolor="#4169E1">{!$Label.Informationsharing}<br/>
-              <img src="/img/checkbox_unchecked.gif"/>{!$Label.Accepted}
-              <img src="/img/checkbox_unchecked.gif"/>{!$Label.Couldnotexplain}
-              <img src="/img/checkbox_unchecked.gif"/>{!$Label.NotAccepted}
-            </td>
-           <td align="center" width="20%" rowspan="3">{!$Label.RequestContenttoDealer}</td>
-           <td width="2%" rowspan="3">
-              
-           </td>
-           <td align="center" width="8%" rowspan="3">{!$Label.Request}</td>
-           <td align="center" width="8%" rowspan="3"></td>            
+          <tr>                    
+           <td rowspan="2" align="center" width="60%" bgcolor="#4169E1">{!$Label.Informationsharing}<br/>              
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='Yes' ,true,false)}">
+                  <img src="/img/checkbox_checked.gif"></img>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='Yes' ,true,false)}">
+                  <img src="/img/checkbox_unchecked.gif"></img>
+              </apex:outputPanel>              
+              {!$Label.Accepted}
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='No' ,true,false)}"> 
+                  <img src="/img/checkbox_checked.gif"></img>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='No' ,true,false)}">
+                  <img src="/img/checkbox_unchecked.gif"></img>
+              </apex:outputPanel>
+             {!$Label.Couldnotexplain}
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='Rejected' ,true,false)}">
+                  <img src="/img/checkbox_checked.gif"></img>
+              </apex:outputPanel>
+              <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='Rejected' ,true,false)}">
+                  <img src="/img/checkbox_unchecked.gif"></img>
+              </apex:outputPanel>
+              {!$Label.NotAccepted}
+            </td>             
+            <td width="15%" height="5" bgcolor="#4169E1">{!$Label.Request}</td>    
+            <td align="center" width="25%" rowspan="2"></td>        
+            </tr> 
+            <tr><td height="100"><apex:outputField value="{!Case.Customer_Care_Owner__r.LastName}"/></td>                
            </tr>    
-      </table> 
+      </table>     
        <table width="100%" border="1" rules="rows">
          <tr>
            <td align="right" width="20%">{!$Label.CaseCategory}</td>  
            <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
          </tr>
-      </table>
-      <br/>
+      </table>     
+    </body>  
   </html> 
 </apex:page>

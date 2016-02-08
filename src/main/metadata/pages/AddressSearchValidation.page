@@ -9,24 +9,28 @@
         setRecType();
     }
     
-     function testSetTabTitle() {
-            //Set the current tab's title
-            sforce.console.setTabTitle('{!$Label.Account_Creation}');
-        }
-        var pageLoad = window.onload;
-          window.onload = function() {
-                if (pageLoad) {
-                        pageLoad();
-                }
-                  testSetTabTitle();
-          }
     
     
-    </script>
-   <style type="text/css">
-       
-       
-       
+    function testSetTabTitle() {
+        //Set the current tab's title
+        
+        sforce.console.setTabTitle('Account Creation');
+    }
+    
+    if(window.onload)
+    {
+        testSetTabTitle();
+    }
+    
+    </script> 
+    
+    
+    
+    
+    <style type="text/css">
+        
+        
+        
     </style>
     
     <apex:form id="form">
@@ -40,8 +44,8 @@
                     
                     
                     <apex:pageBlockSectionItem >
-                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}" />  
-                       
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}" />  
+                        
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
@@ -67,8 +71,8 @@
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
-                         </apex:pageBlockSectionItem> 
-                   <!-- <apex:inputField value="{!objAccount.Name}" /> -->
+                    </apex:pageBlockSectionItem> 
+                    <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />                
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />
@@ -91,8 +95,8 @@
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                        <apex:inputText value="{!objPersonAccount.LastName}" />
-                            </apex:outputPanel> 
+                            <apex:inputText value="{!objPersonAccount.LastName}" />
+                        </apex:outputPanel> 
                     </apex:pageBlockSectionItem>                
                     <apex:pageBlockSectionItem >
                         
@@ -100,8 +104,8 @@
                         <apex:inputText value="{!objPersonAccount.FirstName}" />
                         
                     </apex:pageBlockSectionItem> 
-                  <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
-                    <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
+                    <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
+<apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                     
                     <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
@@ -179,7 +183,33 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}"/>
                     <apex:commandButton action="{!validateAddressByZipCode}"  value="{!$Label.Validate}"/>
-                    <apex:commandButton id="Savebtn" action="{!saveAccount}"  value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' ||  RecordType == 'Company',true,false)}"/>
+                    <apex:commandButton id="Savebtn" action="{!saveAccount}"  value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' ||  RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs"/>
+                    <apex:outputPanel id="redirectPanel">                   
+                        <apex:outputText rendered="{!refreshPage}">
+                            <script type="text/javascript">
+                            
+                            function testGetFocusedSubtabId() 
+                            {
+                                
+                                sforce.console.getFocusedSubtabId(showTabId);
+                            }
+                            
+                            var showTabId = function showTabId(result) {
+                                // Display the tab ID
+                                
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                
+                            };
+                            
+                            testGetFocusedSubtabId();
+                            
+                            
+                            
+                            
+                            </script>                     
+                        </apex:outputText> 
+                    </apex:outputPanel>
                     <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}"/>
                 </apex:pageBlockButtons>
             </apex:pageBlock>

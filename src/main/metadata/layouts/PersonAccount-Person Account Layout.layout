@@ -14,15 +14,15 @@
                     <label>Related Lists</label>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
+                        <name>Vehicle_Relationship__c.Contact__c</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>true</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
                         <name>Lead__c.Contact__c</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
-                        <name>Vehicle_Relationship__c.Contact__c</name>
                     </relatedLists>
                     <relatedLists>
                         <hideOnDetail>true</hideOnDetail>
@@ -36,9 +36,6 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -74,8 +71,8 @@
                 <field>Vehicle_Amount__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>R_DataSource__c</field>
+                <behavior>Edit</behavior>
+                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -181,10 +178,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Data_Sub_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
             </layoutItems>
             <layoutItems>
@@ -267,14 +260,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>R_Check_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Phone_Service__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -479,6 +464,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Special_Care__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>UpsellOpportunity__c</field>
             </layoutItems>
             <layoutItems>
@@ -675,7 +664,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>SurveyTaker__c.Contact__c</relatedList>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -700,7 +689,7 @@
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

@@ -30,7 +30,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>Create_Vehicle</content>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -5732,7 +5734,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <relationshipLabel>Other_Vehicles</relationshipLabel>
         <relationshipName>Vehicles</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -6803,7 +6805,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -29157,11 +29159,11 @@ Modify Reason:
         <errorConditionFormula>AND(
 NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
 (LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
-
+(RecordType.DeveloperName = 'MB') &amp;&amp;
  UPPER( MD__c ) = 'JP' &amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>US-VIN must be 17 characters.</errorMessage>
+        <errorMessage>US VIN must be 17 digits when the record type is MB.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Euro_VIN_Invalid_Syntax</fullName>

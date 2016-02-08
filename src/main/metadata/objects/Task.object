@@ -16181,30 +16181,14 @@ else {
 {!REQUIRESCRIPT("/soap/ajax/23.0/connection.js")}
 
  
- if('{!Task.Who}'.length&lt;15 || '{!Task.Who}'.indexOf('003')!=0){
-  alert('No related account.');
- }else{ 
-  //update related task id which used in interaction log.
-  var strQuery="Select AccountId from Contact where Id = '" +'{!Task.Who}'+"'";
-  var otherP = sforce.connection.query(strQuery);
-  var records = otherP.getArray("records");
-  if(records.length &gt; 0){
-   var newRecords = [];
-   var ob = new sforce.SObject("Account");
-   ob.Id = records[0].AccountId;
-   ob.Newly_Task_Id__c = '{!Task.Id}';
-   newRecords.push(ob);
-   var result = sforce.connection.update(newRecords);
+ 
 
    if (sforce.console.isInConsole()) {
     sforce.console.openPrimaryTab(undefined, '/{!Task.Who}', true, '{!Task.Account_Name__c}');
-   } else { 
+   } 
+else { 
     window.open('/{!Task.Who}', "", "width = 800,height = 600"); 
-   }
-  }// records.length &gt; 0 end
-
-
- }//no account check end</url>
+   }</url>
     </webLinks>
     <webLinks>
         <fullName>View_Campaing_Member</fullName>

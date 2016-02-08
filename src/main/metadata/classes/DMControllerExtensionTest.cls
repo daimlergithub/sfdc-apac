@@ -73,6 +73,8 @@ public class DMControllerExtensionTest {
             DMControllerExtension extension3 = new DMControllerExtension(controller3);
             // Send DM
             extension3.send();
+        	TriggerDMRequestTriggerHandlerJP TriggerDMRequestJP = new TriggerDMRequestTriggerHandlerJP();
+            TriggerDMRequestJP.handleIntegrationTrigger(false, false, false, false, false);
             Test.stopTest();
             System.assertEquals(t.Subject,'DM');
             System.assertEquals(t.Status,'Closed');

@@ -11,8 +11,8 @@ Private static Lead__c le1;
 public static void preparedTestData()
 {
 
-List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-insert updatecustomsettings;
+List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();   
+insert updatecustomsettings; 
 customer1 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='',
                                     Status__c='NoCustomer',
@@ -77,14 +77,19 @@ customer1 = new Account(Dealer_Default_Flag__c=false,
  
   static testMethod void TestupdateLeads() {      
       set<id> customer1id=new set<id>();
-        User user1 = UtilTestData.createUser('IB CSR','CAC Data Manager');   
+       User user1 = UtilTestData.createUser('IB CSR','CAC Data Manager');  
         system.runAs(user1){
           Test.startTest();
           preparedTestData();
           Test.stopTest();
           system.assertEquals(le1.Assigned_Dealer__c,dealer.id);
-        }   
+       }   
       customer1id.add(customer1.id);
       AccountHelper.updateLeads(customer1id);
     } 
+    /*public static testmethod void TriggerAccountTriggerHandler(){
+        TriggerAccountTriggerHandler AccountTriggerHandler =new TriggerAccountTriggerHandler();
+          AccountTriggerHandler.handleTrigger(false,true,true,false,true);
+         AccountTriggerHandler.handleIntegrationTrigger(false,false,false,false,false);
+    }*/
 }

@@ -38,12 +38,12 @@
     <fields>
         <label>キャンペーンID</label>
         <name>Campaign__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>モデル</label>
         <name>Car_Model__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Car Series --></label>
@@ -52,7 +52,7 @@
     <fields>
         <label>ケース番号</label>
         <name>Case_Number__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>タッチポイント</label>
@@ -85,12 +85,12 @@
     <fields>
         <label><!-- Contact --></label>
         <name>Contact__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label>顧客名</label>
         <name>Customer_Name__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- DM Request External Id --></label>
@@ -154,7 +154,7 @@
     <fields>
         <label>リード</label>
         <name>Lead__c</name>
-        <relationshipLabel><!-- DM Request --></relationshipLabel>
+        <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Market Discriminator --></label>
@@ -214,6 +214,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The date when the deliver was ordered to the mail sender --></help>
         <label>発送指示日</label>
         <name>Sent_Date__c</name>
     </fields>
@@ -333,6 +334,10 @@
             <translation>未対応</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Returned</masterLabel>
             <translation>返却</translation>
         </picklistValues>
@@ -407,6 +412,7 @@
             <section>Other Information</section>
         </sections>
     </layouts>
+    
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
         <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
@@ -417,12 +423,40 @@
         <name>Attention_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage>カタログ名1とカタログ1ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>カタログ名2とカタログ2ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>カタログ名3とカタログ3ステータスそれぞれに値が入っていることを確認して下さい。</errorMessage>
+        <name>Expected_DM_Material3</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Insufficient Stock --></errorMessage>
         <name>Insufficient_Stock</name>
     </validationRules>
     <validationRules>
         <errorMessage>発送形態で販売店を選択された際には、リードを入力して下さい。</errorMessage>
         <name>Lead_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「承認差し戻し」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_Reject</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「承認中」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Approve_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「送付待ち」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Be_Sent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>全体ステータスを手動で「未送付」に変更することはできません。</errorMessage>
+        <name>Manual_Status_Change_To_Not_Send</name>
     </validationRules>
     <validationRules>
         <errorMessage>都道府県は必ず10文字以下で入力して下さい。</errorMessage>

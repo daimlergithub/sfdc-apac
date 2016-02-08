@@ -3,10 +3,12 @@ public class BatchJobHelperTest
 {
     static String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     static String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
-    
+   
     public static testMethod void testAfterInsert()
     {
-	
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        
         Test.startTest();       
         Campaign top = new Campaign(
             IsActive = true, 
@@ -28,7 +30,6 @@ public class BatchJobHelperTest
             ParentId = top.Id
         );
         insert cac;
-      
         Batch_Job__c objBatch1= new Batch_Job__c();
         objBatch1.Batch_Type__c='Lead';
         objBatch1.Campaign_Set__c=top.Id+';'+cac.id;

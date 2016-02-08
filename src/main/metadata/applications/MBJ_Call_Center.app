@@ -1315,7 +1315,8 @@
         </pushNotification>
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
-    <tab>standard-Account</tab>
+    <tab>standard-home</tab>
+	<tab>standard-Account</tab>
     <tab>standard-Case</tab>
     <tab>Tasks</tab>
     <tab>Lead__c</tab>
@@ -1379,6 +1380,9 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
+        </mapping>
+		<mapping>
+            <tab>standard-home</tab>
         </mapping>
         <mapping>
             <fieldName>ParentId</fieldName>
