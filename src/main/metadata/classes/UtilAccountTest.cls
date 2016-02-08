@@ -32,7 +32,6 @@ public with sharing class UtilAccountTest
     }
     
     
-    
     static void CreateTestData()
     {
         personAcc = new Account(Dealer_Default_Flag__c=true,
