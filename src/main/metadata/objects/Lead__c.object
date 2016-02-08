@@ -66036,7 +66036,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approving') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approving'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -66044,7 +66044,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Approved_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approved".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Approved') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approved".</errorMessage>
     </validationRules>
@@ -66052,7 +66052,7 @@ ISNULL(Lost_Dealer_Date__c)
         <fullName>Manual_Status_Change_To_Rejected_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>ISPICKVAL(CAC_Lead_Status__c , 'Rejected') &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Rejected'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>

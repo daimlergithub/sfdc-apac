@@ -180,7 +180,8 @@ public class AddressDisplayInlineEditController {
                     
                     else if(Address_Validated_Flag == true)
                     {
-                        refreshPage= true;                
+                        refreshPage= true;
+                        addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                         insert addressobj;
                     }
                 }
@@ -201,7 +202,8 @@ public class AddressDisplayInlineEditController {
                     
                     else 
                     {
-                        refreshPage= true;                
+                        refreshPage= true;
+                        addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                         update addressobj;
                     }
                 }
@@ -369,5 +371,32 @@ EP/Tolerant for Validation.
             }
         }
         
-    }  
+    } 
+    
+    
+/**  Address Code Validation.
+If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
+**  Created By: Narasimha  
+**  Date: 2016-2-8
+**/
+    public String ValidateAddressCode(Address__c Address)
+    {
+        crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+        response =  UtilWebservice.validateAddressByZipCode(Address);
+        
+        if(response != null && response.ValidationStatus == 'OK')
+            {
+                if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
+                  AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
+                {
+                    return response.Addresses[0].Address_Code;
+                }
+                
+                else 
+                {
+                    return null;
+                }
+            }
+        return null;
+    }
 }
