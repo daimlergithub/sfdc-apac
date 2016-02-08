@@ -16,6 +16,7 @@ public class TriggerVehicleRelationshipTest {
         System.runAs(testUser){
             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
             insert updatecustomsettings;
+			
             
             System.debug('Current User Id: ' + UserInfo.getUserId());
             system.debug('Custom Settings inserted...' +updatecustomsettings);
