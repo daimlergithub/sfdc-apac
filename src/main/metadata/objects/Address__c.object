@@ -314,10 +314,6 @@
         <label>Prefecture</label>
         <picklist>
             <picklistValues>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hokkaido</fullName>
                 <default>false</default>
             </picklistValues>
@@ -363,6 +359,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokyo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
