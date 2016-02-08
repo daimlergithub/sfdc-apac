@@ -19,16 +19,70 @@ public With Sharing class CaseHelperTest {
     static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
     static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
     private static String DealerUser='Dealer User';
-   private static String DealerDelegateAdmin='Dealer Delegate Admin';
-   static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
-   static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));   
-  
+    private static String DealerDelegateAdmin='Dealer Delegate Admin';
+    static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
+    static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));   
+    public static Account testDealer;
+      
    Private static String Dealer_after_sales_service_attitude ='Dealer-after sales service attitude';
    
    static void init( ){
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
+        
+        /*Create a Vehicle*/
+        Vehicle__c testVehicle = new Vehicle__c(
+            Brand__c = 'Maybach',
+            Class__c = 'A-Class',
+            Model__c = 'A160',
+            UsVIN__c = '46578934237654873',
+            EuroVIN__c = '36253477887363',
+            Latest_Sales_Person__c = 'Shantaram',
+            Warranty_Start_Date__c = Date.today(),
+            FirstRegistrationDate__c = Date.today()
+        );
+        
+        insert testVehicle;
+        
+        Vehicle__c vehicle = [Select Id from Vehicle__c Where Latest_Sales_Person__c = 'Shantaram'];
+        /*Create a Vehicle Relationship*/
+        Vehicle_Relationship__c vr = new Vehicle_Relationship__c(
+            Vehicle_ID__c = vehicle.Id,
+            Registration_Number__c = '23456789585'         
+        );
+        insert vr;
+        
+        //Dealer Account
+        testDealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+        Contact contact = new Contact(
+            AccountId = testDealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s',
+            Dealer_Complaint_Gate_Keeper__c = true
+        );
+        insert contact;
+        
+        User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
+        User usr=new User();       
+        System.runAs ( runUser ) {               
+                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+                usr.ProfileId=UtilTestData.getProfileId('Dealer Community User');
+                // usr.UserRoleId=userRoleId;
+                usr.LastName = 'Test User';
+                usr.Email = 'test001@daimler.com.full';
+                usr.Alias = 'test1';
+                usr.TimeZoneSidKey = 'Asia/Shanghai';
+                usr.EmailEncodingKey = 'UTF-8';
+                usr.LanguageLocaleKey = 'en_US';
+                usr.localesidkey='en_US';
+                usr.isActive = true;
+                usr.ContactId =contact.Id;
+                Database.insert(usr); 
+                system.debug('!!!!! User Records'+usr); 
+         }                           
   }
+  
    public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
                                         'Case_SubType__c',
                                         'Case_Dealer__c',
@@ -158,6 +212,41 @@ public With Sharing class CaseHelperTest {
     public static testMethod void testUSCC003()
     {
         init( );
+        Vehicle__c vehicle = [Select Id from Vehicle__c Where Latest_Sales_Person__c = 'Shantaram'];
+        Vehicle_Relationship__c vr = [Select Id,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c, 
+                                        Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.EuroVIN__c,Vehicle_ID__r.Latest_Sales_Person__c,Vehicle_ID__r.Warranty_Start_Date__c,Registration_Number__c,Vehicle_ID__r.FirstRegistrationDate__c
+                                        from Vehicle_Relationship__c Where Vehicle_ID__c =: vehicle.Id ];
+        Case caseAssign = CaseHelper.setVehicleInfo(new Case(), vr);
+        Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
+        testCase.Case_Dealer__c = testDealer.Id;
+        update testCase;
+        
+        Complaint_Description__c cd = CaseHelper.newCaseDescription(caseAssign.Id, 'label','newValue','oldValue');
+        Complaint_Tracking__c ct = CaseHelper.newCaseHistory(caseAssign.Id, 'label','newValue','oldValue');
+        CaseHelper.creatCaseDescription(new List<Case>{caseAssign});
+        Map<Id,Id> caseIds = new Map<Id,Id>();
+        
+        caseIds.put(testCase.Id, testCase.Id);
+        CaseHelper.shareDealer(caseIds);
+        CaseHelper.shareCaseToRO(caseIds);
+        
+        Account newAccount = (Account)UtilTestData.createSObject(new Account(), 'Person Account');
+        newAccount.PersonBirthdate = Date.today();
+        newAccount.Gender__c = 'Male';
+        newAccount.Occupation__c = 'Others';
+        newAccount.Phone = '09088767547';
+        newAccount.Province__c = 'Province1';
+        newAccount.Primary_Address__c = 'sdfsdfsdfsdf';
+        newAccount.City__c = 'asdfsf';
+        newAccount.ZipCode__c = '1234567';
+        update newAccount;
+        
+        testCase.Car_Owner__c = newAccount.Id;
+        update testCase;
+        
+        String accountId = String.valueOf(newAccount.Id);
+        CaseHelper.populateCarOwnerValuesToCase(new Set<String>{accountId}, new List<Case>{testCase});
+        
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -186,6 +275,33 @@ public With Sharing class CaseHelperTest {
       public static testMethod void testUSCC004()
       {
         init( );
+        Set<Id> dealerId = new Set<Id>();
+        dealerId.add(testDealer.Id);
+        Map<Id,String> retmap = CaseHelper.getComplaintGateKeeperEmail(dealerId);
+        
+        List<String> roles = new List<String>{'Regional CRM Mgr (E)', 'Regional CRM Mgr (S)', 'Regional CRM Mgr (W)', 'Regional CRM Mgr (N)'};        
+        Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
+        User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
+        for (String role : roles){
+            User usr=new User();       
+            System.runAs ( runUser ) {               
+                    usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+                    usr.ProfileId=UtilTestData.getProfileId('System Administrator');
+                    usr.UserRoleId=UtilTestData.getUserRoleId(role);
+                    usr.LastName = 'Test User';
+                    usr.Email = 'test001@daimler.com.full';
+                    usr.Alias = 'test1';
+                    usr.TimeZoneSidKey = 'Asia/Shanghai';
+                    usr.EmailEncodingKey = 'UTF-8';
+                    usr.LanguageLocaleKey = 'en_US';
+                    usr.localesidkey='en_US';
+                    usr.isActive = true;
+                    Database.insert(usr); 
+                    system.debug('!!!!! User Records'+usr.UserRoleId); 
+             }
+        }
+        CaseHelper.shareCaseToRO(new List<Case>{testCase});
+        
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -474,14 +590,14 @@ public With Sharing class CaseHelperTest {
             update c1;
             List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id]; 
                     
-                        targetList = COLS_MB_TRACKING;                                      
-    
-                        for(String cloName: targetList){
-                            String newValue = String.valueOf(c1.get(cloName));
-                            String oldValue = String.valueOf(c1.get(cloName));
-                            String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
-                          CaseHelper.newCaseDescription(c1.id, labelName, newValue, oldValue);
-                        }
+            targetList = COLS_MB_TRACKING;                                      
+
+            for(String cloName: targetList){
+                String newValue = String.valueOf(c1.get(cloName));
+                String oldValue = String.valueOf(c1.get(cloName));
+                String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
+              CaseHelper.newCaseDescription(c1.id, labelName, newValue, oldValue);
+            }
             map<id,id> casesForShare= new  map<id,id>(); 
             casesForShare.put(c1.id, c1.id);
             
