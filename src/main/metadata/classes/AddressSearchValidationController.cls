@@ -22,6 +22,7 @@ public class AddressSearchValidationController
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}
     
+    
     // COnstructor 
     public AddressSearchValidationController(ApexPages.StandardController controller)
     {
@@ -126,9 +127,9 @@ public class AddressSearchValidationController
                         refreshPage = true;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id); 
-                        
                         return PageRef;
                     }
                     
@@ -155,7 +156,7 @@ public class AddressSearchValidationController
                         refreshPage = true;
                         insert objPersonAccount ;
                         AddressObj.Customer__c = objPersonAccount.id;
-                        
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
                         return PageRef;
@@ -230,8 +231,9 @@ public class AddressSearchValidationController
             
             if(response != null && response.ValidationStatus == 'OK')
             {
-                AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
+                //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+                
                 
                 if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
                 {
@@ -242,6 +244,7 @@ public class AddressSearchValidationController
                     {
                        
                          AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                         
                     }
                     if(ValidStr.contains('Address_Line_2__c'))
                     {
@@ -250,20 +253,23 @@ public class AddressSearchValidationController
                     }
                     if(ValidStr.contains('Block__c'))
                     {
-                        
+                         
                          AddressObj.Block__c = response.Addresses[0].Block;
                     }
                     if(ValidStr.contains('City__c'))
                     {
                          AddressObj.City__c = response.Addresses[0].City;
+                       
                     }
                     if(ValidStr.contains('District__c'))
                     {
                          AddressObj.District__c = response.Addresses[0].District;
+                        
                     }
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;
+                        
                     }
                 
                 }
@@ -312,7 +318,7 @@ EP/Tolerant for Validation.
             if(response != null && response.ValidationStatus == 'OK')
             {
                 Address_Validated_Flag = true;
-                AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
+                //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                 
                 if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
@@ -361,6 +367,33 @@ EP/Tolerant for Validation.
         }
         
         
+    }
+    
+    
+/**  Address Code Validation.
+If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
+**  Created By: Narasimha  
+**  Date: 2016-2-8
+**/
+    public String ValidateAddressCode(Address__c Address)
+    {
+        crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+        response =  UtilWebservice.validateAddressByZipCode(Address);
+        
+        if(response != null && response.ValidationStatus == 'OK')
+            {
+                if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
+                  AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
+                {
+                    return response.Addresses[0].Address_Code;
+                }
+                
+                else 
+                {
+                    return null;
+                }
+            }
+        return null;
     }
     
     
