@@ -2058,10 +2058,6 @@
         <picklistValues>
             <picklist>Email_Status_3__c</picklist>
             <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
