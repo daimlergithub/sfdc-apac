@@ -67,6 +67,7 @@ public class AddressDisplayInlineEditControllerTest
         test.startTest();
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
         objAddressDisplayInlineEditController.saveAddress(); 
         objAddressDisplayInlineEditController.Address_Validated_Flag=true;

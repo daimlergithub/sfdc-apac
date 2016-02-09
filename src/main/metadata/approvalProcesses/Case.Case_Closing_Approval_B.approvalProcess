@@ -54,7 +54,7 @@
         <criteriaItems>
             <field>Case.Status</field>
             <operation>equals</operation>
-            <value>Waiting for Response approval,Response approved,Final approval rejected,Prospect,TS transfer,Escalation Request,Escaltaion Confirmed,Escalation Raised,Escalation Raised &amp; Confirmed</value>
+            <value>Waiting for Response approval,Response approved,Final approval rejected,Prospect,TS transfer,Escalation Request,Escalation Raised,Escalation Confirmed,Escalation Raised &amp; Confirmed</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.Case_Class__c</field>
@@ -73,7 +73,7 @@
             <type>FieldUpdate</type>
         </action>
     </finalApprovalActions>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionActions>
         <action>
             <name>Change_Status_to_Final_Approval_Rejecte</name>

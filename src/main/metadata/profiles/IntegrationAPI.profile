@@ -16997,10 +16997,6 @@
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <loginHours/>
-    <loginIpRanges>
-        <endAddress>255.255.255.255</endAddress>
-        <startAddress>0.0.0.0</startAddress>
-    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

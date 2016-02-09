@@ -8,19 +8,7 @@
     {  
         setRecType();
     }
-    
-    
-    
-    function testSetTabTitle() {
-        //Set the current tab's title
-        
-        sforce.console.setTabTitle('Account Creation');
-    }
-    
-    if(window.onload)
-    {
-        testSetTabTitle();
-    }
+
     
     </script> 
     
