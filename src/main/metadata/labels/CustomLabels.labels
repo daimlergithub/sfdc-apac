@@ -83,7 +83,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Address</shortDescription>
-        <value>Address</value>
+        <value>Addresses</value>
     </labels>
     <labels>
         <fullName>AddressType_Validation</fullName>
@@ -1398,6 +1398,13 @@
         <protected>false</protected>
         <shortDescription>Field</shortDescription>
         <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>For_Vehicle_Picker</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Interested Vehicle</value>
     </labels>
     <labels>
         <fullName>GenericUploaderErrorMsg</fullName>
@@ -3453,6 +3460,48 @@
         <protected>false</protected>
         <shortDescription>Vehicle Information</shortDescription>
         <value>Vehicle Information</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_Competitor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Competitor</shortDescription>
+        <value>Competitor Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_Current1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Current1</shortDescription>
+        <value>Current Vehicle 1</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_Current2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Current2</shortDescription>
+        <value>Current Vehicle 2</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_Interested</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Interested</shortDescription>
+        <value>Interested Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_Purchased</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Purchased</shortDescription>
+        <value>Purchased Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Picker_TradeIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker TradeIn</shortDescription>
+        <value>Trade-in</value>
     </labels>
     <labels>
         <fullName>Vehicle_Relationship_overlap</fullName>

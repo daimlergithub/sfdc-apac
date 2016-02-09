@@ -7,7 +7,7 @@
         <apex:outputPanel layout="block" style="overflow:auto;">
             
             <!--PageBlock starts here-->
-            <apex:pageBlock title="Addresses" id="pageBlock">
+            <apex:pageBlock title="{!$Label.Address}" id="pageBlock">
                 <apex:pageMessages id="pgmsg"/> 
                 
                 

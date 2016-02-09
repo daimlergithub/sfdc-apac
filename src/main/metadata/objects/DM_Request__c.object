@@ -608,7 +608,7 @@ Modify Reason:
     <fields>
         <fullName>Status2__c</fullName>
         <externalId>false</externalId>
-        <label>Catalogue Printing check 2</label>
+        <label>Status2</label>
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
@@ -647,7 +647,7 @@ Modify Reason:
     <fields>
         <fullName>Status3__c</fullName>
         <externalId>false</externalId>
-        <label>Catalogue Printing Check 3</label>
+        <label>Status3</label>
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>

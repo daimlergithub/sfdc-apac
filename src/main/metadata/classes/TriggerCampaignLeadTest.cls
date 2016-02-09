@@ -34,13 +34,13 @@ Public with sharing class TriggerCampaignLeadTest {
         lead = (Lead__c)UtilTestData.createSobject(lead,
             UtilTestData.LEAD_RT_SALES_LEADS);
 
-        // Create Campaign Lead
+       Test.startTest();
+ // Create Campaign Lead
         Campaign_Lead__c camLead = new Campaign_Lead__c(Lead__c = lead.Id,Contact__c= personAccount.Id);
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead,null);
 
         // Start Test
-        Test.startTest();
-
+        
         camLead = [SELECT Contact__c FROM Campaign_Lead__c WHERE Id = :camLead.Id];       
         // Stop Test
         Test.stopTest();
@@ -50,9 +50,11 @@ Public with sharing class TriggerCampaignLeadTest {
     }
 
     public static testMethod void testTriggerCampaignLead_InsertAction() {
-        
-     //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-     //insert updatecustomsettings;
+      List<Trigger__c> lstCustomSetting = Trigger__c.getall().values();
+     delete lstCustomSetting;
+       
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+     insert updatecustomsettings;
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,UtilTestData.LEAD_RT_SALES_LEADS);
@@ -63,7 +65,20 @@ Public with sharing class TriggerCampaignLeadTest {
             Campaign__c = centralMKTCampaign.Id);
         camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);       
       
-
+        //Create Offering
+        Campaign_Offering__c camOffering = new Campaign_Offering__c(
+        Campaign__c = centralMKTCampaign.Id,
+            Description__c= 'Test'
+        );
+        insert camOffering;
+        
+        
+        //Create Package Item
+         Package_Item__c packageItem= (Package_Item__c)UtilTestData.createSobject(
+            new Package_Item__c(
+                Offering__c = camOffering.Id,
+                Package_Name__c = camPackage.Id), null);
+          
         // Create Package Item for this Central MKT Campaign
         // Because Campaign Offer is the Master Object of Package Item, 
          // Create Participating_Dealer__c for centralMKTCampaign
@@ -88,12 +103,15 @@ Public with sharing class TriggerCampaignLeadTest {
         CampaignMember member = new CampaignMember(
             ContactId = personContactId,
             CampaignId = campaignExecution.Id,
-            Participating_Dealer_Package__c = partDealer.Id);
-        member = (CampaignMember)UtilTestData.createSobject(member, null);
-
-        // Start Test
+            Participating_Dealer_Package__c = partDealer.Id
+            );
         Test.startTest();
 
+        member = (CampaignMember)UtilTestData.createSobject(member, null);
+        System.debug('member ->'+member);
+        System.debug('member ->'+member.Package_Name__c+ ' '+ member.Package_Description__c+ ' '+member.Participating_Dealer_Name__c+ ' '+member.Package_Description__c);
+        // Start Test
+        
         // One related Campaign Lead which has a reference to Campaign Execution
         // and has a reference to Lead
         Campaign_Lead__c camLead = new Campaign_Lead__c(
@@ -111,8 +129,11 @@ Public with sharing class TriggerCampaignLeadTest {
 
     public static testMethod void testTriggerCampaignLead_UpdateAction() {
        
-     //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-     //insert updatecustomsettings;        
+     List<Trigger__c> lstCustomSetting = Trigger__c.getall().values();
+     delete lstCustomSetting;
+     
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+     insert updatecustomsettings;        
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,
@@ -123,29 +144,52 @@ Public with sharing class TriggerCampaignLeadTest {
         Campaign_Package__c camPackage = new Campaign_Package__c(
             Campaign__c = centralMKTCampaign.Id);
         camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);
-
+        
+        //Create Offering
+        Campaign_Offering__c camOffering = new Campaign_Offering__c(
+        Campaign__c = centralMKTCampaign.Id,
+            Description__c= 'Test'
+        );
+        insert camOffering;
         
         
+        //Create Package Item
+         Package_Item__c packageItem= (Package_Item__c)UtilTestData.createSobject(
+            new Package_Item__c(
+                Offering__c = camOffering.Id,
+                Package_Name__c = camPackage.Id), null);
+                
         // Start Test
-        Test.startTest();
         // Create Participating_Dealer__c for centralMKTCampaign
         Participating_Dealer__c partDealer = new Participating_Dealer__c(
             Campaign__c = centralMKTCampaign.Id,
             Campaign_Package__c = camPackage.Id);
-     
+        partDealer = (Participating_Dealer__c)UtilTestData.createSobject(partDealer, null);
 
         // Create Updated Campaign Package for Central MKT Campaign
         Campaign_Package__c camPackage2 = new Campaign_Package__c(
             Campaign__c = centralMKTCampaign.Id);
         camPackage2 = (Campaign_Package__c)UtilTestData.createSobject(camPackage2, null);
 
+        Campaign_Offering__c camOffering2 = new Campaign_Offering__c(
+        Campaign__c = centralMKTCampaign.Id,
+            Description__c= 'Test'
+        );
+        insert camOffering2;
+        
+        //Create Package Item
+         Package_Item__c packageItem2= (Package_Item__c)UtilTestData.createSobject(
+            new Package_Item__c(
+                Offering__c = camOffering.Id,
+                Package_Name__c = camPackage2.Id), null);
+          
+          
         // Create Updated Participating_Dealer__c for centralMKTCampaign
         Participating_Dealer__c partDealer2 = new Participating_Dealer__c(
             Campaign__c = centralMKTCampaign.Id,
             Dealer__c = dealer.Id,
-            Campaign_Package__c = camPackage.Id);
-       
-
+            Campaign_Package__c = camPackage2.Id);
+       partDealer2 = (Participating_Dealer__c)UtilTestData.createSobject(partDealer2, null);
 
         Campaign cacCampaign = new Campaign(
             ParentId = centralMKTCampaign.Id);
@@ -166,7 +210,7 @@ Public with sharing class TriggerCampaignLeadTest {
             Participating_Dealer_Package__c = partDealer.Id);
         member = (CampaignMember)UtilTestData.createSobject(member, null);
 
-        Campaign campaignExecution2 = new Campaign(
+       Campaign campaignExecution2 = new Campaign(
             ParentId = cacCampaign.Id);
         campaignExecution2 = (Campaign)UtilTestData.createSobject(
             campaignExecution2, UtilTestData.CAMPAIGN_RT_CAMPAIGN_EXECUTION);
@@ -175,9 +219,10 @@ Public with sharing class TriggerCampaignLeadTest {
             ContactId = personContactId,
             CampaignId = campaignExecution2.Id,
             Participating_Dealer_Package__c = partDealer2.Id);
-        member2 = (CampaignMember)UtilTestData.createSobject(member2, null);
-
-
+        member = (CampaignMember)UtilTestData.createSobject(member2, null);
+                
+        Test.startTest();
+        
         // One related Campaign Lead which has a reference to Campaign Execution
         // and has a reference to Lead
         Campaign_Lead__c camLead = new Campaign_Lead__c(
@@ -185,9 +230,9 @@ Public with sharing class TriggerCampaignLeadTest {
             Campaign__c = campaignExecution.Id);
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
 
-        // Update Campaign Field of Campaign Lead
-        //camLead.Campaign__c = campaignExecution2.Id;
-        //update camLead;
+         //Update Campaign Field of Campaign Lead
+        camLead.Campaign__c = campaignExecution2.Id;
+        update camLead;
 
         
         camLead = [SELECT Lead__c, Campaign_Notes__c 
