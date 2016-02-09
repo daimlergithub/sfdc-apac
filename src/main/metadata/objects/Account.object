@@ -19959,7 +19959,7 @@ ISBLANK(Finance_Sanction_Comment__c),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Sanction_Comment__c</errorDisplayField>
-        <errorMessage>If Finance Sanction is checked, Finance Sanction Comment needs to be entered.</errorMessage>
+        <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
@@ -20241,7 +20241,7 @@ NOT(ISPICKVAL(Sales_Sanction__c,'')),
 ISBLANK(Sales_Sanction_Comment__c), 
 $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Sales_Sanction__c</errorDisplayField>
-        <errorMessage>If Sales Sanction is checked, Sales Sanction Comment needs to be entered.</errorMessage>
+        <errorMessage>If Customer Flag is selected, Customer Memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Second_Mobile</fullName>
