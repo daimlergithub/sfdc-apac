@@ -48,7 +48,7 @@
         <field>CREATED_DATEONLY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call Center No of Req to exclude for mkt</name>
+    <name>Call Center 25</name>
     <params>
         <name>units</name>
         <value>h</value>

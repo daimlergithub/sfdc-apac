@@ -669,7 +669,7 @@
     <tr>
     
     <!-------------- INTERESTED VEHICLE SECTION ----------------->
-    <td style="vertical-align: top;">Interested Vehicle&nbsp;</td>
+    <td style="vertical-align: top;">{!$label.Vehicle_Picker_Interested}&nbsp;</td>
     <td>
         <input type="text" ng-model="interestedVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
@@ -720,7 +720,7 @@
         <tr>
         <!------------ COMPETITOR VEHICLE SECTION --------->
         <td style="vertical-align: top;">
-        Competitor Vehicle&nbsp;</td><td><input type="text" ng-model="competitorVehicleDetails"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Competitor}&nbsp;</td><td><input type="text" ng-model="competitorVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailCompetitorText == 'Edit'}}" ng-click="showDetail('Competitor Vehicle',selectedCompetitorBrand,selectedCompetitorClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailCompetitorText == 'New' || competitorRecType != 'Vehicle Product'}}" ng-click="showDetail('Competitor Vehicle',selectedCompetitorBrand,selectedCompetitorClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Competitor Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
@@ -756,7 +756,7 @@
         <tr>
         <!----------- CURRENT VEHICLE1 SECTION -------->
         <td style="vertical-align: top;padding=20px">
-        Current Vehicle 1&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
@@ -805,7 +805,7 @@
         <tr>
         <!----------- CURRENT VEHICLE2 SECTION -------->
         <td style="vertical-align: top;">
-        Current Vehicle 2&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Current2}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
@@ -853,7 +853,7 @@
         </tr>
         <tr>
         <!----------- TRADE-IN SECTION -------->
-        <td style="vertical-align: top;">Trade-in&nbsp;</td><td>
+        <td style="vertical-align: top;">{!$label.Vehicle_Picker_TradeIn}&nbsp;</td><td>
         <input type="text" ng-model="tradeInVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'Edit'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'New' || TradeIn_RecType != 'Vehicle Product'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)" class="btn" value="{!$Label.Edit}"/>
@@ -902,7 +902,7 @@
         </tr>
         <tr>
         <!----------- PURCHASED VEHICLE SECTION -------->
-        <td style="vertical-align: top;">Purchased Vehicle&nbsp;</td><td>
+        <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
