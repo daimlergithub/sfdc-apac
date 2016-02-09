@@ -281,7 +281,6 @@ public With Sharing class UserHelperTest
         insert acc1;
         
         
-       
        createTestData();
         AccountShare share = new AccountShare();
         share.AccountAccessLevel = accesslevel;
