@@ -45,7 +45,7 @@
         <field>Case.Case_Class__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call center misc request to Dealer</name>
+    <name>Call center 14</name>
     <params>
         <name>units</name>
         <value>h</value>

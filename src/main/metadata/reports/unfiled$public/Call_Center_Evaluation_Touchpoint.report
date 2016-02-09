@@ -56,7 +56,7 @@
         <field>Case.Data_Source__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call Center Evaluation Touchpoint</name>
+    <name>Call Center 9</name>
     <params>
         <name>units</name>
         <value>h</value>

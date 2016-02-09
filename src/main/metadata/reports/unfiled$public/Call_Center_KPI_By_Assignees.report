@@ -34,7 +34,7 @@
         <field>Case.Case_Class__c</field>
         <sortOrder>Desc</sortOrder>
     </groupingsDown>
-    <name>Call Center KPI By Assignees</name>
+    <name>Call Center 11</name>
     <params>
         <name>units</name>
         <value>h</value>

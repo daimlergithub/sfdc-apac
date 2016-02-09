@@ -48,7 +48,7 @@
         <field>CREATED_DATEONLY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call Center Import Labels</name>
+    <name>Call Center 21</name>
     <params>
         <name>units</name>
         <value>h</value>
