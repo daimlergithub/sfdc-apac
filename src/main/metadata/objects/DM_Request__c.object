@@ -608,7 +608,7 @@ Modify Reason:
     <fields>
         <fullName>Status2__c</fullName>
         <externalId>false</externalId>
-        <label>Catalogue Printing check 2</label>
+        <label>Status2</label>
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
@@ -647,7 +647,7 @@ Modify Reason:
     <fields>
         <fullName>Status3__c</fullName>
         <externalId>false</externalId>
-        <label>Catalogue Printing Check 3</label>
+        <label>Status3</label>
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
@@ -797,7 +797,24 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    
+    <listViews>
+        <fullName>CAC_Surpervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CRM_Approver_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -921,7 +938,24 @@ Modify Reason:
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
+    <listViews>
+        <fullName>test_CAC_Surpervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>

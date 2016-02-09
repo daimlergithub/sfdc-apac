@@ -83,7 +83,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Address</shortDescription>
-        <value>Address</value>
+        <value>Addresses</value>
     </labels>
     <labels>
         <fullName>AddressType_Validation</fullName>
