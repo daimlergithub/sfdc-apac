@@ -19959,7 +19959,7 @@ ISBLANK(Finance_Sanction_Comment__c),
 $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Sanction_Comment__c</errorDisplayField>
-        <errorMessage>If Finance Sanction is checked, Finance Sanction Comment needs to be entered.</errorMessage>
+        <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
@@ -20241,7 +20241,7 @@ NOT(ISPICKVAL(Sales_Sanction__c,'')),
 ISBLANK(Sales_Sanction_Comment__c), 
 $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Sales_Sanction__c</errorDisplayField>
-        <errorMessage>If Sales Sanction is checked, Sales Sanction Comment needs to be entered.</errorMessage>
+        <errorMessage>If Customer Flag is selected, Customer Memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Second_Mobile</fullName>
@@ -20741,15 +20741,20 @@ if (sforce.console.isInConsole()) {
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>newWindow</openType>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
-			  
-		window.open("/apex/ViewHierarchy", "","width = 800, height = 600");</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/ViewHierarchy?id={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>

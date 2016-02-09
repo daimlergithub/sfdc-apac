@@ -110,19 +110,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Escaltaion Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Final approval rejected</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Open</fullName>
             <default>false</default>
         </values>
         <values>
@@ -15061,13 +15053,8 @@ Modify Reason:
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Escalation Confirmed</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
-                <fullName>Escaltaion Confirmed</fullName>
+                <fullName>Escalation Confirmed</fullName>
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
@@ -19440,7 +19427,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -19991,7 +19977,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -101173,7 +101158,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Closed</fullName>
         <active>true</active>
         <description>Status is changed to "Closed"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Closed') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Closed'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Closed".</errorMessage>
     </validationRules>
@@ -101181,7 +101166,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Done</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Done"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Final approval done') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval done'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval done".</errorMessage>
     </validationRules>
@@ -101189,7 +101174,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Rejected</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Rejected"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Final approval rejected') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval rejected'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval rejected".</errorMessage>
     </validationRules>
@@ -101197,7 +101182,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Waiting_for_Final_Approval</fullName>
         <active>true</active>
         <description>Status is changed to "Waiting for Final Approval"</description>
-        <errorConditionFormula>ISPICKVAL( Status , 'Waiting for final approval') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Waiting for final approval'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Waiting for final approval".</errorMessage>
     </validationRules>
@@ -101759,35 +101744,13 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <fullName>New_Inquiry</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
         <masterLabel>New Inquiry</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
-
-
-
-
-if(typeof(srcUp) == 'function') { 
-
-if (sforce.console.isInConsole()) { 
-var showTabId = function showTabId(result) { 
-var tabid = result.id; 
-sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
-}; 
-sforce.console.getEnclosingPrimaryTabId(showTabId); 
-} 
-else { 
-window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case"); 
-} 
-
-} 
-else { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;ent=Case", "", "width = 1000,height = 800"); 
-}</url>
+        <url>/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=012O000000058Vr&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Lead</fullName>
