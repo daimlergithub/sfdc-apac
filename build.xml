@@ -882,7 +882,8 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,
+
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
 	</property>
 	
