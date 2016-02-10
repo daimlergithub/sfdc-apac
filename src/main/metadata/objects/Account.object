@@ -20734,7 +20734,7 @@ if (sforce.console.isInConsole()) {
                                                           true, 'Test');
    }
    sforce.console.getEnclosingPrimaryTabId(showTabId); 
-}</url>
+}</url> 
     </webLinks>
     <webLinks>
         <fullName>Testing</fullName>
