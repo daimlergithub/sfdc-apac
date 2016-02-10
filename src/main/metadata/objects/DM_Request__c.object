@@ -1053,6 +1053,14 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Province should be less than or equal to 10 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>TitleOfHonor_is_Required</fullName>
+        <active>true</active>
+        <description>TitleOfHonor__c is null or blank</description>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>TitleOfHonor__c</errorDisplayField>
+        <errorMessage>TitleOfHonor is required.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ZipCode_NoOfDigits</fullName>
         <active>true</active>
         <errorConditionFormula>AND(LEN(Zip_Code__c)&gt;7, 
