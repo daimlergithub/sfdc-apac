@@ -20725,7 +20725,7 @@ if (sforce.console.isInConsole()) {
  
 		// query the record
 		var qr = sforce.connection.query("SELECT Id,Dup_Reason__c FROM Account where Id='" + "{!Account.Id}" + "'");
-		var records = qr.getArray("records");
+		var records = qr.getArray("records"); 
 		 
 		// display the field from the query
 		alert("Dup Reason: " +qr.records.Dup_Reason__c);
