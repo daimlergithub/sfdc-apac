@@ -177,7 +177,7 @@ public class AccountHelperJP
             {      
                 if(acc.MD__c == 'JP')
                 {   
-                    If(acc.Primary_Address_Reference__c !=Null && acc.Primary_Address_Reference__c != '')
+                    If(acc.Primary_Address_Reference__c !=Null)
                     {
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         system.debug('!!!!!!!'+add.id);
@@ -212,15 +212,15 @@ public class AccountHelperJP
                     {
                         acc.Primary_Fax_Display__c = acc.Fax2__c;
                     }
-                    if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '' ) && acc.Primary_Email__c == 'Email1')
+                    if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '' ) && acc.Primary_Email__c == 'E-mail1')
                     {
                         acc.Primary_Email_Display__c = acc.Email__c;
                     }
-                    else if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '' ) && acc.Primary_Email__c == 'Email2')
+                    else if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '' ) && acc.Primary_Email__c == 'E-mail2')
                     {
                         acc.Primary_Email_Display__c = acc.Email2__c;
                     }
-                    else if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '') && acc.Primary_Email__c == 'Email3')
+                    else if((acc.Primary_Email__c != Null && acc.Primary_Email__c != '') && acc.Primary_Email__c == 'E-mail3')
                     {
                         acc.Primary_Email_Display__c = acc.Email3__c;
                     }
@@ -269,49 +269,51 @@ public class AccountHelperJP
                 for(Account Acc : listNewAccounts)
                 {
                     Account OldAcc = OldMap.get(Acc.id);
-                    if((acc.Primary_Fax__c != OldAcc.Primary_Fax__c) && acc.Primary_Fax__c == 'FAX1')
+                    
+                    if((acc.Primary_Fax__c == 'FAX1') && ((acc.Primary_Fax__c != OldAcc.Primary_Fax__c) || (acc.Fax != OldAcc.Fax)))
                     {
                         acc.Primary_Fax_Display__c = acc.Fax;
                     }
-                    else if ((acc.Primary_Fax__c != OldAcc.Primary_Fax__c) && acc.Primary_Fax__c == 'FAX2')
+                    else if ((acc.Primary_Fax__c == 'FAX2') && ((acc.Primary_Fax__c != OldAcc.Primary_Fax__c) || (acc.Fax2__c != OldAcc.Fax2__c)))
                     {
                         acc.Primary_Fax_Display__c = acc.Fax2__c;
                     }
-                    if((acc.Primary_Email__c != OldAcc.Primary_Email__c) && acc.Primary_Email__c == 'Email1')
+                    if((acc.Primary_Email__c == 'E-mail1') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email__c != OldAcc.Email__c))) 
                     {
                         acc.Primary_Email_Display__c = acc.Email__c;
                     }
-                    else if((acc.Primary_Email__c != OldAcc.Primary_Email__c) && acc.Primary_Email__c == 'Email2')
+                    else if((acc.Primary_Email__c == 'E-mail2') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email2__c != OldAcc.Email2__c))) 
                     {
                         acc.Primary_Email_Display__c = acc.Email2__c;
                     }   
-                    else if((acc.Primary_Email__c != OldAcc.Primary_Email__c) && acc.Primary_Email__c == 'Email3')
+                    else if((acc.Primary_Email__c == 'E-mail3') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email3__c != OldAcc.Email3__c)))
                     {
                         acc.Primary_Email_Display__c = acc.Email3__c;
                     }
-                    if((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) && acc.Primary_Phone__c =='Mobile')
+                    if((acc.Primary_Phone__c =='Mobile') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Mobile__c != OldAcc.Mobile__c)))
                     {
                         acc.Primary_Phone_Display__c = acc.Mobile__c;
                     }
-                    else if((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) && acc.Primary_Phone__c =='Home Phone')
+                    else if((acc.Primary_Phone__c =='Home Phone') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Individual_Home_Phone__c != OldAcc.Individual_Home_Phone__c)))
                     {
                         acc.Primary_Phone_Display__c = acc.Individual_Home_Phone__c;
                     }
-                    else if((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) && acc.Primary_Phone__c =='Work Mobile')
+                    else if((acc.Primary_Phone__c =='Work Mobile') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Mobile2__c != OldAcc.Mobile2__c)))
                     {
                         acc.Primary_Phone_Display__c = acc.Mobile2__c;
                     }
-                    else if((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) && acc.Primary_Phone__c =='Other1')
+                    else if((acc.Primary_Phone__c =='Other1') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Home_Phone_2__c != OldAcc.Home_Phone_2__c)))
                     {
                         acc.Primary_Phone_Display__c = acc.Home_Phone_2__c;
                     }
-                    else if((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) && acc.Primary_Phone__c =='Other2')
+                    else if((acc.Primary_Phone__c =='Other2') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Phone != OldAcc.Phone)))
                     {
                         acc.Primary_Phone_Display__c = acc.Phone;
                     }
                 }
             }
         }
+        
         catch(DMLException ex)
         {
             CustomLogUtil.DebugException(ex);

@@ -4,7 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
-    <customConsoleComponents>
+    <!--<customConsoleComponents>
         <primaryTabComponents>
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
@@ -30,7 +30,7 @@
                 <width>20</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents>
+    </customConsoleComponents> -->
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>

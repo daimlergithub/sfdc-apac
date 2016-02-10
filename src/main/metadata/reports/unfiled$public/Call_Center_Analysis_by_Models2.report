@@ -42,7 +42,7 @@
         <field>Case.Car_Model__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call Center Analysis by Models2</name>
+    <name>Call Center 12</name>
     <params>
         <name>units</name>
         <value>h</value>
