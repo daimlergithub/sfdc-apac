@@ -81,6 +81,12 @@
         </action>
     </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Change_Status_to_Waiting_for_final_appr</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
     <label>Case Closing Approval Line B</label>
     <recallActions>
         <action>
