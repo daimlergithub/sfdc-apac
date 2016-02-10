@@ -21,7 +21,9 @@ public with sharing class  DMRequestHelperJP {
         set<id> CustomerId = new set<id>();  
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
         map<string,Address__c> admap =new  map<string,Address__c>();
-        		
+        string regexForNullValue ='null';
+        string nullValue ='';
+        
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
@@ -36,12 +38,12 @@ public with sharing class  DMRequestHelperJP {
        
             for(DM_Request__c lstDMR:triggerNew){          
               
-               if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary')){
-                   
-                   if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c){
-                       
-                   		if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c))){
-                   
+               if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
+               {
+                   if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c)
+                   {
+                   		if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
+                        {
                                 if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){
                                     Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
                                     lstDMR.Zip_Code__c=address.ZipCode__c;
@@ -54,7 +56,8 @@ public with sharing class  DMRequestHelperJP {
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);
                                 }
-                       }
+                            	lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
+                       	}
                         else{
                                 lstDMR.adderror(Label.DMRequest_validation_error);
                             }
@@ -65,23 +68,8 @@ public with sharing class  DMRequestHelperJP {
             }  
         
     } 
-    
-    /**             
-        * @Description: Throws error when DMRequest was created or updated by IntegrationAPI profile user
-        * @author     : sriram kalluri
-        * @Date       : 1/12/2016
-        * @param      : list of new DMRequests
-        * @return     : void
-        * @see:       : DMRequestHelperJP
-        
-    
-   public static void intigrationAPICheck(List<DM_Request__c> triggerNew){
-       for(DM_Request__c lstDMR:triggerNew){
-               lstDMR.adderror(Label.DMRequest_validation_error);
-       }  
-   } 
-*/
-       
+ 
+   */  
        /**             
         * @Description: Update status after 3 months
         * @author     : sriram kalluri
