@@ -19,8 +19,12 @@ public class GenerateCatalogueCsvTest
     {   
          
         createTestData();
-        
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
         test.startTest();
+        
         insert Dl;
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
         string retString = GenerateCatalogueCsv.getDMRequests();
@@ -33,7 +37,10 @@ public class GenerateCatalogueCsvTest
     {   
          
         createTestData();
-        
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
         test.startTest();
         
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
@@ -47,7 +54,10 @@ public class GenerateCatalogueCsvTest
     public static testMethod void test_getDMRequest1()
     {
         createTestData();
-        
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
        
         test.startTest();
         insert Dl2;
@@ -61,7 +71,10 @@ public class GenerateCatalogueCsvTest
     {
         
         createTestData();
-        
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
         test.startTest();
         insert Dl2;
         insert Dl3;
@@ -75,6 +88,10 @@ public class GenerateCatalogueCsvTest
      public static testMethod void test_getDMRequest3()
     {
         createTestData();
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
         insert Dl;
         insert Dl2;
         insert Dl3;
@@ -89,7 +106,10 @@ public class GenerateCatalogueCsvTest
     {
         
         createTestData();
-       
+        system.runAs(usr)
+        {
+           insert Dmr; 
+        }
         test.startTest();
         delete Dmr;
         string retString = GenerateCatalogueCsv.getDMRequests();
@@ -149,7 +169,7 @@ public class GenerateCatalogueCsvTest
         Dmr.Expected_DM_Material1__c = Dmm.id;
         Dmr.Expected_DM_Material2__c = Dmm.id;
         Dmr.Expected_DM_Material3__c = Dmm.id;
-        insert Dmr;
+        //insert Dmr;
         
         Dl = new Dealer_Locator__c();
         Dl.Post_Code__c = '1040031';
@@ -169,7 +189,12 @@ public class GenerateCatalogueCsvTest
         Dl3.Sequence_No__c = '1';
         //insert Dl3;
         
-        
+       Profile prof = [select Id from Profile where Name = 'IntegrationAPI'];
+       usr = new User(ProfileId = prof.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichaof',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+       insert usr;
         
         
             }
