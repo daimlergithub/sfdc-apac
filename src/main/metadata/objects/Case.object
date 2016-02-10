@@ -101749,8 +101749,7 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <masterLabel>New Inquiry</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=012O000000058Vr&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
+        <requireRowSelection>false</requireRowSelection>        <url>OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP={!Vehicle_Relationship__c.Name}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP_LKIED={!Vehicle_Relationship__c.Id}&amp;OBJECT_CASE_Vehicle_ID={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Lead</fullName>
@@ -101760,8 +101759,7 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <linkType>url</linkType>
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=01Ip00000004MV0&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa0v%2Fe?CF00Np0000000Kd5G_lkid={!Account.Id}&amp;CF00Np0000000Kd5G={!Account.Name}&amp;00Np0000000Kd57_lkid={!Case.Id}&amp;00Np0000000Kd57={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <protected>false</protected>        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_LKID={!Case.Id}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
@@ -102077,3 +102075,6 @@ window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.I
 }</url>
     </webLinks>
 </CustomObject>
+
+
+

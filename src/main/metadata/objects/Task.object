@@ -16180,15 +16180,20 @@ else {
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/23.0/connection.js")}
 
- 
- 
-
+var taskWho =  '{!Task.Who}';
+ if(taskWho  == "")
+{
+alert('Related Account field is empty');
+}
+else{
    if (sforce.console.isInConsole()) {
     sforce.console.openPrimaryTab(undefined, '/{!Task.Who}', true, '{!Task.Account_Name__c}');
    } 
 else { 
-    window.open('/{!Task.Who}', "", "width = 800,height = 600"); 
-   }</url>
+    window.open('/{!Task.Who}', "", ""); 
+   
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>View_Campaing_Member</fullName>

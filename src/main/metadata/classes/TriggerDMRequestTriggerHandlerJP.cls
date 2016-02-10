@@ -13,22 +13,19 @@ public class TriggerDMRequestTriggerHandlerJP
     implements TriggerHandlerIf 
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {
+    {  
         
-        // Implementation to addedd as required in market  
-        
-        if (Trigger.isBefore && Trigger.isUpdate){ 
+        if (Trigger.isBefore && Trigger.isUpdate)
+        { 
             DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap);
-            // DMRequestHelperJP.intigrationAPICheck(trigger.new);
-            
+            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);                        
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {
-    	
-    	// Implementation to addedd as required in market
-    	if ((Trigger.isBefore && Trigger.isUpdate)){
-            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
-        }
+    {    	
+		if (Trigger.isBefore && Trigger.isUpdate)
+        { 
+            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);                        
+        }    
     }
 }

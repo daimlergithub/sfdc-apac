@@ -70,6 +70,66 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FAX_ID</token>
 	</changetext>
+    <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
+	</changetext>
+   <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_VEHICLE_RELATIONSHIP</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_VEHICLE_RELATIONSHIP_LKIED</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_Vehicle_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_INQUIRY_RECORDTYPEID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_lEAD_CASE_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ACCOUNT</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ACCOUNT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_OBJECTID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_CAC_Campaign']/url/text()</xpath>

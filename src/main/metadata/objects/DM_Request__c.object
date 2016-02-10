@@ -207,19 +207,87 @@ Modify Reason:
         <label>Touch Point</label>
         <picklist>
             <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Event</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Online</fullName>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Campaign</fullName>
+                <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English Customer Desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maybach call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -797,7 +865,6 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -828,6 +895,15 @@ Modify Reason:
     </listViews>
     <listViews>
         <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
         <queue>MBJ_Supervisor</queue>
@@ -913,6 +989,15 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Supervisor_Team_A_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Supervisor_Team_B_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
@@ -921,7 +1006,6 @@ Modify Reason:
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1051,6 +1135,14 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>Province should be less than or equal to 10 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TitleOfHonor_is_Required</fullName>
+        <active>true</active>
+        <description>TitleOfHonor__c is null or blank</description>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorDisplayField>TitleOfHonor__c</errorDisplayField>
+        <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ZipCode_NoOfDigits</fullName>
