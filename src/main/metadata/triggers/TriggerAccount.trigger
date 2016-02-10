@@ -15,7 +15,7 @@
    Modified date : 
 **/
 
-trigger TriggerAccount on Account (before update,after update) 
+trigger TriggerAccount on Account (before insert, before update, after insert, after update) 
 {
     TriggerUtil.handleTrigger('TriggerAccount');
 }
