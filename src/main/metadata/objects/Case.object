@@ -101749,8 +101749,7 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <masterLabel>New Inquiry</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=012O000000058Vr&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
+        <requireRowSelection>false</requireRowSelection>        <url>OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP={!Vehicle_Relationship__c.Name}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP_LKIED={!Vehicle_Relationship__c.Id}&amp;OBJECT_CASE_Vehicle_ID={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Lead</fullName>
