@@ -19016,7 +19016,6 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
-    
     <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
         <filterScope>Queue</filterScope>
@@ -19053,7 +19052,6 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -43768,10 +43766,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Nominated</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Bought_Vehicle_Brand__c</picklist>
@@ -45074,14 +45068,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Financing failed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No serious interest</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No suitable model</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48202,15 +48188,15 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
+                <fullName>Changed car in same company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Continued using current car</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gave up owning a car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48998,19 +48984,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>above 6 months</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>within 1 month</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>within 1 week</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>within 12 month</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

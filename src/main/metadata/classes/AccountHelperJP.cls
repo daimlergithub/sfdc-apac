@@ -21,8 +21,8 @@ public class AccountHelperJP
     {
         If(!listNewAccounts.isEmpty())
         {
-        	for(Account Acc : listNewAccounts)
-        	{
+                for(Account Acc : listNewAccounts)
+                {
             
                 if(Acc.Mobile__c != Null && Acc.Mobile__c != '')
                 {
@@ -64,7 +64,6 @@ public class AccountHelperJP
                 {
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
-                    system.debug('#######'+ Acc.Email_Last_Modified_Date__c);
                 }
                 
                 if(Acc.Email2__c!= Null && Acc.Email2__c != '')
@@ -85,14 +84,13 @@ public class AccountHelperJP
 **  Created By: Sudhir 
 **  Date: 2015-12-22
 **/
-	public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
+                public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
     {
         If(!listNewAccounts.isEmpty())
-        {
-        	for(Account Acc : listNewAccounts)
-        	{
+       {
+                for(Account Acc : listNewAccounts)
+                {
                 Account OldAcc = accountOldMap.get(Acc.id);
-                system.debug('$$$$$');
                 if(Acc.Mobile__c != OldAcc.Mobile__c)
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
@@ -133,7 +131,6 @@ public class AccountHelperJP
                 {
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
-                    system.debug('#######'+ Acc.Email_Last_Modified_Date__c);
                 }
                 
                 if(Acc.Email2__c!= OldAcc.Email2__c)
@@ -181,7 +178,7 @@ public class AccountHelperJP
                     {
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         system.debug('!!!!!!!'+add.id);
-                        acc.Primary_Address_Display__c = String.valueOf(add.Province__c)+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                     }
                 }              
@@ -245,7 +242,7 @@ public class AccountHelperJP
                         acc.Primary_Phone_Display__c = acc.Phone;
                     }
                 }
-            }	
+            }  
         }
         catch(DMLException ex)
         {
@@ -280,7 +277,7 @@ public class AccountHelperJP
                     }
                     if((acc.Primary_Email__c == 'E-mail1') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email__c != OldAcc.Email__c))) 
                     {
-                        acc.Primary_Email_Display__c = acc.Email__c;
+                       acc.Primary_Email_Display__c = acc.Email__c;
                     }
                     else if((acc.Primary_Email__c == 'E-mail2') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email2__c != OldAcc.Email2__c))) 
                     {
@@ -328,35 +325,29 @@ public class AccountHelperJP
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
+            string ucidsequence;
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
             set<id> AccIds = new set<id>();
             for(Account acc : TriggerNew)
             {
-                system.debug('&&&&&&&&');
                 AccIds.add(acc.id);
-                //accountlist.add(acc);
-                
+                //accountlist.add(acc);                
             }
-            system.debug('(&(^*I^*^*%&*%'+AccIds.size());
             if(!AccIds.isEmpty())
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
-                system.debug('!!!!'+ accountlist[0]);
                 if(!accountlist.isEmpty())
                 {
                     for(Account acc : accountlist)
                     {
                         if(acc.RecordTypeId == accPerson_RecordTypeId){
-                            string ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
+                                ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                         }
                         else
                             if(acc.RecordTypeId == accCompany_RecordTypeId){
-                                string ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                                ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
-                        
-                        string ucidsequence = 'JSP' + acc.UCID_Sequence__c;
-                        system.debug('#########'+ucidsequence);
                         integer checksum=0;
                         integer i;
                         String ucid = ucidsequence;
@@ -365,18 +356,14 @@ public class AccountHelperJP
                             integer cp = ucid.codePointAt(i); 
                             checksum += cp; 
                         }
-                        system.debug('^^^^^^^'+checksum);
                         String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
                         integer mod = Math.mod(checksum, checksumSet.length());
                         ucid += checksumSet.substring(mod, mod+1);
-                        system.debug('%%%%%%%%'+ucid);
                         acc.UCID__c = ucid;
-                        system.debug('!!!!!!!'+ acc.UCID__c + '!!!!!!1' + acc.id );
                         acclist.add(acc);
                     }
                     update acclist;
                 }
-                system.debug('UCID #####'+accountlist);
             }
         }
         catch(DMLException ex)
