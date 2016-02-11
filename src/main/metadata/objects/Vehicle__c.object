@@ -6803,6 +6803,18 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>Part exchange vehicle</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Temporary scrap</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eternal scrap</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
@@ -6982,15 +6994,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LeftManual</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>RightAuto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RightManual</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9727,11 +9731,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>VehicleStatus__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Current vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9748,6 +9760,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Temporary scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9798,15 +9814,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LeftManual</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>RightAuto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RightManual</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14227,11 +14235,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>VehicleStatus__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Current vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14248,6 +14264,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Temporary scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14297,15 +14317,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LeftManual</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>RightAuto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RightManual</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19386,11 +19398,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>VehicleStatus__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Current vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19407,6 +19427,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Temporary scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24616,15 +24640,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LeftManual</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>RightAuto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RightManual</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -29029,11 +29045,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>VehicleStatus__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Current vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29050,6 +29074,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Temporary scrap</fullName>
                 <default>false</default>
             </values>
             <values>
