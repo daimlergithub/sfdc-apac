@@ -40,6 +40,7 @@ public class DMRequestHelperJPTest {
         address=new Address__c();
         address.Address_Type__c='Home';
         address.Province__c='test1';
+        address.TitleOfHonor__c = 'To Person';
         address.City__c='bangalore';
         address.District__c='test2';
         address.Block__c='test3';
@@ -51,6 +52,7 @@ public class DMRequestHelperJPTest {
         address1=new Address__c();
         address1.Address_Type__c='Other Address 1';
         address1.Province__c='test2';
+        address1.TitleOfHonor__c = 'To Person';
         address1.City__c='Hyderabd';
         address1.District__c='test';
         address1.Block__c='test';
@@ -58,8 +60,6 @@ public class DMRequestHelperJPTest {
         address1.Address_Line_2__c='testaddress';
         address1.Customer__c=account.id;
         insert address1;  
-        
-        
         
     }
         public static void createDMRequest(){
@@ -76,6 +76,7 @@ public class DMRequestHelperJPTest {
          dmr.Status__c='to be sent'; 
          dmr.Customer_Name__c=account.id;
          dmr.Sending_Address__c='Home';
+         dmr.TitleOfHonor__c = 'To Person';
          dmr.Status2__c='Success';
          dmr.Expected_DM_Material1__c=Material.id;
          dmr.Expected_DM_Material2__c=Material.id;
@@ -111,7 +112,8 @@ public class DMRequestHelperJPTest {
         DM_Request__c dmr1 = new  DM_Request__c();  
          dmr1.Status__c='to be sent'; 
          dmr1.Customer_Name__c=account.id;
-         dmr1.Sending_Address__c='Home';  
+         dmr1.Sending_Address__c='Home';
+         dmr1.TitleOfHonor__c ='To Person';
          dmr1.Expected_DM_Material1__c=Material.id;
          dmr1.Expected_DM_Material2__c=Material.id;
          dmr1.Expected_DM_Material3__c=Material.id;
