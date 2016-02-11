@@ -16,7 +16,6 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-    public static Id accDealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -326,7 +325,11 @@ public class AccountHelperJP
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
-            string ucidsequence;
+            string ucidsequence;            
+            integer checksum=0;
+            integer i;
+            String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
             set<id> AccIds = new set<id>();
@@ -335,14 +338,13 @@ public class AccountHelperJP
                 AccIds.add(acc.id);
                 //accountlist.add(acc);                
             }
-            if(!AccIds.isEmpty())
+            if(!AccIds.isEmpty() && AccIds != Null)
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
-                if(!accountlist.isEmpty())
+                if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
-                    {
-                        
+                    {                        
                         
                             if(acc.RecordTypeId == accPerson_RecordTypeId){
                                     ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
@@ -351,20 +353,18 @@ public class AccountHelperJP
                                 if(acc.RecordTypeId == accCompany_RecordTypeId){
                                     ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                                 }
-                            integer checksum=0;
-                            integer i;
-                            String ucid = ucidsequence;
-                            if(ucid != null && ucid.length() > 0)
+
+                            //String ucid = ucidsequence;
+                            if(ucidsequence != null && ucidsequence.length() > 0)
                             {
                                 for (i=0; i < 14; i++)
                                 { 
-                                    integer cp = ucid.codePointAt(i); 
+                                    integer cp = ucidsequence.codePointAt(i); 
                                     checksum += cp; 
                                 }
-                                String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                                integer mod = Math.mod(checksum, checksumSet.length());
-                                ucid += checksumSet.substring(mod, mod+1);
-                                acc.UCID__c = ucid;
+                                
+                                ucidsequence += checksumSet.substring(mod, mod+1);
+                                acc.UCID__c = ucidsequence;
                                 acclist.add(acc);
                              }
                          
