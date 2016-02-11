@@ -754,6 +754,7 @@
 			<sf:include name="ContactTableController"/>
 		    <sf:include name="ContactTableControllerTest"/>
 			<sf:include name="ChatterAnswersTest"/>
+			<sf:include name="TrialCustomerPortalHomePageController"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="superSortTest"/>
 		</sf:typeset>	

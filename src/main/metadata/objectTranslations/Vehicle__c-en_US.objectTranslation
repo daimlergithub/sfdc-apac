@@ -5397,12 +5397,20 @@
         <label><!-- VehicleStatus --></label>
         <name>VehicleStatus__c</name>
         <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Current vehicle</masterLabel>
             <translation><!-- Current vehicle --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Demo/courtesy vehicle</masterLabel>
             <translation><!-- Demo/courtesy vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eternal scrap</masterLabel>
+            <translation><!-- Eternal scrap --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invoiced vehicle</masterLabel>
@@ -5419,6 +5427,10 @@
         <picklistValues>
             <masterLabel>Quoted Vehicle</masterLabel>
             <translation><!-- Quoted Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temporary scrap</masterLabel>
+            <translation><!-- Temporary scrap --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Required</masterLabel>
@@ -5542,7 +5554,6 @@
             <section>Vehicle information</section>
         </sections>
     </layouts>
-    
     <layouts>
         <layout>Self Registered Layout-CAC</layout>
         <sections>

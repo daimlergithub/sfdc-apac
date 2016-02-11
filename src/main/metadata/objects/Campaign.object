@@ -1212,6 +1212,14 @@
                 <fullName>Segmentation Only</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>MyM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1622,6 +1630,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Increase after Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4833,7 +4845,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4842,10 +4858,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4903,6 +4915,10 @@
             </values>
             <values>
                 <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6916,7 +6932,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6929,10 +6949,6 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6990,6 +7006,10 @@
             </values>
             <values>
                 <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7325,10 +7345,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
@@ -7625,7 +7641,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7634,10 +7654,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7695,6 +7711,10 @@
             </values>
             <values>
                 <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
                 <default>false</default>
             </values>
             <values>
