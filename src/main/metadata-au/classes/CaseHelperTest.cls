@@ -214,8 +214,7 @@ public class CaseHelperTest {
             caselst.add(c1);
             caselst.add(c2);
             caselst.add(c3);
-            
-            insert caselst;
+			insert caselst;
             //Complaint is a primary complaint(No Parent Case),
             // there will be a SMS sent to customer
             List<Task> tasks = [select id from Task where Phone__c='1301111111'];        
@@ -224,18 +223,7 @@ public class CaseHelperTest {
             caselst.get(1).ParentId = c1.id;
             caselst.get(1).Case_RepeatCause__c = '0=No contact with customer';
             upsert caselst;
-            Case caseObj = caselst.get(0);
-            //caselst.get(0) = [select Repeat_Complaint_Times__c from case where id = :caseObj.Id];
-                   
-            //If the original Complaint already has a parent complaint
-           // c3.ParentId = c2.id;
-            try{
-           
-               insert  caselst.get(2);
-                
-            }catch(DMLException e){
-                System.debug('update case error : ' + e.getDMLMessage(0));
-            }
+            
             Test.stopTest();
             
            /* system.assert(tasks.size()>0);
