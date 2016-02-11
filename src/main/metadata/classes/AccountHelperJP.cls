@@ -16,6 +16,7 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id accDealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -341,26 +342,29 @@ public class AccountHelperJP
                 {
                     for(Account acc : accountlist)
                     {
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
-                                ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
-                        }
-                        else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
-                                ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                        if(!acc.RecordTypeId.equals(accDealer_RecordTypeId)){
+                        
+                            if(acc.RecordTypeId == accPerson_RecordTypeId){
+                                    ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                             }
-                        integer checksum=0;
-                        integer i;
-                        String ucid = ucidsequence;
-                        for (i=0; i < 14; i++)
-                        { 
-                            integer cp = ucid.codePointAt(i); 
-                            checksum += cp; 
-                        }
-                        String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                        integer mod = Math.mod(checksum, checksumSet.length());
-                        ucid += checksumSet.substring(mod, mod+1);
-                        acc.UCID__c = ucid;
-                        acclist.add(acc);
+                            else
+                                if(acc.RecordTypeId == accCompany_RecordTypeId){
+                                    ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                                }
+                            integer checksum=0;
+                            integer i;
+                            String ucid = ucidsequence;
+                            for (i=0; i < 14; i++)
+                            { 
+                                integer cp = ucid.codePointAt(i); 
+                                checksum += cp; 
+                            }
+                            String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                            integer mod = Math.mod(checksum, checksumSet.length());
+                            ucid += checksumSet.substring(mod, mod+1);
+                            acc.UCID__c = ucid;
+                            acclist.add(acc);
+                         }
                     }
                     update acclist;
                 }
