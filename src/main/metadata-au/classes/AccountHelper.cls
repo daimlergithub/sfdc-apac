@@ -426,20 +426,17 @@ public class AccountHelper {
     
     public static void auAfter_Insert_Update_Delete_Events(map<id,Account> accountNewMap,map<id,Account> accountOldMap,list<Account> listNewAccounts,list<Account> listOldAccounts,boolean isInsert,boolean isDelete,boolean isUpdate)
     {
-	try
-       {
-                     
+    try
+       {      
+          list<Account> updateContacts = new list<Account>();
         Set<String> companyIds = new Set<String>();
         Set<Id> dealerIds = new Set<Id>();
         List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
         Set<Id> personAccountIds = new Set<Id>();
         Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
         AccountContactRole temp;
-        
-        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {  
-              
-          CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size());  
           
+        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {        
             for(Account item : listOldAccounts){
                   if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
                     if(isDelete){
@@ -497,6 +494,21 @@ public class AccountHelper {
         if(!AccountContactRoles.IsEmpty()) {
             insert AccountContactRoles;
         }
+         if(isUpdate){
+           for (Account acc:accountNewMap.values()){
+               if(accountOldMap.get(acc.id).Business_Unit__c!=acc.Business_Unit__c){
+                   updateContacts.add(acc);
+               }
+               
+           }
+           
+        if((updateContacts!=null && !updateContacts.isEmpty()))
+        {
+        CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ updateContacts.size()); 
+        ContactHelper.UpdateBusinessUnit(updateContacts);
+        }
+       }
+        
         }
     
      catch(DMLException ex)
