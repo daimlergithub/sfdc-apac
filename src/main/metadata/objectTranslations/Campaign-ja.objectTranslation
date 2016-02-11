@@ -838,8 +838,16 @@
             <translation><!-- DM --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MMS</masterLabel>
             <translation><!-- MMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyM</masterLabel>
+            <translation><!-- MyM --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
@@ -1007,6 +1015,10 @@
         <picklistValues>
             <masterLabel>Increase Sales</masterLabel>
             <translation><!-- Increase Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase after Sales</masterLabel>
+            <translation><!-- Increase after Sales --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loyalty</masterLabel>
@@ -1550,7 +1562,20 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>S&amp;M Event Central Campaign</layout>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>S&amp;M Media Central Campaign</layout>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>smart BP</layout>
         <sections>
