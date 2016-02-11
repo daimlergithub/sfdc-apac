@@ -16,40 +16,62 @@ public class LeadHelperJPTest
     
     
     public static testMethod void test_updateCustomerStage1()
-    {
-        createTestData();
+    {  
+      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+      User u = new User(Alias = 'standt', Email='test@mbj.com', 
+      EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+      LocaleSidKey='en_US', ProfileId = p.Id, 
+      TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
         
-        lead3.CAC_Lead_Status__c = 'Approved';
-        update lead3;
-        lead1.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
-        
-        update lead1;
-        
-        Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount2.Id];
-        TriggerLeadTriggerHandlerJP TriggerLeadHandlerJP = new TriggerLeadTriggerHandlerJP();
-        TriggerLeadHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
-        
-        system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
-        
+        System.runAs(u) {
+            createTestData();
+            test.startTest();
+            lead3.CAC_Lead_Status__c = 'Approved';
+            update lead3;
+            lead1.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
+            
+            update lead1;
+            
+            Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount2.Id];
+            TriggerLeadTriggerHandlerJP TriggerLeadHandlerJP = new TriggerLeadTriggerHandlerJP();
+            TriggerLeadHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
+            test.stopTest();
+            system.assertEquals('Sales Lead', testAcc.Customer_Lifecycle_Phase__c);
+        }
         
     }
     public static testMethod void test_updateCustomerStage2()
     {
-        createTestData();
-        lead1.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
-        lead2.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
-        update lead1;
-        update lead2;
+      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+      User u = new User(Alias = 'standt', Email='test@mbj.com', 
+      EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+      LocaleSidKey='en_US', ProfileId = p.Id, 
+      TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
         
-        
-        
-        Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount.Id];
-         system.assertEquals('Care', testAcc.Customer_Lifecycle_Phase__c);
+        System.runAs(u) {
+            createTestData();
+            test.startTest();
+            lead1.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
+            lead2.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
+            update lead1;
+            update lead2;            
+            Account testAcc = [Select Customer_Lifecycle_Phase__c from Account Where Id =:objAccount.Id];
+            test.stopTest();
+            system.assertEquals('Care', testAcc.Customer_Lifecycle_Phase__c);
+        }
     }
     
     public static testMethod void test_createAccountLinkFromDealer()
     {
+      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+      User u = new User(Alias = 'standt', Email='test@mbj.com', 
+      EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+      LocaleSidKey='en_US', ProfileId = p.Id, 
+      TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
+        
+        System.runAs(u) {
         createTestData();
+        test.startTest();
         lead1.Contact__c = objAccount3.id;
         lead1.CAC_Lead_Status__c = 'Approved';
         
@@ -57,9 +79,9 @@ public class LeadHelperJPTest
         
         
         Account_Link__c testAccLink = [Select id from Account_Link__c Where fromRole__c =: objAccount3.id and toRole__c =: DealerAccount.id];
-        
+        test.stopTest();
         system.assertNotEquals(null, testAccLink);
-        
+        }
         
                 
     }
@@ -153,10 +175,12 @@ public class LeadHelperJPTest
         //lead3.Assigned_Dealer__c = DealerAccount.id;
         lead3.CAC_Lead_Status__c = 'New';
         insert lead3;
+           
         
         AccLink = new Account_Link__c();
         AccLink.fromRole__c = objAccount.id;
-        AccLink.toRole__c = DealerAccount.id;
+        AccLink.toRole__c = DealerAccount.id;        
+        
         insert AccLink; 
         
     }
