@@ -87,6 +87,5 @@ public class TrialCustomerPortalHomePageController {
         }
         superSort.sortList(PopularIdeas,sortField4,order);
     } 
-
-    
+   
 }
