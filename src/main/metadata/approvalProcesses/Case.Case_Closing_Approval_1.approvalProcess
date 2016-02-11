@@ -6,11 +6,11 @@
         <type>owner</type>
     </allowedSubmitters>
     <allowedSubmitters>
-        <submitter>Operator</submitter>
+        <submitter>Operator_Team_A</submitter>
         <type>role</type>
     </allowedSubmitters>
     <allowedSubmitters>
-        <submitter>Supervisor</submitter>
+        <submitter>Supervisor_Team_A</submitter>
         <type>role</type>
     </allowedSubmitters>
     <approvalPageFields>
@@ -28,7 +28,7 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>Supervisor</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -53,7 +53,7 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ_CRM_Department</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
