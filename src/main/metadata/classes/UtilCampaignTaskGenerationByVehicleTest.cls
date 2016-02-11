@@ -2,7 +2,8 @@
 public with sharing class UtilCampaignTaskGenerationByVehicleTest {
     private static Campaign top;
     private static Account account2;
-    private static User usr;
+    public static User usr;
+    public static User u ;
     private static Contact contact;
     private static  Template__c temp;
     private static String Started='Started';
@@ -13,6 +14,13 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
      private static String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     private static String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
     private static void createAccount(){
+    
+        Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
+        u = new User(Alias = 'standt', Email='test@mbj.com', 
+        EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+        LocaleSidKey='en_US', ProfileId = p.Id, 
+        TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
+        
         account2 = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_SR_Code__c='Test_SR_Code2',
                                     //Status__c='Other',
@@ -42,10 +50,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
         
     }
 
-    private static void createUser(){
+ /*   private static void createUser(){
         List<User> newUsers = new List<User>();
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-    System.runAs ( thisUser ) {
+    System.runAs(thisUser) {
         
             String[] csrProfiles = new String[]{'IntegrationAPI'};
             List<Profile> profileIds = [
@@ -72,7 +80,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
         }
     
         
-    }
+    } */
    
     private static void createTemplate(){
          
@@ -117,9 +125,9 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
     public static testMethod void testUtilCampaignTaskGenerationByVehicle() {
         //create test data
         
-      createUser();         
+      //createUser();         
       createAccount();                     
-                    
+       System.runAs(u) {      
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111112',
                                                 UsVIN__c = '12345678902222221');
@@ -177,13 +185,14 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
         system.assertEquals(objTask[0].Activity_Status__c, 'not started');
         system.assertEquals(objTask[0].WhatId,top.id);
 
-         
+        }
         }
      public static testMethod void testUtilCampaignTaskGenerationByVehicle1() {
         //create test data
         
-      createUser();         
-      createAccount();                     
+      //createUser();         
+      createAccount(); 
+      System.runAs(u) {                   
       DM_Material__c objDM = new DM_Material__c(Name='newDB',Type__c='Price List');insert objDM;
          
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
@@ -244,15 +253,15 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           system.assertEquals(objTask[0].ActivityDate, system.today());
           system.assertEquals(objTask[0].WhatId,top.id);
 
-         
+        }
         }
     public static testMethod void testUtilCampaignTaskGenerationByVehicle2() {
         //create test data
         
-      createUser();         
+     // createUser();         
       createAccount();                     
       createTemplate();
-         
+       System.runAs(u) { 
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111119',
                                                 UsVIN__c = '12345678902222226');
@@ -311,15 +320,15 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           system.assertEquals(objTask[0].ActivityDate, system.today());
           system.assertEquals(objTask[0].WhatId,top.id);
 
-         
+        }
         }
      public static testMethod void testUtilCampaignTaskGenerationByVehicle3() {
         //create test data
         
-      createUser();         
+     // createUser();         
       createAccount();                     
       createTemplate1();
-         
+       System.runAs(u) {
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111114',
                                                 UsVIN__c = '12345678902222223');
@@ -377,16 +386,16 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           
           system.assertEquals(objTask[0].ActivityDate, system.today());
           system.assertEquals(objTask[0].WhatId,top.id);
-
-         
+       
+        }
         }
      public static testMethod void testUtilCampaignTaskGenerationByVehicle4() {
         //create test data
         
-      createUser();         
+      //createUser();         
       createAccount();                     
       createTemplate2();
-         
+      System.runAs(u) {
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
                                                 UsVIN__c = '12345678902222222');
@@ -445,6 +454,6 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           system.assertEquals(objTask[0].ActivityDate, system.today());
           system.assertEquals(objTask[0].WhatId,top.id);
 
-         
+         }
         }
-       }
+              }

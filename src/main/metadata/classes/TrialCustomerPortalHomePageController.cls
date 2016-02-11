@@ -25,7 +25,7 @@ public class TrialCustomerPortalHomePageController {
             
    public TrialCustomerPortalHomePageController() {
         
-        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,createddate
+        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,CreatedById,createddate
                                 from Asset 
                                 where ContactId = :loggedInUser.ContactId 
                                 order by SerialNumber desc limit 3];
