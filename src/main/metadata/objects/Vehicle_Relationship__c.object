@@ -1643,6 +1643,38 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                 <fullName>Residual Loan</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Loan through MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Residual loan through MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan through Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Residual loan through Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan Arranged Elsewhere</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leased Through MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leased Through Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leased Arranged Elsewhere</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -4239,27 +4271,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchaser</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sales Contact Target</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Self-registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4336,15 +4352,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Handover</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Online</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4359,10 +4367,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Sold</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Warranty system</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Finance_Method__c</picklist>
@@ -4371,15 +4375,35 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loan</fullName>
+                <fullName>Leased Arranged Elsewhere</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Residual Loan</fullName>
+                <fullName>Leased Through Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Leased Through MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Arranged Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan through Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan through MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual loan through Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual loan through MBF</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4404,12 +4428,8 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>

@@ -198,7 +198,7 @@ public class AddressSearchValidationControllerTest
         addressobj.Block__c = 'Block';
         addressobj.Customer__c = objAccount.id;
         addressobj.ZipCode__c = '1040041';
-        
+        addressobj.TitleOfHonor__c = 'To Person';
         insert addressobj;
         
     }

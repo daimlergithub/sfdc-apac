@@ -110,6 +110,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Escaltaion Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
@@ -9239,6 +9243,11 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Mercedes me</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10308,6 +10317,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12182,6 +12195,342 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EM + Sec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CPO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BUD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/ND</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/NM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/TO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/ST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/AT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/OP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/DE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/HRP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/LBP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LEG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LEG/Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTL/RC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTL/CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/P&amp;G,CF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/FS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/R,S&amp;P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/S&amp;M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/IMO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ADM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/SD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/VP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/CPM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/TCO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/HML</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/CESAR Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/FF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/FFBO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/VLO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/DS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/UC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/MC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/PPR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/MBCT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/MBCO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/BCE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/AUT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPM/PBM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/ASP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/PLO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/PIM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/A&amp;C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/QC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/WAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/TI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/TF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VPC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRE/COF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CMT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Export</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TSJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HRD/G</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IPJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VET</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RDJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Statutory Auditor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DFSJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DISJ</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14181,7 +14530,343 @@ Modify Reason:
         <label>Related Department</label>
         <picklist>
             <picklistValues>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ADM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/A&amp;C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/ASP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/PIM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFT/PLO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BUD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/AUT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/BCE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/MBCO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CEM/MBCT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CMT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CPO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTL/CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTL/RC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/AT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/ND</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/NM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/ST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEM/TO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DFSJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DISJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EM + Sec</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Export</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/DE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/HRP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/LBP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR/OP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HRD/G</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IPJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/FS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/IMO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/P&amp;G,CF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/R,S&amp;P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITM/S&amp;M</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LEG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LEG/Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/MC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/PPR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MC/smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/CESAR Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/CPM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/HML</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/P3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/SD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/TCO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS/VP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RDJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/DS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/FF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/FFBO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/UC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SO/VLO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPM/PBM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Statutory Auditor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/QC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/TF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/TI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TEC/WAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRE/COF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TSJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VET</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VPC</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>
@@ -29333,10 +30018,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Retro fit campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>SSI inquiry</fullName>
                 <default>false</default>
             </values>
@@ -29508,10 +30189,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBJ Importer label</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MBJ Loyalty</fullName>
                 <default>false</default>
             </values>
@@ -29521,6 +30198,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>MBJ Magazine Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Mercedes me</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29561,6 +30242,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>MBJ website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29630,14 +30315,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </picklistValues>
         <picklistValues>
             <picklist>Case_Type__c</picklist>
-            <values>
-                <fullName>Accident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Breakdown</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Collection</fullName>
                 <default>false</default>
@@ -29758,10 +30435,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </picklistValues>
         <picklistValues>
             <picklist>Customer_Satisfaction__c</picklist>
-            <values>
-                <fullName>Compromised</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Satisfied</fullName>
                 <default>false</default>
@@ -29926,6 +30599,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30696,7 +31373,339 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Improvement_Department__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ADM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FA%26C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FASP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FPIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FPLO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BUD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FAUT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FBCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FMBCO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FMBCT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CPO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTL%2FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTL%2FRC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FND</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FNM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FTO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DFSJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DISJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EM %2B Sec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FDE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FHRP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FLBP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FOP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRD%2FG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IPJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FIMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FP%26G%2CCF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FR%2CS%26P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FS%26M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LEG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LEG%2FLegal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FAMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FPPR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2Fsmart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FCESAR Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FCPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FHML</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FSD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FTCO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RDJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FFFBO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FVLO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPM%2FPBM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statutory Auditor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FQC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FTF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FWAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRE%2FCOF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TSJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -31327,7 +32336,339 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Related_Department__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ADM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FA%26C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FASP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FPIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AFT%2FPLO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BUD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FAUT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FBCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FCRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FMBCO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CEM%2FMBCT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CPO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTL%2FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTL%2FRC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FAT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FND</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FNM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%2FTO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DFSJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DISJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EM %2B Sec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FDE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FHRP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FLBP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR%2FOP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRD%2FG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IPJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FIMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FP%26G%2CCF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FR%2CS%26P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITM%2FS%26M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LEG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LEG%2FLegal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FAMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2FPPR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC%2Fsmart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FCESAR Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FCPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FHML</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FP3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FSD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FTCO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS%2FVP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RDJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FFFBO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO%2FVLO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPM%2FPBM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statutory Auditor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FQC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FTF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEC%2FWAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRE%2FCOF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TSJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -101744,12 +103085,32 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <fullName>New_Inquiry</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Inquiry</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>        <url>OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP={!Vehicle_Relationship__c.Name}&amp;OBJECT_CASE_VEHICLE_RELATIONSHIP_LKIED={!Vehicle_Relationship__c.Id}&amp;OBJECT_CASE_Vehicle_ID={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;ent=Case&amp;&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+
+if(typeof(srcUp) == 'function') { 
+
+if (sforce.console.isInConsole()) { 
+var showTabId = function showTabId(result) { 
+var tabid = result.id; 
+sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true, '{!$Label.New_Case}'); 
+}; 
+sforce.console.getEnclosingPrimaryTabId(showTabId); 
+} 
+else { 
+window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
+} 
+
+} 
+else { 
+window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Lead</fullName>
@@ -101759,7 +103120,8 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <linkType>url</linkType>
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_LKID={!Case.Id}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <protected>false</protected>
+        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_CASE_lkid={!Case.Id}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
@@ -102075,6 +103437,3 @@ window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.I
 }</url>
     </webLinks>
 </CustomObject>
-
-
-
