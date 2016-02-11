@@ -795,6 +795,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MailingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -2447,22 +2457,27 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Fleet</fullName>
+
                 <default>false</default>
             </values>
             <values>
                 <fullName>Freightliner</fullName>
+
                 <default>false</default>
             </values>
             <values>
                 <fullName>Fuso</fullName>
+
                 <default>false</default>
             </values>
             <values>
                 <fullName>MB Bus</fullName>
+
                 <default>false</default>
             </values>
             <values>
                 <fullName>MB Cars</fullName>
+
                 <default>false</default>
             </values>
             <values>
@@ -2553,10 +2568,6 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Early Payout</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>End of Contract</fullName>
                 <default>false</default>
             </values>
             <values>
