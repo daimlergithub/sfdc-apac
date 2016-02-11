@@ -298,7 +298,7 @@ public class TriggerUtilTest
         Test.stopTest();
         
         // verify
-        //System.assert(triggerHandlerCalled); // default trigger handler is TestTriggerHandler
+        System.assertEquals(triggerHandlerCalled,false); // default trigger handler is TestTriggerHandler
     }
    
     public static testMethod void testHandleTrigger_NonExistingHandler()
@@ -323,13 +323,25 @@ public class TriggerUtilTest
         System.assert(!triggerHandlerCalled);
     }
     public static testmethod void TestTriggerHandler(){
+        boolean isInsert= false;
+        boolean isUpdate= false;
+        boolean isBefore= false;
+        boolean isDelete= false;
+        boolean isAfter= false;
         TestTriggerHandler TriggerHandler =new TestTriggerHandler();
-          TriggerHandler.handleTrigger(false,false,false,false,false);
-         TriggerHandler.handleIntegrationTrigger(false,false,false,false,false);
+         TriggerHandler.handleTrigger( isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
+         TriggerHandler.handleIntegrationTrigger(isInsert,isUpdate, isBefore,  isDelete,  isAfter);
+        system.assertEquals(isInsert,false);
     }
     public static testmethod void TaskTriggerHandlerJP(){
+        boolean isInsert= false;
+        boolean isUpdate= false;
+        boolean isBefore= false;
+        boolean isDelete= false;
+        boolean isAfter= false;
         TaskTriggerHandlerJP TriggerHandlers =new TaskTriggerHandlerJP();
-        TriggerHandlers.handleTrigger(false,false,false,false,false);
-        TriggerHandlers.handleIntegrationTrigger(false,false,false,false,false);
+        TriggerHandlers.handleTrigger(isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
+        TriggerHandlers.handleIntegrationTrigger(isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
+        system.assertEquals(isInsert,false);
     }
 }

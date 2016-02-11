@@ -325,7 +325,11 @@ public class AccountHelperJP
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
-            string ucidsequence;
+            string ucidsequence;            
+            integer checksum=0;
+            integer i;
+            String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
             set<id> AccIds = new set<id>();
@@ -334,33 +338,36 @@ public class AccountHelperJP
                 AccIds.add(acc.id);
                 //accountlist.add(acc);                
             }
-            if(!AccIds.isEmpty())
+            if(!AccIds.isEmpty() && AccIds != Null)
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
-                if(!accountlist.isEmpty())
+                if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
-                    {
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
-                                ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
-                        }
-                        else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
-                                ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                    {                        
+                        
+                            if(acc.RecordTypeId == accPerson_RecordTypeId){
+                                    ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                             }
-                        integer checksum=0;
-                        integer i;
-                        String ucid = ucidsequence;
-                        for (i=0; i < 14; i++)
-                        { 
-                            integer cp = ucid.codePointAt(i); 
-                            checksum += cp; 
-                        }
-                        String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                        integer mod = Math.mod(checksum, checksumSet.length());
-                        ucid += checksumSet.substring(mod, mod+1);
-                        acc.UCID__c = ucid;
-                        acclist.add(acc);
+                            else
+                                if(acc.RecordTypeId == accCompany_RecordTypeId){
+                                    ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                                }
+
+                            //String ucid = ucidsequence;
+                            if(ucidsequence != null && ucidsequence.length() > 0)
+                            {
+                                for (i=0; i < 14; i++)
+                                { 
+                                    integer cp = ucidsequence.codePointAt(i); 
+                                    checksum += cp; 
+                                }
+                                
+                                ucidsequence += checksumSet.substring(mod, mod+1);
+                                acc.UCID__c = ucidsequence;
+                                acclist.add(acc);
+                             }
+                         
                     }
                     update acclist;
                 }
