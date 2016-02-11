@@ -2346,6 +2346,13 @@
         <value>New</value>
     </labels>
     <labels>
+        <fullName>New_Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Case</shortDescription>
+        <value>New Case</value>
+    </labels>
+    <labels>
         <fullName>New_Customer_Acquisition</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>

@@ -227,7 +227,8 @@ public class AddressDisplayInlineEditControllerTest
         
         
         objAddress= new Address__c();
-        objAddress.Customer__c=objAccount.Id; 
+        objAddress.Customer__c=objAccount.Id;
+		objAddress.TitleOfHonor__c = 'To Person';		
         objAddress.Preferred__c=true;
         objAddress.Province__c='ACT'; 
         objAddress.Address_Type__c = 'Home';  
