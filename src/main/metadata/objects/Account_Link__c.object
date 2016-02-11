@@ -722,10 +722,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -775,20 +771,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -838,10 +826,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -974,10 +958,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1027,20 +1007,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1090,10 +1062,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1194,10 +1162,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1247,20 +1211,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1310,10 +1266,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1414,10 +1366,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1467,20 +1415,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1530,10 +1470,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1634,10 +1570,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1687,20 +1619,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
@@ -1750,10 +1674,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

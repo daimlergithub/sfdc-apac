@@ -19,7 +19,7 @@ public class AccountHelperJP
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
-        If(!listNewAccounts.isEmpty())
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
                 for(Account Acc : listNewAccounts)
                 {
@@ -86,7 +86,7 @@ public class AccountHelperJP
 **/
                 public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
     {
-        If(!listNewAccounts.isEmpty())
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
        {
                 for(Account Acc : listNewAccounts)
                 {
@@ -154,36 +154,39 @@ public class AccountHelperJP
 ** Date: 2015-12-22
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
-    {               
-        string regexForNullValue ='null';
-        string nullValue ='';
-        set<id> addressid = new set<id>();        
-        For(Account a:listNewAccounts)
-        {      
-            if(a.MD__c == 'JP')
-            {
-                If(a.Primary_Address_Reference__c != Null)
-                    addressid.add(a.Primary_Address_Reference__c);
-            }   
-        }
-        
-        If(!addressid.isEmpty())
-        {   
-            map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-            For(Account acc:listNewAccounts)
+    {
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
+        {
+            string regexForNullValue ='null';
+            string nullValue ='';
+            set<id> addressid = new set<id>();        
+            For(Account a:listNewAccounts)
             {      
-                if(acc.MD__c == 'JP')
-                {   
-                    If(acc.Primary_Address_Reference__c !=Null)
-                    {
-                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        system.debug('!!!!!!!'+add.id);
-                        acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
-                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                    }
-                }              
-            }     
+                if(a.MD__c == 'JP')
+                {
+                    If(a.Primary_Address_Reference__c != Null)
+                        addressid.add(a.Primary_Address_Reference__c);
+                }   
+            }
             
+            If(!addressid.isEmpty())
+            {   
+                map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+                For(Account acc:listNewAccounts)
+                {      
+                    if(acc.MD__c == 'JP')
+                    {   
+                        If(acc.Primary_Address_Reference__c !=Null)
+                        {
+                            Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                            system.debug('!!!!!!!'+add.id);
+                            acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                            acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        }
+                    }              
+                }     
+                
+            }
         }
     }
         
@@ -197,7 +200,7 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeInsert method '+'listNewAccounts= ' + listNewAccounts.size());
-            If(!listNewAccounts.isEmpty())
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
                 {
@@ -261,7 +264,7 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeUpdate method '+'listNewAccounts= ' + listNewAccounts.size());
-            If(!listNewAccounts.isEmpty())
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
                 {
@@ -325,7 +328,11 @@ public class AccountHelperJP
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
-            string ucidsequence;
+            string ucidsequence;            
+            integer checksum=0;
+            integer i;
+            String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
             set<id> AccIds = new set<id>();
@@ -334,33 +341,36 @@ public class AccountHelperJP
                 AccIds.add(acc.id);
                 //accountlist.add(acc);                
             }
-            if(!AccIds.isEmpty())
+            if(!AccIds.isEmpty() && AccIds != Null)
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
-                if(!accountlist.isEmpty())
+                if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
-                    {
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
-                                ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
-                        }
-                        else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
-                                ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                    {                        
+                        
+                            if(acc.RecordTypeId == accPerson_RecordTypeId){
+                                    ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                             }
-                        integer checksum=0;
-                        integer i;
-                        String ucid = ucidsequence;
-                        for (i=0; i < 14; i++)
-                        { 
-                            integer cp = ucid.codePointAt(i); 
-                            checksum += cp; 
-                        }
-                        String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                        integer mod = Math.mod(checksum, checksumSet.length());
-                        ucid += checksumSet.substring(mod, mod+1);
-                        acc.UCID__c = ucid;
-                        acclist.add(acc);
+                            else
+                                if(acc.RecordTypeId == accCompany_RecordTypeId){
+                                    ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
+                                }
+
+                            //String ucid = ucidsequence;
+                            if(ucidsequence != null && ucidsequence.length() > 0)
+                            {
+                                for (i=0; i < 14; i++)
+                                { 
+                                    integer cp = ucidsequence.codePointAt(i); 
+                                    checksum += cp; 
+                                }
+                                
+                                ucidsequence += checksumSet.substring(mod, mod+1);
+                                acc.UCID__c = ucidsequence;
+                                acclist.add(acc);
+                             }
+                         
                     }
                     update acclist;
                 }

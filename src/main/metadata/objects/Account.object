@@ -5732,6 +5732,10 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <fullName>Female</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9909,6 +9913,18 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <fullName>Fire department</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ministry of Transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -13414,6 +13430,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Male</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Hobby__c</picklist>
@@ -14882,10 +14902,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
@@ -15224,6 +15240,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
@@ -15236,7 +15256,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MBJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ministry of Transport</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15495,10 +15523,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>UpsellOpportunity__c</picklist>
-            <values>
-                <fullName>Maybe</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -20624,7 +20648,7 @@ sforce.console.openSubtab(result.id,    'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_S
 		else { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }</url>
-    </webLinks>    
+    </webLinks>
     <webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
@@ -20800,5 +20824,3 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
-
-

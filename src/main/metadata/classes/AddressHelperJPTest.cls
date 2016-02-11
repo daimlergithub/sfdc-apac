@@ -14,8 +14,8 @@ public class AddressHelperJPTest {
     
     public static testMethod void testUpdatePrimaryAddressOnAccount(){
        //create test data
-   		Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   		upsert TriggerAddress;
+        Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        upsert TriggerAddress;
         
         
         account= new Account();
@@ -31,6 +31,7 @@ public class AddressHelperJPTest {
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=account.id;
+        address.TitleOfHonor__c = 'To Person';
         insert address;
         
         addresslist.add(address);
