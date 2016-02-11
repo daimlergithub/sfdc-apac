@@ -1343,12 +1343,44 @@
             <translation>現金</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Leased Arranged Elsewhere</masterLabel>
+            <translation><!-- Leased Arranged Elsewhere --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leased Through Dealer</masterLabel>
+            <translation><!-- Leased Through Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leased Through MBF</masterLabel>
+            <translation><!-- Leased Through MBF --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Loan</masterLabel>
             <translation>通常ローン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Loan Arranged Elsewhere</masterLabel>
+            <translation><!-- Loan Arranged Elsewhere --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan through Dealer</masterLabel>
+            <translation><!-- Loan through Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan through MBF</masterLabel>
+            <translation><!-- Loan through MBF --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Residual Loan</masterLabel>
             <translation>残価設定型</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Residual loan through Dealer</masterLabel>
+            <translation><!-- Residual loan through Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Residual loan through MBF</masterLabel>
+            <translation><!-- Residual loan through MBF --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
@@ -3037,7 +3069,6 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
-    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>

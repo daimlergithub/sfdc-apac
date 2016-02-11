@@ -20,7 +20,7 @@ public class MassApproveToolKitControllerTest {
             Dealer_Active__c = true
         );
         insert dealer;
-        
+        System.assert(dealer != null);
         Tool_Kit__c toolKit = new Tool_Kit__c(
             RecordTypeId = Schema.SObjectType.Tool_Kit__c.getRecordTypeInfosByName().get('Event').getRecordTypeId(), 
             Name = 'test tool kit',
@@ -226,7 +226,7 @@ public class MassApproveToolKitControllerTest {
          }
         Test.startTest();
         //System.assert(result.isSuccess());
-     //   System.assert([Select Id, Apply_Status__c from Tool_Kit__c where id = :toolKit8.id][0].Apply_Status__c == 'Confirmed');
+        System.assert([Select Id, Apply_Status__c from Tool_Kit__c where id = :toolKit.id][0].Apply_Status__c == 'Planned');
         
         PageReference pr = new PageReference('/apex/MassApproveToolKit');
         Test.setCurrentPage(pr);

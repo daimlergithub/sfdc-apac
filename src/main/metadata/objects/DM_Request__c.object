@@ -828,7 +828,7 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>To Company</fullName>
@@ -865,6 +865,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -1006,6 +1007,7 @@ Modify Reason:
             <allInternalUsers/>
         </sharedTo>
     </listViews>
+    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>

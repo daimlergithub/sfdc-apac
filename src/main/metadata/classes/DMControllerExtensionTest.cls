@@ -21,8 +21,10 @@
  */
 @isTest
 public class DMControllerExtensionTest {
-
+    public static DM_Request__c dmr;
+    
     public static testMethod void testMyController() {
+    
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
     insert updatecustomsettings;
         
@@ -36,11 +38,20 @@ public class DMControllerExtensionTest {
                                          Last_Successful_Call_Office_Phone__c = System.today() - 10,
                                          DMS_Address__c = 'dmsaddress1');
     
+           
+             dmr = new  DM_Request__c();             
+             dmr.Sending_Address__c='Home';             
+             dmr.Status__c='Success';             
+             dmr.TitleOfHonor__c = 'To Company';
+             dmr.Sent_Date__c=system.today().addDays(-10);
+             
+            
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
             Test.startTest();
             // Testing the eDM Send
-            ApexPages.standardController controller = new ApexPages.standardController(new DM_Request__c());
+            ApexPages.standardController controller = new ApexPages.standardController(dmr);
             ApexPages.currentPage().getParameters().put('accountId',customer.Id);
+            
                         
             // Test click DM button from Account
             // Instantiate a new controller extension with all parameters in the page
@@ -57,8 +68,16 @@ public class DMControllerExtensionTest {
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
             case1.Case_Dealer__c = dealer.Id;
             insert case1;
-            ApexPages.standardController controller2 = new ApexPages.standardController(new DM_Request__c());
+            
+             dmr = new  DM_Request__c();             
+             dmr.Sending_Address__c='Home';             
+             dmr.Status__c='Open';             
+             dmr.TitleOfHonor__c = 'To Company';
+             dmr.Sent_Date__c=system.today().addDays(-10);
+            
+            ApexPages.standardController controller2 = new ApexPages.standardController(dmr);
             ApexPages.currentPage().getParameters().put('caseId',case1.Id);
+            
             DMControllerExtension extension2 = new DMControllerExtension(controller2);
             // Send DM
             extension2.send();
@@ -67,14 +86,19 @@ public class DMControllerExtensionTest {
             //cover exception
             Case case2 = new Case(Subject='Case-'+Datetime.now().formatLong());
             insert case2;
-            ApexPages.standardController controller3 = new ApexPages.standardController(new DM_Request__c());
+            
+            dmr = new  DM_Request__c();             
+             dmr.Sending_Address__c='Home';             
+             dmr.Status__c='Success';             
+             dmr.TitleOfHonor__c = 'To Company';
+             dmr.Sent_Date__c=system.today().addDays(-10);
+             
+            ApexPages.standardController controller3 = new ApexPages.standardController(dmr);
             ApexPages.currentPage().getParameters().put('caseId',case2.Id);
             ApexPages.currentPage().getParameters().put('accountId','');
             DMControllerExtension extension3 = new DMControllerExtension(controller3);
             // Send DM
-            extension3.send();
-        	TriggerDMRequestTriggerHandlerJP TriggerDMRequestJP = new TriggerDMRequestTriggerHandlerJP();
-            TriggerDMRequestJP.handleIntegrationTrigger(false, false, false, false, false);
+            extension3.send();          
             Test.stopTest();
             System.assertEquals(t.Subject,'DM');
             System.assertEquals(t.Status,'Closed');
