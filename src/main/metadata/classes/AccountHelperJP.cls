@@ -19,7 +19,7 @@ public class AccountHelperJP
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
-        If(!listNewAccounts.isEmpty())
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
                 for(Account Acc : listNewAccounts)
                 {
@@ -86,7 +86,7 @@ public class AccountHelperJP
 **/
                 public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
     {
-        If(!listNewAccounts.isEmpty())
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
        {
                 for(Account Acc : listNewAccounts)
                 {
@@ -154,36 +154,39 @@ public class AccountHelperJP
 ** Date: 2015-12-22
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
-    {               
-        string regexForNullValue ='null';
-        string nullValue ='';
-        set<id> addressid = new set<id>();        
-        For(Account a:listNewAccounts)
-        {      
-            if(a.MD__c == 'JP')
-            {
-                If(a.Primary_Address_Reference__c != Null)
-                    addressid.add(a.Primary_Address_Reference__c);
-            }   
-        }
-        
-        If(!addressid.isEmpty())
-        {   
-            map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-            For(Account acc:listNewAccounts)
+    {
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
+        {
+            string regexForNullValue ='null';
+            string nullValue ='';
+            set<id> addressid = new set<id>();        
+            For(Account a:listNewAccounts)
             {      
-                if(acc.MD__c == 'JP')
-                {   
-                    If(acc.Primary_Address_Reference__c !=Null)
-                    {
-                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        system.debug('!!!!!!!'+add.id);
-                        acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
-                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                    }
-                }              
-            }     
+                if(a.MD__c == 'JP')
+                {
+                    If(a.Primary_Address_Reference__c != Null)
+                        addressid.add(a.Primary_Address_Reference__c);
+                }   
+            }
             
+            If(!addressid.isEmpty())
+            {   
+                map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+                For(Account acc:listNewAccounts)
+                {      
+                    if(acc.MD__c == 'JP')
+                    {   
+                        If(acc.Primary_Address_Reference__c !=Null)
+                        {
+                            Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                            system.debug('!!!!!!!'+add.id);
+                            acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                            acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        }
+                    }              
+                }     
+                
+            }
         }
     }
         
@@ -197,7 +200,7 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeInsert method '+'listNewAccounts= ' + listNewAccounts.size());
-            If(!listNewAccounts.isEmpty())
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
                 {
@@ -261,7 +264,7 @@ public class AccountHelperJP
         try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class updatePrimaryContactInformationBeforeUpdate method '+'listNewAccounts= ' + listNewAccounts.size());
-            If(!listNewAccounts.isEmpty())
+            If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
             {
                 for(Account Acc : listNewAccounts)
                 {
