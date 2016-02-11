@@ -10,7 +10,7 @@
 */
 @isTest(seeAllData=true)
 public class CaseHelperTest {
-	//variables
+    //variables
        public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
      public static Id C_MBDA_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MBDA_COMPLAINT).getRecordTypeId();
     public static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();
@@ -26,9 +26,9 @@ public class CaseHelperTest {
     static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx1',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
     static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
     public static String dealer_delegate_admin = 'Dealer Delegate Admin';
-	Public Static String dealer_user = 'Dealer User';
-	public static String Dealer_after_sales_service_attitude = 'Dealer-after sales service attitude';
-	
+    Public Static String dealer_user = 'Dealer User';
+    public static String Dealer_after_sales_service_attitude = 'Dealer-after sales service attitude';
+    
     public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
                                         'Case_SubType__c',
                                         'Case_Dealer__c',
@@ -118,200 +118,193 @@ public class CaseHelperTest {
     
     public static testMethod void testUSCC002()
     {
-    	system.debug('test&&&&&>>'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
-    	//Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        Test.startTest();
-	        List<Sobject> sos = new List<Sobject>();        
-	        insert acc;
-	        insert ve1;
-	        insert ve2;        
-	        Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
-	                                              Contact__c = acc.Id,Registration_Number__c ='2');
-	        Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
-	                                              Contact__c = acc.Id,Registration_Number__c ='3');
-	        insert vrData1;
-	        insert vrData2;                
-	        User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-	                           Case_SubType__c=Dealer_after_sales_service_attitude, Case_Dealer__c = portalUser1.AccountId);
-	        sos.add(c1);
-	        if(sos!=null && !sos.IsEmpty())
-	        UtilSobject.insertSobjects(sos);        
-	        c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
-	        c1.Vehicle_Relationship__c = vrData2.id;
-	        update c1;
-	        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];           
-	        Test.stopTest();
-	        
-	        
-	       /* system.assertEquals(c1.Vehicle_Model__c,'B200');
-	        system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);  
-	        system.assert(ctcs.size()>0);
-	        system.assertEquals(c1.Vehicle_Relationship__c,vrData2.id);*/
-    	} 
+        system.debug('test&&&&&>>'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
+        //Added community license switching mechanism
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            Test.startTest();
+            List<Sobject> sos = new List<Sobject>();        
+            insert acc;
+            insert ve1;
+            insert ve2;        
+            Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
+                                                  Contact__c = acc.Id,Registration_Number__c ='2');
+            Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
+                                                  Contact__c = acc.Id,Registration_Number__c ='3');
+            insert vrData1;
+            insert vrData2;                
+            User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude, Case_Dealer__c = portalUser1.AccountId);
+            sos.add(c1);
+            if(sos!=null && !sos.IsEmpty())
+            UtilSobject.insertSobjects(sos);        
+            c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
+            c1.Vehicle_Relationship__c = vrData2.id;
+            update c1;
+            List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];           
+            Test.stopTest();
+            
+            
+           /* system.assertEquals(c1.Vehicle_Model__c,'B200');
+            system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);  
+            system.assert(ctcs.size()>0);
+            system.assertEquals(c1.Vehicle_Relationship__c,vrData2.id);*/
+        } 
     }
     
     public static testMethod void testUSCC003()
     {
-    	//Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        Test.startTest();
-	        List<Sobject> sos = new List<Sobject>();
-	        insert acc;
-	        insert ve1;
-	        Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='4');
-	        insert vrData;
-	        User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
-	        insert c1;        
-	        c1.Problem1__c = 'problem';
-	        sos.add(c1);
-	        if(sos!=null && !sos.IsEmpty())
-	        UtilSobject.updateSobjects(sos);
-	                      
-	        Test.stopTest();
-	         
-	        system.assertEquals(c1.Problem1__c,'problem');
-    	}
+        //Added community license switching mechanism
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            Test.startTest();
+            List<Sobject> sos = new List<Sobject>();
+            insert acc;
+            insert ve1;
+            Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='4');
+            insert vrData;
+            User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
+            insert c1;        
+            c1.Problem1__c = 'problem';
+            sos.add(c1);
+            if(sos!=null && !sos.IsEmpty())
+            UtilSobject.updateSobjects(sos);
+                          
+            Test.stopTest();
+             
+            system.assertEquals(c1.Problem1__c,'problem');
+        }
     }
       public static testMethod void testUSCC004()
       {
-      	//Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        Test.startTest();
+        //Added community license switching mechanism
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            Test.startTest();
             
             User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        Case c = new Case(RecordTypeId = C_MBDA_RECORD_TYPE, Description = 'test1', Case_Dealer__c = portalUser1.AccountId);
-	        insert c;
-	        c = [SELECT CreatedbyId FROM Case WHERE id = :c.id];  
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            Case c = new Case(RecordTypeId = C_MBDA_RECORD_TYPE, Description = 'test1', Case_Dealer__c = portalUser1.AccountId);
+            insert c;
+            c = [SELECT CreatedbyId FROM Case WHERE id = :c.id];  
             
             
-	        //List<Sobject> sos = new List<Sobject>();        
-	        acc.PersonMobilePhone = '1301111111';
-	        insert acc;
-	        insert ve1;
-	        Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='5');
-	        insert vrData;
-	        
-	
-	        Case c1 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-	                           Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId);
-	        Case c2 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-	                           Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId, Case_RepeatCause__c = 'test');
-	        Case c3 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-	                           Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId);
-	        
-	        insert c1;
-	        //Complaint is a primary complaint(No Parent Case),
-	        // there will be a SMS sent to customer
-	        List<Task> tasks = [select id from Task where Phone__c='1301111111'];        
-	        //After add sub Complaint,
-	        // the field in sub Complaint will auto plus 1
-	        c2.ParentId = c1.id;
-	        c2.Case_RepeatCause__c = '0=No contact with customer';
-	        upsert c2;
-	        c1 = [select Repeat_Complaint_Times__c from case where id=:c1.id];
-	               
-	        //If the original Complaint already has a parent complaint
-	       // c3.ParentId = c2.id;
-	        try{
-	       
-	            insert c3;
-	            
-	        }catch(DMLException e){
-	            System.debug('update case error : ' + e.getDMLMessage(0));
-	        }
-	        Test.stopTest();
-	        
-	       /* system.assert(tasks.size()>0);
-	        system.assertEquals(1,c1.Repeat_Complaint_Times__c);
-	        system.assertEquals(c2.Case_RepeatCause__c ,'0=No contact with customer');*/
-    	}
+            //List<Sobject> sos = new List<Sobject>();        
+            acc.PersonMobilePhone = '1301111111';
+            insert acc;
+            insert ve1;
+            Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='5');
+            insert vrData;
+            
+    
+            Case c1 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId);
+            Case c2 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId, Case_RepeatCause__c = 'test');
+            Case c3 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId);
+            List<Case> caselst = new List<Case>();
+            caselst.add(c1);
+            caselst.add(c2);
+            caselst.add(c3);
+			insert caselst;
+            //Complaint is a primary complaint(No Parent Case),
+            // there will be a SMS sent to customer
+            List<Task> tasks = [select id from Task where Phone__c='1301111111'];        
+            //After add sub Complaint,
+            // the field in sub Complaint will auto plus 1
+            caselst.get(1).ParentId = c1.id;
+            caselst.get(1).Case_RepeatCause__c = '0=No contact with customer';
+            upsert caselst;
+            
+            Test.stopTest();
+            
+           /* system.assert(tasks.size()>0);
+            system.assertEquals(1,c1.Repeat_Complaint_Times__c);
+            system.assertEquals(c2.Case_RepeatCause__c ,'0=No contact with customer');*/
+        }
     } 
     
     @isTest(seeAllData=true)
     static void testUSCC008()
     {
-    	//Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        User u = new User();
-	        u.Username = 'username@dddd.com';
-	        u.Email = 'username@dddd.com';
-	        u.CommunityNickname = 'communityNickname';
-	        insert acc;
-	        String accountId = acc.id;
-	
-	        // lastName is a required field on user,
-	        //  but if it isn't specified, 
-	        //   the code uses the username
-	        Site.createPortalUser(u, accountId, '1qaz@WSX3e');
-	        User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
-	        User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        Test.startTest(); 
+        //Added community license switching mechanism
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            User u = new User();
+            u.Username = 'username@dddd.com';
+            u.Email = 'username@dddd.com';
+            u.CommunityNickname = 'communityNickname';
+            insert acc;
+            String accountId = acc.id;
+    
+            // lastName is a required field on user,
+            //  but if it isn't specified, 
+            //   the code uses the username
+            Site.createPortalUser(u, accountId, '1qaz@WSX3e');
+            User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
+            User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            Test.startTest(); 
             
             insert acc1;
-	        insert acc2;
-	       
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        Case c2 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = C_INQUIRY_RECORD_TYPE, Description = 'test', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
-	        insert c2;
-	        c2.Status = 'Closed';
-	        c2.Handling_Level__c = 'Central Office';
-	        c2.Description_Changed__c=true;
-	        c2.Settlement_Changed__c=true;
-	        c2.CheckFlag_48H__c=false;
-	       // c1.Support_Dealer_1__c = acc1.id;
-	        c2.Notice_SM__c=true;
-	        c2.Notice_AS__c=true;
-	       
-	        update c2;
-	        list<Case> listCase = new  list<Case>();
-	        listCase.add(c2);
-	        CaseHelper.closeRelatedCase(listCase);
+            insert acc2;
+           
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            Case c2 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = C_INQUIRY_RECORD_TYPE, Description = 'test', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
+            insert c2;
+            c2.Status = 'Closed';
+            c2.Handling_Level__c = 'Central Office';
+            c2.Description_Changed__c=true;
+            c2.Settlement_Changed__c=true;
+            c2.CheckFlag_48H__c=false;
+           // c1.Support_Dealer_1__c = acc1.id;
+            c2.Notice_SM__c=true;
+            c2.Notice_AS__c=true;
+           
+            update c2;
+            list<Case> listCase = new  list<Case>();
+            listCase.add(c2);
+            CaseHelper.closeRelatedCase(listCase);
 
             
             
             update acc1;
-	        update acc2;
-	      
-	
-	        Case c1 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
-	        insert c1;
-	        c1.Status = 'Closed';
-	        c1.Handling_Level__c = 'Central Office';
-	        c1.Description_Changed__c=true;
-	        c1.Settlement_Changed__c=true;
-	        c1.CheckFlag_48H__c=false;
-	       // c1.Support_Dealer_1__c = acc1.id;
-	        c1.Notice_SM__c=true;
-	        c1.Notice_AS__c=true;
-	       
-	        update c1;
-	        c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
+            update acc2;
+          
+    
+            Case c1 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
+            insert c1;
+            c1.Status = 'Closed';
+            c1.Handling_Level__c = 'Central Office';
+            c1.Description_Changed__c=true;
+            c1.Settlement_Changed__c=true;
+            c1.CheckFlag_48H__c=false;
+           // c1.Support_Dealer_1__c = acc1.id;
+            c1.Notice_SM__c=true;
+            c1.Notice_AS__c=true;
+           
+            update c1;
+            c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
             
-	        Case c = new Case(Subject='For Mail test',RecordTypeId = INQUIRYRecordtypeid);
-	        c.Case_Dealer__c = portalUser.AccountId;
-	        insert c;
-	        c.Dealer_Contact__c = 'YES';
-	        update c;
-	        c = [select ownerId from Case where id = :c.Id];        
-	        Test.stopTest();
-	        System.assertEquals([SELECT id FROM case WHERE Id = :c.id].size(), 1);
-	        System.assertEquals([SELECT id,Dealer_Contact__c FROM case WHERE Id = :c.id].Dealer_Contact__c,'Yes');
-    	}
+            Case c = new Case(Subject='For Mail test',RecordTypeId = INQUIRYRecordtypeid);
+            c.Case_Dealer__c = portalUser.AccountId;
+            insert c;
+            c.Dealer_Contact__c = 'YES';
+            update c;
+            c = [select ownerId from Case where id = :c.Id];        
+            Test.stopTest();
+            System.assertEquals([SELECT id FROM case WHERE Id = :c.id].size(), 1);
+            System.assertEquals([SELECT id,Dealer_Contact__c FROM case WHERE Id = :c.id].Dealer_Contact__c,'Yes');
+        }
     }
     
  
@@ -320,38 +313,38 @@ public class CaseHelperTest {
     @isTest(seeAllData=true)
     public static void testUSCC031()
     { 
-    	//Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        Test.startTest();            
-	        User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);  
-	        //User user2=  UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);     
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	
-	        //User portalUser2 = [select accountId , email from user
-	        // where contact.Dealer_Complaint_Gate_Keeper__c = true and id=:user2.Id 
-	        //and isActive = true and AccountId <> :portalUser1.AccountId limit 1];
-	
-	        Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test2', Case_Dealer__c = portalUser1.AccountId);
-	        insert c1;
-	    
-	        c1.Support_Dealer_1__c = null;
-	        c1.Support_Dealer_2__c = null;
-	        update c1;
-	        
-	        c1 = [SELECT CreatedbyId,Support_Dealer_2__c,Support_Dealer_1__c FROM Case WHERE id = :c1.id];
-	        Complaint_Description__c cd=new Complaint_Description__c();
-	        cd.Case__c = c1.Id;
-	        cd.Created_By__c = UserInfo.getUserId();
-	        cd.Date_Time__c = System.now();
-	        cd.Action__c = 'Changed';
-	        insert cd; 
-	        Test.stopTest();
-	        System.assert([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size()>0);  
-	        System.assert([select Id from case where id=:c1.id].size()>0);      
-	        System.assertEquals(c1.Support_Dealer_1__c, null);
-	        System.assertEquals(c1.Support_Dealer_2__c, null);
-    	}    
+        //Added community license switching mechanism
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+            Test.startTest();            
+            User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);  
+            //User user2=  UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);     
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    
+            //User portalUser2 = [select accountId , email from user
+            // where contact.Dealer_Complaint_Gate_Keeper__c = true and id=:user2.Id 
+            //and isActive = true and AccountId <> :portalUser1.AccountId limit 1];
+    
+            Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test2', Case_Dealer__c = portalUser1.AccountId);
+            insert c1;
+        
+            c1.Support_Dealer_1__c = null;
+            c1.Support_Dealer_2__c = null;
+            update c1;
+            
+            c1 = [SELECT CreatedbyId,Support_Dealer_2__c,Support_Dealer_1__c FROM Case WHERE id = :c1.id];
+            Complaint_Description__c cd=new Complaint_Description__c();
+            cd.Case__c = c1.Id;
+            cd.Created_By__c = UserInfo.getUserId();
+            cd.Date_Time__c = System.now();
+            cd.Action__c = 'Changed';
+            insert cd; 
+            Test.stopTest();
+            System.assert([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size()>0);  
+            System.assert([select Id from case where id=:c1.id].size()>0);      
+            System.assertEquals(c1.Support_Dealer_1__c, null);
+            System.assertEquals(c1.Support_Dealer_2__c, null);
+        }    
     } 
     
     public static testMethod void testRelease11b01()
@@ -408,57 +401,57 @@ public class CaseHelperTest {
     public static testMethod void testUSCC005()
     {
        //Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{ 
-	        Test.startTest();
-	        List<String> targetList = null;   
-	        List<Sobject> sos = new List<Sobject>();        
-	        insert acc;
-	        insert ve1;
-	        insert ve2;        
-	        Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
-	                                              Contact__c = acc.Id,Registration_Number__c ='5');
-	        Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
-	                                              Contact__c = acc.Id,Registration_Number__c ='6');
-	        insert vrData1;
-	        insert vrData2;                
-	        User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
-	        
-	        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-	           
-	        system.debug('accountid---------->>>>>'+portalUser1);
-	        Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-	                           Case_SubType__c=Dealer_after_sales_service_attitude, Case_Dealer__c = portalUser1.AccountId,Car_Owner__c=acc.id);
-	        sos.add(c1);
-	        if(sos!=null && !sos.IsEmpty())
-	        UtilSobject.insertSobjects(sos);        
-	        c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
-	        c1.Vehicle_Relationship__c = vrData2.id;
-	        c1.SendEmailToGateKeeper__c=true;
-	        update c1;
-	        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id]; 
-	                
-	                    targetList = COLS_MB_TRACKING;                                      
-	
-	                    for(String cloName: targetList){
-	                        String newValue = String.valueOf(c1.get(cloName));
-	                        String oldValue = String.valueOf(c1.get(cloName));
-	                        String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
-	                      CaseHelper.newCaseDescription(c1.id, labelName, newValue, oldValue);
-	                    }
-	        map<id,id> casesForShare= new  map<id,id>(); 
-	        casesForShare.put(c1.id, c1.id);
-	        
-	        CaseHelper.getGateKeepers(sos);
-	        CaseHelper.shareDealer(casesForShare);
-	        CaseHelper.shareCaseToRO(sos);
-	        CaseHelper.shareCaseToRO(casesForShare);
-	        Test.stopTest();
-	       /* system.assertEquals(c1.Vehicle_Class__c,'class-B');
-	        system.assertEquals(c1.Vehicle_Model__c,'B200');
-	        system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);  
-	        system.assertNotEquals(null,ctcs);
-	        system.assertEquals(c1.Vehicle_Relationship__c,vrData2.id);*/
-    	} 
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        { 
+            Test.startTest();
+            List<String> targetList = null;   
+            List<Sobject> sos = new List<Sobject>();        
+            insert acc;
+            insert ve1;
+            insert ve2;        
+            Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
+                                                  Contact__c = acc.Id,Registration_Number__c ='5');
+            Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
+                                                  Contact__c = acc.Id,Registration_Number__c ='6');
+            insert vrData1;
+            insert vrData2;                
+            User user1 = UtilTestData.createPortalUser(dealer_user,dealer_delegate_admin);
+            
+            User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+               
+            system.debug('accountid---------->>>>>'+portalUser1);
+            Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude, Case_Dealer__c = portalUser1.AccountId,Car_Owner__c=acc.id);
+            sos.add(c1);
+            if(sos!=null && !sos.IsEmpty())
+            UtilSobject.insertSobjects(sos);        
+            c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
+            c1.Vehicle_Relationship__c = vrData2.id;
+            c1.SendEmailToGateKeeper__c=true;
+            update c1;
+            List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id]; 
+                    
+                        targetList = COLS_MB_TRACKING;                                      
+    
+                        for(String cloName: targetList){
+                            String newValue = String.valueOf(c1.get(cloName));
+                            String oldValue = String.valueOf(c1.get(cloName));
+                            String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
+                          CaseHelper.newCaseDescription(c1.id, labelName, newValue, oldValue);
+                        }
+            map<id,id> casesForShare= new  map<id,id>(); 
+            casesForShare.put(c1.id, c1.id);
+            
+            CaseHelper.getGateKeepers(sos);
+            CaseHelper.shareDealer(casesForShare);
+            CaseHelper.shareCaseToRO(sos);
+            CaseHelper.shareCaseToRO(casesForShare);
+            Test.stopTest();
+           /* system.assertEquals(c1.Vehicle_Class__c,'class-B');
+            system.assertEquals(c1.Vehicle_Model__c,'B200');
+            system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);  
+            system.assertNotEquals(null,ctcs);
+            system.assertEquals(c1.Vehicle_Relationship__c,vrData2.id);*/
+        } 
     }
 }

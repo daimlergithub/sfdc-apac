@@ -76,7 +76,7 @@ private class ContactHelperTest {
         update contact;
       
         
-        Account dealer = [SELECT Dealer_Marketing_Manager_Email__c, Dealer_CRM_Manager_Email__c, Dealer_Complaint_Manager__c, Dealer_Complaint_Manager_Email__c, Dealer_Presales__c, Dealer_Presales_Email__c FROM Account WHERE Id = :account.Id];
+        Account dealer = [SELECT Dealer_Marketing_Manager_Email__c, Dealer_CRM_Manager_Email__c, Dealer_Complaint_Manager__c, Dealer_Complaint_Manager_Email__c, Dealer_Presales__c, Dealer_Presales_Email__c FROM Account WHERE Id = :contact.AccountId];
         
         // Assert updated Dealer Complaint Manager of Dealer is eqauals 
         // with contact's firstname, lastname, englishname and phone

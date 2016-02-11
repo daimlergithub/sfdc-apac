@@ -20,210 +20,328 @@ public class ContactHelper {
     private static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     public static void ValidateGateKeeper(List<Contact> contacts) {
-    	
-    	List<Contact> newContactsForGateKeeper = new List<Contact>();
-    	for(Contact con : contacts)
-    	{
+        
+        List<Contact> newContactsForGateKeeper = new List<Contact>();
+        for(Contact con : contacts)
+        {
         if(con.Dealer_Complaint_Gate_Keeper__c || con.Dealer_Lead_Gate_Keeper__c) 
             newContactsForGateKeeper.add(con);
-    	}
-    	
-    	if(newContactsForGateKeeper!=null && !newContactsForGateKeeper.Isempty())
-    	{
-	        //Set account id of the new Ins/Upd Contact
-	        Set<Id> AccountIds = new Set<Id>();
-	        Set<Id> updateContactIds = new Set<Id>();
-	        
-	        //Set account Id which has complaint gate keeper
-	        Set<Id> AccountIdHasComplaintKeeper = new Set<Id>();
-	        
-	        //Set account Id which has lead gate keeper
-	        Set<Id> AccountIdHasSalesKeeper = new Set<Id>();
-	        
-	        for(Contact con : contacts)
-	        {
-	            AccountIds.add(con.AccountId);
-	            updateContactIds.add(con.Id);
-	        }
-	        
-	        //Query exist contacts for finding conplaint gate keeper and lead gate keeper
-	        for(Contact existCon : [select Id, AccountId, Dealer_Complaint_Gate_Keeper__c, Dealer_Lead_Gate_Keeper__c from Contact where Id not in :updateContactIds and AccountId in :AccountIds and (Dealer_Complaint_Gate_Keeper__c = true or Dealer_Lead_Gate_Keeper__c = true)]) {
-	            if(existCon.Dealer_Complaint_Gate_Keeper__c)
-	            {
-	                AccountIdHasComplaintKeeper.add(existCon.AccountId);
-	            }
-	            if(existCon.Dealer_Lead_Gate_Keeper__c)
-	            {
-	                AccountIdHasSalesKeeper.add(existCon.AccountId);
-	            }
-	        }
-	        
-	        //If find exist gate keeper, show a error message.
-	        for(Contact con : contacts)
-	        {
-	            if(con.Dealer_Complaint_Gate_Keeper__c && AccountIdHasComplaintKeeper.contains(con.AccountId))
-	            {
-	                con.addError(HasComplaintGetKeeper);
-	            }
-	            
-	            if(con.Dealer_Lead_Gate_Keeper__c && AccountIdHasSalesKeeper.contains(con.AccountId))
-	            {
-	                con.addError(HasSalesGetKeeper);
-	            }
-	        }	
-    	}
+        }
+        
+        if(newContactsForGateKeeper!=null && !newContactsForGateKeeper.Isempty())
+        {
+            //Set account id of the new Ins/Upd Contact
+            Set<Id> AccountIds = new Set<Id>();
+            Set<Id> updateContactIds = new Set<Id>();
+            
+            //Set account Id which has complaint gate keeper
+            Set<Id> AccountIdHasComplaintKeeper = new Set<Id>();
+            
+            //Set account Id which has lead gate keeper
+            Set<Id> AccountIdHasSalesKeeper = new Set<Id>();
+            
+            for(Contact con : contacts)
+            {
+                AccountIds.add(con.AccountId);
+                updateContactIds.add(con.Id);
+            }
+            
+            //Query exist contacts for finding conplaint gate keeper and lead gate keeper
+            for(Contact existCon : [select Id, AccountId, Dealer_Complaint_Gate_Keeper__c, Dealer_Lead_Gate_Keeper__c from Contact where Id not in :updateContactIds and AccountId in :AccountIds and (Dealer_Complaint_Gate_Keeper__c = true or Dealer_Lead_Gate_Keeper__c = true)]) {
+                if(existCon.Dealer_Complaint_Gate_Keeper__c)
+                {
+                    AccountIdHasComplaintKeeper.add(existCon.AccountId);
+                }
+                if(existCon.Dealer_Lead_Gate_Keeper__c)
+                {
+                    AccountIdHasSalesKeeper.add(existCon.AccountId);
+                }
+            }
+            
+            //If find exist gate keeper, show a error message.
+            for(Contact con : contacts)
+            {
+                if(con.Dealer_Complaint_Gate_Keeper__c && AccountIdHasComplaintKeeper.contains(con.AccountId))
+                {
+                    con.addError(HasComplaintGetKeeper);
+                }
+                
+                if(con.Dealer_Lead_Gate_Keeper__c && AccountIdHasSalesKeeper.contains(con.AccountId))
+                {
+                    con.addError(HasSalesGetKeeper);
+                }
+            }   
+        }
+         
     }
     
     public static void ValidateManager(List<Contact> contacts) {
-    	
-    	List<Contact> newContactsForManager = new List<Contact>();
-    	for(Contact con : contacts)
-    	{
-	        if(con.Dealer_Complaint_Manager__c || con.Dealer_Presales__c || con.Dealer_CRM_Manager__c || con.Dealer_Marketing_Manager__c)
-	            newContactsForManager.add(con);
-    	}
-    	if(newContactsForManager!=null && !newContactsForManager.Isempty())
+        
+        List<Contact> newContactsForManager = new List<Contact>();
+        for(Contact con : contacts)
         {
-	        //Set account id of the new Ins/Upd Contact
-	        Set<Id> AccountIds = new Set<Id>();
-	        Set<Id> updateContactIds = new Set<Id>();
-	        
-	        //Set account Id which has complaint manager
-	        Set<Id> AccountIdHasComplaintManager = new Set<Id>();
-	        
-	        //Set account Id which has presales
-	        Set<Id> AccountIdHasPresales = new Set<Id>();
-	        
-	        //Set account Id which has crm managers
-	        Set<Id> AccountIdHasCrmMangers = new Set<Id>();
-	        
-	        //Set account Id which has marketing managers
-	        Set<Id> AccountIdHasMarketingManagers = new Set<Id>();
-	        
-	        for(Contact con : contacts)
-	        {
-	            AccountIds.add(con.AccountId);
-	            updateContactIds.add(con.Id);
-	        }
-	        
-	        //Query exist contacts for finding conplaint manager and presales
-	        for(Contact existCon : [select Id, AccountId, Dealer_Complaint_Manager__c, Dealer_Presales__c, Dealer_CRM_Manager__c, Dealer_Marketing_Manager__c from Contact where Id not in :updateContactIds and AccountId in :AccountIds and (Dealer_Complaint_Manager__c = true or Dealer_Presales__c = true or Dealer_CRM_Manager__c = true or Dealer_Marketing_Manager__c = true)]) {
-	            if(existCon.Dealer_Complaint_Manager__c)
-	            {
-	                AccountIdHasComplaintManager.add(existCon.AccountId);
-	            }
-	            if(existCon.Dealer_Presales__c)
-	            {
-	                AccountIdHasPresales.add(existCon.AccountId);
-	            }
-	            if(existCon.Dealer_CRM_Manager__c)
-	            {
-	                AccountIdHasCrmMangers.add(existCon.AccountId);
-	            }
-	            if(existCon.Dealer_Marketing_Manager__c)
-	            {
-	                AccountIdHasMarketingManagers.add(existCon.AccountId);
-	            }
-	        }
-	        
-	        //If find exist camplaint manager, a presales, a crm manager, show a error message.
-	        for(Contact con : contacts)
-	        {
-	            if(con.Dealer_Complaint_Manager__c && AccountIdHasComplaintManager.contains(con.AccountId))
-	            {
-	                con.addError(HasComplaintManager);
-	            }
-	            
-	            if(con.Dealer_Presales__c && AccountIdHasPresales.contains(con.AccountId))
-	            {
-	                con.addError(HasPresales);
-	            }
-	            if(con.Dealer_CRM_Manager__c && AccountIdHasCrmMangers.contains(con.AccountId))
-	            {
-	                con.addError(HasCRMManager);
-	            }
-	            if(con.Dealer_Marketing_Manager__c && AccountIdHasMarketingManagers.contains(con.AccountId))
-	            {
-	                con.addError(HasMarketingManager);
-	            }
-	        }
+            if(con.Dealer_Complaint_Manager__c || con.Dealer_Presales__c || con.Dealer_CRM_Manager__c || con.Dealer_Marketing_Manager__c)
+                newContactsForManager.add(con);
         }
+        if(newContactsForManager!=null && !newContactsForManager.Isempty())
+        {
+            //Set account id of the new Ins/Upd Contact
+            Set<Id> AccountIds = new Set<Id>();
+            Set<Id> updateContactIds = new Set<Id>();
+            
+            //Set account Id which has complaint manager
+            Set<Id> AccountIdHasComplaintManager = new Set<Id>();
+            
+            //Set account Id which has presales
+            Set<Id> AccountIdHasPresales = new Set<Id>();
+            
+            //Set account Id which has crm managers
+            Set<Id> AccountIdHasCrmMangers = new Set<Id>();
+            
+            //Set account Id which has marketing managers
+            Set<Id> AccountIdHasMarketingManagers = new Set<Id>();
+            
+            for(Contact con : contacts)
+            {
+                AccountIds.add(con.AccountId);
+                updateContactIds.add(con.Id);
+            }
+            
+            //Query exist contacts for finding conplaint manager and presales
+            for(Contact existCon : [select Id, AccountId, Dealer_Complaint_Manager__c, Dealer_Presales__c, Dealer_CRM_Manager__c, Dealer_Marketing_Manager__c from Contact where Id not in :updateContactIds and AccountId in :AccountIds and (Dealer_Complaint_Manager__c = true or Dealer_Presales__c = true or Dealer_CRM_Manager__c = true or Dealer_Marketing_Manager__c = true)]) {
+                if(existCon.Dealer_Complaint_Manager__c)
+                {
+                    AccountIdHasComplaintManager.add(existCon.AccountId);
+                }
+                if(existCon.Dealer_Presales__c)
+                {
+                    AccountIdHasPresales.add(existCon.AccountId);
+                }
+                if(existCon.Dealer_CRM_Manager__c)
+                {
+                    AccountIdHasCrmMangers.add(existCon.AccountId);
+                }
+                if(existCon.Dealer_Marketing_Manager__c)
+                {
+                    AccountIdHasMarketingManagers.add(existCon.AccountId);
+                }
+            }
+            
+            //If find exist camplaint manager, a presales, a crm manager, show a error message.
+            for(Contact con : contacts)
+            {
+                if(con.Dealer_Complaint_Manager__c && AccountIdHasComplaintManager.contains(con.AccountId))
+                {
+                    con.addError(HasComplaintManager);
+                }
+                
+                if(con.Dealer_Presales__c && AccountIdHasPresales.contains(con.AccountId))
+                {
+                    con.addError(HasPresales);
+                }
+                if(con.Dealer_CRM_Manager__c && AccountIdHasCrmMangers.contains(con.AccountId))
+                {
+                    con.addError(HasCRMManager);
+                }
+                if(con.Dealer_Marketing_Manager__c && AccountIdHasMarketingManagers.contains(con.AccountId))
+                {
+                    con.addError(HasMarketingManager);
+                }
+            }
+        }
+        
     }
-    
+    public static void ValidateBusinessUnit(List<Contact> newContacts) {
+        Set<Id> AccountIds = new Set<Id>();
+        map<id,Account> accountMap = new  map<id,Account>();
+         for(Contact con : newContacts)
+            {
+                AccountIds.add(con.AccountId);
+            }
+        for(Account acc:[select id,Business_Unit__c,Dealer_Active__c from Account where Id IN:AccountIds]){
+            accountMap.put(acc.id, acc);
+        }
+        for(Contact con:newContacts){
+            if(accountMap.containsKey(con.AccountId)){ 
+                   boolean match = sortBusinessUnit(con.Business_Unit__c,accountMap.get(con.AccountId).Business_Unit__c);
+                if(match ==false)
+                {
+                con.addError('Business units of the contact does not  align with the dealership');
+                }                   
+            }
+            
+        }
+        
+    }
+     public static boolean sortBusinessUnit(String Contacts,string accounts)     
+     {
+         List<String> contactBusinessUnit=new List<String>();
+         List<String> accountBusinessUnit=new List<String>();
+         boolean compare = false;
+         String ContactsBu=Contacts;
+         String accountBu=accounts;
+             if(accountBu!=null)
+             {
+                String[] acc = accountBu.split('\\;');
+                 for(string s:acc)
+                 {
+                 accountBusinessUnit.add(s);
+                 }
+             }
+         accountBusinessUnit.sort();    
+         if(ContactsBu !=null)
+         { 
+         String[] con = ContactsBu.split('\\;');
+            for(string s:con)
+             {
+             contactBusinessUnit.add(s);
+             }
+          }
+            contactBusinessUnit.sort();
+         Set<String> contactset = new Set<String>(contactBusinessUnit);
+         Set<String> accountset = new Set<String>(accountBusinessUnit);
+         system.debug('contactset contactset contactset '+contactset );
+         system.debug('contactset contactset contactset '+accountset );
+                if(accountset.containsall(contactset))
+                compare =true;
+                else
+                 compare =false;
+              
+        return compare;
+     }
     public static void AfterInsertUpdateEvents(List<Contact> contacts)
     {
-    	List<Contact> ComplaintManagerContacts = new List<Contact>();
-	    List<Contact> PresalesContacts = new List<Contact>();
-	    List<Contact> CRMManagerContacts = new List<Contact>();
-	    List<Contact> MarketingManagerContacts = new List<Contact>();
-	    List<String> aftersalesManagerIds = new List<String>();
-	    Set<ID> dealerIdsForAssignGateKeeper = new Set<ID>();
-	    
-	    //Query new Contacts and map account id and contact infomation
-	    for(Contact con : contacts)
-	    {
-	        if(con.Dealer_Complaint_Manager__c)
-	        {
-	            ComplaintManagerContacts.add(con);
-	        }
-	        if(con.Dealer_Presales__c)
-	        {
-	            PresalesContacts.add(con);
-	        }
-	        if(con.Dealer_CRM_Manager__c)
-	        {
-	            CRMManagerContacts.add(con);
-	        }
-	        if(con.Dealer_Marketing_Manager__c)
-	        {
-	            MarketingManagerContacts.add(con);
-	        }
-	        if(con.Dealer_Aftersales_Manager__c)
-	        {
-	            aftersalesManagerIds.add(con.Id);
-	        }
-	        if(con.Dealer_Lead_Gate_Keeper__c)
-	        {
-	            dealerIdsForAssignGateKeeper.add(con.AccountId);
-	        }
-	    }
-	    
-	    //setup Complaint Manager infos to dealer
-	    if(ComplaintManagerContacts.size() > 0)
-	    {
-	        CopyComplaintManagerInfoToDealer(ComplaintManagerContacts);
-	    }
-	    
-	    //setup presales infos to dealer
-	    if(PresalesContacts.size() > 0)
-	    {
-	        CopyPresalesInfoToDealer(PresalesContacts);
-	    }
-	    
-	    //setup CRM manager infos to dealer
-	    if(CRMManagerContacts.size() > 0)
-	    {
-	        CopyCRMManagerInfoToDealer(CRMManagerContacts);
-	    }
-	    
-	    //setup marketing manager infos to dealer
-	    if(MarketingManagerContacts.size() > 0)
-	    {
-	        CopyMarketingManagerInfoToDealer(MarketingManagerContacts);
-	    }
-	    
-	    // Setup aftersales manager info to dealer
-	    if(aftersalesManagerIds.size() > 0)
-	    {
-	        copyAftersalesManagerInfoToDealer(aftersalesManagerIds);
-	    }
-	    
-	    //Update related Lead owner when Contact's Lead gate keeper is checked.
-	    dealerIdsForAssignGateKeeper.remove(null);
-	    if(dealerIdsForAssignGateKeeper.size() > 0)
-	    {
-	        assignGateKeeperToLeadOwner(dealerIdsForAssignGateKeeper);
-	    }
+    try
+    {
+    CustomLogUtil.CustomLoggingEntry(' Contact Helper Class AfterInsertUpdateEvents method '+'contacts= ' + contacts.size());
+        List<Contact> ComplaintManagerContacts = new List<Contact>();
+        List<Contact> PresalesContacts = new List<Contact>();
+        List<Contact> CRMManagerContacts = new List<Contact>();
+        List<Contact> MarketingManagerContacts = new List<Contact>(); 
+        List<Contact> BusinesUnit = new List<Contact>();
+        List<String> aftersalesManagerIds = new List<String>();
+        Set<ID> dealerIdsForAssignGateKeeper = new Set<ID>();
+        
+        //Query new Contacts and map account id and contact infomation
+        for(Contact con : contacts)
+        {
+            if(con.Dealer_Complaint_Manager__c)
+            {
+                ComplaintManagerContacts.add(con);
+            }
+            if(con.Dealer_Presales__c)
+            {
+                PresalesContacts.add(con);
+            }
+            if(con.Dealer_CRM_Manager__c)
+            {
+                CRMManagerContacts.add(con);
+            }
+            if(con.Dealer_Marketing_Manager__c)
+            {
+                MarketingManagerContacts.add(con);
+            }
+            if(con.Dealer_Aftersales_Manager__c)
+            {
+                aftersalesManagerIds.add(con.Id);
+            }
+            if(con.Dealer_Lead_Gate_Keeper__c)
+            {
+                dealerIdsForAssignGateKeeper.add(con.AccountId);
+            }
+             
+            if((con.Business_Unit__c !=null) || (con.Business_Unit__c ==null))
+            {
+                BusinesUnit.add(con);
+            }
+        }
+        
+        
+        //setup Complaint Manager infos to dealer
+        if(ComplaintManagerContacts.size() > 0)
+        {
+            CopyComplaintManagerInfoToDealer(ComplaintManagerContacts);
+        }
+        
+        //setup presales infos to dealer
+        if(PresalesContacts.size() > 0)
+        {
+            CopyPresalesInfoToDealer(PresalesContacts);
+        }
+        
+        //setup CRM manager infos to dealer
+        if(CRMManagerContacts.size() > 0)
+        {
+            CopyCRMManagerInfoToDealer(CRMManagerContacts);
+        }
+        
+        //setup marketing manager infos to dealer
+        if(MarketingManagerContacts.size() > 0)
+        {
+            CopyMarketingManagerInfoToDealer(MarketingManagerContacts);
+        }
+        
+        // Setup aftersales manager info to dealer
+        if(aftersalesManagerIds.size() > 0)
+        {
+            copyAftersalesManagerInfoToDealer(aftersalesManagerIds);
+        }
+        
+        //Update related Lead owner when Contact's Lead gate keeper is checked.
+        dealerIdsForAssignGateKeeper.remove(null);
+        if(dealerIdsForAssignGateKeeper.size() > 0)
+        {
+            assignGateKeeperToLeadOwner(dealerIdsForAssignGateKeeper);
+        }
+        }
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+        system.debug('End of method @@@@@@@ ');
+    }
+    
+        public static void CopyFirstNameLastNameToDRM(List<Contact> contacts) {
+    try
+    {
+    CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
+    
+        Set<Id> accountIds = new Set<Id>(); 
+        map<id,Account> relatedAccounts =new map<id,Account>();
+        map<id,Account> dealersToUpdate = new map<id,Account>();
+        
+      
+        for(Contact con : contacts) {   
+            accountIds.add(con.AccountId);
+        }
+       
+        for(Account ac:[select Id,DRM__c from Account where  Id in: accountIds])
+        {
+            relatedAccounts.put(ac.id, ac);
+            
+        }
+       
+        for(Contact con : contacts) { 
+            if(con.Inactive__c==false && con.Salutation=='DRM MBFS' ){
+              if(relatedAccounts.containsKey(con.AccountId)){
+                       relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
+                       dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
+                       }
+                
+            }
+        }        
+        
+        if(dealersToUpdate!=null && !dealersToUpdate.IsEmpty() && dealersToUpdate.values().size() > 0) { 
+            
+               UtilSobject.updateSobjects(dealersToUpdate.values());
+        }
+        
+       }
+      catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+      CustomLogUtil.DebugLogInsert();
     }
     
     public static void CopyComplaintManagerInfoToDealer(List<Contact> contacts) {
@@ -367,5 +485,50 @@ public class ContactHelper {
                 Trigger.new[0].addError(ex.getMessage());
             }
         }
+    }
+    
+    public static void updateBusinessUnit(List<Account> accounts){
+    try
+       { 
+    CustomLogUtil.CustomLoggingEntry('contact Helper class updateBusinessUnit Method'+  'accounts'+ accounts.size()); 
+        map<Id,Account> accountid=new map<Id,Account>();
+        List<Account> listAcc=new List<Account>();
+        List<Contact> listCon=new List<Contact>();
+        List<Contact> UpdateCon=new List<Contact>();
+    
+            if(accounts!=null && !accounts.isEmpty())
+            {
+                for(Account acc:accounts)
+                {
+                accountid.put(acc.id,acc);
+                }
+            }
+            
+            listCon=[Select id,AccountId,Business_Unit__c from Contact Where AccountId=:accountid.keySet()];
+                if(listCon!=null && !listCon.isEmpty())
+                {
+                   
+                        for(Contact con:listCon)
+                        {   
+                            if(accountid.containsKey(con.AccountId)){
+                                if(accountid.get(con.AccountId).id==con.AccountId)
+                        
+                                    con.Business_Unit__c=accountid.get(con.AccountId).Business_Unit__c;
+                                    UpdateCon.add(con);
+                            }
+                        }
+                     
+                    
+               }    
+        if(UpdateCon!=null && !UpdateCon.IsEmpty()) {  
+        System.debug('@@@@@@@@@@@@@ UpdateCon'+UpdateCon);       
+         UtilSobject.updateSobjects(UpdateCon);          
+        }
+    }
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+      CustomLogUtil.DebugLogInsert();
     }
 }
