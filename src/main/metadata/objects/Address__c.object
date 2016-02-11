@@ -552,7 +552,7 @@
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>To Company</fullName>
