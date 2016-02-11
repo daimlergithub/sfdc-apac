@@ -342,7 +342,7 @@ public class AccountHelperJP
                 {
                     for(Account acc : accountlist)
                     {
-                        if(!acc.RecordTypeId.equals(accDealer_RecordTypeId)){
+                        
                         
                             if(acc.RecordTypeId == accPerson_RecordTypeId){
                                     ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
@@ -354,17 +354,20 @@ public class AccountHelperJP
                             integer checksum=0;
                             integer i;
                             String ucid = ucidsequence;
-                            for (i=0; i < 14; i++)
-                            { 
-                                integer cp = ucid.codePointAt(i); 
-                                checksum += cp; 
-                            }
-                            String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                            integer mod = Math.mod(checksum, checksumSet.length());
-                            ucid += checksumSet.substring(mod, mod+1);
-                            acc.UCID__c = ucid;
-                            acclist.add(acc);
-                         }
+                            if(ucid != null && ucid.length() > 0)
+                            {
+                                for (i=0; i < 14; i++)
+                                { 
+                                    integer cp = ucid.codePointAt(i); 
+                                    checksum += cp; 
+                                }
+                                String checksumSet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                                integer mod = Math.mod(checksum, checksumSet.length());
+                                ucid += checksumSet.substring(mod, mod+1);
+                                acc.UCID__c = ucid;
+                                acclist.add(acc);
+                             }
+                         
                     }
                     update acclist;
                 }
