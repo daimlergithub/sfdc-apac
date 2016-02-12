@@ -57,6 +57,10 @@
                 <behavior>Edit</behavior>
                 <field>VehicleStatus__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VehicleAge__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -289,10 +293,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MD__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

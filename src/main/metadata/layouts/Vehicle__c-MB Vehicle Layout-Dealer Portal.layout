@@ -51,6 +51,10 @@
                 <behavior>Readonly</behavior>
                 <field>Description__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VehicleAge__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

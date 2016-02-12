@@ -418,6 +418,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GenerateCatalogueCsv</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GenerateCatalogueCsvTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GenericCSVLoaderController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1343,6 +1351,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>contactTableControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3660,6 +3672,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.UCID_Sequence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.UCID__c</field>
         <readable>true</readable>
@@ -3853,6 +3870,16 @@
         <editable>true</editable>
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_ID2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_ID__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4591,6 +4618,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Last_Run_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign.Lead_Creation_flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4607,6 +4639,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Min_Car_Age__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Next_Run_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5061,6 +5098,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Campaign_Lead__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Campaign_Lead__c.Participate_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5283,20 +5325,15 @@
         <editable>true</editable>
         <field>Car_Model__c.Class_Name_Native__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Car_Model__c.Created_By_EP_Transaction__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Car_Model__c.Updated_By_EP_Transactions__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Class_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5382,6 +5419,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Steering__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11711,17 +11753,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.DUPNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Rejected_Duplicate_Log__c.Duplicate_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Rejected_Duplicate_Log__c.Duplicate_Reason_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rejected_Duplicate_Log__c.DUPNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14981,6 +15023,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>VIN_Mapping__c.BodyType__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.Car_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.Classifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>VIN_Mapping__c.WMI__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Inspection__c.Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16066,12 +16133,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.VehicleStatus__c</field>
+        <field>Vehicle__c.VehicleAge__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.Vehicle_Age__c</field>
+        <field>Vehicle__c.VehicleStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16144,6 +16211,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16153,6 +16224,10 @@
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -16754,6 +16829,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>VIN_Mapping__c-VIN Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
@@ -17477,6 +17555,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>VIN_Mapping__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Vehicle_Inspection__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -17892,6 +17979,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -17903,6 +17995,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -18427,6 +18524,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Dealer_Locator__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -18686,6 +18787,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

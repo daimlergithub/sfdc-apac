@@ -33,6 +33,10 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Role__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VehicleAge__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
