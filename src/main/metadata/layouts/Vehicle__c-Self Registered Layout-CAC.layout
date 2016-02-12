@@ -184,10 +184,7 @@
                 <behavior>Edit</behavior>
                 <field>CurrentMileage__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Age__c</field>
-            </layoutItems>
+            
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
