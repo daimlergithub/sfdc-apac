@@ -846,7 +846,7 @@
             </values>
             <values>
                 <fullName>To Person</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -1095,7 +1095,7 @@
             </values>
             <values>
                 <fullName>To Person</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -1344,7 +1344,7 @@
             </values>
             <values>
                 <fullName>To Person</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
     </recordTypes>

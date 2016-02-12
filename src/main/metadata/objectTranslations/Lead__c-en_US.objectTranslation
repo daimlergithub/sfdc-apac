@@ -4969,6 +4969,10 @@
             <translation><!-- Mercedes Magainze Survey --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation><!-- Mercedes Me Haneda --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
             <translation><!-- Mercedes call --></translation>
         </picklistValues>
@@ -14110,7 +14114,6 @@
         <label><!-- *72H Untouched --></label>
         <name>X72H_Untouched__c</name>
     </fields>
-    
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
