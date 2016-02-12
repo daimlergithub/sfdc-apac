@@ -103099,7 +103099,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true, '{!$Label.New_Case}'); 
+sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
