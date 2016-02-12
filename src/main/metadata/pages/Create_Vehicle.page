@@ -239,7 +239,7 @@
                                   
                                    <apex:pageBlockSectionItem >
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Range__c.Label}" />
-                                    	 <select id="rangeItems" style="width:174px" ng-blur="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-change="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-model="selectedRange" ng-options="range for range in ranges track by range"/>                          
+                                         <select id="rangeItems" style="width:174px" ng-blur="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-change="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-model="selectedRange" ng-options="range for range in ranges track by range"/>                          
                                    </apex:pageBlockSectionItem>
                                
                                    <apex:pageBlockSectionItem > 
@@ -279,7 +279,7 @@
                         <apex:inputField value="{!vehicle.Width__c}"/>
                         <apex:inputField value="{!vehicle.Weight__c}"/>
                         <apex:inputField value="{!vehicle.National_Model__c}"/>
-                        <apex:inputField value="{!vehicle.Vehicle_Age__c}"/>
+                        <apex:inputField value="{!vehicle.VehicleAge__c}"/>
                         <apex:inputField value="{!vehicle.Product_Model__c}"/>
                         <apex:inputField value="{!vehicle.Category_Code__c}"/>
                     </apex:pageBlockSection> 
