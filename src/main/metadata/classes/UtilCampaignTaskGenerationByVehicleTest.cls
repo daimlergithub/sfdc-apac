@@ -50,10 +50,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
         
     }
 
- /*   private static void createUser(){
-        List<User> newUsers = new List<User>();
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-    System.runAs(thisUser) {
+    private static void createUser(){
+        
+        
+    
         
             String[] csrProfiles = new String[]{'IntegrationAPI'};
             List<Profile> profileIds = [
@@ -73,14 +73,15 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                 usr.EmailEncodingKey = 'UTF-8';
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
-                newUsers.add(usr);
+                usr.Active__c = true;
+               
             }
             
-            insert newUsers;
-        }
+            insert usr;
+        
     
         
-    } */
+    } 
    
     private static void createTemplate(){
          
@@ -125,9 +126,11 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
     public static testMethod void testUtilCampaignTaskGenerationByVehicle() {
         //create test data
         
-      //createUser();         
-      createAccount();                     
-       System.runAs(u) {      
+      createUser();         
+      createAccount(); 
+         
+       System.runAs(u) { 
+           
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111112',
                                                 UsVIN__c = '12345678902222221');
@@ -171,13 +174,14 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
        
           Id jobId;
         //start trest
-          test.startTest();
-        
+         test.startTest();
+        system.debug('!!!!!! Integraion user '+ usr.id);
           UtilCampaignTaskGenerationByVehicle  batcher= new UtilCampaignTaskGenerationByVehicle(listCampaign,jobId);
           Database.executeBatch(batcher);          
           batcher.execute(null,listcamp);
         
-          test.stopTest();
+           test.stopTest();
+          
         
         //verify
         list<Task> objTask =[select Activity_Status__c,Campaign_Member_ID__c,ActivityDate,WhoId,WhatId,Campaign_Name__c from Task where Campaign_Name__c = 'top' Limit 1];
@@ -186,11 +190,12 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
         system.assertEquals(objTask[0].WhatId,top.id);
 
         }
+        
         }
      public static testMethod void testUtilCampaignTaskGenerationByVehicle1() {
         //create test data
         
-      //createUser();         
+      createUser();         
       createAccount(); 
       System.runAs(u) {                   
       DM_Material__c objDM = new DM_Material__c(Name='newDB',Type__c='Price List');insert objDM;
@@ -258,7 +263,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
     public static testMethod void testUtilCampaignTaskGenerationByVehicle2() {
         //create test data
         
-     // createUser();         
+      createUser();         
       createAccount();                     
       createTemplate();
        System.runAs(u) { 
@@ -325,7 +330,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
      public static testMethod void testUtilCampaignTaskGenerationByVehicle3() {
         //create test data
         
-     // createUser();         
+     createUser();         
       createAccount();                     
       createTemplate1();
        System.runAs(u) {
@@ -392,7 +397,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
      public static testMethod void testUtilCampaignTaskGenerationByVehicle4() {
         //create test data
         
-      //createUser();         
+      createUser();         
       createAccount();                     
       createTemplate2();
       System.runAs(u) {
