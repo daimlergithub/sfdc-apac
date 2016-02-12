@@ -26,7 +26,7 @@
       <table width="100%">  
            <tr>               
              <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
-             <td width="25%"><apex:outputField value="{!Case.CaseNumber}"/></td>
+             <td width="15%"><apex:outputField value="{!Case.CaseNumber}"/></td>
           </tr>
           <tr> 
              <td width="40%">{!Case.Case_Dealer__r.Name}</td>  
@@ -62,8 +62,8 @@
         </table>  
         <table border="1" width="100%" rules="rows">
            <tr>
-             <td align="right" width="20%">{!$Label.Customer}</td>
-             <td align="left" width="80%">
+             <td align="right" width="20%" height="20">{!$Label.Customer}</td>
+             <td align="left" width="80%" height="20">
                  <apex:outputField value="{!case.Account.FirstName}"/>&nbsp;
                  <apex:outputField value="{!case.Account.LastName}"/>
              </td>                                                                   
@@ -71,8 +71,8 @@
          </table>
        <table border="1" width="100%" rules="rows">
            <tr>
-             <td align="right" width="20%">{!$Label.Address}</td>
-             <td align="left" width="80%">
+             <td align="right" width="20%" height="20">{!$Label.Address}</td>
+             <td align="left" width="80%" height="20">
                  <apex:outputField value="{!Case.Account.Primary_Address_Reference__c}"/>&nbsp;
                  <apex:outputLabel rendered="{! If(Case.Account.Primary_Address_Reference__c!=Null ,true,false) }">{!$Label.Post}</apex:outputLabel>
                   &nbsp;<apex:outputLabel rendered="{! If(Case.Account.ZipCode__c!=Null ,true,false) }"> + </apex:outputLabel> &nbsp;                                
@@ -122,10 +122,9 @@
              <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
           </tr>
           <tr>
-             <td align="left" width="100%" height="40"><apex:outputText value="{!left(Case.PR_Comment_for_Dealer__c,200)}"/></td>                      
+             <td align="left" width="100%" height="140">{!Case.PR_Comment_for_Dealer__c}</td>                      
           </tr>         
-      </table>
-       
+      </table>       
    
       <table border="1" width="100%" rules="rows">  
           <tr>                    
@@ -160,18 +159,18 @@
       </table>     
        <table width="100%" border="1" rules="rows">
          <tr>
-           <td align="right" width="20%">{!$Label.CaseCategory}</td>  
-           <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
+           <td align="right" width="20%" height="20">{!$Label.CaseCategory}</td>  
+           <td align="left" width="80%" height="20"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
          </tr>
       </table>
-                                <br/><br/><br/><br/>
-                  <table width="100%">  
+      <br/>
+      <table width="100%">  
            <tr>               
              <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
-             <td width="25%"><apex:outputField value="{!Case.CaseNumber}"/></td>
+             <td width="15%"><apex:outputField value="{!Case.CaseNumber}"/></td>
           </tr>
-                  </table>
-                  <table border="1" width="100%" rules="rows">             
+      </table>
+      <table border="1" width="100%" rules="rows">             
            <tr>
              <td align="right" width="13%">{!$Label.Subject}</td>
              <td align="left" width="20%" colspan="2">{!Case.Subject}</td>            
@@ -179,7 +178,7 @@
              <td align="left" width="20%" colspan="2">{!Case.Account.UCID__c }</td>
           </tr>
       </table>
-                  <table border="1" width="100%" rules="rows">  
+     <table border="1" width="100%" rules="rows">  
           <tr>
            <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
           </tr>
