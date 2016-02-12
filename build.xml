@@ -294,7 +294,10 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
 			<sf:include name="UtilTestData"/>
 			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>			
+			<sf:include name="TriggerBatchJobTriggerHandler"/>
+			<sf:include name="GenerateCatalogueCsv"/>
+			<sf:include name="GenerateCatalogueCsvTest"/>
+			<sf:include name="contactTableControllerTest"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
