@@ -424,14 +424,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DMRequestHelperJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DMRequestHelperJPTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -668,20 +660,12 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SSITriggerHandlerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SelectAssignedDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SelectAssignedDealerControllerTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ShareAccountLinksToDealerTest</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ShareAccountLinksToDealerTriggerHandler</apexClass>
@@ -15187,6 +15171,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>VIN_Mapping__c.BodyType__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>VIN_Mapping__c.Car_Model__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.Classifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.WMI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Inspection__c.Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16272,12 +16281,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.VehicleStatus__c</field>
+        <field>Vehicle__c.VehicleAge__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.Vehicle_Age__c</field>
+        <field>Vehicle__c.VehicleStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16970,6 +16979,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>VIN_Mapping__c-VIN Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
@@ -18299,6 +18311,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
