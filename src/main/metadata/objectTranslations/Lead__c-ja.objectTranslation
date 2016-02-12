@@ -4965,6 +4965,10 @@
             <translation>メルセデス・マガジン・アンケート</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation><!-- Mercedes Me Haneda --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
             <translation>メルセデス・コール</translation>
         </picklistValues>
@@ -14106,7 +14110,6 @@
         <label>未対応フラグ(72H)</label>
         <name>X72H_Untouched__c</name>
     </fields>
-    
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
