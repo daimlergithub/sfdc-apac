@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -39,6 +43,15 @@
         <externalId>false</externalId>
         <label>Accompany Name</label>
         <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CSI_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>CSI Score</label>
+        <length>5</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -112,6 +125,32 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Data_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Touch Point</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_SubSource__c</fullName>
+        <externalId>false</externalId>
+        <label>Touch Point Details</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
     </fields>
     <fields>
@@ -154,6 +193,14 @@
         <fullName>LastName</fullName>
     </fields>
     <fields>
+        <fullName>Latest_Status_History__c</fullName>
+        <externalId>false</externalId>
+        <label>Latest Status History</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Latest_Status__c</fullName>
         <externalId>false</externalId>
         <label>Latest Status</label>
@@ -161,6 +208,13 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Latest_status_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Latest status Date</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>LeadId</fullName>
@@ -219,6 +273,19 @@
         <label>Lodgement Date</label>
         <required>false</required>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Member_Latest_Update_Time__c</fullName>
@@ -305,6 +372,15 @@
         <label>Registration Notes</label>
         <required>false</required>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SSI_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>SSI Score</label>
+        <length>5</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Salutation</fullName>
@@ -741,6 +817,13 @@
             <sorted>true</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status_Change_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Change Date</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Street</fullName>
