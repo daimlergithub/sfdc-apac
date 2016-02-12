@@ -231,6 +231,50 @@
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Accident_Location_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Accident Location Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Accident_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Accident Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Accident_Place__c</fullName>
+        <externalId>false</externalId>
+        <label>Accident Place</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -281,6 +325,29 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Alternative_Transport_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Alternative Transport Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>AssetId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -298,6 +365,16 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Book_In_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Book-in Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>BusinessHoursId</fullName>
@@ -357,6 +434,18 @@ Modify Reason:
         <formula>( Case_Dealer__r.Dealer_CRM_Manager_Email__c )</formula>
         <label>CRM Manager</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Call_Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Call Duration</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -7456,6 +7545,19 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Case_Dealer_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Escalation to (Dealer PIC)</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Case_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/* 
@@ -7684,6 +7786,22 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Case_Situation__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Content(Status)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Case_Source__c</fullName>
         <externalId>false</externalId>
         <label>Case Source</label>
@@ -7734,6 +7852,22 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_SubSubType__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Content(Detail)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8541,6 +8675,22 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Customer_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Request (What)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Customer_Requests_Transport__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -8561,6 +8711,30 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Satisfaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Impression when finishing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A 満足</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B 納得</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9910,6 +10084,20 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Escalation_to_Department__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Escalation to (Related dept)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Escalation to (Related dept))</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Estimated_Cost__c</fullName>
         <externalId>false</externalId>
         <label>Final Cost</label>
@@ -10184,6 +10372,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Follow_Up_After_Repair__c</fullName>
+        <externalId>false</externalId>
+        <label>FollowUp After Repair</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Follow_Up_Inquiry__c</fullName>
@@ -10847,6 +11045,16 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Knowledge_Complete_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Knowledge Complete Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Last_Known_Mileage__c</fullName>
         <externalId>false</externalId>
         <label>Mileage</label>
@@ -10941,6 +11149,18 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -11155,6 +11375,22 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Number_of_Customer_Visits__c</fullName>
+        <externalId>false</externalId>
+        <label>Interview number of times</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>OB_to_Customer__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -11244,6 +11480,16 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Resolution__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Resolution</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Other_Type_Comments__c</fullName>
@@ -12306,6 +12552,22 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Warranty__c</fullName>
+        <externalId>false</externalId>
+        <label>Warranty Contract</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Relationship__c</fullName>
         <externalId>false</externalId>
         <label>Relationship</label>
@@ -12422,6 +12684,30 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Response_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Result</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>電話</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Result__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -12500,6 +12786,57 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Risk_classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Enterprise risk classification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>法令違反/不正・不祥事</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>収益損失甚大</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Road_Assistant_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>Support</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Road_Assistant_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Service_Company</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>SFPositionDate__c</fullName>
@@ -12984,6 +13321,16 @@ Modify Reason:
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status_RoadAssistant__c</fullName>
+        <externalId>false</externalId>
+        <label>Status RoadAssistant</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>StopStartDate</fullName>
@@ -18146,6 +18493,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -18172,6 +18526,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18357,6 +18718,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -18364,6 +18732,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26558,6 +26933,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -26596,6 +26978,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27089,6 +27478,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -27096,6 +27492,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36499,6 +36902,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -36525,6 +36935,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36814,6 +37231,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -36821,6 +37245,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46139,6 +46570,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -46165,6 +46603,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46570,6 +47015,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -46584,6 +47036,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Customer_Type__c</picklist>
             <values>
                 <fullName>Individual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55823,6 +56282,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -55849,6 +56315,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55990,6 +56463,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>RO%2FCO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61100,6 +61580,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -61126,6 +61613,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61311,6 +61805,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -61318,6 +61819,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64989,6 +65497,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -65015,6 +65530,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Case_SubSubType__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -65420,6 +65942,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -65427,6 +65956,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -73689,6 +74225,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Case_Situation__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Case_Source__c</picklist>
             <values>
                 <fullName>Call Center</fullName>
@@ -74204,6 +74747,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Customer_Request__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Requests_Transport__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -74211,6 +74761,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Satisfaction__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

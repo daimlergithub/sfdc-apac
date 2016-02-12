@@ -12,21 +12,60 @@ Lead No.: {!relatedTo.Name}<br/>
 Nature of Request:  {!relatedTo.Nature_of_Request__c}<br/>
 Assigned Dealer: {!relatedTo.Assigned_Dealer__r.Name}<br/>
 <br/>
+
+<apex:outputPanel rendered="{!if(isblank(relatedTo.Contact__c),if(isblank(relatedTo.Company_Account__c),false,true),true)}">
 <b>Contact Details</b><br/>
-Contact Name:{!relatedTo.Contact__r.FirstName} {!relatedTo.Contact__r.LastName}<br/>
-Work Phone: {!relatedTo.Work_Phone__c}<br/>
-Home Phone: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.PersonHomePhone,relatedTo.Company_Account__r.Phone)}<br/>
-Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
-Email:  {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Email__c,relatedTo.Company_Account__r.Email__c)}<br/>
+Contact Name: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Name,relatedTo.Contact__r.FirstName)} {!if(isblank(relatedTo.Contact__c),'',relatedTo.Contact__r.LastName)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_SMS__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_SMS__c),true,false)),true)}">
+Mobile 1: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Mobile__c,relatedTo.Contact__r.Mobile__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_SMS2__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_SMS2__c),true,false)),true)}">
+Mobile 2: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Mobile2__c,relatedTo.Contact__r.Mobile2__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Home_Phone__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Home_Phone__c),true,false)),true)}">
+Home Phone 1: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Individual_Home_Phone__c,relatedTo.Contact__r.Individual_Home_Phone__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Home_Phone2__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Home_Phone2__c),true,false)),true)}">
+Home Phone 2: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Home_Phone_2__c,relatedTo.Contact__r.Home_Phone_2__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Work_Phone__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Work_Phone__c),true,false)),true)}">
+Work Phone 1: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Work_Phone__c,relatedTo.Contact__r.Work_Phone__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Work_Phone2__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Work_Phone2__c),true,false)),true)}">
+Work Phone 2: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Phone,relatedTo.Contact__r.Phone)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Email__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Email__c),true,false)),true)}">
+Email 1: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Email__c,relatedTo.Contact__r.Email__c)}<br/>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!if((relatedTo.Nature_of_Request__c=='Key 2 Key'),
+if(isblank(relatedTo.Contact__c),
+if(isblank(relatedTo.Company_Account__c),false,if((relatedTo.Company_Account__r.FS_Opt_In_Email2__c),true,false)),if((relatedTo.Contact__r.FS_Opt_In_Email2__c),true,false)),true)}">
+Email 2: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Email2__c,relatedTo.Contact__r.Email2__c)}<br/>
+</apex:outputPanel>
 <br/>
+
 <b>Qualification Information</b><br/>
 Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
 Vehicle Make - Current: {!relatedTo.Existing_Contract__r.Current_Make__c}<br/>
-Vehicle Model - Current: {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
+Vehicle Model - Current:  <apex:OutputText value=" {!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c}"  rendered="{!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c !=null}"/> {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
 Vehicle Year - Current: {!relatedTo.Existing_Contract__r.Current_Year__c}<br/>
-Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
+Registration No.: {!relatedTo.Registration_No__c}<br/>
 Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
-Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
 Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText> {!relatedTo.Finance_Amount2__c}<br/>
 Term (Months): {!FLOOR(relatedTo.Term_Month__c)}<br/>
 Monthly Payment: $<apex:outputText value="{0, number, ###,###,###,##0.00}"><apex:param value="{!relatedTo.Monthly_Payment__c}"/></apex:outputText><br/>
@@ -54,5 +93,4 @@ Kind Regards,<br/>
 {!relatedTo.Owner.Name}
 
 </messaging:htmlEmailBody>
-
 </messaging:emailTemplate>

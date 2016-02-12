@@ -611,7 +611,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-		//TODO commented this as part of SFDCAU-467,SFDCAU-493 Once Alan validates and confirms it will be uncommented.
+    //TODO commented this as part of SFDCAU-467,SFDCAU-493 Once Alan validates and confirms it will be uncommented.
         /*
         if(!serviceLeadsForImmediateNotice.isEmpty()) {
             sendServicePartsEmail(serviceLeadsForImmediateNotice, serviceDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -1023,7 +1023,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
          List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Finance_Lead_Type__c, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c 
                                      from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false];
-									 
+                   
         //Added contact Inactive check in the above query 3/6/2015(SFDCAU-164)
         //TODO
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Finance_Lead_Type__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c 
