@@ -16465,10 +16465,6 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -16478,10 +16474,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
