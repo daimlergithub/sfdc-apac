@@ -16372,10 +16372,7 @@
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AccountContactRole-Account Contact Role Layout</layout>
-    </layoutAssignments>
+    </layoutAssignments>	
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
