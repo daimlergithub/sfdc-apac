@@ -1,51 +1,57 @@
 public with sharing class VehicleRelationshipHelperJP 
 {
-    List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>();
-    Map<Id, Set<Vehicle_Relationship__c>> accountVR_Map = new Map<Id, Set<Vehicle_Relationship__c>>();
-    Map<Id, Set<Vehicle_Relationship__c>> existingAaccountVR_Map = new Map<Id, Set<Vehicle_Relationship__c>>();
-    Set<Vehicle_Relationship__c> tempVR = new Set<Vehicle_Relationship__c>();
-    Set<Id> accountIds = new Set<Id>();
+     Public void validateOverlappingVehicleRelationship(List<Vehicle_Relationship__c> vehicleRel){ 
+     
+     }
+    Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){ 
+       Set<Id> accountIds = new Set<Id>();
+       List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
+       Set<date> setStartDate=new Set<date>();
+       Set<date> setEndDate=new Set<date>();
+         for (Vehicle_Relationship__c vr : vehicleRel){
+               accountIds.add(vr.Contact__c);          
+          }          
+        if(!accountIds.isEmpty()){    
+          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds]){
+               if(vr.Start_Date__c!=Null)
+               setStartDate.add(vr.Start_Date__c);
+               if(vr.End_Date__c!=Null) 
+               setEndDate.add(vr.End_Date__c); 
+          }
+         }  
+        for(Vehicle_Relationship__c vr : vehicleRel){
+            if(setStartDate!=Null && setEndDate!=Null){
+              if(setStartDate.contains(vr.Start_Date__c) && setEndDate.contains(vr.End_Date__c)){
+                  vr.addError(label.Vehicle_Relationship_overlap);
+              }
+            }
+          }     
+     }
+    Public void validateOverlappingVehicleRelationshiponUpdate(List<Vehicle_Relationship__c> newVehicleRel,Map<Id,Vehicle_Relationship__c> oldVehicleRel){ 
+         Set<Id> accountIds = new Set<Id>();
+         List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
+         Set<date> setStartDate=new Set<date>();
+         Set<date> setEndDate=new Set<date>();
+          for (Vehicle_Relationship__c vr : newVehicleRel){
+               accountIds.add(vr.Contact__c);          
+          }          
+        if(!accountIds.isEmpty()){    
+          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds]){
+               if(vr.Start_Date__c!=Null)
+               setStartDate.add(vr.Start_Date__c);
+               if(vr.End_Date__c!=Null) 
+               setEndDate.add(vr.End_Date__c); 
+          }
+         }
+          for(Vehicle_Relationship__c vr : newVehicleRel){            
+              if(setStartDate!=Null && setEndDate!=Null && setStartDate.contains(vr.Start_Date__c) && setEndDate.contains(vr.End_Date__c)){
+                 if(oldVehicleRel!=Null && (vr.Start_Date__c!=oldVehicleRel.get(vr.Id).Start_Date__c || vr.End_Date__c!=oldVehicleRel.get(vr.Id).End_Date__c)){
+                  vr.addError(label.Vehicle_Relationship_overlap);
+              }
+            }
+          }
+       }
     
-    public void validateOverlappingVehicleRelationship(List<Vehicle_Relationship__c> vehicleRel){       
-        for (Vehicle_Relationship__c vr : vehicleRel){
-            system.debug('VR Contact :' +vr.Contact__c);
-            tempVR = accountVR_Map.get(vr.Contact__c);
-            if (tempVR == null){
-                accountVR_Map.put(vr.Contact__c, new Set<Vehicle_Relationship__c>{vr});
-            }else{
-                tempVR.add(vr); 
-            }
-        }        
-        system.debug('Account VR Map :' +accountVR_Map);        
-        accountIds = accountVR_Map.keySet();
-        system.debug('Account Ids...' +accountIds);
-        
-        vehicle_relationship = [Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds];
-        for (Vehicle_Relationship__c vr : vehicle_relationship){
-            system.debug('VR Contact :' +vr.Contact__c);
-            tempVR = existingAaccountVR_Map.get(vr.Contact__c);
-            if (tempVR == null){
-                existingAaccountVR_Map.put(vr.Contact__c, new Set<Vehicle_Relationship__c>{vr});
-            }else{
-                tempVR.add(vr); 
-            }
-        }
-        system.debug('Account VR Map :' +existingAaccountVR_Map);
-        for (Id acId : accountIds){
-            Set<Vehicle_Relationship__c> VR_new = accountVR_Map.get(acId);
-            Set<Vehicle_Relationship__c> VR_existing = existingAaccountVR_Map.get(acId);
-            if ((VR_new != null && !VR_new.isEmpty()) && (VR_existing != null &&!VR_existing.isEmpty())){
-                for (Vehicle_Relationship__c vrN : VR_new){
-                    for (Vehicle_Relationship__c vrE : VR_existing){
-                        if (vrN.Start_Date__c == vrE.Start_Date__c && vrN.End_Date__c == vrE.End_Date__c){
-                            vrN.addError(label.Vehicle_Relationship_overlap);
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
     Public static void OnAfterInsert(List<Vehicle_Relationship__c> vehicleRelNewRecords){
         Set<Id> ContactIds=new Set<Id>();     
         Set<Id> VehicleIds=new Set<Id>();        
@@ -53,7 +59,7 @@ public with sharing class VehicleRelationshipHelperJP
         set<Id> ContactIdsforValidity=new Set<Id>();  
         
         for (Vehicle_Relationship__c vr : vehicleRelNewRecords){
-            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
+            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
             {              
                 ContactIds.add(vr.Contact__c);                          
             } 
@@ -79,7 +85,7 @@ public with sharing class VehicleRelationshipHelperJP
         set<Id> ContactIdsforValidity=new Set<Id>();  
         
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
-            if(vr.Contact__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
+            if(vr.Contact__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
             {                 
                 ContactIds.add(vr.Contact__c);
                 if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
@@ -114,7 +120,7 @@ public with sharing class VehicleRelationshipHelperJP
         set<Id> ContactIdsforValidity=new Set<Id>();  
         
         for (Vehicle_Relationship__c vr : oldVehicleRelRecords){
-            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
+            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
             {              
                 ContactIds.add(vr.Contact__c);
                 VehicleIds.add(vr.Vehicle_ID__c);

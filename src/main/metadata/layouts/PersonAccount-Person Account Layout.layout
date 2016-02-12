@@ -4,7 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <customConsoleComponents>
+    <!--<customConsoleComponents>
         <primaryTabComponents>
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
@@ -35,7 +35,7 @@
                 <width>20</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents>
+    </customConsoleComponents>-->
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -55,12 +55,12 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UCID__c</field>
+                <behavior>Edit</behavior>
+                <field>LastName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LastName_Native_1__c</field>
+                <field>FirstName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -136,23 +136,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Description</field>
+                <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email__c</field>
+                <field>Finance_Sanction__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Mobile__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Mobile2__c</field>
+                <field>Complaint_Amount__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -165,8 +157,8 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FirstName_Native_1__c</field>
+                <behavior>Readonly</behavior>
+                <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -236,6 +228,14 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Vans_Service_Region__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Sanction_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction_Comment__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -281,6 +281,29 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Contact Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>370</height>
+                <page>ContactTable</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>500</height>
+                <page>AddressDisplayInlineEdit</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -332,6 +355,10 @@
                 <behavior>Edit</behavior>
                 <field>Primary_Fax__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -381,38 +408,11 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Contact Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>370</height>
-                <page>ContactTable</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-            <layoutItems>
-                <height>500</height>
-                <page>AddressDisplayInlineEdit</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
         <label>Profile Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PersonBirthdate</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Job__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -428,11 +428,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Hobby__c</field>
+                <field>AnnualRevenue</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Place_of_Birth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -444,19 +448,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Driver_License_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sales_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Deceased__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VIP__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -465,14 +461,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Care__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>UpsellOpportunity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Complaint_Amount__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -486,19 +474,21 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Household_Children__c</field>
+                <field>Marital_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Marital_Status__c</field>
+                <field>Household_Children__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Place_of_Birth__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -506,7 +496,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AnnualRevenue</field>
+                <field>Hobby__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Driver_License_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -514,27 +508,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Sales_Sanction_Comment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction_Comment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>VIP__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Special_Needs_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Interest_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Loyalty_Card_No__c</field>
+                <field>UpsellOpportunity__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -549,11 +527,19 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Created_By_EP_Transaction__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -591,6 +577,15 @@
     </relatedContent>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>System__c</fields>
+        <fields>Role__c</fields>
+        <fields>toRole__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Portal_Mail_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -599,40 +594,67 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Validity__c</fields>
-        <fields>Vehicle_ID__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Vehicle_Brand__c</fields>
-        <fields>Vehicle_Class__c</fields>
         <fields>Vehicle_Model__c</fields>
-        <fields>Purchase_Date__c</fields>
+        <fields>UsVIN__c</fields>
+        <fields>New_Used__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Finance_Method__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>Selling_Dealer__c</fields>
+        <fields>Last_Service_Dealer__c</fields>
+        <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>ContractNumber__c</fields>
+        <fields>Type__c</fields>
+        <fields>Status__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>VIN__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>Related_Dealer__c</fields>
+        <relatedList>Retail_Task__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Competitor_Brand__c</fields>
+        <fields>Competitor_Model__c</fields>
         <fields>BodyType__c</fields>
-        <fields>Colour__c</fields>
-        <fields>CommissionNumber__c</fields>
+        <fields>ModelYear__c</fields>
+        <fields>NextInspectionDate__c</fields>
+        <fields>Related_From__c</fields>
+        <fields>Related_To__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
+        <fields>NAME</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
+        <customButtons>New_Inquiry</customButtons>
+        <excludeButtons>NewCase</excludeButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.CREATED_DATE</fields>
+        <fields>Case_Category__c</fields>
+        <fields>Data_Source__c</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>Case_Dealer__c</fields>
+        <fields>Customer_Request__c</fields>
+        <fields>PARENT.CASE_NUMBER</fields>
+        <fields>Customer_Type__c</fields>
+        <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>Activity_Status__c</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Start_Call_Time__c</fields>
+        <fields>TASK.CALLDURATION</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
@@ -648,42 +670,52 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
+        <fields>Lead_Desired_Service__c</fields>
+        <fields>Drop_off_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>CAC_Lead_Status__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Actual_DM_Material1__c</fields>
-        <fields>Actual_DM_Material2__c</fields>
-        <fields>Actual_DM_Material3__c</fields>
+        <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Customer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Survey_Taking_Status__c</fields>
+        <fields>Survey__c</fields>
+        <fields>Lead__c</fields>
+        <fields>Case__c</fields>
+        <fields>Campaign__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Retail_Task__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>NAME</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.PRIORITY</fields>
-        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>OWNER_NAME</fields>
-        <relatedList>RelatedCaseList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

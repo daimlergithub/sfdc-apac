@@ -78,11 +78,11 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Validity__c</fields>
         <fields>Contact__c</fields>
-        <fields>Registration_Number__c</fields>
         <fields>Car_Relation__c</fields>
-        <fields>Purchase_Date__c</fields>
+        <fields>Owner_Relation__c</fields>
+        <fields>New_Used__c</fields>
+        <fields>Finance_Method__c</fields>
         <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
         <fields>Selling_Dealer__c</fields>
@@ -92,9 +92,15 @@
     <relatedLists>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
-        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
         <fields>CASES.CREATED_DATE</fields>
-        <fields>CASES.PRIORITY</fields>
+        <fields>Case_Category__c</fields>
+        <fields>Data_Source__c</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>Case_Dealer__c</fields>
+        <fields>Customer_Request__c</fields>
+        <fields>PARENT.CASE_NUMBER</fields>
         <relatedList>Case.Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -107,7 +113,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000QetX</masterLabel>
+        <masterLabel>00hp0000000IeIW</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
