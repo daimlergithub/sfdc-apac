@@ -172,7 +172,10 @@
                 <behavior>Edit</behavior>
                 <field>CurrentMileage__c</field>
             </layoutItems>
-            
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VehicleAge__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
