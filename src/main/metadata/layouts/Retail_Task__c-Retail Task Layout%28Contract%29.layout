@@ -22,10 +22,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>VIN__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Related_Contact__c</field>
             </layoutItems>
             <layoutItems>
@@ -49,8 +45,8 @@
                 <field>Retail_CreatedDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>VIN_Link__c</field>
+                <behavior>Edit</behavior>
+                <field>Related_Vehicle__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -68,10 +64,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Related_Vehicle__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>EndDate__c</field>
             </layoutItems>
             <layoutItems>
@@ -85,6 +77,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_LastModifiedDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VIN__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
