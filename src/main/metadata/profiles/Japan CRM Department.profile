@@ -688,10 +688,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ShareAccountLinksDealerTriggerHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ShareAccountLinksToDealerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
