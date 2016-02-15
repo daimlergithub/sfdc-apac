@@ -6838,17 +6838,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Vehicle_Age__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Age</label>
-        <length>2</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Vehicle_Group__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Group</label>
@@ -9751,47 +9740,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo%2Fcourtesy vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoiced vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Part exchange vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Previous vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quoted Vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Temporary scrap</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Required</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle in stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14255,47 +14208,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo%2Fcourtesy vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoiced vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Part exchange vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Previous vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quoted Vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Temporary scrap</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Required</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle in stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19418,47 +19335,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo%2Fcourtesy vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoiced vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Part exchange vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Previous vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quoted Vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Temporary scrap</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Required</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle in stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -29065,47 +28946,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo%2Fcourtesy vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoiced vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Part exchange vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Previous vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quoted Vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Temporary scrap</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Required</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle in stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
