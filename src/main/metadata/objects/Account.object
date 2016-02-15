@@ -1779,6 +1779,10 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>MCare</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11751,6 +11755,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
@@ -16220,6 +16232,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </values>
             <values>

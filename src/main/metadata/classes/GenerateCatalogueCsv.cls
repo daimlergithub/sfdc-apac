@@ -29,19 +29,18 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
     {
         if(!test.isRunningTest()){ 
             
-            // Logic to check the previous download request time and avoid users to download File again within specific time period	
+            // Logic to check the previous download request time and avoid users to download File again within specific time period 
             DMCatalogueTimeStamp__c DMct = DMCatalogueTimeStamp__c.getInstance('PreviousRequestTime');
             datetime previousReq  = DMct.CatalogueDownloadTime__c;
             Decimal TimeDiffinMins =  (system.now().getTime() -  previousReq.getTime())/(1000.0*60.0) ; 
             system.debug('Difference bw requests is' + TimeDiffinMins); 
             
-            if(TimeDiffinMins < 5)
+            if(TimeDiffinMins < 3)
             {
-                return '<5';
+                return '<3';
             }
             
-            DMct.CatalogueDownloadTime__c = system.now();
-            update DMct;
+            
         }
         
         // Initialization of  Strings locally which are added as columns to CSV file
@@ -71,8 +70,8 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
             // Loop through the DM requests list to fetch Zipcodes
             for (DM_request__c dmr : DMRequests) {
                 
-                if(dmr.Customer_Name__r.ZipCode__c != null)
-                    Zipcodes.add(dmr.Customer_Name__r.ZipCode__c);
+                if(dmr.Zip_Code__c != null)
+                    Zipcodes.add(dmr.Zip_Code__c);
             }
             
             // Query to fetch Dealer Locator objects based on the Zip codes of DM Requests
@@ -91,25 +90,25 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 if(Dmr.Status1__c == 'to be sent')  
                 {
                     if(Dmr.Expected_DM_Material1__c != null && (Dmr.Expected_DM_Material1__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material1__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material1__r.Print_Due_Date__c <= system.today() )) 
-                      && (Dmr.Expected_DM_Material1__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material1__r.Label_Printing_Name__c != '' ))
+                       && (Dmr.Expected_DM_Material1__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material1__r.Label_Printing_Name__c != '' ))
                     {
-                    LabelPrintName +=  Dmr.Expected_DM_Material1__r.Label_Printing_Name__c ;
-                    Dmr.Status1__c = 'Success' ;   
+                        LabelPrintName +=  Dmr.Expected_DM_Material1__r.Label_Printing_Name__c ;
+                        Dmr.Status1__c = 'Success' ;   
                     }
                 }
                 
                 LabelPrintName += '/';
-                       
+                
                 
                 
                 
                 if(Dmr.Status2__c == 'to be sent' )
                 {
                     if(Dmr.Expected_DM_Material2__c != null && (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material2__r.Print_Due_Date__c <= system.today() )) 
-                      && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
+                       && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
                     {
-                    LabelPrintName +=  Dmr.Expected_DM_Material2__r.Label_Printing_Name__c ;
-                    Dmr.Status2__c = 'Success' ;
+                        LabelPrintName +=  Dmr.Expected_DM_Material2__r.Label_Printing_Name__c ;
+                        Dmr.Status2__c = 'Success' ;
                     }
                 }
                 
@@ -118,10 +117,10 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 if(Dmr.Status3__c == 'to be sent') 
                 {
                     if(Dmr.Expected_DM_Material2__c != null && (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material2__r.Print_Due_Date__c <= system.today() )) 
-                      && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
+                       && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
                     {
-                    LabelPrintName +=  Dmr.Expected_DM_Material3__r.Label_Printing_Name__c ;
-                    Dmr.Status3__c = 'Success' ;
+                        LabelPrintName +=  Dmr.Expected_DM_Material3__r.Label_Printing_Name__c ;
+                        Dmr.Status3__c = 'Success' ;
                     }
                 }
                 
@@ -132,19 +131,19 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 if(dmr.Customer_Name__r.RecordType.Name == 'Company')
                 {
-                
-                fileRow += ','+ ((dmr.Customer_Name__r.Company_Name__c != null && dmr.Customer_Name__r.Company_Name__c != '' ) ? dmr.Customer_Name__r.Company_Name__c  : dmr.Customer_Name__r.Name   );
-                
+                    
+                    fileRow += ','+ ((dmr.Customer_Name__r.Company_Name__c != null && dmr.Customer_Name__r.Company_Name__c != '' ) ? dmr.Customer_Name__r.Company_Name__c  : dmr.Customer_Name__r.Name   );
+                    
                 }
                 
                 else if(dmr.Customer_Name__r.RecordType.Name == 'Person Account' && dmr.TitleOfHonor__c == 'To Person')
                 {
-                	fileRow += ','+ dmr.Customer_Name__r.Name;
-                	
+                    fileRow += ','+ dmr.Customer_Name__r.Name;
+                    
                 }
                 else
                 {
-                	fileRow += ',' + '';
+                    fileRow += ',' + '';
                 }
                 
                 
@@ -171,7 +170,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                     //Loop through Dealer Locator objects with matching zipcodes as of Dm requests and fetch the related Dealer information and put in TempDlList
                     for(Dealer_Locator__c Dlr : DlList)
                     {
-                        if(Dlr.Post_Code__c == dmr.Customer_Name__r.ZipCode__c )
+                        if(Dlr.Post_Code__c == dmr.Zip_Code__c)
                         {
                             
                             TempDlList.add(Dlr);
@@ -250,7 +249,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                     DealerPhone3 = '';
                     
                 }     
-                            
+                
                 else
                 {
                     fileRow += ','+   DealerName1  ;
@@ -277,7 +276,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 if(Dmr.Status1__c != 'to be sent' && Dmr.Status2__c != 'to be sent' && Dmr.Status3__c != 'to be sent')
                 {
-                Dmr.Status__c = 'Sent';
+                    Dmr.Status__c = 'Sent';
                 }
             }
             
@@ -299,7 +298,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 catch(DMLException de)
                 {
                     System.debug('DML Exception :' + de);
-                    
+                    return 'exception';
                 }
             }
             
@@ -329,6 +328,9 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 system.debug(notifyOption+ '  created task id is' + CatalogueTask.id );
             }
             
+            DMCatalogueTimeStamp__c DMct = DMCatalogueTimeStamp__c.getInstance('PreviousRequestTime');
+            DMct.CatalogueDownloadTime__c = system.now();
+            update DMct;
             return 'true';    
         }
         

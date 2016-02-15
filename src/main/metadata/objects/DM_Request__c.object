@@ -865,7 +865,6 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -1007,7 +1006,6 @@ Modify Reason:
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1140,7 +1138,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>TitleOfHonor__c is null or blank</description>
         <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
@@ -1169,7 +1167,7 @@ MD__c = 'JP')</errorConditionFormula>
 
 
 var result = sforce.apex.execute("GenerateCatalogueCsv","getDMRequests",{});
-if(result == "&lt;5")
+if(result == "&lt;3")
 {
 alert('{!$Label.Error_Message_1}');
 }
@@ -1180,6 +1178,10 @@ alert('{!$Label.Success_message}');
 if(result == "false")
 {
 alert('{!$Label.Error_Message_2}');
+}
+if(result == "exception")
+{
+alert('{!$Label.Exception_message}');
 }</url>
     </webLinks>
 </CustomObject>
