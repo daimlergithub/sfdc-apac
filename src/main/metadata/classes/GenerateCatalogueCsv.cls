@@ -70,8 +70,8 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
             // Loop through the DM requests list to fetch Zipcodes
             for (DM_request__c dmr : DMRequests) {
                 
-                if(dmr.Customer_Name__r.ZipCode__c != null)
-                    Zipcodes.add(dmr.Customer_Name__r.ZipCode__c);
+                if(dmr.Zip_Code__c != null)
+                    Zipcodes.add(dmr.Zip_Code__c);
             }
             
             // Query to fetch Dealer Locator objects based on the Zip codes of DM Requests
