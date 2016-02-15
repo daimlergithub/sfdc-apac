@@ -29,7 +29,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
     {
         if(!test.isRunningTest()){ 
             
-            // Logic to check the previous download request time and avoid users to download File again within specific time period	
+            // Logic to check the previous download request time and avoid users to download File again within specific time period 
             DMCatalogueTimeStamp__c DMct = DMCatalogueTimeStamp__c.getInstance('PreviousRequestTime');
             datetime previousReq  = DMct.CatalogueDownloadTime__c;
             Decimal TimeDiffinMins =  (system.now().getTime() -  previousReq.getTime())/(1000.0*60.0) ; 
@@ -170,7 +170,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                     //Loop through Dealer Locator objects with matching zipcodes as of Dm requests and fetch the related Dealer information and put in TempDlList
                     for(Dealer_Locator__c Dlr : DlList)
                     {
-                        if(Dlr.Post_Code__c == dmr.Customer_Name__r.ZipCode__c )
+                        if(Dlr.Post_Code__c == dmr.Zip_Code__c)
                         {
                             
                             TempDlList.add(Dlr);
