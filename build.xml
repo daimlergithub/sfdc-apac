@@ -455,6 +455,7 @@
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="AvatoHelperTest"/>
 			<sf:include name="NiceWebServices"/>
+			<sf:include name="NiceWebServicesTest"/>			
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
