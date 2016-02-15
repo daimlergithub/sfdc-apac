@@ -992,10 +992,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerVehicleRelationshipHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
