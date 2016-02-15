@@ -1248,10 +1248,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>WebServiceMockImp2</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>WebServiceMockImpl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
