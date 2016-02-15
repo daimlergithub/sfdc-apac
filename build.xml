@@ -410,6 +410,7 @@
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
 			<sf:include name="UtilConstant"/> 
 			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="AccountSharingDataHandlerTest"/>
 			<sf:include name="VehicleExtension"/>
 			<sf:include name="VehicleExtensionTest"/>
 		</sf:typeset>
