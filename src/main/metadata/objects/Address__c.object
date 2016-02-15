@@ -546,6 +546,28 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Temp_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Post Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
         <label>TitleOfHonor</label>
@@ -1383,6 +1405,17 @@
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Block__c ) &gt; 12 ,true,false) )</errorConditionFormula>
         <errorMessage>Block should be less than or equal to 12 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CheckedState</fullName>
+        <active>true</active>
+        <description>State (only if country is equal to Australia)</description>
+        <errorConditionFormula>AND(ISPICKVAL(Country__c, 'Australia'),
+ISPICKVAL(Province__c, ''),
+$Profile.Name != 'IntegrationAPI' 
+)</errorConditionFormula>
+        <errorDisplayField>Province__c</errorDisplayField>
+        <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>City_NoOfDigit</fullName>
