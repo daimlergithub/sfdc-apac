@@ -17,7 +17,7 @@ public with sharing class  DMRequestHelperJP {
         * @see:       : DMRequestHelperJP
         */
     
-    public static void UpdateDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isInsert,boolean isUpdate){
+    public static void UpdateDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isUpdate){
         set<id> CustomerId = new set<id>();  
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
         map<string,Address__c> admap =new map<string,Address__c>();
@@ -84,7 +84,8 @@ public with sharing class  DMRequestHelperJP {
         * @see:       : DMRequestHelperJP
         */
     
-    public static void InsertDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isInsert,boolean isUpdate){
+    public static void InsertDMRequest(List<DM_Request__c> triggerNew,boolean isInsert)
+    {
         set<id> CustomerId = new set<id>();  
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
         map<string,Address__c> admap =new map<string,Address__c>();
@@ -133,8 +134,7 @@ public with sharing class  DMRequestHelperJP {
                        	}
                         else{
                                 lstDMR.adderror(Label.DMRequest_validation_error);
-                            }
-                    
+                            }                    
                   
                }
                 

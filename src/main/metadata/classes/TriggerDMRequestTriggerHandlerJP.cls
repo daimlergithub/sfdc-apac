@@ -16,25 +16,25 @@ public class TriggerDMRequestTriggerHandlerJP
     {
         if(Trigger.isBefore && Trigger.isInsert)
         {
-            DMRequestHelperJP.InsertDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
+            DMRequestHelperJP.InsertDMRequest(trigger.new,isInsert);
         }
         
         if (Trigger.isBefore && Trigger.isUpdate)
         { 
             DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap);
-            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);                        
+            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         if(Trigger.isBefore && Trigger.isInsert)
         {
-            DMRequestHelperJP.InsertDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
+            DMRequestHelperJP.InsertDMRequest(trigger.new,isInsert);
         }
         
 		if (Trigger.isBefore && Trigger.isUpdate)
         { 
-            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);                        
+            DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
         }
     }
 }
