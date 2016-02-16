@@ -13,7 +13,11 @@ public class TriggerDMRequestTriggerHandlerJP
     implements TriggerHandlerIf 
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {  
+    {
+        if(Trigger.isBefore && Trigger.isInsert)
+        {
+            DMRequestHelperJP.InsertDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
+        }
         
         if (Trigger.isBefore && Trigger.isUpdate)
         { 
@@ -22,10 +26,15 @@ public class TriggerDMRequestTriggerHandlerJP
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {    	
+    {
+        if(Trigger.isBefore && Trigger.isInsert)
+        {
+            DMRequestHelperJP.InsertDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
+        }
+        
 		if (Trigger.isBefore && Trigger.isUpdate)
         { 
             DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);                        
-        }    
+        }
     }
 }

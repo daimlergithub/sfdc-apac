@@ -284,6 +284,7 @@
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
+				<sf:include name="UtilAddressTranslation"/>
 			</sf:typeset>
 		</deploy>
     </target>
