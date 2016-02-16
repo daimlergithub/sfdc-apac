@@ -30,6 +30,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         public String ZipCode;
         public String MarketDiscriminator;
         public String ValidFields;
+        public Boolean Valid;
         private String[] Address_Code_type_info = new String[]{'Address_Code','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_1_type_info = new String[]{'Address_Line_1','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_2_type_info = new String[]{'Address_Line_2','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
@@ -40,8 +41,9 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] ZipCode_type_info = new String[]{'ZipCode','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] ValidFields_type_info = new String[]{'ValidFields','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
+        private String[] Valid_type_info = new String[]{'Valid','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
-        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_2','Block','City','District','Province','ZipCode','MarketDiscriminator','ValidFields'};
+        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_2','Block','City','District','Province','ZipCode','MarketDiscriminator','ValidFields','Valid'};
     }
     public class AddressValidationResponseMessageType {
         public String ValidationStatus;

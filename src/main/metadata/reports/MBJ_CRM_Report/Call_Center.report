@@ -5,7 +5,7 @@
         <calculatedFormula>RowCount/12</calculatedFormula>
         <datatype>number</datatype>
         <developerName>FORMULA1</developerName>
-        <downGroupingContext>CREATED_DATEONLY</downGroupingContext>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
         <isActive>true</isActive>
         <isCrossBlock>false</isCrossBlock>
         <masterLabel>Yearly Average</masterLabel>

@@ -321,7 +321,7 @@ EP/Tolerant for Validation.
                 //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 
                 
-                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && true)
+                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid)
                 {
                     AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                     String ValidStr = response.Addresses[0].ValidFields;
@@ -352,7 +352,7 @@ EP/Tolerant for Validation.
                 
                 }
                 
-                else if(false)
+                else if(!response.Addresses[0].Valid)
                 {
                     
                 AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
