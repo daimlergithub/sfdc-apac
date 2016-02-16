@@ -4,7 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <!--<customConsoleComponents>
+    <customConsoleComponents>
         <primaryTabComponents>
             <containers>
                 <isContainerAutoSizeEnabled>true</isContainerAutoSizeEnabled>
@@ -35,7 +35,10 @@
                 <width>20</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents>-->
+    </customConsoleComponents>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -364,6 +367,9 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

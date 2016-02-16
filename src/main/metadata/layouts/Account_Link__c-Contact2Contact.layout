@@ -17,7 +17,7 @@
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>fromRole__c</field>
             </layoutItems>
             <layoutItems>
@@ -38,7 +38,7 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>toRole__c</field>
             </layoutItems>
             <layoutItems>
