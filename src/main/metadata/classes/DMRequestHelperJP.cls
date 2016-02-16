@@ -20,7 +20,8 @@ public with sharing class  DMRequestHelperJP {
     public static void UpdateDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isInsert,boolean isUpdate){
         set<id> CustomerId = new set<id>();  
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
-        map<string,Address__c> admap =new  map<string,Address__c>();
+        map<string,Address__c> admap =new map<string,Address__c>();
+        map<string,Address__c> promap = new map<string,Address__c>();
         string regexForNullValue ='null';
         string nullValue ='';
         
@@ -30,12 +31,12 @@ public with sharing class  DMRequestHelperJP {
                 }  
               
         		//query for arelated addresses and create a nested map
-        		for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId]){
+        		for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
-                }
-        
-       
+                } 
+        	
             for(DM_Request__c lstDMR:triggerNew){          
               
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
@@ -45,13 +46,20 @@ public with sharing class  DMRequestHelperJP {
                    		if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
                         {
                                 if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){
+                                    UtilAddressTranslation.gettranslatedvalues('JP');
+                                    String province;
+                                    Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
                                     Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
                                     lstDMR.Zip_Code__c=address.ZipCode__c;
-                                    lstDMR.Province__c=address.Province__c;
                                     lstDMR.Address__c=address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c;
                                     lstDMR.Additional_Address__c=address.Address_Line_2__c;
                                     lstDMR.Attention__c=address.Company_Name__c;
                                     lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
+                                    if(addtrmap1.containsKey(address.Province__c))
+                                    {
+                                       province = addtrmap1.get(address.Province__c);
+                                    }
+                                    lstDMR.Province__c = province;
                                 }
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);
@@ -79,7 +87,8 @@ public with sharing class  DMRequestHelperJP {
         */      
        
         
-        public static void updateStatus(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap){
+    public static void updateStatus(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap)
+    {
             set<id> CustomerId = new set<id>(); 
              list<DM_Request__c> DMList =new  list<DM_Request__c>();
             
@@ -89,14 +98,15 @@ public with sharing class  DMRequestHelperJP {
                 }  
               
         //query for DM_Request__c 
-       DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+       			DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
                           
-       for(DM_Request__c lstDMR:triggerNew){
+       		for(DM_Request__c lstDMR:triggerNew)
+            {
          
-           if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
-             &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
-             ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
-                
+               if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
+                 &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
+                 ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
+                    
                  
                  for(DM_Request__c dmr:DMList){
                      if(dmr.Customer_Name__c==lstDMR.Customer_Name__c){
@@ -121,5 +131,5 @@ public with sharing class  DMRequestHelperJP {
                
        }  
     
-}
+	}
 }
