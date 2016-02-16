@@ -319,10 +319,11 @@ EP/Tolerant for Validation.
             {
                 Address_Validated_Flag = true;
                 //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-                AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                 
-                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
+                
+                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid)
                 {
+                    AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                     String ValidStr = response.Addresses[0].ValidFields;
                     if(ValidStr.contains('Address_Line_1__c'))
                     {
@@ -349,6 +350,23 @@ EP/Tolerant for Validation.
                         AddressObj.Province__c = response.Addresses[0].Province;
                     }
                 
+                }
+                
+                else if(!response.Addresses[0].Valid)
+                {
+                    
+                AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+                    
+                AddressObj.Temp_Address__c = AddressObj.Address_Line_1__c + ',' + AddressObj.Address_Line_2__c + ',' + AddressObj.Block__c + ',' +
+                    AddressObj.City__c + ',' + AddressObj.District__c + ',' + AddressObj.Province__c ;
+                AddressObj.Address_Code__c = '';
+                AddressObj.Address_Line_1__c = '';
+                AddressObj.Address_Line_2__c = '';
+                AddressObj.Block__c = '';
+                AddressObj.City__c = '';
+                AddressObj.District__c = '';
+                AddressObj.Province__c = '';
+                AddressObj.ZipCode__C = '';    
                 }
                 
             }
