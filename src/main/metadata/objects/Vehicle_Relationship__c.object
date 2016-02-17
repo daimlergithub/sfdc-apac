@@ -1367,7 +1367,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <relationshipLabel>Vehicle Relationships</relationshipLabel>
         <relationshipName>Vehicle_Relationships2</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -2123,7 +2123,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
@@ -2332,7 +2332,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <picklist>
             <picklistValues>
                 <fullName>Same</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Friend</fullName>
@@ -3926,16 +3926,16 @@ What factors were influential in your purchase decision?
         <label>Validity</label>
         <picklist>
             <picklistValues>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4536,7 +4536,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Same</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
@@ -4658,15 +4658,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Validity__c</picklist>
             <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5120,16 +5120,16 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Validity__c</picklist>
             <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5575,15 +5575,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Validity__c</picklist>
             <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

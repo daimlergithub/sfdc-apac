@@ -100,7 +100,7 @@
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
-			<sf:typeset name="queues"/>
+			<!--<sf:typeset name="queues"/>-->
 							
 		</deploy>
     </target>
@@ -120,6 +120,7 @@
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
 				<sf:include name="Car_Model__c"/>
+				<sf:include name="Trigger__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -141,6 +142,7 @@
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
+			   <sf:include name="Create_Vehicle"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -155,6 +157,10 @@
 			   <sf:include name="AddressSearchValidationControllerTest"/>
 			   <sf:include name="UtilWebserviceTest"/>
 			   <sf:include name="WebServiceMockImpl"/>
+			   <sf:include name="VehicleExtension"/>
+			   <sf:include name="VehicleExtensionTest"/>
+			   	<sf:include name="UtilCustomSettingsKernel"/>
+				<sf:include name="UtilCustomSettingsJP"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -210,6 +216,7 @@
 				<sf:include name="SurveyQuestionResponse__c"/>
 				<sf:include name="Survey_Question__c"/>
 			</sf:typeset>
+			<sf:typeset name="queues"/>
 		</deploy>
     </target>
 	
@@ -244,8 +251,8 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
-				<sf:include name="UtilCustomSettingsKernel"/>
-				<sf:include name="UtilCustomSettingsJP"/>
+				<!--<sf:include name="UtilCustomSettingsKernel"/>
+				<sf:include name="UtilCustomSettingsJP"/>-->
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
@@ -280,11 +287,23 @@
 				<sf:include name="TaskDeletingControllerTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
-				<sf:include name="campaignHistoryLogGenerationTest"/>
+				<!--<sf:include name="campaignHistoryLogGenerationTest"/>-->
+				<sf:include name="TestTriggerHandler"/>
+				<sf:include name="UtilProfile"/>
+				<sf:include name="UtilSobject"/>
+				<sf:include name="UtilLead"/>
+				<sf:include name="UtilTask"/>
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
 				<sf:include name="UtilAddressTranslation"/>
+				<sf:include name="VehicleDataSharingHandler"/>
+				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/>
+				<sf:include name="SharingDataHandlerBase"/>
+				<sf:include name="SharingDataHandlerBaseTest"/>
+				<sf:include name="CMapTest"/>
+				<sf:include name="CMap"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -364,7 +383,7 @@
 				<sf:include name="VehiclePicker"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
-			<sf:include name="UtilSobject"/>
+			<!--<sf:include name="UtilSobject"/>-->
 			<sf:include name="MisunderstoodTaskGeneration"/>
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
@@ -393,11 +412,12 @@
 	<target name="deploy33">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="CMapTest"/>
-			<sf:include name="CMap"/>
+			<!--<sf:include name="CMapTest"/>
+			<sf:include name="CMap"/>-->
 			<sf:include name="CampaignOfferingHelper"/>
 			<sf:include name="CampaignOfferingHelperTest"/>
 			<sf:include name="campaignHistoryLogGeneration"/>
+			<sf:include name="campaignHistoryLogGenerationTest"/>
 			<sf:include name="CSRLookupController"/>
 			<sf:include name="CSRLookupControllerTest"/>
 			<sf:include name="DealerSearchController"/>
@@ -418,9 +438,9 @@
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
 		</sf:typeset>	
-		<sf:typeset name="pages"> 
+		<!--<sf:typeset name="pages"> 
 				<sf:include name="Create_Vehicle"/>
-		</sf:typeset>		
+		</sf:typeset>-->		
 		</deploy>					
     </target>
 	
@@ -459,7 +479,7 @@
 			<sf:include name="NiceWebServicesTest"/>			
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
-			<sf:include name="AccountSharingDataHandler"/>
+			<!--<sf:include name="AccountSharingDataHandler"/>-->
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTest"/>
 			<sf:include name="TriggerAccountLinkTriggerHandlerJP"/>
@@ -494,7 +514,7 @@
 			<sf:include name="ContactHelper"/>
 			<sf:include name="ContactHelperTest"/>
 			<sf:include name="ContactTriggerHandler"/>
-			<sf:include name="TestTriggerHandler"/>
+			<!--<sf:include name="TestTriggerHandler"/>-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
@@ -611,14 +631,14 @@
 	<target name="deploy41">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="VehicleDataSharingHandler"/>
+			<!--<sf:include name="VehicleDataSharingHandler"/>-->
 			<sf:include name="VehicleRelationshipHelperTest"/>
 			<sf:include name="VehicleRelationshipSharingTest"/>
 			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
-			<sf:include name="SharingDataHandlerBase"/>
-			<sf:include name="SharingDataHandlerBaseTest"/>
+			<!--<sf:include name="SharingDataHandlerBase"/>
+			<sf:include name="SharingDataHandlerBaseTest"/>-->
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -664,6 +684,8 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
+			<sf:include name="UserTriggerCallout"/>
+			<sf:include name="UserTriggerCalloutTest"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="RetailCampaignTrigger"/>
@@ -720,9 +742,9 @@
 			<sf:include name="UserLookupResultControllerTest"/>
 			<sf:include name="SMSControllerExtension"/>
 			<sf:include name="SMSControllerExtensionTest"/>
-			<sf:include name="UserTriggerCallout"/>
+			<!--<sf:include name="UserTriggerCallout"/>
 			<sf:include name="UserTriggerCalloutTest"/>
-			<sf:include name="UtilProfile"/>
+			<sf:include name="UtilProfile"/>-->
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="UserHelper"/>
@@ -802,8 +824,8 @@
 			<sf:typeset name="components"/>
 			<sf:typeset name="classes">
 				<sf:include name="GenerateAndAttachPDF"/>
-				<sf:include name="CustomLogUtil"/>
-				<sf:include name="CustomLogUtilTest"/>
+				<!--<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/> -->
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>

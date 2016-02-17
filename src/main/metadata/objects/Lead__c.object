@@ -2301,6 +2301,34 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost(CAC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased(Only Non BDC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Allocated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2325,6 +2353,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Plan to Purchase</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2337,19 +2369,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Purchased(Only Non BDC)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost(CAC)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Lost(Dealer)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Plan to Purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2358,26 +2378,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Purchased</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approving</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Allocated</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Allocated</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2891,6 +2891,26 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <label>Dealer Lead Status</label>
         <picklist>
             <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On-going</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased(Only Non BDC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost(Dealer)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2918,26 +2938,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchased(Only Non BDC)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost(Dealer)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>On-going</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2952,7 +2952,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <picklist>
             <controllingField>Dealer_Lead_Status__c</controllingField>
             <picklistValues>
-                <fullName>Out of Stock</fullName>
+                <fullName>Bought other brand</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -2962,12 +2962,32 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bought MB elsewhere</fullName>
+                <fullName>Out of Stock</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bought other brand</fullName>
+                <fullName>Financing failed</fullName>
+                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsatisfied with service</fullName>
+                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Double lead</fullName>
+                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other reasons</fullName>
+                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bought MB elsewhere</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -2978,11 +2998,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Purchase plan postponed</fullName>
-                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Financing failed</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -3012,11 +3027,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double lead</fullName>
-                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Test lead</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
@@ -3032,22 +3042,12 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Unsatisfied with service</fullName>
-                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>The showroom is not convenient for me</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Campaign Period</fullName>
-                <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other reasons</fullName>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -8019,6 +8019,48 @@ Modify Reason:
         <picklist>
             <controllingField>Lead_Type__c</controllingField>
             <picklistValues>
+                <fullName>Demo Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alternative Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Lease</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler Employee</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>car care</fullName>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <default>false</default>
@@ -8056,48 +8098,6 @@ Modify Reason:
             <picklistValues>
                 <fullName>collection</fullName>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Demo Car</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Employee Car</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Employee Lease</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Alternative Car</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company Car</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler Employee</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gift Car</fullName>
-                <controllingFieldValues>New Car</controllingFieldValues>
-                <controllingFieldValues>Used Car</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8299,7 +8299,43 @@ Modify Reason:
         <label>Lost Situation</label>
         <picklist>
             <picklistValues>
+                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purhcased at othe MB stores</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Changed car in same company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purhcased MB from other importer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased MB at normal Used Car store</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gave up owning a car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales not appropriate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8324,42 +8360,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Stopped activity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchased Competitor's Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purhcased at othe MB stores</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purhcased MB from other importer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchased MB at normal Used Car store</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gave up owning a car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Continued using current car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales not appropriate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transferred for house moving</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9697,11 +9697,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Email</fullName>
+                <fullName>Phone and Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Phone and Email</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -14563,10 +14563,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <label>Test drive contents</label>
         <picklist>
             <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Around show room</fullName>
                 <default>false</default>
             </picklistValues>
@@ -14583,7 +14579,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>On assistant driver's seat</fullName>
+                <fullName>On assistant driver&apos;s seat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -18399,19 +18399,19 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Buy additional vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Refinance existing vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Replace existing vehicle</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Buy additional vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refinance existing vehicle</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19037,7 +19037,42 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
-
+    <listViews>
+        <fullName>CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_CRM_Department_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>MBJ_Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
@@ -19047,7 +19082,15 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-   
+    <listViews>
+        <fullName>Supervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Supervisor_Team_A_Lead</fullName>
         <filterScope>Queue</filterScope>
@@ -19066,7 +19109,24 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -45000,7 +45060,7 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Preferred</fullName>
