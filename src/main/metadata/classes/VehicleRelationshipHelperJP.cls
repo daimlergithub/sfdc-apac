@@ -190,7 +190,7 @@ public with sharing class VehicleRelationshipHelperJP
             Account_Link__c accLink=new Account_Link__c();
             accLink.Active__c=true;
             accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
-            if(mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
+            if(vr.Vehicle_ID__c != null && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
             {
                 accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
             }
