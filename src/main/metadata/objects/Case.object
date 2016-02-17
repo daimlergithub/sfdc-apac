@@ -7705,11 +7705,13 @@ Modify Reason:
         <label>Primary Case Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.Name</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
+            <infoMessage>Search and select the Dealer.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
@@ -102383,10 +102385,16 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Data_Source__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Dealer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Customer_Request__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PARENT.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
@@ -102394,11 +102402,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <lookupPhoneDialogsAdditionalFields>Contact_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Contact_Person_Tele__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Perferred_Contact_Number__c</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Data_Source__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Related_Department__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PARENT.CASE_NUMBER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
