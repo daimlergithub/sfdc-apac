@@ -102385,7 +102385,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
+        <!--<lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields> -->
         <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>
