@@ -154,7 +154,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Completed</fullName>

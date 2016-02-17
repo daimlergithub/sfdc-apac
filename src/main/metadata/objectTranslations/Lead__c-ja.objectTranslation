@@ -26,8 +26,12 @@
     </fields>
     <fields>
         <label>販売店</label>
+        <lookupFilter>
+            <errorMessage>適切なディーラーアカウントを選択して下さい。</errorMessage>
+            <informationalMessage>ディーラーアカウントの検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Assigned_Dealer__c</name>
-        <relationshipLabel><!-- Leads (Assigned Dealer) --></relationshipLabel>
+        <relationshipLabel>リード(法人アカウント)</relationshipLabel>
     </fields>
     <fields>
         <label>顧客指定販売店フラグ</label>
@@ -1778,7 +1782,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>承認差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
@@ -1821,7 +1825,7 @@
         <help><!-- System filed, please ignore. System field , please do not bother. --></help>
         <label><!-- Case --></label>
         <name>Case__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Close Date --></label>
@@ -1842,6 +1846,10 @@
     </fields>
     <fields>
         <label>契約対象会社</label>
+        <lookupFilter>
+            <errorMessage>適切な法人アカウントを選択して下さい。</errorMessage>
+            <informationalMessage>アカウントの検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Company_Account__c</name>
         <relationshipLabel><!-- Leads (Company Account) --></relationshipLabel>
     </fields>
@@ -1867,6 +1875,10 @@
     </fields>
     <fields>
         <label>顧客名</label>
+        <lookupFilter>
+            <errorMessage>適切な個人顧客アカウントを選択して下さい。</errorMessage>
+            <informationalMessage>アカウントの検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Contact__c</name>
         <relationshipLabel>リード</relationshipLabel>
     </fields>
@@ -1903,7 +1915,7 @@
     <fields>
         <label>現保有車</label>
         <name>Current_Vehicle__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
         <label>顧客名</label>
@@ -2196,7 +2208,7 @@
     <fields>
         <label>対象契約番号</label>
         <name>Existing_Contract__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
         <label>FAX</label>
@@ -5598,7 +5610,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
+            <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Catalogue</masterLabel>
@@ -7551,7 +7563,7 @@
     <fields>
         <label><!-- Retail Campaign Name --></label>
         <name>Retail_Campaign_Name__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Retail Interested Vehicle Brand --></label>
@@ -10354,7 +10366,7 @@
     <fields>
         <label>キャンペーン</label>
         <name>Source_Campaign__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
+        <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Source System --></label>

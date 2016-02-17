@@ -1,14 +1,14 @@
 <apex:page standardController="Vehicle__c" extensions="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c">
  <apex:form id="Myform">
   <apex:pageBlock >
-      <apex:pageBlockSection title="Vehicle Information" collapsible="false">
+      <apex:pageBlockSection title="{!$Label.Vehicle_Information}" collapsible="false">
                <apex:outputField value="{!Vehicle__c.Name}"/>
                <apex:outputField value="{!Vehicle__c.UsVIN__c}"/>
                <apex:outputField value="{!Vehicle__c.Brand__c}"/>
                <apex:outputField value="{!Vehicle__c.Class__c}"/>
                <apex:outputField value="{!Vehicle__c.Model__c}"/>              
       </apex:pageBlockSection>
-      <apex:pageBlockSection title="Vehicle Relationship Information" collapsible="false">
+      <apex:pageBlockSection title="{!$Label.VehicleRelationshipInformation}" collapsible="false">
              <apex:pageBlockTable value="{!lstVehicleRelation}" var="Ve_Rel" rendered="{!lstVehicleRelation.size!=0}">
                      <apex:column value="{!Ve_Rel.Contact__c}"/>
                      <apex:column value="{!Ve_Rel.Start_Date__c}"/>
@@ -18,7 +18,7 @@
               <apex:pageMessage summary="{!$Label.TerminateVehicleRelationship}" severity="info" strength="3" rendered="{!lstVehicleRelation.size==0}"/>
               <apex:pageMessages />               
         </apex:pageBlockSection>
-        <apex:pageBlockSection title="Terminate Vehicle Relationship" collapsible="false" rendered="{!lstVehicleRelation.size!=0}">
+        <apex:pageBlockSection title="{!$Label.Terminate_Vehicle_Relationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}">
                <apex:inputField value="{!objVehicleRelation.End_Date__c}" required="true"/>
                <apex:inputField value="{!objVehicleRelation.End_Reason__c}" required="true"/>
                <apex:inputField value="{!objVehicleRelation.Comments__c}"/>                

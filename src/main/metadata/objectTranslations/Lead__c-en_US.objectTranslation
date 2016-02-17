@@ -30,6 +30,10 @@
     </fields>
     <fields>
         <label><!-- Assigned Dealer --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+            <informationalMessage><!-- Search and select address of the account. --></informationalMessage>
+        </lookupFilter>
         <name>Assigned_Dealer__c</name>
         <relationshipLabel><!-- Leads (Assigned Dealer) --></relationshipLabel>
     </fields>
@@ -1846,6 +1850,10 @@
     </fields>
     <fields>
         <label><!-- Company Account --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper company account. --></errorMessage>
+            <informationalMessage><!-- Search and select accounts. --></informationalMessage>
+        </lookupFilter>
         <name>Company_Account__c</name>
         <relationshipLabel><!-- Leads (Company Account) --></relationshipLabel>
     </fields>
@@ -1871,6 +1879,10 @@
     </fields>
     <fields>
         <label><!-- Contact --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper person account. --></errorMessage>
+            <informationalMessage><!-- Search and select accounts. --></informationalMessage>
+        </lookupFilter>
         <name>Contact__c</name>
         <relationshipLabel><!-- Leads (Contact) --></relationshipLabel>
     </fields>
