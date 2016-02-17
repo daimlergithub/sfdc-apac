@@ -7390,6 +7390,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         <label>Main Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
@@ -8760,6 +8761,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Sales Address</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper address.</errorMessage>
             <filterItems>
                 <field>Address__c.Customer__c</field>
                 <operation>equals</operation>
