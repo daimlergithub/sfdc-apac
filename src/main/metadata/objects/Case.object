@@ -418,6 +418,16 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Approval_Submit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval Submit date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Approver__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -14969,6 +14979,19 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resolution_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>Approval_Submit_Date__c  -  CreatedDate</formula>
+        <label>Resolution Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Resolution__c</fullName>
@@ -102385,7 +102408,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
-        <!--<lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields> -->
         <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>

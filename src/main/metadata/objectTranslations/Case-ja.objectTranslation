@@ -72,6 +72,10 @@
         <name>Alternative_Transport_Method__c</name>
     </fields>
     <fields>
+        <label><!-- Approval Submit date --></label>
+        <name>Approval_Submit_Date__c</name>
+    </fields>
+    <fields>
         <label>承認者</label>
         <name>Approver__c</name>
         <relationshipLabel><!-- Cases (Approver) --></relationshipLabel>
@@ -10522,6 +10526,10 @@
     <fields>
         <label><!-- Requires Dealer Contact --></label>
         <name>Requires_Dealer_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resolution Time --></label>
+        <name>Resolution_Time__c</name>
     </fields>
     <fields>
         <label><!-- Resolution --></label>
