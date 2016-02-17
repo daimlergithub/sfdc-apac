@@ -433,7 +433,8 @@
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <formula>(ISPICKVAL( Status__c , &apos;Open&apos;) ||
-ISPICKVAL( Status__c , &apos;Sent Failed&apos;) ||
+ISPICKVAL( Status__c , &apos;Sent&apos;) ||
+ISPICKVAL( Status__c , &apos;Failed&apos;) ||
 ISPICKVAL( Status__c , &apos;Returned&apos;) ||
 ISPICKVAL( Status__c , &apos;Success&apos;) ||
 ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp;
