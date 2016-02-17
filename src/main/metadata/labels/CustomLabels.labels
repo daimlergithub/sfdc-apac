@@ -3391,6 +3391,13 @@
         <value>No Vehicle Relationship found for Termination</value>
     </labels>
     <labels>
+        <fullName>Terminate_Vehicle_Relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Terminate Vehicle Relationship</shortDescription>
+        <value>Terminate Vehicle Relationship</value>
+    </labels>
+    <labels>
         <fullName>Thankyouforyourbusiness</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3644,6 +3651,13 @@
         <protected>false</protected>
         <shortDescription>VehicleRelationship</shortDescription>
         <value>Vehicle Relationship</value>
+    </labels>
+    <labels>
+        <fullName>VehicleRelationshipInformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VehicleRelationshipInformation</shortDescription>
+        <value>Vehicle Relationship Information</value>
     </labels>
     <labels>
         <fullName>Vehicle_Detail</fullName>
