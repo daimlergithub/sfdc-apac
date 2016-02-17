@@ -183,6 +183,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Approval_submit_date</fullName>
+        <field>Approval_Submit_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Approval submit date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Case_Origin_To_CAC</fullName>
         <field>Origin</field>
         <literalValue>From CAC</literalValue>
@@ -277,6 +286,15 @@
         <field>Workflow_Order__c</field>
         <literalValue>0</literalValue>
         <name>update workflow order</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>waiting_for_Final_Approval</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Change Status to &apos;Waiting for final appr</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
