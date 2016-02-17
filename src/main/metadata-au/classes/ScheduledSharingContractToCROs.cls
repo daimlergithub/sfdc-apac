@@ -24,9 +24,8 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         List<Retail_Task__c> Ann3contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> EOC1contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> EOC2contracts = new List<Retail_Task__c>();
-        List<Retail_Task__c> EOC3contracts = new List<Retail_Task__c>();
-        List<User> users = new List<User>();
-        List<User> RTLusers = new List<User>();
+        List<Retail_Task__c> EOC3contracts = new List<Retail_Task__c>(); 
+        
         List<Task> preTask = new List<Task>();
         List<Retail_Task__c> preContract = new List<Retail_Task__c>();
         List<Id> accountIds = new List<Id>();
@@ -38,6 +37,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
                      Welcome_Call_Task__c, Annual_Call_Task_1_del__c, Annual_Call_Task_2_del__c, Annual_Call_Task_3_del__c, 
                      EOC_Call_Task_1_del__c, EOC_Call_Task_2_del__c, EOC_Call_Task_3_del__c from Retail_Task__c 
                      where GFV__c = true and Status__c in :contractStatus];
+        system.debug('contracts'+contracts);
         if(contracts.size() > 0)
         {
 	        for(Retail_Task__c con : contracts) {
@@ -55,11 +55,13 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            boolean flag = false;
 	                 
 	            if(con.Welcome_Call__c == true && con.Welcome_Call_Task__c == true) {
+                    system.debug('Welcome_Call_Task__c'+con.Welcome_Call_Task__c);
 	                Welcontracts.add(con);
 	                con.Welcome_Call_Task__c = false;
 	                flag = true;
 	            }
 	            if(con.Annual_Call__c == true && con.Annual_Call_Task_1_del__c == true) {
+                     system.debug('Annual_Call_Task_1_del__c'+con.Annual_Call_Task_1_del__c);
 	                Ann1contracts.add(con);
 	                con.Annual_Call_Task_1_del__c = false;
 	                flag = true;
@@ -103,21 +105,12 @@ global class ScheduledSharingContractToCROs implements Schedulable{
             accountIdPhone.put(acc.id, phone);
             
         }
-        
-        users = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%'];
-        RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead'];
-        if(users.size() == 0) {
-            users = RTLusers;
-        }
-        else if(users != null && users.size() > 0)
-        {
-	        Integer usersNum = users.size();
-	        Integer RTLusersNum = RTLusers.size();
-	        Integer i = 0;
-	        Integer j = 0;
+         
+      	      
 	        //Welcome Call
 	        if(Welcontracts.size() > 0)
 	        {
+                system.debug('Welcontracts'+Welcontracts);
 		        for(Retail_Task__c con : Welcontracts) {
 		            Id contactid = null;
 		            if(accountIdContactId.get(con.Account__c) != null)
@@ -125,27 +118,23 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 		            List<String> phone = new List<String>();
 		             if(accountIdPhone.get(con.Account__c) != null)
 		            phone = accountIdPhone.get(con.Account__c);
-		            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-		                Task t = createTask(con, RTLusers[j], 'Welcome Call', contactid, phone, WelcomeCallRT);
-		                preTask.add(t);
-		                j++;
-		                if(j >= RTLusersNum) {
-		                    j = 0;
-		                }
-		            } else {
-		                Task t = createTask(con, users[i], 'Welcome Call', contactid, phone, WelcomeCallRT);
-		                preTask.add(t);
-		                i++;
-		                if(i >= usersNum) {
-		                    i = 0;
-		                }
-		            }
-		           
+                    system.debug('testing phone'+phone);
+                    system.debug('testing phone'+phone[0]);
+                    if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
+                        
+                        Task t = createTask(con,'Welcome Call', contactid, phone, WelcomeCallRT);
+                        
+                         preTask.add(t);
+                        system.debug('tesks'+preTask);
+                    }  
 		        }
 	        }
+            
+           
+            
     	
         //Annual Call
-        i = 0;
+       
         if(Ann1contracts.size() > 0)
         {
 	        for(Retail_Task__c con : Ann1contracts) {
@@ -155,21 +144,13 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'First Year Annual Call', contactid, phone, AnnualCallRT);
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
+	                Task t = createTask(con,  'First Year Annual Call', contactid, phone, AnnualCallRT);
+                     
 	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'First Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+                    system.debug('tesks2'+preTask);
+	                
+	            } 
 	        }
         }
         if(Ann2contracts.size() > 0)
@@ -181,22 +162,11 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'Second Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'Second Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '' ) {
+	                Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
+	                preTask.add(t);	                
 	        }
+        }
         }
         if(Ann3contracts.size() > 0)
         {
@@ -207,25 +177,15 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'Third Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'Third Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '' ) {
+	                Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
+	                preTask.add(t);                
+	            
 	        }
         }
+        }
         //EOC Call
-        i = 0;
+       
         if(EOC1contracts.size() > 0)
         {
 	        for(Retail_Task__c con : EOC1contracts) {
@@ -235,21 +195,11 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'First End of Contract Call', contactid, phone, EOCCallRT);
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
+	                Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'First End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+	               
+	            } 
 	        }
         }
         if(EOC2contracts.size() > 0)
@@ -261,21 +211,10 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'Second End of Contract Call', contactid, phone, EOCCallRT);
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
+	                Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'Second End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+	          } 
 	        }
         }
         if(EOC3contracts.size() > 0)
@@ -287,40 +226,32 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	             if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
-	                Task t = createTask(con, RTLusers[j], 'Final End of Contract Call', contactid, phone, EOCCallRT);
+	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
+	                Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
-	                j++;
-	                if(j >= RTLusersNum) {
-	                    j = 0;
-	                }
-	            } else {
-	                Task t = createTask(con, users[i], 'Final End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	                i++;
-	                if(i >= usersNum) {
-	                    i = 0;
-	                }
-	            }
+	                
+	            } 
 	        }
         }
-        }
+        
+       
+        
         try {
-            if(preTask.size() > 0) {
-                insert preTask;
-            }
-            if(preContract.size() > 0) {
-                update preContract;
-            }
-        } catch (Exception ex) {
+                if(preTask.size() > 0) {
+                    insert preTask;                
+                }
+                assignOwner();
+                if(preContract.size() > 0) {
+                    update preContract;
+                }
+          }catch (Exception ex) {
             system.debug('Insert Update Error:' + ex.getMessage());
-        }
+          }
         
     }
     
-    public Task createTask(Retail_Task__c con, User user, String str, Id conId, List<String> phone, Id RTId) {
+    public Task createTask(Retail_Task__c con,  String str, Id conId, List<String> phone, Id RTId) {
         Task task = new Task();
-        task.ownerId = user.id;
         task.subject = str;
         task.whatId = con.id;
         task.Reason__c = 'Initial Attempt';
@@ -340,4 +271,66 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         }
         return task;
     } 
+    public void assignOwner(){
+       
+        List<User> csusers = new List<User>();
+         List<Task> tasks = new List<Task>();
+         List<User> crusers = new List<User>();
+         List<User> RTLusers = new List<User>();
+        
+        crusers = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%' and IsActive=true];
+        csusers = [select id, name from User where Active_Permission_Set__c= true and UserRole.name like '%Customer Service Team%' and IsActive=true];
+        RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead' and IsActive=true];
+        
+         System.debug('!!!! RTLusers '+RTLusers);
+        System.debug('!!!! crusers '+crusers );
+        System.debug('!!!! csusers '+csusers );  
+        
+        if(crusers.size() == 0) {
+            crusers = RTLusers;
+        }
+         tasks = [select id,RecordTypeId, ownerId from Task where  status =: 'Not Started'];
+         system.debug('assign task'+tasks);
+          Integer i = 0;  
+          for(Task t : tasks) {
+            if(csusers != null && csusers.size() > 0 ) {                
+                if(t.RecordTypeId==WelcomeCallRT){
+                    system.debug('WelcomeCallRT'+WelcomeCallRT);
+                    t.ownerId = csusers[i].id;
+                    i++;
+                    if(i >= csusers.size()) {
+                        i = 0;
+                    }
+            } 
+        }
+      }
+         i = 0;  
+        for(Task t : tasks) {
+            if(crusers != null && crusers.size() > 0 ) {
+                if(t.RecordTypeId==AnnualCallRT || t.RecordTypeId==EOCCallRT){
+                    system.debug('AnnualCallRT'+AnnualCallRT);
+                    system.debug('EOCCallRT'+EOCCallRT);
+                    t.ownerId = crusers[i].id;
+                    i++;
+                    if(i >= crusers.size()) {
+                        i = 0;
+                    }
+            } 
+        }
+      }
+        if(tasks.size() > 0) {
+            UserUpdate(tasks);
+            system.debug('UserUpdate'+tasks);
+        }
+            
+        
+    }
+    
+    public void UserUpdate(List<Sobject> obj){
+                try {
+                    update obj;
+                } catch (Exception ex) {
+                    system.debug('Error message:'+ex.getmessage());
+                }
+    }
 }

@@ -20672,14 +20672,16 @@
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Activate/Deactivate CROs</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/apex/TaskMassChangeActivateDeactive</url>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+
+
+window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');</url>
     </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>
