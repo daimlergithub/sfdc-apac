@@ -72,6 +72,10 @@
         <name>Alternative_Transport_Method__c</name>
     </fields>
     <fields>
+        <label><!-- Approval Submit date --></label>
+        <name>Approval_Submit_Date__c</name>
+    </fields>
+    <fields>
         <label>承認者</label>
         <name>Approver__c</name>
         <relationshipLabel><!-- Cases (Approver) --></relationshipLabel>
@@ -5878,6 +5882,10 @@
     </fields>
     <fields>
         <label>展開先(販売店)</label>
+        <lookupFilter>
+            <errorMessage>適切な販売店を選択して下さい。</errorMessage>
+            <informationalMessage>販売店の検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Case_Dealer__c</name>
         <relationshipLabel><!-- Cases (Dealer) --></relationshipLabel>
     </fields>
@@ -6787,6 +6795,10 @@
         <picklistValues>
             <masterLabel>MBJ Magazine Test drive</masterLabel>
             <translation>[MBJ（インポーター）]活動（カタログ/試乗/見積その他請求）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBJ Mercedes me</masterLabel>
+            <translation><!-- MBJ Mercedes me --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Others</masterLabel>
@@ -7714,6 +7726,10 @@
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
             <translation>メルセデス・マガジン・アンケート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation><!-- Mercedes Me Haneda --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
@@ -8786,8 +8802,344 @@
         <label><!-- Improvement Department --></label>
         <name>Improvement_Department__c</name>
         <picklistValues>
+            <masterLabel>ACT</masterLabel>
+            <translation><!-- ACT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ADM</masterLabel>
+            <translation><!-- ADM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT</masterLabel>
+            <translation><!-- AFT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/A&amp;C</masterLabel>
+            <translation><!-- AFT/A&amp;C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/ASP</masterLabel>
+            <translation><!-- AFT/ASP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/PIM</masterLabel>
+            <translation><!-- AFT/PIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/PLO</masterLabel>
+            <translation><!-- AFT/PLO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BUD</masterLabel>
+            <translation><!-- BUD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM</masterLabel>
+            <translation><!-- CEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/AUT</masterLabel>
+            <translation><!-- CEM/AUT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/BCE</masterLabel>
+            <translation><!-- CEM/BCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/CRM</masterLabel>
+            <translation><!-- CEM/CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/MBCO</masterLabel>
+            <translation><!-- CEM/MBCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/MBCT</masterLabel>
+            <translation><!-- CEM/MBCT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMT</masterLabel>
+            <translation><!-- CMT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COC</masterLabel>
+            <translation><!-- COC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COM</masterLabel>
+            <translation><!-- COM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPO</masterLabel>
+            <translation><!-- CPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTL/CC</masterLabel>
+            <translation><!-- CTL/CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTL/RC</masterLabel>
+            <translation><!-- CTL/RC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCA</masterLabel>
+            <translation><!-- DCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM</masterLabel>
+            <translation><!-- DEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/AT</masterLabel>
+            <translation><!-- DEM/AT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/ND</masterLabel>
+            <translation><!-- DEM/ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/NM</masterLabel>
+            <translation><!-- DEM/NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/ST</masterLabel>
+            <translation><!-- DEM/ST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/TO</masterLabel>
+            <translation><!-- DEM/TO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFSJ</masterLabel>
+            <translation><!-- DFSJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DISJ</masterLabel>
+            <translation><!-- DISJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EM + Sec</masterLabel>
+            <translation><!-- EM + Sec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export</masterLabel>
+            <translation><!-- Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/DE</masterLabel>
+            <translation><!-- HR/DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/HRP</masterLabel>
+            <translation><!-- HR/HRP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/LBP</masterLabel>
+            <translation><!-- HR/LBP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/OP</masterLabel>
+            <translation><!-- HR/OP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRD/G</masterLabel>
+            <translation><!-- HRD/G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPJ</masterLabel>
+            <translation><!-- IPJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPS</masterLabel>
+            <translation><!-- IPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM</masterLabel>
+            <translation><!-- ITM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/FS</masterLabel>
+            <translation><!-- ITM/FS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/IMO</masterLabel>
+            <translation><!-- ITM/IMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/P&amp;G,CF</masterLabel>
+            <translation><!-- ITM/P&amp;G,CF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/R,S&amp;P</masterLabel>
+            <translation><!-- ITM/R,S&amp;P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/S&amp;M</masterLabel>
+            <translation><!-- ITM/S&amp;M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEG</masterLabel>
+            <translation><!-- LEG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEG/Legal</masterLabel>
+            <translation><!-- LEG/Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF</masterLabel>
+            <translation><!-- MBF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC</masterLabel>
+            <translation><!-- MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/AMG</masterLabel>
+            <translation><!-- MC/AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/CC</masterLabel>
+            <translation><!-- MC/CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/MC</masterLabel>
+            <translation><!-- MC/MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/PPR</masterLabel>
+            <translation><!-- MC/PPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/smart</masterLabel>
+            <translation><!-- MC/smart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/CESAR Project</masterLabel>
+            <translation><!-- MS/CESAR Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/CPM</masterLabel>
+            <translation><!-- MS/CPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/HML</masterLabel>
+            <translation><!-- MS/HML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P1</masterLabel>
+            <translation><!-- MS/P1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P2</masterLabel>
+            <translation><!-- MS/P2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P3</masterLabel>
+            <translation><!-- MS/P3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/SD</masterLabel>
+            <translation><!-- MS/SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/TCO</masterLabel>
+            <translation><!-- MS/TCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/VP</masterLabel>
+            <translation><!-- MS/VP --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RDJ</masterLabel>
+            <translation><!-- RDJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO</masterLabel>
+            <translation><!-- SO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/DS</masterLabel>
+            <translation><!-- SO/DS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/FF</masterLabel>
+            <translation><!-- SO/FF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/FFBO</masterLabel>
+            <translation><!-- SO/FFBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/UC</masterLabel>
+            <translation><!-- SO/UC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/VLO</masterLabel>
+            <translation><!-- SO/VLO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPM</masterLabel>
+            <translation><!-- SPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPM/PBM</masterLabel>
+            <translation><!-- SPM/PBM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statutory Auditor</masterLabel>
+            <translation><!-- Statutory Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC</masterLabel>
+            <translation><!-- TEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/QC</masterLabel>
+            <translation><!-- TEC/QC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/TF</masterLabel>
+            <translation><!-- TEC/TF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/TI</masterLabel>
+            <translation><!-- TEC/TI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/WAL</masterLabel>
+            <translation><!-- TEC/WAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRE</masterLabel>
+            <translation><!-- TRE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRE/COF</masterLabel>
+            <translation><!-- TRE/COF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSJ</masterLabel>
+            <translation><!-- TSJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VET</masterLabel>
+            <translation><!-- VET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VPC</masterLabel>
+            <translation><!-- VPC --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -9811,8 +10163,344 @@
         <label><!-- Related Department --></label>
         <name>Related_Department__c</name>
         <picklistValues>
+            <masterLabel>ACT</masterLabel>
+            <translation><!-- ACT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ADM</masterLabel>
+            <translation><!-- ADM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT</masterLabel>
+            <translation><!-- AFT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/A&amp;C</masterLabel>
+            <translation><!-- AFT/A&amp;C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/ASP</masterLabel>
+            <translation><!-- AFT/ASP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/PIM</masterLabel>
+            <translation><!-- AFT/PIM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AFT/PLO</masterLabel>
+            <translation><!-- AFT/PLO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BUD</masterLabel>
+            <translation><!-- BUD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM</masterLabel>
+            <translation><!-- CEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/AUT</masterLabel>
+            <translation><!-- CEM/AUT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/BCE</masterLabel>
+            <translation><!-- CEM/BCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/CRM</masterLabel>
+            <translation><!-- CEM/CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/MBCO</masterLabel>
+            <translation><!-- CEM/MBCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CEM/MBCT</masterLabel>
+            <translation><!-- CEM/MBCT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMT</masterLabel>
+            <translation><!-- CMT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COC</masterLabel>
+            <translation><!-- COC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COM</masterLabel>
+            <translation><!-- COM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPO</masterLabel>
+            <translation><!-- CPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTL/CC</masterLabel>
+            <translation><!-- CTL/CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTL/RC</masterLabel>
+            <translation><!-- CTL/RC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCA</masterLabel>
+            <translation><!-- DCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM</masterLabel>
+            <translation><!-- DEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/AT</masterLabel>
+            <translation><!-- DEM/AT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/ND</masterLabel>
+            <translation><!-- DEM/ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/NM</masterLabel>
+            <translation><!-- DEM/NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/ST</masterLabel>
+            <translation><!-- DEM/ST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEM/TO</masterLabel>
+            <translation><!-- DEM/TO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFSJ</masterLabel>
+            <translation><!-- DFSJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DISJ</masterLabel>
+            <translation><!-- DISJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EM + Sec</masterLabel>
+            <translation><!-- EM + Sec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export</masterLabel>
+            <translation><!-- Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/DE</masterLabel>
+            <translation><!-- HR/DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/HRP</masterLabel>
+            <translation><!-- HR/HRP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/LBP</masterLabel>
+            <translation><!-- HR/LBP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR/OP</masterLabel>
+            <translation><!-- HR/OP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HRD/G</masterLabel>
+            <translation><!-- HRD/G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPJ</masterLabel>
+            <translation><!-- IPJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPS</masterLabel>
+            <translation><!-- IPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM</masterLabel>
+            <translation><!-- ITM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/FS</masterLabel>
+            <translation><!-- ITM/FS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/IMO</masterLabel>
+            <translation><!-- ITM/IMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/P&amp;G,CF</masterLabel>
+            <translation><!-- ITM/P&amp;G,CF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/R,S&amp;P</masterLabel>
+            <translation><!-- ITM/R,S&amp;P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITM/S&amp;M</masterLabel>
+            <translation><!-- ITM/S&amp;M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEG</masterLabel>
+            <translation><!-- LEG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEG/Legal</masterLabel>
+            <translation><!-- LEG/Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF</masterLabel>
+            <translation><!-- MBF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC</masterLabel>
+            <translation><!-- MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/AMG</masterLabel>
+            <translation><!-- MC/AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/CC</masterLabel>
+            <translation><!-- MC/CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/MC</masterLabel>
+            <translation><!-- MC/MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/PPR</masterLabel>
+            <translation><!-- MC/PPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC/smart</masterLabel>
+            <translation><!-- MC/smart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/CESAR Project</masterLabel>
+            <translation><!-- MS/CESAR Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/CPM</masterLabel>
+            <translation><!-- MS/CPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/HML</masterLabel>
+            <translation><!-- MS/HML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P1</masterLabel>
+            <translation><!-- MS/P1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P2</masterLabel>
+            <translation><!-- MS/P2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/P3</masterLabel>
+            <translation><!-- MS/P3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/SD</masterLabel>
+            <translation><!-- MS/SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/TCO</masterLabel>
+            <translation><!-- MS/TCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS/VP</masterLabel>
+            <translation><!-- MS/VP --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RDJ</masterLabel>
+            <translation><!-- RDJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO</masterLabel>
+            <translation><!-- SO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/DS</masterLabel>
+            <translation><!-- SO/DS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/FF</masterLabel>
+            <translation><!-- SO/FF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/FFBO</masterLabel>
+            <translation><!-- SO/FFBO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/UC</masterLabel>
+            <translation><!-- SO/UC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO/VLO</masterLabel>
+            <translation><!-- SO/VLO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPM</masterLabel>
+            <translation><!-- SPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPM/PBM</masterLabel>
+            <translation><!-- SPM/PBM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statutory Auditor</masterLabel>
+            <translation><!-- Statutory Auditor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC</masterLabel>
+            <translation><!-- TEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/QC</masterLabel>
+            <translation><!-- TEC/QC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/TF</masterLabel>
+            <translation><!-- TEC/TF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/TI</masterLabel>
+            <translation><!-- TEC/TI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEC/WAL</masterLabel>
+            <translation><!-- TEC/WAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRE</masterLabel>
+            <translation><!-- TRE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRE/COF</masterLabel>
+            <translation><!-- TRE/COF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSJ</masterLabel>
+            <translation><!-- TSJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VET</masterLabel>
+            <translation><!-- VET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VPC</masterLabel>
+            <translation><!-- VPC --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -9838,6 +10526,10 @@
     <fields>
         <label><!-- Requires Dealer Contact --></label>
         <name>Requires_Dealer_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resolution Time --></label>
+        <name>Resolution_Time__c</name>
     </fields>
     <fields>
         <label><!-- Resolution --></label>
@@ -10122,10 +10814,6 @@
         <picklistValues>
             <masterLabel>Escalation Request</masterLabel>
             <translation><!-- Escalation Request --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Escaltaion Confirmed</masterLabel>
-            <translation><!-- Escaltaion Confirmed --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final Position Released</masterLabel>
@@ -13667,7 +14355,6 @@
             <section>Vehicle Owner Details</section>
         </sections>
     </layouts>
-   
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
         <name>Chrysler_Complaint</name>
@@ -13920,13 +14607,4 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
-    <workflowTasks>
-        <name>approval</name>
-        <subject><!-- approval needed --></subject>
-    </workflowTasks>
-    <workflowTasks>
-        <description><!-- Please check the Case Closing Approval Step 2 --></description>
-        <name>test_Approval_process_alert</name>
-        <subject><!-- test Approval process alert --></subject>
-    </workflowTasks>
 </CustomObjectTranslation>

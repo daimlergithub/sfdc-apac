@@ -31,12 +31,12 @@ public class AddressSearchValidationController
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
-       // refreshPage = false;
+        // refreshPage = false;
     }
     
-/**  Save Account based on two scenarios 
- * 1. With Validated Address information record.
- * 2.Without Address record.
+    /**  Save Account based on two scenarios 
+* 1. With Validated Address information record.
+* 2.Without Address record.
 **  Created By: Narasimha  
 **  Date: 2016-1-19 
 **/
@@ -55,8 +55,8 @@ public class AddressSearchValidationController
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
                     if(objAccount.Individual_Home_Phone__c == null && objAccount.Mobile__c == null && objAccount.Work_Phone__c == null &&
-                      objAccount.Mobile2__c == null && objAccount.Home_Phone_2__c == null &&  objAccount.Phone == null &&
-                      objAccount.Email__c == null && objAccount.Email2__c == null)
+                       objAccount.Mobile2__c == null && objAccount.Home_Phone_2__c == null &&  objAccount.Phone == null &&
+                       objAccount.Email__c == null && objAccount.Email2__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
@@ -76,8 +76,8 @@ public class AddressSearchValidationController
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
-                      objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
-                      objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
+                       objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
+                       objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
@@ -192,9 +192,9 @@ public class AddressSearchValidationController
         system.debug('Selected type...' +selectedRecordType);
     }
     
-  
+    
     /**  Address Search based on Zip code.
-     Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
+Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
 **  Created By: Narasimha  
 **  Date: 2016-1-19
 **/
@@ -216,14 +216,14 @@ public class AddressSearchValidationController
         }
         
         if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Block__c != null || AddressObj.City__c != null ||
-          AddressObj.District__c != null || AddressObj.Province__c != null )
+           AddressObj.District__c != null || AddressObj.Province__c != null )
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null)); 
             
         }
         
         
-       else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
+        else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {
             
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
@@ -242,28 +242,28 @@ public class AddressSearchValidationController
                     
                     if(ValidStr.contains('Address_Line_1__c'))
                     {
-                       
-                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
-                         
+                        
+                        AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                        
                     }
                     if(ValidStr.contains('Address_Line_2__c'))
                     {
                         
-                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                        AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
                     }
                     if(ValidStr.contains('Block__c'))
                     {
-                         
-                         AddressObj.Block__c = response.Addresses[0].Block;
+                        
+                        AddressObj.Block__c = response.Addresses[0].Block;
                     }
                     if(ValidStr.contains('City__c'))
                     {
-                         AddressObj.City__c = response.Addresses[0].City;
-                       
+                        AddressObj.City__c = response.Addresses[0].City;
+                        
                     }
                     if(ValidStr.contains('District__c'))
                     {
-                         AddressObj.District__c = response.Addresses[0].District;
+                        AddressObj.District__c = response.Addresses[0].District;
                         
                     }
                     if(ValidStr.contains('Province__c'))
@@ -271,7 +271,7 @@ public class AddressSearchValidationController
                         AddressObj.Province__c = response.Addresses[0].Province;
                         
                     }
-                
+                    
                 }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -291,7 +291,7 @@ public class AddressSearchValidationController
     }
     
     /**  Address Validation based on Zip code.
-     After Address is searched using Address Search button and if user enters additional address information, It sends information to 
+After Address is searched using Address Search button and if user enters additional address information, It sends information to 
 EP/Tolerant for Validation.
 **  Created By: Narasimha  
 **  Date: 2016-1-19
@@ -327,46 +327,60 @@ EP/Tolerant for Validation.
                     String ValidStr = response.Addresses[0].ValidFields;
                     if(ValidStr.contains('Address_Line_1__c'))
                     {
-                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                        AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
                     }
                     if(ValidStr.contains('Address_Line_2__c'))
                     {
-                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                        AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
                     }
                     if(ValidStr.contains('Block__c'))
                     {
-                         AddressObj.Block__c = response.Addresses[0].Block;
+                        AddressObj.Block__c = response.Addresses[0].Block;
                     }
                     if(ValidStr.contains('City__c'))
                     {
-                         AddressObj.City__c = response.Addresses[0].City;
+                        AddressObj.City__c = response.Addresses[0].City;
                     }
                     if(ValidStr.contains('District__c'))
                     {
-                         AddressObj.District__c = response.Addresses[0].District;
+                        AddressObj.District__c = response.Addresses[0].District;
                     }
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;
                     }
-                
+                    
                 }
                 
                 else if(!response.Addresses[0].Valid)
                 {
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues('JP');
+                    if(addtrmapUpdate.containsKey(AddressObj.Province__c))
+                    {
+                        province = addtrmapUpdate.get(AddressObj.Province__c);
+                    }
+                    AddressObj.Province__c =  province;
                     
-                AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+                    AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
                     
-                AddressObj.Temp_Address__c = AddressObj.Address_Line_1__c + ',' + AddressObj.Address_Line_2__c + ',' + AddressObj.Block__c + ',' +
-                    AddressObj.City__c + ',' + AddressObj.District__c + ',' + AddressObj.Province__c ;
-                AddressObj.Address_Code__c = '';
-                AddressObj.Address_Line_1__c = '';
-                AddressObj.Address_Line_2__c = '';
-                AddressObj.Block__c = '';
-                AddressObj.City__c = '';
-                AddressObj.District__c = '';
-                AddressObj.Province__c = '';
-                AddressObj.ZipCode__C = '';    
+                    AddressObj.Temp_Address__c = ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' )
+                        + ',' + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' )
+                        + ',' + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' )
+                        + ',' + ((AddressObj.City__c != null) ? AddressObj.City__c : '' )
+                        + ',' + ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) 
+                        + ',' + ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) ;
+                    
+                    
+                    AddressObj.Address_Code__c = '';
+                    AddressObj.Address_Line_1__c = '';
+                    AddressObj.Address_Line_2__c = '';
+                    AddressObj.Block__c = '';
+                    AddressObj.City__c = '';
+                    AddressObj.District__c = '';
+                    AddressObj.Province__c = '';
+                    AddressObj.ZipCode__C = '';    
                 }
                 
             }
@@ -388,7 +402,7 @@ EP/Tolerant for Validation.
     }
     
     
-/**  Address Code Validation.
+    /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
@@ -399,18 +413,18 @@ If the user is Saving  same address which matches the fields returned by toleran
         response =  UtilWebservice.validateAddressByZipCode(Address);
         
         if(response != null && response.ValidationStatus == 'OK')
+        {
+            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
+               AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
             {
-                if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
-                  AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
-                {
-                    return response.Addresses[0].Address_Code;
-                }
-                
-                else 
-                {
-                    return null;
-                }
+                return response.Addresses[0].Address_Code;
             }
+            
+            else 
+            {
+                return null;
+            }
+        }
         return null;
     }
     
