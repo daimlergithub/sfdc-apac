@@ -358,18 +358,32 @@ EP/Tolerant for Validation.
                 }
                 else if(!response.Addresses[0].Valid)
                 {
-                AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
                     
-                AddressObj.Temp_Address__c = AddressObj.Address_Line_1__c + ',' + AddressObj.Address_Line_2__c + ',' + AddressObj.Block__c + ',' +
-                    AddressObj.City__c + ',' + AddressObj.District__c + ',' + AddressObj.Province__c ;    
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues('JP');
+                    if(addtrmapUpdate.containsKey(AddressObj.Province__c))
+                    {
+                        province = addtrmapUpdate.get(AddressObj.Province__c);
+                    }
+                    AddressObj.Province__c =  province;
                     
-                AddressObj.Address_Code__c = '';
-                AddressObj.Address_Line_1__c = '';
-                AddressObj.Address_Line_2__c = '';
-                AddressObj.Block__c = '';
-                AddressObj.City__c = '';
-                AddressObj.District__c = '';
-                AddressObj.Province__c = '';
+                    AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+                    
+                    AddressObj.Temp_Address__c = ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' )
+                        + ',' + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' )
+                        + ',' + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' )
+                        + ',' + ((AddressObj.City__c != null) ? AddressObj.City__c : '' )
+                        + ',' + ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) 
+                        + ',' + ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) ;   
+                    
+                    AddressObj.Address_Code__c = '';
+                    AddressObj.Address_Line_1__c = '';
+                    AddressObj.Address_Line_2__c = '';
+                    AddressObj.Block__c = '';
+                    AddressObj.City__c = '';
+                    AddressObj.District__c = '';
+                    AddressObj.Province__c = '';
                     
                 }
                 
@@ -391,7 +405,7 @@ EP/Tolerant for Validation.
     } 
     
     
-/**  Address Code Validation.
+    /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
@@ -402,18 +416,18 @@ If the user is Saving  same address which matches the fields returned by toleran
         response =  UtilWebservice.validateAddressByZipCode(Address);
         
         if(response != null && response.ValidationStatus == 'OK')
+        {
+            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
+               AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
             {
-                if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
-                  AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
-                {
-                    return response.Addresses[0].Address_Code;
-                }
-                
-                else 
-                {
-                    return null;
-                }
+                return response.Addresses[0].Address_Code;
             }
+            
+            else 
+            {
+                return null;
+            }
+        }
         return null;
     }
 }
