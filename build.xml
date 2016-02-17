@@ -284,6 +284,7 @@
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
+				<sf:include name="UtilAddressTranslation"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -410,6 +411,7 @@
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
 			<sf:include name="UtilConstant"/> 
 			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="AccountSharingDataHandlerTest"/>
 			<sf:include name="VehicleExtension"/>
 			<sf:include name="VehicleExtensionTest"/>
 		</sf:typeset>
@@ -454,6 +456,7 @@
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="AvatoHelperTest"/>
 			<sf:include name="NiceWebServices"/>
+			<sf:include name="NiceWebServicesTest"/>			
 			<sf:include name="UtilTask"/>
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>

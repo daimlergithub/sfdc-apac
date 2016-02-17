@@ -4,6 +4,7 @@
 ** Upadte Primary address display field based on primary address reference lookup field.
 ** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
+
 ** Date: 2015-12-22
 ** Modified By : 
 ** Modified date :
@@ -164,9 +165,8 @@ public class AccountHelperJP
             {      
                 if(a.MD__c == 'JP')
                 {
-                    If(a.Primary_Address_Reference__c != Null)
+                    
                         addressid.add(a.Primary_Address_Reference__c);
-                }   
             }
             
             If(!addressid.isEmpty())
@@ -178,18 +178,30 @@ public class AccountHelperJP
                     {   
                         If(acc.Primary_Address_Reference__c !=Null)
                         {
+                            UtilAddressTranslation.gettranslatedvalues('JP');
+                            String province;
+                            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
                             Address__c add = addr.get(acc.Primary_Address_Reference__c);
                             system.debug('!!!!!!!'+add.id);
-                            acc.Primary_Address_Display__c = add.Province__c+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                            if(addtrmap1.containsKey(add.Province__c))
+                            {
+                                province = addtrmap1.get(add.Province__c);
+                            }
+                            acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
                             acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }
+                        else if(acc.Primary_Address_Reference__c ==Null)
+                        {
+                             acc.Primary_Address_Display__c ='';
+                        }
+                            
                     }              
                 }     
                 
             }
         }
     }
-        
+    }    
     
         /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
@@ -321,6 +333,10 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
             
     }
+        /** To generate UCID value based on Record type.
+** Created By: Sreeram
+** Date: 2016-01-10 
+**/
 
     public static void createUCID(list<Account> TriggerNew,boolean isInsert)
     {

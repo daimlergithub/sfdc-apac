@@ -15,5 +15,5 @@ Public class NiceWebServicesTest{
       TimeZoneSidKey='America/Los_Angeles', UserName='testdata@testing.com');
       insert usr;     
       String InteractionId=AvatoHelper.getInteractionIds(usr.id,system.now());
-    }
+    } 
  }

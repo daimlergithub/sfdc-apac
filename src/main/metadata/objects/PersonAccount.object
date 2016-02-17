@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEMPersonAccount</compactLayoutAssignment>
-    <!--<enableHistory>true</enableHistory> -->
+    <enableHistory>true</enableHistory> 
     <externalSharingModel>Private</externalSharingModel>
     <recordTypes>
         <fullName>PersonAccount</fullName>
@@ -2285,6 +2285,10 @@
                 <fullName>Male</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Hobby__c</picklist>
@@ -3882,10 +3886,6 @@
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
@@ -4205,6 +4205,10 @@
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
@@ -4217,7 +4221,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MBJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ministry of Transport</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4501,10 +4513,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>UpsellOpportunity__c</picklist>
-            <values>
-                <fullName>Maybe</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

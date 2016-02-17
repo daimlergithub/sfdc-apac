@@ -1,5 +1,5 @@
 <apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
- <html>
+<html>
   <head>
     <style type="text/css">
           body {
@@ -26,15 +26,14 @@
       <table width="100%">  
            <tr>               
              <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
-             <td width="25%"><apex:outputField value="{!Case.CaseNumber}"/></td>
+             <td width="15%"><apex:outputField value="{!Case.CaseNumber}"/></td>
           </tr>
-          <tr>               
-             <td width="25%" align="right">{!$Label.DealerName}</td> 
-             <td width="70%" align="left" colspan="4">{!Case.Case_Dealer__r.Name}&nbsp;{!$Label.Onchu}</td>                      
+          <tr> 
+             <td width="40%">{!Case.Case_Dealer__r.Name}</td>  
+             <td align="left" colspan="3">{!$Label.Onchu}</td>                      
           </tr>
-          <tr>
-             <td width="25%" align="right">{!$Label.DealerPersonName}</td>       
-             <td width="25%"/>       
+          <tr> 
+             <td width="40%"/>       
              <td colspan="3" align="left">{!$Label.Dono}</td>                   
           </tr> 
           </table>       
@@ -63,8 +62,8 @@
         </table>  
         <table border="1" width="100%" rules="rows">
            <tr>
-             <td align="right" width="20%">{!$Label.Customer}</td>
-             <td align="left" width="80%">
+             <td align="right" width="20%" height="20">{!$Label.Customer}</td>
+             <td align="left" width="80%" height="20">
                  <apex:outputField value="{!case.Account.FirstName}"/>&nbsp;
                  <apex:outputField value="{!case.Account.LastName}"/>
              </td>                                                                   
@@ -72,8 +71,8 @@
          </table>
        <table border="1" width="100%" rules="rows">
            <tr>
-             <td align="right" width="20%">{!$Label.Address}</td>
-             <td align="left" width="80%">
+             <td align="right" width="20%" height="20">{!$Label.Address}</td>
+             <td align="left" width="80%" height="20">
                  <apex:outputField value="{!Case.Account.Primary_Address_Reference__c}"/>&nbsp;
                  <apex:outputLabel rendered="{! If(Case.Account.Primary_Address_Reference__c!=Null ,true,false) }">{!$Label.Post}</apex:outputLabel>
                   &nbsp;<apex:outputLabel rendered="{! If(Case.Account.ZipCode__c!=Null ,true,false) }"> + </apex:outputLabel> &nbsp;                                
@@ -117,28 +116,15 @@
              <td align="left" width="20%" colspan="2">{!Case.Account.UCID__c }</td>
           </tr>
       </table> 
-     <!-- <div class="page-break"> -->
-      <table border="1" width="100%" rules="rows">  
-          <tr>
-           <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
-          </tr>
-          <tr>
-           <td align="left" width="100%" height="40">  
-                <apex:outputText value="{!left(Case.Customer_Statement__c,200)}"/>
-           </td>
-         </tr> 
-      </table>  
- <!--    </div>     -->
     
       <table border="1" width="100%" rules="rows">
           <tr>
              <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
           </tr>
           <tr>
-             <td align="left" width="100%" height="40"><apex:outputText value="{!left(Case.PR_Comment_for_Dealer__c,200)}"/></td>                      
+             <td align="left" width="100%" height="140">{!Case.PR_Comment_for_Dealer__c}</td>                      
           </tr>         
-      </table>
-       
+      </table>       
    
       <table border="1" width="100%" rules="rows">  
           <tr>                    
@@ -173,10 +159,36 @@
       </table>     
        <table width="100%" border="1" rules="rows">
          <tr>
-           <td align="right" width="20%">{!$Label.CaseCategory}</td>  
-           <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
+           <td align="right" width="20%" height="20">{!$Label.CaseCategory}</td>  
+           <td align="left" width="80%" height="20"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
          </tr>
-      </table>     
+      </table>
+      <br/>
+      <table width="100%">  
+           <tr>               
+             <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
+             <td width="15%"><apex:outputField value="{!Case.CaseNumber}"/></td>
+          </tr>
+      </table>
+      <table border="1" width="100%" rules="rows">             
+           <tr>
+             <td align="right" width="13%">{!$Label.Subject}</td>
+             <td align="left" width="20%" colspan="2">{!Case.Subject}</td>            
+             <td align="right" width="13%">{!$Label.UCID}</td>
+             <td align="left" width="20%" colspan="2">{!Case.Account.UCID__c }</td>
+          </tr>
+      </table>
+     <table border="1" width="100%" rules="rows">  
+          <tr>
+           <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
+          </tr>
+          <tr>
+           <td align="left" width="100%" height="40">  
+                <apex:outputText value="{!Case.Customer_Statement__c}"/>
+           </td>
+         </tr> 
+      </table>  
+
     </body>  
   </html> 
 </apex:page>

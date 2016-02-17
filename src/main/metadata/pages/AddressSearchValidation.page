@@ -167,6 +167,20 @@
                         
                         
                     </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!AddressObj.Temp_ZipCode__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
+                        <apex:outputField value="{!AddressObj.Temp_Address__c}"/>
+                        
+                        
+                    </apex:pageBlockSectionItem>
+                    
                 </apex:pageBlockSection>
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}"/>
@@ -178,21 +192,26 @@
                             
                             function testGetFocusedSubtabId() 
                             {
+                                sforce.console.getFocusedPrimaryTabId(showTabId);
                                 
-                                sforce.console.getFocusedSubtabId(showTabId);
                             }
                             
                             var showTabId = function showTabId(result) {
                                 // Display the tab ID
                                 
                                 var subtabId = result.id;
-                                sforce.console.refreshSubtabById(subtabId, true);
                                 
+                                
+                                sforce.console.refreshPrimaryTabById(subtabId, true);
+                                 sforce.console.focusPrimaryTabById(subtabId);
+                                
+
                             };
+                            
                             
                             testGetFocusedSubtabId();
                             
-                            
+                                                        
                             
                             
                             </script>                     
