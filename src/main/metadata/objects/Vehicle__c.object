@@ -5730,6 +5730,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <description>Link the competitor vehicle to Account</description>
         <externalId>false</externalId>
         <label>Related Customer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+            </filterItems>
+            <infoMessage>Search and select account.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Other_Vehicles</relationshipLabel>
         <relationshipName>Vehicles</relationshipName>
@@ -28981,19 +28992,24 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <customTabListAdditionalFields>BodyType__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CommissionNumber__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>BodyType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Class__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Model__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Model_Description__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CommissionNumber__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>BodyType__c</searchFilterFields>
         <searchFilterFields>Colour__c</searchFilterFields>
         <searchFilterFields>CommissionNumber__c</searchFilterFields>
+        <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EuroVIN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Brand__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Class__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Model__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Model_Description__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Colour__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>EuroVIN__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>

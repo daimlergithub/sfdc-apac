@@ -118,11 +118,13 @@
         <label>Assigned Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordType.Name</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
+            <infoMessage>Search and select address of the account.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
@@ -2523,6 +2525,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Company Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper company account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+            </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Leads (Company Account)</relationshipLabel>
         <relationshipName>Leads</relationshipName>
@@ -2579,18 +2592,21 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <label>Contact</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper person account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
-                <value>Person Account</value>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
             </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
+        <relationshipLabel>Leads (Contact)</relationshipLabel>
         <relationshipName>Lead_Contact</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -14251,9 +14267,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <operation>equals</operation>
                 <valueField>$Source.Assigned_Dealer__c</valueField>
             </filterItems>
-            <isOptional>false</isOptional>
+            <isOptional>true</isOptional>
         </lookupFilter>
         <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads (Sales Consultant)</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19020,24 +19037,7 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>MBJ_CRM_Department_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+
     <listViews>
         <fullName>MBJ_Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
@@ -19047,15 +19047,7 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>Supervisor_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+   
     <listViews>
         <fullName>Supervisor_Team_A_Lead</fullName>
         <filterScope>Queue</filterScope>
@@ -19074,6 +19066,7 @@ Company_Account__r.Work_Phone__c  ,
             <allInternalUsers/>
         </sharedTo>
     </listViews>
+    
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
@@ -65845,14 +65838,26 @@ Company_Account__r.Work_Phone__c  ,
         <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead_Desired_Service__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Drop_off_Time__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Assigned_Dealer__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CAC_Lead_Status__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Lead_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Source_Campaign__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead_DataSource__c</lookupDialogsAdditionalFields>
         <searchFilterFields>R_Lead_Status__c</searchFilterFields>
         <searchFilterFields>Lead_Source__c</searchFilterFields>
         <searchFilterFields>Sales_Consultant__c</searchFilterFields>
         <searchFilterFields>Selling_Dealer__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Desired_Service__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Drop_off_Time__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Assigned_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAC_Lead_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer_Lead_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Source_Campaign__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_DataSource__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
