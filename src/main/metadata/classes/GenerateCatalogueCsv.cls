@@ -273,7 +273,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 fileRow = '';
                 // change the status of DM request to "Sent"  after writing it to CSV.
                 
-                
+                Dmr.Sent_Date__c =  system.today();
                 if(Dmr.Status1__c != 'to be sent' && Dmr.Status2__c != 'to be sent' && Dmr.Status3__c != 'to be sent')
                 {
                     Dmr.Status__c = 'Sent';
