@@ -25,9 +25,9 @@
         <criteriaItems>
             <column>Case.Case_SubType__c</column>
             <operator>contains</operator>
-            <value></value>
+            <value>[車両]</value>
         </criteriaItems>
-        <language>en_US</language>
+        <language>ja</language>
     </filter>
     <format>Tabular</format>
     <name>Report_52-2</name>

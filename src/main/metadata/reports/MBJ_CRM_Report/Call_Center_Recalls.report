@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <columns>
-        <field>Vehicle__c.Recalls__r.Cases__r$CreatedDate</field>
-    </columns>
-    <columns>
-        <field>Vehicle__c.Recalls__r$Recall_No__c</field>
-    </columns>
-    <columns>
-        <field>Vehicle__c.Recalls__r$Recall_Type__c</field>
-    </columns>
-    <columns>
-        <field>Vehicle__c.Recalls__r$Name</field>
-    </columns>
-    <columns>
-        <field>Vehicle__c.Recalls__r.Cases__r$CaseNumber</field>
-    </columns>
     <filter>
         <criteriaItems>
             <column>Vehicle__c.Recalls__r$Recall_No__c</column>
@@ -28,7 +13,22 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Tabular</format>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Vehicle__c.Recalls__r$Recall_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Vehicle__c.Recalls__r$Recall_No__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>Vehicle__c.Recalls__r.Cases__r$CreatedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>Report_15</name>
     <params>
         <name>co</name>

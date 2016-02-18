@@ -25,7 +25,7 @@ public class AddressDisplayInlineEditController {
         if(ApexPages.currentPage().getParameters().get('id')!=Null){
             
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                    Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c from Address__c where Customer__c =: aid ];        
+                    Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Customer__c =: aid ];        
             system.debug('@Account Information :' +adds);
         }             
         
@@ -59,7 +59,7 @@ public class AddressDisplayInlineEditController {
     @TestVisible private void loadData() {
         system.debug('@Loading Addresses...' +aid);
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c =: aid];
+                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c =: aid];
     }
     
     
@@ -106,7 +106,7 @@ public class AddressDisplayInlineEditController {
     {    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
         adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c=:acc.id];
+               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];
         if(adds.size()>=5)
         {
             ShowpageBlockFlag=false;
@@ -128,7 +128,7 @@ public class AddressDisplayInlineEditController {
         if (editaddressId != null) 
         {
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Id =: editaddressId];
+                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Id =: editaddressId];
             // if for any reason we are missing the reference 
             
         }
@@ -244,7 +244,7 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             if(response != null && response.ValidationStatus == 'OK')
             {
                 
-                AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
+                //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                 
                 if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
@@ -318,11 +318,12 @@ EP/Tolerant for Validation.
             if(response != null && response.ValidationStatus == 'OK')
             {
                 Address_Validated_Flag = true;
-                AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-                AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+                //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 
-                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
+                
+                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid )
                 {
+                    AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                     String ValidStr = response.Addresses[0].ValidFields;
                     system.debug('valid string ------'+ ValidStr );
                     
@@ -355,6 +356,36 @@ EP/Tolerant for Validation.
                     }
                     
                 }
+                else if(!response.Addresses[0].Valid)
+                {
+                    
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues('JP');
+                    if(addtrmapUpdate.containsKey(AddressObj.Province__c))
+                    {
+                        province = addtrmapUpdate.get(AddressObj.Province__c);
+                    }
+                    AddressObj.Province__c =  province;
+                    
+                    AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+                    
+                    AddressObj.Temp_Address__c = ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' )
+                        + ',' + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' )
+                        + ',' + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' )
+                        + ',' + ((AddressObj.City__c != null) ? AddressObj.City__c : '' )
+                        + ',' + ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) 
+                        + ',' + ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) ;   
+                    
+                    AddressObj.Address_Code__c = '';
+                    AddressObj.Address_Line_1__c = '';
+                    AddressObj.Address_Line_2__c = '';
+                    AddressObj.Block__c = '';
+                    AddressObj.City__c = '';
+                    AddressObj.District__c = '';
+                    AddressObj.Province__c = '';
+                    
+                }
                 
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -374,7 +405,7 @@ EP/Tolerant for Validation.
     } 
     
     
-/**  Address Code Validation.
+    /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
@@ -385,18 +416,18 @@ If the user is Saving  same address which matches the fields returned by toleran
         response =  UtilWebservice.validateAddressByZipCode(Address);
         
         if(response != null && response.ValidationStatus == 'OK')
+        {
+            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
+               AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
             {
-                if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
-                  AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
-                {
-                    return response.Addresses[0].Address_Code;
-                }
-                
-                else 
-                {
-                    return null;
-                }
+                return response.Addresses[0].Address_Code;
             }
+            
+            else 
+            {
+                return null;
+            }
+        }
         return null;
     }
 }

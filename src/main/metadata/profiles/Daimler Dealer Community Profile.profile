@@ -9280,11 +9280,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Company_Account__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17295,10 +17290,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>SlickCTI_CSS</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
