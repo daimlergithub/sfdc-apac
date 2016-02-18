@@ -20,6 +20,7 @@ global class WebServiceMockImpl implements WebServiceMock {
                address.Province = 'province';
                address.ZipCode = '1040041';
                address.MarketDiscriminator = 'JP';
+			   address.valid = true;
                list<crmasiaDaimlerApacComValidateaddress.Address> addresses = new list<crmasiaDaimlerApacComValidateaddress.Address>();
                addresses.add(address);
                crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType responseMsg = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
