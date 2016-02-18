@@ -327,10 +327,12 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 system.debug(notifyOption+ '  created task id is' + CatalogueTask.id );
             }
-            
+            if(!test.isRunningTest())
+            {
             DMCatalogueTimeStamp__c DMct = DMCatalogueTimeStamp__c.getInstance('PreviousRequestTime');
             DMct.CatalogueDownloadTime__c = system.now();
             update DMct;
+			}
             return 'true';    
         }
         
