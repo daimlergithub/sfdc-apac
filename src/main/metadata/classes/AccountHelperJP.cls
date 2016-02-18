@@ -334,6 +334,7 @@ public class AccountHelperJP
             
     }
         /** To generate UCID value based on Record type.
+         ** To Create Account link Record.
 ** Created By: Sreeram
 ** Date: 2016-01-10 
 **/
@@ -351,12 +352,14 @@ public class AccountHelperJP
             integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
+			list<Account_Link__c> acclinklist = new list<Account_Link__c>();
             set<id> AccIds = new set<id>();
+            Id accountinkIndividualCustomerExternalLinkId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
             for(Account acc : TriggerNew)
             {
                 AccIds.add(acc.id);
                 //accountlist.add(acc);                
-            }
+            }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
@@ -389,11 +392,27 @@ public class AccountHelperJP
                          
                     }
                     update acclist;
+                    map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
+					for(Account acc : accountlist)
+                    {
+                        Account account = accountmap.get(acc.Id);
+                        Account_Link__c acclink = new Account_Link__c();
+                        acclink.Primary__c = true;
+                        acclink.Origin__c = account.Name;
+                        acclink.toRole__c = account.Id;
+                        acclink.System__c = 'UCID';
+                        acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
+                        acclink.Name = account.UCID__c;                        
+                        acclinklist.add(acclink);
+                        
+                    }
+                    insert acclinklist;
                 }
             }
         }
         catch(DMLException ex)
         {
+
             CustomLogUtil.DebugException(ex);
         }
         CustomLogUtil.DebugLogInsert();
