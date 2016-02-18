@@ -5140,6 +5140,17 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>FS_Email_Last_Modified_By3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedBy3</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Email_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified By</label>
@@ -5154,6 +5165,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <fullName>FS_Email_Last_Modified_Date2__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified Date 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FS_Email_Last_Modified_Date3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedDate3</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -5213,6 +5233,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>FS Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FS_Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>FSOptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -7819,6 +7848,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>OptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
