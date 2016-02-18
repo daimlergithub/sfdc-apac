@@ -85,7 +85,7 @@ public with sharing class VehicleRelationshipHelperJP
         set<Id> ContactIdsforValidity=new Set<Id>();  
         
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
-            if(vr.Contact__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
+            if(vr.Contact__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
             {                 
                 ContactIds.add(vr.Contact__c);
                 if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
@@ -120,7 +120,7 @@ public with sharing class VehicleRelationshipHelperJP
         set<Id> ContactIdsforValidity=new Set<Id>();  
         
         for (Vehicle_Relationship__c vr : oldVehicleRelRecords){
-            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
+            if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
             {              
                 ContactIds.add(vr.Contact__c);
                 VehicleIds.add(vr.Vehicle_ID__c);
@@ -145,7 +145,7 @@ public with sharing class VehicleRelationshipHelperJP
     Public static void updateVehicleAmount(Set<Id> ContactIds){     
         system.debug('ContactIds>>>>'+ContactIds);      
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes'])
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null])
         {
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  

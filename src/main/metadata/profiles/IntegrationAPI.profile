@@ -2364,12 +2364,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_By3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.FS_Email_Last_Modified_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.FS_Email_Last_Modified_Date2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_Date3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2400,6 +2410,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.FS_Opt_In_Email2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Opt_In_Email3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2900,6 +2915,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Opt_In_Email2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Opt_In_Email3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5263,6 +5283,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Car_Model__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Description__c</field>
         <readable>true</readable>
@@ -5353,6 +5378,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Car_Model__c.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Vehicle_Group__c</field>
         <readable>true</readable>
@@ -5406,6 +5436,11 @@
         <editable>true</editable>
         <field>Case.Alternative_Transport_Method__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Approval_Submit_Date__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6651,6 +6686,11 @@
         <editable>true</editable>
         <field>Case.Requires_Dealer_Contact__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Resolution_Time__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8043,6 +8083,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Customer_Name__c</field>
         <readable>true</readable>
@@ -8176,6 +8221,11 @@
         <editable>true</editable>
         <field>DM_Request__c.TitleOfHonor__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9280,6 +9330,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Combine_Interested_Vehicle_Brand__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Company_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17550,11 +17605,6 @@
         <layout>Vehicle__c-Self Registered Layout-CAC</layout>
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
-    <loginHours/>
-    <loginIpRanges>
-        <endAddress>255.255.255.255</endAddress>
-        <startAddress>0.0.0.0</startAddress>
-    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

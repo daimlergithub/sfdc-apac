@@ -19,7 +19,7 @@
         <criteriaItems>
             <column>Case.Case_SubType__c</column>
             <operator>contains</operator>
-            <value></value>
+            <value>[コレクション]</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
