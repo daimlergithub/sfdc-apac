@@ -37,65 +37,65 @@ global class ScheduledSharingContractToCROs implements Schedulable{
                      Welcome_Call_Task__c, Annual_Call_Task_1_del__c, Annual_Call_Task_2_del__c, Annual_Call_Task_3_del__c, 
                      EOC_Call_Task_1_del__c, EOC_Call_Task_2_del__c, EOC_Call_Task_3_del__c from Retail_Task__c 
                      where GFV__c = true and Status__c in :contractStatus];
-        system.debug('contracts'+contracts);
+        
         if(contracts.size() > 0)
         {
-	        for(Retail_Task__c con : contracts) {
-	            Date today = Date.today();
-	            Date startday = con.StartDate__c;
-	            Date endday = con.EndDate__c;
-	            
-	            accountIds.add(con.Account__c);
-	            accountIdContactId.put(con.Account__c, null);
-	            List<String> phone = new List<String>();
-	            phone.add('');
-	            phone.add('');
-	            phone.add('');
-	            accountIdPhone.put(con.Account__c, phone);
-	            boolean flag = false;
-	                 
-	            if(con.Welcome_Call__c == true && con.Welcome_Call_Task__c == true) {
+          for(Retail_Task__c con : contracts) {
+              Date today = Date.today();
+              Date startday = con.StartDate__c;
+              Date endday = con.EndDate__c;
+              
+              accountIds.add(con.Account__c);
+              accountIdContactId.put(con.Account__c, null);
+              List<String> phone = new List<String>();
+              phone.add('');
+              phone.add('');
+              phone.add('');
+              accountIdPhone.put(con.Account__c, phone);
+              boolean flag = false;
+                   
+              if(con.Welcome_Call__c == true && con.Welcome_Call_Task__c == true) {
                     system.debug('Welcome_Call_Task__c'+con.Welcome_Call_Task__c);
-	                Welcontracts.add(con);
-	                con.Welcome_Call_Task__c = false;
-	                flag = true;
-	            }
-	            if(con.Annual_Call__c == true && con.Annual_Call_Task_1_del__c == true) {
+                  Welcontracts.add(con);
+                  con.Welcome_Call_Task__c = false;
+                  flag = true;
+              }
+              if(con.Annual_Call__c == true && con.Annual_Call_Task_1_del__c == true) {
                      system.debug('Annual_Call_Task_1_del__c'+con.Annual_Call_Task_1_del__c);
-	                Ann1contracts.add(con);
-	                con.Annual_Call_Task_1_del__c = false;
-	                flag = true;
-	            }
-	            if(con.Annual_Call__c == true && con.Annual_Call_Task_2_del__c == true) {
-	                Ann2contracts.add(con);
-	                con.Annual_Call_Task_2_del__c = false;
-	                flag = true;
-	            }
-	            if(con.Annual_Call__c == true && con.Annual_Call_Task_3_del__c == true){
-	                Ann3contracts.add(con);
-	                con.Annual_Call_Task_3_del__c = false;
-	                flag = true;
-	            }
-	            if(con.EOC_Call__c == true && con.EOC_Call_Task_1_del__c == true) {
-	                EOC1contracts.add(con);
-	                con.EOC_Call_Task_1_del__c = false;
-	                flag = true;
-	            }
-	            if(con.EOC_Call__c == true && con.EOC_Call_Task_2_del__c == true) {
-	                EOC2contracts.add(con);
-	                con.EOC_Call_Task_2_del__c = false;
-	                flag = true;
-	            }
-	            if(con.EOC_Call__c == true && con.EOC_Call_Task_3_del__c == true) {
-	                EOC3contracts.add(con);
-	                con.EOC_Call_Task_3_del__c = false;
-	                flag = true;
-	            }
-	            if(flag == true) {
-	                preContract.add(con);
-	            }
-	        }
-    	}
+                  Ann1contracts.add(con);
+                  con.Annual_Call_Task_1_del__c = false;
+                  flag = true;
+              }
+              if(con.Annual_Call__c == true && con.Annual_Call_Task_2_del__c == true) {
+                  Ann2contracts.add(con);
+                  con.Annual_Call_Task_2_del__c = false;
+                  flag = true;
+              }
+              if(con.Annual_Call__c == true && con.Annual_Call_Task_3_del__c == true){
+                  Ann3contracts.add(con);
+                  con.Annual_Call_Task_3_del__c = false;
+                  flag = true;
+              }
+              if(con.EOC_Call__c == true && con.EOC_Call_Task_1_del__c == true) {
+                  EOC1contracts.add(con);
+                  con.EOC_Call_Task_1_del__c = false;
+                  flag = true;
+              }
+              if(con.EOC_Call__c == true && con.EOC_Call_Task_2_del__c == true) {
+                  EOC2contracts.add(con);
+                  con.EOC_Call_Task_2_del__c = false;
+                  flag = true;
+              }
+              if(con.EOC_Call__c == true && con.EOC_Call_Task_3_del__c == true) {
+                  EOC3contracts.add(con);
+                  con.EOC_Call_Task_3_del__c = false;
+                  flag = true;
+              }
+              if(flag == true) {
+                  preContract.add(con);
+              }
+          }
+      }
         for(Account acc : [select id, PersonContactId, Individual_Home_Phone__c, Work_Phone__c, Mobile__c from Account where Id in :accountIds and RecordTypeId = :personAccountRT]) {
             accountIdContactId.put(acc.id, acc.PersonContactId);
             List<String> phone = new List<String>();
@@ -106,135 +106,120 @@ global class ScheduledSharingContractToCROs implements Schedulable{
             
         }
          
-      	      
-	        //Welcome Call
-	        if(Welcontracts.size() > 0)
-	        {
-                system.debug('Welcontracts'+Welcontracts);
-		        for(Retail_Task__c con : Welcontracts) {
-		            Id contactid = null;
-		            if(accountIdContactId.get(con.Account__c) != null)
-		            contactid = accountIdContactId.get(con.Account__c);
-		            List<String> phone = new List<String>();
-		             if(accountIdPhone.get(con.Account__c) != null)
-		            phone = accountIdPhone.get(con.Account__c);
-                    system.debug('testing phone'+phone);
-                    system.debug('testing phone'+phone[0]);
-                    if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
-                        
-                        Task t = createTask(con,'Welcome Call', contactid, phone, WelcomeCallRT);
-                        
-                         preTask.add(t);
-                        system.debug('tesks'+preTask);
-                    }  
-		        }
-	        }
+              
+          //Welcome Call
+          if(Welcontracts.size() > 0)
+          {                
+            for(Retail_Task__c con : Welcontracts) {
+                Id contactid = null;
+                if(accountIdContactId.get(con.Account__c) != null)
+                contactid = accountIdContactId.get(con.Account__c);
+                List<String> phone = new List<String>();
+                if(accountIdPhone.get(con.Account__c) != null)
+                phone = accountIdPhone.get(con.Account__c);  
+                    Task t = createTask(con,'Welcome Call', contactid, phone, WelcomeCallRT);                        
+                    preTask.add(t);
+                    system.debug('tesks'+preTask);
+                   
+            }
+          }
             
            
             
-    	
+      
         //Annual Call
        
         if(Ann1contracts.size() > 0)
         {
-	        for(Retail_Task__c con : Ann1contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	            if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
-	                Task t = createTask(con,  'First Year Annual Call', contactid, phone, AnnualCallRT);
-                     
-	                preTask.add(t);
-                    system.debug('tesks2'+preTask);
-	                
-	            } 
-	        }
+          for(Retail_Task__c con : Ann1contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);
+              Task t = createTask(con,  'First Year Annual Call', contactid, phone, AnnualCallRT);
+                preTask.add(t);
+                system.debug('tesks2'+preTask);
+                  
+              
+          }
         }
         if(Ann2contracts.size() > 0)
         {
-	        for(Retail_Task__c con : Ann2contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	            if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '' ) {
-	                Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);	                
-	        }
+          for(Retail_Task__c con : Ann2contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);
+              Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
+              preTask.add(t);                  
+          
         }
         }
         if(Ann3contracts.size() > 0)
         {
-	        for(Retail_Task__c con : Ann3contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	            if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '' ) {
-	                Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
-	                preTask.add(t);                
-	            
-	        }
+          for(Retail_Task__c con : Ann3contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);              
+              Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
+              preTask.add(t);                
+              
+          
         }
         }
         //EOC Call
        
         if(EOC1contracts.size() > 0)
         {
-	        for(Retail_Task__c con : EOC1contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	            if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
-	                Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	               
-	            } 
-	        }
+          for(Retail_Task__c con : EOC1contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);
+              Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
+              preTask.add(t);
+                 
+              
+          }
         }
         if(EOC2contracts.size() > 0)
         {
-	        for(Retail_Task__c con : EOC2contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	            if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
-	                Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	          } 
-	        }
+          for(Retail_Task__c con : EOC2contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);
+              Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
+              preTask.add(t);
+            
+          }
         }
         if(EOC3contracts.size() > 0)
         {
-	        for(Retail_Task__c con : EOC3contracts) {
-	            Id contactid = null;
-	            if(accountIdContactId.get(con.Account__c) != null)
-	            contactid = accountIdContactId.get(con.Account__c);
-	            List<String> phone = new List<String>();
-	             if(accountIdPhone.get(con.Account__c) != null)
-	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == '' && phone[1] == '' && phone[2] == '') {
-	                Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
-	                preTask.add(t);
-	                
-	            } 
-	        }
-        }
-        
-       
+          for(Retail_Task__c con : EOC3contracts) {
+              Id contactid = null;
+              if(accountIdContactId.get(con.Account__c) != null)
+              contactid = accountIdContactId.get(con.Account__c);
+              List<String> phone = new List<String>();
+              if(accountIdPhone.get(con.Account__c) != null)
+              phone = accountIdPhone.get(con.Account__c);
+              Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
+              preTask.add(t);
+                  
+              
+          }
+        }     
         
         try {
                 if(preTask.size() > 0) {
@@ -273,51 +258,64 @@ global class ScheduledSharingContractToCROs implements Schedulable{
     } 
     public void assignOwner(){
        
-        List<User> csusers = new List<User>();
+         List<User> customerServiceUserList = new List<User>();
          List<Task> tasks = new List<Task>();
-         List<User> crusers = new List<User>();
-         List<User> RTLusers = new List<User>();
+         List<User> customerRetentionUserList = new List<User>();
+         List<User> remarketingTeamUserList = new List<User>();
         
-        crusers = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%' and IsActive=true];
-        csusers = [select id, name from User where Active_Permission_Set__c= true and UserRole.name like '%Customer Service Team%' and IsActive=true];
-        RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead' and IsActive=true];
+         customerRetentionUserList = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%' and IsActive=true];
+         customerServiceUserList = [select id, name from User where Active_Permission_Set__c= true and UserRole.name like '%Customer Service Team%' and IsActive=true];
+         remarketingTeamUserList = [select id, name from User where UserRole.name = 'Remarketing Team Lead' and IsActive=true];
         
-         System.debug('!!!! RTLusers '+RTLusers);
-        System.debug('!!!! crusers '+crusers );
-        System.debug('!!!! csusers '+csusers );  
+         System.debug('!!!! RTLusers '+remarketingTeamUserList);
+         System.debug('!!!! crusers '+customerRetentionUserList );
+         System.debug('!!!! csusers '+customerServiceUserList ); 
         
-        if(crusers.size() == 0) {
-            crusers = RTLusers;
-        }
-         tasks = [select id,RecordTypeId, ownerId from Task where  status =: 'Not Started'];
-         system.debug('assign task'+tasks);
-          Integer i = 0;  
+         tasks = [select id,RecordTypeId, ownerId,PersonHomePhone__c,OfficePhone__c,HomeMobilePhone__c from Task where  status =: 'Not Started'];
+         system.debug('assign task'+tasks);   
+
+        
+          
+        if(tasks.size() > 0)
+        {
+          Integer i = 0; 
           for(Task t : tasks) {
-            if(csusers != null && csusers.size() > 0 ) {                
+            if(customerServiceUserList != null && customerServiceUserList.size() > 0 ) {                
                 if(t.RecordTypeId==WelcomeCallRT){
                     system.debug('WelcomeCallRT'+WelcomeCallRT);
-                    t.ownerId = csusers[i].id;
+                    t.ownerId = customerServiceUserList[i].id;
                     i++;
-                    if(i >= csusers.size()) {
+                    if(i >= customerServiceUserList.size()) {
                         i = 0;
                     }
-            } 
-        }
-      }
-         i = 0;  
+                  } 
+              }
+          }
+     
+        
+         i = 0;        
         for(Task t : tasks) {
-            if(crusers != null && crusers.size() > 0 ) {
-                if(t.RecordTypeId==AnnualCallRT || t.RecordTypeId==EOCCallRT){
-                    system.debug('AnnualCallRT'+AnnualCallRT);
-                    system.debug('EOCCallRT'+EOCCallRT);
-                    t.ownerId = crusers[i].id;
+          if(t.RecordTypeId==AnnualCallRT || t.RecordTypeId==EOCCallRT){
+            if(customerRetentionUserList != null && customerRetentionUserList.size() > 0) {
+
+                    t.ownerId = customerRetentionUserList[i].id;
                     i++;
-                    if(i >= crusers.size()) {
+                    if(i >= customerRetentionUserList.size()) {
                         i = 0;
                     }
-            } 
+             
+           }
+            else if(remarketingTeamUserList != null && remarketingTeamUserList.size() > 0  && t.PersonHomePhone__c == null && t.OfficePhone__c == null && t.HomeMobilePhone__c == null){
+                
+                    t.ownerId = remarketingTeamUserList[i].id;
+                    i++;
+                    if(i >= remarketingTeamUserList.size()) {
+                        i = 0;
+                    }
+                }                
+              }
+           }
         }
-      }
         if(tasks.size() > 0) {
             UserUpdate(tasks);
             system.debug('UserUpdate'+tasks);

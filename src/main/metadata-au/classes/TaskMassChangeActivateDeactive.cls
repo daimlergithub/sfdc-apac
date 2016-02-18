@@ -56,7 +56,7 @@ public with sharing class TaskMassChangeActivateDeactive {
             crusers = RTLusers;
         }
         
-        
+      if(tasks.size() > 0) {
         
         Integer i = 0;  
           for(Task t : tasks) {              
@@ -85,7 +85,8 @@ public with sharing class TaskMassChangeActivateDeactive {
                     }
                 } 
             }
-         }         
+         } 
+    }        
         
         if(tasks.size() > 0) {
             UserUpdate(tasks);
