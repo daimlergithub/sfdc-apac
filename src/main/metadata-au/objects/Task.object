@@ -20678,10 +20678,18 @@
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 
-
-window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');</url>
+var user = sforce.connection.getUserInfo();  
+var roleid = sforce.connection.query("select Id from UserRole where  name like '%Customer Service Manager%'");
+if(user.roleId==roleid.records.Id)
+{
+window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');
+}
+else{
+     alert('Do not have permission to Activate/Deactivate CROs ' );
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>

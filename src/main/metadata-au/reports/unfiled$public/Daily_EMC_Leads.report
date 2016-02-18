@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_69777657</developerName>
+        <masterLabel>Lead Status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Lead__c.CAC_Lead_Status__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Qualified</sourceValue>
+            </sourceValues>
+            <value>Qualified</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>New Enquiry</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Contact Attempt Made</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Request Actioned</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Pending Response</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Brochure Sent</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Lost</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Closed</sourceValue>
+            </sourceValues>
+            <value>Unqualified</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStacked</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>CUST_OWNER_NAME</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>BucketField_69777657</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Nature_of_Request__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.MB_Vehicle_Interest__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.CAC_Lead_Status__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>((1 AND (2 OR 3 OR 5)) AND 4)</booleanFilter>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Lead__c.Sales_Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_OWNER_NAME</column>
+            <operator>equals</operator>
+            <value>Matthew Sutianto</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_OWNER_NAME</column>
+            <operator>equals</operator>
+            <value>John Antonopoulos</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_69777657</column>
+            <operator>equals</operator>
+            <value>Qualified</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_OWNER_NAME</column>
+            <operator>equals</operator>
+            <value>Emma Smith</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_69777657</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_OWNER_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Daily EMC Leads - Qualified</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_LAST_UPDATE</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>
