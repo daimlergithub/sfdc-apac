@@ -20688,7 +20688,7 @@ if(user.roleId==roleid.records.Id)
 window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');
 }
 else{
-     alert('Do not have permission to Activate/Deactivate CROs ' );
+     alert('You do not have permission to Activate / Deactivate CROs' );
 }</url>
     </webLinks>
     <webLinks>
