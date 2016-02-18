@@ -262,7 +262,8 @@ global class ScheduledSharingContractToCROs implements Schedulable{
          List<Task> tasks = new List<Task>();
          List<User> customerRetentionUserList = new List<User>();
          List<User> remarketingTeamUserList = new List<User>();
-        
+         set<id> recordTypeIdSet = new set<id>{WelcomeCallRT,AnnualCallRT,EOCCallRT};
+             
          customerRetentionUserList = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%' and IsActive=true];
          customerServiceUserList = [select id, name from User where Active_Permission_Set__c= true and UserRole.name like '%Customer Service Team%' and IsActive=true];
          remarketingTeamUserList = [select id, name from User where UserRole.name = 'Remarketing Team Lead' and IsActive=true];
@@ -271,7 +272,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
          System.debug('!!!! crusers '+customerRetentionUserList );
          System.debug('!!!! csusers '+customerServiceUserList ); 
         
-         tasks = [select id,RecordTypeId, ownerId,PersonHomePhone__c,OfficePhone__c,HomeMobilePhone__c from Task where  status =: 'Not Started'];
+         tasks = [select id,RecordTypeId, ownerId,PersonHomePhone__c,OfficePhone__c,HomeMobilePhone__c from Task where  status =: 'Not Started' and RecordTypeId IN:recordTypeIdSet];
          system.debug('assign task'+tasks);   
 
         

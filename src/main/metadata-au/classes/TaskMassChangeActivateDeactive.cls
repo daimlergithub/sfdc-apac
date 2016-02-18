@@ -42,7 +42,8 @@ public with sharing class TaskMassChangeActivateDeactive {
         List<User> csusers = new List<User>();
         List<User> crusers = new List<User>();
         List<User> RTLusers = new List<User>();
-        tasks = [select id, ownerId,RecordTypeId from Task where ownerId = :user[0].id and status =: 'Not Started'];
+		set<id> recordTypeIdSet = new set<id>{WelcomeCallRT,AnnualCallRT,EOCCallRT};
+        tasks = [select id, ownerId,RecordTypeId from Task where ownerId = :user[0].id and status =: 'Not Started' and RecordTypeId IN:recordTypeIdSet];
         crusers = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%' and IsActive=true];
         csusers = [select id, name from User where Active_Permission_Set__c = true and UserRole.name like '%Customer Service Team%' and IsActive=true];
         RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead' and IsActive=true];
