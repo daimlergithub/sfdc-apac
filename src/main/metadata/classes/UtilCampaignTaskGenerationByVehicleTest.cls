@@ -34,16 +34,33 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                     FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;  
-         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-        dealer.Email__c='test@mbau.com';
-                    dealer.Email2__c = 'testemail2@test.com';
-                    dealer.Home_Phone_2__c = '098765413';
-        update dealer;
-         contact = new Contact(
-            AccountId = dealer.Id, 
-            LastName = 'ba', 
-            Phone = '01212313', 
-            email = 's@s.s'
+        Account companyAcc= new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown',      
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+      
+         insert companyAcc;
+        contact = new Contact(
+          AccountId = companyAcc.Id, 
+          LastName = 'b', 
+          Phone = '1212313', 
+          MobilePhone='1236547890',
+          email = 's@s.s',
+          DUP_Number__c='test dup'
         );
         insert contact;
 
@@ -51,11 +68,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
     }
 
     private static void createUser(){
-        
-        
-    
-        
-            String[] csrProfiles = new String[]{'IntegrationAPI'};
+        String[] csrProfiles = new String[]{'IntegrationAPI'};
             List<Profile> profileIds = [
                 Select Id 
                 From Profile 
@@ -461,4 +474,4 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
 
          }
         }
-              }
+     }
