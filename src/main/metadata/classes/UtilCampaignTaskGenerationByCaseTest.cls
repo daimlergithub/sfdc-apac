@@ -8,7 +8,7 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
     private static List<case> listcase = new List<case>();
     private static List<CampaignMember> campaignMemberList = new List<CampaignMember>();
     private static Batch_Job__c batchJob;
-    private static Account dealer;
+    private static Account companyAcc;
     private static Contact contact;
     private static set<id> setCamId= new set<id>();
     private static Template__c tempObj;
@@ -185,14 +185,33 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
     
     static void createAccount_Contact()
     {
-        dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+        companyAcc= new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown',      
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+      
+         insert companyAcc;
         contact = new Contact(
-          AccountId = dealer.Id, 
+          AccountId = companyAcc.Id, 
           LastName = 'b', 
           Phone = '1212313', 
           MobilePhone='1236547890',
           email = 's@s.s',
-          DUP_Number__c='1236547890'
+          DUP_Number__c='test dup'
         );
         insert contact;
     }
