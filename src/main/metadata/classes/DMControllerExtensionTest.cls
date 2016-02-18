@@ -38,15 +38,16 @@ public class DMControllerExtensionTest {
                                          Last_Successful_Call_Office_Phone__c = System.today() - 10,
                                          DMS_Address__c = 'dmsaddress1');
     
-           
+             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
+             
              dmr = new  DM_Request__c();             
-             dmr.Sending_Address__c='Home';             
+             //dmr.Sending_Address__c='Home';             
              dmr.Status__c='Success';             
              dmr.TitleOfHonor__c = 'To Company';
              dmr.Sent_Date__c=system.today().addDays(-10);
-             
+             dmr.Customer_Name__c = customer.id;
             
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
+            //customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
             Test.startTest();
             // Testing the eDM Send
             ApexPages.standardController controller = new ApexPages.standardController(dmr);
@@ -70,7 +71,7 @@ public class DMControllerExtensionTest {
             insert case1;
             
              dmr = new  DM_Request__c();             
-             dmr.Sending_Address__c='Home';             
+             //dmr.Sending_Address__c='Home';             
              dmr.Status__c='Open';             
              dmr.TitleOfHonor__c = 'To Company';
              dmr.Sent_Date__c=system.today().addDays(-10);
