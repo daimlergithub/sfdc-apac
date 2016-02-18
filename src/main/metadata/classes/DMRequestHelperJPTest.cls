@@ -14,7 +14,7 @@ public class DMRequestHelperJPTest {
     public static void createTestData(){
         
         Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   		upsert TriggerAddress;
+        upsert TriggerAddress;
         
            
          Profile profileCAC = [select Id from Profile where Name =:'IntegrationAPI'];
@@ -39,7 +39,7 @@ public class DMRequestHelperJPTest {
         
         address=new Address__c();
         address.Address_Type__c='Home';
-        address.Province__c='test1';
+        address.Province__c='Tokyo';
         address.TitleOfHonor__c = 'To Person';
         address.City__c='bangalore';
         address.District__c='test2';
@@ -51,7 +51,7 @@ public class DMRequestHelperJPTest {
         
         address1=new Address__c();
         address1.Address_Type__c='Other Address 1';
-        address1.Province__c='test2';
+        address1.Province__c='Tokyo';
         address1.TitleOfHonor__c = 'To Person';
         address1.City__c='Hyderabd';
         address1.District__c='test';
@@ -65,7 +65,7 @@ public class DMRequestHelperJPTest {
         public static void createDMRequest(){
         
         Trigger__c TriggerDMR=new Trigger__c(Name='DMRequest',Trigger_Name__c='TriggerDMRequest',Trigger_Handler__c='TriggerDMRequestTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-   		upsert TriggerDMR;
+        upsert TriggerDMR;
            
             system.runAs(usr){
          Material = new DM_Material__c();
@@ -99,8 +99,8 @@ public class DMRequestHelperJPTest {
         update dmr;        
         test.stopTest();
         //verify test
-        dmr=[select Province__c	 from DM_Request__c where id=:dmr.id];
-        system.assertEquals(dmr.Province__c, address1.Province__c);           
+        dmr=[select Province__c  from DM_Request__c where id=:dmr.id];
+        system.assertEquals(dmr.Province__c, '東京都');           
         
     }
     public static testMethod void updateStatusTest(){
@@ -128,7 +128,7 @@ public class DMRequestHelperJPTest {
         update dmr1;
         test.stopTest();
         //verify test
-        dmr=[select Status2__c	 from DM_Request__c where id=:dmr1.id];
+        dmr=[select Status2__c   from DM_Request__c where id=:dmr1.id];
         system.assertEquals(dmr.Status2__c, 'Duplicate');
          }
     } 

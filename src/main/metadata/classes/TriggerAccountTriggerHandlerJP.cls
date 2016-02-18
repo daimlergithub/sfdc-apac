@@ -35,6 +35,17 @@ public class TriggerAccountTriggerHandlerJP
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        // Implementation to addedd as required in market
+        if(isBefore && isInsert )
+            {
+                system.debug('*****');
+                AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
+            }
+        if(isBefore && isUpdate)
+        	{
+            	AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+            	AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+            	AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+        	}
     }
 }

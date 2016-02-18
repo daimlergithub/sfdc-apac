@@ -155,6 +155,7 @@
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
+			   <sf:include name="UtilAddressTranslation"/>
 			   <sf:include name="UtilWebserviceTest"/>
 			   <sf:include name="WebServiceMockImpl"/>
 			   <sf:include name="VehicleExtension"/>
@@ -296,7 +297,7 @@
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
-				<sf:include name="UtilAddressTranslation"/>
+				<!--<sf:include name="UtilAddressTranslation"/>-->
 				<sf:include name="VehicleDataSharingHandler"/>
 				<sf:include name="CustomLogUtil"/>
 				<sf:include name="CustomLogUtilTest"/>
