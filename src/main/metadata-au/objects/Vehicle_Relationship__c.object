@@ -12988,3 +12988,4 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
 		window.location.href = "{!URLFOR($Site.Prefix, '')}/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}";</url>
     </webLinks>
 </CustomObject>
+
