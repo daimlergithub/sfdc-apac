@@ -798,7 +798,7 @@
     <classAccesses>
         <apexClass>TerminateVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>
     <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>true</enabled>
@@ -1170,6 +1170,10 @@
     <classAccesses>
         <apexClass>UtilWebservice</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilwebserviceTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
@@ -7055,7 +7059,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Vehicle_Modeltest__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
