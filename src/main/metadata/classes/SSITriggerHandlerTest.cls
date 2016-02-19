@@ -26,7 +26,7 @@ private with sharing class SSITriggerHandlerTest {
     
     static testMethod void myUnitTest1() {
         
-        ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+        ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
         
         System.runAs ( ssi_sv ) {
                     
@@ -66,7 +66,7 @@ private with sharing class SSITriggerHandlerTest {
     
     static testMethod void myUnitTest2() {
         
-          ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+          ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
         
         System.runAs ( ssi_sv ) {
                     
@@ -123,7 +123,7 @@ private with sharing class SSITriggerHandlerTest {
     }
     static testMethod void myUnitTest3() {
         
-          ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+          ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
         
         System.runAs ( ssi_sv ) {
                     
@@ -179,6 +179,7 @@ private with sharing class SSITriggerHandlerTest {
        }    
         
     }
+    
         static testMethod void fieldsValidationRule() {
                                           
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);

@@ -110,10 +110,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Escaltaion Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
@@ -7729,7 +7725,7 @@ Modify Reason:
         <relationshipName>Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -20308,24 +20304,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>MBJ_CRM_Department_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+   
     <listViews>
         <fullName>MBJ_Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
