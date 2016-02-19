@@ -44,7 +44,7 @@ public class LeadMassChangeDealerController {
                 return null; 
             }
             else{
-                List<Account> accounts = [Select id From Account Where name = :assignedDealerName or SF_Dealer_ID__c = :assignedDealerName limit 1 ];
+                List<Account> accounts = [Select id From Account Where name = :assignedDealerName or SF_Dealer_ID__c = :assignedDealerName limit 1 ];				
                 if(accounts.size()>0){   
                     assignedDealer = accounts[0].id;
                 }else{
