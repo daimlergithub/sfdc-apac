@@ -798,11 +798,7 @@
     <classAccesses>
         <apexClass>TerminateVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestRequestMock</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>true</enabled>
