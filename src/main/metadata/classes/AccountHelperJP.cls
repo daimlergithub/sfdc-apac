@@ -160,14 +160,17 @@ public class AccountHelperJP
         {
             string regexForNullValue ='null';
             string nullValue ='';
-            set<id> addressid = new set<id>();        
+            set<id> addressid = new set<id>();		            
+            String province;
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
                 if(a.MD__c == 'JP')
                 {
                     
                         addressid.add(a.Primary_Address_Reference__c);
-            }
+            	}
             
             If(!addressid.isEmpty())
             {   
@@ -178,9 +181,6 @@ public class AccountHelperJP
                     {   
                         If(acc.Primary_Address_Reference__c !=Null)
                         {
-                            UtilAddressTranslation.gettranslatedvalues('JP');
-                            String province;
-                            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
                             Address__c add = addr.get(acc.Primary_Address_Reference__c);
                             system.debug('!!!!!!!'+add.id);
                             if(addtrmap1.containsKey(add.Province__c))
@@ -352,13 +352,12 @@ public class AccountHelperJP
             integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
-			list<Account_Link__c> acclinklist = new list<Account_Link__c>();
+            list<Account_Link__c> acclinklist = new list<Account_Link__c>();
             set<id> AccIds = new set<id>();
             Id accountinkIndividualCustomerExternalLinkId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
             for(Account acc : TriggerNew)
             {
-                AccIds.add(acc.id);
-                //accountlist.add(acc);                
+                AccIds.add(acc.id);              
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
@@ -376,7 +375,6 @@ public class AccountHelperJP
                                     ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                                 }
 
-                            //String ucid = ucidsequence;
                             if(ucidsequence != null && ucidsequence.length() > 0)
                             {
                                 for (i=0; i < 14; i++)
