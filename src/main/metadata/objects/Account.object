@@ -11032,27 +11032,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All dealers</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>All_3rd_Party_Data</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>PC_SALUTATION</columns>
-        <columns>PC_BIRTHDATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>PC_FIRST_NAME</columns>
-        <columns>PC_LEAD_SOURCE</columns>
-        <columns>PC_LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.ThirdParty</value>
-        </filters>
-        <label>All third-party data</label>
-        <language>en_US</language>
-    </listViews>
+    
     <listViews>
         <fullName>MBDA_DM</fullName>
         <columns>ACCOUNT.NAME</columns>
