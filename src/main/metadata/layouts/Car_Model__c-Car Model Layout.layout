@@ -190,6 +190,9 @@
         <relatedList>Car_Enquiry__c.Car_Model__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Stock_Alert__c</fields>
         <fields>Type__c</fields>
@@ -201,13 +204,6 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>BodyType__c</fields>
-        <fields>Colour__c</fields>
-        <fields>CommissionNumber__c</fields>
-        <relatedList>Vehicle__c.Car_Model__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
