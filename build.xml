@@ -149,6 +149,7 @@
 			   <sf:include name="UtilViewHierarchyTestData"/>
 			   <sf:include name="IllegalArgumentException"/>	
 			   <sf:include name="TerminateVehicleRelationshipExtension"/>
+			   <sf:include name="TerminateVehicleRelationshipTest"/>
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
 			   <sf:include name="AddressSearchValidationController"/>
@@ -156,12 +157,16 @@
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
 			   <sf:include name="UtilAddressTranslation"/>
-			   <sf:include name="UtilWebserviceTest"/>
+			   <sf:include name="UtilwebserviceTest"/>
 			   <sf:include name="WebServiceMockImpl"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
 			   	<sf:include name="UtilCustomSettingsKernel"/>
 				<sf:include name="UtilCustomSettingsJP"/>
+				<sf:include name="superSortTest"/>
+				<sf:include name="ChatterAnswersTest"/>
+				<sf:include name="TrialCustomerPortalHomePageController"/>
+				<sf:include name="TrialCustomerPortalHomePageTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -262,7 +267,7 @@
 				<sf:include name="CampaignMemberAfterTriggerHandlerJP"/>
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
-				<sf:include name="SSITriggerHandlerJP"/>
+				<!--<sf:include name="SSITriggerHandlerJP"/>-->
 				<sf:include name="SSITriggerHandler"/>
 				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
@@ -433,8 +438,8 @@
 			<sf:include name="UtilConstant"/> 
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="AccountSharingDataHandlerTest"/>
-			<sf:include name="VehicleExtension"/>
-			<sf:include name="VehicleExtensionTest"/>
+			<!--<sf:include name="VehicleExtension"/>
+			<sf:include name="VehicleExtensionTest"/>-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -776,13 +781,13 @@
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
-			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
+			<!--<sf:include name="ChatterAnswersEscalationTriggerTest"/>-->
 			<sf:include name="ContactTableController"/>
 		    <sf:include name="ContactTableControllerTest"/>
-			<sf:include name="ChatterAnswersTest"/>
-			<sf:include name="TrialCustomerPortalHomePageController"/>
-			<sf:include name="TrialCustomerPortalHomePageTest"/>
-			<sf:include name="superSortTest"/>
+			<!--<sf:include name="ChatterAnswersTest"/>-->
+			<!--<sf:include name="TrialCustomerPortalHomePageController"/>
+			<sf:include name="TrialCustomerPortalHomePageTest"/>-->
+			<!--<sf:include name="superSortTest"/>-->
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="CaseTrigger"/>			
@@ -856,7 +861,7 @@
 			<sf:include name="GenerateAndAttachPDFTest"/>
 			<sf:include name="AccountMergeControllerTest"/>
 			<sf:include name="AccountMergeController"/>
-			<sf:include name="TerminateVehicleRelationshipTest"/>						
+			<!--<sf:include name="TerminateVehicleRelationshipTest"/>-->						
 		</sf:typeset>	
        <sf:typeset name="profiles" force="true"/>
 		</deploy>
