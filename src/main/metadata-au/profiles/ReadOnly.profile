@@ -10366,7 +10366,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.PS_Comment_c__c</field>
+        <field>QC__c.PS_Comment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1543,7 +1543,6 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <fullName>DRM__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Relationship Manager</label>
-
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8147,6 +8146,17 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Primary_Address_Display__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Address Display</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Primary_Address_Reference__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -8948,15 +8958,12 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>SF_Dealer_ID__c</fullName>
+	    <fullName>SF_Dealer_ID__c</fullName>
+        <displayFormat>SF-{00000}</displayFormat>
         <externalId>false</externalId>
         <label>SF Dealer ID</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>SLAExpirationDate__c</fullName>
@@ -10903,7 +10910,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>9</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Company_Legal_Form__c</picklist>
             <values>
@@ -10915,29 +10922,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Company_No_Of_Employees__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Customer_Lifecycle_Phase__c</picklist>
-            <values>
-                <fullName>Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Discard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales %26 Service Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Lead</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10979,6 +10963,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Lifecycle_Phase__c</picklist>
+            <values>
+                <fullName>Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Service Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Lead</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14595,94 +14602,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Company_Fiscal_Year_Start__c</picklist>
-            <values>
-                <fullName>1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>        
-        <picklistValues>
-            <picklist>Company_Legal_Form__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Company_No_Of_Employees__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Customer_Lifecycle_Phase__c</picklist>
-            <values>
-                <fullName>Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Discard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales %26 Service Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Lead</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Allow_Marketing_Info__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -14864,6 +14783,71 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Company_Fiscal_Year_Start__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_Legal_Form__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_No_Of_Employees__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Australia</fullName>
@@ -14901,6 +14885,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Lifecycle_Phase__c</picklist>
+            <values>
+                <fullName>Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Service Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Lead</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18209,94 +18216,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Company_Fiscal_Year_Start__c</picklist>
-            <values>
-                <fullName>1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>        
-        <picklistValues>
-            <picklist>Company_Legal_Form__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Company_No_Of_Employees__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Customer_Lifecycle_Phase__c</picklist>
-            <values>
-                <fullName>Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Discard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales %26 Service Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Lead</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Allow_Marketing_Info__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -18474,6 +18393,71 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Company_Fiscal_Year_Start__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_Legal_Form__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_No_Of_Employees__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Australia</fullName>
@@ -18511,6 +18495,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Lifecycle_Phase__c</picklist>
+            <values>
+                <fullName>Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Service Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Lead</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22002,94 +22009,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Company_Fiscal_Year_Start__c</picklist>
-            <values>
-                <fullName>1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>        
-        <picklistValues>
-            <picklist>Company_Legal_Form__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Company_No_Of_Employees__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Customer_Lifecycle_Phase__c</picklist>
-            <values>
-                <fullName>Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Discard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales %26 Service Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Lead</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Allow_Marketing_Info__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -22271,6 +22190,71 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Company_Fiscal_Year_Start__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_Legal_Form__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Company_No_Of_Employees__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Australia</fullName>
@@ -22308,6 +22292,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Lifecycle_Phase__c</picklist>
+            <values>
+                <fullName>Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Service Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Lead</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

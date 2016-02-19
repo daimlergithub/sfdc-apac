@@ -11371,7 +11371,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>QC__c.PS_Comment_c__c</field>
+        <field>QC__c.PS_Comment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16372,7 +16372,7 @@
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>	
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
