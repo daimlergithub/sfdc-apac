@@ -227,7 +227,7 @@
 				<sf:exclude name="Retail_Task__c"/>
 			</sf:typeset>
 			<sf:typeset name="queues"/>
-			<sf:typeset name="customObjectSharingRules"/>
+			
 		</deploy>
     </target>	
 	<target name="deploy21">
@@ -558,7 +558,7 @@
     </target>
 	
 	<target name="deploy39">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
@@ -837,6 +837,7 @@
 			<sf:typeset name="campaignSharingRules"/>
 			<sf:typeset name="caseSharingRules"/>
 			<sf:typeset name="customObjectSharingRules"/>
+			
 			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="approvalProcesses"/>
 			-->
