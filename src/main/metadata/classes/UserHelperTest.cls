@@ -14,7 +14,7 @@ public With Sharing class UserHelperTest
     public static Account dealer;
     public static Account CompanyAcc;
     public static user usr;
-    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin' limit 1];
+    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Partner Community User' limit 1];
     public static Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
     public static Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
    
