@@ -35,7 +35,7 @@ public With Sharing class VehicleDataSharingHandlerTest
             createData();
         }
         List<User> userlst = new List<User>();
-        Profile portalProfile = [SELECT Id FROM Profile where Name ='Dealer Community User' Limit 1];
+        Profile portalProfile = [SELECT Id FROM Profile where Name ='Partner Community User' Limit 1];
         UserRole portalRole = [Select Id From UserRole Where PortalType = 'None' Limit 1];
         User portalUser1 = new User(
         Username = System.now().millisecond() + 'test12Z345@test.com',

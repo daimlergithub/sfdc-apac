@@ -156,31 +156,32 @@ public class AccountHelperJP
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
     {
+        Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
             string regexForNullValue ='null';
             string nullValue ='';
-            set<id> addressid = new set<id>();		            
+            set<id> addressid = new set<id>();                  
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
                 if(a.MD__c == 'JP')
-                {
-                    
+                {                    
                         addressid.add(a.Primary_Address_Reference__c);
-            	}
-            
+                }
+            }
             If(!addressid.isEmpty())
             {   
-                map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-                For(Account acc:listNewAccounts)
+                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+            }   
+             For(Account acc:listNewAccounts)
                 {      
                     if(acc.MD__c == 'JP')
                     {   
-                        If(acc.Primary_Address_Reference__c !=Null)
-                        {
+                        If(acc.Primary_Address_Reference__c !=Null  && addr!=Null)
+                        {              
                             Address__c add = addr.get(acc.Primary_Address_Reference__c);
                             system.debug('!!!!!!!'+add.id);
                             if(addtrmap1.containsKey(add.Province__c))
@@ -198,11 +199,10 @@ public class AccountHelperJP
                     }              
                 }     
                 
-            }
-        }
-    }
+            
+        }    
     }    
-    
+
         /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
 ** Date: 2015-12-23 
