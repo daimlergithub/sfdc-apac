@@ -713,7 +713,7 @@
     </target>
 	
 	<target name="deploy45">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<deploy>
 		<sf:typeset name="classes">
 			<sf:include name="UserLookupResultController"/>
 			<sf:include name="UserLookupResultControllerTest"/>
