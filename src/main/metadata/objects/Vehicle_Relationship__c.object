@@ -1555,15 +1555,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Sold</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Handover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bought Competitors</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

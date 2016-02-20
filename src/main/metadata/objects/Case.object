@@ -7578,7 +7578,7 @@ Modify Reason:
         <fullName>Case_Class__c</fullName>
         <externalId>false</externalId>
         <label>Case Class</label>
-       <picklist>
+        <picklist>
             <picklistValues>
                 <fullName>Inquiry</fullName>
                 <default>false</default>
@@ -7733,7 +7733,7 @@ Modify Reason:
         <fullName>Case_Department__c</fullName>
         <externalId>false</externalId>
         <label>Case Department</label>
-       <picklist>
+        <picklist>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
@@ -8422,7 +8422,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
 */</description>
         <externalId>false</externalId>
         <label>Case SubType</label>
-         <picklist>
+        <picklist>
             <controllingField>Case_Type__c</controllingField>
             <picklistValues>
                 <fullName>Vehicle term</fullName>
@@ -9247,7 +9247,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Couldn&apos;t get in touch with the customer</fullName>
+                <fullName>Couldn't get in touch with the customer</fullName>
                 <controllingFieldValues>Instructor call</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -20133,7 +20133,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -20304,16 +20303,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-   
-    <listViews>
-        <fullName>MBJ_Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
@@ -20667,7 +20657,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -102389,15 +102378,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATEDBY_USER.ALIAS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Data_Source__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Case_Dealer__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Customer_Request__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Related_Department__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
@@ -102406,7 +102395,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <lookupPhoneDialogsAdditionalFields>Contact_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Contact_Person_Tele__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Perferred_Contact_Number__c</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>

@@ -3,6 +3,7 @@ public With Sharing class UtilTaskTest
 {
     public static List<Task> tasklst;
     public static List<Account> accList;
+    public static List<CampaignMember> campmemlist = new List<CampaignMember>();
     
     public static testmethod void updateLeadForDataSharing_test()
     {
@@ -13,6 +14,7 @@ public With Sharing class UtilTaskTest
     }
     public static void createData(){
         accList = new List<Account>();
+        Id recordTypeCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
         Id recordTypeAccObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
         Account accObj = new Account(RecordTypeId = recordTypeAccObjId,Name = 'Mercedez');
         accList.add(accObj);
@@ -25,16 +27,17 @@ public With Sharing class UtilTaskTest
         insert accList;
         Contact contactObj = new Contact(AccountId= accList.get(0).Id,LastName= 'TestClass',Federation_ID__c = '258963147');
         insert contactObj;
+        Campaign  campaignObj = new Campaign(Name='Test',RecordTypeId = recordTypeCampaignId,Repeat_From__c= system.now(),Repeat_End__c= system.now());
+        insert campaignObj;
         Id recordTypeTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-        Task taskObj = new Task(RecordTypeId = recordTypeTaskId,WhatId =accList.get(0).Id,subject='Test Task',Activity_Status__c ='Need Verification',WhoId = contactObj.Id);
+        Task taskObj = new Task(RecordTypeId = recordTypeTaskId,WhatId =campaignObj.Id,subject='Test Task',Activity_Status__c ='Need Verification',WhoId = contactObj.Id);
         tasklst = new List<Task>();
         tasklst.add(taskObj);
         insert tasklst;
-        Id recordTypeCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
-        Campaign  campaignObj = new Campaign(Name='Test',RecordTypeId = recordTypeCampaignId,Repeat_From__c= system.now(),Repeat_End__c= system.now());
-        insert campaignObj;
+        
        
-        CampaignMember campaignMemObj = new CampaignMember(CampaignId = campaignObj.Id,ContactId=contactObj.Id,Status='Advisory did not apply');
+        CampaignMember campaignMemObj = new CampaignMember(CampaignId = campaignObj.Id,ContactId=contactObj.Id,Status='Failed/No Response');
         insert campaignMemObj;
+        campmemlist.add(campaignMemObj);
     }
 }

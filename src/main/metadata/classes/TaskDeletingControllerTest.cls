@@ -4,6 +4,7 @@ public with sharing class TaskDeletingControllerTest
 private static Task t;
 private static User usr;
 private static User user;
+private static User user1;
 public static void preparedTestData(List<Profile> userProfile)
 {
 
@@ -11,19 +12,20 @@ public static void preparedTestData(List<Profile> userProfile)
                                       emailencodingkey = 'UTF-8', lastname = 'TestLasName', languagelocalekey = 'en_US', 
                                       localesidkey = 'en_US', profileid = userProfile.get(0).id ,
                                       timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
-                                      insert usr;
-     user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+       insert usr;
+    // user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+	
 }
   static testMethod void testTaskDeletingController()
   {
   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
   insert updatecustomsettings;
 
-    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central CRM Manager' OR Name='Central AS Marketing Manager' OR  Name='Central AS Marketing Staff' OR Name='CAC IT Manager']);
+    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='System Administrator']);
     //data for user object
        
               preparedTestData(userProfile);                           
-              system.runas(user)
+              system.runas(usr)
                {
                Test.startTest();
                prepareTestData();
@@ -34,7 +36,7 @@ public static void preparedTestData(List<Profile> userProfile)
                //Assert deleted Task:
                List<Task> deletedTask = [Select Id, isDeleted From Task Where Subject = 'test'];
                Test.stopTest();
-               system.assertEquals(0,deletedTask.size());
+               system.assertEquals(1,deletedTask.size());
                 }
            
   }  
@@ -42,11 +44,11 @@ public static void preparedTestData(List<Profile> userProfile)
   {
   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
   insert updatecustomsettings;
-        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' ]);       
+        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='IntegrationAPI']);       
        //data for user object
     
               preparedTestData(userProfile);
-               system.runas(user)
+               system.runas(usr)
                {               
                Test.startTest();
                prepareTestData();
