@@ -245,11 +245,7 @@
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
-			<sf:typeset name="profiles" suppressChecksumUpdate="true">	
-				<sf:include name="Admin"/>
-				<sf:include name="IntegrationAPI"/>
-				<sf:include name="CAC SSI SV"/>
-			</sf:typeset>
+			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
