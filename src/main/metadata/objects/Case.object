@@ -20303,15 +20303,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>MBJ_Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
