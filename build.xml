@@ -378,7 +378,7 @@
 	</target>
 	
 	<target name="deploy31">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<!--<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
@@ -387,7 +387,7 @@
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
 		</sf:typeset>		
-		</deploy>		
+		</deploy>-->	
     </target>
 	
 	<target name="deploy32">
@@ -421,7 +421,7 @@
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
-			<sf:include name="TriggerQC"/>
+			<!--<sf:include name="TriggerQC"/>-->
 		</sf:typeset>				
 		</deploy>					
     </target>
