@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>Vehicle__c.Recalls__r$Recall_No__c</field>
+        <field>DOC_NAME</field>
     </columns>
     <columns>
-        <field>Vehicle__c.Recalls__r$Recall_Type__c</field>
+        <field>DOC_TYPE</field>
     </columns>
     <columns>
-        <field>Vehicle__c.Recalls__r$Name</field>
+        <field>DOC_LENGTH</field>
     </columns>
     <columns>
-        <field>Vehicle__c.Recalls__r.Cases__r$CaseNumber</field>
+        <field>DOC_INTERNAL</field>
     </columns>
+    <columns>
+        <field>DOC_AUTHOR</field>
+    </columns>
+    <columns>
+        <field>DOC_DESC</field>
+    </columns>
+    <description>What documents are in the document library?</description>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Vehicle__c.Recalls__r.Cases__r$CreatedDate</field>
+        <field>FOLDER_NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Call Center 15</name>
+    <name>Sample Report: Document Library</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Cases_with_Recall__c</reportType>
+    <reportType>DocumentList</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>Vehicle__c$Add_Date__c</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <dateColumn>DOC_CREATED</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
