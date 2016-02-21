@@ -231,7 +231,7 @@
 		</deploy>
     </target>	
 	<target name="deploy21">
-		<deploy  transformations="transformations29.xml">
+		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
@@ -713,7 +713,7 @@
     </target>
 	
 	<target name="deploy45">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="UserLookupResultController"/>
 			<sf:include name="UserLookupResultControllerTest"/>
@@ -782,9 +782,9 @@
 				<sf:exclude name="YearlyTAAchievementTracingReport"/>
 				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
-			<sf:typeset name="triggers">
+			<!--<sf:typeset name="triggers">
 				<sf:exclude name="chatter_answers_question_escalation_to_case_trigger"/>
-			</sf:typeset>
+			</sf:typeset>-->
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
