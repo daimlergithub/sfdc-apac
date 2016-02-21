@@ -7,7 +7,7 @@
 **/
 
 public with sharing class LeadSharingWrapService {
-    private static Set<String> campaignProfileNames = new Set<String>{'Dealer Delegate Admin'};
+    private static Set<String> campaignProfileNames = new Set<String>{'Partner Community User'};
     private static String leadRetailType = 'Retail_Sales_Leads';
     private static List<Profile> profiles;
     private static List<Lead__c> listleads;
