@@ -141,6 +141,7 @@
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="Create_Vehicle"/>
+			   <sf:include name="TrialCustomerPortalHomePage"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -166,6 +167,8 @@
 			   <sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			   <sf:include name="TrialCustomerPortalHomePageController"/>
 			   <sf:include name="TrialCustomerPortalHomePageTest"/>
+			   <sf:include name="CommunitiesLandingController"/>
+			   <sf:include name="CommunitiesLandingControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -782,9 +785,6 @@
 				<sf:exclude name="YearlyTAAchievementTracingReport"/>
 				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
-			<!--<sf:typeset name="triggers">
-				<sf:exclude name="chatter_answers_question_escalation_to_case_trigger"/>
-			</sf:typeset>-->
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
