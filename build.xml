@@ -325,6 +325,7 @@
 				<sf:include name="CMapTest"/>
 				<sf:include name="CMap"/>
 				<sf:include name="UserService"/>
+				<sf:include name="SharingService"/>
 				<sf:include name="AccountSharingDataHandler"/>
 				<sf:include name="AccountSharingDataHandlerTest"/>
 				<sf:include name="AccountLinkHelper"/>
