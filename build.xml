@@ -325,6 +325,10 @@
 				<sf:include name="CMapTest"/>
 				<sf:include name="CMap"/>
 				<sf:include name="UserService"/>
+				<sf:include name="AccountSharingDataHandler"/>
+				<sf:include name="AccountSharingDataHandlerTest"/>
+				<sf:include name="AccountLinkHelper"/>
+				<sf:include name="AccountLinkHelperTest"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
