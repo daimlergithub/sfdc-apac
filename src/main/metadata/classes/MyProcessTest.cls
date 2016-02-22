@@ -13,6 +13,7 @@ Private Static Retail_Campaign__c rc;
 Private Static User usr;
 Private Static List<Trigger__c> updatecustomsettings=new List<Trigger__c>();
 
+
    static testMethod void testData() {
          Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
          usr = new User(Alias = 'nUser777', Email='newuser777@testorg.com', 
