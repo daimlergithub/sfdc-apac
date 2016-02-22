@@ -4356,6 +4356,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.Temp_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Temp_ZipCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.TitleOfHonor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5612,6 +5627,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Model_Hierarchy_Desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Model_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8381,6 +8401,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Dealer_Locator__c.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Dealer_Locator__c.Inactive__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8412,6 +8437,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Locator__c.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_Locator__c.Sequence_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9906,6 +9936,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Lost_Situation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Lost_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10071,6 +10106,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Preferred_Contact_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Preferred_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10162,6 +10202,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Qualified_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Questionnair__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10526,6 +10571,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Test_Drive_Detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Test_Drive_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10617,6 +10667,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Vehicle_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Vehicle_Need_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
