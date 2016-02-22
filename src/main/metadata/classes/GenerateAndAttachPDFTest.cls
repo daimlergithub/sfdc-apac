@@ -68,9 +68,9 @@ public static Case objCase;
       AttachmentAfterTriggerHandler AttachmentAfterTrigger = new AttachmentAfterTriggerHandler();
       AttachmentAfterTrigger.handleTrigger(false,false,false,false,false);
       AttachmentAfterTrigger.handleIntegrationTrigger(false,false,false,false,false);
-    }
+    }*/
     /** Description : AttachmentAfterTriggerHandlerJP class will be called */ 
-   public static testMethod void testAttachmentAfterTriggerHandlerJP()
+  /* public static testMethod void testAttachmentAfterTriggerHandlerJP()
     { 
       AttachmentAfterTriggerHandlerJP AttachmentAfterTrigger = new AttachmentAfterTriggerHandlerJP();
       AttachmentAfterTrigger.handleTrigger(false,false,false,false,false);
