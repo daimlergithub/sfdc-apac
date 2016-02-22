@@ -14,8 +14,8 @@ Private Static User usr;
 Private Static List<Trigger__c> updatecustomsettings=new List<Trigger__c>();
 
    static testMethod void testData() {
-         Profile p = [SELECT Id FROM Profile WHERE Name='system administrator']; 
-         usr = new User(Alias = 'newUser', Email='newuser@testorg.com', 
+         Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
+         usr = new User(Alias = 'nUser777', Email='newuser777@testorg.com', 
          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
          LocaleSidKey='en_US', ProfileId = p.Id, 
          TimeZoneSidKey='America/Los_Angeles', UserName='newuser@testorg.com',ManagerId=UserInfo.getuserId()); 
