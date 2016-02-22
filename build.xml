@@ -678,7 +678,7 @@
 		<sf:typeset name="triggers">
 			<sf:include name="RetailCampaignTrigger"/>
 			<sf:include name="TriggerRetailCampaignMember"/>
-			<sf:include name="AttachmentAfter"/>
+			<!--<sf:include name="AttachmentAfter"/>-->
 			<sf:include name="TriggerCampaign"/>
 		</sf:typeset>
 		</deploy>					

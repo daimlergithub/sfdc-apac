@@ -31,16 +31,12 @@
                 <field>WhatId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
+                <behavior>Edit</behavior>
+                <field>ActivityDate</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ActivityDate</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -89,12 +85,12 @@
                 <field>Priority</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Activity_Resolution__c</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Activity_DataSubSource__c</field>
+                <field>Activity_Resolution__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -197,7 +193,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000IeJk</masterLabel>
+        <masterLabel>00hO0000000QfY7</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

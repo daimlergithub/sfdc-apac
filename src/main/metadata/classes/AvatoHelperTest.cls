@@ -10,10 +10,10 @@ Public class AvatoHelperTest{
   public static testMethod void testAvatoHelper()
     {
       Profile p = [SELECT Id FROM Profile WHERE Name='Standard User']; 
-      User usr = new User(Alias = 'testData', Email='testdata@testing.com', 
+      User usr = new User(Alias = 'tData777', Email='testdata777@testing.com', 
       EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
       LocaleSidKey='en_US', ProfileId = p.Id, 
-      TimeZoneSidKey='America/Los_Angeles', UserName='testdata@testing.com');
+      TimeZoneSidKey='America/Los_Angeles', UserName='testdata777@testing.com');
       insert usr;     
       String InteractionId=AvatoHelper.getInteractionIds(usr.id,system.now());
     }

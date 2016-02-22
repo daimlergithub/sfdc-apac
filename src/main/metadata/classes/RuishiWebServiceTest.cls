@@ -11,10 +11,10 @@ public class RuishiWebServiceTest
 
    static testMethod void testRuishiWebServerSoap2() {
      Profile p = [SELECT Id FROM Profile WHERE Name='Standard User']; 
-     User usr = new User(Alias = 'testData', Email='testdata@testing.com', 
+     User usr = new User(Alias = 'tData171', Email='testdata171@testing.com', 
      EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
      LocaleSidKey='en_US', ProfileId = p.Id, 
-     TimeZoneSidKey='America/Los_Angeles', UserName='testdata@testing.com');
+     TimeZoneSidKey='America/Los_Angeles', UserName='testdata171@testing.com');
      insert usr;    
     try{
     Test.startTest();
