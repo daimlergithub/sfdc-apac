@@ -100,6 +100,13 @@
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
+			<sf:typeset name="classes">
+				<sf:include name="TrialCustomerPortalHomePageController"/>
+			   <sf:include name="TrialCustomerPortalHomePageTest"/>
+			   <sf:include name="CommunitiesLandingController"/>
+			   <sf:include name="CommunitiesLandingControllerTest"/>
+			   <sf:include name="ChatterAnswersTest"/>
+			</sf:typeset>
 		</deploy>
     </target>
 	
