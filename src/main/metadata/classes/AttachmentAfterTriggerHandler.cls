@@ -15,7 +15,7 @@ public class AttachmentAfterTriggerHandler
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-    {/*
+    {
         List<id> caseIds = new List<id>();
     
         for(Attachment a : (List<Attachment>)trigger.new){
@@ -27,13 +27,21 @@ public class AttachmentAfterTriggerHandler
         }
     
         // for purpose No.1
-        if (caseIds.size()>0) {
+       /* if (caseIds.size()>0) {
         //TODO Commented as part of unused class removal task
             //ComplaintDesHelper.sendMailToCaseMember(caseIds);
         }*/
     }
        public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        // Implementation to addedd as required in market
+        List<id> caseIds = new List<id>();
+    
+        for(Attachment a : (List<Attachment>)trigger.new){
+            // for purpose No.1
+            String parentIdString = String.valueof(a.parentId);
+            if(trigger.isInsert && parentIdString.startsWith('500')){
+                caseIds.add(a.parentId);
+            }
+        }
     }
 }

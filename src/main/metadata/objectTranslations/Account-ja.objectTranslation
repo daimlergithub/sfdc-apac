@@ -6773,7 +6773,7 @@ Allows up to 240 characters --></help>
             <section>Dealer Function</section>
         </sections>
         <sections>
-            <label><!-- Dealer Other Information --></label>
+            <label></label>
             <section>Dealer Other Information</section>
         </sections>
         <sections>
@@ -7370,7 +7370,7 @@ Allows up to 240 characters --></help>
         <name>Search_Dealers</name>
     </webLinks>
     <webLinks>
-        <label><!-- Test --></label>
+        <label></label>
         <name>Test</name>
     </webLinks>
     <webLinks>
