@@ -78,10 +78,10 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
             DlList = [select id ,Sequence_No__c,Dealer_Name__c,Dealer_Name__r.Branch_name__c,Dealer_Name__r.Dealer_Address_CN__c,Post_Code__c,Dealer_Name__r.Phone from Dealer_Locator__c where Post_Code__c in :Zipcodes Limit 1000 ];
             
             // Adding Column Headers for the CSV file
-            generatedCSVFile = SObjectType.DM_Request__c.fields.Name.Label + ',' + Label.Company_Name_Department_Title +',' +SObjectType.DM_Request__c.fields.Customer_Name__c.Label + ',' + SObjectType.DM_Request__c.fields.Zip_Code__c.Label + ',' + SObjectType.DM_Request__c.fields.Province__c.Label+','+ Label.Address_1 + ',' +Label.Address_2 +','
-                +SObjectType.DM_Material__c.fields.Label_Printing_Name__c.Label+',' + Label.My_shop_Name +',' + Label.My_Shop_Address+ ',' + Label.MyShop_Phone +
+            generatedCSVFile = 'DM Number' + ',' + Label.Company_Name_Department_Title +',' + 'Customer Name' + ',' + 'Zip Code' + ',' + 'Province' +','+ Label.Address_1 + ',' +Label.Address_2 +','
+                + 'Label Printing Name' +',' + Label.My_shop_Name +',' + Label.My_Shop_Address+ ',' + Label.MyShop_Phone +
                 ',' + Label.Near_Dealer_1 +',' + Label.Near_Dealer_Address1 + ',' + Label.Near_Dealer_Phone1 +',' +Label.Near_Dealer_2 +',' + Label.Near_Dealer_Address2 +
-                ',' + Label.Near_Dealer_Phone2 +',' + Label.Near_Dealer_3 +',' + Label.Near_Dealer_Address3 +',' + Label.Near_Dealer_Phone3 + ',' +SObjectType.DM_Request__c.fields.Delivery_Type__c.Label+ '\n';
+                ',' + Label.Near_Dealer_Phone2 +',' + Label.Near_Dealer_3 +',' + Label.Near_Dealer_Address3 +',' + Label.Near_Dealer_Phone3 + ',' + 'Delivery Type' + '\n';
             
             // Loop through DM request List to populate rows in CSV file.
             for(DM_request__c Dmr : DMRequests)

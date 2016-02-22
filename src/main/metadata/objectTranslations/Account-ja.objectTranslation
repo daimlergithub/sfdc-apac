@@ -1253,6 +1253,10 @@
             <translation>メルセデス・マガジン・アンケート</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation><!-- Mercedes Me Haneda --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
             <translation>メルセデス・コール</translation>
         </picklistValues>
@@ -3333,12 +3337,20 @@ Allows up to 240 characters --></help>
         <name>FS_Email_Last_Modified_By2__c</name>
     </fields>
     <fields>
+        <label><!-- FS_EmailLastModifiedBy3 --></label>
+        <name>FS_Email_Last_Modified_By3__c</name>
+    </fields>
+    <fields>
         <label><!-- FS Email Last Modified By --></label>
         <name>FS_Email_Last_Modified_By__c</name>
     </fields>
     <fields>
         <label><!-- FS Email Last Modified Date 2 --></label>
         <name>FS_Email_Last_Modified_Date2__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS_EmailLastModifiedDate3 --></label>
+        <name>FS_Email_Last_Modified_Date3__c</name>
     </fields>
     <fields>
         <label><!-- FS Email Last Modified Date --></label>
@@ -3363,6 +3375,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- FS Opt In Email 2 --></label>
         <name>FS_Opt_In_Email2__c</name>
+    </fields>
+    <fields>
+        <label><!-- FSOptInEmail3 --></label>
+        <name>FS_Opt_In_Email3__c</name>
     </fields>
     <fields>
         <label><!-- FS Opt In Email --></label>
@@ -3666,6 +3682,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Male</masterLabel>
             <translation>男性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4819,6 +4839,9 @@ Allows up to 240 characters --></help>
     </fields>
     <fields>
         <label>My Shop</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+        </lookupFilter>
         <name>Main_Dealer__c</name>
         <relationshipLabel><!-- Accounts (Main Dealer) --></relationshipLabel>
     </fields>
@@ -5077,6 +5100,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>Eメール受信拒否（ディーラー）</label>
         <name>Opt_In_Email2__c</name>
+    </fields>
+    <fields>
+        <label><!-- OptInEmail3 --></label>
+        <name>Opt_In_Email3__c</name>
     </fields>
     <fields>
         <label>Eメール受信拒否</label>
@@ -5559,6 +5586,9 @@ Allows up to 240 characters --></help>
     </fields>
     <fields>
         <label>セールス住所</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper address. --></errorMessage>
+        </lookupFilter>
         <name>Primary_Address_Reference__c</name>
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
@@ -6110,6 +6140,10 @@ Allows up to 240 characters --></help>
         <label>関係者フラグ</label>
         <name>Special_Mark_on_Account__c</name>
         <picklistValues>
+            <masterLabel>Automotive related</masterLabel>
+            <translation><!-- Automotive related --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>BBAC</masterLabel>
             <translation><!-- BBAC --></translation>
         </picklistValues>
@@ -6134,12 +6168,20 @@ Allows up to 240 characters --></help>
             <translation>保険会社</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lawyer</masterLabel>
+            <translation><!-- Lawyer --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MBJ</masterLabel>
             <translation>MBJ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
             <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ministry of Transport</masterLabel>
+            <translation><!-- Ministry of Transport --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Police</masterLabel>
@@ -6455,6 +6497,10 @@ Allows up to 240 characters --></help>
         <name>UCID__c</name>
     </fields>
     <fields>
+        <label><!-- UCID --></label>
+        <name>UCID_formula__c</name>
+    </fields>
+    <fields>
         <label><!-- Unimog Offered Service --></label>
         <name>Unimog_Offered_Service__c</name>
         <picklistValues>
@@ -6708,26 +6754,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <!--<layouts>
+    <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other information --></label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts>
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6835,63 +6881,51 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <!--<layouts>
-        <layout>MBJCTI Person Account Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label>コンタクト情報</label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts>
     <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -6899,23 +6933,23 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other information --></label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -6923,47 +6957,47 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -6971,35 +7005,35 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
     </layouts>
@@ -7007,23 +7041,22 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label><!-- Main Contact and Consent --></label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label></label>
+            <label><!-- New Section --></label>
             <section>New Section</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label><!-- Profile Information --></label>
             <section>Profile Information</section>
         </sections>
-    </layouts> -->
-    
+    </layouts>
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
