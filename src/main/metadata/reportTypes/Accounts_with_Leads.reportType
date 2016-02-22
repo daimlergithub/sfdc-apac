@@ -2632,11 +2632,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>UCID_formula__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>FS_Email_Last_Modified_By3__c</field>
             <table>Account</table>
         </columns>
