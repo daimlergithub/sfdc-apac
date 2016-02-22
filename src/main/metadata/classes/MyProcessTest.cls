@@ -19,7 +19,7 @@ Private Static List<Trigger__c> updatecustomsettings=new List<Trigger__c>();
          usr = new User(Alias = 'nUser777', Email='newuser777@testorg.com', 
          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
          LocaleSidKey='en_US', ProfileId = p.Id, 
-         TimeZoneSidKey='America/Los_Angeles', UserName='newuser@testorg.com',ManagerId=UserInfo.getuserId()); 
+         TimeZoneSidKey='America/Los_Angeles', UserName='newuser777@testorg.com',ManagerId=UserInfo.getuserId()); 
        system.runAs(usr){
         dealer = new Account(
             RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(),
