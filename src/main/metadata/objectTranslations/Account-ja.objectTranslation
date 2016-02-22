@@ -6843,6 +6843,10 @@ Allows up to 240 characters --></help>
             <section>Contact Information</section>
         </sections>
         <sections>
+            <label>ã‚³ãƒ³ã‚¿ã‚¯ãƒˆæƒ…å ±</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
             <label></label>
             <section>Profile Information</section>
         </sections>
@@ -7006,6 +7010,27 @@ Allows up to 240 characters --></help>
     <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
+<<<<<<< HEAD
+        <sections>
+            <label></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>-->
+    <!--<layouts>
+        <layout>Revised Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
         <sections>
             <label>ã‚³ãƒ³ã‚¿ã‚¯ãƒˆæƒ…å ±</label>
             <section>Contact Information</section>
@@ -7022,8 +7047,8 @@ Allows up to 240 characters --></help>
             <label>ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«æƒ…å ±</label>
             <section>Profile Information</section>
         </sections>
-    </layouts> -->
-    
+    </layouts>-->
+
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
