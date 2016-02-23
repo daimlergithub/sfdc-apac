@@ -898,7 +898,6 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -918,8 +917,33 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
     </listViews>
-    
-    
+    <listViews>
+        <fullName>MBJ_CRM_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -988,9 +1012,33 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
-    
-    
-   
+    <listViews>
+        <fullName>Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_A_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1084,7 +1132,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_Reject</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Rejected')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
@@ -1092,7 +1140,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Approving'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Approving')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -1100,7 +1148,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Be_Sent</fullName>
         <active>true</active>
         <description>You cannot manually select "to be sent".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>
@@ -1108,7 +1156,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Not_Send</fullName>
         <active>true</active>
         <description>You cannot manually select "Not send".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Not send')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>
