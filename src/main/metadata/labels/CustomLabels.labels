@@ -2453,6 +2453,14 @@
         <value>No Complaint</value>
     </labels>
     <labels>
+        <fullName>No_Target_records</fullName>
+        <categories>Catalogue Download</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No target Records</shortDescription>
+        <value>There were no target catalogues to be printed.</value>
+    </labels>
+    <labels>
         <fullName>NotAccepted</fullName>
         <language>en_US</language>
         <protected>false</protected>
