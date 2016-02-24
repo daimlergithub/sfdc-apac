@@ -1367,7 +1367,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>LastRunDate__c</fullName>
+        <fullName>Last_Run_Date__c</fullName>
         <externalId>false</externalId>
         <label>LastRunDate</label>
         <required>false</required>
