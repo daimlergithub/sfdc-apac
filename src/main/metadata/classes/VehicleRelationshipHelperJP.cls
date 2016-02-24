@@ -1,9 +1,6 @@
 public with sharing class VehicleRelationshipHelperJP 
 {
-     Public void validateOverlappingVehicleRelationship(List<Vehicle_Relationship__c> vehicleRel){ 
-     
-     }
-    Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){ 
+     Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){ 
        Set<Id> accountIds = new Set<Id>();
        List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
        Set<date> setStartDate=new Set<date>();
@@ -12,7 +9,7 @@ public with sharing class VehicleRelationshipHelperJP
                accountIds.add(vr.Contact__c);          
           }          
         if(!accountIds.isEmpty()){    
-          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds]){
+          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds AND (Start_Date__c!=Null OR End_Date__c!=Null) Limit 50000]){
                if(vr.Start_Date__c!=Null)
                setStartDate.add(vr.Start_Date__c);
                if(vr.End_Date__c!=Null) 
@@ -36,7 +33,7 @@ public with sharing class VehicleRelationshipHelperJP
                accountIds.add(vr.Contact__c);          
           }          
         if(!accountIds.isEmpty()){    
-          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds]){
+          for (Vehicle_Relationship__c vr :[Select Id, Contact__c, Start_Date__c, End_Date__c From Vehicle_Relationship__c Where Contact__c IN : accountIds AND (Start_Date__c!=Null OR End_Date__c!=Null) Limit 50000]){
                if(vr.Start_Date__c!=Null)
                setStartDate.add(vr.Start_Date__c);
                if(vr.End_Date__c!=Null) 
@@ -53,7 +50,8 @@ public with sharing class VehicleRelationshipHelperJP
        }
     
     Public static void OnAfterInsert(List<Vehicle_Relationship__c> vehicleRelNewRecords){
-        Set<Id> ContactIds=new Set<Id>();     
+        Set<Id> ContactIds=new Set<Id>();    
+        Set<Id> contactIdofVehicleRelationship=new Set<Id>(); 
         Set<Id> VehicleIds=new Set<Id>();        
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
         set<Id> ContactIdsforValidity=new Set<Id>();  
@@ -67,14 +65,15 @@ public with sharing class VehicleRelationshipHelperJP
                 if(vr.Owner_Relation__c!='Same' || vr.Owner_Relation__c!='Unknown' || vr.Owner_Relation__c=='Others'){
                     VehicleIds.add(vr.Vehicle_ID__c);
                     VehicleRelationshipIds.add(vr.Id);
+                    contactIdofVehicleRelationship.add(vr.Contact__c);
                 }
             } 
             if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes')){
                 ContactIdsforValidity.add(vr.Contact__c); 
-            }
+          }
         }  
         updateVehicleAmount(ContactIds); 
-        createAccountLink(VehicleIds,VehicleRelationshipIds);
+        createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
         updateAccountstatus(ContactIdsforValidity);
     } 
     
@@ -83,6 +82,7 @@ public with sharing class VehicleRelationshipHelperJP
         Set<Id> VehicleIds=new Set<Id>();       
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
         set<Id> ContactIdsforValidity=new Set<Id>();  
+        Set<Id> contactIdofVehicleRelationship=new Set<Id>(); 
         
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
             if(vr.Contact__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
@@ -99,26 +99,26 @@ public with sharing class VehicleRelationshipHelperJP
                         if(vr.Owner_Relation__c!='Same' || vr.Owner_Relation__c!='Unknown' || vr.Owner_Relation__c=='Others'){
                             VehicleIds.add(vr.Vehicle_ID__c);
                             VehicleRelationshipIds.add(vr.Id);
+                            contactIdofVehicleRelationship.add(vr.Contact__c);
                         }
                     }
                 }   
             } 
             if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes')){
-                ContactIdsforValidity.add(vr.Contact__c); 
+               ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }         
         
         system.debug('ContactIdsAfterUpdate>>>>>>'+ContactIds);                  
         updateVehicleAmount(ContactIds);
-        createAccountLink(VehicleIds,VehicleRelationshipIds);    
+        createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
     Public static void OnAfterDelete(List<Vehicle_Relationship__c> oldVehicleRelRecords){ 
         system.debug('oldVehicleRelRecords>>>>>>'+oldVehicleRelRecords);      
         Set<Id> ContactIds=new Set<Id>();  
         Set<Id> VehicleIds=new Set<Id>();  
-        set<Id> ContactIdsforValidity=new Set<Id>();  
-        
+               
         for (Vehicle_Relationship__c vr : oldVehicleRelRecords){
             if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes))
             {              
@@ -132,7 +132,7 @@ public with sharing class VehicleRelationshipHelperJP
     
     Public static void updateAccountstatus(Set<Id> ContactIds){
         List<Account> lstAccount=new List<Account>();  
-        for(Account acct:[Select Id,status__c from Account Where Id IN:ContactIds]){            
+        for(Account acct:[Select Id,status__c from Account Where Id IN:ContactIds Limit 50000]){            
             acct.status__c='Customer';
             lstAccount.add(acct);
         }         
@@ -143,9 +143,9 @@ public with sharing class VehicleRelationshipHelperJP
     
     //  UpdateVehicleAmount
     Public static void updateVehicleAmount(Set<Id> ContactIds){     
-        system.debug('ContactIds>>>>'+ContactIds);      
+        system.debug('ContactIds>>>>'+ContactIds.size());      
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null])
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null AND Contact__c IN : ContactIds Limit 50000])
         {
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  
@@ -156,16 +156,22 @@ public with sharing class VehicleRelationshipHelperJP
                 mapVehRel.put(vr.Contact__c,new set<Id> {vr.Vehicle_ID__c});
             }
         }
-        system.debug('mapVehRel'+mapVehRel);
-        // List<Account> accRecords = [Select Id, Vehicle_amount__c From Account Where Id IN:ContactIds];        
+        system.debug('mapVehRel'+mapVehRel);            
         List<Account> vehicleAmountToUpdate=new List<Account>();
         system.debug('IN:ContactIds'+ContactIds);         
         for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:ContactIds]){
             if(mapVehRel.get(acc.Id)!=Null){               
                 set<Id> setVehicleIds=mapVehRel.get(acc.Id); 
-                system.debug('setVehicleIds.size()>>>>>'+setVehicleIds.size());           
+                system.debug('setVehicleIds.size()>>>>>'+setVehicleIds.size());    
+                if(setVehicleIds!=Null){
+				  if(setVehicleIds.size()>99){
+                     acc.vehicle_amount__c=99;
+                   }
+                else{       
                 acc.vehicle_amount__c=setVehicleIds.size(); 
-                vehicleAmountToUpdate.add(acc);
+                   }
+				}
+                 vehicleAmountToUpdate.add(acc);
             }  
             else{
                 acc.vehicle_amount__c=0;   
@@ -177,22 +183,24 @@ public with sharing class VehicleRelationshipHelperJP
             update vehicleAmountToUpdate;         
     }     
     //Create Account Link   
-    Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds){ 
+    Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
         Set<Id> ContactIds=new Set<Id>();        
         Map<Id,Vehicle_Relationship__c> mapOfContact=new Map<Id,Vehicle_Relationship__c>();
-        for(Vehicle_Relationship__c  vr:[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser']){
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' AND Contact__c IN : contactIdofVehicleRelationship Limit 50000];
+        for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
             if((vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
             }
         }
         List<Account_Link__c> lstAccLink=new List<Account_Link__c>();
-        for(Vehicle_Relationship__c vr:[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds]){       
+        List<Vehicle_Relationship__c> listVehicleRelationship=[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds Limit 50000];
+        for(Vehicle_Relationship__c vr:listVehicleRelationship){       
             Account_Link__c accLink=new Account_Link__c();
             accLink.Active__c=true;
             accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
             if(vr.Vehicle_ID__c != null && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
             {
-                accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
+               accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
             }
             accLink.toRole__c=vr.Contact__c;           
             accLink.Role2__c=vr.Owner_Relation__c;
