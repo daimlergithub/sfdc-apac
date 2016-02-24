@@ -1059,6 +1059,16 @@ Modify Reason:
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Add_Address_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Additional Address should be less than or equal to 50 letters.</description>
+        <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Additional_Address__c</errorDisplayField>
+        <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_NoOfDigits</fullName>
         <active>true</active>
         <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
@@ -1163,11 +1173,11 @@ MD__c = 'JP')</errorConditionFormula>
     <validationRules>
         <fullName>Province_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Province__c)&gt;10, 
+        <errorConditionFormula>AND(LEN(Province__c)&gt;4, 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
-        <errorMessage>Province should be less than or equal to 10 letters.</errorMessage>
+        <errorMessage>Province should be less than or equal to 4 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
