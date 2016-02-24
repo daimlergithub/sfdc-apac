@@ -26,9 +26,9 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>Activity.Task_RecordType_Name__c</column>
+            <column>RECORDTYPE</column>
             <operator>equals</operator>
-            <value>Welcome Call</value>
+            <value>Task.Welcome_Call</value>
         </criteriaItems>
         <criteriaItems>
             <column>STATUS</column>
