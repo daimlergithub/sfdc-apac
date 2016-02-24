@@ -11032,7 +11032,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All dealers</label>
         <language>en_US</language>
     </listViews>
-    
+    <listViews>
+        <fullName>All_3rd_Party_Data</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>PC_SALUTATION</columns>
+        <columns>PC_BIRTHDATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>PC_FIRST_NAME</columns>
+        <columns>PC_LEAD_SOURCE</columns>
+        <columns>PC_LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.ThirdParty</value>
+        </filters>
+        <label>All third-party data</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -20010,6 +20030,15 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>FirstName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+FirstName  value &gt; 20 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
@@ -20130,6 +20159,15 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not single byte number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LastName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+LastName  value &gt; 40 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
