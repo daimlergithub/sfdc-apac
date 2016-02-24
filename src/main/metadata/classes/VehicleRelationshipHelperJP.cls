@@ -163,12 +163,14 @@ public with sharing class VehicleRelationshipHelperJP
             if(mapVehRel.get(acc.Id)!=Null){               
                 set<Id> setVehicleIds=mapVehRel.get(acc.Id); 
                 system.debug('setVehicleIds.size()>>>>>'+setVehicleIds.size());    
-                if(setVehicleIds!=Null && setVehicleIds.size()>99){
-                   acc.vehicle_amount__c=99;
-                }
+                if(setVehicleIds!=Null){
+				  if(setVehicleIds.size()>99){
+                     acc.vehicle_amount__c=99;
+                   }
                 else{       
                 acc.vehicle_amount__c=setVehicleIds.size(); 
-                }
+                   }
+				}
                  vehicleAmountToUpdate.add(acc);
             }  
             else{
