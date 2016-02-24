@@ -28,7 +28,7 @@ public class TaskMassChangeActivateDeactiveTest {
             RecordTypeId = welcomeCallRT,
             WhatId = personAccount1.Id,
             WhoId = personAccount1.PersonContactId,
-            Status = 'Open'
+            Status = 'Not Started'
         );
         insert task1;
        
@@ -52,7 +52,8 @@ public class TaskMassChangeActivateDeactiveTest {
     }
     
     static testMethod void testTaskMassChangeActivateDeactive2(){
-
+           Id AnnualCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
+         Id EOCCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
         User usr1 = UtilTestData.createUser('Remarketing Team Lead','Customer Retention');
@@ -69,10 +70,10 @@ public class TaskMassChangeActivateDeactiveTest {
         insert personAccount1;
         
         Task task1 = new Task(
-            RecordTypeId = welcomeCallRT,
+            RecordTypeId = AnnualCallRT,
             WhatId = personAccount1.Id,
             WhoId = personAccount1.PersonContactId,
-            Status = 'Open'
+            Status = 'Not Started'
         );
         insert task1;
         
