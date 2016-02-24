@@ -329,7 +329,7 @@ public class ContactHelper {
                        }
                 
             }
-            else if(con.Inactive__c==false && oldContacts.get(con.id).Salutation=='DRM MBFS' && oldContacts.get(con.id).Salutation!=con.Salutation){
+            else if(con.Inactive__c==false && oldContacts!=null && !oldContacts.isEmpty() && oldContacts.get(con.id).Salutation=='DRM MBFS' && oldContacts.get(con.id).Salutation!=con.Salutation){
                  if(relatedAccounts.containsKey(con.AccountId)){
                        relatedAccounts.get(con.AccountId).DRM__c='';                    
                        dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));

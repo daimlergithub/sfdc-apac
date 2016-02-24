@@ -56,6 +56,7 @@ private static string strPerson=Schema.SObjectType.Account.getRecordTypeInfosByN
     objAccount.City__c='Test';
     objAccount.Email__c='test@mbau.com';
     objAccount.Mobile__c ='8884545243';
+    objAccount.Business_Unit__c='Alliance';
     insert objAccount;
      accid=objAccount.id;
        testContact = new Contact ( AccountId = objAccount.id,
@@ -67,7 +68,7 @@ private static string strPerson=Schema.SObjectType.Account.getRecordTypeInfosByN
                                          LastName = 'sichao',
                                          Email = 'sichao.lai@nttdata.com',
                                          EOC_Recipient_Type__c = '60 Days Primary',
-                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
           insert testContact;
   }
    
