@@ -118,8 +118,8 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 if(Dmr.Status3__c == 'to be sent') 
                 {
-                    if(Dmr.Expected_DM_Material2__c != null && (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material2__r.Print_Due_Date__c <= system.today() )) 
-                       && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
+                    if(Dmr.Expected_DM_Material3__c != null && (Dmr.Expected_DM_Material3__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material3__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material3__r.Print_Due_Date__c <= system.today() )) 
+                       && (Dmr.Expected_DM_Material3__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material3__r.Label_Printing_Name__c != '' ))
                     {
                         LabelPrintName +=  Dmr.Expected_DM_Material3__r.Label_Printing_Name__c ;
                         Dmr.Status3__c = 'Success' ;
