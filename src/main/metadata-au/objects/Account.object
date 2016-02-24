@@ -5109,6 +5109,17 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>FS_Email_Last_Modified_By3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedBy3</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Email_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified By</label>
@@ -5123,6 +5134,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <fullName>FS_Email_Last_Modified_Date2__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified Date 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FS_Email_Last_Modified_Date3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedDate3</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -5182,6 +5202,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>FS Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FS_Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>FSOptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8027,6 +8056,17 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</d
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Preferred_Internet_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Internet Site</label>
+        <length>64</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Preferred_Language__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -8958,7 +8998,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Lookup</type>
     </fields>
     <fields>
-	    <fullName>SF_Dealer_ID__c</fullName>
+        <fullName>SF_Dealer_ID__c</fullName>
         <displayFormat>SF-{00000}</displayFormat>
         <externalId>false</externalId>
         <label>SF Dealer ID</label>
@@ -9794,6 +9834,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>TransTest__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Primary_Address_Reference__r.Province__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TransTest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Trucks_Offered_Service__c</fullName>

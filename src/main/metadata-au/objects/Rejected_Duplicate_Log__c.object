@@ -47,7 +47,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Requirement: US-DD-002
-Description: To support this solution we can create a new custom object to track the suspect-duplicates that have been manually confirmed as not a match. The custom object could be called &quot;Rejected Duplicate Log&quot; and would contain a the Master Account, Duplicate Account and Duplicate reason code.</description>
+Description: To support this solution we can create a new custom object to track the suspect-duplicates that have been manually confirmed as not a match. The custom object could be called "Rejected Duplicate Log" and would contain a the Master Account, Duplicate Account and Duplicate reason code.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>false</enableEnhancedLookup>
@@ -57,6 +57,16 @@ Description: To support this solution we can create a new custom object to track
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>DUNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>DUP Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Duplicate_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -80,6 +90,16 @@ CreatedDate: 2013-06-08</description>
         <externalId>false</externalId>
         <label>Duplicate Reason Code</label>
         <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -112,6 +132,24 @@ CreatedDate: 2013-06-08</description>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <label>Rejected Duplicate Log</label>
     <listViews>

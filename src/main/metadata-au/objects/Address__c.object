@@ -413,6 +413,44 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Temp_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Post Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TitleOfHonor__c</fullName>
+        <externalId>false</externalId>
+        <label>TitleOfHonor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>To Person</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -565,6 +603,17 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Dealer</fullName>
@@ -691,6 +740,17 @@
                 <default>true</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Individual</fullName>
@@ -814,6 +874,17 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

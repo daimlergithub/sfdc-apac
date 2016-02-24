@@ -2671,12 +2671,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_By3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.FS_Email_Last_Modified_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.FS_Email_Last_Modified_Date2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_Date3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2707,6 +2717,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.FS_Opt_In_Email2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Opt_In_Email3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3366,6 +3381,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Preferred_Internet_Site__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3402,6 +3422,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Preferred_Work_Phone_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Address_Display__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3880,6 +3905,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.TransTest__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Trucks_Offered_Service__c</field>
         <readable>true</readable>
@@ -4296,6 +4326,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.HouseNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.Opt_In_Hardcopy__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4317,6 +4352,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Temp_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Temp_ZipCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.TitleOfHonor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4447,6 +4497,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Audit_Trail__c.Date_of_Change__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit_Trail__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5576,6 +5631,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Car_Model__c.Model_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Car_Model__c.Model_Native__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5672,6 +5732,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Alternative_Transport_Method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Approval_Submit_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6386,6 +6451,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Improvement_Department__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Info_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6891,6 +6961,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Related_Department__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Related_Warranty__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6912,6 +6987,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Requires_Dealer_Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Resolution_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8321,6 +8401,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Dealer_Locator__c.External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Dealer_Locator__c.Inactive__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8352,6 +8437,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Locator__c.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_Locator__c.Sequence_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9846,6 +9936,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Lost_Situation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Lost_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10011,6 +10106,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Preferred_Contact_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Preferred_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10102,6 +10202,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Qualified_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Questionnair__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10466,6 +10571,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Test_Drive_Detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Test_Drive_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10557,6 +10667,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Vehicle_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Vehicle_Need_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11925,6 +12040,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.DUNumber__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Rejected_Duplicate_Log__c.Duplicate_Account__c</field>
         <readable>true</readable>
@@ -11935,6 +12055,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Rejected_Duplicate_Log__c.Master_Account__c</field>
         <readable>true</readable>
@@ -11942,6 +12067,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Rejected_Duplicate_Log__c.R_checkRecordID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16132,6 +16262,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.NationalType__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.National_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

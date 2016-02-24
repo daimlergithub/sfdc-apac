@@ -5219,6 +5219,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	 <fields>
+        <fullName>National_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>National Model</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+      </fields>
     <fields>
         <fullName>NextInspectionDate__c</fullName>
         <externalId>false</externalId>
