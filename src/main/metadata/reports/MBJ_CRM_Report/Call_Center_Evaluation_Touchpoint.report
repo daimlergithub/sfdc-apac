@@ -32,7 +32,7 @@
         <field>Case.Data_Source__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Report_9</name>
+    <name>Report_09</name>
     <params>
         <name>units</name>
         <value>h</value>
