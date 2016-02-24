@@ -34,7 +34,7 @@ Private static String surveyID='surveyID';
      upsert new Trigger__c(Name = 'TriggerSurveyQuestionResponse', Trigger_Name__c = 'TriggerSurveyQuestionResponse', 
                               Trigger_Handler__c = 'TriggerSurveyQuestionResponseHandler', 
                 enabled__c = true, before__c = true, after__c = true, insert__c = true,
-                              update__c = true, delete__c = true);       
+                              update__c = true, delete__c = true,Market__c='AU');       
     }  
         public static void preparedTestDate()
         {
