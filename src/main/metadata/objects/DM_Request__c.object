@@ -1214,17 +1214,21 @@ if(result == "&lt;3")
 {
 alert('{!$Label.Error_Message_1}');
 }
-if(result == "true")
+else if(result == "NoTargetRows")
+{ 
+alert('{!$Label.No_Target_records}');
+}
+else if(result == "exception")
+{
+alert('{!$Label.Exception_message}');
+}
+else if(result == "true")
 { 
 alert('{!$Label.Success_message}');
 }
-if(result == "false")
+else if(result == "false")
 {
 alert('{!$Label.Error_Message_2}');
-}
-if(result == "exception")
-{
-alert('{!$Label.Exception_message}');
 }</url>
     </webLinks>
 </CustomObject>
