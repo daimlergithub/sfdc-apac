@@ -224,10 +224,10 @@ public class AccountHelperTest
               AccountHelper.auBefore_Insert_Update_Events(accList,oldMap,false,true);
               AccountHelper.trackUpdatHistoryForFsInfo(accountObj,accountObj);
               //AccountHelper.auAfter_Insert_Update_Delete_Events()
-              AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,true,false,false);
-              AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,false,true,false);
-              AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,false,false,true);
-    //          AccountHelperCustom.auBefore_Insert_Update_Events(oldMap,oldMap,true,false);
+             // AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,true,false,false);
+             // AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,false,true,false);
+             // AccountHelperCustom.auAfter_Insert_Update_Delete_Events(oldMap,oldMap,accList,accList,false,false,true);
+            //  AccountHelperCustom.auBefore_Insert_Update_Events(oldMap,oldMap,true,false);
             //  AccountHelperCustom.auBefore_Insert_Update_Events(oldMap,oldMap,false,true);
             AccountHelper.auAfter_Insert_Update_Delete_Events(accNewMap,accOldMap,oldList,accList,false,false,true);
               
@@ -265,7 +265,7 @@ public class AccountHelperTest
           listAccounts.add(Dealer);
           map<Id,Account> oldAccountMap = new map<Id,Account>();
           oldAccountMap.put(Dealer.Id,Dealer);
-          AccountHelperCustom.auBefore_Insert_Update_Events(listAccounts,oldAccountMap,true,false);
+          //AccountHelperCustom.auBefore_Insert_Update_Events(listAccounts,oldAccountMap,true,false);
           //List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isInsert,boolean isUpdate
       Test.stopTest();
   }
