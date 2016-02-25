@@ -1359,6 +1359,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Last_Run_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>LastRunDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Lead_Creation_flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1450,6 +1458,14 @@
     <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Next_Run_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>NextRunDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>

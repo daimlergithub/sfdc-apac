@@ -18663,7 +18663,7 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <nameField>
-        <displayFormat>Lead-{000000}</displayFormat>
+        <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

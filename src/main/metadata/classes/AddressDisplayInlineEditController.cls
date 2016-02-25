@@ -1,7 +1,7 @@
 /**   
     Purpose:  Innline controller To add, edit and delete related address to an account   
     created by: Srinivas 11/3/2015
-    modified by: Sriram Kalluri 11/4/2015
+    modified by: Sudhir Kumar Acharya 11/30/2015
    
 */
 public class AddressDisplayInlineEditController { 
@@ -11,7 +11,7 @@ public class AddressDisplayInlineEditController {
    public Boolean ShowpageBlockFlag {get;set;}
    private ApexPages.StandardController stdController;   
    public string addressId {get;set;}
-   public string editaddressId {get;set;}      
+   public string editaddressId {get;set;}  
    public String aid;
 
     
@@ -39,9 +39,13 @@ public class AddressDisplayInlineEditController {
      * @return      : null
       
     **/  
-    public void cancelEdit() {      
-        addressobj=null;
-        ShowpageBlockFlag = null;                       
+    public void cancelEdit() {              
+        ShowpageBlockFlag = null;
+        if(addressobj!=Null)
+        {
+             addressobj.clear();
+             editaddressId=Null;
+         }             
     }
     
    
@@ -113,7 +117,7 @@ public class AddressDisplayInlineEditController {
       }
       
    public void addEditOptions()
-   {
+   {    
        Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c=:acc.id];
@@ -124,7 +128,6 @@ public class AddressDisplayInlineEditController {
        }
        else 
        ShowpageBlockFlag = true;
-       
    }
    
  
@@ -135,7 +138,7 @@ public class AddressDisplayInlineEditController {
       
     **/  
     public void EditOptions(){
-       Address__c editadds; 
+       Address__c editadds;
        if (editaddressId != null) 
        {
        editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
@@ -187,25 +190,25 @@ public class AddressDisplayInlineEditController {
                 addressobj.Customer__c = acc.id;
             
             try {
-           			insert addressobj;                    
-        		}
-        	catch (DmlException e) 
-        		{
-            		 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
-            	}
+                    insert addressobj;                    
+                }
+            catch (DmlException e) 
+                {
+                     ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+                }
             }
            else if(editaddressId !=null)
             {
             addressobj.id = editaddressId;
             
             try {
-           			update addressobj;  
-        		}
+                    update addressobj;  
+                }
             catch (DmlException e) 
-            	{
-            		 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
-           		}
-        	}    
+                {
+                     ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+                }
+            }    
         }               
    } 
 }

@@ -23,7 +23,7 @@ public class RetailCampaignMemberHelperTest {
             {
              List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerRetailCampaignMember'];
                    if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-                       upsert new Trigger__c(Name = 'TriggerRetailCampaignMember', Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+                       upsert new Trigger__c(Name = 'TriggerRetailCampaignMember',Market__c='NA', Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
                    }
                   thirdParty = new Account(LastName = 'Test Amit', RecordTypeId =thirdPartyRTID, Phone ='12345678921',PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989',Retail_Mobile__c='0231456949',Retail_Work_Phone__c='0231056989');
                    insert thirdParty;

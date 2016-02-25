@@ -122,6 +122,22 @@ public with sharing class VehicleExtension {
                 if(compModel == UtilConstant.Question){
                         compModel=null;
                     }
+                if(recordType == UtilConstant.MB)
+                {
+                    list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Own Sellable' order by CreatedDate ];
+                    if(!carModelId.isEmpty())
+                    {
+                    vehicle.Car_Model__c=carModelId[0].id;
+                    }
+                }else{
+                    list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:compBrand and Name =:compModel and Status__c='Competitor' order by CreatedDate ];                   
+                    if(!carModelId.isEmpty())
+                    {
+                    vehicle.Car_Model__c=carModelId[0].id;
+                    }
+                    
+                }
+                
                 vehicle.RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get(recordType).getRecordTypeId();
                 vehicle.Brand__c=brand;
                 vehicle.Class__c=class1;
@@ -139,6 +155,7 @@ public with sharing class VehicleExtension {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                     System.debug('Exception encountered...' +error);
                 }
+        
         
     }
     
@@ -190,7 +207,7 @@ public with sharing class VehicleExtension {
                 type='Own Sellable';
             }
                         
-            carModels = [SELECT Brand__c,Series__c,Model__c,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c,Model_Name__c FROM Car_Model__c Where Status__c =:type];
+            carModels = [SELECT Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
         
             for(Car_Model__c cm : carModels){
                 
@@ -205,15 +222,15 @@ public with sharing class VehicleExtension {
                      //Create Class model map.
                     tempSet = classModelMap.get(cm.Series__c);
                     if(tempSet == null){
-                        classModelMap.put(cm.Series__c, new Set<String>{cm.Model__c});
+                        classModelMap.put(cm.Brand__c+cm.Series__c, new Set<String>{cm.Name});
                     }else{
-                        tempSet.add(cm.Model__c);
+                        tempSet.add(cm.Name);
                     }
                     //Create model Range map.
                    
-                    tempSet = modelRangeMap.get(cm.Model__c);
+                    tempSet = modelRangeMap.get(cm.Name);
                     if(tempSet == null){
-                        modelRangeMap.put(cm.Model__c, new Set<String>{cm.Range__c});
+                        modelRangeMap.put(cm.Brand__c+cm.Series__c+cm.Name, new Set<String>{cm.Range__c});
                     }else{
                         tempSet.add(cm.Range__c);
                     }
@@ -222,7 +239,7 @@ public with sharing class VehicleExtension {
                    
                     tempSet = rangeMpMap.get(cm.Range__c);
                     if(tempSet == null){
-                        rangeMpMap.put(cm.Range__c, new Set<String>{cm.Mod_Pack__c});
+                        rangeMpMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Mod_Pack__c});
                     }else{
                         tempSet.add(cm.Mod_Pack__c);
                     }
@@ -231,7 +248,7 @@ public with sharing class VehicleExtension {
                    
                     tempSet = rangeVgMap.get(cm.Range__c);
                     if(tempSet == null){
-                        rangeVgMap.put(cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
+                        rangeVgMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
                     }else{
                         tempSet.add(cm.Vehicle_Group__c);
                     }
@@ -240,7 +257,7 @@ public with sharing class VehicleExtension {
                    
                     tempSet = rangeSteeringMap.get(cm.Range__c);
                     if(tempSet == null){
-                        rangeSteeringMap.put(cm.Range__c, new Set<String>{cm.Steering__c});
+                        rangeSteeringMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Steering__c});
                     }else{
                         tempSet.add(cm.Steering__c);
                     }
@@ -249,9 +266,9 @@ public with sharing class VehicleExtension {
                    
                     tempSet = brandCompitiorModelMap.get(cm.Brand__c);
                     if(tempSet == null){
-                        brandCompitiorModelMap.put(cm.Brand__c, new Set<String>{cm.Model_Name__c});
+                        brandCompitiorModelMap.put(cm.Brand__c, new Set<String>{cm.Name});
                     }else{
-                        tempSet.add(cm.Model_Name__c);
+                        tempSet.add(cm.Name);
                     } 
                 
                 

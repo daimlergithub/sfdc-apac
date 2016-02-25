@@ -12,6 +12,16 @@ On start of a trigger this CustomerSetting is checked for the trigger's name and
 If the trigger is disabled, it is not processed, execution terminates.</description>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trigger_Handler__c</fullName>
         <description>Name of an Apex class that implements interface TriggerHandlerIf and contains all code to be executed if the trigger is called.</description>
         <externalId>false</externalId>

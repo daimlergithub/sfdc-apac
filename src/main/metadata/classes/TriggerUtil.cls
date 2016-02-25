@@ -30,7 +30,7 @@ public class TriggerUtil
     {
         Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
         if(!user && !test.isrunningtest()){
-            usr = [select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
+            usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             user = true;
         }
         if (isTriggerEnabled(triggerInfo)) {
@@ -82,6 +82,7 @@ public class TriggerUtil
         }
         else {
             triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
+
         }
         
         Type triggerHandlerType = Type.forName(triggerHandlerName);

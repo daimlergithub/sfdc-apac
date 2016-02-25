@@ -84,6 +84,19 @@ CreatedDate: 2013-06-08</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>	
+    <fields>
+        <fullName>DUPNumber__c</fullName>
+        <description>Requirement: US-DD-002
+CreateBy: Mouse Liu
+CreatedDate: 2013-06-08</description>
+        <externalId>false</externalId>
+        <label>DUP Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Master_Account__c</fullName>

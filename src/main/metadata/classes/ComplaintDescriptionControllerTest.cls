@@ -17,6 +17,7 @@ public class ComplaintDescriptionControllerTest {
     static PageReference ComplaintDescriptionViewAll;
     
     private static void init(){
+        upsert new Trigger__c(Name = 'TriggerComplaintDescription',Market__c='NA', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
          cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
          Complaint_Description__c c_Desc1 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description1');
          Complaint_Description__c c_Desc2 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description2');
@@ -35,7 +36,6 @@ public class ComplaintDescriptionControllerTest {
         ComplaintDescriptionViewAll.getParameters().put('caseId',cas.Id);       
         Test.setCurrentPage(ComplaintDescriptionViewAll);    
         extension= new ComplaintDescriptionController();
-        upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
     }
     
     public static testMethod void test_getTheResults(){       

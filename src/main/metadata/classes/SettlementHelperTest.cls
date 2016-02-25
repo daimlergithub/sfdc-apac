@@ -17,7 +17,7 @@ Private static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordT
     {
         List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
         if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-            upsert new Trigger__c(Name = TriggerSettlementManagement, Trigger_Name__c = TriggerSettlementManagement, Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+            upsert new Trigger__c(Name = TriggerSettlementManagement,Market__c='NA', Trigger_Name__c = TriggerSettlementManagement, Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
         
@@ -64,7 +64,7 @@ Private static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordT
     {
         List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c =:TriggerSettlementManagement];
         if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-            upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+            upsert new Trigger__c(Name = 'TriggerSettlementManagement',Market__c='NA', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
         Test.startTest();

@@ -6,6 +6,7 @@
     <apex:includeScript value="{!$Resource.UiBootstrap}" />
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
+    <apex:includeScript value="/support/console/25.0/integration.js"/>
     <html>
     <head>
     <style type="text/css">
@@ -21,8 +22,8 @@
     <body>
        <script type="text/javascript">
        var app = angular.module('VehiclePickerApp', ['ui.bootstrap']);      
-       app.controller('VehiclePickerController', function ($scope) {0
-              
+       app.controller('VehiclePickerController', ['$scope', '$filter', function($scope, $filter) {
+       var orderBy = $filter('orderBy');
        $scope.vehicleDetailText = "New";
        $scope.vehicleDetailCompetitorText = "New";
        $scope.vehicleCurrent1DetailText = "New";
@@ -270,12 +271,13 @@
          /*Set the initial Brand value for the vehicle which is already selected*/                  
          $scope.setSelectedValue = function (brand){
             $scope.relatedClasses = $scope.brandsClasses[brand];
+            $scope.sortedClass = orderBy( $scope.relatedClasses, '-' , false);
+            $scope.models = [];
          };
       
          /*Set the initial Model values for the vehicle which is already selected*/
          $scope.setModelValue = function(class_selected){
             $scope.models = $scope.classModel[class_selected];
-            
          }
         
          $scope.getSelectedModel = function (model_value){
@@ -411,7 +413,7 @@
                 $scope.TradeInLookup = false;
             }
                 /*Fetch the car models based on status types here*/
-                $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass);
+                $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
           }  
           
           $scope.selectBrandAction = function () {
@@ -420,6 +422,9 @@
           
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {
+              $scope.brands.sort();
+              $scope.relatedClasses.sort();
+              $scope.models.sort();
               $scope.vehicleDetail = false;
               $scope.leadVehicletype = vehicleType; 
               $scope.recordId = '{!currentRecordId}';             
@@ -431,7 +436,7 @@
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                             Colour:$scope.colourVal, Model:$scope.selectedModel,
+                                             Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
                                              Trim:$scope.trimVal,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
@@ -442,8 +447,19 @@
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}"; 
-                             
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }                            
               });
           };
        
@@ -457,7 +473,19 @@
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}";
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }
               });
           };
           
@@ -618,11 +646,23 @@
                  '{!$RemoteAction.VehiclePickerController.clearVehicleFromLead}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.$apply();
-                       window.top.location="/{!currentRecordId}";
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           window.top.location="/{!currentRecordId}";
+                       }
               });
           }
           
-    });        
+    }]);        
     </script>
     <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerController">
     <table>
@@ -635,16 +675,16 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-disabled="{{lead_Type != 'Used Car'}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
         <div ng-if="vehicleDetail" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedClasses" ng-change="setModelValue(selectedClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -654,7 +694,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel)" ng-model="selectedModel" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel)" ng-model="selectedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -690,9 +730,9 @@
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedCompetitorBrand" ng-change="setSelectedValue(selectedCompetitorBrand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedCompetitorBrand" ng-change="setSelectedValue(selectedCompetitorBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCompetitorClasses" ng-change="setModelValue(selectedCompetitorClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCompetitorClasses" ng-blur="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-change="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -702,7 +742,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCompetitorModel)" ng-model="selectedCompetitorModel" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCompetitorModel)" ng-model="selectedCompetitorModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="c_vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -720,16 +760,16 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent1" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedCurrent1Brand" ng-change="setSelectedValue(selectedCurrent1Brand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedCurrent1Brand" ng-change="setSelectedValue(selectedCurrent1Brand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCurrent1Classes" ng-change="setModelValue(selectedCurrent1Classes)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCurrent1Classes" ng-blur="setModelValue(selectedCurrent1Classes+selectedCurrent1Brand)" ng-change="setModelValue(selectedCurrent1Classes+selectedCurrent1Brand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -739,7 +779,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCurrent1Model)" ng-model="selectedCurrent1Model" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCurrent1Model)" ng-model="selectedCurrent1Model" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="c1_vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -769,16 +809,16 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent2" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedCurrent2Brand" ng-change="setSelectedValue(selectedCurrent2Brand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedCurrent2Brand" ng-change="setSelectedValue(selectedCurrent2Brand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedCurrent2Classes" ng-change="setModelValue(selectedCurrent2Classes)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedCurrent2Classes" ng-blur="setModelValue(selectedCurrent2Classes+selectedCurrent2Brand)" ng-change="setModelValue(selectedCurrent2Classes+selectedCurrent2Brand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -788,7 +828,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCurrent2Model)" ng-model="selectedCurrent2Model" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCurrent2Model)" ng-model="selectedCurrent2Model" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="c2_vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -818,16 +858,16 @@
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'Edit'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'New' || TradeIn_RecType != 'Vehicle Product'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('TradeIn')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-click="showList('TradeIn')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetails != ''}}" ng-click="showList('TradeIn')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------- TRADE-IN DETAILS SECTION -------->
         <div ng-if="vehicleDetailTradeIn" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedTradeInBrand" ng-change="setSelectedValue(selectedTradeInBrand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedTradeInBrand" ng-change="setSelectedValue(selectedTradeInBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedTradeInClasses" ng-change="setModelValue(selectedTradeInClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedTradeInClasses" ng-blur="setModelValue(selectedTradeInClasses+selectedTradeInBrand)" ng-change="setModelValue(selectedTradeInClasses+selectedTradeInBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -837,7 +877,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedTradeInModel)" ng-model="selectedTradeInModel" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedTradeInModel)" ng-model="selectedTradeInModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="TradeIn_vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -867,16 +907,16 @@
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------- PURCHASED VEHICLE DETAILS SECTION -------->
         <div ng-if="vehicleDetailPurchased" style="background-color:#efefef;width:500px"> 
             <br/>
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedPurchasedBrand" ng-change="setSelectedValue(selectedPurchasedBrand)" ng-options="brand for brand in brands"></select></td>
+                    <td><select id="brandItems" ng-model="selectedPurchasedBrand" ng-change="setSelectedValue(selectedPurchasedBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedPurchasedClasses" ng-change="setModelValue(selectedPurchasedClasses)" ng-options="classes for classes in relatedClasses"></select></td>                
+                    <td><select id="classItems" ng-model="selectedPurchasedClasses" ng-blur="setModelValue(selectedPurchasedClasses+selectedPurchasedBrand)" ng-change="setModelValue(selectedPurchasedClasses+selectedPurchasedBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Colour}</td>
@@ -886,7 +926,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedPurchasedModel)" ng-model="selectedPurchasedModel" ng-options="model for model in models"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedPurchasedModel)" ng-model="selectedPurchasedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="Purchased_vehicleMilage" style="width:150px" /></td>
                 </tr> 
