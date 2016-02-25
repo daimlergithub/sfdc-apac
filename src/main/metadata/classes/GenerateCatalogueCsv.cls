@@ -334,7 +334,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 CatalogueTask.Subject = 'Catalogue file ready';
                 CatalogueTask.Description = 'Your catalogue file is ready to be downloaded. Please download it from the link below:'  + System.Url.getSalesforceBaseURL().toExternalForm()+'/sfc/#workspaceView?selectedWorkspaceId='+DMCatalogueWorkspace.id;
                 CatalogueTask.OwnerId = userinfo.getUserId();
-                CatalogueTask.Activity_Date__c = system.today();
+                CatalogueTask.ActivityDate = system.today();
                 Database.DMLOptions notifyOption = new Database.DMLOptions();
                 notifyOption.EmailHeader.triggerUserEmail = true;
                 Database.insert(CatalogueTask, notifyOption);
