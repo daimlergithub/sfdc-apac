@@ -6877,7 +6877,6 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-<<<<<<< HEAD
     <!--<layouts>
         <layout>MBJCTI Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
@@ -7037,7 +7036,6 @@ Allows up to 240 characters --></help>
     <layouts>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
-<<<<<<< HEAD
         <sections>
             <label></label>
             <section>Contact Information</section>
