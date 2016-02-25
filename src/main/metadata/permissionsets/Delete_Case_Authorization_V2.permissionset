@@ -16944,10 +16944,6 @@ yujing.he@daimler.com</description>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Recall__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Rejected_Duplicate_Log__c</tab>
         <visibility>None</visibility>
     </tabSettings>

@@ -16947,10 +16947,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Recall__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Rejected_Duplicate_Log__c</tab>
         <visibility>None</visibility>
     </tabSettings>
