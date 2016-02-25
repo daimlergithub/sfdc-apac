@@ -58,7 +58,7 @@ Description: To support this solution we can create a new custom object to track
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>DUNumber__c</fullName>
+        <fullName>DUPNumber__c</fullName>
         <externalId>false</externalId>
         <label>DUP Number</label>
         <length>255</length>
