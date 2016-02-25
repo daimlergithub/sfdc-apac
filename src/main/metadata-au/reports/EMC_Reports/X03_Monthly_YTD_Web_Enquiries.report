@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_17662482</developerName>
+        <masterLabel>Inbound Converted</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>CUST_CREATED_NAME</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Integration User</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Melvin Daguplo</sourceValue>
+            </sourceValues>
+            <value>Web Leads</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Matthew Sutianto</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>John Antonopoulos</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Emma Smith</sourceValue>
+            </sourceValues>
+            <value>EMC</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_4395599</developerName>
+        <masterLabel>Vehicle Model Interest</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Lead__c.Vehicle_Model_Interest__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>A180</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>A200</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>A45 AMG</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>B180</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>C180 Coupe</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>C63 AMG</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>C63 S Estate</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CLA Class</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CLA250</sourceValue>
+            </sourceValues>
+            <value>A, B, &amp; C Class</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>G Class</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GLE Class</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>GLC Class</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>ML63 AMG</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>SLK200</sourceValue>
+            </sourceValues>
+            <value>G, M &amp; S Class</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Vito</sourceValue>
+            </sourceValues>
+            <value>Other</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Lead__c.CAC_Lead_Status__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Contact__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Nature_of_Request__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.CAC_Lead_Status__c</column>
+            <operator>equals</operator>
+            <value>Qualified</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_17662482</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_4395599</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>03 - Monthly YTD Web Enquiries</name>
+    <params>
+        <name>closed</name>
+        <value>closed</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>te</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ActivityCustomEntity$Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>LAST_UPDATE</dateColumn>
+        <interval>INTERVAL_LASTMONTH</interval>
+    </timeFrameFilter>
+</Report>

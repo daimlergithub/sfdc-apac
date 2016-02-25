@@ -6,7 +6,7 @@ public class UtilWebServiceTest
     public static testMethod void testEntityUpdateNotification()
     {
         //
-        upsert new Trigger__c(Name = 'TriggerDealerLocator', Trigger_Name__c = 'TriggerDealerLocator', Trigger_Handler__c='TriggerDealerLocatorHandler',enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        upsert new Trigger__c(Name = 'TriggerDealerLocator', Trigger_Name__c = 'TriggerDealerLocator', Trigger_Handler__c='TriggerDealerLocatorHandler',enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='AU');
         prepareTestdata();
         Test.starttest();
         Test.stoptest();

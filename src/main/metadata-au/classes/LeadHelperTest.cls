@@ -11,12 +11,12 @@
 @isTest
 public with sharing class LeadHelperTest {
     private static Account customer;
-	private static Account dealer;
+    private static Account dealer;
     private static Account account;
     private static Account personaccount1;
-	private static Lead__c lead;
+    private static Lead__c lead;
     
-	private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     private static final String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -36,7 +36,7 @@ public with sharing class LeadHelperTest {
     private static User user;
     private static Vehicle__c vehicles;
     private static void createUser(Profile profile){        
-       
+        
          user = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
                                   Email = 'sichao7.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = localeSideKeyValue,
@@ -46,7 +46,8 @@ public with sharing class LeadHelperTest {
         
     }
     private static void createDealer(){
-         dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58396243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today());
+         
+         dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58396243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today(),Business_Unit__c=BusinessUnitValue);
             insert dealer;
          vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
@@ -57,7 +58,7 @@ public with sharing class LeadHelperTest {
    
   
 
-    @istest(seealldata = true)
+    @istest(seealldata = false)
     public static void LeadHelperTest2() {
        
       
@@ -97,7 +98,7 @@ public with sharing class LeadHelperTest {
                                          LastName = 'sichao11',
                                          Email = 'sichao11.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
             insert contact1;
            Test.startTest();
             Lead__c le1 = new Lead__c();
@@ -128,7 +129,7 @@ public with sharing class LeadHelperTest {
         }
     }
 
-    @istest(seealldata = true)
+    @istest(seealldata = false)
     public static void LeadHelperTest3() {
         
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -148,7 +149,7 @@ public with sharing class LeadHelperTest {
                                          LastName = 'sichao3',
                                          Email = 'sichao3.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
                    insert contact1;
                 Test.startTest();             
                  
@@ -190,7 +191,7 @@ public with sharing class LeadHelperTest {
         
         
     }
-     @istest(seealldata = true)
+     @istest(seealldata = false)
     public static void LeadHelperTest5() {
         
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -212,7 +213,7 @@ public with sharing class LeadHelperTest {
                                                LastName = 'sichao2',
                                                Email = 'sichao2.lai@nttdata.com',
                                                EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                               Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                               Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
                                insert contact1;
               Test.startTest();
              
@@ -267,7 +268,7 @@ public with sharing class LeadHelperTest {
                
            }
     }
-    @istest(seealldata = true)
+    @istest(seealldata = false)
     public static void LeadHelperTest7() {
         
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -289,7 +290,7 @@ public with sharing class LeadHelperTest {
                                                LastName = 'sichao2',
                                                Email = 'sichao2.lai@nttdata.com',
                                                EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                               Lead_Escalation_Recipient_Type__c='CC Lead Escalation Recipient',Dealer_Lead_Gate_Keeper__c=false);
+                                               Lead_Escalation_Recipient_Type__c='CC Lead Escalation Recipient',Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
                                insert contact1;
               Test.startTest();  
               Lead__c lead1=createLead(user);
@@ -323,7 +324,7 @@ public with sharing class LeadHelperTest {
                
            }
     }
-      @istest(seealldata = true)
+      @istest(seealldata = false)
     public static void LeadHelperTest4() {
        
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -346,7 +347,7 @@ public with sharing class LeadHelperTest {
                                          LastName = 'sichao1',
                                          Email = 'sichao1.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
             insert contact1;
                Lead__c lead1=createLead(user);
                update lead1;
@@ -372,7 +373,7 @@ public with sharing class LeadHelperTest {
                system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
            }
     }
-     @istest(seealldata = true)
+     @istest(seealldata = false)
     public static void LeadHelperTest6() {
        
         Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
@@ -396,7 +397,7 @@ public with sharing class LeadHelperTest {
                                          LastName = 'sichao1',
                                          Email = 'sichao1.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
             insert contact1;
                 Test.startTest();
                Lead__c lead1=createLead(user);

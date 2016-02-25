@@ -301,7 +301,7 @@ public class ContactHelper {
         system.debug('End of method @@@@@@@ ');
     }
     
-        public static void CopyFirstNameLastNameToDRM(List<Contact> contacts) {
+           public static void CopyFirstNameLastNameToDRM(List<Contact> contacts,Map<id,Contact> oldContacts) {
     try
     {
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
@@ -325,6 +325,13 @@ public class ContactHelper {
             if(con.Inactive__c==false && con.Salutation=='DRM MBFS' ){
               if(relatedAccounts.containsKey(con.AccountId)){
                        relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
+                       dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
+                       }
+                
+            }
+            else if(con.Inactive__c==false && oldContacts!=null && !oldContacts.isEmpty() && oldContacts.get(con.id).Salutation=='DRM MBFS' && oldContacts.get(con.id).Salutation!=con.Salutation){
+                 if(relatedAccounts.containsKey(con.AccountId)){
+                       relatedAccounts.get(con.AccountId).DRM__c='';                    
                        dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
                        }
                 
