@@ -10,6 +10,7 @@
      Public Vehicle_Relationship__c velRel{get;set;}
      Public Account acount{get;set;}
      Public List<cNodes> hierarchy;
+     Public Set<Id> setVehicleIds=new Set<Id>();
      Public Map<Id,List<Retail_Task__c>> mapRetailTask=new Map<Id,List<Retail_Task__c>>();  
      Public Map<Id,List<Vehicle_Relationship__c>> mapVehicleRelship=new Map<Id,List<Vehicle_Relationship__c>>();
     /**  
@@ -69,8 +70,11 @@
         List<Vehicle_Relationship__c> tempParentvelRel = [Select Id,Name,Vehicle_ID__c,Vehicle_ID__r.Name,Start_Date__c,Car_Relation__c,
                                                 Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,Vehicle_ID__r.Class__c,Contact__r.name, 
                                                 Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c 
-                                                from Vehicle_Relationship__c Where Contact__c=:acount.Id AND Vehicle_ID__c!=Null];
+                                                from Vehicle_Relationship__c Where Contact__c=:acount.Id AND Vehicle_ID__c!=Null LIMIT 50000];
         
+        for(Vehicle_Relationship__c vr:tempParentvelRel){
+            setVehicleIds.add(vr.Vehicle_ID__c);
+        }
         tempRetailTask();  
         tempVelRelation();       
         for (Integer i =0; i<tempParentvelRel.size();i++)
@@ -90,7 +94,7 @@
        Public void tempVelRelation(){
        List<Vehicle_Relationship__c> childrenVelRelation = [Select Name,Vehicle_ID__r.Name,Vehicle_ID__c,
                                     Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,
-                                    Vehicle_ID__r.Class__c,Car_Relation__c,Contact__r.name,Contact__c from Vehicle_Relationship__c];
+                                    Vehicle_ID__r.Class__c,Car_Relation__c,Contact__r.name,Contact__c from Vehicle_Relationship__c Where Vehicle_ID__c IN:setVehicleIds LIMIT 50000];
                       
         for(Vehicle_Relationship__c vr:childrenVelRelation)
             {
@@ -115,7 +119,7 @@
       * @see   ViewHierarchy(Vf Page)
      **/   
       public Void tempRetailTask(){
-         for(Retail_Task__c rt :[select id,Name,Related_Vehicle__c,ContractNumber__c,Status__c,StartDate__c,EndDate__c from Retail_Task__c])
+         for(Retail_Task__c rt :[select id,Name,Related_Vehicle__c,ContractNumber__c,Status__c,StartDate__c,EndDate__c from Retail_Task__c Where Related_Vehicle__c IN:setVehicleIds LIMIT 50000])
             {
              if(mapRetailTask!=Null && mapRetailTask.containsKey(rt.Related_Vehicle__c)) {             
               List<Retail_Task__c> retailTaskList=mapRetailTask.get(rt.Related_Vehicle__c); 
@@ -138,7 +142,7 @@
         
       public List<Account_Link__c> getAccountRelation(){  
              List<Account_Link__c> lstAccountLink=New List<Account_Link__c>();
-             for(Account_Link__c accLink:[select id,name,toRole__c,toRole__r.FirstName,toRole__r.LastName,Role__c,Role2__c from  Account_Link__c Where toRole__r.Id=:acount.Id])        
+             for(Account_Link__c accLink:[select id,name,toRole__c,toRole__r.FirstName,toRole__r.LastName,Role__c,Role2__c from  Account_Link__c Where toRole__r.Id=:acount.Id Limit 50000])        
              {
                lstAccountLink.add(accLink);
              }

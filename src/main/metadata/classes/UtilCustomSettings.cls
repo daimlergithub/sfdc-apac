@@ -27,5 +27,16 @@ public class UtilCustomSettings {
 		    return false;
         }
     }
+	
+	public static string getWebserviceUrl(string webServiceName)
+    {
+        if (webServiceName != null && EP_Integration_URLS__c.getAll().get(webServiceName) != null) {
+            return String.valueof(EP_Integration_URLS__c.getAll().get(webServiceName).EP_WebService_1DR__c);         
+		}
+		else {
+		    return null;
+        }
+        
+    }
     
 }
