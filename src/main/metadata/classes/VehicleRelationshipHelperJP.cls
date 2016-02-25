@@ -1,6 +1,7 @@
 public with sharing class VehicleRelationshipHelperJP 
 {
-     Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){ 
+    
+    Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){ 
        Set<Id> accountIds = new Set<Id>();
        List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
        Set<date> setStartDate=new Set<date>();
@@ -72,9 +73,9 @@ public with sharing class VehicleRelationshipHelperJP
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
-        updateVehicleAmount(ContactIds); 
-        createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
-        updateAccountstatus(ContactIdsforValidity);
+         updateVehicleAmount(ContactIds);        
+         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
+         updateAccountstatus(ContactIdsforValidity);
     } 
     
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
@@ -163,14 +164,12 @@ public with sharing class VehicleRelationshipHelperJP
             if(mapVehRel.get(acc.Id)!=Null){               
                 set<Id> setVehicleIds=mapVehRel.get(acc.Id); 
                 system.debug('setVehicleIds.size()>>>>>'+setVehicleIds.size());    
-                if(setVehicleIds!=Null){
-				  if(setVehicleIds.size()>99){
-                     acc.vehicle_amount__c=99;
-                   }
+                if(setVehicleIds!=Null && setVehicleIds.size()>99){
+                   acc.vehicle_amount__c=99;
+                }
                 else{       
                 acc.vehicle_amount__c=setVehicleIds.size(); 
-                   }
-				}
+                }
                  vehicleAmountToUpdate.add(acc);
             }  
             else{
@@ -188,48 +187,49 @@ public with sharing class VehicleRelationshipHelperJP
         Map<Id,Vehicle_Relationship__c> mapOfContact=new Map<Id,Vehicle_Relationship__c>();
         List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' AND Contact__c IN : contactIdofVehicleRelationship Limit 50000];
         for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
-            if((vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
+            if((vr.Vehicle_ID__c!=Null && vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
             }
         }
         List<Account_Link__c> lstAccLink=new List<Account_Link__c>();
         List<Vehicle_Relationship__c> listVehicleRelationship=[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds Limit 50000];
-        for(Vehicle_Relationship__c vr:listVehicleRelationship){       
-            Account_Link__c accLink=new Account_Link__c();
-            accLink.Active__c=true;
-            accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
-            if(vr.Vehicle_ID__c != null && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
-            {
-               accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
+          for(Vehicle_Relationship__c vr:listVehicleRelationship){       
+                Account_Link__c accLink=new Account_Link__c();
+                accLink.Active__c=true;
+                accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+                                 
+                if(vr.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
+                {
+                   accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
+                }
+                accLink.toRole__c=vr.Contact__c;           
+                accLink.Role2__c=vr.Owner_Relation__c;
+                
+                if(vr.Owner_Relation__c=='Grand Parent'){
+                    accLink.Role__c='Grand Child';
+                }
+                else if(vr.Owner_Relation__c=='Parent'){
+                    accLink.Role__c='Child';
+                }
+                else if(vr.Owner_Relation__c=='Child'){
+                    accLink.Role__c='Parent';
+                }
+                else if(vr.Owner_Relation__c=='Grand Child'){
+                    accLink.Role__c='Grand Parent';
+                }    
+                else if(vr.Owner_Relation__c=='Employee'){
+                    accLink.Role__c='Manager';
+                } 
+                else if(vr.Owner_Relation__c=='Manager'){
+                    accLink.Role__c='Employee';
+                } 
+                else{
+                    accLink.Role__c=vr.Owner_Relation__c;
+                } 
+                
+                lstAccLink.add(accLink);
             }
-            accLink.toRole__c=vr.Contact__c;           
-            accLink.Role2__c=vr.Owner_Relation__c;
-            
-            if(vr.Owner_Relation__c=='Grand Parent'){
-                accLink.Role__c='Grand Child';
-            }
-            else if(vr.Owner_Relation__c=='Parent'){
-                accLink.Role__c='Child';
-            }
-            else if(vr.Owner_Relation__c=='Child'){
-                accLink.Role__c='Parent';
-            }
-            else if(vr.Owner_Relation__c=='Grand Child'){
-                accLink.Role__c='Grand Parent';
-            }    
-            else if(vr.Owner_Relation__c=='Employee'){
-                accLink.Role__c='Manager';
-            } 
-            else if(vr.Owner_Relation__c=='Manager'){
-                accLink.Role__c='Employee';
-            } 
-            else{
-                accLink.Role__c=vr.Owner_Relation__c;
-            } 
-            
-            lstAccLink.add(accLink);
-        }
-        if(!lstAccLink.isEmpty())
+          if(!lstAccLink.isEmpty())
             insert lstAccLink;
     }
-}
+} 
