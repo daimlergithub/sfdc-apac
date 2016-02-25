@@ -58,6 +58,19 @@ Description: To support this solution we can create a new custom object to track
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>DUPNumber__c</fullName>
+        <description>Requirement: US-DD-002
+CreateBy: Mouse Liu
+CreatedDate: 2013-06-08</description>
+        <externalId>false</externalId>
+        <label>DUP Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Duplicate_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Requirement: US-DD-002
@@ -84,15 +97,12 @@ CreatedDate: 2013-06-08</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>	
+    </fields>
     <fields>
-        <fullName>DUPNumber__c</fullName>
-        <description>Requirement: US-DD-002
-CreateBy: Mouse Liu
-CreatedDate: 2013-06-08</description>
+        <fullName>Market_Discriminator__c</fullName>
         <externalId>false</externalId>
-        <label>DUP Number</label>
-        <length>255</length>
+        <label>Market Discriminator</label>
+        <length>2</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
