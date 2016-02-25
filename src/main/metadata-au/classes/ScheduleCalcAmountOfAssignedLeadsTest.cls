@@ -13,7 +13,7 @@
 public class ScheduleCalcAmountOfAssignedLeadsTest {
                 static{
                                 upsert new Trigger__c(Name = 'TriggerAccount'+string.valueOf(System.Now()), Trigger_Name__c = 'TriggerAccount', Trigger_Handler__c = 'TriggerAccountHandler', 
-                                enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+                                enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='AU');
         upsert new App_Setting__c(Name = 'DailyAssignedLeadsReport eMail Address',Value__c='customer_care@daimler.com');
                 }
     public static testMethod void testHasAssignedDealer() {

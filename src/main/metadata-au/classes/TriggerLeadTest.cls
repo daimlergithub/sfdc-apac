@@ -15,7 +15,7 @@ private with sharing class TriggerLeadTest {
     // US-Lead-009
     // 
     public static void dealerCreation(){
-         dealer = new Account(RecordTypeId = dealerRecordTypeId, Phone = '58392243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today());
+         dealer = new Account(RecordTypeId = dealerRecordTypeId, Phone = '58392243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today(),Business_Unit__c = 'Alliance');
         insert dealer;
         
         contact1 = new Contact (          AccountId = dealer.id,
@@ -26,7 +26,7 @@ private with sharing class TriggerLeadTest {
                                          LastName = 'sichao',
                                          Email = 'sichao.lai@nttdata.com',
                                          EOC_Recipient_Type__c = '60 Days Primary',
-                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false,Salutation='DRM MBFS');
                    insert contact1;
         
     }

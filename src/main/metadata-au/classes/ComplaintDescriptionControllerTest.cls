@@ -35,7 +35,7 @@ public class ComplaintDescriptionControllerTest {
         ComplaintDescriptionViewAll.getParameters().put('caseId',cas.Id);       
         Test.setCurrentPage(ComplaintDescriptionViewAll);    
         extension= new ComplaintDescriptionController();
-        upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='AU');
     }
     
     public static testMethod void test_getTheResults(){       
