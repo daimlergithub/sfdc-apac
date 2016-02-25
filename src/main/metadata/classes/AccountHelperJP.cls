@@ -156,31 +156,32 @@ public class AccountHelperJP
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
     {
+        Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
             string regexForNullValue ='null';
             string nullValue ='';
-            set<id> addressid = new set<id>();        
+            set<id> addressid = new set<id>();                  
+            String province;
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
                 if(a.MD__c == 'JP')
-                {
-                    
+                {                    
                         addressid.add(a.Primary_Address_Reference__c);
+                }
             }
-            
             If(!addressid.isEmpty())
             {   
-                map<id,Address__c> addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-                For(Account acc:listNewAccounts)
+                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+            }   
+             For(Account acc:listNewAccounts)
                 {      
                     if(acc.MD__c == 'JP')
                     {   
-                        If(acc.Primary_Address_Reference__c !=Null)
-                        {
-                            UtilAddressTranslation.gettranslatedvalues('JP');
-                            String province;
-                            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+                        If(acc.Primary_Address_Reference__c !=Null  && addr!=Null)
+                        {              
                             Address__c add = addr.get(acc.Primary_Address_Reference__c);
                             system.debug('!!!!!!!'+add.id);
                             if(addtrmap1.containsKey(add.Province__c))
@@ -198,11 +199,10 @@ public class AccountHelperJP
                     }              
                 }     
                 
-            }
-        }
-    }
+            
+        }    
     }    
-    
+
         /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
 ** Date: 2015-12-23 
@@ -334,6 +334,7 @@ public class AccountHelperJP
             
     }
         /** To generate UCID value based on Record type.
+         ** To Create Account link Record.
 ** Created By: Sreeram
 ** Date: 2016-01-10 
 **/
@@ -351,12 +352,13 @@ public class AccountHelperJP
             integer mod = Math.mod(checksum, checksumSet.length());
             list<Account> accountlist = new list<Account>();
             list<Account> acclist = new list<Account>();
+            list<Account_Link__c> acclinklist = new list<Account_Link__c>();
             set<id> AccIds = new set<id>();
+            Id accountinkIndividualCustomerExternalLinkId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
             for(Account acc : TriggerNew)
             {
-                AccIds.add(acc.id);
-                //accountlist.add(acc);                
-            }
+                AccIds.add(acc.id);              
+            }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
                 accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
@@ -373,7 +375,6 @@ public class AccountHelperJP
                                     ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                                 }
 
-                            //String ucid = ucidsequence;
                             if(ucidsequence != null && ucidsequence.length() > 0)
                             {
                                 for (i=0; i < 14; i++)
@@ -389,11 +390,27 @@ public class AccountHelperJP
                          
                     }
                     update acclist;
+                    map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
+					for(Account acc : accountlist)
+                    {
+                        Account account = accountmap.get(acc.Id);
+                        Account_Link__c acclink = new Account_Link__c();
+                        acclink.Primary__c = true;
+                        acclink.Origin__c = account.Name;
+                        acclink.toRole__c = account.Id;
+                        acclink.System__c = 'UCID';
+                        acclink.RecordTypeId = accountinkIndividualCustomerExternalLinkId ;
+                        acclink.Name = account.UCID__c;                        
+                        acclinklist.add(acclink);
+                        
+                    }
+                    insert acclinklist;
                 }
             }
         }
         catch(DMLException ex)
         {
+
             CustomLogUtil.DebugException(ex);
         }
         CustomLogUtil.DebugLogInsert();

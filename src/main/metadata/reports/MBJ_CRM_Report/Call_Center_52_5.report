@@ -19,9 +19,9 @@
         <criteriaItems>
             <column>Case.Case_SubType__c</column>
             <operator>contains</operator>
-            <value>MBJ Importer label</value>
+            <value>[MBJ（インポーター）]</value>
         </criteriaItems>
-        <language>en_US</language>
+        <language>ja</language>
     </filter>
     <format>Tabular</format>
     <name>Report_52-5</name>

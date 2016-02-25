@@ -26,7 +26,7 @@ public with sharing class  DMRequestHelperJP {
         string nullValue ='';
         String province;
         Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        
+        UtilAddressTranslation.gettranslatedvalues('JP');
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
@@ -40,7 +40,7 @@ public with sharing class  DMRequestHelperJP {
                 } 
         	
             for(DM_Request__c lstDMR:triggerNew){          
-               UtilAddressTranslation.gettranslatedvalues('JP');
+               
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
                {
                    if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c)
@@ -94,7 +94,7 @@ public with sharing class  DMRequestHelperJP {
         string nullValue ='';
         String province;
         Map<String, String> addtrmapInsert = UtilAddressTranslation.addtrmap;
-        
+        UtilAddressTranslation.gettranslatedvalues('JP');
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
@@ -108,7 +108,6 @@ public with sharing class  DMRequestHelperJP {
                 } 
         	
             for(DM_Request__c lstDMR:triggerNew){          
-               UtilAddressTranslation.gettranslatedvalues('JP');
                 
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
                {                   

@@ -57,7 +57,7 @@
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}" >
-                        <apex:outputText value="{!row.Block__c}" style="width:10%; white-space:none;">
+                        <apex:outputText value="{!row.Block__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
@@ -133,6 +133,8 @@
                     <apex:inputField value="{!addressobj.TitleOfHonor__c}"/>  
                     <apex:inputField value="{!addressobj.Status__c}"/>
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
+                    <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
+                    <apex:inputField value="{!addressobj.Temp_Address__c}"/>
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">

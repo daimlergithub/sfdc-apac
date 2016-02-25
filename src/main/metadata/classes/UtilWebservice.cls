@@ -15,7 +15,7 @@ Global class UtilWebservice
         SendingAddress.District = address.District__c;
         SendingAddress.Province = address.Province__c;
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
-        request.Organization = '00Dp00000000eeV';
+        request.Organization = UserInfo.getOrganizationId();
         request.Address = SendingAddress;
         try
         {

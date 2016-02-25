@@ -5140,6 +5140,17 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>FS_Email_Last_Modified_By3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedBy3</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Email_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified By</label>
@@ -5154,6 +5165,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <fullName>FS_Email_Last_Modified_Date2__c</fullName>
         <externalId>false</externalId>
         <label>FS Email Last Modified Date 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FS_Email_Last_Modified_Date3__c</fullName>
+        <externalId>false</externalId>
+        <label>FS_EmailLastModifiedDate3</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -5213,6 +5233,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>FS Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FS_Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>FSOptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -7390,6 +7419,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         <label>Main Dealer</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
@@ -7818,6 +7848,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>OptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8760,6 +8799,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Sales Address</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select the proper address.</errorMessage>
             <filterItems>
                 <field>Address__c.Customer__c</field>
                 <operation>equals</operation>
@@ -11231,11 +11271,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>No Choice Yet</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -19647,14 +19687,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Dealer_Service_Codes__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Dealer_Sales_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Province__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.PHONE1</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>PC_PHONE3</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Phone_Display__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Address_Display__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
@@ -19666,14 +19702,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE3</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE4</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UCID__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
@@ -19998,6 +20030,15 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>FirstName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+FirstName  value &gt; 20 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
@@ -20118,6 +20159,15 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not single byte number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LastName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+LastName  value &gt; 40 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>

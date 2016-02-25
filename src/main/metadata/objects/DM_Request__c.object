@@ -331,15 +331,37 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Customer Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+            </filterItems>
+            <infoMessage>Search and select account.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -841,6 +863,17 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Zip_Code__c</fullName>
         <externalId>false</externalId>
         <label>Zip Code</label>
@@ -1026,6 +1059,16 @@ Modify Reason:
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Add_Address_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Additional Address should be less than or equal to 50 letters.</description>
+        <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Additional_Address__c</errorDisplayField>
+        <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_NoOfDigits</fullName>
         <active>true</active>
         <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
@@ -1099,7 +1142,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_Reject</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Rejected')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
@@ -1107,7 +1150,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Approving'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Approving')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -1115,7 +1158,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Be_Sent</fullName>
         <active>true</active>
         <description>You cannot manually select "to be sent".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>
@@ -1123,18 +1166,18 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Not_Send</fullName>
         <active>true</active>
         <description>You cannot manually select "Not send".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Not send')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Province_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Province__c)&gt;10, 
+        <errorConditionFormula>AND(LEN(Province__c)&gt;4, 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
-        <errorMessage>Province should be less than or equal to 10 letters.</errorMessage>
+        <errorMessage>Province should be less than or equal to 4 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
@@ -1171,17 +1214,21 @@ if(result == "&lt;3")
 {
 alert('{!$Label.Error_Message_1}');
 }
-if(result == "true")
+else if(result == "NoTargetRows")
+{ 
+alert('{!$Label.No_Target_records}');
+}
+else if(result == "exception")
+{
+alert('{!$Label.Exception_message}');
+}
+else if(result == "true")
 { 
 alert('{!$Label.Success_message}');
 }
-if(result == "false")
+else if(result == "false")
 {
 alert('{!$Label.Error_Message_2}');
-}
-if(result == "exception")
-{
-alert('{!$Label.Exception_message}');
 }</url>
     </webLinks>
 </CustomObject>

@@ -110,10 +110,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Escaltaion Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
@@ -416,6 +412,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Approval_Submit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval Submit date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Approver__c</fullName>
@@ -7496,19 +7502,19 @@ Modify Reason:
         <label>Car Type</label>
         <picklist>
             <picklistValues>
-                <fullName>PbP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CBU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Regular</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Parallel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PbP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CBU</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7574,6 +7580,34 @@ Modify Reason:
         <label>Case Class</label>
         <picklist>
             <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Claim</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Touring Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Pre-Sales</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7586,10 +7620,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Others-Sales</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7598,35 +7628,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>MBDA Inquiry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>MBDA Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Claim</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touring Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7719,7 +7725,7 @@ Modify Reason:
         <relationshipName>Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7733,6 +7739,22 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coporate office</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Aftersales</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7742,22 +7764,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Coporate office</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7928,10 +7934,6 @@ Modify Reason:
         <label>Case Content(Status)</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Do not know</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7957,6 +7959,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Satisfied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8080,199 +8086,7 @@ Modify Reason:
         <label>Case Content(Detail)</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New model/ future model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>limitted model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Care</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Motor Show</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prospect DM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSI inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall confirmation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall service confirmation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Take car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Alternative car request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall service request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service network construction inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall notice change request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of MBJ scope request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Message to dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reimbursment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CS survey gift</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Trophy Japan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Mercedes Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price and cost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accessory</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive (new)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive (general)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Production location</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CI logo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Break</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Certification</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touring Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Certified Used Car Warrenty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Delay of work</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall Improvement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Address change</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Address opt-out</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NCBS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine follow up call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Direct sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Monitor campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchase support campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contract campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retro fit campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loyalty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mail news</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Website</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8280,59 +8094,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Specification</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warrenth and others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal data owned by MBJ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Activities</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Activities sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Activities after sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ID/PW check</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quality</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Another address</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touring support plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Police</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer store</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Information check</fullName>
+                <fullName>Electric system (Gr15)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8344,11 +8106,15 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Steering</fullName>
+                <fullName>Drive/Suspension (Gr31~Gr41)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Authorization</fullName>
+                <fullName>Break</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Steering</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8356,11 +8122,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Electric system (Gr15)</fullName>
+                <fullName>Electric system (Gr54)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Electric system (Gr54)</fullName>
+                <fullName>Authorization</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8376,11 +8142,87 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>My Mercedes maintenance</fullName>
+                <fullName>Quality</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Warrenty plus</fullName>
+                <fullName>Address change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Address opt-out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Another address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ID/PW check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal data owned by MBJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New model/ future model</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>limitted model</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Price and cost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Specification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Production location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CI logo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accessory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall service confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall notice change request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall service request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall Improvement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Care</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Touring Support</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8388,11 +8230,175 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Warrenty plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Touring support plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warrenth and others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certified Used Car Warrenty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>My Mercedes Trade-in request</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Drive/Suspension (Gr31~Gr41)</fullName>
+                <fullName>Alternative car request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delay of work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Take car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service network construction inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reimbursment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SSI inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CS survey gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NCBS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activities sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase support campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monitor campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine follow up call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activities after sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Trophy Japan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail news</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test drive (new)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test drive (general)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Message to dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer store</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Police</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of MBJ scope request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retro fit campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8419,6 +8425,298 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <picklist>
             <controllingField>Case_Type__c</controllingField>
             <picklistValues>
+                <fullName>Vehicle term</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle year number</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle spec</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicel delivery</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Loan</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle use</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Warranty</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Quality</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Touring support</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle recall</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle public group</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle insurance</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle status change</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle foreign eximport</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Vehicle</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle others</fullName>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection price</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection purchase</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection deliver date</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Warrenty</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Quality</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection repair</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Recall</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Others</fullName>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer place phone</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer location</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Test drive</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Fair</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer attitude</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer message</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer meeting</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Others</fullName>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ place phone</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ MB Connection</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Mercedes me</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Personal info</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Survey</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Event</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Loyalty</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ DM</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Magazine Test drive</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Ad</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Publicity</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ website</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ culture</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Sales campaign</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ After sales campaign</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Philosophy</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ related company</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ Others</fullName>
+                <controllingFieldValues>MBJ</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG Factory tour</fullName>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG New energy</fullName>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG Environment</fullName>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG General activity</fullName>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG others</fullName>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>personal</fullName>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <controllingFieldValues>Call Center</controllingFieldValues>
+                <controllingFieldValues>Finance service</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8439,13 +8737,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             <picklistValues>
                 <fullName>Professional Level Of Agent</fullName>
                 <controllingFieldValues>Call Center</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <controllingFieldValues>Call Center</controllingFieldValues>
-                <controllingFieldValues>Finance service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8961,292 +9252,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Vehicle Warranty</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Quality</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle term</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicel delivery</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Loan</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Touring support</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle recall</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle year number</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle spec</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle use</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Commercial Vehicle</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle foreign eximport</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle public group</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle insurance</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle status change</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle others</fullName>
-                <controllingFieldValues>Vehicle</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection price</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection purchase</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection Warrenty</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection Quality</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection repair</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection deliver date</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection Recall</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collection Others</fullName>
-                <controllingFieldValues>Collection</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer place phone</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer attitude</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Test drive</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Fair</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer location</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer meeting</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer message</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Others</fullName>
-                <controllingFieldValues>Dealer</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ place phone</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ related company</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>MBJ Importer label</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Personal info</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Survey</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Event</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Loyalty</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ DM</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Magazine Test drive</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Ad</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Publicity</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ website</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ culture</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Sales campaign</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ After sales campaign</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Philosophy</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ MB Connection</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Others</fullName>
-                <controllingFieldValues>MBJ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG Factory tour</fullName>
-                <controllingFieldValues>DAG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG New energy</fullName>
-                <controllingFieldValues>DAG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG Environment</fullName>
-                <controllingFieldValues>DAG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG General activity</fullName>
-                <controllingFieldValues>DAG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG others</fullName>
-                <controllingFieldValues>DAG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>personal</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ Mercedes me</fullName>
                 <controllingFieldValues>MBJ</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -13749,18 +13755,6 @@ Modify Reason:
         <fullName>Priority</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Green &lt;= 2</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yellow = 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Red &gt;= 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>A</fullName>
                 <default>false</default>
             </picklistValues>
@@ -13778,6 +13772,18 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Green &lt;= 2</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yellow = 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red &gt;= 4</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14969,6 +14975,19 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resolution_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>Approval_Submit_Date__c  -  CreatedDate</formula>
+        <label>Resolution Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Resolution__c</fullName>
@@ -20284,33 +20303,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>MBJ_CRM_Department_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
@@ -29543,7 +29536,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Regular</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -32833,7 +32826,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Vehicle_Brand__c</picklist>
             <values>
                 <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>smart</fullName>
@@ -102388,12 +102381,12 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATEDBY_USER.ALIAS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Data_Source__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Case_Dealer__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Customer_Request__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Related_Department__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>

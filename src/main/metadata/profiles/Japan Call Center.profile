@@ -58,7 +58,7 @@
     <applicationVisibilities>
         <application>MBJ_Reports_and_Dashboards</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Private_APP_Exchange</application>
@@ -1170,6 +1170,10 @@
     <classAccesses>
         <apexClass>UtilWebservice</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilwebserviceTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
@@ -2363,6 +2367,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_By3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.FS_Email_Last_Modified_By__c</field>
         <readable>false</readable>
@@ -2371,6 +2380,11 @@
         <editable>false</editable>
         <field>Account.FS_Email_Last_Modified_Date2__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Email_Last_Modified_Date3__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2401,6 +2415,11 @@
         <editable>false</editable>
         <field>Account.FS_Opt_In_Email2__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.FS_Opt_In_Email3__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2900,6 +2919,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Opt_In_Email2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Opt_In_Email3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5264,6 +5288,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Car_Model__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Car_Model__c.Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5354,6 +5383,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Car_Model__c.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Car_Model__c.Vehicle_Group__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5406,6 +5440,11 @@
         <editable>true</editable>
         <field>Case.Alternative_Transport_Method__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Approval_Submit_Date__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6654,6 +6693,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Resolution_Time__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Resolution__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7015,7 +7059,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Vehicle_Modeltest__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7824,11 +7868,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contract_Relation__c.Case_Key__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Contract_Relation__c.Case_No__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8043,6 +8082,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Customer_Name__c</field>
         <readable>true</readable>
@@ -8176,6 +8220,11 @@
         <editable>true</editable>
         <field>DM_Request__c.TitleOfHonor__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9281,6 +9330,11 @@
         <editable>false</editable>
         <field>Lead__c.Combine_Interested_Vehicle_Brand__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Company_Account__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17812,18 +17866,18 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>SurveyQuestionResponse__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>SurveyTaker__c</object>
@@ -18706,10 +18760,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Address__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -18884,10 +18934,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EmailSingle</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
@@ -18916,19 +18962,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>SendSitRequests</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>TransferAnyCase</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>TransferAnyLead</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

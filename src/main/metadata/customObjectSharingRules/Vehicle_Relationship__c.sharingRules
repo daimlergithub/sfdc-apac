@@ -12,7 +12,7 @@
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
-            <operation>equals</operation>
+            <operation>notEqual</operation>
             <value>Vehicle Relationship Soft Deleted</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>

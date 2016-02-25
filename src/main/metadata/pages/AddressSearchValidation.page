@@ -170,13 +170,13 @@
                     
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}"/>
-                        <apex:outputField value="{!AddressObj.Temp_ZipCode__c}"/>
+                        <apex:inputField value="{!AddressObj.Temp_ZipCode__c}"/>
                         
                         
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
-                        <apex:outputField value="{!AddressObj.Temp_Address__c}"/>
+                        <apex:inputField value="{!AddressObj.Temp_Address__c}"/>
                         
                         
                     </apex:pageBlockSectionItem>

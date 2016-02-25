@@ -2,6 +2,7 @@
 public With Sharing class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    final static String companyRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Vehicle__c vehicle; 
     public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
@@ -11,8 +12,9 @@ public With Sharing class UserHelperTest
     public static List<user> usersList = new List<user>();
     public static Contact con ;
     public static Account dealer;
+    public static Account CompanyAcc;
     public static user usr;
-    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin' limit 1];
+    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Partner Community User' limit 1];
     public static Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
     public static Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
    
@@ -426,6 +428,14 @@ public static testmethod void testbatch2()
         );
         insert person;
         
+        CompanyAcc = new Account(
+            RecordTypeId = companyRecordtypeid,
+            Mobile__c = '09686305220',
+            Work_Phone__c = '09686305220',
+            Name = 'First'
+            
+        );
+        insert CompanyAcc;
         // Insert a Case 
         
         aCase = new Case(
@@ -486,7 +496,7 @@ public static testmethod void testbatch2()
             
             testLead.Assigned_Dealer__c = dealer.id;
             testLead.Contact__c = person.id;
-            testLead.Company_Account__c = dealer.id;
+            testLead.Company_Account__c = CompanyAcc.id;
             testLead.RecordTypeId = afterSalesRecordTypeId;
             insert testLead;
         

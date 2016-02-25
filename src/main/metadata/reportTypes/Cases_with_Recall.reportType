@@ -469,9 +469,9 @@
             <field>VehicleStatus__c</field>
             <table>Vehicle__c</table>
         </columns>
-        <columns>
+		<columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Vehicle_Age__c</field>
+            <field>VehicleAge__c</field>
             <table>Vehicle__c</table>
         </columns>
         <columns>

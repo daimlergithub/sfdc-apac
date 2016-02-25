@@ -2768,7 +2768,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;1980</masterLabel>
-            <translation><!-- &lt;1980 --></translation>
+            <translation>1980以前</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4533,6 +4533,10 @@
     </fields>
     <fields>
         <label>保有者</label>
+        <lookupFilter>
+            <errorMessage>適切な顧客をを選択して下さい。</errorMessage>
+            <informationalMessage>顧客の検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Related_contact__c</name>
         <relationshipLabel>他社保有車両</relationshipLabel>
     </fields>
@@ -5390,6 +5394,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Vehicle Age --></label>
+        <name>VehicleAge__c</name>
+    </fields>
+    <fields>
         <label>車両ステータス</label>
         <name>VehicleStatus__c</name>
         <picklistValues>
@@ -5440,10 +5448,6 @@
             <masterLabel>Vehicle to be ordered</masterLabel>
             <translation><!-- Vehicle to be ordered --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label>車齢</label>
-        <name>Vehicle_Age__c</name>
     </fields>
     <fields>
         <label>車両セグメント</label>

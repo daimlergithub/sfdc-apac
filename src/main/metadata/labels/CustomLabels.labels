@@ -485,7 +485,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Call Center Case Information</shortDescription>
-        <value>Call Center Case Information</value>
+        <value>Call Center Case</value>
     </labels>
     <labels>
         <fullName>CampaignType</fullName>
@@ -960,7 +960,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CaseNumber :</shortDescription>
-        <value>CaseNumber :</value>
+        <value>CaseNumber</value>
+    </labels>
+    <labels>
+        <fullName>CaseType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseType</shortDescription>
+        <value>Case Type</value>
     </labels>
     <labels>
         <fullName>Case_Deadline_Notification_Case</fullName>
@@ -1157,6 +1164,13 @@
         <value>Convert To Lead</value>
     </labels>
     <labels>
+        <fullName>Copy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Copy</shortDescription>
+        <value>Copy</value>
+    </labels>
+    <labels>
         <fullName>Couldnotexplain</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1189,7 +1203,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer</shortDescription>
-        <value>Customer</value>
+        <value>Customer Name</value>
     </labels>
     <labels>
         <fullName>CustomerAssistanceCenter</fullName>
@@ -1199,11 +1213,25 @@
         <value>Customer・Assistance・Center</value>
     </labels>
     <labels>
+        <fullName>CustomerType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CustomerType</shortDescription>
+        <value>Customer Type</value>
+    </labels>
+    <labels>
         <fullName>Customer_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer Filter</shortDescription>
         <value>Customer Filter</value>
+    </labels>
+    <labels>
+        <fullName>Customerrelatedinformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customerrelatedinformation</shortDescription>
+        <value>As below, customer related information is shared.</value>
     </labels>
     <labels>
         <fullName>DMRequest_validation_error</fullName>
@@ -1292,6 +1320,13 @@
         <value>Detailed Model Name</value>
     </labels>
     <labels>
+        <fullName>Discardit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Discardit</shortDescription>
+        <value>Please discard it</value>
+    </labels>
+    <labels>
         <fullName>Dono</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1378,6 +1413,34 @@
         <value>DM Request Status could not be Updated Please contact System Administrator.</value>
     </labels>
     <labels>
+        <fullName>FAXCover</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAXCover</shortDescription>
+        <value>FAX Cover</value>
+    </labels>
+    <labels>
+        <fullName>FAXParts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAXParts</shortDescription>
+        <value>FAX (Parts)</value>
+    </labels>
+    <labels>
+        <fullName>FAXSales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAXSales</shortDescription>
+        <value>FAX (Sales)</value>
+    </labels>
+    <labels>
+        <fullName>FAXService</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAXService</shortDescription>
+        <value>FAX (Service)</value>
+    </labels>
+    <labels>
         <fullName>Familiarization_workshop_for_dormant_customers</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -1406,6 +1469,13 @@
         <protected>false</protected>
         <shortDescription>Field</shortDescription>
         <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>FinanceMethod</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FinanceMethod</shortDescription>
+        <value>Finance Method</value>
     </labels>
     <labels>
         <fullName>For_Vehicle_Picker</fullName>
@@ -2234,6 +2304,13 @@
         <value>Model</value>
     </labels>
     <labels>
+        <fullName>ModelRange</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ModelRange</shortDescription>
+        <value>Model Range</value>
+    </labels>
+    <labels>
         <fullName>MyShop_Phone</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2376,6 +2453,14 @@
         <value>No Complaint</value>
     </labels>
     <labels>
+        <fullName>No_Target_records</fullName>
+        <categories>Catalogue Download</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No target Records</shortDescription>
+        <value>There were no target catalogues to be printed.</value>
+    </labels>
+    <labels>
         <fullName>NotAccepted</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2388,6 +2473,13 @@
         <protected>false</protected>
         <shortDescription>Not found QC</shortDescription>
         <value>Not Found QC</value>
+    </labels>
+    <labels>
+        <fullName>Occupation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Occupation</shortDescription>
+        <value>Occupation</value>
     </labels>
     <labels>
         <fullName>Onchu</fullName>
@@ -2472,6 +2564,13 @@
         <value>Previous</value>
     </labels>
     <labels>
+        <fullName>Pages</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pages</shortDescription>
+        <value>Pages</value>
+    </labels>
+    <labels>
         <fullName>Parent</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2506,7 +2605,21 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Phone</shortDescription>
-        <value>Fixed</value>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>PhoneSales</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PhoneSales</shortDescription>
+        <value>Phone (Sales)</value>
+    </labels>
+    <labels>
+        <fullName>PhoneService</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PhoneService</shortDescription>
+        <value>Phone (Service)</value>
     </labels>
     <labels>
         <fullName>Please_enter_the_filter_name</fullName>
@@ -2521,6 +2634,20 @@
         <protected>false</protected>
         <shortDescription>Please select only one Master Record</shortDescription>
         <value>Please select only one Master Record</value>
+    </labels>
+    <labels>
+        <fullName>Pleasecheck</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pleasecheck</shortDescription>
+        <value>Please check &quot;Case Content&quot; and &quot;Request Content&quot; in the next page and process the request.</value>
+    </labels>
+    <labels>
+        <fullName>Pleasetakecautiontheinformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pleasetakecautiontheinformation</shortDescription>
+        <value>*Please take caution in handling the information.</value>
     </labels>
     <labels>
         <fullName>Post</fullName>
@@ -2648,6 +2775,20 @@
         <value>Inspection tasks</value>
     </labels>
     <labels>
+        <fullName>Reception</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reception</shortDescription>
+        <value>Reception</value>
+    </labels>
+    <labels>
+        <fullName>RecipientofthisFAX</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RecipientofthisFAX</shortDescription>
+        <value>If you are not the recipient of this FAX</value>
+    </labels>
+    <labels>
         <fullName>Registration</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2655,11 +2796,18 @@
         <value>Registration</value>
     </labels>
     <labels>
+        <fullName>RegistrationDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RegistrationDate</shortDescription>
+        <value>Registration  Date</value>
+    </labels>
+    <labels>
         <fullName>RegistrationNo</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Registration No</shortDescription>
-        <value>Registration No :</value>
+        <value>Registration No</value>
     </labels>
     <labels>
         <fullName>Reject</fullName>
@@ -2704,7 +2852,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Request</shortDescription>
-        <value>Reception</value>
+        <value>Request</value>
     </labels>
     <labels>
         <fullName>RequestContenttoDealer</fullName>
@@ -2948,6 +3096,27 @@
         <value>Please select the users</value>
     </labels>
     <labels>
+        <fullName>SellingDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SellingDealer</shortDescription>
+        <value>Selling Dealer</value>
+    </labels>
+    <labels>
+        <fullName>ServiceDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ServiceDealer</shortDescription>
+        <value>Service Dealer</value>
+    </labels>
+    <labels>
+        <fullName>ServicePersonnel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ServicePersonnel</shortDescription>
+        <value>Sales/Service Personnel</value>
+    </labels>
+    <labels>
         <fullName>Service_Product_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2961,6 +3130,13 @@
         <protected>false</protected>
         <shortDescription>Service Work:</shortDescription>
         <value>Service Work:</value>
+    </labels>
+    <labels>
+        <fullName>Share</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Share</shortDescription>
+        <value>Share</value>
     </labels>
     <labels>
         <fullName>Special_Filters</fullName>
@@ -3223,6 +3399,20 @@
         <value>No Vehicle Relationship found for Termination</value>
     </labels>
     <labels>
+        <fullName>Terminate_Vehicle_Relationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Terminate Vehicle Relationship</shortDescription>
+        <value>Terminate Vehicle Relationship</value>
+    </labels>
+    <labels>
+        <fullName>Thankyouforyourbusiness</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Thankyouforyourbusiness</shortDescription>
+        <value>Thank you for your business</value>
+    </labels>
+    <labels>
         <fullName>The_filter_count_is_greater_than_15</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3284,6 +3474,13 @@
         <protected>false</protected>
         <shortDescription>Tool Kit Type Media</shortDescription>
         <value>Media Tool Kit</value>
+    </labels>
+    <labels>
+        <fullName>TotalPages</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TotalPages</shortDescription>
+        <value>Total # Pages</value>
     </labels>
     <labels>
         <fullName>Total_Amount_Spend_On_Car_Service_is_Greater_Than</fullName>
@@ -3462,6 +3659,13 @@
         <protected>false</protected>
         <shortDescription>VehicleRelationship</shortDescription>
         <value>Vehicle Relationship</value>
+    </labels>
+    <labels>
+        <fullName>VehicleRelationshipInformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VehicleRelationshipInformation</shortDescription>
+        <value>Vehicle Relationship Information</value>
     </labels>
     <labels>
         <fullName>Vehicle_Detail</fullName>

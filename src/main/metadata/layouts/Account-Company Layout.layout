@@ -197,7 +197,7 @@
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>100%</width>
+                <width>1360</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

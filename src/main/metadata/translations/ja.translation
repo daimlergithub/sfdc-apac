@@ -93,7 +93,7 @@
         <name>Add_to_Campaign</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address --></label>
+        <label>住所</label>
         <name>Address</name>
     </customLabels>
     <customLabels>
@@ -273,7 +273,7 @@
         <name>CP_No_User_Found</name>
     </customLabels>
     <customLabels>
-        <label><!-- CP Please Wait --></label>
+        <label>お待ちください</label>
         <name>CP_Please_Wait</name>
     </customLabels>
     <customLabels>
@@ -545,6 +545,10 @@
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
+        <label><!-- CaseType --></label>
+        <name>CaseType</name>
+    </customLabels>
+    <customLabels>
         <label>ケース</label>
         <name>Case_Deadline_Notification_Case</name>
     </customLabels>
@@ -653,6 +657,10 @@
         <name>Convert_To_Lead</name>
     </customLabels>
     <customLabels>
+        <label><!-- Copy --></label>
+        <name>Copy</name>
+    </customLabels>
+    <customLabels>
         <label>説明できず</label>
         <name>Couldnotexplain</name>
     </customLabels>
@@ -678,8 +686,16 @@
         <name>CustomerAssistanceCenter</name>
     </customLabels>
     <customLabels>
+        <label><!-- CustomerType --></label>
+        <name>CustomerType</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Customer Filter --></label>
         <name>Customer_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customerrelatedinformation --></label>
+        <name>Customerrelatedinformation</name>
     </customLabels>
     <customLabels>
         <label><!-- DMRequest validation error --></label>
@@ -730,7 +746,11 @@
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
-        <label><!-- Dono --></label>
+        <label><!-- Discardit --></label>
+        <name>Discardit</name>
+    </customLabels>
+    <customLabels>
+        <label>殿</label>
         <name>Dono</name>
     </customLabels>
     <customLabels>
@@ -774,6 +794,26 @@
         <name>Event_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Exception message --></label>
+        <name>Exception_message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FAXCover --></label>
+        <name>FAXCover</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FAXParts --></label>
+        <name>FAXParts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FAXSales --></label>
+        <name>FAXSales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FAXService --></label>
+        <name>FAXService</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Familiarization workshop for dormant customers --></label>
         <name>Familiarization_workshop_for_dormant_customers</name>
     </customLabels>
@@ -788,6 +828,14 @@
     <customLabels>
         <label><!-- Field --></label>
         <name>Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FinanceMethod --></label>
+        <name>FinanceMethod</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- For Vehicle Picker --></label>
+        <name>For_Vehicle_Picker</name>
     </customLabels>
     <customLabels>
         <label><!-- GenericUploaderErrorMsg --></label>
@@ -1246,6 +1294,10 @@
         <name>Model</name>
     </customLabels>
     <customLabels>
+        <label><!-- ModelRange --></label>
+        <name>ModelRange</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>MyShop_Phone</name>
     </customLabels>
@@ -1314,6 +1366,10 @@
         <name>New_Button</name>
     </customLabels>
     <customLabels>
+        <label><!-- New Case --></label>
+        <name>New_Case</name>
+    </customLabels>
+    <customLabels>
         <label><!-- New Customer Acquisition --></label>
         <name>New_Customer_Acquisition</name>
     </customLabels>
@@ -1330,7 +1386,11 @@
         <name>Not_found_QC</name>
     </customLabels>
     <customLabels>
-        <label><!-- Onchu --></label>
+        <label><!-- Occupation --></label>
+        <name>Occupation</name>
+    </customLabels>
+    <customLabels>
+        <label>御中</label>
         <name>Onchu</name>
     </customLabels>
     <customLabels>
@@ -1374,6 +1434,10 @@
         <name>Page_Element_Previous</name>
     </customLabels>
     <customLabels>
+        <label><!-- Pages --></label>
+        <name>Pages</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Parent --></label>
         <name>Parent</name>
     </customLabels>
@@ -1394,6 +1458,14 @@
         <name>Phone</name>
     </customLabels>
     <customLabels>
+        <label><!-- PhoneSales --></label>
+        <name>PhoneSales</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PhoneService --></label>
+        <name>PhoneService</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Please enter the filter name --></label>
         <name>Please_enter_the_filter_name</name>
     </customLabels>
@@ -1402,7 +1474,15 @@
         <name>Please_select_only_one_Master_Record</name>
     </customLabels>
     <customLabels>
-        <label><!-- Post --></label>
+        <label><!-- Pleasecheck --></label>
+        <name>Pleasecheck</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pleasetakecautiontheinformation --></label>
+        <name>Pleasetakecautiontheinformation</name>
+    </customLabels>
+    <customLabels>
+        <label>〒</label>
         <name>Post</name>
     </customLabels>
     <customLabels>
@@ -1466,8 +1546,20 @@
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
     <customLabels>
+        <label><!-- Reception --></label>
+        <name>Reception</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientofthisFAX --></label>
+        <name>RecipientofthisFAX</name>
+    </customLabels>
+    <customLabels>
         <label>登録日</label>
         <name>Registration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RegistrationDate --></label>
+        <name>RegistrationDate</name>
     </customLabels>
     <customLabels>
         <label>登録番号</label>
@@ -1480,6 +1572,10 @@
     <customLabels>
         <label><!-- Rejected --></label>
         <name>Rejected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Label used in Task View Acc button --></label>
+        <name>Related_Acc_not_present</name>
     </customLabels>
     <customLabels>
         <label><!-- Report Title1 TA Tracing --></label>
@@ -1626,12 +1722,28 @@
         <name>Select_User</name>
     </customLabels>
     <customLabels>
+        <label><!-- SellingDealer --></label>
+        <name>SellingDealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ServiceDealer --></label>
+        <name>ServiceDealer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ServicePersonnel --></label>
+        <name>ServicePersonnel</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Service Product Promotion --></label>
         <name>Service_Product_Promotion</name>
     </customLabels>
     <customLabels>
         <label>サービス工場</label>
         <name>Service_Work</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Share --></label>
+        <name>Share</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
@@ -1654,7 +1766,7 @@
         <name>Status_Confirmed</name>
     </customLabels>
     <customLabels>
-        <label><!-- Subject --></label>
+        <label>件名</label>
         <name>Subject</name>
     </customLabels>
     <customLabels>
@@ -1770,6 +1882,14 @@
         <name>TerminateVehicleRelationship</name>
     </customLabels>
     <customLabels>
+        <label>車両の関係を終了</label>
+        <name>Terminate_Vehicle_Relationship</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Thankyouforyourbusiness --></label>
+        <name>Thankyouforyourbusiness</name>
+    </customLabels>
+    <customLabels>
         <label><!-- The filter count is greater than 15 --></label>
         <name>The_filter_count_is_greater_than_15</name>
     </customLabels>
@@ -1800,6 +1920,10 @@
     <customLabels>
         <label><!-- Tool Kit Type Media --></label>
         <name>Tool_Kit_Type_Media</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TotalPages --></label>
+        <name>TotalPages</name>
     </customLabels>
     <customLabels>
         <label><!-- Total Amount Spend On Car Service is Greater Than --></label>
@@ -1894,6 +2018,10 @@
         <name>VehicleRelationship</name>
     </customLabels>
     <customLabels>
+        <label>自動車関係の情報</label>
+        <name>VehicleRelationshipInformation</name>
+    </customLabels>
+    <customLabels>
         <label>車両情報詳細</label>
         <name>Vehicle_Detail</name>
     </customLabels>
@@ -1904,6 +2032,30 @@
     <customLabels>
         <label>車両情報</label>
         <name>Vehicle_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Competitor --></label>
+        <name>Vehicle_Picker_Competitor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Current1 --></label>
+        <name>Vehicle_Picker_Current1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Current2 --></label>
+        <name>Vehicle_Picker_Current2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Interested --></label>
+        <name>Vehicle_Picker_Interested</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Purchased --></label>
+        <name>Vehicle_Picker_Purchased</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker TradeIn --></label>
+        <name>Vehicle_Picker_TradeIn</name>
     </customLabels>
     <customLabels>
         <label><!-- Time period for Vehicle Relationship should not overlap --></label>
@@ -2189,4 +2341,5 @@
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
     </customTabs>
+    
 </Translations>

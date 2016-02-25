@@ -58,20 +58,88 @@
         <label>タッチポイント</label>
         <name>Channel__c</name>
         <picklistValues>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation><!-- 24 hours Touring Support --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers</masterLabel>
+            <translation><!-- Dealers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English Customer Desk</masterLabel>
+            <translation><!-- English Customer Desk --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
             <translation>イベント</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>IB Call</masterLabel>
-            <translation>IBコール</translation>
+            <masterLabel>Letter</masterLabel>
+            <translation><!-- Letter --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MB Online</masterLabel>
-            <translation>MBオンライン</translation>
+            <masterLabel>Maybach call</masterLabel>
+            <translation><!-- Maybach call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Call Catalogue</masterLabel>
+            <translation><!-- Mercedes Call Catalogue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Magazine Survey</masterLabel>
+            <translation><!-- Mercedes Magazine Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation><!-- Mercedes Me Haneda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation><!-- Mercedes call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
+            <translation><!-- Mercedes-Benz Owner Hotline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
+            <translation><!-- Mercedes-Benz School of Excelence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz phone</masterLabel>
+            <translation><!-- Mercedes-Benz phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Model-Year Reference desk</masterLabel>
+            <translation><!-- Model-Year Reference desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation><!-- My Mercedes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall desk</masterLabel>
+            <translation><!-- Recall desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response Sheet</masterLabel>
+            <translation><!-- Response Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -88,7 +156,15 @@
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
         <label>顧客名</label>
+        <lookupFilter>
+            <errorMessage>適切な顧客をを選択して下さい。</errorMessage>
+            <informationalMessage>顧客の検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Customer_Name__c</name>
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
@@ -372,6 +448,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
         <label>郵便番号（TEXT）</label>
         <name>Zip_Code__c</name>
     </fields>
@@ -412,7 +492,6 @@
             <section>Other Information</section>
         </sections>
     </layouts>
-    
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
     <validationRules>
         <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
@@ -461,6 +540,10 @@
     <validationRules>
         <errorMessage>都道府県は必ず10文字以下で入力して下さい。</errorMessage>
         <name>Province_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- TitleOfHonor is required. --></errorMessage>
+        <name>TitleOfHonor_is_Required</name>
     </validationRules>
     <validationRules>
         <errorMessage>郵便番号は必ず7桁以下で入力して下さい。</errorMessage>

@@ -4537,6 +4537,10 @@
     </fields>
     <fields>
         <label><!-- Related Customer --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper account. --></errorMessage>
+            <informationalMessage><!-- Search and select account. --></informationalMessage>
+        </lookupFilter>
         <name>Related_contact__c</name>
         <relationshipLabel><!-- Other_Vehicles --></relationshipLabel>
     </fields>
@@ -5394,6 +5398,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Vehicle Age --></label>
+        <name>VehicleAge__c</name>
+    </fields>
+    <fields>
         <label><!-- VehicleStatus --></label>
         <name>VehicleStatus__c</name>
         <picklistValues>
@@ -5444,10 +5452,6 @@
             <masterLabel>Vehicle to be ordered</masterLabel>
             <translation><!-- Vehicle to be ordered --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Vehicle Age --></label>
-        <name>Vehicle_Age__c</name>
     </fields>
     <fields>
         <label><!-- Vehicle Group --></label>

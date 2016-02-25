@@ -1367,7 +1367,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <relationshipLabel>Vehicle Relationships</relationshipLabel>
         <relationshipName>Vehicle_Relationships2</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1555,15 +1555,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Sold</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Handover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bought Competitors</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2123,7 +2123,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
@@ -2332,7 +2332,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <picklist>
             <picklistValues>
                 <fullName>Same</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Friend</fullName>
@@ -3926,16 +3926,16 @@ What factors were influential in your purchase decision?
         <label>Validity</label>
         <picklist>
             <picklistValues>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4536,7 +4536,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Same</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
@@ -4663,11 +4663,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5580,11 +5580,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5618,22 +5618,24 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <customTabListAdditionalFields>Vehicle_Class__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Purchase_Date__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Car_Relation__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Vehicle_Brand__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Vehicle_Class__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_Model__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Registration_Number__c</lookupDialogsAdditionalFields>
-        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Selling_Dealer__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Vehicle_ID__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Vehicle_Brand__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Vehicle_Class__c</searchResultsAdditionalFields>
+        <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>New_Used__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Car_Relation__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Finance_Method__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Selling_Dealer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Last_Service_Dealer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Vehicle_Model__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Registration_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UsVIN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>New_Used__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Car_Relation__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Finance_Method__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Selling_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Last_Service_Dealer__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vehicle_ID__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
