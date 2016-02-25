@@ -66,7 +66,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] field_order_type_info = new String[]{'AddressValidationResponseMessage'};
     }
     public class AddressValidationPort {
-        public String endpoint_x = 'https://crm-salesforce-int.mercedes-benz.com/webservices/AddressValidation';
+        public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlAddressValidation');
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
