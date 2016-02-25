@@ -918,7 +918,7 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
     </listViews>
-
+    
     <listViews>
         <fullName>Open_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -988,6 +988,7 @@ Modify Reason:
         <language>en_US</language>
     </listViews>
     
+    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1002,9 +1003,27 @@ Modify Reason:
         <customTabListAdditionalFields>Actual_DM_Material3__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <listViewButtons>Download_Catalogue</listViewButtons>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sent_Date__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Campaign__c</searchFilterFields>
         <searchFilterFields>Customer_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>

@@ -20137,6 +20137,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
+    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -20307,7 +20308,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
     
     <listViews>
         <fullName>MyCases</fullName>
@@ -20636,7 +20636,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    
     
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>

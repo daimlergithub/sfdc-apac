@@ -146,7 +146,7 @@
                 <field>Finance_Sanction__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
         </layoutColumns>
@@ -593,6 +593,8 @@
         <fields>Portal_Message_Opt_Out__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
+        <sortField>RECORDTYPE</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -610,6 +612,8 @@
         <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+        <sortField>End_Date__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -622,6 +626,8 @@
         <fields>Related_Vehicle__c</fields>
         <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
+        <sortField>StartDate__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>Competitor_Brand__c</fields>
@@ -635,6 +641,8 @@
         <fields>NAME</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
+        <sortField>Related_To__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
@@ -650,6 +658,8 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
+        <sortField>CASES.CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -669,9 +679,12 @@
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
         <fields>CM.STATUS</fields>
+        <fields>Campaign_Channels__c</fields>
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
+        <sortField>CAMPAIGN.CAMPAIGN_TYPE</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -685,6 +698,8 @@
         <fields>Lead_DataSource__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
+        <sortField>Drop_off_Time__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -698,6 +713,8 @@
         <fields>Status3__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Customer_Name__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -708,6 +725,8 @@
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>

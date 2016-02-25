@@ -334,6 +334,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Unnormalized Address --></label>
+        <name>Temp_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unnormalized Post Code --></label>
+        <name>Temp_ZipCode__c</name>
+    </fields>
+    <fields>
         <label><!-- TitleOfHonor --></label>
         <name>TitleOfHonor__c</name>
         <picklistValues>
@@ -390,6 +398,10 @@
         <name>Block_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- State is a mandatory fields when your Country is Australia. --></errorMessage>
+        <name>CheckedState</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- City should be less than or equal to 12 letters. --></errorMessage>
         <name>City_NoOfDigit</name>
     </validationRules>
@@ -412,5 +424,9 @@
     <validationRules>
         <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
         <name>Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- TitleOfHonor is required. --></errorMessage>
+        <name>TitleOfHonor_is_Required</name>
     </validationRules>
 </CustomObjectTranslation>

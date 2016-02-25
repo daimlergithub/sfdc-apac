@@ -41,11 +41,11 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Completed</masterLabel>
-            <translation><!-- Completed --></translation>
+            <translation>改善済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
+            <translation>改善待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -68,6 +68,12 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised Recall Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>改善措置番号</nameFieldLabel>
 </CustomObjectTranslation>

@@ -48,7 +48,7 @@
         <relationshipLabel>関連サーベイ</relationshipLabel>
     </fields>
     <fields>
-        <label>Surveyステータス</label>
+        <label>サーベイステータス</label>
         <name>Survey_Taking_Status__c</name>
         <picklistValues>
             <masterLabel>Finish</masterLabel>
@@ -60,7 +60,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>対象Survey</label>
+        <label>対象サーベイ</label>
         <name>Survey__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
     </fields>
@@ -81,7 +81,13 @@
         <name>User__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
     </fields>
-    
+    <layouts>
+        <layout>Revised SurveyTaker Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>SurveyTaker Layout</layout>
         <sections>

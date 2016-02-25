@@ -1202,19 +1202,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>社用車</translation>
+            <translation>MBJ/MBFカンパニーカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler Employee</masterLabel>
-            <translation>ダイムラー社員車</translation>
+            <translation>MBJ/MBF従業員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
-            <translation>販売店社員車</translation>
+            <translation>販売店従業員販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Lease</masterLabel>
-            <translation>販売店社員リース</translation>
+            <translation>販売店従業員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
@@ -1222,7 +1222,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
-            <translation>ギフトカー</translation>
+            <translation>寄贈車両</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1290,7 +1290,7 @@
         <name>End_Reason__c</name>
         <picklistValues>
             <masterLabel>Bought Competitors</masterLabel>
-            <translation>競合他車の購入</translation>
+            <translation>競合車への乗換</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS</masterLabel>
@@ -1298,7 +1298,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Handover</masterLabel>
-            <translation>継承</translation>
+            <translation>車の保有を止めた(譲渡)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Online</masterLabel>
@@ -1310,11 +1310,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Replacement</masterLabel>
-            <translation>乗り換え</translation>
+            <translation>MBへの乗換</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sold</masterLabel>
-            <translation>売却</translation>
+            <translation>車の保有を止めた(売却)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty system</masterLabel>
@@ -1344,15 +1344,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Leased Arranged Elsewhere</masterLabel>
-            <translation><!-- Leased Arranged Elsewhere --></translation>
+            <translation>リース その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leased Through Dealer</masterLabel>
-            <translation><!-- Leased Through Dealer --></translation>
+            <translation>リース 販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leased Through MBF</masterLabel>
-            <translation><!-- Leased Through MBF --></translation>
+            <translation>リース MBF</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan</masterLabel>
@@ -1360,15 +1360,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan Arranged Elsewhere</masterLabel>
-            <translation><!-- Loan Arranged Elsewhere --></translation>
+            <translation>ローン その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan through Dealer</masterLabel>
-            <translation><!-- Loan through Dealer --></translation>
+            <translation>ローン 販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan through MBF</masterLabel>
-            <translation><!-- Loan through MBF --></translation>
+            <translation>ローン MBF</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual Loan</masterLabel>
@@ -1376,11 +1376,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual loan through Dealer</masterLabel>
-            <translation><!-- Residual loan through Dealer --></translation>
+            <translation>ローン残価設定型 販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual loan through MBF</masterLabel>
-            <translation><!-- Residual loan through MBF --></translation>
+            <translation>ローン残価設定型 MBF</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
@@ -1634,7 +1634,7 @@
         <name>MOT_User_Address__c</name>
     </fields>
     <fields>
-        <label>マガジンコンセント</label>
+        <label>マガジン送付</label>
         <name>Magazine__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -1704,7 +1704,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation>要確認</translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used</masterLabel>
@@ -1749,7 +1749,7 @@
         <relationshipLabel><!-- Vehicle Relationship (Owner Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label>買主との関係</label>
+        <label>購入者との関係</label>
         <name>Owner_Relation__c</name>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
@@ -1765,11 +1765,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation>雇用会社</translation>
+            <translation>勤務先</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation>社員</translation>
+            <translation>従業員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
@@ -2907,7 +2907,7 @@
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label>VIN</label>
+        <label>車台番号</label>
         <name>UsVIN__c</name>
     </fields>
     <fields>
@@ -2956,7 +2956,7 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>モデル</label>
+        <label>モデルレンジ</label>
         <name>Vehicle_Model__c</name>
     </fields>
     <fields>
@@ -2964,7 +2964,7 @@
         <name>Vehicle_Phone__c</name>
     </fields>
     <fields>
-        <label>Warranty申請フラグ</label>
+        <label>保証申請フラグ</label>
         <name>Warranty_Apply_Flag__c</name>
     </fields>
     <fields>
@@ -3070,6 +3070,37 @@
         <name>vehicle_mail__c</name>
     </fields>
     <layouts>
+        <layout>Revised Vehicle Relationship Layout-CAC</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
             <label><!-- Basic Information --></label>
@@ -3105,6 +3136,37 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Soft Deleted</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     <nameFieldLabel>車両顧客関係番号</nameFieldLabel>

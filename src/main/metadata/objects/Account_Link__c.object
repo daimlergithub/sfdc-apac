@@ -1728,7 +1728,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fromRole__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Role__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>toRole__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Role2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Portal_Email__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fromRole__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Role__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>toRole__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Role2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Portal_Email__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Contact_Sector_Share__c</fullName>
