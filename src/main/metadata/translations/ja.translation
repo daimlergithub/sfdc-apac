@@ -77,7 +77,7 @@
         <name>Account_Merge</name>
     </customLabels>
     <customLabels>
-        <label><!-- AddressList Page Error Message --></label>
+        <label>既に該当アカウントに住所が5つ存在します。</label>
         <name>Account_cannot_have_more_than_5_Address</name>
     </customLabels>
     <customLabels>
@@ -97,11 +97,11 @@
         <name>Address</name>
     </customLabels>
     <customLabels>
-        <label><!-- AddressType Validation --></label>
+        <label>同じ住所区分の住所が既に存在します。</label>
         <name>AddressType_Validation</name>
     </customLabels>
     <customLabels>
-        <label><!-- AddressValidation callout failure --></label>
+        <label>処理がタイムアウトしました。システム管理者にお問い合わせください。</label>
         <name>AddressValidation_callout_failure</name>
     </customLabels>
     <customLabels>
@@ -121,15 +121,15 @@
         <name>Address_Search</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address fields not null --></label>
+        <label>郵便番号検索時は、郵便番号以外の住所項目は入力しないでください。</label>
         <name>Address_fields_not_null</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address type Validation --></label>
+        <label>住所区分を選択して下さい。</label>
         <name>Address_type_Validation</name>
     </customLabels>
     <customLabels>
-        <label><!-- Address validation --></label>
+        <label>住所が未検証です。「住所確認」ボタンをクリックしてください。</label>
         <name>Address_validation</name>
     </customLabels>
     <customLabels>
@@ -161,7 +161,7 @@
         <name>Assign_Case_To_Dealer_Dealer_Name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Assign Case To Dealer ErrorMsg1 --></label>
+        <label>検索結果がありません。</label>
         <name>Assign_Case_To_Dealer_ErrorMsg1</name>
     </customLabels>
     <customLabels>
@@ -189,7 +189,7 @@
         <name>Assign_QC</name>
     </customLabels>
     <customLabels>
-        <label><!-- AttachedPdfError --></label>
+        <label>添付PDFにエラーがあります。</label>
         <name>AttachedPdfError</name>
     </customLabels>
     <customLabels>
@@ -261,15 +261,15 @@
         <name>CL_VehicleRel_No</name>
     </customLabels>
     <customLabels>
-        <label><!-- CP Merge Account Confirm --></label>
+        <label>本当にマージしますか？</label>
         <name>CP_Merge_Account_Confirm</name>
     </customLabels>
     <customLabels>
-        <label><!-- CP No Search Result --></label>
+        <label>検索結果がありません。</label>
         <name>CP_No_Search_Result</name>
     </customLabels>
     <customLabels>
-        <label><!-- CP No User Found --></label>
+        <label>ユーザが見つかりません</label>
         <name>CP_No_User_Found</name>
     </customLabels>
     <customLabels>
@@ -529,7 +529,7 @@
         <name>Cannot_Delete_Central_Campaign</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case --></label>
+        <label>ケース-</label>
         <name>Case</name>
     </customLabels>
     <customLabels>
@@ -698,7 +698,7 @@
         <name>Customerrelatedinformation</name>
     </customLabels>
     <customLabels>
-        <label><!-- DMRequest validation error --></label>
+        <label>ご指定の住所区分に該当する住所が登録されておりません。</label>
         <name>DMRequest_validation_error</name>
     </customLabels>
     <customLabels>
@@ -794,7 +794,7 @@
         <name>Event_Type</name>
     </customLabels>
     <customLabels>
-        <label><!-- Exception message --></label>
+        <label>カタログファイル生成に失敗しました。システム管理者にお問い合わせください。</label>
         <name>Exception_message</name>
     </customLabels>
     <customLabels>
@@ -1378,6 +1378,10 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
+        <label><!-- No target Records --></label>
+        <name>No_Target_records</name>
+    </customLabels>
+    <customLabels>
         <label>承認拒否</label>
         <name>NotAccepted</name>
     </customLabels>
@@ -1470,7 +1474,7 @@
         <name>Please_enter_the_filter_name</name>
     </customLabels>
     <customLabels>
-        <label><!-- Please select only one Master Record --></label>
+        <label>マスタレコードは一つのみ選択してください。</label>
         <name>Please_select_only_one_Master_Record</name>
     </customLabels>
     <customLabels>
@@ -1594,7 +1598,7 @@
         <name>RequestContenttoDealer</name>
     </customLabels>
     <customLabels>
-        <label><!-- Required information error message --></label>
+        <label>必須項目を入力してください。</label>
         <name>Required_Information</name>
     </customLabels>
     <customLabels>
@@ -2034,31 +2038,31 @@
         <name>Vehicle_Information</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker Competitor --></label>
+        <label>競合他社車両</label>
         <name>Vehicle_Picker_Competitor</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker Current1 --></label>
+        <label>現在保有車両1</label>
         <name>Vehicle_Picker_Current1</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker Current2 --></label>
+        <label>現在保有車両2</label>
         <name>Vehicle_Picker_Current2</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker Interested --></label>
+        <label>興味車両</label>
         <name>Vehicle_Picker_Interested</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker Purchased --></label>
+        <label>購入済車両</label>
         <name>Vehicle_Picker_Purchased</name>
     </customLabels>
     <customLabels>
-        <label><!-- Vehicle Picker TradeIn --></label>
+        <label>入庫車両</label>
         <name>Vehicle_Picker_TradeIn</name>
     </customLabels>
     <customLabels>
-        <label><!-- Time period for Vehicle Relationship should not overlap --></label>
+        <label>有効期間が重複した車両顧客関係が既に存在します。</label>
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
@@ -2138,11 +2142,11 @@
         <name>Zipcode</name>
     </customLabels>
     <customLabels>
-        <label><!-- Zipcode not found --></label>
+        <label>検索結果が0件でした。郵便番号を再度確認してください。</label>
         <name>Zipcode_not_found</name>
     </customLabels>
     <customLabels>
-        <label><!-- Zipcode validation --></label>
+        <label>郵便番号は7桁の数字で入力してください。</label>
         <name>Zipcode_validation</name>
     </customLabels>
     <customLabels>
@@ -2158,7 +2162,7 @@
         <name>applicationpdf</name>
     </customLabels>
     <customLabels>
-        <label><!-- Need contact Information --></label>
+        <label>最低でも一つのコンタクト情報を入力してください。</label>
         <name>contact_information</name>
     </customLabels>
     <customLabels>
@@ -2342,6 +2346,19 @@
         <name>Yearly_Target</name>
     </customTabs>
     <reportTypes>
+        <description><!-- Accounts with DM requests --></description>
+        <label><!-- Accounts with DM requests --></label>
+        <name>Accounts_with_DM_requests</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Accounts with Entitlements with Contacts --></description>
         <label><!-- Accounts with Entitlements with Contacts --></label>
         <name>Accounts_with_Entitlements_with_Contacts</name>
@@ -2356,6 +2373,57 @@
         <sections>
             <label><!-- Entitlements --></label>
             <name>Entitlements</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads --></description>
+        <label><!-- Accounts with Leads --></label>
+        <name>Accounts_with_Leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38 --></description>
+        <label><!-- Campaign Report type-30-38 --></label>
+        <name>Campaign_Report_type_30_38</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38-2 --></description>
+        <label><!-- Campaign Report type-30-38-2 --></label>
+        <name>Campaign_Report_type_30_38_2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
         </sections>
     </reportTypes>
     <reportTypes>

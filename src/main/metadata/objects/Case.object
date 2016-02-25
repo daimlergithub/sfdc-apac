@@ -360,7 +360,7 @@
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -443,7 +443,7 @@ Modify Reason:
     <fields>
         <fullName>AssetId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7582,7 +7582,7 @@ Modify Reason:
         <fullName>Case_Class__c</fullName>
         <externalId>false</externalId>
         <label>Case Class</label>
-       <picklist>
+        <picklist>
             <picklistValues>
                 <fullName>Inquiry</fullName>
                 <default>false</default>
@@ -7729,7 +7729,7 @@ Modify Reason:
         <relationshipName>Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7737,7 +7737,7 @@ Modify Reason:
         <fullName>Case_Department__c</fullName>
         <externalId>false</externalId>
         <label>Case Department</label>
-       <picklist>
+        <picklist>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
@@ -8426,7 +8426,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
 */</description>
         <externalId>false</externalId>
         <label>Case SubType</label>
-         <picklist>
+        <picklist>
             <controllingField>Case_Type__c</controllingField>
             <picklistValues>
                 <fullName>Vehicle term</fullName>
@@ -9251,7 +9251,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Couldn&apos;t get in touch with the customer</fullName>
+                <fullName>Couldn't get in touch with the customer</fullName>
                 <controllingFieldValues>Instructor call</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -9745,7 +9745,7 @@ Modify Reason:
     <fields>
         <fullName>ContactId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -13603,7 +13603,7 @@ Modify Reason:
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -19488,7 +19488,7 @@ Modify Reason:
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -20308,33 +20308,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>MBJ_CRM_Department_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
@@ -20570,33 +20544,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Sample Cases</label>
     </listViews>
-    <listViews>
-        <fullName>Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_A_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_B_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team B</label>
-        <queue>Supervisor_Team_B</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>Support_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
@@ -102410,15 +102358,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case_Category__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATEDBY_USER.ALIAS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Data_Source__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Case_Dealer__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Customer_Request__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Related_Department__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>

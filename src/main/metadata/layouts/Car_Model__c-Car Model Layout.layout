@@ -179,18 +179,6 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Attribute_Type__c</fields>
-        <fields>Attribute_Category__c</fields>
-        <fields>Attribute__c</fields>
-        <fields>Value__c</fields>
-        <relatedList>Car_Model_Attribute__c.Car_Model__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Car_Enquiry__c.Car_Model__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <fields>Stock_Alert__c</fields>
         <fields>Type__c</fields>
         <fields>Brand__c</fields>
@@ -200,14 +188,7 @@
         <relatedList>DM_Material__c.Car_Model__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>BodyType__c</fields>
-        <fields>Colour__c</fields>
-        <fields>CommissionNumber__c</fields>
-        <relatedList>Vehicle__c.Car_Model__c</relatedList>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
@@ -215,7 +196,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Ide9</masterLabel>
+        <masterLabel>00hp0000000IeGc</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

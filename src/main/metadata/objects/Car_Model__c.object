@@ -2278,7 +2278,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Segment 3</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2306,6 +2306,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Series__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Brand_Native__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Model__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Series__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Model__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Brand__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Model__c</searchResultsAdditionalFields>

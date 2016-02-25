@@ -21,7 +21,7 @@
         <name>BaumusterEx__c</name>
         <picklistValues>
             <masterLabel>LeftAuto</masterLabel>
-            <translation>左ハンドル</translation>
+            <translation>左</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>LeftManual</masterLabel>
@@ -29,7 +29,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>RightAuto</masterLabel>
-            <translation>右ハンドル</translation>
+            <translation>右</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>RightManual</masterLabel>
@@ -49,23 +49,23 @@
         <name>BodyType__c</name>
         <picklistValues>
             <masterLabel>4 DOOR COUPE</masterLabel>
-            <translation><!-- 4 DOOR COUPE --></translation>
+            <translation>4ドアクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CABRIO</masterLabel>
-            <translation><!-- CABRIO --></translation>
+            <translation>カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COUPE</masterLabel>
-            <translation><!-- COUPE --></translation>
+            <translation>クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ESTATE</masterLabel>
-            <translation><!-- ESTATE --></translation>
+            <translation>ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HATCHBACK</masterLabel>
-            <translation><!-- HATCHBACK --></translation>
+            <translation>ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MPV</masterLabel>
@@ -73,19 +73,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ROADSTER</masterLabel>
-            <translation><!-- ROADSTER --></translation>
+            <translation>ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SEDAN</masterLabel>
-            <translation><!-- SEDAN --></translation>
+            <translation>セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SHOOTING BRAKE</masterLabel>
-            <translation><!-- SHOOTING BRAKE --></translation>
+            <translation>シューティングブレーク</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPORTCOUPE</masterLabel>
-            <translation><!-- SPORTCOUPE --></translation>
+            <translation>スポーツクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SUV</masterLabel>
@@ -714,7 +714,7 @@
         <relationshipLabel><!-- Vehicles --></relationshipLabel>
     </fields>
     <fields>
-        <label>カーモデル</label>
+        <label>モデルレンジ</label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- Vehicles --></relationshipLabel>
     </fields>
@@ -2320,7 +2320,7 @@
         <name>EngineNumber__c</name>
     </fields>
     <fields>
-        <label><!-- EuroVIN --></label>
+        <label>車台番号</label>
         <name>EuroVIN__c</name>
     </fields>
     <fields>
@@ -5394,7 +5394,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Vehicle Age --></label>
+        <label>車齢</label>
         <name>VehicleAge__c</name>
     </fields>
     <fields>
@@ -5402,7 +5402,7 @@
         <name>VehicleStatus__c</name>
         <picklistValues>
             <masterLabel>Active</masterLabel>
-            <translation><!-- Active --></translation>
+            <translation>有効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Current vehicle</masterLabel>
@@ -5414,7 +5414,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Eternal scrap</masterLabel>
-            <translation><!-- Eternal scrap --></translation>
+            <translation>永久廃車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invoiced vehicle</masterLabel>
@@ -5434,7 +5434,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Temporary scrap</masterLabel>
-            <translation><!-- Temporary scrap --></translation>
+            <translation>一時廃車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Required</masterLabel>
@@ -5582,6 +5582,33 @@
         </sections>
         <sections>
             <label>車両情報</label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Layout-Soft Deleted</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
             <section>Vehicle information</section>
         </sections>
     </layouts>

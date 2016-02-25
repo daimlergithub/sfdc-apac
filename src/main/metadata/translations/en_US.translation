@@ -1377,6 +1377,10 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
+        <label><!-- No target Records --></label>
+        <name>No_Target_records</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Not-Accepted --></label>
         <name>NotAccepted</name>
     </customLabels>
@@ -2341,6 +2345,19 @@
         <name>Yearly_Target</name>
     </customTabs>
     <reportTypes>
+        <description><!-- Accounts with DM requests --></description>
+        <label><!-- Accounts with DM requests --></label>
+        <name>Accounts_with_DM_requests</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Accounts with Entitlements with Contacts --></description>
         <label><!-- Accounts with Entitlements with Contacts --></label>
         <name>Accounts_with_Entitlements_with_Contacts</name>
@@ -2355,6 +2372,57 @@
         <sections>
             <label><!-- Entitlements --></label>
             <name>Entitlements</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads --></description>
+        <label><!-- Accounts with Leads --></label>
+        <name>Accounts_with_Leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38 --></description>
+        <label><!-- Campaign Report type-30-38 --></label>
+        <name>Campaign_Report_type_30_38</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38-2 --></description>
+        <label><!-- Campaign Report type-30-38-2 --></label>
+        <name>Campaign_Report_type_30_38_2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
         </sections>
     </reportTypes>
     <reportTypes>

@@ -108,11 +108,11 @@ public static Account Dealer;
        insert vRel;
       profile SystemAdmin = [select Id from Profile where Name = 'System Administrator' limit 1];       
       usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() + 'test777@test.com',
             
             ProfileId = SystemAdmin.Id,            
-            Alias = 'test123',
-            Email = 'test12345@test.com',
+            Alias = 'test777',
+            Email = 'test777@test.com',
             EmailEncodingKey = 'UTF-8',
             LastName = 'McTesty1',
             CommunityNickname = System.now().millisecond() + 'test12345',

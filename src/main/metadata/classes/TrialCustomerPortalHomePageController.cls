@@ -14,11 +14,7 @@ public class TrialCustomerPortalHomePageController {
    public String sortField3 {get; set;}
    public String previousSortField3 {get; set;}
    public String sortField4 {get; set;}
-   public String previousSortField4 {get; set;}
-    public String sortField5 {get; set;}
-   public String previousSortField5 {get; set;}
-    public String sortField6 {get; set;}
-   public String previousSortField6 {get; set;}
+   public String previousSortField4 {get; set;}  
    public static string ascString='asc';
    public static string descString='desc';
    

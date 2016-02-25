@@ -5,6 +5,6 @@
     @IsTest(SeeAllData=true) public static void testCommunitiesLandingController() {
         // Instantiate a new controller with all parameters in the page
         CommunitiesLandingController controller = new CommunitiesLandingController();
-        controller.forwardToStartPage();
+		 PageReference pageRef = controller.forwardToStartPage(); 
       }
 }

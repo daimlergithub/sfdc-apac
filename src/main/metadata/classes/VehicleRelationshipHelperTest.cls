@@ -17,7 +17,7 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '080801010',
                                     Area_Code__c = '010',
-                                    LastName = 'Beijing XING Services Limited - Alpha Review',                                    
+                                    LastName = 'Beijing XING Limited',                                    
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
     static Account account2 = new Account(Dealer_Default_Flag__c=true,

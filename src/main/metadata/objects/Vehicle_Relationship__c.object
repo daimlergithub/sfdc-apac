@@ -229,7 +229,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1555,15 +1555,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Sold</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Handover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bought Competitors</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

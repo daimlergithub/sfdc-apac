@@ -225,14 +225,14 @@ public with sharing class AccountSharingDataHandlerTest
        insert vRel;
       profile SystemAdmin = [select Id from Profile where Name = 'System Administrator' limit 1];       
       usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() + 'test54321@test.com',
             
             ProfileId = SystemAdmin.Id,            
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
             LastName = 'McTesty1',
-            CommunityNickname = System.now().millisecond() + 'test12345',
+            CommunityNickname = System.now().millisecond() + 'test54321',
             TimeZoneSidKey = 'America/Los_Angeles',
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US'

@@ -267,15 +267,15 @@
         <name>Campaign_Channels__c</name>
         <picklistValues>
             <masterLabel>Call</masterLabel>
-            <translation><!-- Call --></translation>
+            <translation>架電</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
+            <translation>Eメール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mail</masterLabel>
-            <translation><!-- Mail --></translation>
+            <translation>郵便・郵送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SMS</masterLabel>
@@ -283,11 +283,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Social Media</masterLabel>
-            <translation><!-- Social Media --></translation>
+            <translation>SNS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Website</masterLabel>
-            <translation><!-- Website --></translation>
+            <translation>ウェブ</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -299,7 +299,7 @@
         <name>Campaign_Format__c</name>
         <picklistValues>
             <masterLabel>Autoshow</masterLabel>
-            <translation><!-- Autoshow --></translation>
+            <translation>モーターショー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DM</masterLabel>
@@ -311,23 +311,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>イベント</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Online</masterLabel>
-            <translation><!-- Online --></translation>
+            <translation>オンライン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Showroom Visit</masterLabel>
-            <translation><!-- Showroom Visit --></translation>
+            <translation>ショールーム</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
+            <translation>試乗</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -839,7 +839,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>イベント</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MMS</masterLabel>
@@ -847,11 +847,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MyM</masterLabel>
-            <translation><!-- MyM --></translation>
+            <translation>My Mercedes</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>OB Call</masterLabel>
-            <translation><!-- OB Call --></translation>
+            <translation>架電</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SMS</masterLabel>
@@ -859,7 +859,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Segmentation Only</masterLabel>
-            <translation><!-- Segmentation Only --></translation>
+            <translation>対象抽出のみ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>eDM</masterLabel>
@@ -904,7 +904,7 @@
     </fields>
     <fields>
         <label><!-- LastRunDate --></label>
-        <name>LastRunDate__c</name>
+        <name>Last_Run_Date__c</name>
     </fields>
     <fields>
         <label>自動リード作成フラグ</label>
@@ -959,10 +959,6 @@
         <name>Min_Car_Age__c</name>
     </fields>
     <fields>
-        <label><!-- NextRunDate --></label>
-        <name>NextRunDate__c</name>
-    </fields>
-    <fields>
         <label><!-- OB SMS Template --></label>
         <name>OBSMSTemplate__c</name>
         <relationshipLabel><!-- Campaigns (OB) --></relationshipLabel>
@@ -1006,23 +1002,23 @@
         <name>Purpose__c</name>
         <picklistValues>
             <masterLabel>Acquisition</masterLabel>
-            <translation><!-- Acquisition --></translation>
+            <translation>新規獲得</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Brand Enhancement</masterLabel>
-            <translation><!-- Brand Enhancement --></translation>
+            <translation>ブランド認知</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Increase Sales</masterLabel>
-            <translation><!-- Increase Sales --></translation>
+            <translation>新車販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Increase after Sales</masterLabel>
-            <translation><!-- Increase after Sales --></translation>
+            <translation>サービス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loyalty</masterLabel>
-            <translation><!-- Loyalty --></translation>
+            <translation>ロイヤルティ向上</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1075,7 +1071,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>終了日(定期)</label>
+        <label>終了日時(定期)</label>
         <name>Repeat_End__c</name>
     </fields>
     <fields>
@@ -1083,31 +1079,31 @@
         <name>Repeat_Frequency__c</name>
         <picklistValues>
             <masterLabel>Bi-Weekly</masterLabel>
-            <translation><!-- Bi-Weekly --></translation>
+            <translation>隔週</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daily</masterLabel>
-            <translation><!-- Daily --></translation>
+            <translation>日次</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Monthly</masterLabel>
-            <translation><!-- Monthly --></translation>
+            <translation>月次</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quarterly</masterLabel>
-            <translation><!-- Quarterly --></translation>
+            <translation>四半期</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Weekly</masterLabel>
-            <translation><!-- Weekly --></translation>
+            <translation>週次</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yearly</masterLabel>
-            <translation><!-- Yearly --></translation>
+            <translation>年次</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>開始日(定期)</label>
+        <label>開始日時(定期)</label>
         <name>Repeat_From__c</name>
     </fields>
     <fields>
@@ -1214,23 +1210,23 @@
         <name>Status</name>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
+            <translation>承認済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <translation>キャンセル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Closed</masterLabel>
-            <translation><!-- Closed --></translation>
+            <translation>終了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Confirmed</masterLabel>
-            <translation><!-- Confirmed --></translation>
+            <translation>計画済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Planned</masterLabel>
-            <translation><!-- Planned --></translation>
+            <translation>準備中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Published</masterLabel>
@@ -1238,7 +1234,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Started</masterLabel>
-            <translation><!-- Started --></translation>
+            <translation>進行中</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1704,7 +1700,7 @@
         <name>Create_Child_Campaign</name>
     </webLinks>
     <webLinks>
-        <label>キャンペーンメンバー作成</label>
+        <label>実行キャンペーン作成</label>
         <name>Create_Complex_Execution</name>
     </webLinks>
     <webLinks>

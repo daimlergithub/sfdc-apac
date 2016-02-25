@@ -952,35 +952,35 @@
         <name>Company_No_Of_Employees__c</name>
         <picklistValues>
             <masterLabel>100 - 300</masterLabel>
-            <translation><!-- 100 - 300 --></translation>
+            <translation>100人以上300人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>1000 - 3000</masterLabel>
-            <translation><!-- 1000 - 3000 --></translation>
+            <translation>1000人以上3000人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>300 - 500</masterLabel>
-            <translation><!-- 300 - 500 --></translation>
+            <translation>300人以上500人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3000 - 5000</masterLabel>
-            <translation><!-- 3000 - 5000 --></translation>
+            <translation>3000人以上5000人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>50 - 100</masterLabel>
-            <translation><!-- 50 - 100 --></translation>
+            <translation>50人以上100人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>500 - 1000</masterLabel>
-            <translation><!-- 500 - 1000 --></translation>
+            <translation>500人以上1000人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Less than 50</masterLabel>
-            <translation>&lt; 50</translation>
+            <translation>50人未満</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>More than 5000</masterLabel>
-            <translation>5000 &lt;</translation>
+            <translation>5000人以上</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1005,19 +1005,19 @@
         <name>Country__c</name>
         <picklistValues>
             <masterLabel>Argentina</masterLabel>
-            <translation><!-- Argentina --></translation>
+            <translation>アルゼンチン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Australia</masterLabel>
-            <translation><!-- Australia --></translation>
+            <translation>オーストラリア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Brazil</masterLabel>
-            <translation><!-- Brazil --></translation>
+            <translation>ブラジル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Canada</masterLabel>
-            <translation><!-- Canada --></translation>
+            <translation>カナダ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>China</masterLabel>
@@ -1025,23 +1025,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>France</masterLabel>
-            <translation><!-- France --></translation>
+            <translation>フランス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Germany</masterLabel>
-            <translation><!-- Germany --></translation>
+            <translation>ドイツ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>India</masterLabel>
-            <translation><!-- India --></translation>
+            <translation>インド</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Indonesia</masterLabel>
-            <translation><!-- Indonesia --></translation>
+            <translation>インドネシア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Italia</masterLabel>
-            <translation><!-- Italia --></translation>
+            <translation>イタリア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Japan</masterLabel>
@@ -1049,51 +1049,51 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mexico</masterLabel>
-            <translation><!-- Mexico --></translation>
+            <translation>メキシコ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Philippines</masterLabel>
-            <translation><!-- Philippines --></translation>
+            <translation>フィリピン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Russia</masterLabel>
-            <translation><!-- Russia --></translation>
+            <translation>ロシア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saudi Arabia</masterLabel>
-            <translation><!-- Saudi Arabia --></translation>
+            <translation>サウジアラビア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Singapore</masterLabel>
-            <translation><!-- Singapore --></translation>
+            <translation>シンガポール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>South Africa</masterLabel>
-            <translation><!-- South Africa --></translation>
+            <translation>南アフリカ共和国</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>South Korea</masterLabel>
-            <translation><!-- South Korea --></translation>
+            <translation>韓国</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Turkey</masterLabel>
-            <translation><!-- Turkey --></translation>
+            <translation>トルコ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>United Kingdom</masterLabel>
-            <translation><!-- United Kingdom --></translation>
+            <translation>イギリス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>United States</masterLabel>
-            <translation><!-- United States --></translation>
+            <translation>アメリカ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vietnam</masterLabel>
-            <translation><!-- Vietnam --></translation>
+            <translation>ベトナム</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1146,7 +1146,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Discard</masterLabel>
-            <translation>ディスカード</translation>
+            <translation>対象外</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales &amp; Service Lead</masterLabel>
@@ -1238,7 +1238,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MCare</masterLabel>
-            <translation><!-- MCare --></translation>
+            <translation>Mケア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -1251,6 +1251,10 @@
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
             <translation>メルセデス・マガジン・アンケート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation>Mercedes me 羽田</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
@@ -3257,7 +3261,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -3273,11 +3277,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
-            <translation><!-- Valid --></translation>
+            <translation>有効</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -3293,7 +3297,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -3333,12 +3337,20 @@ Allows up to 240 characters --></help>
         <name>FS_Email_Last_Modified_By2__c</name>
     </fields>
     <fields>
+        <label><!-- FS_EmailLastModifiedBy3 --></label>
+        <name>FS_Email_Last_Modified_By3__c</name>
+    </fields>
+    <fields>
         <label><!-- FS Email Last Modified By --></label>
         <name>FS_Email_Last_Modified_By__c</name>
     </fields>
     <fields>
         <label><!-- FS Email Last Modified Date 2 --></label>
         <name>FS_Email_Last_Modified_Date2__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS_EmailLastModifiedDate3 --></label>
+        <name>FS_Email_Last_Modified_Date3__c</name>
     </fields>
     <fields>
         <label><!-- FS Email Last Modified Date --></label>
@@ -3363,6 +3375,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- FS Opt In Email 2 --></label>
         <name>FS_Opt_In_Email2__c</name>
+    </fields>
+    <fields>
+        <label><!-- FSOptInEmail3 --></label>
+        <name>FS_Opt_In_Email3__c</name>
     </fields>
     <fields>
         <label><!-- FS Opt In Email --></label>
@@ -3667,6 +3683,10 @@ Allows up to 240 characters --></help>
             <masterLabel>Male</masterLabel>
             <translation>男性</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Gov Background --></label>
@@ -3937,7 +3957,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -3997,7 +4017,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -4436,7 +4456,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>興味モデル</label>
+        <label>興味車種</label>
         <name>Interest_Model__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
@@ -4819,6 +4839,9 @@ Allows up to 240 characters --></help>
     </fields>
     <fields>
         <label>My Shop</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper dealer account. --></errorMessage>
+        </lookupFilter>
         <name>Main_Dealer__c</name>
         <relationshipLabel><!-- Accounts (Main Dealer) --></relationshipLabel>
     </fields>
@@ -4847,7 +4870,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation>不明</translation>
+            <translation>その他</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4871,7 +4894,7 @@ Allows up to 240 characters --></help>
         <name>Mobile_Status__c</name>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -5031,7 +5054,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign (New Car)</masterLabel>
-            <translation>キャンペーン（新車）</translation>
+            <translation>キャンペーン（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event (Aftersales)</masterLabel>
@@ -5039,7 +5062,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event (New Car)</masterLabel>
-            <translation>イベント（新車）</translation>
+            <translation>イベント（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fair</masterLabel>
@@ -5067,7 +5090,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Info (New Car)</masterLabel>
-            <translation>製品情報（新車）</translation>
+            <translation>製品情報（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -5077,6 +5100,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>Eメール受信拒否（ディーラー）</label>
         <name>Opt_In_Email2__c</name>
+    </fields>
+    <fields>
+        <label><!-- OptInEmail3 --></label>
+        <name>Opt_In_Email3__c</name>
     </fields>
     <fields>
         <label>Eメール受信拒否</label>
@@ -5398,31 +5425,31 @@ Allows up to 240 characters --></help>
         <name>Preferred_Contact_Date__c</name>
         <picklistValues>
             <masterLabel>Friday</masterLabel>
-            <translation>金曜日</translation>
+            <translation>金</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Monday</masterLabel>
-            <translation>月曜日</translation>
+            <translation>月</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saturday</masterLabel>
-            <translation>土曜日</translation>
+            <translation>土</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sunday</masterLabel>
-            <translation>日曜日</translation>
+            <translation>日</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Thursday</masterLabel>
-            <translation>木曜日</translation>
+            <translation>木</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tuesday</masterLabel>
-            <translation>火曜日</translation>
+            <translation>火</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wednesday</masterLabel>
-            <translation>水曜日</translation>
+            <translation>水</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Weekday</masterLabel>
@@ -5430,7 +5457,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Weekend</masterLabel>
-            <translation>週末</translation>
+            <translation>土日祝</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5490,7 +5517,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Chinese</masterLabel>
-            <translation><!-- Chinese --></translation>
+            <translation>中国語</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English</masterLabel>
@@ -5506,7 +5533,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5559,6 +5586,9 @@ Allows up to 240 characters --></help>
     </fields>
     <fields>
         <label>セールス住所</label>
+        <lookupFilter>
+            <errorMessage><!-- Please select the proper address. --></errorMessage>
+        </lookupFilter>
         <name>Primary_Address_Reference__c</name>
         <relationshipLabel><!-- Accounts --></relationshipLabel>
     </fields>
@@ -5631,23 +5661,23 @@ Allows up to 240 characters --></help>
         <name>Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
-            <translation>自宅電話</translation>
+            <translation>自宅電話番号</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mobile</masterLabel>
-            <translation>自宅携帯</translation>
+            <translation>携帯電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other1</masterLabel>
-            <translation>その他1</translation>
+            <translation>その他電話1</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other2</masterLabel>
-            <translation>その他2</translation>
+            <translation>その他電話2</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Work Mobile</masterLabel>
-            <translation>勤務先携帯</translation>
+            <translation>勤務先携帯電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Work Phone</masterLabel>
@@ -5995,7 +6025,7 @@ Allows up to 240 characters --></help>
         <name>SMS_MMS_IM_Status_2__c</name>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6110,6 +6140,10 @@ Allows up to 240 characters --></help>
         <label>関係者フラグ</label>
         <name>Special_Mark_on_Account__c</name>
         <picklistValues>
+            <masterLabel>Automotive related</masterLabel>
+            <translation>自動車関連業者</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>BBAC</masterLabel>
             <translation><!-- BBAC --></translation>
         </picklistValues>
@@ -6127,11 +6161,15 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fire department</masterLabel>
-            <translation>消防署</translation>
+            <translation>消防</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance Company</masterLabel>
             <translation>保険会社</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawyer</masterLabel>
+            <translation>弁護士</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ</masterLabel>
@@ -6140,6 +6178,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Media</masterLabel>
             <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ministry of Transport</masterLabel>
+            <translation>国土交通省</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Police</masterLabel>
@@ -6151,23 +6193,23 @@ Allows up to 240 characters --></help>
         <name>Special_Needs_Class__c</name>
         <picklistValues>
             <masterLabel>A</masterLabel>
-            <translation><!-- A --></translation>
+            <translation>セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>B</masterLabel>
-            <translation><!-- B --></translation>
+            <translation>クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C</masterLabel>
-            <translation><!-- C --></translation>
+            <translation>ワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>D</masterLabel>
-            <translation><!-- D --></translation>
+            <translation>SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E</masterLabel>
-            <translation><!-- E --></translation>
+            <translation>ワンボックスカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -6272,7 +6314,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>データソース</label>
+        <label>システムデータソース</label>
         <name>System_Data_Source__c</name>
     </fields>
     <fields>
@@ -6500,19 +6542,19 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owned</masterLabel>
-            <translation>保有</translation>
+            <translation>現在所有している</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Past Owned</masterLabel>
-            <translation>過去保有</translation>
+            <translation>過去に所有していた</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes (New Car)</masterLabel>
-            <translation>今後保有希望（新車）</translation>
+            <translation>今後所有したい（新車）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes (Used Car)</masterLabel>
-            <translation>今後保有希望（中古車）</translation>
+            <translation>今後所有したい（中古車）</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6668,7 +6710,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6688,7 +6730,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invalid</masterLabel>
-            <translation><!-- Invalid --></translation>
+            <translation>無効</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -6808,7 +6850,7 @@ Allows up to 240 characters --></help>
             <section>GSSN Address Information</section>
         </sections>
         <sections>
-            <label><!-- GSSN Information --></label>
+            <label>GSSN情報</label>
             <section>GSSN Information</section>
         </sections>
     </layouts>
@@ -6835,6 +6877,7 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
+<<<<<<< HEAD
     <!--<layouts>
         <layout>MBJCTI Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
@@ -6915,7 +6958,7 @@ Allows up to 240 characters --></help>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>></label>
             <section>Retail Information</section>
         </sections>
         <sections>
@@ -6975,36 +7018,20 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
-            <section>Additional Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Address Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Contact Info Status</section>
-        </sections>
-        <sections>
             <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Duplication Information</section>
-        </sections>
-        <sections>
-            <label>その他</label>
-            <section>Other Information</section>
+            <label>コンタクト情報</label>
+            <section>Main Contact and Consent</section>
         </sections>
         <sections>
             <label></label>
             <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Profile Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -7048,7 +7075,6 @@ Allows up to 240 characters --></help>
             <section>Profile Information</section>
         </sections>
     </layouts>-->
-
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
@@ -7078,7 +7104,7 @@ Allows up to 240 characters --></help>
         <name>CP_Customer_Phone_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage>アカウント名は必ず80文字以下で入力して下さい。</errorMessage>
+        <errorMessage>アカウント名は必ず40文字以下で入力して下さい。</errorMessage>
         <name>CompAccountName_NoOfDigits</name>
     </validationRules>
     <validationRules>
@@ -7102,7 +7128,7 @@ Allows up to 240 characters --></help>
         <name>DealerAccountName_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>販売店住所1（日本語）は必ず100文字以下で入力して下さい。</errorMessage>
+        <errorMessage>販売店住所1（日本語）は必ず50文字以下で入力して下さい。</errorMessage>
         <name>DealerAddressCN_NoOfDigits</name>
     </validationRules>
     <validationRules>
@@ -7166,6 +7192,10 @@ Allows up to 240 characters --></help>
         <name>Finance_Sanction_Comment_required</name>
     </validationRules>
     <validationRules>
+        <errorMessage>名は必ず20文字以下で入力して下さい。</errorMessage>
+        <name>FirstName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>名（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>First_Name_Native_1_Fullchar</name>
     </validationRules>
@@ -7208,6 +7238,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage>郵便番号は半角数字で記入して下さい。</errorMessage>
         <name>Invalid_ZipCode_2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>姓は必ず40文字以下で入力して下さい。</errorMessage>
+        <name>LastName_NoOfDigits</name>
     </validationRules>
     <validationRules>
         <errorMessage>姓（カナ）は必ず全角で入力して下さい。</errorMessage>
@@ -7314,7 +7348,7 @@ Allows up to 240 characters --></help>
         <name>Car_Model_Comparison</name>
     </webLinks>
     <webLinks>
-        <label><!-- Create_Vehicle --></label>
+        <label>車両作成</label>
         <name>Create_Vehicle</name>
     </webLinks>
     <webLinks>
@@ -7346,7 +7380,7 @@ Allows up to 240 characters --></help>
         <name>MMS</name>
     </webLinks>
     <webLinks>
-        <label>Merge</label>
+        <label>マージ</label>
         <name>Merge</name>
     </webLinks>
     <webLinks>

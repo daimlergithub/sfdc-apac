@@ -29,7 +29,7 @@
         <name>Available_Date_Retail__c</name>
     </fields>
     <fields>
-        <label>バウマスタ</label>
+        <label>バウムスタ</label>
         <name>Baumaster__c</name>
     </fields>
     <fields>
@@ -37,23 +37,23 @@
         <name>Body_Type__c</name>
         <picklistValues>
             <masterLabel>4 DOOR COUPE</masterLabel>
-            <translation><!-- 4 DOOR COUPE --></translation>
+            <translation>4ドアクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CABRIO</masterLabel>
-            <translation><!-- CABRIO --></translation>
+            <translation>カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COUPE</masterLabel>
-            <translation><!-- COUPE --></translation>
+            <translation>クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ESTATE</masterLabel>
-            <translation><!-- ESTATE --></translation>
+            <translation>ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HATCHBACK</masterLabel>
-            <translation><!-- HATCHBACK --></translation>
+            <translation>ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MPV</masterLabel>
@@ -61,19 +61,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ROADSTER</masterLabel>
-            <translation><!-- ROADSTER --></translation>
+            <translation>ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SEDAN</masterLabel>
-            <translation><!-- SEDAN --></translation>
+            <translation>セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SHOOTING BRAKE</masterLabel>
-            <translation><!-- SHOOTING BRAKE --></translation>
+            <translation>シューティングブレーク</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPORTCOUPE</masterLabel>
-            <translation><!-- SPORTCOUPE --></translation>
+            <translation>スポーツクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SUV</masterLabel>
@@ -703,6 +703,10 @@
     <fields>
         <label>当時クラス</label>
         <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
         <label>説明</label>
@@ -1705,111 +1709,111 @@
         <name>Series__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
-            <translation><!-- A-Class --></translation>
+            <translation>Aクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AMG GT</masterLabel>
-            <translation><!-- AMG GT --></translation>
+            <translation>GT</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>B-Class</masterLabel>
-            <translation><!-- B-Class --></translation>
+            <translation>Bクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class</masterLabel>
-            <translation><!-- C-Class --></translation>
+            <translation>Cクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CL-Class</masterLabel>
-            <translation><!-- CL-Class --></translation>
+            <translation>CL</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA-Class</masterLabel>
-            <translation><!-- CLA-Class --></translation>
+            <translation>CLA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLK-Class</masterLabel>
-            <translation><!-- CLK-Class --></translation>
+            <translation>CLK</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS-Class</masterLabel>
-            <translation><!-- CLS-Class --></translation>
+            <translation>CLS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class</masterLabel>
-            <translation><!-- E-Class --></translation>
+            <translation>Eクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>G-Class</masterLabel>
-            <translation><!-- G-Class --></translation>
+            <translation>Gクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GL-Class</masterLabel>
-            <translation><!-- GL-Class --></translation>
+            <translation>GL</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLA-Class</masterLabel>
-            <translation><!-- GLA-Class --></translation>
+            <translation>GLA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLC-Class</masterLabel>
-            <translation><!-- GLC-Class --></translation>
+            <translation>GLC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLE-Class</masterLabel>
-            <translation><!-- GLE-Class --></translation>
+            <translation>GLE</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
-            <translation><!-- GLK-Class --></translation>
+            <translation>GLK</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class</masterLabel>
-            <translation><!-- M-Class --></translation>
+            <translation>Mクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach</masterLabel>
-            <translation><!-- Maybach --></translation>
+            <translation>マイバッハ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R-Class</masterLabel>
-            <translation><!-- R-Class --></translation>
+            <translation>Rクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S-Class</masterLabel>
-            <translation><!-- S-Class --></translation>
+            <translation>Sクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
-            <translation><!-- SL-Class --></translation>
+            <translation>SL</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
-            <translation><!-- SLK-Class --></translation>
+            <translation>SLK</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLR-Class</masterLabel>
-            <translation><!-- SLR-Class --></translation>
+            <translation>SLR</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLS-Class</masterLabel>
-            <translation><!-- SLS-Class --></translation>
+            <translation>SLS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>V-Class</masterLabel>
-            <translation><!-- V-Class --></translation>
+            <translation>Vクラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VANEO</masterLabel>
-            <translation><!-- VANEO --></translation>
+            <translation>バネオ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VIANO</masterLabel>
@@ -1817,23 +1821,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>VITO</masterLabel>
-            <translation><!-- VITO --></translation>
+            <translation>ヴィトー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart</masterLabel>
-            <translation><!-- smart --></translation>
+            <translation>スマート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart forfour</masterLabel>
-            <translation><!-- smart forfour --></translation>
+            <translation>スマートフォーフォー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart fortwo</masterLabel>
-            <translation><!-- smart fortwo --></translation>
+            <translation>スマートフォーツー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart roadster</masterLabel>
-            <translation><!-- smart roadster --></translation>
+            <translation>スマートロードスター</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1859,6 +1863,10 @@
     <fields>
         <label><!-- System --></label>
         <name>System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
         <label>セグメント1</label>
