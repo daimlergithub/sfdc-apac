@@ -88,6 +88,7 @@ RecordType.Name,
         <apiVersion>35.0</apiVersion>
         <endpointUrl>https://crm-salesforce-int.mercedes-benz.com/webservices/CampaignUpdateNotification</endpointUrl>
         <fields>Id</fields>
+		<fields>MD__c</fields>
         <includeSessionId>false</includeSessionId>
         <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
         <name>Send Campaign ID to EP</name>
