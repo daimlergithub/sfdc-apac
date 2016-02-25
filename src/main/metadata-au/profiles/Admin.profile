@@ -12046,7 +12046,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Rejected_Duplicate_Log__c.DUNumber__c</field>
+        <field>Rejected_Duplicate_Log__c.DUPNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
