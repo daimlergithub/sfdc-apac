@@ -16,7 +16,7 @@ If the trigger is disabled, it is not processed, execution terminates.</descript
         <externalId>false</externalId>
         <label>Market</label>
         <length>2</length>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
