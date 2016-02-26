@@ -7873,11 +7873,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contract_Relation__c.Case_Key__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Contract_Relation__c.Case_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
