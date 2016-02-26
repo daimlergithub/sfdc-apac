@@ -108,10 +108,9 @@
     </fields>
     <fields>
         <fullName>Address__c</fullName>
-        <description>Display requirement Changed to primary address by Fulfilment User(fu, Jiaming)</description>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.Primary_Address__c</formula>
         <label>Address</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -217,11 +216,11 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.City__c</formula>
         <label>City</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -456,8 +455,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Customer_Name__r.Province__c)</formula>
         <label>Province</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -663,8 +662,8 @@ Modify Reason:
     <fields>
         <fullName>Zip_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.ZipCode__c</formula>
         <label>Zip Code</label>
+        <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
