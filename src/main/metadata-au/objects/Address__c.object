@@ -56,6 +56,16 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Address_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Code</label>
+        <length>11</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address_Line_1__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1</label>
@@ -148,6 +158,36 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Block__c</fullName>
+        <externalId>false</externalId>
+        <label>Block</label>
+        <length>24</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Native</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Company_Name__c</fullName>
@@ -266,6 +306,31 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>HouseNumber__c</fullName>
+        <description>House number of the address.</description>
+        <externalId>false</externalId>
+        <label>HouseNumber</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Opt_In_Hardcopy__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -340,6 +405,44 @@
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Temp_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Unnormalized Post Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TitleOfHonor__c</fullName>
+        <externalId>false</externalId>
+        <label>TitleOfHonor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>To Person</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -500,6 +603,17 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Dealer</fullName>
@@ -626,6 +740,17 @@
                 <default>true</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Individual</fullName>
@@ -749,6 +874,17 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

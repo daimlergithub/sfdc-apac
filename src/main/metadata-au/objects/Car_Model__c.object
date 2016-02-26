@@ -57,6 +57,94 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Read</externalSharingModel>
     <fields>
+        <fullName>AMG_Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>AMG</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Availability_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Availability</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Available_Date_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Presentation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Available_Date_Retail__c</fullName>
+        <externalId>false</externalId>
+        <label>Deployment date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Baumaster__c</fullName>
+        <externalId>false</externalId>
+        <label>Baumaster</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Body_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Body Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Solo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hatch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Brand_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Brand__c</fullName>
         <externalId>false</externalId>
         <label>Brand</label>
@@ -671,9 +759,158 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Brand_code__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Code (SWT)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Past Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Life_Cycle_Cluster__c</fullName>
+        <externalId>false</externalId>
+        <label>LCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>LCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>non-LCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Material_Portal_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Model Code</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mod_Pack__c</fullName>
+        <externalId>false</externalId>
+        <label>Mod Pack</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Model Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Model_Hierarchy_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Model Hierarchy Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model_Hierarchy_Desc__c</fullName>
+        <externalId>false</externalId>
+        <label>Model Hierarchy Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Past Class and body</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Class and body</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model_ShortName__c</fullName>
+        <externalId>false</externalId>
+        <label>Short Model Name</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1611,6 +1848,26 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Series_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Series Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Series__c</fullName>
         <externalId>false</externalId>
         <label>Series</label>
@@ -1885,6 +2142,58 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Own Sellable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Own Non Sellable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Steering__c</fullName>
+        <externalId>false</externalId>
+        <label>Steering</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>System__c</fullName>
+        <externalId>false</externalId>
+        <label>System</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Group__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Group</label>
@@ -1905,6 +2214,38 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_SubGroup__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>PV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_SubSubGroup__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Car Model</label>
     <listViews>

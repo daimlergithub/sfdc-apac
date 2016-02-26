@@ -1,7 +1,7 @@
 @isTest
 private class ChatterAnswersEscalationTriggerTest {
     static testMethod void validateQuestionEscalation() {
-        upsert new Trigger__c(Name = 'ChatterAnswersEscalation', Trigger_Name__c = 'chatter_answers_question_escalation_to_case_trigger', Trigger_Handler__c = 'ChatterAnswersEscalationTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        upsert new Trigger__c(Name = 'ChatterAnswersEscalation', Trigger_Name__c = 'chatter_answers_question_escalation_to_case_trigger', Trigger_Handler__c = 'ChatterAnswersEscalationTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='AU');
         String questionTitle = 'questionTitle';
         String questionBody = 'questionBody';
         Community[] c = [SELECT Id from Community];

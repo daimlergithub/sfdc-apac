@@ -130,6 +130,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>ApplicationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Assist_End_Date__c</fullName>
         <externalId>false</externalId>
         <formula>IF((MONTH(EndDate__c)-4) &gt; 0
@@ -855,6 +863,59 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Owner_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Address</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Owner_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Name</label>
+        <length>90</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Address</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Name</label>
+        <length>90</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MileageMaximum__c</fullName>
         <externalId>false</externalId>
         <label>MileageMaximum</label>
@@ -1161,6 +1222,17 @@
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Retail Tasks (Selling Dealer)</relationshipLabel>
         <relationshipName>Retail_Tasks1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Staff Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Retail_Tasks</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>

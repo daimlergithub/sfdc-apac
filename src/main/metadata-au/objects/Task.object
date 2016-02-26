@@ -155,6 +155,9 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>TaskSubtype</fullName>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
@@ -20672,14 +20675,24 @@
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Activate/Deactivate CROs</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/apex/TaskMassChangeActivateDeactive</url>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+var user = sforce.connection.getUserInfo();  
+var roleid = sforce.connection.query("select Id from UserRole where  name like '%Customer Service Manager%'");
+if(user.roleId==roleid.records.Id)
+{
+window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');
+}
+else{
+     alert('You do not have permission to Activate / Deactivate CROs' );
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>

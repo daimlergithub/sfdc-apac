@@ -96,11 +96,32 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Address__c</fullName>
-        <description>Display requirement Changed to primary address by Fulfilment User(fu, Jiaming)</description>
+        <fullName>Additional_Address__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.Primary_Address__c</formula>
+        <label>Additional Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <externalId>false</externalId>
         <label>Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attention__c</fullName>
+        <externalId>false</externalId>
+        <label>Attention</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -181,10 +202,25 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Touch Point</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.City__c</formula>
         <label>City</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -268,6 +304,21 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delivery_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -355,6 +406,20 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Mobile__c</fullName>
         <externalId>false</externalId>
         <formula>Contact__r.MobilePhone</formula>
@@ -390,8 +455,8 @@ Modify Reason:
     <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Customer_Name__r.Province__c)</formula>
         <label>Province</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -408,6 +473,41 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sending_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Sending Address</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Temporary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>SentName__c</fullName>
@@ -440,6 +540,51 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status1__c</fullName>
+        <externalId>false</externalId>
+        <label>Status1</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status2__c</fullName>
+        <externalId>false</externalId>
+        <label>Catalogue Printing check 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status3__c</fullName>
+        <externalId>false</externalId>
+        <label>Catalogue Printing Check 3</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -496,10 +641,29 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>TitleOfHonor__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <picklist>
+            <picklistValues>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Zip_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.ZipCode__c</formula>
         <label>Zip Code</label>
+        <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

@@ -62,11 +62,10 @@ Email 2: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Email2_
 <b>Qualification Information</b><br/>
 Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
 Vehicle Make - Current: {!relatedTo.Existing_Contract__r.Current_Make__c}<br/>
-Vehicle Model - Current: {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
+Vehicle Model - Current:  <apex:OutputText value=" {!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c}"  rendered="{!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c !=null}"/> {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
 Vehicle Year - Current: {!relatedTo.Existing_Contract__r.Current_Year__c}<br/>
-Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
+Registration No.: {!relatedTo.Registration_No__c}<br/>
 Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
-Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
 Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText> {!relatedTo.Finance_Amount2__c}<br/>
 Term (Months): {!FLOOR(relatedTo.Term_Month__c)}<br/>
 Monthly Payment: $<apex:outputText value="{0, number, ###,###,###,##0.00}"><apex:param value="{!relatedTo.Monthly_Payment__c}"/></apex:outputText><br/>

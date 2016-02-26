@@ -699,6 +699,8 @@
         <relatedList>Dealer_Locator__c.Dealer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>Dealer_Contact</customButtons>
+        <excludeButtons>NewContact</excludeButtons>
         <fields>FULL_NAME</fields>
         <fields>CONTACT.RECORDTYPE</fields>
         <fields>CONTACT.SALUTATION</fields>
@@ -708,7 +710,7 @@
         <fields>CONTACT.PHONE1</fields>
         <fields>CONTACT.PHONE3</fields>
         <fields>Job_Title__c</fields>
-        <fields>Inactive__c</fields>
+		<fields>Inactive__c</fields>
         <relatedList>RelatedContactList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -721,7 +723,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000InOj</masterLabel>
+        <masterLabel>00h1a000001fjY1</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

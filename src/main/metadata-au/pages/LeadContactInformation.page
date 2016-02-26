@@ -1,5 +1,5 @@
 <apex:page standardController="Lead__c" extensions="LeadContactController" id="pageid" showHeader="false" sidebar="false" showChat="false">
- <apex:form id="form1">
+ <apex:form id="form1" rendered="{!IF($Profile.Name !='Customer Retention', true , false)}">
  <apex:pageMessages id="showmsg"></apex:pageMessages>
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
       <apex:outputPanel layout="block" style="overflow:auto;height:275px" >
@@ -213,6 +213,251 @@
       <apex:pageBlockButtons location="bottom">
          <apex:commandbutton value="Update"  action="{!updateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rerender="pnlId,showmsg" onComplete="refreshParentPage();"/>                 
      </apex:pageBlockButtons>
+      </apex:pageBlock>
+      <apex:outputPanel id="tstpopup">  
+      <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>             
+         <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                 <h3> User Informations </h3><br/>
+                 <h4>Name = :</h4><b> {!usrInfolst.Name} </b> <br/>
+                 <h4>Title= :</h4><b> {!usrInfolst.Title} </b> <br/>              
+             <!--    <h4>Last Modified By= :</h4><b>{!LastModifiedby}</b><br/>
+                 <h4>Last Modified Date= :</h4><b>{!LastModifieddate}</b><br/>
+                 <h4>FS Last Modified By= :</h4><b>{!FSLastModifiedby}</b><br/>
+                 <h4>FS Last Modified Date= :</h4><b>{!FSLastModifieddate}</b><br/> 
+                 {!selectedUserName} -->
+         </apex:outputPanel>     
+    </apex:outputPanel>
+      </apex:outputPanel>
+      <apex:outputPanel id="pnlId">
+            <script  type="text/javascript">
+      function refreshParentPage()
+    {
+        
+        var check="{!isnoerror}";
+        if(check=='true')
+        {
+        window.open("/{!leadid}","_parent");
+        }
+    }
+  </script>
+      </apex:outputPanel>
+ </apex:form>
+ 
+ <apex:form id="form2" rendered="{!IF($Profile.Name =='Customer Retention', true , false)}">
+ <apex:pageMessages id="showmsg"></apex:pageMessages>
+   <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
+      <apex:outputPanel layout="block" style="overflow:auto;height:275px" >
+      <apex:pageBlock id="myTable">
+      <table style="width:100%" rules="rows">               
+        <tr>        
+            <td></td> 
+            <td></td>
+            <th>Status</th>        
+            <th>Opt-in MBAuP</th>    
+            <th>Opt-in MBFS</th>        
+            <th>Preferred</th> 
+            <th>Last Modified By</th>        
+            <th>Last Modified Date</th> 
+            <th>FS Last Modified By</th>        
+            <th>Fs Last Modified Date</th>     
+        </tr>
+        
+        <tr>        
+        <th>Mobile 1</th>       
+            <td><apex:outputField value="{!accountList_details.Mobile__c}" /></td> 
+            <td><apex:outputField value="{!accountList_details.Mobile_Status__c}"/></td>       
+            <td><apex:outputField value="{!accountList_details.Opt_In_SMS__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.Preferred_Mobile_1__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.SMS_Last_Modified_By__c}                             
+                </apex:outputLink>
+                  <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.SMS_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                  </apex:actionFunction>                
+            </td>        
+            <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date__c}"/></td>
+            <td>
+                <apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_SMS_Last_Modified_By__c}</apex:outputLink>
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup,myTable" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_SMS_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction> 
+            </td>        
+            <td><apex:outputField value="{!accountList_details.FS_SMS_Last_Modified_Date__c}"/></td>     
+        </tr>
+       
+        <tr>        
+        <th>Mobile 2</th>     
+            <td><apex:outputField value="{!accountList_details.Mobile2__c}"/></td>  
+            <td><apex:outputField value="{!accountList_details.SMS_MMS_IM_Status_2__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.Preferred_Mobile_2__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.SMS_Last_Modified_By2__c}</apex:outputLink>  
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.SMS_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>               
+            </td>                  
+            <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date2__c}"/></td>
+            
+             <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_SMS_Last_Modified_By2__c}</apex:outputLink> 
+                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_SMS_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>                
+            </td>        
+            <td><apex:outputField value="{!accountList_details.FS_SMS_Last_Modified_Date2__c}"/></td>        
+        </tr>
+         
+        <tr>        
+        <th>Home Phone 1</th>        
+            <td><apex:outputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
+            <td><apex:outputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
+            <td><apex:outputField value="{!accountList_details.Preferred_Home_Phone_1__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Home_Phone_Last_Modified_By__c}</apex:outputLink> 
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>               
+            </td>
+            <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date__c}"/></td>    
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Home_Phone_Last_Modified_By__c}</apex:outputLink> 
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>               
+            </td>                  
+            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date__c}"/></td>        
+        </tr>
+        
+        <tr>        
+        <th>Home Phone 2</th>        
+            <td><apex:outputField value="{!accountList_details.Home_Phone_2__c}"/></td> 
+            <td><apex:outputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
+            <td><apex:outputField value="{!accountList_details.Preferred_Home_Phone_2__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Home_Phone_Last_Modified_By2__c}</apex:outputLink>
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Home_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>                
+            </td>      
+            <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date2__c}"/></td>
+            
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Home_Phone_Last_Modified_By2__c}</apex:outputLink>   
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>             
+            </td>                  
+            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date2__c}"/></td>        
+        </tr>
+       
+        <tr>        
+        <th>Work Phone 1</th>                
+            <td><apex:outputField value="{!accountList_details.Work_Phone__c}"/></td> 
+            <td><apex:outputField value="{!accountList_details.Work_Phone_Status__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Work_Phone__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
+            <td><apex:outputField value="{!accountList_details.Preferred_Work_Phone_1__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Work_Phone_Last_Modified_By__c}</apex:outputLink>
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Work_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>                 
+            </td>      
+            <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date__c}"/></td>
+            
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Work_Phone_Last_Modified_By__c}</apex:outputLink>   
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>              
+            </td>                   
+            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date__c}"/></td>        
+        </tr>
+        
+        <tr>        
+        <th>Work Phone 2</th>        
+            <td><apex:outputField value="{!accountList_details.Phone}"/></td> 
+            <td><apex:outputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td>            
+            <td><apex:outputField value="{!accountList_details.Preferred_Work_Phone_2__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Work_Phone_Last_Modified_By2__c}</apex:outputLink>
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Work_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>                
+            </td>      
+            <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date2__c}"/></td>
+            
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Work_Phone_Last_Modified_By2__c}</apex:outputLink>    
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>            
+            </td>                             
+            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date2__c}"/></td>              
+        </tr>
+        
+        <tr>        
+        <th>Email 1</th>        
+            <td><apex:outputField value="{!accountList_details.Email__c}"/></td>           
+            <td><apex:outputField value="{!accountList_details.Email_Status__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Email__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
+            <td><apex:outputField value="{!accountList_details.Preferred_Email_1__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Email_Last_Modified_By__c}</apex:outputLink> 
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Email_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction> 
+            </td>      
+            <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date__c}"/></td>
+            
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Email_Last_Modified_By__c}</apex:outputLink>  
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
+                </apex:actionFunction>               
+            </td>                 
+            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date__c}"/></td>  
+        </tr>
+        
+        <tr>        
+        <th>Email 2</th>        
+            <td><apex:outputField value="{!accountList_details.Email2__c}"/></td>                           
+            <td><apex:outputField value="{!accountList_details.Email_Status_2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
+            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
+            <td><apex:outputField value="{!accountList_details.Preferred_Email_2__c}"/></td>
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.Email_Last_Modified_By2__c}</apex:outputLink>
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>                         
+                </apex:actionFunction>                                  
+            </td>      
+            <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date2__c}"/></td>
+            
+            <td><apex:outputLink onclick="UserRedirect(); return false;">
+                {!accountList_details.FS_Email_Last_Modified_By2__c}</apex:outputLink>       
+                <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
+                         <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>                                             
+                </apex:actionFunction>              
+            </td>                
+            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date2__c}"/></td>        
+        </tr>  
+     </table> 
+     <!-- Commented As part of SFDCAU-555 --->
+      <!---<apex:pageBlockButtons location="bottom">
+         <apex:commandbutton value="Update"  action="{!updateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rerender="pnlId,showmsg" onComplete="refreshParentPage();"/>                 
+     </apex:pageBlockButtons> -->
       </apex:pageBlock>
       <apex:outputPanel id="tstpopup">  
       <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>             

@@ -187,12 +187,45 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>External_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Inactive__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Inactive</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_Usage_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to identify dealer to be allocated next.</description>
+        <externalId>false</externalId>
+        <label>Last Usage Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Metro_Rural__c</fullName>
@@ -867,6 +900,17 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sequence_No__c</fullName>
+        <description>Use sequence No among dealers which has same territory zip-code.</description>
+        <externalId>false</externalId>
+        <label>Sequence No</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>State__c</fullName>

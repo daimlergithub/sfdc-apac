@@ -1375,7 +1375,7 @@ Customer hung up the phone and then hang up.</inlineHelpText>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>PS_Comment_c__c</fullName>
+        <fullName>PS_Comment__c</fullName>
         <externalId>false</externalId>
         <label>Perception - Satisfaction Comments</label>
         <length>255</length>
@@ -2917,6 +2917,60 @@ MAX(
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Central_Office_ER_team_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office-ER team</label>
+        <queue>Central_Office_ER_team</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_NR_team_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office-NR team</label>
+        <queue>Central_Office_NR_team</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_PL_WL_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office PL / WL Queue</label>
+        <queue>Central_Office_PL_WL_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office Queue</label>
+        <queue>Central_Office_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_SR_team_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office-SR team</label>
+        <queue>Central_Office_SR_team</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_WR_team_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office-WR team</label>
+        <queue>Central_Office_WR_team</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>GeneralCQC</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
@@ -3017,6 +3071,42 @@ MAX(
         <language>en_US</language>
         <sharedTo>
             <role>CAC_QC_SV_TM</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_East_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office East Queue</label>
+        <queue>Regional_Office_East_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_North_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office North Queue</label>
+        <queue>Regional_Office_North_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_South_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office South Queue</label>
+        <queue>Regional_Office_South_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_West_Queue_QC</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office West Queue</label>
+        <queue>Regional_Office_West_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5479,152 +5569,6 @@ MAX(
         <searchResultsAdditionalFields>Supervisor_Review__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-    <validationRules>
-        <fullName>Lock_QC_when_Cancelled_or_Disqualified</fullName>
-        <active>true</active>
-        <description>QC IB/OB Description: User cannot edit canncelled QC.
-QC SSI Description: User cannot edit disqualified QC.</description>
-        <errorConditionFormula>AND( 
-OR( $Profile.Name='CAC IB QC',  $Profile.Name ='CAC OB QC', $Profile.Name='CAC SSI QC'),
-OR(ISPICKVAL( PRIORVALUE(Status__c ) , 'Cancel'), ISPICKVAL( PRIORVALUE(Status__c ) , 'Disqualified'))
-)</errorConditionFormula>
-        <errorMessage>The QC is Cancelled or Disqualified, you cannot edit it.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lock_for_QC_when_complete</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND( 
-OR(
-$Profile.Name = 'CAC IB QC', 
-$Profile.Name = 'CAC OB QC', 
-$Profile.Name = 'CAC SSI QC',
-AND($User.FirstName = 'Li', $User.LastName = 'Li', $User.EmployeeNumber = 'CN654354')
-),   
-ISPICKVAL(PRIORVALUE( Status__c ), 'Complete'),
-OR(
-ISCHANGED( Appeal__c ), 
-ISCHANGED( Appeal_Comments__c ), 
-ISCHANGED( Appeal_Status__c ), 
-ISCHANGED( QC_Overall_Comment__c ), 
-ISCHANGED( Supervisor_Review__c ), 
-ISCHANGED( Status__c ), 
-ISCHANGED( Supervisor_Comments__c ),
-
-ISCHANGED(ADeadlyMistake__c), 
-ISCHANGED(ClarificationCustomerDemand__c), 
-ISCHANGED(LogicInterpretation__c), 
-ISCHANGED(CustomerPerception__c), 
-ISCHANGED(Document__c), 
-ISCHANGED(FollowTheOperationProcess__c), 
-ISCHANGED(OfflinePrompt__c), 
-ISCHANGED(ProvideTheRightSolution__c), 
-ISCHANGED(SoftSkill__c), 
-ISCHANGED(SpecificationLanguage__c), 
-ISCHANGED(TheStandardOpeningClosing__c), 
-ISCHANGED(ProperPronunciation__c),
-
-ISCHANGED(CP_DeductedReason__c), 
-ISCHANGED(PTRS_DeductedReason__c), 
-ISCHANGED(CCD_DeductedReason__c), 
-ISCHANGED(Document_DeductedReason__c), 
-ISCHANGED(SK_DeductedReason__c), 
-ISCHANGED(TSOC_DeductedReason__c), 
-ISCHANGED(OP_DeductedReason__c), 
-ISCHANGED(SL_DeductedReason__c), 
-ISCHANGED(PPIS_DeductedReason__c), 
-ISCHANGED(ADM_DeductedReason__c), 
-ISCHANGED(LIOQ_DeductedReason__c),
-ISCHANGED(FTOP_DeductedReason__c),
-
-ISCHANGED(CITQ__c), 
-ISCHANGED(PACI__c), 
-ISCHANGED(DA__c), 
-ISCHANGED(FTOP__c), 
-ISCHANGED(FMSK__c), 
-ISCHANGED(FQL__c), 
-ISCHANGED(SO__c), 
-ISCHANGED(PPIS__c), 
-ISCHANGED(SPL__c), 
-ISCHANGED(SSL__c), 
-ISCHANGED(SC__c), 
-ISCHANGED(CALA__c), 
-ISCHANGED(CAI__c), 
-ISCHANGED(CARR__c), 
-ISCHANGED(PFOCF__c), 
-ISCHANGED(PPD__c), 
-ISCHANGED(PJ__c), 
-ISCHANGED(PHU__c)
-))</errorConditionFormula>
-        <errorMessage>The QC is completed, you cannot edit it</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>QC_must_be_accepted_before_edited</fullName>
-        <active>true</active>
-        <errorConditionFormula>Owner:Queue.DeveloperName = 'SSI_QC' &amp;&amp; $Profile.Name = 'CAC SSI QC'</errorConditionFormula>
-        <errorMessage>Please Accept record first.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>ValidateQuestionireWhenComplete</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-ISPICKVAL(Status__c, 'Complete'), 
-OR( 
-AND(
-RecordType.Name == 'IB QC',
-OR(
-ISPICKVAL(ADeadlyMistake__c, ''), 
-ISPICKVAL(ClarificationCustomerDemand__c, ''), 
-ISPICKVAL(CustomerPerception__c, ''), 
-ISPICKVAL(Document__c, ''), 
-ISPICKVAL(FollowTheOperationProcess__c, ''), 
-ISPICKVAL(OfflinePrompt__c, ''), 
-ISPICKVAL(ProvideTheRightSolution__c, ''), 
-ISPICKVAL(SoftSkill__c, ''), 
-ISPICKVAL(SpecificationLanguage__c, ''), 
-ISPICKVAL(TheStandardOpeningClosing__c, ''), 
-ISPICKVAL(ProperPronunciation__c, '') 
-)
-),
-AND(
-RecordType.Name == 'OB QC', 
-OR(
-ISPICKVAL(ADeadlyMistake__c, ''), 
-ISPICKVAL(LogicInterpretation__c, ''), 
-ISPICKVAL(CustomerPerception__c, ''), 
-ISPICKVAL(Document__c, ''), 
-ISPICKVAL(FollowTheOperationProcess__c, ''), 
-ISPICKVAL(OfflinePrompt__c, ''), 
-ISPICKVAL(ProvideTheRightSolution__c, ''), 
-ISPICKVAL(SoftSkill__c, ''), 
-ISPICKVAL(SpecificationLanguage__c, ''), 
-ISPICKVAL(TheStandardOpeningClosing__c, ''), 
-ISPICKVAL(ProperPronunciation__c, '') 
-)
-), 
-AND(
-RecordType.Name == 'SSI', 
-OR(
-ISPICKVAL(CITQ__c, ''), 
-ISPICKVAL(PACI__c, ''), 
-ISPICKVAL(DA__c, ''), 
-ISPICKVAL(FTOP__c, ''), 
-ISPICKVAL(FMSK__c, ''), 
-ISPICKVAL(FQL__c, ''), 
-ISPICKVAL(SO__c, ''), 
-ISPICKVAL(PPIS__c, ''), 
-ISPICKVAL(SPL__c, ''), 
-ISPICKVAL(SSL__c, ''), 
-ISPICKVAL(SC__c, ''), 
-ISPICKVAL(CALA__c, ''), 
-ISPICKVAL(CAI__c, ''), 
-ISPICKVAL(CARR__c, ''), 
-ISPICKVAL(PFOCF__c, ''), 
-ISPICKVAL(PPD__c, ''), 
-ISPICKVAL(PJ__c, ''), 
-ISPICKVAL(PHU__c, '')
-))))</errorConditionFormula>
-        <errorMessage>You have to fill in all the questionnaires.</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>Mass_Approve</fullName>
         <availability>online</availability>

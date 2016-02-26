@@ -51,7 +51,7 @@ public class SettlementHelperTest
     
             List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
             if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
-                upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+                upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='AU');
             }
             
             dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');

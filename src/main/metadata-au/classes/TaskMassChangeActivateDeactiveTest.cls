@@ -28,7 +28,7 @@ public class TaskMassChangeActivateDeactiveTest {
             RecordTypeId = welcomeCallRT,
             WhatId = personAccount1.Id,
             WhoId = personAccount1.PersonContactId,
-            Status = 'Open'
+            Status = 'Not Started'
         );
         insert task1;
        
@@ -45,18 +45,19 @@ public class TaskMassChangeActivateDeactiveTest {
         controller.task = task1;
         controller.Activate();
         controller.Deactivate();
-         usr = [select id, Active__c from User where id = :usr.id];
-        System.assertEquals(usr.Active__c, false);        
+         usr = [select id, Active_Permission_Set__c from User where id = :usr.id];
+        System.assertEquals(usr.Active_Permission_Set__c, false);        
         Test.stopTest();
         }
     }
     
     static testMethod void testTaskMassChangeActivateDeactive2(){
-
+           Id AnnualCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
+         Id EOCCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
         User usr1 = UtilTestData.createUser('Remarketing Team Lead','Customer Retention');
-        usr1.Active__c=true;
+        usr1.Active_Permission_Set__c=true;
         update usr1;      
         system.runAs(usr1){
         Account personAccount1 = new Account(
@@ -69,14 +70,14 @@ public class TaskMassChangeActivateDeactiveTest {
         insert personAccount1;
         
         Task task1 = new Task(
-            RecordTypeId = welcomeCallRT,
+            RecordTypeId = AnnualCallRT,
             WhatId = personAccount1.Id,
             WhoId = personAccount1.PersonContactId,
-            Status = 'Open'
+            Status = 'Not Started'
         );
         insert task1;
         
-        User usr = [select id, Active__c from User where isActive = true limit 1];
+        User usr = [select id, Active_Permission_Set__c from User where isActive = true limit 1];
         system.debug('>>>> usr >>>'+usr);
         task1.ownerId = usr.id;
         update task1;
@@ -90,8 +91,8 @@ public class TaskMassChangeActivateDeactiveTest {
         controller.task = task1;
         controller.Deactivate(); 
         Test.stopTest();
-        usr = [select id, Active__c from User where id = :usr.id];
-        System.assertEquals(usr.Active__c, false); 
+        usr = [select id, Active_Permission_Set__c from User where id = :usr.id];
+        System.assertEquals(usr.Active_Permission_Set__c, false); 
         }
     }
 }

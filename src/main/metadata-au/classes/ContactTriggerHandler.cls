@@ -28,25 +28,36 @@ public class ContactTriggerHandler
 {
     public void handleTrigger()
     {
-        if (trigger.isAfter && trigger.isInsert) {
-            ContactHelper.AfterInsertUpdateEvents(trigger.new);
-			ContactHelper.CopyFirstNameLastNameToDRM(trigger.new);
-        }
-        if (trigger.isAfter && trigger.isUpdate) {
-            ContactHelper.AfterInsertUpdateEvents(trigger.new); 
-			ContactHelper.CopyFirstNameLastNameToDRM(trigger.new);
-        }
         if (trigger.isBefore && trigger.isInsert) {
             // Validate Gate Keeper
             ContactHelper.ValidateGateKeeper(Trigger.new);
             // Validate complaint manager and presales
             ContactHelper.ValidateManager(Trigger.new);
+             ContactHelper.ValidateBusinessUnit(Trigger.new);
+           
         }
         if (trigger.isBefore && trigger.isUpdate) {
             // Validate Gate Keeper
+            system.debug('Enter Here@@@'+trigger.new);
             ContactHelper.ValidateGateKeeper(Trigger.new);
             // Validate complaint manager and presales
             ContactHelper.ValidateManager(Trigger.new);
+            ContactHelper.ValidateBusinessUnit(Trigger.new);
         }
+        
+                     
+        if (trigger.isAfter && trigger.isInsert) {
+            ContactHelper.AfterInsertUpdateEvents(trigger.new);
+             ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);          
+        }
+       
+        if (trigger.isAfter && trigger.isUpdate) {        
+            ContactHelper.AfterInsertUpdateEvents(trigger.new);  
+            ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);
+             
+        }
+           
+        
+        
     }
 }

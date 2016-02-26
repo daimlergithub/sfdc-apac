@@ -442,7 +442,7 @@ Proxy_Date_Time__c
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>    
+    </fieldUpdates>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -705,7 +705,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>OB Call,IB Call</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
-    </rules>    
+    </rules>
     <rules>
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
@@ -717,6 +717,11 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <field>Lead__c.Status_Category__c</field>
             <operation>equals</operation>
             <value>Closed Won</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.RecordType</field>
+            <operation>notEqual</operation>
+            <value>Fleet Lead</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -897,7 +902,7 @@ Modify Reason:
         <actions>
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
-        </actions>        
+        </actions>
         <active>false</active>
         <description>/* 
 Created by: Mouse Liu 

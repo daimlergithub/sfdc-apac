@@ -151,6 +151,64 @@ public class ContactHelper {
         }
         
     }
+    public static void ValidateBusinessUnit(List<Contact> newContacts) {
+        Set<Id> AccountIds = new Set<Id>();
+        map<id,Account> accountMap = new  map<id,Account>();
+         for(Contact con : newContacts)
+            {
+                AccountIds.add(con.AccountId);
+            }
+        for(Account acc:[select id,Business_Unit__c,Dealer_Active__c from Account where Id IN:AccountIds]){
+            accountMap.put(acc.id, acc);
+        }
+        for(Contact con:newContacts){
+            if(accountMap.containsKey(con.AccountId)){ 
+                   boolean match = sortBusinessUnit(con.Business_Unit__c,accountMap.get(con.AccountId).Business_Unit__c);
+                if(match ==false)
+                {
+                con.addError('Business units of the contact does not  align with the dealership');
+                }                   
+            }
+            
+        }
+        
+    }
+     public static boolean sortBusinessUnit(String Contacts,string accounts)     
+     {
+         List<String> contactBusinessUnit=new List<String>();
+         List<String> accountBusinessUnit=new List<String>();
+         boolean compare = false;
+         String ContactsBu=Contacts;
+         String accountBu=accounts;
+             if(accountBu!=null)
+             {
+                String[] acc = accountBu.split('\\;');
+                 for(string s:acc)
+                 {
+                 accountBusinessUnit.add(s);
+                 }
+             }
+         accountBusinessUnit.sort();    
+         if(ContactsBu !=null)
+         { 
+         String[] con = ContactsBu.split('\\;');
+            for(string s:con)
+             {
+             contactBusinessUnit.add(s);
+             }
+          }
+            contactBusinessUnit.sort();
+         Set<String> contactset = new Set<String>(contactBusinessUnit);
+         Set<String> accountset = new Set<String>(accountBusinessUnit);
+         system.debug('contactset contactset contactset '+contactset );
+         system.debug('contactset contactset contactset '+accountset );
+                if(accountset.containsall(contactset))
+                compare =true;
+                else
+                 compare =false;
+              
+        return compare;
+     }
     public static void AfterInsertUpdateEvents(List<Contact> contacts)
     {
     try
@@ -160,6 +218,7 @@ public class ContactHelper {
         List<Contact> PresalesContacts = new List<Contact>();
         List<Contact> CRMManagerContacts = new List<Contact>();
         List<Contact> MarketingManagerContacts = new List<Contact>(); 
+        List<Contact> BusinesUnit = new List<Contact>();
         List<String> aftersalesManagerIds = new List<String>();
         Set<ID> dealerIdsForAssignGateKeeper = new Set<ID>();
         
@@ -191,7 +250,11 @@ public class ContactHelper {
                 dealerIdsForAssignGateKeeper.add(con.AccountId);
             }
              
-         }
+            if((con.Business_Unit__c !=null) || (con.Business_Unit__c ==null))
+            {
+                BusinesUnit.add(con);
+            }
+        }
         
         
         //setup Complaint Manager infos to dealer
@@ -238,11 +301,9 @@ public class ContactHelper {
         system.debug('End of method @@@@@@@ ');
     }
     
-        public static void copyFirstNameLastNameToDRM(List<Contact> contacts) {
+           public static void CopyFirstNameLastNameToDRM(List<Contact> contacts,Map<id,Contact> oldContacts) {
     try
     {
-	if(contacts!=null && !contacts.isEmpty())
-	{
     CustomLogUtil.CustomLoggingEntry(' Contact Helper Class CopyFirstNameLastNameToDRM method '+'contacts= ' + contacts.size()); 
     
         Set<Id> accountIds = new Set<Id>(); 
@@ -261,9 +322,16 @@ public class ContactHelper {
         }
        
         for(Contact con : contacts) { 
-            if(con.Inactive__c==false){
+            if(con.Inactive__c==false && con.Salutation=='DRM MBFS' ){
               if(relatedAccounts.containsKey(con.AccountId)){
                        relatedAccounts.get(con.AccountId).DRM__c=con.FirstName + ' ' + con.LastName;                       
+                       dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
+                       }
+                
+            }
+            else if(con.Inactive__c==false && oldContacts!=null && !oldContacts.isEmpty() && oldContacts.get(con.id).Salutation=='DRM MBFS' && oldContacts.get(con.id).Salutation!=con.Salutation){
+                 if(relatedAccounts.containsKey(con.AccountId)){
+                       relatedAccounts.get(con.AccountId).DRM__c='';                    
                        dealersToUpdate.put(relatedAccounts.get(con.AccountId).id,relatedAccounts.get(con.AccountId));
                        }
                 
@@ -274,7 +342,7 @@ public class ContactHelper {
             
                UtilSobject.updateSobjects(dealersToUpdate.values());
         }
-        }
+        
        }
       catch(DMLException ex)
       {
@@ -426,5 +494,48 @@ public class ContactHelper {
         }
     }
     
-   
+    public static void updateBusinessUnit(List<Account> accounts){
+    try
+       { 
+    CustomLogUtil.CustomLoggingEntry('contact Helper class updateBusinessUnit Method'+  'accounts'+ accounts.size()); 
+        map<Id,Account> accountid=new map<Id,Account>();
+        List<Account> listAcc=new List<Account>();
+        List<Contact> listCon=new List<Contact>();
+        List<Contact> UpdateCon=new List<Contact>();
+    
+            if(accounts!=null && !accounts.isEmpty())
+            {
+                for(Account acc:accounts)
+                {
+                accountid.put(acc.id,acc);
+                }
+            }
+            
+            listCon=[Select id,AccountId,Business_Unit__c from Contact Where AccountId=:accountid.keySet()];
+                if(listCon!=null && !listCon.isEmpty())
+                {
+                   
+                        for(Contact con:listCon)
+                        {   
+                            if(accountid.containsKey(con.AccountId)){
+                                if(accountid.get(con.AccountId).id==con.AccountId)
+                        
+                                    con.Business_Unit__c=accountid.get(con.AccountId).Business_Unit__c;
+                                    UpdateCon.add(con);
+                            }
+                        }
+                     
+                    
+               }    
+        if(UpdateCon!=null && !UpdateCon.IsEmpty()) {  
+        System.debug('@@@@@@@@@@@@@ UpdateCon'+UpdateCon);       
+         UtilSobject.updateSobjects(UpdateCon);          
+        }
+    }
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+      CustomLogUtil.DebugLogInsert();
+    }
 }

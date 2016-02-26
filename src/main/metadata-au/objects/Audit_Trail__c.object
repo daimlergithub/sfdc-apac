@@ -118,6 +118,16 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Name__c</fullName>
         <externalId>false</externalId>
         <label>Name</label>
@@ -150,6 +160,15 @@
         <type>Lookup</type>
     </fields>
     <label>Audit Trail</label>
+    <listViews>
+        <fullName>Campaign_Approval_Queue_Audit_Trail</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Campaign Approval Queue</label>
+        <queue>Campaign_Approval_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <label>Audit Trail</label>
         <type>Text</type>
