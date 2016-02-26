@@ -11823,7 +11823,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Rejected_Duplicate_Log__c.Market_Discriminator__c</field>
+        <field>Rejected_Duplicate_Log__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
