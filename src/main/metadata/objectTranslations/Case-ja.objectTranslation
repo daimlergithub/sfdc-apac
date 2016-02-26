@@ -5898,7 +5898,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Coporate office</masterLabel>
-            <translation><!-- Coporate office --></translation>
+            <translation>MBJ(社長・役員)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler</masterLabel>
@@ -5998,11 +5998,11 @@
         <name>Case_Situation__c</name>
         <picklistValues>
             <masterLabel>Cannot fix</masterLabel>
-            <translation><!-- Cannot fix --></translation>
+            <translation>解決できない</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Do not know</masterLabel>
-            <translation><!-- Do not know --></translation>
+            <translation>わからない</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -6010,23 +6010,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Not understood (judgement)</masterLabel>
-            <translation><!-- Not understood (judgement) --></translation>
+            <translation>納得できない（判定・判断）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not understood (price)</masterLabel>
-            <translation><!-- Not understood (price) --></translation>
+            <translation>納得できない（金額）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not understood (unsatisfied)</masterLabel>
-            <translation><!-- Not understood (unsatisfied) --></translation>
+            <translation>納得できない（悪い・期待はずれ・多発）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Satisfied</masterLabel>
-            <translation><!-- Satisfied --></translation>
+            <translation>満足である</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Would like to check</masterLabel>
-            <translation><!-- Would like to check --></translation>
+            <translation>聞いてほしい</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6062,19 +6062,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Confirmed</masterLabel>
-            <translation><!-- Escalation Confirmed --></translation>
+            <translation>エスカレーション確認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Raised</masterLabel>
-            <translation><!-- Escalation Raised --></translation>
+            <translation>エスカレーション展開済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
-            <translation><!-- Escalation Raised &amp; Confirmed --></translation>
+            <translation>エスカレーション展開確認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Request</masterLabel>
-            <translation><!-- Escalation Request --></translation>
+            <translation>エスカレーション依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final approval done</masterLabel>
@@ -6162,7 +6162,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Body and interrior</masterLabel>
-            <translation>ボデー/内装(Gr58～Gr77/Gr86～Gr98)</translation>
+            <translation>外装/内装</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Break</masterLabel>
@@ -6218,7 +6218,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr54)</masterLabel>
-            <translation>電気システム（インテリア）(Gr54)</translation>
+            <translation>電気システム(インテリア)/RSP/DTR等(Gr54))</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Electric system (Gr82)</masterLabel>
@@ -6382,7 +6382,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SSI inquiry</masterLabel>
-            <translation>SSI調査</translation>
+            <translation>SSI</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service network construction inquiry</masterLabel>
@@ -6406,7 +6406,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Test drive (general)</masterLabel>
-            <translation>試乗車/展示車（一般）</translation>
+            <translation>試乗車/展示車（現行モデル）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test drive (new)</masterLabel>
@@ -6534,11 +6534,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection repair</masterLabel>
-            <translation><!-- Collection repair --></translation>
+            <translation>[コレクション]修理費用/修理方法</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Commercial Vehicle</masterLabel>
-            <translation>商用車</translation>
+            <translation>[車両]商用車転送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Complaints after sale</masterLabel>
@@ -6722,7 +6722,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance</masterLabel>
-            <translation>ファイナンス問合わせ</translation>
+            <translation>[車両]MBF転送</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance &amp; Insurance</masterLabel>
@@ -6798,7 +6798,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Mercedes me</masterLabel>
-            <translation><!-- MBJ Mercedes me --></translation>
+            <translation>[MBJ（インポーター）]Mercedesme</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Others</masterLabel>
@@ -6810,7 +6810,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Philosophy</masterLabel>
-            <translation>[MBJ（インポーター）]フィロソフィー（MBJの考え方、キーワー</translation>
+            <translation>[MBJ（インポーター）]フィロソフィー（MBJの考え方、キーワード）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Publicity</masterLabel>
@@ -6878,7 +6878,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation>その他</translation>
+            <translation>[その他]その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner Club</masterLabel>
@@ -7042,7 +7042,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Warranty</masterLabel>
-            <translation><!-- Vehicle Warranty --></translation>
+            <translation>[車両]保証</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle foreign eximport</masterLabel>
@@ -7094,7 +7094,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>personal</masterLabel>
-            <translation>個人宛</translation>
+            <translation>[その他]個人宛</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart</masterLabel>
@@ -7569,7 +7569,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DCAG/DCAH</masterLabel>
-            <translation><!-- DCAG/DCAH --></translation>
+            <translation>DAG</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Embassy</masterLabel>
@@ -7625,7 +7625,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation>入電予告</translation>
+            <translation>プロスペクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Publisher</masterLabel>
@@ -7665,7 +7665,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>police</masterLabel>
-            <translation>警察/消防/陸事/その他公的機関協力分　その他</translation>
+            <translation>警察</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7729,7 +7729,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Me Haneda</masterLabel>
-            <translation><!-- Mercedes Me Haneda --></translation>
+            <translation>Mercedes me 羽田</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
@@ -8799,115 +8799,115 @@
         <name>Has_Feedback__c</name>
     </fields>
     <fields>
-        <label><!-- Improvement Department --></label>
+        <label>改善担当部署</label>
         <name>Improvement_Department__c</name>
         <picklistValues>
             <masterLabel>ACT</masterLabel>
-            <translation><!-- ACT --></translation>
+            <translation>経理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ADM</masterLabel>
-            <translation><!-- ADM --></translation>
+            <translation>総務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT</masterLabel>
-            <translation><!-- AFT --></translation>
+            <translation>アフターセールス・マーケティング部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/A&amp;C</masterLabel>
-            <translation><!-- AFT/A&amp;C --></translation>
+            <translation>AFT/アクセサリー・コレクション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/ASP</masterLabel>
-            <translation><!-- AFT/ASP --></translation>
+            <translation>AFT/アフターセールス・プロモーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/PIM</masterLabel>
-            <translation><!-- AFT/PIM --></translation>
+            <translation>AFT/部品在庫管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/PLO</masterLabel>
-            <translation><!-- AFT/PLO --></translation>
+            <translation>AFT/部品物流課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BUD</masterLabel>
-            <translation><!-- BUD --></translation>
+            <translation>事業開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM</masterLabel>
-            <translation><!-- CEM --></translation>
+            <translation>カスタマー・エクスペリエンス部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/AUT</masterLabel>
-            <translation><!-- CEM/AUT --></translation>
+            <translation>CEM/販売店システム課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/BCE</masterLabel>
-            <translation><!-- CEM/BCE --></translation>
+            <translation>CEM/BCEマネジメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/CRM</masterLabel>
-            <translation><!-- CEM/CRM --></translation>
+            <translation>CEM/CRM課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/MBCO</masterLabel>
-            <translation><!-- CEM/MBCO --></translation>
+            <translation>CEM/メルセデス・ベンツコネクション大阪</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/MBCT</masterLabel>
-            <translation><!-- CEM/MBCT --></translation>
+            <translation>CEM/メルセデス・ベンツコネクション東京</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CMT</masterLabel>
-            <translation><!-- CMT --></translation>
+            <translation>TRE/資金課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COC</masterLabel>
-            <translation><!-- COC --></translation>
+            <translation>企業広報課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COM</masterLabel>
-            <translation><!-- COM --></translation>
+            <translation>コンプライアンス・オフィス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CPO</masterLabel>
-            <translation><!-- CPO --></translation>
+            <translation>社長室</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CTL/CC</masterLabel>
-            <translation><!-- CTL/CC --></translation>
+            <translation>利益管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CTL/RC</masterLabel>
-            <translation><!-- CTL/RC --></translation>
+            <translation>コスト管理&amp;ICS課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DCA</masterLabel>
-            <translation><!-- DCA --></translation>
+            <translation>ダイムラー･コーポレート･アカデミー ジャパン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM</masterLabel>
-            <translation><!-- DEM --></translation>
+            <translation>販売店部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/AT</masterLabel>
-            <translation><!-- DEM/AT --></translation>
+            <translation>DEM/アフターセールス・トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/ND</masterLabel>
-            <translation><!-- DEM/ND --></translation>
+            <translation>DEM/ネットワーク開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/NM</masterLabel>
-            <translation><!-- DEM/NM --></translation>
+            <translation>DEM/ネットワーク・マネジメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/ST</masterLabel>
-            <translation><!-- DEM/ST --></translation>
+            <translation>DEM/セールス・トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/TO</masterLabel>
-            <translation><!-- DEM/TO --></translation>
+            <translation>DEM/大阪トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DFSJ</masterLabel>
@@ -8919,75 +8919,75 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>EM + Sec</masterLabel>
-            <translation><!-- EM + Sec --></translation>
+            <translation>取締役(+秘書)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Export</masterLabel>
-            <translation><!-- Export --></translation>
+            <translation>TRE/輸出与信課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR</masterLabel>
-            <translation><!-- HR --></translation>
+            <translation>人事部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/DE</masterLabel>
-            <translation><!-- HR/DE --></translation>
+            <translation>HR/人材開発担当</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/HRP</masterLabel>
-            <translation><!-- HR/HRP --></translation>
+            <translation>HR/人事プロジェクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/LBP</masterLabel>
-            <translation><!-- HR/LBP --></translation>
+            <translation>HR/Language Business Partner</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/OP</masterLabel>
-            <translation><!-- HR/OP --></translation>
+            <translation>HR/人事業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HRD/G</masterLabel>
-            <translation><!-- HRD/G --></translation>
+            <translation>グローバル･アサインメント･マネジメント アジア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IPJ</masterLabel>
-            <translation><!-- IPJ --></translation>
+            <translation>ダイムラー IPオフィスジャパン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IPS</masterLabel>
-            <translation><!-- IPS --></translation>
+            <translation>購買部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM</masterLabel>
-            <translation><!-- ITM --></translation>
+            <translation>ITM部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/FS</masterLabel>
-            <translation><!-- ITM/FS --></translation>
+            <translation>ITファイナンシャルサービス・プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/IMO</masterLabel>
-            <translation><!-- ITM/IMO --></translation>
+            <translation>IT インフラストラクチャー･マネジメント&amp;オペレーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/P&amp;G,CF</masterLabel>
-            <translation><!-- ITM/P&amp;G,CF --></translation>
+            <translation>IT 企画/推進課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/R,S&amp;P</masterLabel>
-            <translation><!-- ITM/R,S&amp;P --></translation>
+            <translation>IT リテール/サービス&amp;パーツ･プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/S&amp;M</masterLabel>
-            <translation><!-- ITM/S&amp;M --></translation>
+            <translation>IT セールス&amp;マーケティング･プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>LEG</masterLabel>
-            <translation><!-- LEG --></translation>
+            <translation>法務部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>LEG/Legal</masterLabel>
-            <translation><!-- LEG/Legal --></translation>
+            <translation>LEG/法務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBF</masterLabel>
@@ -8995,67 +8995,67 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MC</masterLabel>
-            <translation><!-- MC --></translation>
+            <translation>マーケティング・コミュニケーション部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/AMG</masterLabel>
-            <translation><!-- MC/AMG --></translation>
+            <translation>MC/AMG課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/CC</masterLabel>
-            <translation><!-- MC/CC --></translation>
+            <translation>MC/カスタマー・コミュニケーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/MC</masterLabel>
-            <translation><!-- MC/MC --></translation>
+            <translation>MC/メディア・コミュニケーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/PPR</masterLabel>
-            <translation><!-- MC/PPR --></translation>
+            <translation>MC/製品広報課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/smart</masterLabel>
-            <translation><!-- MC/smart --></translation>
+            <translation>MC/スマート課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS</masterLabel>
-            <translation><!-- MS --></translation>
+            <translation>営業企画部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CESAR Project</masterLabel>
-            <translation><!-- MS/CESAR Project --></translation>
+            <translation>MS/CEASRプロジェクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CPM</masterLabel>
-            <translation><!-- MS/CPM --></translation>
+            <translation>MS/商品企画統括課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/HML</masterLabel>
-            <translation><!-- MS/HML --></translation>
+            <translation>MS/認証業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P1</masterLabel>
-            <translation><!-- MS/P1 --></translation>
+            <translation>MS/商品企画1課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P2</masterLabel>
-            <translation><!-- MS/P2 --></translation>
+            <translation>MS/商品企画2課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P3</masterLabel>
-            <translation><!-- MS/P3 --></translation>
+            <translation>MS/商品企画3課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/SD</masterLabel>
-            <translation><!-- MS/SD --></translation>
+            <translation>MS/営業開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/TCO</masterLabel>
-            <translation><!-- MS/TCO --></translation>
+            <translation>MS/技術コンプライアンス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/VP</masterLabel>
-            <translation><!-- MS/VP --></translation>
+            <translation>MS/計画課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -9063,83 +9063,83 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>RDJ</masterLabel>
-            <translation><!-- RDJ --></translation>
+            <translation>メルセデス･ベンツR&amp;D日本</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO</masterLabel>
-            <translation><!-- SO --></translation>
+            <translation>営業推進部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/DS</masterLabel>
-            <translation><!-- SO/DS --></translation>
+            <translation>SO/直販課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/FF</masterLabel>
-            <translation><!-- SO/FF --></translation>
+            <translation>SO/地域担当営業課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/FFBO</masterLabel>
-            <translation><!-- SO/FFBO --></translation>
+            <translation>SO/地域担当業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/UC</masterLabel>
-            <translation><!-- SO/UC --></translation>
+            <translation>SO/中古車課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/VLO</masterLabel>
-            <translation><!-- SO/VLO --></translation>
+            <translation>SO/車両業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPM</masterLabel>
-            <translation><!-- SPM --></translation>
+            <translation>販売企画室</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPM/PBM</masterLabel>
-            <translation><!-- SPM/PBM --></translation>
+            <translation>SPM/プロセス・予算管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Statutory Auditor</masterLabel>
-            <translation><!-- Statutory Auditor --></translation>
+            <translation>監査役</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC</masterLabel>
-            <translation><!-- TEC --></translation>
+            <translation>技術部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/QC</masterLabel>
-            <translation><!-- TEC/QC --></translation>
+            <translation>TEC/品質管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/TF</masterLabel>
-            <translation><!-- TEC/TF --></translation>
+            <translation>TEC/技術フィールド課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/TI</masterLabel>
-            <translation><!-- TEC/TI --></translation>
+            <translation>TEC/サービス文献課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/WAL</masterLabel>
-            <translation><!-- TEC/WAL --></translation>
+            <translation>TEC/保証課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TRE</masterLabel>
-            <translation><!-- TRE --></translation>
+            <translation>財務部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TRE/COF</masterLabel>
-            <translation><!-- TRE/COF --></translation>
+            <translation>TRE/財務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TSJ</masterLabel>
-            <translation><!-- TSJ --></translation>
+            <translation>トレジャリー･セトルメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VET</masterLabel>
-            <translation><!-- VET --></translation>
+            <translation>バン･エンジニアリング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VPC</masterLabel>
-            <translation><!-- VPC --></translation>
+            <translation>新車整備センター</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -10160,115 +10160,115 @@
         <name>Registration_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Related Department --></label>
+        <label>展開先（関係部署）</label>
         <name>Related_Department__c</name>
         <picklistValues>
             <masterLabel>ACT</masterLabel>
-            <translation><!-- ACT --></translation>
+            <translation>経理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ADM</masterLabel>
-            <translation><!-- ADM --></translation>
+            <translation>総務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT</masterLabel>
-            <translation><!-- AFT --></translation>
+            <translation>アフターセールス・マーケティング部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/A&amp;C</masterLabel>
-            <translation><!-- AFT/A&amp;C --></translation>
+            <translation>AFT/アクセサリー・コレクション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/ASP</masterLabel>
-            <translation><!-- AFT/ASP --></translation>
+            <translation>AFT/アフターセールス・プロモーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/PIM</masterLabel>
-            <translation><!-- AFT/PIM --></translation>
+            <translation>AFT/部品在庫管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AFT/PLO</masterLabel>
-            <translation><!-- AFT/PLO --></translation>
+            <translation>AFT/部品物流課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BUD</masterLabel>
-            <translation><!-- BUD --></translation>
+            <translation>事業開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM</masterLabel>
-            <translation><!-- CEM --></translation>
+            <translation>カスタマー・エクスペリエンス部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/AUT</masterLabel>
-            <translation><!-- CEM/AUT --></translation>
+            <translation>CEM/販売店システム課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/BCE</masterLabel>
-            <translation><!-- CEM/BCE --></translation>
+            <translation>CEM/BCEマネジメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/CRM</masterLabel>
-            <translation><!-- CEM/CRM --></translation>
+            <translation>CEM/CRM課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/MBCO</masterLabel>
-            <translation><!-- CEM/MBCO --></translation>
+            <translation>CEM/メルセデス・ベンツコネクション大阪</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CEM/MBCT</masterLabel>
-            <translation><!-- CEM/MBCT --></translation>
+            <translation>CEM/メルセデス・ベンツコネクション東京</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CMT</masterLabel>
-            <translation><!-- CMT --></translation>
+            <translation>TRE/資金課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COC</masterLabel>
-            <translation><!-- COC --></translation>
+            <translation>企業広報課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>COM</masterLabel>
-            <translation><!-- COM --></translation>
+            <translation>コンプライアンス・オフィス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CPO</masterLabel>
-            <translation><!-- CPO --></translation>
+            <translation>社長室</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CTL/CC</masterLabel>
-            <translation><!-- CTL/CC --></translation>
+            <translation>利益管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CTL/RC</masterLabel>
-            <translation><!-- CTL/RC --></translation>
+            <translation>コスト管理&amp;ICS課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DCA</masterLabel>
-            <translation><!-- DCA --></translation>
+            <translation>ダイムラー･コーポレート･アカデミー ジャパン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM</masterLabel>
-            <translation><!-- DEM --></translation>
+            <translation>販売店部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/AT</masterLabel>
-            <translation><!-- DEM/AT --></translation>
+            <translation>DEM/アフターセールス・トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/ND</masterLabel>
-            <translation><!-- DEM/ND --></translation>
+            <translation>DEM/ネットワーク開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/NM</masterLabel>
-            <translation><!-- DEM/NM --></translation>
+            <translation>DEM/ネットワーク・マネジメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/ST</masterLabel>
-            <translation><!-- DEM/ST --></translation>
+            <translation>DEM/セールス・トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DEM/TO</masterLabel>
-            <translation><!-- DEM/TO --></translation>
+            <translation>DEM/大阪トレーニング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DFSJ</masterLabel>
@@ -10280,75 +10280,75 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>EM + Sec</masterLabel>
-            <translation><!-- EM + Sec --></translation>
+            <translation>取締役(+秘書)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Export</masterLabel>
-            <translation><!-- Export --></translation>
+            <translation>TRE/輸出与信課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR</masterLabel>
-            <translation><!-- HR --></translation>
+            <translation>人事部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/DE</masterLabel>
-            <translation><!-- HR/DE --></translation>
+            <translation>HR/人材開発担当</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/HRP</masterLabel>
-            <translation><!-- HR/HRP --></translation>
+            <translation>HR/人事プロジェクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/LBP</masterLabel>
-            <translation><!-- HR/LBP --></translation>
+            <translation>HR/Language Business Partner</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HR/OP</masterLabel>
-            <translation><!-- HR/OP --></translation>
+            <translation>HR/人事業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>HRD/G</masterLabel>
-            <translation><!-- HRD/G --></translation>
+            <translation>グローバル･アサインメント･マネジメント アジア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IPJ</masterLabel>
-            <translation><!-- IPJ --></translation>
+            <translation>ダイムラー IPオフィスジャパン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IPS</masterLabel>
-            <translation><!-- IPS --></translation>
+            <translation>購買部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM</masterLabel>
-            <translation><!-- ITM --></translation>
+            <translation>ITM部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/FS</masterLabel>
-            <translation><!-- ITM/FS --></translation>
+            <translation>ITファイナンシャルサービス・プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/IMO</masterLabel>
-            <translation><!-- ITM/IMO --></translation>
+            <translation>IT インフラストラクチャー･マネジメント&amp;オペレーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/P&amp;G,CF</masterLabel>
-            <translation><!-- ITM/P&amp;G,CF --></translation>
+            <translation>IT 企画/推進課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/R,S&amp;P</masterLabel>
-            <translation><!-- ITM/R,S&amp;P --></translation>
+            <translation>IT リテール/サービス&amp;パーツ･プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ITM/S&amp;M</masterLabel>
-            <translation><!-- ITM/S&amp;M --></translation>
+            <translation>IT セールス&amp;マーケティング･プロセス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>LEG</masterLabel>
-            <translation><!-- LEG --></translation>
+            <translation>法務部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>LEG/Legal</masterLabel>
-            <translation><!-- LEG/Legal --></translation>
+            <translation>LEG/法務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBF</masterLabel>
@@ -10356,67 +10356,67 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MC</masterLabel>
-            <translation><!-- MC --></translation>
+            <translation>マーケティング・コミュニケーション部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/AMG</masterLabel>
-            <translation><!-- MC/AMG --></translation>
+            <translation>MC/AMG課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/CC</masterLabel>
-            <translation><!-- MC/CC --></translation>
+            <translation>MC/カスタマー・コミュニケーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/MC</masterLabel>
-            <translation><!-- MC/MC --></translation>
+            <translation>MC/メディア・コミュニケーション課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/PPR</masterLabel>
-            <translation><!-- MC/PPR --></translation>
+            <translation>MC/製品広報課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MC/smart</masterLabel>
-            <translation><!-- MC/smart --></translation>
+            <translation>MC/スマート課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS</masterLabel>
-            <translation><!-- MS --></translation>
+            <translation>営業企画部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CESAR Project</masterLabel>
-            <translation><!-- MS/CESAR Project --></translation>
+            <translation>MS/CEASRプロジェクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CPM</masterLabel>
-            <translation><!-- MS/CPM --></translation>
+            <translation>MS/商品企画統括課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/HML</masterLabel>
-            <translation><!-- MS/HML --></translation>
+            <translation>MS/認証業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P1</masterLabel>
-            <translation><!-- MS/P1 --></translation>
+            <translation>MS/商品企画1課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P2</masterLabel>
-            <translation><!-- MS/P2 --></translation>
+            <translation>MS/商品企画2課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/P3</masterLabel>
-            <translation><!-- MS/P3 --></translation>
+            <translation>MS/商品企画3課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/SD</masterLabel>
-            <translation><!-- MS/SD --></translation>
+            <translation>MS/営業開発課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/TCO</masterLabel>
-            <translation><!-- MS/TCO --></translation>
+            <translation>MS/技術コンプライアンス課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/VP</masterLabel>
-            <translation><!-- MS/VP --></translation>
+            <translation>MS/計画課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -10424,83 +10424,83 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>RDJ</masterLabel>
-            <translation><!-- RDJ --></translation>
+            <translation>メルセデス･ベンツR&amp;D日本</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO</masterLabel>
-            <translation><!-- SO --></translation>
+            <translation>営業推進部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/DS</masterLabel>
-            <translation><!-- SO/DS --></translation>
+            <translation>SO/直販課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/FF</masterLabel>
-            <translation><!-- SO/FF --></translation>
+            <translation>SO/地域担当営業課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/FFBO</masterLabel>
-            <translation><!-- SO/FFBO --></translation>
+            <translation>SO/地域担当業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/UC</masterLabel>
-            <translation><!-- SO/UC --></translation>
+            <translation>SO/中古車課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SO/VLO</masterLabel>
-            <translation><!-- SO/VLO --></translation>
+            <translation>SO/車両業務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPM</masterLabel>
-            <translation><!-- SPM --></translation>
+            <translation>販売企画室</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPM/PBM</masterLabel>
-            <translation><!-- SPM/PBM --></translation>
+            <translation>SPM/プロセス・予算管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Statutory Auditor</masterLabel>
-            <translation><!-- Statutory Auditor --></translation>
+            <translation>監査役</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC</masterLabel>
-            <translation><!-- TEC --></translation>
+            <translation>技術部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/QC</masterLabel>
-            <translation><!-- TEC/QC --></translation>
+            <translation>TEC/品質管理課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/TF</masterLabel>
-            <translation><!-- TEC/TF --></translation>
+            <translation>TEC/技術フィールド課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/TI</masterLabel>
-            <translation><!-- TEC/TI --></translation>
+            <translation>TEC/サービス文献課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TEC/WAL</masterLabel>
-            <translation><!-- TEC/WAL --></translation>
+            <translation>TEC/保証課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TRE</masterLabel>
-            <translation><!-- TRE --></translation>
+            <translation>財務部</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TRE/COF</masterLabel>
-            <translation><!-- TRE/COF --></translation>
+            <translation>TRE/財務課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TSJ</masterLabel>
-            <translation><!-- TSJ --></translation>
+            <translation>トレジャリー･セトルメント課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VET</masterLabel>
-            <translation><!-- VET --></translation>
+            <translation>バン･エンジニアリング課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VPC</masterLabel>
-            <translation><!-- VPC --></translation>
+            <translation>新車整備センター</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -10801,19 +10801,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Confirmed</masterLabel>
-            <translation><!-- Escalation Confirmed --></translation>
+            <translation>エスカレーション確認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Raised</masterLabel>
-            <translation><!-- Escalation Raised --></translation>
+            <translation>エスカレーション展開済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Raised &amp; Confirmed</masterLabel>
-            <translation><!-- Escalation Raised &amp; Confirmed --></translation>
+            <translation>エスカレーション展開確認済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Escalation Request</masterLabel>
-            <translation><!-- Escalation Request --></translation>
+            <translation>エスカレーション依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final Position Released</masterLabel>
@@ -11111,7 +11111,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>A-Class HATCHBACK</masterLabel>
-            <translation><!-- A-Class HATCHBACK --></translation>
+            <translation>Aクラス ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AMG</masterLabel>
@@ -11123,7 +11123,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>B-Class MPV</masterLabel>
-            <translation><!-- B-Class MPV --></translation>
+            <translation>Bクラス MPV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Beijing Jeep</masterLabel>
@@ -11135,19 +11135,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class COUPE</masterLabel>
-            <translation><!-- C-Class COUPE --></translation>
+            <translation>Cクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class ESTATE</masterLabel>
-            <translation><!-- C-Class ESTATE --></translation>
+            <translation>Cクラス ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class HATCHBACK</masterLabel>
-            <translation><!-- C-Class HATCHBACK --></translation>
+            <translation>Cクラス ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class SEDAN</masterLabel>
-            <translation><!-- C-Class SEDAN --></translation>
+            <translation>Cクラス セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Coupe</masterLabel>
@@ -11163,7 +11163,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CL COUPE</masterLabel>
-            <translation><!-- CL COUPE --></translation>
+            <translation>Sクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CL-Class</masterLabel>
@@ -11171,7 +11171,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA 4 DOOR COUPE</masterLabel>
-            <translation><!-- CLA 4 DOOR COUPE --></translation>
+            <translation>CLA 4ドアクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA 45 AMG</masterLabel>
@@ -11179,7 +11179,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA ESTATE</masterLabel>
-            <translation><!-- CLA ESTATE --></translation>
+            <translation>CLA ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA-Class</masterLabel>
@@ -11187,11 +11187,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CLK CABRIO</masterLabel>
-            <translation><!-- CLK CABRIO --></translation>
+            <translation>Eクラス カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLK COUPE</masterLabel>
-            <translation><!-- CLK COUPE --></translation>
+            <translation>Eクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLK-Class</masterLabel>
@@ -11199,11 +11199,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS 4 DOOR COUPE</masterLabel>
-            <translation><!-- CLS 4 DOOR COUPE --></translation>
+            <translation>CLS 4ドアクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS ESTATE</masterLabel>
-            <translation><!-- CLS ESTATE --></translation>
+            <translation>CLS ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS-Class</masterLabel>
@@ -11235,11 +11235,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class CABRIO</masterLabel>
-            <translation><!-- E-Class CABRIO --></translation>
+            <translation>Eクラス カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class COUPE</masterLabel>
-            <translation><!-- E-Class COUPE --></translation>
+            <translation>Eクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Cabriolet</masterLabel>
@@ -11247,11 +11247,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class ESTATE</masterLabel>
-            <translation><!-- E-Class ESTATE --></translation>
+            <translation>Eクラス ステーションワゴン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class SEDAN</masterLabel>
-            <translation><!-- E-Class SEDAN --></translation>
+            <translation>Eクラス セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Sport Sedan</masterLabel>
@@ -11271,7 +11271,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>G-Class SUV</masterLabel>
-            <translation><!-- G-Class SUV --></translation>
+            <translation>Gクラス SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>G55 AMG</masterLabel>
@@ -11319,11 +11319,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GLE SUV</masterLabel>
-            <translation><!-- GLE SUV --></translation>
+            <translation>GLE SUC (SUクーペ)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK SUV</masterLabel>
-            <translation><!-- GLK SUV --></translation>
+            <translation>GLC SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
@@ -11343,7 +11343,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class SUV</masterLabel>
-            <translation><!-- M-Class SUV --></translation>
+            <translation>GLE SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MARCO POLO</masterLabel>
@@ -11371,11 +11371,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach SEDAN</masterLabel>
-            <translation><!-- Maybach SEDAN --></translation>
+            <translation>マイバッハ セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-AMG GT SPORTCOUPE</masterLabel>
-            <translation><!-- Mercedes-AMG GT SPORTCOUPE --></translation>
+            <translation>GT スポーツクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz commercial vehicles</masterLabel>
@@ -11419,7 +11419,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>R-Class MPV</masterLabel>
-            <translation><!-- R-Class MPV --></translation>
+            <translation>Rクラス MPV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S 500 4MATIC Coupe</masterLabel>
@@ -11443,15 +11443,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>S-Class CABRIO</masterLabel>
-            <translation><!-- S-Class CABRIO --></translation>
+            <translation>Sクラス カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S-Class COUPE</masterLabel>
-            <translation><!-- S-Class COUPE --></translation>
+            <translation>Sクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S-Class SEDAN</masterLabel>
-            <translation><!-- S-Class SEDAN --></translation>
+            <translation>Sクラス セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S-Coupe</masterLabel>
@@ -11467,7 +11467,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SL ROADSTER</masterLabel>
-            <translation><!-- SL ROADSTER --></translation>
+            <translation>SL ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
@@ -11483,7 +11483,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK ROADSTER</masterLabel>
-            <translation><!-- SLK ROADSTER --></translation>
+            <translation>SLK ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -11495,11 +11495,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SLR ROADSTER</masterLabel>
-            <translation><!-- SLR ROADSTER --></translation>
+            <translation>SLR ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLR SPORTCOUPE</masterLabel>
-            <translation><!-- SLR SPORTCOUPE --></translation>
+            <translation>SLR スポーツクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLS AMG</masterLabel>
@@ -11507,11 +11507,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SLS ROADSTER</masterLabel>
-            <translation><!-- SLS ROADSTER --></translation>
+            <translation>SLS ロードスター</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLS SPORTCOUPE</masterLabel>
-            <translation><!-- SLS SPORTCOUPE --></translation>
+            <translation>SLS スポーツクーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SPRINTER</masterLabel>
@@ -11543,11 +11543,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>V-Class MPV</masterLabel>
-            <translation><!-- V-Class MPV --></translation>
+            <translation>Vクラス MPV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VANEO MPV</masterLabel>
-            <translation><!-- VANEO MPV --></translation>
+            <translation>バネオ MPV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VARIO</masterLabel>
@@ -11563,7 +11563,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>VITO MPV</masterLabel>
-            <translation><!-- VITO MPV --></translation>
+            <translation>ヴィトー MPV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wrangler</masterLabel>
@@ -11575,23 +11575,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>smart forfour HATCHBACK</masterLabel>
-            <translation><!-- smart forfour HATCHBACK --></translation>
+            <translation>スマートフォーフォー ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart fortwo CABRIO</masterLabel>
-            <translation><!-- smart fortwo CABRIO --></translation>
+            <translation>スマートフォーツー カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart fortwo HATCHBACK</masterLabel>
-            <translation><!-- smart fortwo HATCHBACK --></translation>
+            <translation>スマートフォーツー ハッチバック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart roadster COUPE</masterLabel>
-            <translation><!-- smart roadster COUPE --></translation>
+            <translation>スマートロードスター クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>smart roadster ROADSTER</masterLabel>
-            <translation><!-- smart roadster ROADSTER --></translation>
+            <translation>スマートロードスター ロードスター</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -11611,7 +11611,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>モデル</label>
+        <label>モデルレンジ</label>
         <name>Vehicle_Model__c</name>
         <picklistValues>
             <masterLabel>2013 smart Chocolate Special Edition</masterLabel>
@@ -14607,4 +14607,13 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
+    <workflowTasks>
+        <name>approval</name>
+        <subject><!-- approval needed --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- Please check the Case Closing Approval Step 2 --></description>
+        <name>test_Approval_process_alert</name>
+        <subject><!-- test Approval process alert --></subject>
+    </workflowTasks>
 </CustomObjectTranslation>

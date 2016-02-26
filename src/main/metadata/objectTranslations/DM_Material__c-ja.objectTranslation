@@ -29,7 +29,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Car model</label>
+        <label>モデルレンジ</label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- DM Material --></relationshipLabel>
     </fields>
@@ -1575,7 +1575,6 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
     <nameFieldLabel>カタログ名</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Must input conversion: Brand-Series-Type. --></errorMessage>

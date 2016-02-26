@@ -709,6 +709,10 @@
         <name>Class_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
         <label><!-- Description --></label>
         <name>Description__c</name>
     </fields>
@@ -1865,6 +1869,10 @@
         <name>System__c</name>
     </fields>
     <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
         <label><!-- Vehicle Group --></label>
         <name>Vehicle_Group__c</name>
         <picklistValues>
@@ -2003,6 +2011,6 @@
             <section>Segment Information</section>
         </sections>
     </layouts>
-    
+   
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

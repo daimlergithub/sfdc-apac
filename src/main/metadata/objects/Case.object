@@ -356,7 +356,7 @@
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -439,7 +439,7 @@ Modify Reason:
     <fields>
         <fullName>AssetId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -9741,7 +9741,7 @@ Modify Reason:
     <fields>
         <fullName>ContactId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -13599,7 +13599,7 @@ Modify Reason:
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -19484,7 +19484,7 @@ Modify Reason:
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -20133,6 +20133,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
+    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -20539,33 +20540,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Sample Cases</label>
     </listViews>
-    <listViews>
-        <fullName>Supervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_A_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_B_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team B</label>
-        <queue>Supervisor_Team_B</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>Support_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
@@ -20657,6 +20632,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
+    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -102395,6 +102371,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <lookupPhoneDialogsAdditionalFields>Contact_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Contact_Person_Tele__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Perferred_Contact_Number__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
