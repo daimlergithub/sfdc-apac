@@ -99,7 +99,7 @@ CreatedDate: 2013-06-08</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Market_Discriminator__c</fullName>
+        <fullName>MD__c</fullName>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
