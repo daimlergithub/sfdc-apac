@@ -9541,14 +9541,11 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     </fields>
     <fields>
         <fullName>SF_Dealer_ID__c</fullName>
+        <displayFormat>SF-{00000}</displayFormat>
         <externalId>false</externalId>
         <label>SF Dealer ID</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>SLAExpirationDate__c</fullName>
