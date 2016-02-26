@@ -183,8 +183,8 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <name>Send_Campaign_ID_to_EP</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>false</active>
-        <formula>AND (  RecordType.DeveloperName=&apos;CAC Campaign&apos;, OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
+        <active>true</active>
+        <formula>AND (  RecordType.DeveloperName=&apos;CAC_Campaign&apos;, OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
