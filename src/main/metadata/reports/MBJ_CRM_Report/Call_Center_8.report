@@ -32,7 +32,7 @@
         <field>Case.Case_Class__c</field>
         <sortOrder>Desc</sortOrder>
     </groupingsDown>
-    <name>Report_8</name>
+    <name>Report_08</name>
     <params>
         <name>units</name>
         <value>h</value>

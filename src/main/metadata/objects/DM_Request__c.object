@@ -898,6 +898,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -917,33 +918,7 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>MBJ_CRM_Department_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_Supervisor_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBJ Supervisor</label>
-        <queue>MBJ_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
     <listViews>
         <fullName>Open_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -1012,33 +987,8 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>Supervisor_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_A_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team A</label>
-        <queue>Supervisor_Team_A</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Supervisor_Team_B_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Supervisor Team B</label>
-        <queue>Supervisor_Team_B</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
+    
+    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1053,11 +1003,39 @@ Modify Reason:
         <customTabListAdditionalFields>Actual_DM_Material3__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <listViewButtons>Download_Catalogue</listViewButtons>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Expected_DM_Material3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status3__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sent_Date__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Campaign__c</searchFilterFields>
         <searchFilterFields>Customer_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Expected_DM_Material3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status3__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Add_Address_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Additional Address should be less than or equal to 50 letters.</description>
+        <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Additional_Address__c</errorDisplayField>
+        <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Address_NoOfDigits</fullName>
         <active>true</active>
@@ -1163,11 +1141,11 @@ MD__c = 'JP')</errorConditionFormula>
     <validationRules>
         <fullName>Province_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN(Province__c)&gt;10, 
+        <errorConditionFormula>AND(LEN(Province__c)&gt;4, 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
-        <errorMessage>Province should be less than or equal to 10 letters.</errorMessage>
+        <errorMessage>Province should be less than or equal to 4 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
@@ -1204,17 +1182,21 @@ if(result == "&lt;3")
 {
 alert('{!$Label.Error_Message_1}');
 }
-if(result == "true")
+else if(result == "NoTargetRows")
+{ 
+alert('{!$Label.No_Target_records}');
+}
+else if(result == "exception")
+{
+alert('{!$Label.Exception_message}');
+}
+else if(result == "true")
 { 
 alert('{!$Label.Success_message}');
 }
-if(result == "false")
+else if(result == "false")
 {
 alert('{!$Label.Error_Message_2}');
-}
-if(result == "exception")
-{
-alert('{!$Label.Exception_message}');
 }</url>
     </webLinks>
 </CustomObject>

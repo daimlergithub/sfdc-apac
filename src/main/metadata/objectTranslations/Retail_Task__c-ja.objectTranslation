@@ -1149,7 +1149,6 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
         <label>Contract</label>

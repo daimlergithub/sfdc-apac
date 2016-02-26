@@ -26,7 +26,7 @@
         <name>Response__c</name>
     </fields>
     <fields>
-        <label>Survey対象</label>
+        <label>関連サーベイ</label>
         <name>SurveyTaker__c</name>
         <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
     </fields>

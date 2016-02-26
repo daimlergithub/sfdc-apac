@@ -59,7 +59,7 @@
         <name>Channel__c</name>
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
-            <translation><!-- 24 hours Touring Support --></translation>
+            <translation>24時間ツーリングサポート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
@@ -67,7 +67,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
-            <translation><!-- Dealers --></translation>
+            <translation>販売店対応相談窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
@@ -83,43 +83,43 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
-            <translation><!-- Letter --></translation>
+            <translation>手紙/ハガキ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
-            <translation><!-- Maybach call --></translation>
+            <translation>マイバッハ・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Call Catalogue</masterLabel>
-            <translation><!-- Mercedes Call Catalogue --></translation>
+            <translation>メルセデスコールカタログ受付</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
-            <translation><!-- Mercedes Magazine Survey --></translation>
+            <translation>メルセデス・マガジン・アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Me Haneda</masterLabel>
-            <translation><!-- Mercedes Me Haneda --></translation>
+            <translation>Mercedes me 羽田</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
-            <translation><!-- Mercedes call --></translation>
+            <translation>メルセデス・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
-            <translation><!-- Mercedes-Benz Owner Hotline --></translation>
+            <translation>メルセデス・ベンツ オーナーホットライン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
-            <translation><!-- Mercedes-Benz School of Excelence --></translation>
+            <translation>メルセデス・ベンツ サークル　オブ　エクセレンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz phone</masterLabel>
-            <translation><!-- Mercedes-Benz phone --></translation>
+            <translation>代表電話</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Model-Year Reference desk</masterLabel>
-            <translation><!-- Model-Year Reference desk --></translation>
+            <translation>年式照会窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Mercedes</masterLabel>
@@ -131,15 +131,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
-            <translation><!-- Recall desk --></translation>
+            <translation>リコール専用窓口</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Response Sheet</masterLabel>
-            <translation><!-- Response Sheet --></translation>
+            <translation>レスポンスシート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
-            <translation><!-- Survey --></translation>
+            <translation>アンケート</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -185,19 +185,19 @@
         <name>Delivery_Type__c</name>
         <picklistValues>
             <masterLabel>1</masterLabel>
-            <translation>メール便</translation>
+            <translation>MBJから(メール便)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>2</masterLabel>
-            <translation>宅急便</translation>
+            <translation>MBJから(宅急便)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3</masterLabel>
-            <translation>郵送</translation>
+            <translation>MBJから(郵送)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>4</masterLabel>
-            <translation>販売店</translation>
+            <translation>販売店から</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -290,7 +290,7 @@
         <relationshipLabel><!-- DM Request (SentName) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The date when the deliver was ordered to the mail sender --></help>
+        <help>発送業者に発送指示をした日</help>
         <label>発送指示日</label>
         <name>Sent_Date__c</name>
     </fields>
@@ -315,7 +315,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation>返却</translation>
+            <translation>不着</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
@@ -347,7 +347,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation>返却</translation>
+            <translation>不着</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
@@ -379,7 +379,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation>返却</translation>
+            <translation>不着</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Success</masterLabel>
@@ -411,11 +411,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>承認差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Returned</masterLabel>
-            <translation>返却</translation>
+            <translation>不着</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -493,6 +493,10 @@
         </sections>
     </layouts>
     <nameFieldLabel>カタログリクエスト番号</nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- Additional Address should be less than or equal to 50 letters. --></errorMessage>
+        <name>Add_Address_NoOfDigits</name>
+    </validationRules>
     <validationRules>
         <errorMessage>住所は必ず184文字以下で入力して下さい。</errorMessage>
         <name>Address_NoOfDigits</name>

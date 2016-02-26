@@ -8299,7 +8299,7 @@ Modify Reason:
         <label>Lost Situation</label>
         <picklist>
             <picklistValues>
-                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <fullName>Purchased Competitor's Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -14579,7 +14579,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>On assistant driver&apos;s seat</fullName>
+                <fullName>On assistant driver's seat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -19037,7 +19037,6 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
-    
     
     
     <nameField>

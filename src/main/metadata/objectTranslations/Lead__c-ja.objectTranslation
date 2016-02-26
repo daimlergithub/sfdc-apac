@@ -1823,7 +1823,7 @@
     </fields>
     <fields>
         <help><!-- System filed, please ignore. System field , please do not bother. --></help>
-        <label><!-- Case --></label>
+        <label>ケース</label>
         <name>Case__c</name>
         <relationshipLabel>リード</relationshipLabel>
     </fields>
@@ -1851,7 +1851,7 @@
             <informationalMessage>アカウントの検索と選択が可能です。</informationalMessage>
         </lookupFilter>
         <name>Company_Account__c</name>
-        <relationshipLabel><!-- Leads (Company Account) --></relationshipLabel>
+        <relationshipLabel>リード(法人アカウント)</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Contact Failed For 3 Days Date Time --></label>
@@ -2062,7 +2062,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Bought other brand</masterLabel>
-            <translation>ブランド</translation>
+            <translation>商品・ブランド</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Customer can not be reached</masterLabel>
@@ -2110,11 +2110,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Out of Stock</masterLabel>
-            <translation>在庫</translation>
+            <translation>納期</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Price not accepted</masterLabel>
-            <translation>価格</translation>
+            <translation>価格(値引き、金利、下取り含む)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchase plan postponed</masterLabel>
@@ -4978,7 +4978,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Me Haneda</masterLabel>
-            <translation><!-- Mercedes Me Haneda --></translation>
+            <translation>Mercedes me 羽田</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
@@ -5914,19 +5914,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>社用車</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
             <translation>MBJ/MBFカンパニーカー</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Daimler Employee</masterLabel>
+            <translation>MBJ/MBF従業員リース</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
-            <translation>従業員販売</translation>
+            <translation>販売店従業員販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Lease</masterLabel>
-            <translation>従業員リース</translation>
+            <translation>販売店従業員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
@@ -6134,7 +6134,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Competitor&apos;s Car</masterLabel>
-            <translation>競合他車の購入</translation>
+            <translation>競合他社の購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased MB at normal Used Car store</masterLabel>
@@ -6142,7 +6142,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Purhcased MB from other importer</masterLabel>
-            <translation>並行輸入業者からのMB購入のため</translation>
+            <translation>並行輸入業者からのMB購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purhcased at othe MB stores</masterLabel>
@@ -7118,7 +7118,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Range 13</masterLabel>
-            <translation>2000万円-2490万円</translation>
+            <translation>2000万円-2499万円</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Range 14</masterLabel>
@@ -14257,6 +14257,65 @@
         <sections>
             <label><!-- Trade-In Vehicle Information --></label>
             <section>Trade-In Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Leads Soft Deleted</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>日付情報</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>リード顧客情報</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>リード処理情報</label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label>リードリクエスト情報</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Miscelleneous Section --></label>
+            <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Referal/Referee Information</section>
+        </sections>
+        <sections>
+            <label><!-- Select Assigne Dealer --></label>
+            <section>Select Assigne Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Select</section>
         </sections>
     </layouts>
     <nameFieldLabel>リードID</nameFieldLabel>

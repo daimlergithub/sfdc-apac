@@ -498,6 +498,10 @@
     </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
+        <errorMessage><!-- Additional Address should be less than or equal to 50 letters. --></errorMessage>
+        <name>Add_Address_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Address should be less than or equal to 92 letters. --></errorMessage>
         <name>Address_NoOfDigits</name>
     </validationRules>
@@ -542,7 +546,7 @@
         <name>Manual_Status_Change_To_Not_Send</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Province should be less than or equal to 10 letters. --></errorMessage>
+        <errorMessage><!-- Province should be less than or equal to 4 letters. --></errorMessage>
         <name>Province_NoOfDigits</name>
     </validationRules>
     <validationRules>

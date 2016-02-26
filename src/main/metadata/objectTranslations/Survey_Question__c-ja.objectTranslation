@@ -39,7 +39,7 @@
         <name>Single_FreeText_Next_Question_No__c</name>
     </fields>
     <fields>
-        <label>対象Survey</label>
+        <label>対象サーベイ</label>
         <name>Survey__c</name>
         <relationshipLabel>サーベイ質問</relationshipLabel>
     </fields>

@@ -524,7 +524,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -631,7 +631,7 @@ Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</descript
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1037,7 +1037,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1051,7 +1051,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1224,7 +1224,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1234,7 +1234,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1609,7 +1609,7 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <length>150</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2464,7 +2464,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ActiveFlag"</description>
         <externalId>false</externalId>
         <label>Dealer Active</label>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -4928,7 +4928,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <label>Email2</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -5113,7 +5113,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <label>Email</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -5124,7 +5124,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -7037,7 +7037,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8343,12 +8343,12 @@ Modify Reason:
     <fields>
         <fullName>PersonEmail</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>PersonHasOptedOutOfEmail</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>PersonHasOptedOutOfFax</fullName>
@@ -8433,7 +8433,7 @@ Modify Reason:
     <fields>
         <fullName>PersonOtherPhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>PersonTitle</fullName>
@@ -8788,7 +8788,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8850,7 +8850,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Primary Address</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -8860,7 +8860,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>64</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8924,7 +8924,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>63</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -10486,7 +10486,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -10926,7 +10926,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <label>Work Phone</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
     <fields>
@@ -10947,7 +10947,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>

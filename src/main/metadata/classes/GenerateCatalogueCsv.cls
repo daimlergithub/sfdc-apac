@@ -54,7 +54,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
         String DealerAddress3 = '';
         string DealerPhone3 = '';
         string LabelPrintName = '';
-        
+        string CsvHeader;
         string generatedCSVFile = '';
         String fileRow = '';
         
@@ -78,10 +78,12 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
             DlList = [select id ,Sequence_No__c,Dealer_Name__c,Dealer_Name__r.Branch_name__c,Dealer_Name__r.Dealer_Address_CN__c,Post_Code__c,Dealer_Name__r.Phone from Dealer_Locator__c where Post_Code__c in :Zipcodes Limit 1000 ];
             
             // Adding Column Headers for the CSV file
-            generatedCSVFile = 'DM Number' + ',' + Label.Company_Name_Department_Title +',' + 'Customer Name' + ',' + 'Zip Code' + ',' + 'Province' +','+ Label.Address_1 + ',' +Label.Address_2 +','
+            CsvHeader = 'DM Number' + ',' + Label.Company_Name_Department_Title +',' + 'Customer Name' + ',' + 'Zip Code' + ',' + 'Province' +','+ Label.Address_1 + ',' +Label.Address_2 +','
                 + 'Label Printing Name' +',' + Label.My_shop_Name +',' + Label.My_Shop_Address+ ',' + Label.MyShop_Phone +
                 ',' + Label.Near_Dealer_1 +',' + Label.Near_Dealer_Address1 + ',' + Label.Near_Dealer_Phone1 +',' +Label.Near_Dealer_2 +',' + Label.Near_Dealer_Address2 +
                 ',' + Label.Near_Dealer_Phone2 +',' + Label.Near_Dealer_3 +',' + Label.Near_Dealer_Address3 +',' + Label.Near_Dealer_Phone3 + ',' + 'Delivery Type' + '\n';
+            
+             generatedCSVFile =   CsvHeader;
             
             // Loop through DM request List to populate rows in CSV file.
             for(DM_request__c Dmr : DMRequests)
@@ -116,12 +118,18 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 
                 if(Dmr.Status3__c == 'to be sent') 
                 {
-                    if(Dmr.Expected_DM_Material2__c != null && (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material2__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material2__r.Print_Due_Date__c <= system.today() )) 
-                       && (Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material2__r.Label_Printing_Name__c != '' ))
+                    if(Dmr.Expected_DM_Material3__c != null && (Dmr.Expected_DM_Material3__r.Preliminary_Flag__c == false ||  (Dmr.Expected_DM_Material3__r.Preliminary_Flag__c == true && Dmr.Expected_DM_Material3__r.Print_Due_Date__c <= system.today() )) 
+                       && (Dmr.Expected_DM_Material3__r.Label_Printing_Name__c != null && Dmr.Expected_DM_Material3__r.Label_Printing_Name__c != '' ))
                     {
                         LabelPrintName +=  Dmr.Expected_DM_Material3__r.Label_Printing_Name__c ;
                         Dmr.Status3__c = 'Success' ;
                     }
+                }
+                
+                if(LabelPrintName == '//')
+                {
+                    LabelPrintName = '';
+                    continue;
                 }
                 
                 
@@ -282,10 +290,15 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
             
             
             
-            
+            if(generatedCSVFile == CsvHeader)
+            {
+                return 'NoTargetRows' ;
+                
+            }
             
             
             // Create CSV file from the String.
+            
             Blob csvBlob = blob.valueOf(generatedCSVFile);
             
             if(csvBlob != null )
@@ -319,8 +332,9 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
                 Task CatalogueTask = new Task();
                 CatalogueTask.RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
                 CatalogueTask.Subject = 'Catalogue file ready';
-                CatalogueTask.Activity_Comment__c = 'Your catalogue file is ready to be downloaded. Please download it from the link below:'  + System.Url.getSalesforceBaseURL().toExternalForm()+'/sfc/#workspaceView?selectedWorkspaceId='+DMCatalogueWorkspace.id;
+                CatalogueTask.Description = 'Your catalogue file is ready to be downloaded. Please download it from the link below:'  + System.Url.getSalesforceBaseURL().toExternalForm()+'/sfc/#workspaceView?selectedWorkspaceId='+DMCatalogueWorkspace.id;
                 CatalogueTask.OwnerId = userinfo.getUserId();
+                CatalogueTask.ActivityDate = system.today();
                 Database.DMLOptions notifyOption = new Database.DMLOptions();
                 notifyOption.EmailHeader.triggerUserEmail = true;
                 Database.insert(CatalogueTask, notifyOption);

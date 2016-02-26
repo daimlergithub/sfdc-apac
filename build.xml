@@ -169,6 +169,7 @@
 			   <sf:include name="TrialCustomerPortalHomePageTest"/>
 			   <sf:include name="CommunitiesLandingController"/>
 			   <sf:include name="CommunitiesLandingControllerTest"/>
+			   <sf:include name="UtilCustomSettings"/>
 			</sf:typeset>
 		</deploy>
     </target>
