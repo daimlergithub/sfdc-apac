@@ -2054,6 +2054,7 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>MBAuP_Contacts</fullName>
         <active>true</active>
+        <description>Head Office staff that work with the Dealership ie: BDM, DRM etc.</description>
         <label>MBAuP &amp; MBFS Contacts</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
