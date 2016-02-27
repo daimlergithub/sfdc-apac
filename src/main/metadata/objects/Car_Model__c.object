@@ -287,9 +287,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Model_Code__c</fullName>
         <externalId>true</externalId>
         <label>Model Code</label>
+        <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Model_Hierarchy_Code__c</fullName>
