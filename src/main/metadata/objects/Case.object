@@ -10087,6 +10087,18 @@ Modify Reason:
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Customer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Title</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Customer Type</label>
