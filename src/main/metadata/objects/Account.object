@@ -1625,6 +1625,17 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DRM__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Sales Function</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DUPNumber__c</fullName>
         <externalId>false</externalId>
         <label>DUP Number</label>
