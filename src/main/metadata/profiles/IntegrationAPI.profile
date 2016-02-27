@@ -12693,11 +12693,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Compliance_Comment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Contact_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
