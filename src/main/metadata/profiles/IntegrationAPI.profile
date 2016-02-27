@@ -8723,11 +8723,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Ordered_Against_Factory__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.Other_Activity__c</field>
         <readable>true</readable>
     </fieldPermissions>
