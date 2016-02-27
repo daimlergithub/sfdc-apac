@@ -4618,7 +4618,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.NextRunDate__c</field>
+        <field>Campaign.Next_Run_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

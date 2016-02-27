@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
         <type>Default</type>
@@ -1367,14 +1367,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>LastRunDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastRunDate</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Last_Run_Date__c</fullName>
         <externalId>false</externalId>
         <label>LastRunDate</label>
@@ -1474,6 +1466,14 @@
     <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Next_Run_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>NextRunDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>NumberOfContacts</fullName>
@@ -11457,7 +11457,6 @@
         <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Last_Run_Date__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>Repeat_From__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Repeat_End__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CAMPAIGN.NAME</lookupPhoneDialogsAdditionalFields>
@@ -11466,7 +11465,6 @@
         <searchResultsAdditionalFields>PARENT_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Last_Run_Date__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>Repeat_From__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Repeat_End__c</searchResultsAdditionalFields>
     </searchLayouts>
