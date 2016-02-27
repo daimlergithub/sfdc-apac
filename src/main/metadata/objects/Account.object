@@ -3883,7 +3883,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -9098,7 +9098,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     </fields>
     <fields>
         <fullName>R_Dealer_Account_Code__c</fullName>
-        <externalId>true</externalId>
+        <externalId>false</externalId>
         <formula>Name &amp; " (" &amp; Dealer_ND_Code__c &amp; ")"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Account + Code</label>
