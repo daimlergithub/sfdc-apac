@@ -18613,10 +18613,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Recall__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Retail_Campaign_Calender</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
