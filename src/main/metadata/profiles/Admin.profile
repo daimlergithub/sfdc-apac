@@ -16946,10 +16946,6 @@
         <recordType>Task.Campaign_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Campaign Task</layout>
-        <recordType>Task.DRM_Task</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-DM</layout>
         <recordType>Task.DM</recordType>
     </layoutAssignments>
@@ -18560,11 +18556,6 @@
         <default>false</default>
         <recordType>Task.DM</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.DRM_Task</recordType>
-        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
