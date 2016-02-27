@@ -4451,7 +4451,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.Publish_Date_del__c</field>
+        <field>Campaign.Publish_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

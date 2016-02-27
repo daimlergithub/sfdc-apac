@@ -3228,6 +3228,11 @@
         <editable>true</editable>
         <field>Account.Opt_In_Email2__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Opt_In_Email3__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4951,7 +4956,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.Publish_Date_del__c</field>
+        <field>Campaign.Publish_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

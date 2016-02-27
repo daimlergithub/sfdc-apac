@@ -3916,7 +3916,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>false</externalId>
+        <externalId>True</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -6951,7 +6951,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
         <label>MBJ Yanase Code</label>
-        <length>10</length>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7327,6 +7327,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Opt_In_Email3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>OptInEmail3</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
