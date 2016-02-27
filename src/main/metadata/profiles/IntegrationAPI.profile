@@ -12628,11 +12628,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Advise_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Amount_Financed__c</field>
         <readable>true</readable>
     </fieldPermissions>
