@@ -13103,11 +13103,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Settlement_Officer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Signer__c</field>
         <readable>true</readable>
     </fieldPermissions>
