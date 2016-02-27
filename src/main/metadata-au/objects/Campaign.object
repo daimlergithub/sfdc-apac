@@ -2045,7 +2045,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Publish_Date_del__c</fullName>
+        <fullName>Publish_Date__c</fullName>
         <description>Date for the campaign publish to dealer.</description>
         <externalId>false</externalId>
         <inlineHelpText>Date for the campaign publish to dealer.</inlineHelpText>
