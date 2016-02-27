@@ -1596,6 +1596,11 @@
         <field>Account.DMS_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.DRM__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DMS_Customer_ID__c</field>
@@ -9324,6 +9329,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Car_License__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Contact_Search__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
