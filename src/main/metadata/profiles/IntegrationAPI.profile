@@ -8763,11 +8763,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Public__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.QC_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
