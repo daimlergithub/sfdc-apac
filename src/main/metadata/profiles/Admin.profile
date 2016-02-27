@@ -14338,11 +14338,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.Company__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Task.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
