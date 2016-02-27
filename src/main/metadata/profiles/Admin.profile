@@ -14613,11 +14613,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.Task_Details__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Task.Task_RecordType_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
