@@ -335,9 +335,9 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Approval_Submit_date__c</fullName>
+        <fullName>Approval_Submit_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Approval Submit date</label>
+        <label>Approval Submit Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

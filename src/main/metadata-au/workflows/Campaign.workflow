@@ -135,7 +135,7 @@ RecordType.Name,
     </fieldUpdates>
     <fieldUpdates>
         <fullName>record_Publish_Date</fullName>
-        <field>Publish_Date_del__c</field>
+        <field>Publish_Date__c</field>
         <formula>TODAY()</formula>
         <name>record Publish Date</name>
         <notifyAssignee>false</notifyAssignee>
