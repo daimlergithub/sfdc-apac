@@ -201,21 +201,11 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>	
+    </fields>
     <fields>
-        <fullName>Created_By_EP_Transaction__c</fullName>
+        <fullName>Class_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Created By EP Transaction</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>	
-    <fields>
-        <fullName>Updated_By_EP_Transactions__c</fullName>
-        <externalId>false</externalId>
-        <label>Updated By EP Transactions</label>
+        <label>Past Class</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -223,10 +213,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Class_Name__c</fullName>
+        <fullName>Created_By_EP_Transaction__c</fullName>
         <externalId>false</externalId>
-        <label>Past Class</label>
-        <length>255</length>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -295,7 +285,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     </fields>
     <fields>
         <fullName>Model_Code__c</fullName>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Model Code</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1506,6 +1496,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Steering</label>
         <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

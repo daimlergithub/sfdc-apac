@@ -10243,6 +10243,16 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>TransTest__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Primary_Address_Reference__r.Province__c)</formula>
+        <label>TransTest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trucks_Offered_Service__c</fullName>
         <externalId>false</externalId>
         <label>Trucks Offered Service</label>
