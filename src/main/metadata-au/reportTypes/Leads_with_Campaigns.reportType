@@ -501,7 +501,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Publish_Date_del__c</field>
+            <field>Publish_Date__c</field>
             <table>Campaign</table>
         </columns>
         <columns>
