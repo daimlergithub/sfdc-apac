@@ -75,7 +75,7 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_FAX_ID</token>
 	</changetext>
-    <changetext>
+   <!-- <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
 		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
@@ -134,7 +134,7 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
-	</changetext>
+	</changetext> -->
 	<changetext>
 		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_CAC_Campaign']/url/text()</xpath>
@@ -355,7 +355,7 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">CONTACT_FIELD_ID_IN_LEAD</token>
 	</changetext>
-	<changetext>
+	<!--<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Chrysler_Complaint']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
@@ -414,7 +414,7 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
-	</changetext>
+	</changetext> -->
 	
 	<changetext>
 		<filename>settings\Case.settings</filename>
