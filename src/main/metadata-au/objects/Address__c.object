@@ -465,7 +465,7 @@
         <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
-        <length>6</length>
+        <length>8</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
