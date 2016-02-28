@@ -330,6 +330,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>マスタに無い住所</label>
+        <name>Temp_Address__c</name>
+    </fields>
+    <fields>
+        <label>マスタに無い郵便番号</label>
+        <name>Temp_ZipCode__c</name>
+    </fields>
+    <fields>
         <label>様or御中</label>
         <name>TitleOfHonor__c</name>
         <picklistValues>
@@ -386,6 +394,10 @@
         <name>Block_NoOfDigits</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- State is a mandatory fields when your Country is Australia. --></errorMessage>
+        <name>CheckedState</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>市区郡町村は必ず12 文字以下で入力して下さい。</errorMessage>
         <name>City_NoOfDigit</name>
     </validationRules>
@@ -408,5 +420,9 @@
     <validationRules>
         <errorMessage>郵便番号は７桁で入力してください。</errorMessage>
         <name>Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>御中・様を入力して下さい。</errorMessage>
+        <name>TitleOfHonor_is_Required</name>
     </validationRules>
 </CustomObjectTranslation>

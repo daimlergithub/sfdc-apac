@@ -2421,6 +2421,19 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>CAC_SourceId__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>CAC SourceId</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Car_License__c</fullName>
         <externalId>false</externalId>
         <label>Car License</label>
@@ -2564,6 +2577,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Search__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Search</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Contact_Timing__c</fullName>
@@ -8299,7 +8324,7 @@ Modify Reason:
         <label>Lost Situation</label>
         <picklist>
             <picklistValues>
-                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <fullName>Purchased Competitor's Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -14579,7 +14604,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>On assistant driver&apos;s seat</fullName>
+                <fullName>On assistant driver's seat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -19037,9 +19062,6 @@ Company_Account__r.Work_Phone__c  ,
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
-    
-    
-    
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>

@@ -14263,6 +14263,65 @@
             <section>Trade-In Vehicle Information</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>Sales Leads Soft Deleted</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Miscelleneous Section --></label>
+            <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referal/Referee Information --></label>
+            <section>Referal/Referee Information</section>
+        </sections>
+        <sections>
+            <label><!-- Select Assigne Dealer --></label>
+            <section>Select Assigne Dealer</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
     <recordTypes>
         <label><!-- Aftersales Leads --></label>
         <name>Aftersales_Leads</name>

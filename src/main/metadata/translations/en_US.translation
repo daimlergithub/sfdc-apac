@@ -1377,6 +1377,10 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
+        <label><!-- No target Records --></label>
+        <name>No_Target_records</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Not-Accepted --></label>
         <name>NotAccepted</name>
     </customLabels>

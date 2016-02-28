@@ -77,10 +77,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Info_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Model_Description__c</field>
             </layoutItems>
             <layoutItems>
@@ -217,10 +213,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>FinanceExpiryDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>LastServiceDate__c</field>
             </layoutItems>
         </layoutColumns>
@@ -235,10 +227,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Latest_Sales_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Description__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

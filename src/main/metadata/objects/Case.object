@@ -356,7 +356,7 @@
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -439,7 +439,7 @@ Modify Reason:
     <fields>
         <fullName>AssetId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -9741,7 +9741,7 @@ Modify Reason:
     <fields>
         <fullName>ContactId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -10085,6 +10085,18 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Title</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Customer_Type__c</fullName>
@@ -13599,7 +13611,7 @@ Modify Reason:
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -15610,6 +15622,66 @@ Modify Reason:
         <fullName>Status</fullName>
         <picklist>
             <picklistValues>
+                <fullName>Waiting for Response approval</fullName>
+                <closed>false</closed>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response approved</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Request</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised &amp; Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for final approval</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final approval rejected</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final approval done</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TS transfer</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <closed>true</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Call waiting</fullName>
                 <closed>false</closed>
                 <default>false</default>
@@ -15617,11 +15689,6 @@ Modify Reason:
             <picklistValues>
                 <fullName>Has been upgraded</fullName>
                 <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <closed>true</closed>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -15715,62 +15782,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Waiting for Response approval</fullName>
-                <closed>false</closed>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response approved</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting for final approval</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final approval rejected</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final approval done</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prospect</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TS transfer</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>No approval needed</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Request</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Confirmed</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Raised</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Raised &amp; Confirmed</fullName>
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
@@ -16217,11 +16229,15 @@ Modify Reason:
         <label>Vehicle Brand</label>
         <picklist>
             <picklistValues>
-                <fullName>BENZ</fullName>
-                <default>false</default>
+                <fullName>Mercedes-Benz</fullName>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BENZ</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -16250,10 +16266,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mitsubishi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19484,7 +19496,7 @@ Modify Reason:
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -20303,7 +20315,33 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
+    <listViews>
+        <fullName>MBJ_CRM_Department_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
@@ -102395,6 +102433,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <lookupPhoneDialogsAdditionalFields>Contact_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Contact_Person_Tele__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Perferred_Contact_Number__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>

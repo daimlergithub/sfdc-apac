@@ -1367,7 +1367,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>LastRunDate__c</fullName>
+        <fullName>Last_Run_Date__c</fullName>
         <externalId>false</externalId>
         <label>LastRunDate</label>
         <required>false</required>
@@ -1391,7 +1391,7 @@
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
-        <required>true</required>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1468,7 +1468,7 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>NextRunDate__c</fullName>
+        <fullName>Next_Run_Date__c</fullName>
         <externalId>false</externalId>
         <label>NextRunDate</label>
         <required>false</required>
@@ -11453,15 +11453,20 @@
         <customTabListAdditionalFields>CAMPAIGN.END_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Campaign_Code__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CAMPAIGN.STATUS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CAMPAIGN.RECORDTYPE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CAMPAIGN.ACTIVE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Last_Run_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Repeat_From__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Repeat_End__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CAMPAIGN.NAME</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>CAMPAIGN.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PARENT_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Last_Run_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Repeat_From__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Repeat_End__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
@@ -11680,19 +11685,11 @@ IsActive = True
         <availability>online</availability>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
         <linkType>url</linkType>
         <masterLabel>Create Child Campaign</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>replace</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;saveURL={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -11703,7 +11700,7 @@ IsActive = True
         <masterLabel>Create Complex Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>

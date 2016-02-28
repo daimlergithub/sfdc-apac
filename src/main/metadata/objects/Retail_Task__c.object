@@ -63,7 +63,7 @@
         <relationshipLabel>Retail Tasks (Account Name)</relationshipLabel>
         <relationshipName>Retail_Tasks5</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3821,7 +3821,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Related_Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VIN_Link__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Related_Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractNumber__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VIN_Link__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Contract_Share__c</fullName>

@@ -1153,7 +1153,6 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
     <recordTypes>
         <label><!-- Contract --></label>
         <name>Contract</name>

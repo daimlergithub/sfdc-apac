@@ -111,7 +111,7 @@ Modify Reason:
         <relationshipLabel>DM Material</relationshipLabel>
         <relationshipName>DM_Material</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1893,6 +1893,7 @@ Modify Reason:
         <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Series__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Active__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>Active__c</lookupFilterFields>
         <lookupFilterFields>Brand__c</lookupFilterFields>
         <lookupFilterFields>Type__c</lookupFilterFields>
         <searchFilterFields>NAME</searchFilterFields>

@@ -524,7 +524,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -631,7 +631,7 @@ Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</descript
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1037,7 +1037,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1051,7 +1051,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1224,7 +1224,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1234,7 +1234,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1609,7 +1609,7 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <length>150</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1618,6 +1618,17 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <externalId>false</externalId>
         <label>DMS Customer ID</label>
         <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DRM__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Sales Function</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2464,7 +2475,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ActiveFlag"</description>
         <externalId>false</externalId>
         <label>Dealer Active</label>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -4928,7 +4939,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <label>Email2</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -5113,7 +5124,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <label>Email</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -5124,7 +5135,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -7037,7 +7048,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8343,12 +8354,12 @@ Modify Reason:
     <fields>
         <fullName>PersonEmail</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>PersonHasOptedOutOfEmail</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>PersonHasOptedOutOfFax</fullName>
@@ -8433,7 +8444,7 @@ Modify Reason:
     <fields>
         <fullName>PersonOtherPhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>PersonTitle</fullName>
@@ -8788,7 +8799,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8850,7 +8861,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Primary Address</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -8860,7 +8871,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>64</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -8924,7 +8935,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <length>63</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -9609,14 +9620,11 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     </fields>
     <fields>
         <fullName>SF_Dealer_ID__c</fullName>
+        <displayFormat>SF-{00000}</displayFormat>
         <externalId>false</externalId>
         <label>SF Dealer ID</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>SLAExpirationDate__c</fullName>
@@ -10486,7 +10494,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -10926,7 +10934,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <label>Work Phone</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
     <fields>
@@ -10947,7 +10955,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -11032,7 +11040,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All dealers</label>
         <language>en_US</language>
     </listViews>
-    
+    <listViews>
+        <fullName>All_3rd_Party_Data</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>PC_SALUTATION</columns>
+        <columns>PC_BIRTHDATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>PC_FIRST_NAME</columns>
+        <columns>PC_LEAD_SOURCE</columns>
+        <columns>PC_LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.ThirdParty</value>
+        </filters>
+        <label>All third-party data</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -20010,6 +20038,15 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>FirstName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+FirstName  value &gt; 20 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
@@ -20130,6 +20167,15 @@ $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not single byte number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LastName_NoOfDigits</fullName>
+        <active>true</active>
+        <description>Record Type is Person Account
+LastName  value &gt; 40 letters.</description>
+        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
