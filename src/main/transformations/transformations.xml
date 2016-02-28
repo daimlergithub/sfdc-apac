@@ -18,7 +18,7 @@
 	<changetext>
 		<filename>workflows\Campaign.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Send_Campaign_ID_to_EP']/integrationUser/text()</xpath>
-		<token>WORKFLOW_OUTBOUND_MESSAGE_ENDPOINTURL_SEND_CAMPAIGN_ID_EP</token>
+		<token>WORKFLOW_INTEGRATION_USER</token>
 	</changetext>
 	<changetext>
 		<filename>workflows/Rejected_Duplicate_Log__c.workflow</filename>
