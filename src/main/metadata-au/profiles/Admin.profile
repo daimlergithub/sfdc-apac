@@ -2754,6 +2754,11 @@
         <field>Account.FS_Opt_In_Work_Phone2__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Opt_Out_Portal_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.FS_Opt_In_Work_Phone__c</field>
@@ -3222,6 +3227,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Opt_In_Email2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Opt_In_Email3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4107,7 +4117,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.MD__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4946,7 +4956,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.Publish_Date_del__c</field>
+        <field>Campaign.Publish_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14672,7 +14682,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.MD__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16438,10 +16448,10 @@
         <editable>true</editable>
         <field>Vehicle__c.VehicleStatus__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+    </fieldPermissions>	
+	<fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.Vehicle_Age__c</field>
+        <field>Vehicle__c.VehicleAge__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
