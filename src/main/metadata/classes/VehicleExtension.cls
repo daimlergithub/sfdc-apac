@@ -24,13 +24,9 @@ public with sharing class VehicleExtension {
 
     /*Constructor Method*/
     public VehicleExtension(ApexPages.StandardController stdController) {
-        
-        
         String type;
         check=true;
         vehicle = (Vehicle__C)stdController.getRecord();
-        
-        
     }
         
     /**    
@@ -52,7 +48,7 @@ public with sharing class VehicleExtension {
         else{
                // Check if the user has create access on the Vehilce__c.Name field
                  if (!Schema.sObjectType.Vehilce__c.fields.Name.isCreateable()){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
+                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
                      return null;
                    }
                 else{
