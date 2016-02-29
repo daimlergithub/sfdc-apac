@@ -47,7 +47,7 @@ public with sharing class VehicleExtension {
          }
         else{
                // Check if the user has create access on the Vehilce__c.Name field
-                 if (!Schema.sObjectType.Vehilce__c.fields.Name.isCreateable()){
+                 if (!Schema.sObjectType.Vehicle__c.isCreateable()){
                          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
                      return null;
                    }
@@ -80,7 +80,7 @@ public with sharing class VehicleExtension {
          }
         else{   
                // Check if the user has create access on the vehicle field
-               if (!Schema.sObjectType.Vehilce__c.fields.Name.isCreateable()){
+               if (!Schema.sObjectType.Vehicle__c.isCreateable()){
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
                      return null;
                    }
