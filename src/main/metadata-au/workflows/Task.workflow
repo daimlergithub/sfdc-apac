@@ -8,8 +8,8 @@
             <recipient>arpita.sinha@nttdata.com.au</recipient>
             <type>user</type>
         </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+     <!--   <senderAddress>customer_care@daimler.com</senderAddress> -->
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
     <alerts>
@@ -20,8 +20,8 @@
             <recipient>arpita.sinha@nttdata.com.au</recipient>
             <type>user</type>
         </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+      <!--  <senderAddress>customer_care@daimler.com</senderAddress> -->
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_48_hours</template>
     </alerts>
     <alerts>
@@ -31,8 +31,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+       <!-- <senderAddress>customer_care@daimler.com</senderAddress> -->
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_24_hours</template>
     </alerts>
     <fieldUpdates>
