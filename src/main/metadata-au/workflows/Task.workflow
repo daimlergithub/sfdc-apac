@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_To_NSM_For_Changing_Visit</fullName>
+        <description>Email_To_NSM_For_Changing_Visit</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>arpita.sinha@nttdata.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Complaint_update_notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Escalation_after_48_hours</fullName>
+        <description>Escalation_after_48_hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>arpita.sinha@nttdata.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>arpita.sinha@nttdata.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Escalation_after_48_hours</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
+        <description>Send_Email_To_DRM_User_After_24hrs_DueDate</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>arpita.sinha@nttdata.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Escalation_after_24_hours</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -59,6 +94,60 @@
             </actions>
             <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
             <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </criteriaItems>
+        <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_Email_To_DRM_User_After_24hrs_DueDate</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Task.ActivityDate</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
+        <actions>
+            <name>Email_To_NSM_For_Changing_Visit</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
+        <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;)
+||
+((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;)
+||
+((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>If status is not completed 48 hours after the due date, send an email notification to DRM user and the National Sales Manager user</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Escalation_after_48_hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Task.ActivityDate</offsetFromField>
+            <timeLength>48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
