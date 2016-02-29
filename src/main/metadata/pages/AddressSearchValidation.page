@@ -183,7 +183,7 @@
                     
                 </apex:pageBlockSection>
                 <apex:pageBlockButtons location="bottom">
-                    <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}"/>
+                    <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!validateAddressByZipCode}"  value="{!$Label.Validate}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}"  value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' ||  RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs"/>
                     <apex:outputPanel id="redirectPanel">                   

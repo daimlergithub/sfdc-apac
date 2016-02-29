@@ -51,7 +51,8 @@
         <br/>
       <table border="1" width="100%">
          <tr><td align="right" width="25%">{!$Label.Dealer}</td>
-             <td align="left" colspan="3">{!Case.Case_Dealer__r.Company_Name_Native_1__c}{!$Label.Onchu}</td>
+             <td align="left" width="25%">{!Case.Case_Dealer__r.Company_Name_Native_1__c}</td>
+             <td align="left" colspan="2">{!$Label.Onchu}</td>
          </tr>
          <tr><td align="right" width="25%">{!$Label.PhoneSales}</td>
              <td align="left" width="25%">{!Case.Case_Dealer__r.Phone}</td>
@@ -64,7 +65,7 @@
              <td align="left" width="25%">{!Case.Case_Dealer__r.Dealer_Fax_Service__c}</td>  
          </tr>
          <tr><td align="right" width="25%">{!$Label.TotalPages}</td>
-             <td align="left" width="25%">{!$Label.Pages}</td>
+             <td align="left" width="25%"><span class="pagecount"/>&nbsp;{!$Label.Pages}</td>
              <td align="right" width="25%">{!$Label.FAXParts}</td>
              <td align="left" width="25%">{!Case.Case_Dealer__r.Dealer_Fax_Parts__c}</td>  
          </tr>         
@@ -91,7 +92,7 @@
           </tr> 
           <tr>
              <td align="right" width="25%" rowspan="2">{!$Label.Customer}</td>
-             <td align="left" width="25%" rowspan="2" height="25">{!Case.Account.FirstName}&nbsp;{!Case.Account.LastName}</td>
+             <td align="left" width="25%" rowspan="2" height="25">{!Case.Account.FirstName}&nbsp;{!Case.Account.LastName}&nbsp;{!$Label.Sama}</td>
              <td align="right" width="25%">{!$Label.UCID}</td>
              <td align="left" width="25%" height="25">{!Case.Account.UCID__c}</td>  
           </tr> 
