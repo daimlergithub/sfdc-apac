@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
+   <!-- <alerts>
         <fullName>Email_To_NSM_For_Changing_Visit</fullName>
         <description>Email_To_NSM_For_Changing_Visit</description>
         <protected>false</protected>
         <recipients>
-            <recipient>arpita.sinha@nttdata.com.au</recipient>
-            <type>user</type>
+           <type>owner</type>
         </recipients>
-     <!--   <senderAddress>customer_care@daimler.com</senderAddress> -->
+      <senderAddress>customer_care@daimler.com</senderAddress> 
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
@@ -17,10 +16,9 @@
         <description>Escalation_after_48_hours</description>
         <protected>false</protected>
         <recipients>
-            <recipient>arpita.sinha@nttdata.com.au</recipient>
-            <type>user</type>
+           <type>owner</type>
         </recipients>
-      <!--  <senderAddress>customer_care@daimler.com</senderAddress> -->
+        <senderAddress>customer_care@daimler.com</senderAddress> 
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_48_hours</template>
     </alerts>
@@ -31,10 +29,10 @@
         <recipients>
             <type>owner</type>
         </recipients>
-       <!-- <senderAddress>customer_care@daimler.com</senderAddress> -->
+         <senderAddress>customer_care@daimler.com</senderAddress> 
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_24_hours</template>
-    </alerts>
+    </alerts> -->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -97,7 +95,7 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-    <rules>
+  <!--  <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
         <active>true</active>
         <criteriaItems>
@@ -146,7 +144,7 @@
             <timeLength>48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>
+    </rules> -->
     <rules>
         <fullName>TestTaskEmail</fullName>
         <active>false</active>
