@@ -7,8 +7,7 @@
         <recipients>
             <type>accountOwner</type>
         </recipients>
-        <senderAddress>arpita.sinha@nttdata.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/DRM</template>
     </alerts>
     <alerts>

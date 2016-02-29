@@ -20,7 +20,7 @@
             <recipient>arpita.sinha@nttdata.com.au</recipient>
             <type>user</type>
         </recipients>
-        <senderAddress>arpita.sinha@nttdata.com</senderAddress>
+        <senderAddress>customer_care@daimler.com</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Escalation_after_48_hours</template>
     </alerts>
@@ -31,7 +31,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderAddress>arpita.sinha@nttdata.com</senderAddress>
+        <senderAddress>customer_care@daimler.com</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Escalation_after_24_hours</template>
     </alerts>
@@ -125,11 +125,7 @@
         </actions>
         <active>true</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
-        <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;)
-||
-((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;)
-||
-((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
+        <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
