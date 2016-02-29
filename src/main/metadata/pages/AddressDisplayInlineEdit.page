@@ -138,7 +138,7 @@
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
-                    <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}"/>
+                    <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   />
                     <apex:outputPanel id="redirectPanel">                   
