@@ -4222,4 +4222,11 @@
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
+	<labels>
+        <fullName>InsufficientAccessToCreate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InsufficientAccessToCreate</shortDescription>
+        <value>Insufficient privilege to create new vehicle.</value>
+    </labels>
 </CustomLabels>
