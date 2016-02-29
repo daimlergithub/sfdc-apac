@@ -103165,7 +103165,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJE
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_CASE_lkid={!Case.Id}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_lkid={!Case.CaseNumber}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
