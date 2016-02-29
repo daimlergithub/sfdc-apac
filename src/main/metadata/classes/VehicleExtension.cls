@@ -50,11 +50,17 @@ public with sharing class VehicleExtension {
             nextPage = null;
          }
         else{
+               // Check if the user has create access on the Account.Name field
+                 if (!Schema.sObjectType.Account.fields.Name.isCreateable()){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
+                     return null;
+                   }
+                else{
                 save(); 
                 nextPage = new PageReference('/' + vehicle.Id);
                 nextPage.setRedirect(true);
                 system.debug('redirecturl'+nextPage);
-        
+              }
          }
         
         return nextPage;
@@ -77,11 +83,18 @@ public with sharing class VehicleExtension {
                 nextPage = null;
          }
         else{   
-            	save();
+               // Check if the user has create access on the Account.Name field
+               if (!Schema.sObjectType.Account.fields.Name.isCreateable()){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,System.Label.InsufficientAccessToCreate)); 
+                     return null;
+                   }
+                else{
+                save();
                 nextPage = new PageReference('/apex/Create_Vehicle');
                 nextPage.setRedirect(true);
                 system.debug('redirecturl'+nextPage);
-         }             
+         } 
+       }            
         return nextPage;
             
     }
@@ -153,9 +166,9 @@ public with sharing class VehicleExtension {
                 vehicle.BaumusterEx__c=steering;
                 vehicle.Competitor_Model__c=compModel;
                
-                try{
-                    insert vehicle;
-                }catch(DmlException  e){
+                try{  
+                    insert vehicle;                       
+                  }catch(DmlException  e){
                     string error=e.getMessage();
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                     System.debug('Exception encountered...' +error);
