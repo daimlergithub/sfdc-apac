@@ -87,6 +87,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Advise_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Advise Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Amount_Financed__c</fullName>
         <externalId>false</externalId>
         <label>Amount Financed</label>
@@ -184,14 +192,14 @@
     <fields>
         <fullName>CMS_Contract_Link__c</fullName>
         <externalId>false</externalId>
-		<formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>    
+    </fields>
     <fields>
         <fullName>Campaign_Description__c</fullName>
         <externalId>false</externalId>
@@ -211,6 +219,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Compliance_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Compliance Comment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Contact_Date__c</fullName>
@@ -980,7 +996,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1413,6 +1429,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Settlement_Officer__c</fullName>
+        <externalId>false</externalId>
+        <label>Settlement Officer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2654,7 +2680,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -3795,7 +3821,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -4684,7 +4710,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -5553,7 +5579,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -6442,7 +6468,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>

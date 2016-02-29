@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>DRM_Assigned_Task</fullName>
+        <description>DRM_Assigned_Task</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/DRM</template>
+    </alerts>
+    <alerts>
         <fullName>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</fullName>
         <description>Dealer Email Notification on Amount of Assigned Leads</description>
         <protected>false</protected>
@@ -230,6 +240,17 @@ Modify By:
 Modify Reason: 
 */</description>
         <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_DRM_Account</fullName>
+        <actions>
+            <name>DRM_Assigned_Task</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the ownership of Account changes an email notification will be triggered to the new Assigned user.</description>
+        <formula>IF( ISCHANGED(OwnerId) , true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
