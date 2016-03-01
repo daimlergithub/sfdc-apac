@@ -21,7 +21,7 @@ public class LeadHelper
     private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();   
     //Existing AU Functionality Variables
     private static final String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-    private static final String leadFleetRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Lead').getRecordTypeId();
+    private static final String leadFleetRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
