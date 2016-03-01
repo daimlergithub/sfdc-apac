@@ -16658,9 +16658,9 @@
         <layout>Account-Dealer Layout-CAC</layout>
         <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
-    <layoutAssignments>
+   <!-- <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
-    </layoutAssignments>
+    </layoutAssignments> -->
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
