@@ -777,4 +777,23 @@ public class TaskHelper {
               }
               }    
     }
+    /**
+        @method: Add methods for AU May Release for updating Comment with Timestamp
+    **/
+    
+    public static void updateCommentWithTimeStamp(List<Task> tsklst, Boolean isInsert, Boolean isUpdate){
+         List<Task> drmtasklst = new List<Task>();
+       
+         Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
+         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name FROM Task where Id IN:tsklst]);
+         for(Task taskObj : tsklst){
+                system.debug('taskObj.RecordType1--'+taskObj.RecordType.DeveloperName);
+             if(taskObj.RecordTypeId  == recordTypeId){
+                 system.debug('taskObj.RecordType1--'+taskObj.Description);
+                taskObj.Description = taskObj.lastModifiedDate + '-'+ taskMap.get(taskObj.Id).LastModifiedBy.Name;
+             }
+             system.debug('Task---Description--'+taskObj.Description);
+         }
+    
+    }
 }

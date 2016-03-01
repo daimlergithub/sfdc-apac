@@ -42,6 +42,8 @@ Global with sharing class UtilConstant {
     public final static string ORGWIDE_EMAIL_ADDRESS_EMC='EMC Email Address';
     public static boolean Recursivefire=false;
     public final static string ENTITY_UPDATE_NOTIFICATION='Entity Update Notification';
+    public final static string DRM_Task ='DRM Task';
+    public final static string CURRENT  ='Current';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {

@@ -74,6 +74,7 @@ public class TaskTriggerHandler
             TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
 			if(obj.profile.Name!='IntegrationAPI')
             TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
+            TaskHelper.updateCommentWithTimeStamp(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
@@ -87,6 +88,7 @@ public class TaskTriggerHandler
             TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
 			if(obj.profile.Name!='IntegrationAPI')
             TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
+            TaskHelper.updateCommentWithTimeStamp(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
     }
     
