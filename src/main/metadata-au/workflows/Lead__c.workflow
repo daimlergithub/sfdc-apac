@@ -721,7 +721,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
 		<criteriaItems>
             <field>Lead__c.RecordType</field>
             <operation>notEqual</operation>
-            <value>Fleet Lead</value>
+            <value>Finance Fleet Lead</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
