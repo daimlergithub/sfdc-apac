@@ -257,7 +257,7 @@ public with sharing class VehicleRelationshipHelperJP
                 {
                    accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
                 }
-                accLink.toRole__c=vr.Contact__c;           
+                accLink.toRole__c=vr.Contact__c;            
                 accLink.Role2__c=vr.Owner_Relation__c;
                 
                 if(vr.Owner_Relation__c=='Grand Parent'){
