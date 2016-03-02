@@ -2,7 +2,7 @@
     <apex:form >
         <apex:pageBlock >
             <apex:pageBlockSection columns="2">
-                <apex:outputText label="Address Type" value="{!Addresstype}"/> 
+                <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
             	<apex:outputText label="Address Line 1" value="{!addressline1}"/>
                 <apex:outputText label="Company Name" value="{!companyname}"/>
                 <apex:outputText label="Address Line 2" value="{!addressline2}"/>
