@@ -238,7 +238,7 @@ public with sharing class VehicleRelationshipHelperJP
         for(Account acc:[select id from Account Where Name Like :ignoredAccount]){
                 ignoredAcct.add(acc.Id);
             } 
-        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' AND Contact__c IN : contactIdofVehicleRelationship AND (NOT Contact__c IN : ignoredAcct) Limit 50000];
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*/ AND (NOT Contact__c IN : ignoredAcct) Limit 50000];
         for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
             if((vr.Vehicle_ID__c!=Null && vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
@@ -246,7 +246,7 @@ public with sharing class VehicleRelationshipHelperJP
         }
         system.debug('mapOfContact'+mapOfContact);
         List<Account_Link__c> lstAccLink=new List<Account_Link__c>();
-        List<Vehicle_Relationship__c> listVehicleRelationship=[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds AND (NOT Contact__c IN : ignoredAcct) Limit 50000];
+        List<Vehicle_Relationship__c> listVehicleRelationship=[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds AND Contact__c IN: contactIdofVehicleRelationship AND (NOT Contact__c IN : ignoredAcct) Limit 50000];
       system.debug('<<<<<<<'+listVehicleRelationship);
       for(Vehicle_Relationship__c vr:listVehicleRelationship){       
                 Account_Link__c accLink=new Account_Link__c();
