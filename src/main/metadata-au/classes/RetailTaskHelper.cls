@@ -292,12 +292,14 @@ public with sharing class RetailTaskHelper {
                                 mails.add(mail);
                                 system.debug('::Eneter here:'+subject);
                                  system.debug('::Eneter here:'+plainBody );
-                          }
-                     }
+                            }
+                    }
                      
                       
                       Messaging.sendEmail(mails);
-                 }
-    }
+                }
+    
     // End of added part, Polaris Yu 2013-8-23
-}
+            }
+		}
+	}
