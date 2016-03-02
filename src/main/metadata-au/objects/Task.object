@@ -2838,7 +2838,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Customer_Contact</fullName>
-        <active>false</active>
+        <active>true</active>
         <label>Customer Contact</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -17850,7 +17850,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Order</fullName>
-        <active>false</active>
+        <active>true</active>
         <label>Order</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -19334,7 +19334,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Quote</fullName>
-        <active>false</active>
+        <active>true</active>
         <label>Quote</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
