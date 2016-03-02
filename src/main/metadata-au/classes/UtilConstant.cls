@@ -44,6 +44,8 @@ Global with sharing class UtilConstant {
     public final static string ENTITY_UPDATE_NOTIFICATION='Entity Update Notification';
     public final static string DRM_Task ='DRM Task';
     public final static string CURRENT  ='Current';
+    public final static string IRREGULAR  ='Irregular';
+    public final static string REGULARCOMPILED  ='Irregular Complied';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
