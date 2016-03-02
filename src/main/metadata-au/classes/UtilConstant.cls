@@ -46,6 +46,7 @@ Global with sharing class UtilConstant {
     public final static string CURRENT  ='Current';
     public final static string IRREGULAR  ='Irregular';
     public final static string REGULARCOMPILED  ='Irregular Complied';
+    public final static String DRM_MBFS = 'DRM MBFS';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
