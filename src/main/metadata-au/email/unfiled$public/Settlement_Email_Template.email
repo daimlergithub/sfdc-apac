@@ -1,0 +1,13 @@
+Customer:  {!Account.Name}
+Contract number: {!RetailTask.ContractNumber}
+Amount financed: {!RetailTask.FINANCED}
+This deal has been finalised. If you have further enquiries, please write to mbfsau_contractsadmin@daimler.com
+
+Mercedes-Benz Financial Services Australia Pty Ltd 
+Level 1/41 Lexia Place 
+Mulgrave Victoria 3170
+               
+Phone              61 (03) 8554 3135
+Fax:                  61 (03) 8554 3423 
+Email:               mbfsau_contractsadmin@daimler.com
+Website:          www.mercedes-benzfinancialservices.com.au

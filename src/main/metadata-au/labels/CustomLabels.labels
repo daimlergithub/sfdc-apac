@@ -16,6 +16,13 @@
         <value>Accuracy of documentation</value>
     </labels>
     <labels>
+        <fullName>Active_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Active_Dealer</shortDescription>
+        <value>You must select Active Dealer</value>
+    </labels>
+    <labels>
         <fullName>Add_to_Campaign</fullName>
         <language>en_US</language>
         <protected>false</protected>

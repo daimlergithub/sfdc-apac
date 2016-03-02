@@ -186,6 +186,18 @@
                 <fullName>MB Bus</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Bus &amp; Coach</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1525,6 +1537,10 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
+                <fullName>DRM MBFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Doctor</fullName>
                 <default>false</default>
             </values>
@@ -2195,6 +2211,10 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
+                <fullName>DRM MBFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Doctor</fullName>
                 <default>false</default>
             </values>
@@ -2457,27 +2477,22 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Fleet</fullName>
-
                 <default>false</default>
             </values>
             <values>
                 <fullName>Freightliner</fullName>
-
                 <default>false</default>
             </values>
             <values>
                 <fullName>Fuso</fullName>
-
                 <default>false</default>
             </values>
             <values>
                 <fullName>MB Bus</fullName>
-
                 <default>false</default>
             </values>
             <values>
                 <fullName>MB Cars</fullName>
-
                 <default>false</default>
             </values>
             <values>
@@ -2919,6 +2934,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Countess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DRM MBFS</fullName>
                 <default>false</default>
             </values>
             <values>

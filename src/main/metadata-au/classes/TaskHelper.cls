@@ -785,15 +785,62 @@ public class TaskHelper {
          List<Task> drmtasklst = new List<Task>();
        
          Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
-         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name FROM Task where Id IN:tsklst]);
+         
+         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name,CreatedBy.Name FROM Task where Id IN:tsklst and RecordTypeId =:recordTypeId]);
          for(Task taskObj : tsklst){
-                system.debug('taskObj.RecordType1--'+taskObj.RecordType.DeveloperName);
-             if(taskObj.RecordTypeId  == recordTypeId){
-                 system.debug('taskObj.RecordType1--'+taskObj.Description);
-                taskObj.Description = taskObj.lastModifiedDate + '-'+ taskMap.get(taskObj.Id).LastModifiedBy.Name;
+              if(taskMap  != null){
+                        system.debug('taskObj.RecordType1--'+taskObj.RecordType.DeveloperName);
+                     if(taskObj.RecordTypeId  == recordTypeId){
+                         system.debug('taskObj.RecordType1--'+taskObj.Description);
+                        if(taskMap.containsKey(taskObj.Id)){
+                            if(isInsert){
+                               taskObj.Description = taskObj.createdDate+ '-'+ taskMap.get(taskObj.Id).CreatedBy.Name;
+                            }else{
+                                taskObj.Description = taskObj.lastModifiedDate + '-'+ taskMap.get(taskObj.Id).LastModifiedBy.Name;
+                            }
+                        }
+                }
              }
              system.debug('Task---Description--'+taskObj.Description);
          }
     
     }
+    /**
+    **/
+    
+    public static void validateAccount(List<Task> tsklst, Boolean isInsert, Boolean isUpdate){
+        Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
+        Map<Id,Id> dealerSt = new Map<Id,Id>();
+        for(Task taskObj : tsklst ){
+            if(String.valueOf(taskObj.WhatId).startsWith('001') && taskObj.RecordTypeId  == recordTypeId){
+                dealerSt.put(taskObj.Id,taskObj.WhatId);
+            }
+        }
+        
+        if(dealerSt != null && dealerSt.size() > 0){
+            List<Contact> contactlst = [Select Id,AccountId FROM Contact where AccountId IN:dealerSt.values() AND  Salutation = :UtilConstant.DRM_MBFS];
+            Map<Id,Id> mapAccountContact = new Map<Id,Id>();
+            if(contactlst != null && contactlst.size() > 0){
+                for(Contact contactObj : contactlst){
+                    mapAccountContact.put(contactObj.AccountId,contactObj.Id);
+                }
+            }
+            
+                
+                for(Task taskObj : tsklst){
+                    if(contactlst != null && contactlst.size() > 0){
+                        if(dealerSt.containsKey(taskObj.Id)){
+                          if(!mapAccountContact.containsKey(dealerSt.get(taskObj.Id))){
+                              taskObj.addError(System.Label.Active_Dealer);
+                          }
+                        }
+                    }else{
+                         taskObj.addError(System.Label.Active_Dealer);
+                    }
+                }
+        
+        }
+    
+    }
+  
 }
