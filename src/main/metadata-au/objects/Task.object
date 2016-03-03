@@ -26864,15 +26864,21 @@
     </recordTypes>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Comment_Is_Mandatory_If_Subject_Is_Visit</fullName>
+        <active>true</active>
+        <description>This validation rule will error out an error if the subject of Task is “Visit” and Comment box is still blank.</description>
+        <errorConditionFormula>AND(OR(RecordType.DeveloperName = 'General Task',RecordType.DeveloperName = 'DRM Task'),OR( 
+Subject == '1st Meeting Metro Visit.',Subject == '2nd Visit reporting penetration and volume.',
+Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or touch base.'),ISBLANK( Description),$Profile.Name != 'IntegrationAPI',MD__c == 'AU')</errorConditionFormula>
+        <errorDisplayField>Description</errorDisplayField>
+        <errorMessage>Please provide the Comments.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Comment_Is_Mandatory_While_Completion</fullName>
         <active>true</active>
         <description>This validation rule will error out an error if the status of Task is “Completed” and Comment box is still blank.</description>
-        <errorConditionFormula>(ISPICKVAL( Status , 'Completed')  &amp;&amp;  ISBLANK(Description))
-||
-( (Subject  == '1st Meeting Metro Visit' || 
-Subject  == '2nd Visit reporting penetration and volume' 
-|| Subject  == '3rd visit (leads) update on leads'
-|| Subject  == '4th follow up or touch base') &amp;&amp; ISBLANK(Description))</errorConditionFormula>
+        <errorConditionFormula>AND(OR(Subject == '1st Meeting Metro Visit.',Subject == '2nd Visit reporting penetration and volume.',
+Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or touch base.'),ISPICKVAL( Status , 'Completed'),ISBLANK( Description),$Profile.Name != 'IntegrationAPI',MD__c == 'AU')</errorConditionFormula>
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please enter Comment</errorMessage>
     </validationRules>
