@@ -13,6 +13,8 @@
      Public Set<Id> setVehicleIds=new Set<Id>();
      Public Map<Id,List<Retail_Task__c>> mapRetailTask=new Map<Id,List<Retail_Task__c>>();  
      Public Map<Id,List<Vehicle_Relationship__c>> mapVehicleRelship=new Map<Id,List<Vehicle_Relationship__c>>();
+     Public String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
+     Public Set<Id> setIgnoredAccounts=new Set<Id>();
     /**  
      * @Description Contructor is getting called and fatching current account record details 
      * @author  Sneha chail
@@ -67,10 +69,11 @@
      Public List<cNodes> getmainnodes()
       {
         hierarchy = new List<cNodes>();
+        IgnoredAccountInProd();
         List<Vehicle_Relationship__c> tempParentvelRel = [Select Id,Name,Vehicle_ID__c,Vehicle_ID__r.Name,Start_Date__c,Car_Relation__c,
                                                 Vehicle_ID__r.Brand__c,Vehicle_ID__r.Car_Model__c,Vehicle_ID__r.Class__c,Contact__r.name, 
                                                 Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c 
-                                                from Vehicle_Relationship__c Where Contact__c=:acount.Id AND Vehicle_ID__c!=Null LIMIT 50000];
+                                                from Vehicle_Relationship__c Where Contact__c=:acount.Id AND Vehicle_ID__c!=Null AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];
         
         for(Vehicle_Relationship__c vr:tempParentvelRel){
             setVehicleIds.add(vr.Vehicle_ID__c);
@@ -142,10 +145,17 @@
         
       public List<Account_Link__c> getAccountRelation(){  
              List<Account_Link__c> lstAccountLink=New List<Account_Link__c>();
-             for(Account_Link__c accLink:[select id,name,toRole__c,toRole__r.FirstName,toRole__r.LastName,Role__c,Role2__c from  Account_Link__c Where toRole__r.Id=:acount.Id Limit 50000])        
+             IgnoredAccountInProd();
+             for(Account_Link__c accLink:[select id,name,toRole__c,toRole__r.FirstName,toRole__r.LastName,Role__c,Role2__c from  Account_Link__c Where toRole__r.Id=:acount.Id AND (NOT toRole__r.Id IN : setIgnoredAccounts) Limit 50000])        
              {
                lstAccountLink.add(accLink);
              }
             return lstAccountLink;
-        }           
+        }  
+      
+      Public void IgnoredAccountInProd(){
+            for(Account acc:[select id from Account Where Name Like :ignoredAccounts]){
+                setIgnoredAccounts.add(acc.Id);
+            }
+      }         
    }
