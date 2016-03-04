@@ -149,7 +149,8 @@ public class AddressDisplayInlineEditController {
             addressobj.TitleOfHonor__c =editadds.TitleOfHonor__c;
             addressobj.Status__c =editadds.Status__c;
             addressobj.Preferred__c = editadds.Preferred__c;
-            
+            addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
+            addressobj.Temp_Address__c = editadds.Temp_Address__c ;
         }      
         ShowpageBlockFlag = true;
         
