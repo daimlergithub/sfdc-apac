@@ -8,4 +8,4 @@ Notes of Task activity: {!Task.Description}
 
 CMS Contract Number
 
-Lead Number: {!Task.What} 
+Lead Number: {!Task.What}
