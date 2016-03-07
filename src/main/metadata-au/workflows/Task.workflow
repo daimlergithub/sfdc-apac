@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!--<alerts>
-        <fullName>Email_On_Task_Creation</fullName>
-        <description>Email On Task Creation</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts>
-    <alerts>
-        <fullName>Email_notification_to_the_task_owner</fullName>
-        <description>Email notification to the task owner</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts> -->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -84,38 +62,6 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-   <!-- <rules>
-        <fullName>Send_Email_On_Task_Creation</fullName>
-        <actions>
-            <name>Email_On_Task_Creation</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <description>Whenever a Task is created by Fleet or Fleet Delete profile User email will be sent out to task owner.</description>
-        <formula>OR(Owner:User.Profile.Name ==&apos;Fleet&apos;,Owner:User.Profile.Name ==&apos;Fleet Delete&apos;)</formula>
-        <triggerType>onCreateOnly</triggerType>
-        <workflowTimeTriggers>
-            <offsetFromField>Task.ActivityDate</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Send_Email_To_DFM_User</fullName>
-        <active>false</active>
-        <description>If the status is not Completed, due date is over and Owner’s profile is ‘Fleet or ‘Fleet Delete’’ then send email notification to  .users who has KAM as their Role.</description>
-        <formula>AND(OR(Owner:User.Profile.Name ==&apos;Fleet&apos;,Owner:User.Profile.Name ==&apos;Fleet Delete&apos;),  NOT(ISPICKVAL( Status , &apos;Completed&apos;) ))</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Email_notification_to_the_task_owner</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Task.ActivityDate</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules> -->
     <rules>
         <fullName>TestTaskEmail</fullName>
         <active>false</active>

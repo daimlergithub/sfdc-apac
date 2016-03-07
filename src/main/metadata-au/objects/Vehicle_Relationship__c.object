@@ -1975,9 +1975,10 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -4252,7 +4253,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
-
             <values>
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
@@ -12986,4 +12986,3 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
 		window.location.href = "{!URLFOR($Site.Prefix, '')}/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}";</url>
     </webLinks>
 </CustomObject>
-

@@ -65,9 +65,10 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -116,7 +117,7 @@
     </fields>
     <fields>
         <fullName>URL__c</fullName>
-        <defaultValue>&quot;Undefined&quot;</defaultValue>
+        <defaultValue>"Undefined"</defaultValue>
         <externalId>false</externalId>
         <label>URL</label>
         <length>255</length>
@@ -159,8 +160,8 @@
     <pluralLabel>Surveys</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>

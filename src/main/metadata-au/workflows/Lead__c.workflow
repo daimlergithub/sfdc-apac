@@ -53,6 +53,26 @@
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
+        <fullName>Lead_Untouched_for_4_days_after_creation</fullName>
+        <description>Lead Untouched for 4 days after creation</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_days</fullName>
+        <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
+    </alerts>
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -70,6 +90,28 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Doc_fee_updation_on_Fee_type</fullName>
+        <description>Update Documentation Fee to “0” when the Fee Type is selected as Waived.</description>
+        <field>Doc_Fee__c</field>
+        <formula>0</formula>
+        <name>Doc fee updation on Fee type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Orig_fee_updation_on_Fee_type</fullName>
+        <description>Update Origination Fee to “0” when the Fee Type is selected as Waived.</description>
+        <field>Orig_Fee__c</field>
+        <formula>0</formula>
+        <name>Orig fee updation on Fee type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
@@ -444,6 +486,26 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>Email Notification to Lead Owner</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Lead_Untouched_for_4_days_after_creation</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>4</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
             <name>Email_notification_when_customer_doesn_t_allow_dealer_contact</name>
@@ -520,6 +582,22 @@ Proxy_Date_Time__c
         <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Escalation%3A Lead not touched for 7 days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <description>This Lead has not been touched for 7 days after creation.</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Finance Send Notification Email To Dealer Recipients Before 15 Days</fullName>
@@ -652,6 +730,31 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Origination and Documentation field updation</fullName>
+        <actions>
+            <name>Doc_fee_updation_on_Fee_type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Orig_fee_updation_on_Fee_type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Fee_Type__c</field>
+            <operation>equals</operation>
+            <value>Waived</value>
+        </criteriaItems>
+        <description>Update Origination Fee and Documentation Fee to “0” when the Fee Type is selected as Waived.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Reassigned lead to Non-BDC</fullName>
         <actions>
             <name>Update_Lead_Accepted_Date_Time_to_Now</name>
@@ -718,8 +821,8 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <operation>equals</operation>
             <value>Closed Won</value>
         </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.RecordType</field>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
             <operation>notEqual</operation>
             <value>Finance Fleet Lead</value>
         </criteriaItems>

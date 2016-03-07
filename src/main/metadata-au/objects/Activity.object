@@ -1607,9 +1607,10 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -3445,8 +3446,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
+        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
