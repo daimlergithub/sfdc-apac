@@ -11516,6 +11516,10 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -13361,7 +13365,7 @@ Modify Reason:
     <fields>
         <fullName>Resolution_Time__c</fullName>
         <externalId>false</externalId>
-        <formula>Approval_Submit_date__c - CreatedDate</formula>
+        <formula>Approval_Submit_Date__c - CreatedDate</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Resolution Time</label>
         <precision>18</precision>

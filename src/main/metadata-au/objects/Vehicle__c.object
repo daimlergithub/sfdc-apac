@@ -2896,9 +2896,10 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -5211,15 +5212,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>NextEmissionsCheckDate__c</fullName>
-        <externalId>false</externalId>
-        <label>NextEmissionsCheckDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	 <fields>
         <fullName>National_Model__c</fullName>
         <externalId>false</externalId>
         <label>National Model</label>
@@ -5229,7 +5221,16 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-      </fields>
+    </fields>
+    <fields>
+        <fullName>NextEmissionsCheckDate__c</fullName>
+        <externalId>false</externalId>
+        <label>NextEmissionsCheckDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>NextInspectionDate__c</fullName>
         <externalId>false</externalId>
@@ -5316,17 +5317,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_OptionCode“</descrip
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Product_Model__c</fullName>
-        <externalId>false</externalId>
-        <label>Product Model</label>
-        <length>13</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Power__c</fullName>
         <externalId>false</externalId>
         <label>Power</label>
@@ -5336,6 +5326,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_OptionCode“</descrip
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Model</label>
+        <length>13</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -6493,6 +6494,22 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>VehicleAge__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(MONTH(today())-MONTH(FirstRegistrationDate__c)&gt;0,AND(MONTH(TODAY()) - MONTH(FirstRegistrationDate__c)&gt;=0,DAY(TODAY()) - DAY(FirstRegistrationDate__c)&gt;=0)), 
+YEAR(TODAY()) - YEAR(FirstRegistrationDate__c), 
+YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>VehicleStatus__c</fullName>
         <externalId>false</externalId>
         <label>VehicleStatus</label>
@@ -6522,22 +6539,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>VehicleAge__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR(MONTH(today())-MONTH(FirstRegistrationDate__c)&gt;0,AND(MONTH(TODAY()) - MONTH(FirstRegistrationDate__c)&gt;=0,DAY(TODAY()) - DAY(FirstRegistrationDate__c)&gt;=0)), 
-YEAR(TODAY()) - YEAR(FirstRegistrationDate__c), 
-YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Vehicle Age</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Vehicle_Group__c</fullName>
@@ -6923,15 +6924,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Forklift</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>FSM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6948,6 +6941,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6968,6 +6965,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Fruehauf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7139,15 +7140,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7160,6 +7153,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Maserati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7192,6 +7189,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7255,10 +7256,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rolls</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Range Rover</fullName>
                 <default>false</default>
             </values>
@@ -7272,6 +7269,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Roadwest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9560,15 +9561,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Forklift</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>FSM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9585,6 +9578,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9605,6 +9602,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Fruehauf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9776,15 +9777,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9797,6 +9790,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Maserati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9829,6 +9826,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9892,10 +9893,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rolls</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Range Rover</fullName>
                 <default>false</default>
             </values>
@@ -9909,6 +9906,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Roadwest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14357,15 +14358,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Forklift</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>FSM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14382,6 +14375,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14402,6 +14399,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Fruehauf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14573,15 +14574,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14594,6 +14587,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Maserati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14626,6 +14623,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14689,10 +14690,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rolls</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Range Rover</fullName>
                 <default>false</default>
             </values>
@@ -14706,6 +14703,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Roadwest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
