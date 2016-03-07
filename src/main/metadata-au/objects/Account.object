@@ -3916,7 +3916,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>True</externalId>
+        <externalId>true</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -5268,17 +5268,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Opt_Out_Portal_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Opt Out Portal Reason</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>FS_Opt_In_Work_Phone__c</fullName>
@@ -6969,9 +6958,10 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -7331,7 +7321,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Opt_In_Email3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -7402,6 +7392,17 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_Out_Portal_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Opt Out Portal Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Opt_Out_Portal__c</fullName>
