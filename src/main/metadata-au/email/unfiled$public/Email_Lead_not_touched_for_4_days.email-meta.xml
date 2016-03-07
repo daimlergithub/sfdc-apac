@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>36.0</apiVersion>
+    <available>true</available>
+    <description>Send an email to lead owner when the created lead was not touched for 4 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email Lead not touched for 4 days</name>
+    <style>none</style>
+    <type>visualforce</type>
+</EmailTemplate>
