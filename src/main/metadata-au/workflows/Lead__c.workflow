@@ -63,6 +63,17 @@
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
     <alerts>
+        <fullName>Once_Fleet_Vans_lead_is_created_an_email_alert_will_be_sent_to_Fleet_MBaup_Delet</fullName>
+        <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Lead_Notification_Email</template>
+    </alerts>
+    <alerts>
         <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_days</fullName>
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
@@ -728,6 +739,21 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>false</active>
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify_Manager_Ob_Creation_Fleet_Van_Lead</fullName>
+        <actions>
+            <name>Once_Fleet_Vans_lead_is_created_an_email_alert_will_be_sent_to_Fleet_MBaup_Delet</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fleet Vans</value>
+        </criteriaItems>
+        <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Origination and Documentation field updation</fullName>
