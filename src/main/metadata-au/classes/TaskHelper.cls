@@ -812,8 +812,10 @@ public class TaskHelper {
         Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
         Map<Id,Id> dealerSt = new Map<Id,Id>();
         for(Task taskObj : tsklst ){
-            if(String.valueOf(taskObj.WhatId).startsWith('001') && taskObj.RecordTypeId  == recordTypeId){
-                dealerSt.put(taskObj.Id,taskObj.WhatId);
+            if(taskObj.WhatId != null){
+                if(String.valueOf(taskObj.WhatId).startsWith('001') && taskObj.RecordTypeId  == recordTypeId){
+                    dealerSt.put(taskObj.Id,taskObj.WhatId);
+                }
             }
         }
         

@@ -10240,6 +10240,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Public__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Purchase_Amount__c</field>
         <readable>true</readable>
@@ -16658,9 +16663,6 @@
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
-  <!--  <layoutAssignments>
-        <layout>AccountContactRole-Account Contact Role Layout</layout>
-    </layoutAssignments> -->
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
@@ -16974,8 +16976,16 @@
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Finance Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Fleet Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Fleet Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Vans</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
@@ -17232,6 +17242,18 @@
     <layoutAssignments>
         <layout>Task-Campaign Task</layout>
         <recordType>Task.Campaign_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Campaign Task</layout>
+        <recordType>Task.Order</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Campaign Task</layout>
+        <recordType>Task.Quote</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-DM</layout>
+        <recordType>Task.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-DM</layout>
@@ -18759,7 +18781,17 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Lead__c.Fleet_Lead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Fleet_Vans</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -18774,6 +18806,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Sales_Leads</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18940,8 +18973,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Task.Campaign_Task</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Customer_Contact</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -18966,7 +19005,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.General_Task</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -18992,6 +19031,16 @@
         <default>false</default>
         <recordType>Task.OB_Task</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Order</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Quote</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
