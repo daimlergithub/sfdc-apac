@@ -3403,14 +3403,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TerminateVehicleRelationship</shortDescription>
-        <value>No Vehicle Relationship found for Termination</value>
+        <value>Terminate Vehicle Relationship</value>
     </labels>
     <labels>
         <fullName>Terminate_Vehicle_Relationship</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Terminate Vehicle Relationship</shortDescription>
-        <value>Terminate Vehicle Relationship</value>
+        <value>No Vehicle Relationship found for Termination.</value>
     </labels>
     <labels>
         <fullName>Thankyouforyourbusiness</fullName>

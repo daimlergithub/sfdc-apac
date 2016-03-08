@@ -15,10 +15,10 @@
                      <apex:column value="{!Ve_Rel.Car_Relation__c}"/>
                      <apex:column value="{!Ve_Rel.Owner_Relation__c}"/> 
               </apex:pageBlockTable>             
-              <apex:pageMessage summary="{!$Label.TerminateVehicleRelationship}" severity="info" strength="3" rendered="{!lstVehicleRelation.size==0}"/>
+              <apex:pageMessage summary="{!$Label.Terminate_Vehicle_Relationship}" severity="info" strength="3" rendered="{!lstVehicleRelation.size==0}"/>
               <apex:pageMessages />               
         </apex:pageBlockSection>
-        <apex:pageBlockSection title="{!$Label.Terminate_Vehicle_Relationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}">
+        <apex:pageBlockSection title="{!$Label.TerminateVehicleRelationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}">
                <apex:inputField value="{!objVehicleRelation.End_Date__c}" required="true"/>
                <apex:inputField value="{!objVehicleRelation.End_Reason__c}" required="true"/>
                <apex:inputField value="{!objVehicleRelation.Comments__c}"/>                
@@ -26,7 +26,7 @@
        <apex:pageBlockButtons >
               <apex:commandButton value="{!$Label.Save_Button}" action="{!Save}" rendered="{!lstVehicleRelation.size!=0}"/>
                <apex:commandButton value="{!$Label.Cancel_Button}" action="{!Cancel}"/>
-        </apex:pageBlockButtons>          
+        </apex:pageBlockButtons>           
   </apex:pageBlock>
  </apex:form>
 </apex:page>
