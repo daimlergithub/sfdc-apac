@@ -752,6 +752,11 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <operation>equals</operation>
             <value>Fleet Vans</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
         <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
