@@ -10,7 +10,7 @@
 
     5-Dec-2013 Bing (NTTData)  Created
 */
-trigger AttachmentAfter on Attachment (after insert) 
+trigger AttachmentAfter on Attachment (after insert, after delete) 
 {
     TriggerUtil.handleTrigger('AttachmentAfter');
 }
