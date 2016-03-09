@@ -76,6 +76,7 @@ public class TaskTriggerHandler
             TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.updateCommentWithTimeStamp(Trigger.new,trigger.isinsert,trigger.isupdate);
             TaskHelper.validateAccount(Trigger.new,trigger.isinsert,trigger.isupdate);
+            TaskHelper.updateCompany(Trigger.new);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {

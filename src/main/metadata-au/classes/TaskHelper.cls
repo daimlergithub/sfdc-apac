@@ -30,7 +30,7 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
    // private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
-    
+    private static String Finance_Fleet_lead_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
        
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
@@ -844,5 +844,49 @@ public class TaskHelper {
         }
     
     }
+    /*
+     Updates the Company__c of Task with Account name
+     */
+    public static void updateCompany(List<Task> newTask){
+         system.debug('userMap'+Finance_Fleet_lead_RECORDTYPEID);
+                    map<id,id> taskMap =new  map<id,id>();
+                    map<id,id> leadMap = new map<id,id>();
+       				map<id,id> leadAccountMap = new map<id,id>();		
+                    map<id,string> userMap = new map<id,string>();
+                    list<Task> updateTaskList =new list<Task>();
+                    
+                    system.debug('newTask'+newTask);
+                    
+                    for(Task task:newTask){            
+                        taskMap.put(task.OwnerId,task.WhatId);
+                    }
+        
+                    for(Lead__c lead:[select id,RecordTypeId,Contact__c,Company_Account__c from Lead__c where id IN:taskMap.values()]){
+                        leadMap.put(lead.id, lead.RecordTypeId);
+                        if(lead.Contact__c !=null && lead.Contact__c !=''){
+                            leadAccountMap.put(lead.id, lead.Contact__c);
+                          }else{
+                              leadAccountMap.put(lead.id, lead.Company_Account__c);                                    
+                               }
+                     }
+        
+                    for(User user:[select id,Profile.Name from User where id IN:taskMap.keySet()]){                        
+                        userMap.put(user.id, user.Profile.Name);
+                    }
+                    
+			        system.debug('taskMap'+taskMap);
+			        system.debug('leadAccountMap'+leadAccountMap);
+			        system.debug('userMap'+userMap);
+        
+			        for(Task task:newTask){
+			            if(leadMap.get(task.WhatId)==Finance_Fleet_lead_RECORDTYPEID && (userMap.get(task.OwnerId)=='Fleet' || userMap.get(task.OwnerId)=='Fleet (Delete)' )){
+			                task.Company__c=leadAccountMap.get(task.WhatId);
+			               system.debug('Final task'+task); 
+			            }         
+			            
+			        }
+                   
+        
+       }
   
 }
