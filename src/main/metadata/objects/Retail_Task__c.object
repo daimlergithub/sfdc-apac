@@ -87,6 +87,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Advise_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Advise Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Amount_Financed__c</fullName>
         <externalId>false</externalId>
         <label>Amount Financed</label>
@@ -211,6 +219,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Compliance_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Compliance Comment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Contact_Date__c</fullName>
@@ -1413,6 +1429,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Settlement_Officer__c</fullName>
+        <externalId>false</externalId>
+        <label>Settlement Officer</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
