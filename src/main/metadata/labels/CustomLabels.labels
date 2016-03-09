@@ -4229,4 +4229,18 @@
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
     </labels>
+	<labels>
+        <fullName>SalesTEL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales TEL</shortDescription>
+        <value>Sales TEL</value>
+    </labels>
+	<labels>
+        <fullName>SalesMail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Mail</shortDescription>
+        <value>Sales Mail</value>
+    </labels>
 </CustomLabels>

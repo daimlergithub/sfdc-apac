@@ -8,10 +8,47 @@ public with sharing class GenerateAndAttachPDF {
    public Case cas{get;set;}
    public String attachmentName;
    public Vehicle_Relationship__c VehicleRelationshipList{get;set;}
-  
+   public String CustomerStatement{get;set;}
+   public String PRCommentForDealer {get;set;}
+
+   /**
+    * Escape <br/> tag
+    */
+   private static final String BR_TG_ESCAPE = '%%br%%';
+   /**
+    * Regular expresssion for the tag
+    */
+   private static final String REGEX_TAG = '<.+?>';
+   /**
+    * <br> tag
+    */
+   public static final String BR_TG = '<br>';
+   /**
+    * <br/> tag
+    */
+   public static final String BR_SLASH_TG = '\n';
+   /**
+    * Define empty
+    */
+   public static final String STRING_NONE = '';
+   /**
+    * Define \n (line break)
+    */
+   public static final String NEW_LINE_CHARACTER = '\n';
+   /**
+    * Define "$"
+    */
+   public static final String DOLLAR_CHARACTER = '$';
+
+   /**
+    * Define number of characters per line
+    */
+   public static final Integer LINE_LENGTH = 57;
+
+
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
-      this.cas=(Case)controller.getRecord(); 
-      
+     // this.cas=(Case)controller.getRecord();  
+      cas=[select id,Vehicle__c,CaseNumber,AccountId,Customer_Statement__c,PR_Comment_for_Dealer__c from case Where id=:ApexPages.currentPage().getParameters().get(System.Label.Id)];     
     }
     /**     
      * @Description Get the Vehicle_relationship records having same Account and vehicle as case .  
@@ -21,9 +58,10 @@ public with sharing class GenerateAndAttachPDF {
      */  
     public Vehicle_Relationship__c  getvehicleRelation(){
         if(cas.Vehicle__c!=Null && cas.AccountId!=Null){
-                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c 
+                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c
                                     from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
          }
+         system.debug('VehicleRelationshipList>>>>>'+VehicleRelationshipList);
         if(VehicleRelationshipList!=Null){
           return VehicleRelationshipList;
           }
@@ -50,9 +88,17 @@ public with sharing class GenerateAndAttachPDF {
      * @see GeneratePDF Page
      */
    public PageReference GenerateAndAttachPDF() {
-     if (String.isBlank(ApexPages.currentPage().getParameters().get(System.Label.displayOnly))) {
+     //  case cas=[select id,Customer_Statement__c,PR_Comment_for_Dealer__c,Vehicle__c,AccountId from case where id=:cas.Id];
+       CustomerStatement= cas.Customer_Statement__c;
+       PRCommentForDealer = cas.PR_Comment_for_Dealer__c;
+       system.debug('CustomerStatement>>>>'+CustomerStatement);
+       CustomerStatement = convertString(CustomerStatement, LINE_LENGTH);
+       PRCommentForDealer = convertString(PRCommentForDealer, LINE_LENGTH);
+       system.debug('CustomerStatement>>>>'+CustomerStatement);
+       if(String.isBlank(ApexPages.currentPage().getParameters().get(System.Label.displayOnly))) {
        Id attachmentId = savePDF();
        generateAuditTrail();
+       getvehicleRelation();
        return openPDF(attachmentId);
      } else {
       return null;
@@ -108,4 +154,78 @@ public with sharing class GenerateAndAttachPDF {
         ret.setRedirect(true);
         return ret;
       }
-  }
+      
+      /** 
+     * @Description Adding line break to the given value 
+     * @author  Sergio Kobayashi
+     * @Date 03/07/2016(mm/dd/yy)  
+     * @Param Value to be added line break and the line length
+     * @return value with the line break added
+     */
+    public static String convertString(final String targetString, final Integer maxByte) {
+
+        // Store the converted strings
+        String convertStr = STRING_NONE;
+
+        if (targetString != null) {
+
+            // Replace all <br>
+            String targetStr = targetString.replaceAll(BR_TG, BR_TG_ESCAPE);
+            targetStr = targetStr.replaceAll(BR_SLASH_TG, BR_TG_ESCAPE);
+            // Replace all tags
+            targetStr = targetStr.replaceAll(REGEX_TAG, STRING_NONE);
+            // Convert line breaks to <br/>
+            targetStr = targetStr.replaceAll(
+                NEW_LINE_CHARACTER,
+                BR_SLASH_TG
+            );
+
+            // Convert replaced <br> to <br/>
+            targetStr = targetStr.replaceAll(BR_TG_ESCAPE, BR_SLASH_TG);
+            // Split at each <br/>
+            String[] strList = targetStr.split(BR_SLASH_TG);
+
+            // Line length
+            Integer lineLen = 0;
+
+            // Per <br/> is one line
+            for (String line : strList) {
+
+                // Total number of bytes in the line
+                Integer sum = 0;
+                // Index variable
+                Integer index = 0;
+                // Get the length of the line
+                lineLen = line.length();
+
+                // Check number of bytes for each character
+                for (Integer i = 0; i < lineLen; i++) {
+
+                    // Get one character
+                    String one = line.substring(i, (i + 1));
+                    // Calculate number of characters instead of bytes since English and Japanese mixed woulc cause issue.
+                    //Integer oneSize = getBytes(one);
+                    Integer oneSize = 1;
+                    // Total number of bytes
+                    sum += oneSize;
+
+                    // If exceeded the maximum number of bytes per line
+                    if (sum > maxByte) {
+                        // Clear the variables
+                        sum = 0;
+                        // Add line break
+                        convertStr += line.substring(index, (i + 1)) + BR_SLASH_TG;
+                        index = i + 1;
+                    }
+                }
+                // Add line break
+                convertStr += line.substring(index, (line.length())) + BR_SLASH_TG;
+            }
+        }
+
+        // Remove br at the end
+        convertStr = convertStr.replaceAll(BR_SLASH_TG + DOLLAR_CHARACTER, STRING_NONE);
+
+        return convertStr;
+    }
+}
