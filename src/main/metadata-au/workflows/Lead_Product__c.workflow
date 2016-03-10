@@ -79,4 +79,3 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>
-
