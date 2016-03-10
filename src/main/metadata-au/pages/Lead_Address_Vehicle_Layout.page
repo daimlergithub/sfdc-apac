@@ -1,8 +1,8 @@
 <apex:page standardController="Lead__c" extensions="lead_Addresscontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
 <apex:form >  
     <apex:pageMessages id="showmsg"></apex:pageMessages>
-    <apex:pageBlock >  
-        <apex:pageBlockSection columns="2"> 
+    <apex:pageBlock rendered="{!If(recordtypeid == 'Sales_Leads',true,false)}">  
+        <apex:pageBlockSection columns="2" > 
              <apex:inputText label="Home Phone" value="{!HomePhone}"/> 
              <apex:inputText label="Address Line 1" value="{!addressline1}"/>
              <apex:inputText label="Work Phone" value="{!workPhone}"/>
@@ -19,7 +19,20 @@
       <apex:commandButton value="Save" action="{!Save}" styleClass="btn"/> 
       </apex:pageblockButtons> 
    </apex:pageBlock>
- </apex:form>
+        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',true,false)}">
+            <apex:pageBlockSection columns="2">
+                <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
+            	<apex:outputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:outputText label="Company Name" value="{!companyname}"/>
+                <apex:outputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:outputText label="Suburb" value="{!suburb}"/>
+                <apex:outputText label="State" value="{!addr.Province__c}"/> 
+                <apex:outputText label="Country" value="{!addr.Country__c}"/> 
+                <apex:outputText label="Post Code" value="{!postcode}"/>
+                <apex:outputText label="Status" value="{!addr.Status__c}"/> 
+            </apex:pageBlockSection>        
+        </apex:pageBlock>    
+    </apex:form>
  <style>
         .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
         {
