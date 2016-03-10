@@ -10,6 +10,7 @@ public static boolean Preferred{get;set;}
 public static Id AccountId;
 public static id ContactId; 
 public string mobileNum{get; set;}
+public string recordtypeid{get; set;}
 public string homePhone{get ; set;}
 public string companyname{get ; set;}
 public string workPhone{get; set;}
@@ -27,10 +28,12 @@ public static list<Account> updateAccountList = new list<Account>();
          addr = new Address__c();
          if(ApexPages.currentPage().getParameters().get('id')!=Null)
           {
-              leadList=[select id,RecordtypeId,contact__c,contact__r.Mobile__c,contact__r.Mobile2__c,contact__r.Individual_Home_Phone__c,contact__r.Home_Phone_2__c,contact__r.Email__c,contact__r.Email2__c,contact__r.Work_Phone__c,contact__r.Zipcode__c,
+                            
+              leadList=[select id,RecordtypeId,RecordType.developername,contact__c,contact__r.Mobile__c,contact__r.Mobile2__c,contact__r.Individual_Home_Phone__c,contact__r.Home_Phone_2__c,contact__r.Email__c,contact__r.Email2__c,contact__r.Work_Phone__c,contact__r.Zipcode__c,
                         Company_Account__c,Company_Account__r.Mobile__c,Company_Account__r.Mobile2__c,Company_Account__r.Individual_Home_Phone__c,Company_Account__r.Home_Phone_2__c,Company_Account__r.Email__c,Company_Account__r.Email2__c,Company_Account__r.Work_Phone__c,Company_Account__r.Zipcode__c,
                         Home_Phone__c,Work_Phone__c,Email__c,Mobile__c 
-                        from Lead__c where id=:ApexPages.currentPage().getParameters().get('id')];  
+                        from Lead__c where id=:ApexPages.currentPage().getParameters().get('id')];
+              
               if(leadList!=Null){
                 for(Lead__c led:leadList){
                       if(led.contact__c!=Null)
@@ -74,7 +77,8 @@ public static list<Account> updateAccountList = new list<Account>();
                    zipcode =led.contact__r.Zipcode__c;
                  else
                    zipcode =led.Company_Account__r.Zipcode__c ;                                                                        
-        
+        	  recordtypeid = leadList.get(0).RecordType.developername;
+                    system.debug(')@$$#$%$#%$#%'+recordtypeid);
               addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Company_Name__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                             from Address__c Where Customer__c=:AccountId AND Preferred__c=:true Limit 1]; 
              if(addresslist!=Null && !addresslist.isEmpty())
