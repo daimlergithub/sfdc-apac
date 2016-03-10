@@ -1212,6 +1212,13 @@
         <shortDescription>Customer・Assistance・Center</shortDescription>
         <value>Customer・Assistance・Center</value>
     </labels>
+	<labels>
+        <fullName>CustomerAssistanceCenter2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CustomerAssistanceCenter2</shortDescription>
+        <value>Customer Assistance Center</value>
+    </labels>
     <labels>
         <fullName>CustomerType</fullName>
         <language>en_US</language>
@@ -4257,4 +4264,11 @@
         <shortDescription>RequestPDF</shortDescription>
         <value>Request</value>
     </labels>
+	<labels>
+        <fullName>SlashPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SlashPDF</shortDescription>
+        <value>/</value>
+    </labels> 
 </CustomLabels>
