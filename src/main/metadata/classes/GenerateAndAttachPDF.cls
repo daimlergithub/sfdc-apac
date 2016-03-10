@@ -47,27 +47,8 @@ public with sharing class GenerateAndAttachPDF {
 
 
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
-     // this.cas=(Case)controller.getRecord();  
+      this.cas=(Case)controller.getRecord();  
       cas=[select id,Vehicle__c,CaseNumber,AccountId,Customer_Statement__c,PR_Comment_for_Dealer__c from case Where id=:ApexPages.currentPage().getParameters().get(System.Label.Id)];     
-    }
-    /**     
-     * @Description Get the Vehicle_relationship records having same Account and vehicle as case .  
-     * @author  Sneha chail
-     * @Date 1/27/2016(mm/dd/yy)   
-     * @return records of vehicle Relationship 
-     */  
-    public Vehicle_Relationship__c  getvehicleRelation(){
-        if(cas.Vehicle__c!=Null && cas.AccountId!=Null){
-                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Last_Service_Dealer__c,Registration_Date__c,Registration_Number__c
-                                    from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
-         }
-         system.debug('VehicleRelationshipList>>>>>'+VehicleRelationshipList);
-        if(VehicleRelationshipList!=Null){
-          return VehicleRelationshipList;
-          }
-        else{
-         return null;
-        }        
     }
     /**     
      * @Description Get the current record Id.  
@@ -87,22 +68,25 @@ public with sharing class GenerateAndAttachPDF {
      * @return generated pdf file
      * @see GeneratePDF Page
      */
-   public PageReference GenerateAndAttachPDF() {
-     //  case cas=[select id,Customer_Statement__c,PR_Comment_for_Dealer__c,Vehicle__c,AccountId from case where id=:cas.Id];
+   public PageReference GenerateAndAttachPDF() {  
+       if(cas.Vehicle__c!=Null && cas.AccountId!=Null){
+                VehicleRelationshipList=[Select id,Vehicle_ID__c,Contact__c,Selling_Dealer__c,Selling_Dealer__r.Name,Last_Service_Dealer__c,
+                                         Last_Service_Dealer__r.Name,toLabel(Finance_Method__c),Registration_Date__c,Registration_Number__c
+                                         from Vehicle_Relationship__c Where Vehicle_ID__c=:cas.Vehicle__c  AND Contact__c=:cas.AccountId limit 1];
+         }    
        CustomerStatement= cas.Customer_Statement__c;
        PRCommentForDealer = cas.PR_Comment_for_Dealer__c;
        system.debug('CustomerStatement>>>>'+CustomerStatement);
        CustomerStatement = convertString(CustomerStatement, LINE_LENGTH);
        PRCommentForDealer = convertString(PRCommentForDealer, LINE_LENGTH);
-       system.debug('CustomerStatement>>>>'+CustomerStatement);
-       if(String.isBlank(ApexPages.currentPage().getParameters().get(System.Label.displayOnly))) {
+       system.debug('CustomerStatement>>>>'+CustomerStatement);       
+       if(String.isBlank(ApexPages.currentPage().getParameters().get(System.Label.displayOnly))) {       
        Id attachmentId = savePDF();
-       generateAuditTrail();
-       getvehicleRelation();
+       generateAuditTrail();       
        return openPDF(attachmentId);
      } else {
       return null;
-     }
+    }
    }
     /** 
      * @Description Creating attachement record  for the current case.  
@@ -110,7 +94,7 @@ public with sharing class GenerateAndAttachPDF {
      * @Date 11/06/2015(mm/dd/yy)  
      * @return Id of an attachment record
      */
-     public Id savePDF() {
+     public Id savePDF() {      
         Attachment attachment = new Attachment();
         attachment.ParentId = recordId;
         attachment.name =System.Label.Case+''+cas.CaseNumber+':'+String.valueof(Datetime.now())+'.pdf';
@@ -149,7 +133,7 @@ public with sharing class GenerateAndAttachPDF {
      * @Param paasing attachment's Id.
      * @return generated pdf file
      */
-      public PageReference openPDF(Id attachmentId) {
+      public PageReference openPDF(Id attachmentId) {        
         PageReference ret = new PageReference(system.Label.servletfile+attachmentId);
         ret.setRedirect(true);
         return ret;

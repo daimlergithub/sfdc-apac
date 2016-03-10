@@ -42,10 +42,13 @@
             }       
         table,td{    
             border: 1px solid black;  
-            font-size:12px; 
+            font-size:12px;
            }
+        td{
+            padding-left:1px;
+        }
         table{
-            width: 100%;
+            width: 702px;
             font-family: Arial Unicode MS;          
            -fs-table-paginate: paginate;           
           }
@@ -55,6 +58,7 @@
              diaplay:table;
              margin-left:8px;
              width: 702px;
+             padding-top:14px;
            }
             .Row
             {
@@ -70,27 +74,61 @@
               font-size:12px; 
               font-family: Arial Unicode MS;              
             }                
+         .CellTopLeft
+            {
+              display: table-cell;
+              border: solid;
+              border-width: 3px;
+              border-collapse:collapse;
+              font-size:18px; 
+              font-family: Arial Unicode MS;
+              width:115px;
+              text-align:center;
+            }                
+         .CellTopRight
+            {
+              display: table-cell;
+              border: solid;
+              border-width: 3px;
+              border-collapse:collapse;
+              font-size:18px; 
+              font-family: Arial Unicode MS;              
+              width:50px;
+              text-align:center;
+            }                
        </style>
     </head>  
     <body style="padding-top:60px;">
     <!-- First Page Header -->
     <c:PDFHeaderFooter type="header" position="left">
-         <div class="header" style="padding-top:30px;">      
-          <div style="font-size:18px;border: 1px solid black;width:150px;">{!$Label.FAXCover}</div>
+         <div class="header" style="padding-top:32px;">
+          <div class="Table">
+          <div class="Row">
+          <div class="CellTopLeft">{!$Label.FAXCover}</div>
+          <div class="Cell" style="border-right-style: hidden;border-left-style: hidden;border-top-style: hidden;border-bottom-style: hidden;width:517px;"></div>
+          <div class="CellTopRight">{!$Label.ConfidentialPDF}</div>
+          </div>
+          </div>
           <div style="font-size:25px;text-align: center;">{!$Label.CallCenterCaseInformation}</div>
           <div style="padding-top:8px;font-size:15px;text-align: right;">{!$Label.CustomerAssistanceCenter}</div>
           <div style="padding-top:3px;font-size:15px;text-align: right;">{!$Label.TelFax}</div>
-          <div style="font-size:15px;text-align: left;">{!$Label.RecipientofthisFAX},<br/>{!$Label.Discardit}.</div>
+          <div style="font-size:10px;text-align: left;">{!$Label.RecipientofthisFAX}<br/>{!$Label.Discardit}</div>
         </div>
     </c:PDFHeaderFooter>
     <!-- All Pages Header -->
     <c:PDFHeaderFooter type="header" position="left">   
-         <div class="header" style="padding-top:30px;">      
-          <div style="font-size:18px;border: 1px solid black;width:150px;">{!$Label.FAXCover}</div>          
+         <div class="header" style="padding-top:32px;">
+          <div class="Table">
+          <div class="Row">
+          <div class="CellTopLeft">{!$Label.FAXCover}</div>
+          <div class="Cell" style="border-right-style: hidden;border-left-style: hidden;border-top-style: hidden;border-bottom-style: hidden;width:517px;"></div>
+          <div class="CellTopRight">{!$Label.ConfidentialPDF}</div>
+          </div>
+          </div>
           <div style="font-size:25px;text-align: center;">{!$Label.CallCenterCaseInformation}</div>
           <div style="padding-top:8px;font-size:15px;text-align: right;">{!$Label.CustomerAssistanceCenter}</div>
           <div style="padding-top:3px;font-size:15px;text-align: right;">{!$Label.TelFax}</div>
-          <div style="font-size:15px;text-align: left;">{!$Label.RecipientofthisFAX},<br/>{!$Label.Discardit}.</div> 
+          <div style="font-size:10px;text-align: left;">{!$Label.RecipientofthisFAX}<br/>{!$Label.Discardit}</div>
        </div>
        <div class="Table">
        <div class="Row" style="margin-left:10px;">
@@ -101,7 +139,7 @@
        </div>
        <div class="Row" style="margin-left:10px;">
            <div class="Cell" style="border-right-style: hidden;width:140px;">{!$Label.Customer}</div>
-           <div class="Cell" style="width:211px;">{!Case.Account.FirstName}&nbsp;{!Case.Account.LastName}</div>
+           <div class="Cell" style="width:211px;">{!Case.Account.LastName}&nbsp;{!Case.Account.FirstName}{!$Label.Sama}</div>
            <div class="Cell" style="border-right-style: hidden;border-left-style: hidden;width:140px;">{!$Label.CaseNumber}</div>
            <div class="Cell" style="width:211px;">{!Case.CaseNumber}</div>
        </div>
@@ -112,11 +150,11 @@
 
     <!-- Content -->     
         <div class="content" style="border: 1px solid black;padding-top:5px">         
-           <div style="font-size:22px;">{!$Label.ServicePersonnel}</div>
-           <div style="padding-top:5px;font-size:15px;">{!$Label.Thankyouforyourbusiness}.</div> 
-           <div style="font-size:15px;">{!$Label.Customerrelatedinformation}</div>
-           <div style="font-size:15px;">{!$Label.Pleasecheck}</div>
-           <div style="font-size:15px;">{!$Label.Pleasetakecautiontheinformation}</div>  
+           <div style="font-size:20px;">{!$Label.ServicePersonnel}</div>
+           <div style="padding-top:5px;font-size:11px;">{!$Label.Thankyouforyourbusiness}</div> 
+           <div style="font-size:11px;">{!$Label.Customerrelatedinformation}</div>
+           <div style="font-size:11px;">{!$Label.Pleasecheck}</div>
+           <div style="font-size:11px;">{!$Label.Pleasetakecautiontheinformation}</div>  
         </div> 
         <br/> 
         <table cellpadding="0" cellspacing = "0" style="border-left-style: hidden;border-top-style:hidden;border-right-style: hidden;border-bottom-style:hidden;">
@@ -145,14 +183,11 @@
          <tr><td align="left" width="20%" style="border-right-style: hidden;">{!$Label.Subject}</td>
              <td align="left" colspan="3">{!Case.Subject}</td>
          </tr>
-      </table>  
-      <br/>
-      <table width="100%" cellpadding="0" cellspacing = "0" style="border-left-style: hidden;border-top-style:hidden;border-right-style: hidden;border-bottom-style:hidden;">
           <tr>
-             <td align="left" width="20%" style="border-right-style: hidden;">{!$Label.DateTime}</td>
-             <td align="left" width="30%" style="border-right-style: hidden;">{!Case.CreatedDate}</td>
-             <td align="left" width="20%" style="border-right-style: hidden;">{!$Label.CaseCategory}</td>
-             <td align="left" width="30%">{!Case.Case_Class__c}</td>
+             <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.DateTime}</td>
+             <td align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;"><apex:outputField value="{!Case.CreatedDate}"></apex:outputField></td>
+             <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.CaseCategory}</td>
+             <td align="left" width="30%" style="border-top-style: hidden;"><apex:outputField value="{!Case.Case_Class__c}"></apex:outputField></td>
           </tr> 
            <tr>
              <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Kana}</td>
@@ -161,7 +196,7 @@
                <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name__c}</apex:outputlabel>
              </td>
              <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.CustomerType}</td>
-             <td align="left" width="30%" style="border-top-style: hidden;">{!Case.Customer_Type__c}</td>
+             <td align="left" width="30%" style="border-top-style: hidden;"><apex:outputField value="{!Case.Customer_Type__c}"></apex:outputField></td>
           </tr> 
           <tr>
              <td align="left" width="20%" rowspan="2" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Customer}</td>
@@ -179,7 +214,8 @@
           <tr>
              <td align="left" width="20%" rowspan="2" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Address}</td>
              <td align="left" width="80%" height="25" colspan="3" style="border-top-style: hidden;">
-                 <apex:outputText value="{!LEFT(Case.Account.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>&nbsp;-&nbsp;
+                 <apex:outputText value="{!LEFT(Case.Account.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                 <apex:outputLabel rendered="{!If(Case.Account.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
                  <apex:outputText value="{!RIGHT(Case.Account.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
             </td>           
           </tr> 
@@ -200,18 +236,24 @@
           </tr> 
           <tr>
              <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Product_ID}</td>
-             <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!Case.Vehicle__r.UsVIN__c}</td>
+             <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!Case.US_VIN__c}</td>
              <td align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.ModelRange}</td>
              <td align="left" width="30%" height="25" style="border-top-style: hidden;">
-                             {!Case.Vehicle_Class__c}&nbsp;({!case.Vehicle_Model__c})&nbsp;{!Case.Car_Remarks__c}
+                             <apex:outputField value="{!Case.Vehicle_Class__c}"></apex:outputField>
+                             <apex:outputLabel rendered="{!If(Case.Vehicle_Model__c!=Null,true,false)}">(</apex:outputLabel>
+                             <apex:outputField value="{!Case.Vehicle_Model__c}"></apex:outputField>
+                             <apex:outputLabel rendered="{!If(Case.Vehicle_Model__c!=Null,true,false)}">)</apex:outputLabel>
+                             {!Case.Car_Remarks__c}
              </td>
-          </tr>  
-          <tr>
+          </tr>            
+          <tr>         
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.RegistrationNo}</td>
              <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!VehicleRelationshipList.Registration_Number__c}</td>
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.RegistrationDate}</td>
-             <td align="left" width="30%" height="25" style="border-top-style: hidden;">{!VehicleRelationshipList.Registration_Date__c}</td>              
-          </tr> 
+             <td align="left" width="30%" height="25" style="border-top-style: hidden;">
+                   <apex:outputText value="{0,date,yyyy'/'MM'/'dd}"><apex:param value="{!VehicleRelationshipList.Registration_Date__c}" /></apex:outputText>             
+             </td>              
+            </tr> 
           <tr>
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.SellingDealer}</td>
              <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!VehicleRelationshipList.Selling_Dealer__r.Name}</td>  
@@ -222,28 +264,28 @@
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.FinanceMethod}</td>
              <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!VehicleRelationshipList.Finance_Method__c}</td>  
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Occupation}</td>
-             <td align="left" width="30%" height="25" style="border-top-style: hidden;">{!Case.Account.Occupation__c}</td>
+             <td align="left" width="30%" height="25" style="border-top-style: hidden;"><apex:outputField value="{!Case.Account.Occupation__c}"></apex:outputField></td>
           </tr> 
           <tr>
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Resource}</td>
-             <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!Case.Data_Source__c}</td>            
+             <td align="left" width="30%" height="25" style="border-top-style: hidden;border-right-style: hidden;"><apex:outputField value="{!Case.Data_Source__c}"></apex:outputField></td>            
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Priority}</td>
-             <td align="left" width="30%" height="25" style="border-top-style: hidden;">{!Case.Priority}</td>
+             <td align="left" width="30%" height="25" style="border-top-style: hidden;"><apex:outputField value="{!Case.Priority}"></apex:outputField></td>
           </tr>
           <tr>
              <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.CaseType}</td>
-             <td align="left" width="80%" height="25" colspan="3" style="border-top-style: hidden;">{!Case.Case_Type__c}
+             <td align="left" width="80%" height="25" colspan="3" style="border-top-style: hidden;"><apex:outputField value="{!Case.Case_Type__c}"></apex:outputField>
                 <apex:outputText rendered="{!If(Case.Case_SubType__c!=Null ,true,false)}">/</apex:outputText>
-                 {!Case.Case_SubType__c}
+                 <apex:outputField value="{!Case.Case_SubType__c}"></apex:outputField>
                <apex:outputText rendered="{!If(Case.Case_Situation__c!=Null ,true,false)}">/</apex:outputText>
-                 {!Case.Case_Situation__c}
+                 <apex:outputField value="{!Case.Case_Situation__c}"></apex:outputField>
               </td> 
           </tr>
           <tr>
-             <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style:hidden;">{!$Label.Request}</td>
-             <td align="left" width="80%" height="25" colspan="3" style="border-top-style: hidden;border-bottom-style: hidden;">{!Case.Case_Department__c}
+             <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style:hidden;">{!$Label.RequestPDF}</td>
+             <td align="left" width="80%" height="25" colspan="3" style="border-top-style: hidden;border-bottom-style: hidden;"><apex:outputField value="{!Case.Case_Department__c}"></apex:outputField>
                 <apex:outputText rendered="{!If(Case.Customer_Request__c!=Null ,true,false)}">/</apex:outputText>
-               {!Case.Customer_Request__c}</td> 
+               <apex:outputField value="{!Case.Customer_Request__c}"></apex:outputField></td> 
           </tr>
          </table>
          <table width="100%" cellpadding="0" cellspacing = "0"> 
@@ -274,27 +316,22 @@
             </td>             
         </tr>
      </table>   
+      <br/><br/>
       <table width="100%" cellpadding="0" cellspacing = "0" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;">
          <tr>
-             <td align="left" width="25%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
-             <td align="center" width="25%" height="25" style="border-top-style: hidden;border-left-style: hidden;border-right-style: hidden;border-bottom-style: hidden;">
-             <br/><br/>
-              <table width="100%" cellpadding="0" cellspacing = "0">
-                <tr>
-                 <td align="left" width="20%" height="25" style="border-right-style: hidden;">{!$Label.Reception}</td>
-                 <td align="left" width="30%" height="25">{!case.Owner.Name}</td>
-                </tr>
-                <tr>
-                 <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Copy}</td>
-                 <td align="left" width="30%" height="25" style="border-top-style: hidden;"></td>
-                </tr>
-                <br/>
-              </table>
-             </td>  
-          </tr>
+             <td align="left" width="351px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
+             <td align="left" width="140px" height="25" style="border-right-style: hidden;border-top-width:3px;border-left-width:3px;">{!$Label.Reception}</td>
+             <td align="left" width="211px" height="25" style="border-top-width:3px;border-right-width:3px;">{!case.Owner.Name}</td>
+        </tr>
+        <tr>
+             <td align="left" width="351px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
+             <td align="left" width="140px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-width:3px;border-left-width:3px;">{!$Label.Copy}</td>
+             <td align="left" width="211px" height="25" style="border-top-style: hidden;border-bottom-width:3px;border-right-width:3px;"></td>
+        </tr>
+        <br/>
      </table>
      <div style="page-break-after:always;"/>
-     <table width="100%" cellpadding="0" cellspacing = "0" style="border-top-style:hidden;border-right-style:hidden;border-left-style:hidden;border-bottom-style:hidden;padding-top:88px;">
+     <table width="100%" cellpadding="0" cellspacing = "0" style="border-top-style:hidden;border-right-style:hidden;border-left-style:hidden;border-bottom-style:hidden;padding-top:108px;">
         <!-- <tr><td align="left" width="20%" style="border-right-style: hidden;">{!$Label.Subject}</td>
              <td align="left" colspan="3" width="80%">{!Case.Subject}</td>
          </tr>
@@ -311,6 +348,5 @@
          <tr><td align="center" width="100%" colspan="4" style="border-top-style: hidden;">{!$Label.CaseContentStatus}</td></tr>
          <tr><td valign="top" align="left" width="100%" colspan="4" height="300" style="border-top-style: hidden;"><apex:outputText value="{!CustomerStatement}" style="white-space:pre;"/></td></tr> 
       </table>  
-    </body>
-  
+    </body>  
 </apex:page>
