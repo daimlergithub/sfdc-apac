@@ -4243,4 +4243,11 @@
         <shortDescription>Sales Mail</shortDescription>
         <value>Sales Mail</value>
     </labels>
+	<labels>
+        <fullName>ConfidentialPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ConfidentialPDF</shortDescription>
+        <value>Confidential</value>
+    </labels>
 </CustomLabels>
