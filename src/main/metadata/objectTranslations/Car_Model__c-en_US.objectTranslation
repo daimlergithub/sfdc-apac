@@ -2027,16 +2027,6 @@
             <section>Segment Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Car Model Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Segment Information --></label>
-            <section>Segment Information</section>
-        </sections>
-    </layouts>
+    
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
