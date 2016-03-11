@@ -645,12 +645,12 @@
             <informationalMessage><!-- Search and select dealer account. --></informationalMessage>
         </lookupFilter>
         <name>Related_Dealer__c</name>
-        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+        <relationshipLabel>保証/契約</relationshipLabel>
     </fields>
     <fields>
         <label>関連車両</label>
         <name>Related_Vehicle__c</name>
-        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+        <relationshipLabel>保証/契約</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Residual --></label>
@@ -696,7 +696,7 @@
     <fields>
         <label>販売店担当者氏名</label>
         <name>Service_Advisor__c</name>
-        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
+        <relationshipLabel>保証/契約</relationshipLabel>
     </fields>
     <fields>
         <label>利用料金（税抜き）</label>

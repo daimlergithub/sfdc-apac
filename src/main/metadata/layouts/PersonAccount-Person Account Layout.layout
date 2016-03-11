@@ -172,6 +172,9 @@
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
             </layoutItems>
@@ -598,7 +601,18 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>System__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Role__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Portal_Mail_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
+        <sortField>RECORDTYPE</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -649,7 +663,7 @@
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
-        <fields>Case_Category__c</fields>
+        <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>

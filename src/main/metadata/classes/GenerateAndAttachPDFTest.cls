@@ -14,9 +14,11 @@ public static Case objCase;
      ApexPages.currentPage().getParameters().put(system.label.Id,objCase.id);     
      ApexPages.StandardController objSc = new ApexPages.StandardController(objCase);
      GenerateAndAttachPDF objCaseController = new GenerateAndAttachPDF(objSc);
+     objCaseController.CustomerStatement=objCase.Customer_Statement__c;
+     objCaseController.PRCommentForDealer=objCase.PR_Comment_for_Dealer__c;
      //Start test
      Test.startTest();
-     objCaseController.GenerateAndAttachPDF();     
+       objCaseController.GenerateAndAttachPDF();     
      //Stop Test
      Test.stopTest();
      Audit_Trail__c  audittrail=[Select Name,Name__c from Audit_Trail__c  where  Name__c=:objCase.Id];
@@ -24,19 +26,6 @@ public static Case objCase;
      system.assert(audittrail!=Null);
      system.assert(attchment!=Null);
     }
-   public static testMethod void getvehicleRelationTest()
-    { 
-      init();
-      ApexPages.currentPage().getParameters().put(system.label.Id,objCase.id);     
-      ApexPages.StandardController objSc = new ApexPages.StandardController(objCase);
-      GenerateAndAttachPDF objCaseController = new GenerateAndAttachPDF(objSc);
-      //Start test
-       Test.startTest();
-          Vehicle_Relationship__c VehicleRelationship=objCaseController.getvehicleRelation();        
-       //Stop Test
-      Test.stopTest();
-    }  
- 
     // creating record for Case
   public static void init()
     {  
@@ -59,21 +48,9 @@ public static Case objCase;
         objCase.status='Open';
         objCase.Vehicle__c=objVehicle.Id;
         objCase.AccountId=objAccount.Id;
+        objCase.Customer_Statement__c='Customer Statement testing for textboxarea';
+        objCase.PR_Comment_for_Dealer__c='PR Comment for Dealer testing for textboxarea';
         objCase.RecordtypeId=UtilRecordType.getRecordTypeIdByName(UtilConstant.sObjCase,UtilConstant.INQUIRY);
         insert objCase;
     }  
-   /** Description : AttachmentAfterTriggerHandler class will be called */ 
- /*  public static testMethod void testAttachmentAfterTriggerHandler()
-    { 
-      AttachmentAfterTriggerHandler AttachmentAfterTrigger = new AttachmentAfterTriggerHandler();
-      AttachmentAfterTrigger.handleTrigger(false,false,false,false,false);
-      AttachmentAfterTrigger.handleIntegrationTrigger(false,false,false,false,false);
-    }*/
-    /** Description : AttachmentAfterTriggerHandlerJP class will be called */ 
-  /* public static testMethod void testAttachmentAfterTriggerHandlerJP()
-    { 
-      AttachmentAfterTriggerHandlerJP AttachmentAfterTrigger = new AttachmentAfterTriggerHandlerJP();
-      AttachmentAfterTrigger.handleTrigger(false,false,false,false,false);
-      AttachmentAfterTrigger.handleIntegrationTrigger(false,false,false,false,false);
-    }*/
 }

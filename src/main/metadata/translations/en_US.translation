@@ -637,6 +637,10 @@
         <name>Completenes</name>
     </customLabels>
     <customLabels>
+        <label><!-- ConfidentialPDF --></label>
+        <name>ConfidentialPDF</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Confirmation for delete address --></label>
         <name>Confirmation_for_delete_address</name>
     </customLabels>
@@ -683,6 +687,10 @@
     <customLabels>
         <label><!-- Customer・Assistance・Center --></label>
         <name>CustomerAssistanceCenter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CustomerAssistanceCenter2 --></label>
+        <name>CustomerAssistanceCenter2</name>
     </customLabels>
     <customLabels>
         <label><!-- CustomerType --></label>
@@ -895,6 +903,10 @@
     <customLabels>
         <label><!-- Information sharing --></label>
         <name>Informationsharing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToCreate --></label>
+        <name>InsufficientAccessToCreate</name>
     </customLabels>
     <customLabels>
         <label><!-- Insurance Promotion --></label>
@@ -1597,6 +1609,10 @@
         <name>RequestContenttoDealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- RequestPDF --></label>
+        <name>RequestPDF</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Required information error message --></label>
         <name>Required_Information</name>
     </customLabels>
@@ -1681,8 +1697,20 @@
         <name>SalesContactTarget</name>
     </customLabels>
     <customLabels>
+        <label><!-- Sales Mail --></label>
+        <name>SalesMail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL --></label>
+        <name>SalesTEL</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Sales &amp; Marketing --></label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sama --></label>
+        <name>Sama</name>
     </customLabels>
     <customLabels>
         <label><!-- Same --></label>
@@ -1747,6 +1775,10 @@
     <customLabels>
         <label><!-- Share --></label>
         <name>Share</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SlashPDF --></label>
+        <name>SlashPDF</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
@@ -2344,5 +2376,150 @@
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
     </customTabs>
-    
+    <reportTypes>
+        <description><!-- Accounts with DM requests --></description>
+        <label><!-- Accounts with DM requests --></label>
+        <name>Accounts_with_DM_requests</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Entitlements with Contacts --></description>
+        <label><!-- Accounts with Entitlements with Contacts --></label>
+        <name>Accounts_with_Entitlements_with_Contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <name>Entitlements</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads --></description>
+        <label><!-- Accounts with Leads --></label>
+        <name>Accounts_with_Leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38 --></description>
+        <label><!-- Campaign Report type-30-38 --></label>
+        <name>Campaign_Report_type_30_38</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38-2 --></description>
+        <label><!-- Campaign Report type-30-38-2 --></label>
+        <name>Campaign_Report_type_30_38_2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case Approval History --></description>
+        <label><!-- Case Approval History --></label>
+        <name>Case_Approval_History</name>
+        <sections>
+            <label><!-- Process Instance --></label>
+            <name>Process Instance</name>
+        </sections>
+        <sections>
+            <label><!-- Process Instance Node --></label>
+            <name>Process Instance Node</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case with Recall --></description>
+        <label><!-- Case with Recall --></label>
+        <name>Cases_with_Recall</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Recalls --></label>
+            <name>Recalls</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Process Instance --></description>
+        <label><!-- Process Instance --></label>
+        <name>Process_Instance</name>
+        <sections>
+            <label><!-- Process Instance --></label>
+            <name>Process Instance</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Contracts with Contract Line Items --></description>
+        <label><!-- Service Contracts with Contract Line Items --></label>
+        <name>Service_Contracts_with_Contract_Line_Items</name>
+        <sections>
+            <label><!-- Contract Line Items --></label>
+            <name>Contract Line Items</name>
+        </sections>
+        <sections>
+            <label><!-- Service Contracts --></label>
+            <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Contracts with Entitlements --></description>
+        <label><!-- Service Contracts with Entitlements --></label>
+        <name>Service_Contracts_with_Entitlements</name>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <name>Entitlements</name>
+        </sections>
+        <sections>
+            <label><!-- Service Contracts --></label>
+            <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
 </Translations>

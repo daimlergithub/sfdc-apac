@@ -3069,7 +3069,7 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
-   
+    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>

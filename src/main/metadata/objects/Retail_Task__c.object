@@ -63,7 +63,7 @@
         <relationshipLabel>Retail Tasks (Account Name)</relationshipLabel>
         <relationshipName>Retail_Tasks5</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1846,7 +1846,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3822,6 +3822,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>Related_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Related_Contact__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ContractNumber__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>

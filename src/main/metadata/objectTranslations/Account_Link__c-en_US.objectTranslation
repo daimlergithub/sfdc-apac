@@ -9,6 +9,7 @@
         <value>Account Link</value>
     </caseValues>
     <fields>
+        <help><!-- Activate Flag --></help>
         <label><!-- Active --></label>
         <name>Active__c</name>
     </fields>
@@ -397,7 +398,7 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    
+   
     <layouts>
         <layout>Contact to Dealer</layout>
         <sections>

@@ -254,17 +254,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>	
-    <fields>
-        <fullName>HouseNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>HouseNumber</label>
-        <length>15</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Hardcopy_Last_Modified_By__c</fullName>
@@ -285,6 +274,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>HouseNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>HouseNumber</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MD__c</fullName>

@@ -301,7 +301,7 @@
         <name>CSR_Lookup_User_Name</name>
     </customLabels>
     <customLabels>
-        <label>電話等による情報受付</label>
+        <label>お客様関連情報受付</label>
         <name>CallCenterCaseInformation</name>
     </customLabels>
     <customLabels>
@@ -533,7 +533,7 @@
         <name>Case</name>
     </customLabels>
     <customLabels>
-        <label><!-- Case Category --></label>
+        <label>区分</label>
         <name>CaseCategory</name>
     </customLabels>
     <customLabels>
@@ -545,7 +545,7 @@
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
-        <label><!-- CaseType --></label>
+        <label>A:申出内容</label>
         <name>CaseType</name>
     </customLabels>
     <customLabels>
@@ -637,6 +637,10 @@
         <name>Completenes</name>
     </customLabels>
     <customLabels>
+        <label>CONFIDENTIAL</label>
+        <name>ConfidentialPDF</name>
+    </customLabels>
+    <customLabels>
         <label>本当に住所を削除しますか？</label>
         <name>Confirmation_for_delete_address</name>
     </customLabels>
@@ -657,7 +661,7 @@
         <name>Convert_To_Lead</name>
     </customLabels>
     <customLabels>
-        <label><!-- Copy --></label>
+        <label>写し</label>
         <name>Copy</name>
     </customLabels>
     <customLabels>
@@ -681,12 +685,15 @@
         <name>Customer</name>
     </customLabels>
     <customLabels>
-        <label>メルセデス・ベンツ日本株式会社
-カスタマー・アシスタンス・センター</label>
+        <label>メルセデス・ベンツ日本株式会社</label>
         <name>CustomerAssistanceCenter</name>
     </customLabels>
     <customLabels>
-        <label><!-- CustomerType --></label>
+        <label>カスタマー・アシスタンス・センター</label>
+        <name>CustomerAssistanceCenter2</name>
+    </customLabels>
+    <customLabels>
+        <label>架電者属性</label>
         <name>CustomerType</name>
     </customLabels>
     <customLabels>
@@ -694,7 +701,7 @@
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Customerrelatedinformation --></label>
+        <label>以下の通り、お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
         <name>Customerrelatedinformation</name>
     </customLabels>
     <customLabels>
@@ -746,7 +753,7 @@
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
-        <label><!-- Discardit --></label>
+        <label>本紙を破棄していただけますようお願い申し上げます。</label>
         <name>Discardit</name>
     </customLabels>
     <customLabels>
@@ -798,19 +805,22 @@
         <name>Exception_message</name>
     </customLabels>
     <customLabels>
-        <label><!-- FAXCover --></label>
+        <label>ＦＡＸ送付状</label>
         <name>FAXCover</name>
     </customLabels>
     <customLabels>
-        <label><!-- FAXParts --></label>
+        <label>FAX番号
+(部品）</label>
         <name>FAXParts</name>
     </customLabels>
     <customLabels>
-        <label><!-- FAXSales --></label>
+        <label>FAX番号
+(代表または販売）</label>
         <name>FAXSales</name>
     </customLabels>
     <customLabels>
-        <label><!-- FAXService --></label>
+        <label>FAX番号
+(サービス）</label>
         <name>FAXService</name>
     </customLabels>
     <customLabels>
@@ -830,7 +840,7 @@
         <name>Field</name>
     </customLabels>
     <customLabels>
-        <label><!-- FinanceMethod --></label>
+        <label>購入形態</label>
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
@@ -896,6 +906,10 @@
     <customLabels>
         <label>*販売店/社内関係部門への情報展開</label>
         <name>Informationsharing</name>
+    </customLabels>
+    <customLabels>
+        <label>車両を作成する権限がありません。</label>
+        <name>InsufficientAccessToCreate</name>
     </customLabels>
     <customLabels>
         <label><!-- Insurance Promotion --></label>
@@ -1294,7 +1308,7 @@
         <name>Model</name>
     </customLabels>
     <customLabels>
-        <label><!-- ModelRange --></label>
+        <label>モデルレンジ</label>
         <name>ModelRange</name>
     </customLabels>
     <customLabels>
@@ -1390,7 +1404,7 @@
         <name>Not_found_QC</name>
     </customLabels>
     <customLabels>
-        <label><!-- Occupation --></label>
+        <label>職業</label>
         <name>Occupation</name>
     </customLabels>
     <customLabels>
@@ -1438,7 +1452,7 @@
         <name>Page_Element_Previous</name>
     </customLabels>
     <customLabels>
-        <label><!-- Pages --></label>
+        <label>枚</label>
         <name>Pages</name>
     </customLabels>
     <customLabels>
@@ -1462,11 +1476,13 @@
         <name>Phone</name>
     </customLabels>
     <customLabels>
-        <label><!-- PhoneSales --></label>
+        <label>電話番号
+(代表または販売）</label>
         <name>PhoneSales</name>
     </customLabels>
     <customLabels>
-        <label><!-- PhoneService --></label>
+        <label>電話番号
+(サービス）</label>
         <name>PhoneService</name>
     </customLabels>
     <customLabels>
@@ -1478,11 +1494,11 @@
         <name>Please_select_only_one_Master_Record</name>
     </customLabels>
     <customLabels>
-        <label><!-- Pleasecheck --></label>
+        <label>次ページの「処理依頼事項」、および「申立内容・状況」をご確認の上、対応をお願いいたします。</label>
         <name>Pleasecheck</name>
     </customLabels>
     <customLabels>
-        <label><!-- Pleasetakecautiontheinformation --></label>
+        <label>※情報の取り扱いにご注意下さい。</label>
         <name>Pleasetakecautiontheinformation</name>
     </customLabels>
     <customLabels>
@@ -1498,7 +1514,7 @@
         <name>Priority</name>
     </customLabels>
     <customLabels>
-        <label>車体番号</label>
+        <label>車台番号</label>
         <name>Product_ID</name>
     </customLabels>
     <customLabels>
@@ -1550,11 +1566,11 @@
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
     <customLabels>
-        <label><!-- Reception --></label>
+        <label>受付</label>
         <name>Reception</name>
     </customLabels>
     <customLabels>
-        <label><!-- RecipientofthisFAX --></label>
+        <label>このファックスの受領にお心当たりの無い方は、大変お手数ですが、上記記載の送信者までご連絡いただくと共に、</label>
         <name>RecipientofthisFAX</name>
     </customLabels>
     <customLabels>
@@ -1562,7 +1578,7 @@
         <name>Registration</name>
     </customLabels>
     <customLabels>
-        <label><!-- RegistrationDate --></label>
+        <label>登録日</label>
         <name>RegistrationDate</name>
     </customLabels>
     <customLabels>
@@ -1596,6 +1612,10 @@
     <customLabels>
         <label>処理依頼事項</label>
         <name>RequestContenttoDealer</name>
+    </customLabels>
+    <customLabels>
+        <label>B:要求</label>
+        <name>RequestPDF</name>
     </customLabels>
     <customLabels>
         <label>必須項目を入力してください。</label>
@@ -1682,8 +1702,20 @@
         <name>SalesContactTarget</name>
     </customLabels>
     <customLabels>
+        <label>セールスメール</label>
+        <name>SalesMail</name>
+    </customLabels>
+    <customLabels>
+        <label>セールス電話</label>
+        <name>SalesTEL</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Sales &amp; Marketing --></label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label>様</label>
+        <name>Sama</name>
     </customLabels>
     <customLabels>
         <label><!-- Same --></label>
@@ -1698,7 +1730,7 @@
         <name>Save_Filter</name>
     </customLabels>
     <customLabels>
-        <label><!-- Save &amp; New Button --></label>
+        <label>保存・新規作成</label>
         <name>Save_New_Button</name>
     </customLabels>
     <customLabels>
@@ -1726,15 +1758,15 @@
         <name>Select_User</name>
     </customLabels>
     <customLabels>
-        <label><!-- SellingDealer --></label>
+        <label>販売拠点</label>
         <name>SellingDealer</name>
     </customLabels>
     <customLabels>
-        <label><!-- ServiceDealer --></label>
+        <label>サービス拠点</label>
         <name>ServiceDealer</name>
     </customLabels>
     <customLabels>
-        <label><!-- ServicePersonnel --></label>
+        <label>営業責任者　サービス責任者　殿</label>
         <name>ServicePersonnel</name>
     </customLabels>
     <customLabels>
@@ -1746,8 +1778,12 @@
         <name>Service_Work</name>
     </customLabels>
     <customLabels>
-        <label><!-- Share --></label>
+        <label>許諾</label>
         <name>Share</name>
+    </customLabels>
+    <customLabels>
+        <label>／</label>
+        <name>SlashPDF</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
@@ -1886,11 +1922,11 @@
         <name>TerminateVehicleRelationship</name>
     </customLabels>
     <customLabels>
-        <label>車両の関係を終了</label>
+        <label>車両顧客関係がありません。</label>
         <name>Terminate_Vehicle_Relationship</name>
     </customLabels>
     <customLabels>
-        <label><!-- Thankyouforyourbusiness --></label>
+        <label>平素よりお世話になっております。</label>
         <name>Thankyouforyourbusiness</name>
     </customLabels>
     <customLabels>
@@ -1926,7 +1962,7 @@
         <name>Tool_Kit_Type_Media</name>
     </customLabels>
     <customLabels>
-        <label><!-- TotalPages --></label>
+        <label>送付枚数</label>
         <name>TotalPages</name>
     </customLabels>
     <customLabels>
@@ -2345,5 +2381,150 @@
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
     </customTabs>
-    
+    <reportTypes>
+        <description><!-- Accounts with DM requests --></description>
+        <label><!-- Accounts with DM requests --></label>
+        <name>Accounts_with_DM_requests</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Entitlements with Contacts --></description>
+        <label><!-- Accounts with Entitlements with Contacts --></label>
+        <name>Accounts_with_Entitlements_with_Contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <name>Entitlements</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads --></description>
+        <label><!-- Accounts with Leads --></label>
+        <name>Accounts_with_Leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38 --></description>
+        <label><!-- Campaign Report type-30-38 --></label>
+        <name>Campaign_Report_type_30_38</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Report type-30-38-2 --></description>
+        <label><!-- Campaign Report type-30-38-2 --></label>
+        <name>Campaign_Report_type_30_38_2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case Approval History --></description>
+        <label><!-- Case Approval History --></label>
+        <name>Case_Approval_History</name>
+        <sections>
+            <label><!-- Process Instance --></label>
+            <name>Process Instance</name>
+        </sections>
+        <sections>
+            <label><!-- Process Instance Node --></label>
+            <name>Process Instance Node</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case with Recall --></description>
+        <label><!-- Case with Recall --></label>
+        <name>Cases_with_Recall</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Recalls --></label>
+            <name>Recalls</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Process Instance --></description>
+        <label><!-- Process Instance --></label>
+        <name>Process_Instance</name>
+        <sections>
+            <label><!-- Process Instance --></label>
+            <name>Process Instance</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Contracts with Contract Line Items --></description>
+        <label><!-- Service Contracts with Contract Line Items --></label>
+        <name>Service_Contracts_with_Contract_Line_Items</name>
+        <sections>
+            <label><!-- Contract Line Items --></label>
+            <name>Contract Line Items</name>
+        </sections>
+        <sections>
+            <label><!-- Service Contracts --></label>
+            <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Service Contracts with Entitlements --></description>
+        <label><!-- Service Contracts with Entitlements --></label>
+        <name>Service_Contracts_with_Entitlements</name>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <name>Entitlements</name>
+        </sections>
+        <sections>
+            <label><!-- Service Contracts --></label>
+            <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
 </Translations>
