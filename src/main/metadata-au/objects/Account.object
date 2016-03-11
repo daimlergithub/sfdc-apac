@@ -26311,6 +26311,44 @@ else {
         <url>/001/e?retURL=/001/o&amp;RecordType=OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID&amp;ent=Account&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID_lkid={!Account.Id}&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID={!Account.Name}</url>
     </webLinks>
     <webLinks>
+        <fullName>New_Finance_Fleet_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Finance Fleet Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=0121a000000V7Nd&amp;CF00N1a000005s559_lkid={!Account.Id}&amp;CF00N1a000005s559={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Fleet_Vans_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Fleet Vans Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=012m00000008ZlTAAU&amp;CF00N1a000005s559_lkid={!Account.Id}&amp;CF00N1a000005s559={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Person_Account</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>

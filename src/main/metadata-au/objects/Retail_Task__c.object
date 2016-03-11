@@ -7059,4 +7059,23 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Action_Detail__c</errorDisplayField>
         <errorMessage>It's not allowed to change service number.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>New_Finance_Fleet_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Finance Fleet Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=0121a000000V7Nd&amp;CF00N1a000005s55f_lkid={!Retail_Task__c.Id}&amp;CF00N1a000005s55f={!Retail_Task__c.Name}</url>
+    </webLinks>
 </CustomObject>

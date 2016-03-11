@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
+	<excludeButtons>DataDotComAccountInsights</excludeButtons>
+	<excludeButtons>DataDotComClean</excludeButtons>
+	<excludeButtons>DisableCustomerPortalAccount</excludeButtons>
+    <customButtons>New_Finance_Fleet_Lead</customButtons>
+    <customButtons>New_Fleet_Vans_Lead</customButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -717,7 +719,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000InOk</masterLabel>
+        <masterLabel>00h1a000001fjY2</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
