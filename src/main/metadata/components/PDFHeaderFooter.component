@@ -12,8 +12,9 @@
     <!-- Component Body -->
       <apex:outputPanel id="panelHeaderFooter" styleClass="{!styleClass}" layout="block">        
          <apex:outputPanel layout="none" rendered="{!showPageNumbers}">
-           <div>Page <span class="pageNumber"/>/<span class="pageCount"/> </div>
+           <div><span class="pageNumber"/>/<span class="pageCount"/> </div>
          </apex:outputPanel>        
          <apex:componentBody />
       </apex:outputPanel>    
 </apex:component>
+                

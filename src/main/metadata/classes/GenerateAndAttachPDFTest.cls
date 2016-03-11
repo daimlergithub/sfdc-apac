@@ -26,19 +26,6 @@ public static Case objCase;
      system.assert(audittrail!=Null);
      system.assert(attchment!=Null);
     }
-   public static testMethod void getvehicleRelationTest()
-    { 
-      init();
-      ApexPages.currentPage().getParameters().put(system.label.Id,objCase.id);     
-      ApexPages.StandardController objSc = new ApexPages.StandardController(objCase);
-      GenerateAndAttachPDF objCaseController = new GenerateAndAttachPDF(objSc);
-      //Start test
-       Test.startTest();
-          Vehicle_Relationship__c VehicleRelationship=objCaseController.getvehicleRelation();        
-       //Stop Test
-      Test.stopTest();
-    }  
- 
     // creating record for Case
   public static void init()
     {  
