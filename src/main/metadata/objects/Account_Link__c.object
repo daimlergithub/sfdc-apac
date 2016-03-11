@@ -57,7 +57,9 @@
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Shows this is the Activate Flag in use</description>
         <externalId>false</externalId>
+        <inlineHelpText>Activate Flag</inlineHelpText>
         <label>Active</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1729,6 +1731,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fromRole__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Role__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>toRole__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Role2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Portal_Email__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>fromRole__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Role__c</lookupDialogsAdditionalFields>

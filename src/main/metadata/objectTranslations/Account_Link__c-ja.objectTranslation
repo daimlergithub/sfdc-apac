@@ -5,6 +5,7 @@
         <value>アカウントリンク</value>
     </caseValues>
     <fields>
+        <help>アクティベートフラグ</help>
         <label>有効</label>
         <name>Active__c</name>
     </fields>
@@ -393,7 +394,17 @@
             <section>Fields</section>
         </sections>
     </layouts>
-  
+    <layouts>
+        <layout>Contact to Contact</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Contact to Dealer</layout>
         <sections>

@@ -455,14 +455,14 @@
     <layouts>
         <layout>DM</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>コール詳細</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>General Task Layout</layout>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
@@ -473,11 +473,11 @@
             <section>Call Detail</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>コール詳細</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
     </layouts>

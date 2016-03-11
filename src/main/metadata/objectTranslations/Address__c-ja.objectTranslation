@@ -102,6 +102,10 @@
         <name>Hardcopy_Last_Modified_Date__c</name>
     </fields>
     <fields>
+        <label><!-- HouseNumber --></label>
+        <name>HouseNumber__c</name>
+    </fields>
+    <fields>
         <label>MD</label>
         <name>MD__c</name>
     </fields>

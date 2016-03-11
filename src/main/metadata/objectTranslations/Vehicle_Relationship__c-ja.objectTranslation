@@ -3069,7 +3069,37 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
-   
+    <layouts>
+        <layout>Revised Vehicle Relationship Layout-CAC</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>

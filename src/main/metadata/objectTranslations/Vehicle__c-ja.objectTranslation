@@ -5457,12 +5457,28 @@
             <translation><!-- CV --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Dream Car</masterLabel>
+            <translation><!-- Dream Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NGCC</masterLabel>
+            <translation><!-- NGCC --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PC</masterLabel>
             <translation><!-- PC --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>SUV</masterLabel>
+            <translation><!-- SUV --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>VAN</masterLabel>
             <translation><!-- VAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart</masterLabel>
+            <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
     <fields>
