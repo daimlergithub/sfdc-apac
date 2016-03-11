@@ -10091,6 +10091,18 @@ Modify Reason:
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Customer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Title</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Customer Type</label>
@@ -15614,6 +15626,66 @@ Modify Reason:
         <fullName>Status</fullName>
         <picklist>
             <picklistValues>
+                <fullName>Waiting for Response approval</fullName>
+                <closed>false</closed>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response approved</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Request</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalation Raised &amp; Confirmed</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for final approval</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final approval rejected</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final approval done</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TS transfer</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <closed>true</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Call waiting</fullName>
                 <closed>false</closed>
                 <default>false</default>
@@ -15621,11 +15693,6 @@ Modify Reason:
             <picklistValues>
                 <fullName>Has been upgraded</fullName>
                 <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <closed>true</closed>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -15719,62 +15786,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Waiting for Response approval</fullName>
-                <closed>false</closed>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response approved</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting for final approval</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final approval rejected</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final approval done</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prospect</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TS transfer</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>No approval needed</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Request</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Confirmed</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Raised</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Escalation Raised &amp; Confirmed</fullName>
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
@@ -16221,11 +16233,15 @@ Modify Reason:
         <label>Vehicle Brand</label>
         <picklist>
             <picklistValues>
-                <fullName>BENZ</fullName>
-                <default>false</default>
+                <fullName>Mercedes-Benz</fullName>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BENZ</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -16254,10 +16270,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mitsubishi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -103085,17 +103097,17 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
+sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
+window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
 } 
 
 } 
 else { 
-window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
+window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
 }</url>
     </webLinks>
     <webLinks>
@@ -103107,7 +103119,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJE
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_LKID={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_LEAD_CASE_lkid={!Case.Id}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_lkid={!Case.CaseNumber}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>

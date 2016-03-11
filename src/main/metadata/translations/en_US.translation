@@ -637,6 +637,10 @@
         <name>Completenes</name>
     </customLabels>
     <customLabels>
+        <label><!-- ConfidentialPDF --></label>
+        <name>ConfidentialPDF</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Confirmation for delete address --></label>
         <name>Confirmation_for_delete_address</name>
     </customLabels>
@@ -683,6 +687,10 @@
     <customLabels>
         <label><!-- Customer・Assistance・Center --></label>
         <name>CustomerAssistanceCenter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CustomerAssistanceCenter2 --></label>
+        <name>CustomerAssistanceCenter2</name>
     </customLabels>
     <customLabels>
         <label><!-- CustomerType --></label>
@@ -895,6 +903,10 @@
     <customLabels>
         <label><!-- Information sharing --></label>
         <name>Informationsharing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToCreate --></label>
+        <name>InsufficientAccessToCreate</name>
     </customLabels>
     <customLabels>
         <label><!-- Insurance Promotion --></label>
@@ -1597,6 +1609,10 @@
         <name>RequestContenttoDealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- RequestPDF --></label>
+        <name>RequestPDF</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Required information error message --></label>
         <name>Required_Information</name>
     </customLabels>
@@ -1681,8 +1697,20 @@
         <name>SalesContactTarget</name>
     </customLabels>
     <customLabels>
+        <label><!-- Sales Mail --></label>
+        <name>SalesMail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL --></label>
+        <name>SalesTEL</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Sales &amp; Marketing --></label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sama --></label>
+        <name>Sama</name>
     </customLabels>
     <customLabels>
         <label><!-- Same --></label>
@@ -1747,6 +1775,10 @@
     <customLabels>
         <label><!-- Share --></label>
         <name>Share</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SlashPDF --></label>
+        <name>SlashPDF</name>
     </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>

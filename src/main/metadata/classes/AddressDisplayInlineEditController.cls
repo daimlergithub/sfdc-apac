@@ -149,7 +149,8 @@ public class AddressDisplayInlineEditController {
             addressobj.TitleOfHonor__c =editadds.TitleOfHonor__c;
             addressobj.Status__c =editadds.Status__c;
             addressobj.Preferred__c = editadds.Preferred__c;
-            
+            addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
+            addressobj.Temp_Address__c = editadds.Temp_Address__c ;
         }      
         ShowpageBlockFlag = true;
         
@@ -318,12 +319,13 @@ EP/Tolerant for Validation.
             if(response != null && response.ValidationStatus == 'OK')
             {
                 Address_Validated_Flag = true;
+                AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                 //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 
                 
                 if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid )
                 {
-                    AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+                    
                     String ValidStr = response.Addresses[0].ValidFields;
                     system.debug('valid string ------'+ ValidStr );
                     
@@ -370,12 +372,9 @@ EP/Tolerant for Validation.
                     
                     AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
                     
-                    AddressObj.Temp_Address__c = ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' )
-                        + ',' + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' )
-                        + ',' + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' )
-                        + ',' + ((AddressObj.City__c != null) ? AddressObj.City__c : '' )
-                        + ',' + ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) 
-                        + ',' + ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) ;   
+                    AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
+                        ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
+                        ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
                     
                     AddressObj.Address_Code__c = '';
                     AddressObj.Address_Line_1__c = '';

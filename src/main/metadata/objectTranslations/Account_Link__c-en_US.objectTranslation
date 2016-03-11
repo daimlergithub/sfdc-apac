@@ -9,6 +9,7 @@
         <value>Account Link</value>
     </caseValues>
     <fields>
+        <help><!-- Activate Flag --></help>
         <label><!-- Active --></label>
         <name>Active__c</name>
     </fields>

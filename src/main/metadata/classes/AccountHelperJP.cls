@@ -175,28 +175,28 @@ public class AccountHelperJP
             If(!addressid.isEmpty())
             {   
                  addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-            }   
+            }
              For(Account acc:listNewAccounts)
                 {      
                     if(acc.MD__c == 'JP')
                     {   
-                        If(acc.Primary_Address_Reference__c !=Null  && addr!=Null)
+                        If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
                         {              
                             Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                            system.debug('!!!!!!!'+add.id);
                             if(addtrmap1.containsKey(add.Province__c))
                             {
                                 province = addtrmap1.get(add.Province__c);
                             }
                             acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
                             acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                            system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                         }
                         else if(acc.Primary_Address_Reference__c ==Null)
                         {
                              acc.Primary_Address_Display__c ='';
                         }
                             
-                    }              
+                    }
                 }     
                 
             

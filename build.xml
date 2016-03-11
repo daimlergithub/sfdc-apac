@@ -253,13 +253,15 @@
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="PDFHeaderFooter"/>
+			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
-			   <sf:include name="Tasks"/>
-			   
+			   <sf:include name="Tasks"/>			   
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -801,7 +803,7 @@
 				<sf:include name="Campaign_Calendar"/>
 				<sf:include name="Retail_Campaign__c"/>
 				<sf:include name="Retail_Campaign_Calender"/>				
-				<sf:include name="Yearly_Target"/>
+				<sf:include name="Yearly_Target"/>				
 			</sf:typeset>		
 			<sf:typeset name="layouts">
 				<sf:include name="Campaign.*"/>
@@ -924,3 +926,4 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
+

@@ -1182,6 +1182,10 @@
         <name>DMS_Customer_ID__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Sales Function --></label>
+        <name>DRM__c</name>
+    </fields>
+    <fields>
         <label><!-- DUP Number --></label>
         <name>DUPNumber__c</name>
     </fields>
@@ -4476,7 +4480,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class</masterLabel>
-            <translation>Cクラス</translation>
+            <translation>新型GLC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Coupe</masterLabel>
@@ -6769,7 +6773,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6957,7 +6961,7 @@ Allows up to 240 characters --></help>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>

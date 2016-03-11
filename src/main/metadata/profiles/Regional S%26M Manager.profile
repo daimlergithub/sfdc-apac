@@ -4543,11 +4543,7 @@
         <field>Campaign.Is_Parent_Campaign_Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.LastRunDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Lead_Creation_flag__c</field>
@@ -4566,11 +4562,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Min_Car_Age__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.NextRunDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
