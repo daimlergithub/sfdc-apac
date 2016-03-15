@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</fullName>
+        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -61,6 +71,41 @@
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_Owner</fullName>
+        <actions>
+            <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Task.OwnerId</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>DRM</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Task created or assigned to DRM</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DRM Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>TestTaskEmail</fullName>
