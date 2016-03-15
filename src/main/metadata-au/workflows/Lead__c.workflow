@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>  
+    <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
@@ -67,7 +67,7 @@
         <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_Delete</recipient>
+            <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -83,7 +83,7 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
-    <alerts>  
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -188,7 +188,7 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>   
+    <fieldUpdates>
         <fullName>Update_Collectioner_Notes</fullName>
         <description>Updating Collectioner Notes field with the contact value.</description>
         <field>Collectioner_Notes__c</field>
@@ -617,7 +617,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Finance_Send_Email_Before_15_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Finance_Send_Email_Before_15_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -627,7 +627,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Finance_Send_Email_Before_20_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Finance_Send_Email_Before_20_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -637,7 +637,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 45 ,  Is_Fleet_Send_Email_Before_45_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 45 ,  Is_Fleet_Send_Email_Before_45_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -647,7 +647,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
+        <formula>AND(MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -813,6 +813,13 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Send Email On Lead Owner Changed</fullName>
+        <active>false</active>
+        <description>Whenever the lead owner is changed sent email notification to Owner of Lead</description>
+        <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Finance Fleet Lead',MD__c == 'AU')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Set Lead Successful Call Number is 0</fullName>
         <actions>
             <name>Set_Successful_Call_Number_is_0</name>
@@ -847,6 +854,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Status_Category__c</field>
             <operation>equals</operation>
@@ -856,6 +864,11 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <field>Lead__c.RecordTypeId</field>
             <operation>notEqual</operation>
             <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -867,7 +880,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>Created as per the Jira ticket  SFDCAU-485,making contact searchable as a global.</description>
-        <formula>Contact__c != null</formula>
+        <formula>Contact__c != null &amp;&amp; MD__c = 'AU'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -893,7 +906,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>true</active>
         <description>Updates the Customer Type field with the values
 New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
-        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Prospect'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'),  true, false))</formula>
+        <formula>IF(AND(MD__c = 'AU',(Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Prospect'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -905,7 +918,7 @@ New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
         <active>true</active>
         <description>Updates the Customer Type field with the values 
 Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</description>
-        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.PC_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Customer'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'),  true, false))</formula>
+        <formula>IF(AND(MD__c = 'AU',(Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.PC_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Customer'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1105,4 +1118,3 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
-
