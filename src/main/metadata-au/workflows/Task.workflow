@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
+    <!--<alerts>
         <fullName>Email_On_Task_Creation</fullName>
         <description>Email On Task Creation</description>
         <protected>false</protected>
@@ -21,7 +21,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/TestTaskEmail</template>
-    </alerts>
+    </alerts>-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
