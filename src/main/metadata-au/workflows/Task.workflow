@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!--<alerts>
+        <fullName>Email_On_Task_Creation</fullName>
+        <description>Email On Task Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Task_AU_Emails</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/TestTaskEmail</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_notification_to_the_task_owner</fullName>
+        <description>Email notification to the task owner</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Task_AU_Emails</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/TestTaskEmail</template>
+    </alerts>-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -29,11 +51,12 @@
     </fieldUpdates>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>true</active>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
-            <field>Task.RecordTypeId</field>
+            <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Task,EMC Task,Campaign Task</value>
+            <value>Fleet,Fleet Delete</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.Status</field>
@@ -50,17 +73,46 @@
             <operation>greaterOrEqual</operation>
             <value>TODAY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Update_Notification_Email_Flag</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
-            <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Send Email On Task Creation</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Fleet,Fleet Delete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>Whenever a Task is created by Fleet or Fleet Delete profile User email will be sent out to task owner.
+Content of email will be reference the task number and due date.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Task created or assigned to DRM</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DRM Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>TestTaskEmail</fullName>
