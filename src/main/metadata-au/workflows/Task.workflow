@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
-        <fullName>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</fullName>
-        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
-    </alerts>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
