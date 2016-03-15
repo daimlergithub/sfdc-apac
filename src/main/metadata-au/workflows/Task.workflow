@@ -63,25 +63,6 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Send_Email_To_Owner</fullName>
-        <actions>
-            <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <booleanFilter>1 AND 2</booleanFilter>
-        <criteriaItems>
-            <field>Task.OwnerId</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>DRM</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Task created or assigned to DRM</fullName>
         <active>false</active>
         <criteriaItems>
