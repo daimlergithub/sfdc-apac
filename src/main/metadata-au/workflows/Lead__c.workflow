@@ -57,7 +57,12 @@
         <description>Lead Untouched for 4 days after creation</description>
         <protected>false</protected>
         <recipients>
-            <type>owner</type>
+            <recipient>NSM_user</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>SMDFM_users</recipient>
+            <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
@@ -72,6 +77,17 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Lead_Notification_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</fullName>
+        <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Key_Account_Manager_users</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
         <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_days</fullName>
@@ -504,6 +520,11 @@ Proxy_Date_Time__c
             <operation>equals</operation>
             <value>Finance Fleet Lead</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
         <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
@@ -602,9 +623,18 @@ Proxy_Date_Time__c
             <operation>equals</operation>
             <value>Finance Fleet Lead</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
         <description>This Lead has not been touched for 7 days after creation.</description>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
+            <actions>
+                <name>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</name>
+                <type>Alert</type>
+            </actions>
             <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
             <timeLength>7</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
@@ -771,7 +801,6 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -781,6 +810,11 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <field>Lead__c.Fee_Type__c</field>
             <operation>equals</operation>
             <value>Waived</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <description>Update Origination Fee and Documentation Fee to “0” when the Fee Type is selected as Waived.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>

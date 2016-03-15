@@ -99,6 +99,22 @@ Content of email will be reference the task number and due date.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Task created or assigned to DRM</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DRM Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>TestTaskEmail</fullName>
         <active>false</active>
         <criteriaItems>
