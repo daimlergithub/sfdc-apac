@@ -38,6 +38,10 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>MD__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -142,6 +146,7 @@
         <fields>ParentId</fields>
         <fields>Campaign_Code__c</fields>
         <fields>IsActive</fields>
+        <fields>MD__c</fields>
     </miniLayout>
     <relatedContent>
         <relatedContentItems>

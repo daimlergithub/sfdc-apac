@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>GB2312</encodingKey>
-    <name>Dealer Email Notification of Everyday Assigned Leads Amount</name>
-    <style>none</style>
-    <subject>Today&apos;s Leads</subject>
-    <type>text</type>
-</EmailTemplate>

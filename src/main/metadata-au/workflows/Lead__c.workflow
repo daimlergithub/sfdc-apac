@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>  
+    <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
@@ -83,7 +83,7 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
-    <alerts>  
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -188,7 +188,7 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>   
+    <fieldUpdates>
         <fullName>Update_Collectioner_Notes</fullName>
         <description>Updating Collectioner Notes field with the contact value.</description>
         <field>Collectioner_Notes__c</field>
@@ -1105,4 +1105,3 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
-

@@ -141,7 +141,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Customer_Data_Volumn__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c == &apos;Customer&apos;,1,0)</formula>
+        <formula>IF(ObjectName__c == 'Customer',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Data Volumn</label>
         <precision>18</precision>
@@ -154,7 +154,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Incl_Camp_Info__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c== &apos;CampaignMember&apos;, &apos;Yes&apos;, &apos;NO&apos;)</formula>
+        <formula>IF(ObjectName__c== 'CampaignMember', 'Yes', 'NO')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Incl. Camp. Info</label>
         <required>false</required>
@@ -165,7 +165,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Incl_Contact_Info__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c== &apos;Customer&apos;, &apos;Yes&apos;, &apos;NO&apos;)</formula>
+        <formula>IF(ObjectName__c== 'Customer', 'Yes', 'NO')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Incl. Contact Info</label>
         <required>false</required>
@@ -176,7 +176,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Incl_Lead_Info__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c== &apos;Lead&apos;, &apos;Yes&apos;, &apos;NO&apos;)</formula>
+        <formula>IF(ObjectName__c== 'Lead', 'Yes', 'NO')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Incl. Lead Info</label>
         <required>false</required>
@@ -187,7 +187,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_New_Camp_Registeration__c</fullName>
         <externalId>false</externalId>
-        <formula>IF (AND (ObjectName__c==&apos;CampaignMember&apos;, Confirmed__c &gt; 0), 0, if( ObjectName__c==&apos;CampaignMember&apos;, Total__c,0))</formula>
+        <formula>IF (AND (ObjectName__c=='CampaignMember', Confirmed__c &gt; 0), 0, if( ObjectName__c=='CampaignMember', Total__c,0))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>New Camp. Registeration</label>
         <precision>18</precision>
@@ -200,7 +200,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_New_Contact__c</fullName>
         <externalId>false</externalId>
-        <formula>IF (AND (ObjectName__c==&apos;Customer&apos;, Confirmed__c &gt; 0), 0, if( ObjectName__c==&apos;Customer&apos;, Total__c,0))</formula>
+        <formula>IF (AND (ObjectName__c=='Customer', Confirmed__c &gt; 0), 0, if( ObjectName__c=='Customer', Total__c,0))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>New Contact</label>
         <precision>18</precision>
@@ -213,7 +213,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_New_Lead__c</fullName>
         <externalId>false</externalId>
-        <formula>IF (AND (ObjectName__c==&apos;Lead&apos;, Confirmed__c &gt; 0), 0, if( ObjectName__c==&apos;Lead&apos;, Total__c,0))</formula>
+        <formula>IF (AND (ObjectName__c=='Lead', Confirmed__c &gt; 0), 0, if( ObjectName__c=='Lead', Total__c,0))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>New Lead</label>
         <precision>18</precision>
@@ -226,7 +226,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_New_Vehicle__c</fullName>
         <externalId>false</externalId>
-        <formula>IF (AND (ObjectName__c==&apos;Vehicle&apos;, Confirmed__c &gt; 0), 0, if( ObjectName__c==&apos;Vehicle&apos;, Total__c,0))</formula>
+        <formula>IF (AND (ObjectName__c=='Vehicle', Confirmed__c &gt; 0), 0, if( ObjectName__c=='Vehicle', Total__c,0))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>New Vehicle</label>
         <precision>18</precision>
@@ -249,7 +249,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Update_Camp_Registeration__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c==&apos;CampaignMember&apos;,Confirmed__c,0)</formula>
+        <formula>IF(ObjectName__c=='CampaignMember',Confirmed__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Update Camp. Registeration</label>
         <precision>18</precision>
@@ -262,7 +262,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Update_Contact__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c==&apos;Customer&apos;,Confirmed__c,0)</formula>
+        <formula>IF(ObjectName__c=='Customer',Confirmed__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Update Contact</label>
         <precision>18</precision>
@@ -275,7 +275,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Update_Lead__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c==&apos;Lead&apos;,Confirmed__c,0)</formula>
+        <formula>IF(ObjectName__c=='Lead',Confirmed__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Update Lead</label>
         <precision>18</precision>
@@ -288,7 +288,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
     <fields>
         <fullName>R_Update_Vehicle__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ObjectName__c==&apos;Vehicle&apos;,Confirmed__c,0)</formula>
+        <formula>IF(ObjectName__c=='Vehicle',Confirmed__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Update Vehicle</label>
         <precision>18</precision>

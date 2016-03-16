@@ -8,7 +8,12 @@
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
         <label>Task Information</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MTH_Penetration__c</field>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -60,7 +65,7 @@
                 <behavior>Edit</behavior>
                 <field>Account_Name__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Source_ID__c</field>
             </layoutItems>

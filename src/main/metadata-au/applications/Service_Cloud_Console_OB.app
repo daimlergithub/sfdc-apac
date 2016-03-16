@@ -123,7 +123,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/Central_LOGO.png</logo>
     <pushNotifications>
         <pushNotification>
             <fieldNames>DeadLine__c</fieldNames>
@@ -148,30 +147,30 @@
     <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-Campaign</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
-            <fieldName>ContactId</fieldName>
-            <tab>standard-Case</tab>
-        </mapping>
-        <mapping>
             <tab>QC__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Tasks</tab>
         </mapping>
         <mapping>
             <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
         <mapping>
-            <tab>Tasks</tab>
+            <tab>Vehicle__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
         </mapping>
         <mapping>
-            <tab>Vehicle__c</tab>
+            <tab>standard-Campaign</tab>
+        </mapping>
+        <mapping>
+            <fieldName>ContactId</fieldName>
+            <tab>standard-Case</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

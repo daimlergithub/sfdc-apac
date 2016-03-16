@@ -1,0 +1,57 @@
+<messaging:emailTemplate subject=" Invalid contact details : {!if(isblank(relatedTo.Company_Account__c), relatedTo.Contact__r.Name,relatedTo.Company_Account__r.Name)}" recipientType="Contact" relatedToType="Lead__c">
+<messaging:htmlEmailBody >
+
+The following {!relatedTo.Nature_of_Request__c} lead has been referred to you for follow up.
+<br/><br/>
+
+Please return acknowledgement of the status of this referral by clicking on the relevant link below.
+<br/><br/>
+
+{!if(isblank(relatedTo.Company_Account__c),"Contact:"&relatedTo.Contact__r.Name,"Company Account:     "&relatedTo.Company_Account__r.Name)}<br/>
+Lead No.: {!relatedTo.Name}<br/>
+Nature of Request:  {!relatedTo.Nature_of_Request__c}<br/>
+Assigned Dealer: {!relatedTo.Assigned_Dealer__r.Name}<br/>
+<br/>
+<b>Contact Details</b><br/>
+Contact Name: {!relatedTo.Contact__r.FirstName} {!relatedTo.Contact__r.LastName}<br/>
+Work Phone: {!if(isblank(relatedTo.Contact__r.FS_Work_Phone_Last_Modified_By__c),relatedTo.Contact__r.Work_Phone__c,relatedTo.Contact__r.Phone)}<br/>
+Home Phone: {!if(isblank(relatedTo.Contact__r.FS_Work_Phone_Last_Modified_By__c),relatedTo.Contact__r.Individual_Home_Phone__c,relatedTo.Contact__r.Home_Phone_2__c)}<br/>
+Mobile: {!if(isblank(relatedTo.Contact__r.FS_Work_Phone_Last_Modified_By__c),relatedTo.Contact__r.Mobile__c,relatedTo.Contact__r.Mobile2__c)}<br/>
+Email:  {!if(isblank(relatedTo.Contact__r.FS_Work_Phone_Last_Modified_By__c),relatedTo.Contact__r.Email__c,relatedTo.Contact__r.Email__c)}<br/>>
+<br/>
+<b>Qualification Information</b><br/>
+Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
+Vehicle Make - Current: {!relatedTo.Existing_Contract__r.Current_Make__c}<br/>
+Vehicle Model - Current: {!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c} <apex:OutputText value="{!relatedTo.Existing_Contract__r.Current_Model__c}"  rendered="{!relatedTo.Existing_Contract__r.Related_Vehicle__r.Class__c ==null}"/>  <br/>
+Vehicle Year - Current: {!relatedTo.Existing_Contract__r.Current_Year__c}<br/>
+Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
+Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
+Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
+Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText> {!relatedTo.Finance_Amount2__c}<br/>
+Term (Months): {!FLOOR(relatedTo.Term_Month__c)}<br/>
+Monthly Payment: $<apex:outputText value="{0, number, ###,###,###,##0.00}"><apex:param value="{!relatedTo.Monthly_Payment__c}"/></apex:outputText><br/>
+{! IF((relatedTo.Financial_Product__c <> 'Operating Lease'), "Residual Amount: $", "Original Monthly Payment: $") }
+<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{! IF((relatedTo.Financial_Product__c <> 'Operating Lease'), relatedTo.Existing_Contract__r.Residual__c, relatedTo.Monthly_Payment__c)}"/></apex:outputText>{!relatedTo.Payment__c}
+<br/>
+Contract End Date: {!CASE(MONTH(relatedTo.Existing_Contract__r.EndDate__c),1,'Jan',2,'Feb',3,'Mar',4,'Apr',5,'May',6,'Jun',7,'Jul',8,'Aug',9,'Sep',10,'Oct',11,'Nov',12,'Dec',null)} {!DAY(relatedTo.Existing_Contract__r.EndDate__c)} {!YEAR(relatedTo.Existing_Contract__r.EndDate__c)}<br/>
+Interest Rate: {!relatedTo.Interest_Rate__c } %<br/>
+<br/>
+Interested Vehicle Category: {!relatedTo.Interested_Vehicle_Category__c}<br/>
+Vehicle Make Interest: {!relatedTo.Interested_Vehicle_Brand__c}<br/>
+Vehicle Model Interest: {!relatedTo.Vehicle_Model_Interest__c}<br/>
+<br/>
+<b>Notes</b><br/>
+{!relatedTo.Description__c}<br/>
+<br/><br/>
+<c:eoc_links leadId="{!relatedTo.id}" />
+<br/>
+
+Lead No. 
+<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+relatedTo.Id}">
+    {!relatedTo.name}
+</apex:outputLink><br/>
+Kind Regards,<br/>
+{!relatedTo.Owner.Name}
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

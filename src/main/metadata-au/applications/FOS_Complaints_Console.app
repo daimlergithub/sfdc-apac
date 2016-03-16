@@ -145,16 +145,16 @@
     <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-report</tab>
+            <tab>Retail_Task__c</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Account</tab>
         </mapping>
         <mapping>
             <tab>standard-Case</tab>
         </mapping>
         <mapping>
-            <tab>Retail_Task__c</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-Account</tab>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

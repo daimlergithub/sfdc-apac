@@ -1,0 +1,17 @@
+<apex:page standardController="Lead__c" extensions="lead_Addresscontroller">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
+            	<apex:outputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:outputText label="Company Name" value="{!companyname}"/>
+                <apex:outputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:outputText label="Suburb" value="{!suburb}"/>
+                <apex:outputText label="State" value="{!addr.Province__c}"/> 
+                <apex:outputText label="Country" value="{!addr.Country__c}"/> 
+                <apex:outputText label="Post Code" value="{!postcode}"/>
+                <apex:outputText label="Status" value="{!addr.Status__c}"/> 
+            </apex:pageBlockSection>        
+        </apex:pageBlock>    
+    </apex:form>
+</apex:page>
