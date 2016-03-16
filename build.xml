@@ -250,7 +250,7 @@
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Task"/>
-				<sf:include name="Activity"/>
+				<!--<sf:include name="Activity"/>-->
 			</sf:typeset>
 		</deploy>
     </target>
