@@ -17,6 +17,7 @@
         </actions>
         <active>true</active>
         <formula>AND( RecordType.DeveloperName = &apos;Competitor&apos;, TEXT(Brand__c) != null, TEXT(Brand__c) != &apos;&apos;, Car_Model__c != null, Car_Model__c != &apos;&apos; )</formula>
+        <formula>AND(MD__c = &apos;AU&apos;, RecordType.DeveloperName = &apos;Competitor&apos;, TEXT(Brand__c) != null, TEXT(Brand__c) != &apos;&apos;, Car_Model__c != null, Car_Model__c != &apos;&apos; )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
