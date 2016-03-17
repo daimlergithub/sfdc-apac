@@ -594,6 +594,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Lead_AddmultiBrandController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -9379,6 +9383,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead_Product__c.Account__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead_Product__c.Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17481,9 +17490,9 @@
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
@@ -17577,7 +17586,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contract_Relation__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -17625,13 +17634,13 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Lead__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -17766,7 +17775,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Vehicle__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>AUAssignVFPageToRecordType</apexPage>
@@ -17991,6 +18000,10 @@
     <pageAccesses>
         <apexPage>LeadMassChangeDealer</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Add_MultiBrand</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
@@ -18980,10 +18993,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ConvertLeads</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
@@ -19029,10 +19038,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ImportPersonal</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
