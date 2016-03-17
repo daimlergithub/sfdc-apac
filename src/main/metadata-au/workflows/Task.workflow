@@ -168,10 +168,10 @@ Content of email will be reference the task number and due date.</description>
     </rules>
   <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-        <actions>
+      <!--  <actions>
             <name>Email_To_NSM_For_Changing_Visit</name>
             <type>Alert</type>
-        </actions>
+        </actions> -->
         <active>true</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
