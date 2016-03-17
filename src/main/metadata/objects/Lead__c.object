@@ -169,6 +169,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Attachment_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Attachment Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Base_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Base Rate</label>
@@ -2622,6 +2632,19 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Limit_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Credit Limit Request</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -7837,6 +7860,40 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Items__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Items</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Priority</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A  (Highest priority)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B  (Medium priority)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C  (Lowest priority)</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -16559,6 +16616,19 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Units_for_Prospect__c</fullName>
+        <externalId>false</externalId>
+        <label>Units for Prospect</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
@@ -18487,6 +18557,19 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Volume__c</fullName>
+        <externalId>false</externalId>
+        <label>Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Work_Phone__c</fullName>
@@ -23424,6 +23507,21 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Priority__c</picklist>
+            <values>
+                <fullName>A  %28Highest priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B  %28Medium priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C  %28Lowest priority%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -35975,6 +36073,21 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Lead_Priority__c</picklist>
+            <values>
+                <fullName>A  %28Highest priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B  %28Medium priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C  %28Lowest priority%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lead_Source__c</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -47658,6 +47771,21 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Lead_Priority__c</picklist>
+            <values>
+                <fullName>A  %28Highest priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B  %28Medium priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C  %28Lowest priority%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lead_Source__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -58521,6 +58649,21 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Priority__c</picklist>
+            <values>
+                <fullName>A  %28Highest priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B  %28Medium priority%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C  %28Lowest priority%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

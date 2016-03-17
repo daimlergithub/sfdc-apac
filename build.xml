@@ -208,6 +208,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
+				<sf:include name="Activity"/>
 			</sf:typeset>
 			<sf:typeset name="letterhead"/>			
 			<sf:typeset name="tabs">
@@ -249,7 +250,7 @@
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Task"/>
-				<sf:include name="Activity"/>
+				<!--<sf:include name="Activity"/>-->
 			</sf:typeset>
 		</deploy>
     </target>

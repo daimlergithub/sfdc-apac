@@ -6116,6 +6116,22 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>CV</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NGCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dream Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -6221,6 +6237,21 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>DateTime</type>
     </fields>
     <label>Vehicle</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>UsVIN__c</columns>
+        <columns>NAME</columns>
+        <columns>Brand__c</columns>
+        <columns>Class__c</columns>
+        <columns>Model__c</columns>
+        <columns>EuroVIN__c</columns>
+        <columns>CBU_CKD__c</columns>
+        <columns>Colour__c</columns>
+        <columns>CommissionNumber__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>New_Created_Vehicles</fullName>
         <columns>UsVIN__c</columns>
@@ -12161,11 +12192,27 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Dream Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NGCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>PC</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -2,7 +2,7 @@ dev_okoeth=oliver.koeth@nttdata.com.market
 dev_58demo=oliver.koeth@58demo.com,falk.lehmann@58demo.org,raghuprasad.halakere@58demo.org,sukumar.rajashekaran@58demo.org
 
 # only the CI server is allowed to deploy to CI sandbox!
-dev_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.ci
+dev_sb_kernel_ci=arun.iyer.ntt@kernel.daimler-apac.com.ci
 dev_sb_asia_ci=arun.iyer.ntt@mbj.daimler-apac.com.ci
 
 # Kernel Demo sandbox
