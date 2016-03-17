@@ -9048,11 +9048,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Product_Offer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Public__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14929,11 +14924,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Priority__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Product_Offer__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
