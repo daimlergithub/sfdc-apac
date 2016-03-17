@@ -13,20 +13,20 @@
                     <componentType>RelatedList</componentType>
                     <label>Related Lists</label>
                     <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
+                        <hideOnDetail>false</hideOnDetail>
                         <name>Vehicle_Relationship__c.Contact__c</name>
                     </relatedLists>
                     <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
+                        <hideOnDetail>false</hideOnDetail>
+                        <name>RelatedCaseList</name>
+                    </relatedLists>
+                    <relatedLists>
+                        <hideOnDetail>false</hideOnDetail>
                         <name>RelatedHistoryList</name>
                     </relatedLists>
                     <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
+                        <hideOnDetail>false</hideOnDetail>
                         <name>Lead__c.Contact__c</name>
-                    </relatedLists>
-                    <relatedLists>
-                        <hideOnDetail>true</hideOnDetail>
-                        <name>RelatedCaseList</name>
                     </relatedLists>
                     <unit>Pixel</unit>
                 </sidebarComponents>
@@ -36,9 +36,6 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>

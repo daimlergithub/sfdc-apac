@@ -6378,7 +6378,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Retro fit campaign</masterLabel>
-            <translation>レトロフィットキャンペーン</translation>
+            <translation><!-- Retro fit campaign --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SSI inquiry</masterLabel>
@@ -6782,7 +6782,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Importer label</masterLabel>
-            <translation>[MBJ（インポーター）]インポータラベル発行（販売店から依頼）</translation>
+            <translation><!-- MBJ Importer label --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Loyalty</masterLabel>
@@ -7130,7 +7130,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Accident</masterLabel>
-            <translation>事故</translation>
+            <translation><!-- Accident --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Advisory Mercedes-Benz driving Academy</masterLabel>
@@ -7142,7 +7142,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Breakdown</masterLabel>
-            <translation>故障</translation>
+            <translation><!-- Breakdown --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CSR</masterLabel>
@@ -9808,11 +9808,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>B</masterLabel>
-            <translation>B : 安全性又は商品性に関わる問題</translation>
+            <translation>B : 安全性又は商品性に関わる問題(リコール含む)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C</masterLabel>
-            <translation>C : 商品性に関わる問題</translation>
+            <translation>C : 商品性に関わる問題(改善措置、サービスキャンペーン含む)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>D</masterLabel>
@@ -10552,7 +10552,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation>E-mail SNS</translation>
+            <translation>E-mail</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>FAX</masterLabel>

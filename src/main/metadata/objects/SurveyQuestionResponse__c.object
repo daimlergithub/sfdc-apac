@@ -157,12 +157,33 @@
         <unique>false</unique>
     </fields>
     <label>Survey Question Response</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>Response-{0000000}</displayFormat>
         <label>Response ID</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Survey Question Responses</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>SurveyTaker__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Survey_Question__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Response__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>SurveyTaker__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey_Question__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Response__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPDATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>SurveyTaker__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Survey_Question__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Response__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

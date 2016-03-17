@@ -455,7 +455,7 @@
     <layouts>
         <layout>DM</layout>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
@@ -469,11 +469,11 @@
     <layouts>
         <layout>IB Call</layout>
         <sections>
-            <label><!-- Call Detail --></label>
+            <label>通話詳細</label>
             <section>Call Detail</section>
         </sections>
         <sections>
-            <label>コール詳細</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -484,7 +484,7 @@
     <layouts>
         <layout>OB Call</layout>
         <sections>
-            <label><!-- Call Detail --></label>
+            <label>通話詳細</label>
             <section>Call Detail</section>
         </sections>
         <sections>
