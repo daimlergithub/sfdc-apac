@@ -2944,6 +2944,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
+	
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
