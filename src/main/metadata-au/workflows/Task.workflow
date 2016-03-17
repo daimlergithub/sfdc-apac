@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-   <!-- <alerts>
+    <alerts>
         <fullName>Email_To_NSM_For_Changing_Visit</fullName>
         <description>Email_To_NSM_For_Changing_Visit</description>
         <protected>false</protected>
@@ -31,8 +31,8 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_24_hours</template>
-    </alerts> -->
-    <!--<alerts>
+    </alerts> 
+    <alerts>
         <fullName>Email_On_Task_Creation</fullName>
         <description>Email On Task Creation</description>
         <protected>false</protected>
