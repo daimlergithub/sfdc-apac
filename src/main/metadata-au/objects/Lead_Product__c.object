@@ -108,7 +108,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Product_Offer__c</fullName>
         <externalId>false</externalId>
         <label>Product Offer</label>
-        <picklist>
+        <picklist> 
             <picklistValues>
                 <fullName>Service plan</fullName>
                 <default>false</default>
