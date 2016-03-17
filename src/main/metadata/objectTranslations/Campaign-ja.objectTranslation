@@ -904,6 +904,10 @@
     </fields>
     <fields>
         <label><!-- LastRunDate --></label>
+        <name>LastRunDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- LastRunDate --></label>
         <name>Last_Run_Date__c</name>
     </fields>
     <fields>
@@ -957,6 +961,10 @@
     <fields>
         <label>最少車齢</label>
         <name>Min_Car_Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- NextRunDate --></label>
+        <name>NextRunDate__c</name>
     </fields>
     <fields>
         <label><!-- NextRunDate --></label>

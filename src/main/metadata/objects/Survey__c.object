@@ -89,7 +89,6 @@
     <fields>
         <fullName>Survey_Container_CSS__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText></inlineHelpText>
         <label>Survey Container CSS</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -158,9 +157,20 @@
     </nameField>
     <pluralLabel>Surveys</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Submit_Response__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>URL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Submit_Response__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>URL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPDATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Submit_Response__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>URL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>

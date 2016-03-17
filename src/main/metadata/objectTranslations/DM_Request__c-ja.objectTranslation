@@ -71,7 +71,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
+            <translation>E-mail SNS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
@@ -127,7 +127,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
