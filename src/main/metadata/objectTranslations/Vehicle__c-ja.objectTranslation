@@ -5414,7 +5414,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Eternal scrap</masterLabel>
-            <translation>永久廃車</translation>
+            <translation>永久抹消</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invoiced vehicle</masterLabel>
@@ -5434,7 +5434,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Temporary scrap</masterLabel>
-            <translation>一時廃車</translation>
+            <translation>一時抹消</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Required</masterLabel>
