@@ -373,6 +373,7 @@
 	<target name="deploy34">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
+			<sf:include name="TaskHelperApexSharing"/>
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
 			<sf:include name="TaskTriggerHandler"/>
