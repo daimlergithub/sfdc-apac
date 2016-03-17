@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
+   <!--alerts
         <fullName>Email_To_NSM_For_Changing_Visit</fullName>
         <description>Email_To_NSM_For_Changing_Visit</description>
         <protected>false</protected>
@@ -53,7 +53,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/TestTaskEmail</template>
-    </alerts>-->
+    </alerts-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
