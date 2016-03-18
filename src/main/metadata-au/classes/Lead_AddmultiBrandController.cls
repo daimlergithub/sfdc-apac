@@ -10,10 +10,7 @@ public with sharing class Lead_AddmultiBrandController
     public static Lead__c lead = new Lead__c();
     public List<wrappermultibrandclass> wrappermultibrand{get{return wrapperlist;}set{wrapperlist=value;}}
     public Lead_AddmultiBrandController(ApexPages.StandardController controller)
-    {
-        controller.addFields(new List<string>{'Id','Lead_Items__c'});
-        lead = (Lead__c)controller.getRecord();
-        system.debug('lead t^$%$%$%$'+lead);
+    {        
         wrappermultibrandclass wrapper = new wrappermultibrandclass();
         wrapper.vehiclebrand = '';
         wrapper.vechmodel = '';
@@ -71,7 +68,7 @@ public with sharing class Lead_AddmultiBrandController
                     oldleaditems.put(led.Id,led.Lead_Items__c);                    
                     led.Lead_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty; 
                 }
-                else if(led.Lead_Items__c == null)
+                else if(led.Lead_Items__c == null && led.Lead_Items__c == '')
                 {
                     led.Lead_Items__c = commaSepratedList;
                 }
