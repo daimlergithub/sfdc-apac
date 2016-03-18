@@ -816,6 +816,7 @@
 			<sf:include name="CampaignMemberHistoryControllerTest"/>
 			<sf:include name="lead_Addresscontroller"/>
 			<sf:include name="lead_AddresscontrollerTest"/>
+			<sf:include name="Lead_AddmultiBrandController"/>
 			<sf:include name="LeadMassChangeDealerController"/>
 			<sf:include name="LeadMassChangeDealerControllerTest"/>
 			<sf:include name="UtilVehicleRelationshipTest"/>
@@ -849,6 +850,7 @@
 				<sf:include name="CampaignMemberHistory"/>
 				<sf:include name="Lead_Address"/>
 				<sf:include name="LeadMassChangeDealer"/>
+				<sf:include name="Lead_Add_MultiBrand"/>
 				<sf:include name="TaskMassChangeActivateDeactive"/>	
 				<sf:include name="ActivityReportUserBased"/>
 				<sf:include name="DealerLookup"/>

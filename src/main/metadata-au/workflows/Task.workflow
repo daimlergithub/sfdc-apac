@@ -1,59 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-   <!--alerts
-        <fullName>Email_To_NSM_For_Changing_Visit</fullName>
-        <description>Email_To_NSM_For_Changing_Visit</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>arpita.sinha@nttdata.com.au</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Complaint_update_notification</template>
-    </alerts>
-    <alerts>
-        <fullName>Escalation_after_48_hours</fullName>
-        <description>Escalation_after_48_hours</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>arpita.sinha@nttdata.com.au</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Escalation_after_48_hours</template>
-    </alerts>
-    <alerts>
-        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <description>Send_Email_To_DRM_User_After_24hrs_DueDate</description>
+    <!--<alerts>
+        <fullName>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</fullName>
+        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Escalation_after_24_hours</template>
-    </alerts> 
-    <alerts>
-        <fullName>Email_On_Task_Creation</fullName>
-        <description>Email On Task Creation</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts>
-    <alerts>
-        <fullName>Email_notification_to_the_task_owner</fullName>
-        <description>Email notification to the task owner</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts-->
+        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
+    </alerts>-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -131,6 +87,53 @@ Content of email will be reference the task number and due date.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </criteriaItems>
+        <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
+        <active>true</active>
+        <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
+        <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Status</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>If status is not completed 48 hours after the due date, send an email notification to DRM user and the National Sales Manager user</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_Owner</fullName>
+        <!--<actions>
+            <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
+            <type>Alert</type>
+        </actions>-->
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Task.OwnerId</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>DRM</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Task created or assigned to DRM</fullName>
         <active>false</active>
         <criteriaItems>
@@ -145,56 +148,6 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-   <rules>
-        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <active>true</active>
-        <criteriaItems>
-            <field>Task.Status</field>
-            <operation>notEqual</operation>
-            <value>Complete</value>
-        </criteriaItems>
-        <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-       <!-- <workflowTimeTriggers>
-            <actions>
-                <name>Send_Email_To_DRM_User_After_24hrs_DueDate</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Task.ActivityDate</offsetFromField>
-            <timeLength>24</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers> -->
-    </rules>
-  <rules>
-        <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-      <!--  <actions>
-            <name>Email_To_NSM_For_Changing_Visit</name>
-            <type>Alert</type>
-        </actions> -->
-        <active>true</active>
-        <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
-        <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules> 
-    <rules>
-        <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
-        <active>true</active>
-        <criteriaItems>
-            <field>Task.Status</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <description>If status is not completed 48 hours after the due date, send an email notification to DRM user and the National Sales Manager user</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-      <!--  <workflowTimeTriggers>
-            <actions>
-                <name>Escalation_after_48_hours</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Task.ActivityDate</offsetFromField>
-            <timeLength>48</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers> -->
     </rules>
     <rules>
         <fullName>TestTaskEmail</fullName>

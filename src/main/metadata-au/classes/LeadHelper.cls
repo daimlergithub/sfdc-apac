@@ -1409,7 +1409,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
 		 for(Lead__c lead :accountOwnerids){
              
 		             // Send email notification to the new owner
-		  				   toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
+		  				  toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
 		  				   system.debug('lead.Assigned_Dealer__r.owner.Email'+lead.Assigned_Dealer__r.owner.Email);
 		  				   String subject = etToOwner.subject.replace('{!Lead__c.Name}',lead.Name);
                            system.debug('subject'+subject);

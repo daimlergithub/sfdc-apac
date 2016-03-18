@@ -1,0 +1,30 @@
+<apex:page standardController="Lead__c" extensions="Lead_AddmultiBrandController">
+    <apex:pageMessages id="pgmasg"></apex:pageMessages>
+    <script>
+        function refreshpage()
+        {
+            window.top.location='/{!Lead__c.id}';
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="refreshdata" columns="4">
+                <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
+                    <apex:outputLabel value="Brand">
+                        <apex:selectList value="{!wrap.vehiclebrand}">
+                            <apex:selectOptions value="{!brands}" /> 
+                        </apex:selectList> 
+                    </apex:outputLabel>
+                    <apex:outputLabel value="Vehicle Model">
+                        <apex:inputText value="{!wrap.vechmodel}"/>
+                    </apex:outputLabel>
+                    <apex:outputLabel value="Quantity">
+                        <apex:inputText value="{!wrap.vechquanty}"/>
+                    </apex:outputLabel>
+                    <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
+                </apex:repeat>
+                <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()"/>                
+            </apex:pageBlockSection>         
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
