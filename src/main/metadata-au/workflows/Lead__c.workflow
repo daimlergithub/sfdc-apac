@@ -57,11 +57,7 @@
         <description>Lead Untouched for 4 days after creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>NSM_user</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
-            <recipient>SMDFM_users</recipient>
+            <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -83,7 +79,11 @@
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
+            <recipient>NSM_user</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>SMDFM_users</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>

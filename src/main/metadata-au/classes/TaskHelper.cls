@@ -30,7 +30,8 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
    // private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
-    private static String Finance_Fleet_lead_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
+    public static String Finance_Fleet_lead_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Finance_Fleet_lead).getRecordTypeId();
+    
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
        
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
