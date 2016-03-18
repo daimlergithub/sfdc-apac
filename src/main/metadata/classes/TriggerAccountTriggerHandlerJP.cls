@@ -31,7 +31,7 @@ implements TriggerHandlerIf
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
         }
-        if(isAfter && isInsert && && !System.isFuture())
+        if(isAfter && isInsert && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
@@ -45,7 +45,7 @@ implements TriggerHandlerIf
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
         }
         
-        if(isAfter && isDelete && && !System.isFuture())
+        if(isAfter && isDelete && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccOld);
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,serializedObject);
@@ -69,18 +69,18 @@ implements TriggerHandlerIf
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
         }
         
-        if(isAfter && isInsert && && !System.isFuture())
+        if(isAfter && isInsert && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,serializedObject);
         } 
-        if(isAfter && isUpdate && && !System.isFuture())
+        if(isAfter && isUpdate && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
         }
         
-        if(isAfter && isDelete && && !System.isFuture())
+        if(isAfter && isDelete && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccOld);
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,serializedObject);
