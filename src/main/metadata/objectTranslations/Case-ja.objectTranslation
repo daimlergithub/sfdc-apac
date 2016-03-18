@@ -9816,11 +9816,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>D</masterLabel>
-            <translation>D : 活動に関する問題</translation>
+            <translation>D : その他問合わせ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E</masterLabel>
-            <translation>E : その他問合せ</translation>
+            <translation>E : 活動に関する問題</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Green &lt;= 2</masterLabel>
