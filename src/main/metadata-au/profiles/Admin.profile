@@ -594,6 +594,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Lead_AddmultiBrandController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1594,6 +1598,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>multiBrandaddextension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1695,6 +1703,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Batch_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Behavioural_Group__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3495,6 +3508,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Primary_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Segment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18421,6 +18439,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Lead_Add_MultiBrand</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -18598,6 +18620,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ca_tour_style</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>createMultiBrand</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

@@ -594,6 +594,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Lead_AddmultiBrandController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1594,6 +1598,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>multiBrandaddextension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1696,6 +1704,11 @@
         <editable>false</editable>
         <field>Account.Batch_No__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Behavioural_Group__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3496,6 +3509,11 @@
         <editable>false</editable>
         <field>Account.Primary_Phone__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Segment__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9379,6 +9397,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead_Product__c.Account__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead_Product__c.Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9453,9 +9476,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Attachment_Flag__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17984,6 +18007,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Lead_Add_MultiBrand</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -18161,6 +18188,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ca_tour_style</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>createMultiBrand</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
