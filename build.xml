@@ -817,6 +817,7 @@
 			<sf:include name="lead_Addresscontroller"/>
 			<sf:include name="lead_AddresscontrollerTest"/>
 			<sf:include name="Lead_AddmultiBrandController"/>
+			<sf:include name="Lead_AddmultiBrandControllerTest"/>
 			<sf:include name="LeadMassChangeDealerController"/>
 			<sf:include name="LeadMassChangeDealerControllerTest"/>
 			<sf:include name="UtilVehicleRelationshipTest"/>
