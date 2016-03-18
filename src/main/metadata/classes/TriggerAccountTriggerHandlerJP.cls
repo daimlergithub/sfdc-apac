@@ -38,11 +38,17 @@ implements TriggerHandlerIf
             
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,serializedObject);
         } 
-        if(isAfter && isUpdate && !System.isFuture())
+        if(isAfter && isUpdate)
         {
-            serializedObject=json.serialize(ListAccNew);
+            if(System.isFuture()){
+				return;
+			}
+			else{
+				serializedObject=json.serialize(ListAccNew);
             
-            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
+				AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
+			}
+				
         }
         
         if(isAfter && isDelete)
