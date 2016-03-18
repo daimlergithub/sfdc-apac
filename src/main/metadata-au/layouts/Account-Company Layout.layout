@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-	<customButtons>New_Contacts_Relation</customButtons>
+    <customButtons>New_Contacts_Relation</customButtons>
     <customButtons>New_Fleet_Vans_Lead</customButtons>
     <customButtons>New_Finance_Fleet_Lead</customButtons>
-	<excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>

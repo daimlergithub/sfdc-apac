@@ -13,5 +13,5 @@
     <tab>standard-Chatter</tab>
     <tab>Retail_Task__c</tab>
     <tab>Vehicle__c</tab>
-	<tab>Address__c</tab>
+    <tab>Address__c</tab>
 </CustomApplication>

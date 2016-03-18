@@ -47,7 +47,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
         <fields>RECORDTYPE</fields>

@@ -25,16 +25,10 @@
         <field>Retail_Task__c.Current_Make__c</field>
     </columns>
     <columns>
-        <field>Retail_Task__c.Settlement_Officer__c</field>
-    </columns>
-    <columns>
         <field>Retail_Task__c.Status__c</field>
     </columns>
     <columns>
         <field>Retail_Task__c.Finance_Product_Type__c</field>
-    </columns>
-    <columns>
-        <field>Retail_Task__c.Compliance_Comment__c</field>
     </columns>
     <filter>
         <criteriaItems>

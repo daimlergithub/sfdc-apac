@@ -18,7 +18,7 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Address_Type__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
@@ -58,6 +58,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Delivery_Point_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>MD__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -126,6 +130,9 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>MD__c</fields>
+    </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

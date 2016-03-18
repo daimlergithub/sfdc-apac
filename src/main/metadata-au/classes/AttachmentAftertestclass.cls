@@ -21,7 +21,7 @@ public with sharing class AttachmentAftertestclass {
             insert a; 
             delete a;
         Test.stopTest();
-        
+        system.assertEquals(le1.Attachment_Flag__c, false);
     }
        
     }

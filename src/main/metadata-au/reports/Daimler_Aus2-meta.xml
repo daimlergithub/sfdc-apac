@@ -5,5 +5,7 @@
     <publicFolderAccess>ReadOnly</publicFolderAccess>
     <sharedTo>
         <group>Fleet_Delete</group>
+        <group>National_Sales_Manager</group>
+        <group>Senior_Manager_DFM</group>
     </sharedTo>
 </ReportFolder>

@@ -713,7 +713,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA,Monthly TA</value>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -731,7 +731,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA,Monthly TA</value>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -749,7 +749,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA,Monthly TA</value>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -767,7 +767,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA,Monthly TA</value>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
             <field>Dealer_Region__c</field>

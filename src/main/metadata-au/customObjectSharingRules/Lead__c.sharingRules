@@ -41,4 +41,18 @@
         <accessLevel>Read</accessLevel>
         <name>Share Lead With CRMOne User</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Task_With_CRMOne_User</fullName>
+        <sharedTo>
+            <role>Australia</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>This is a criteria based sharing rule which shares the record with all CRMOne users depending upon the public checkbox is ticked or not,</description>
+        <name>Share_Task_With_CRMOne_User</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

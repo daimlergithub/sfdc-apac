@@ -1,3 +1,0 @@
-<apex:page controller="AddToRetailCampaignController" action="{!addTo}">
-    <apex:pageMessages />
-</apex:page>

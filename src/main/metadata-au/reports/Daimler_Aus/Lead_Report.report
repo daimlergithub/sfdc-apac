@@ -9,6 +9,9 @@
     <columns>
         <field>Lead__c.CAC_Lead_Status__c</field>
     </columns>
+    <columns>
+        <field>Lead__c.Close_Date__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>Lead__c.CAC_Lead_Status__c</column>

@@ -230,8 +230,8 @@ public with sharing class RetailTaskHelper {
             }
         }
     }
-	
-	public static void sentEmailAfterStatusToCurrent(List<Retail_Task__c> retailTasklst,Map<Id,Retail_Task__c> oldMap,Map<Id,Retail_Task__c>newMap,Boolean isInsert,Boolean isUpdate){
+    
+    public static void sentEmailAfterStatusToCurrent(List<Retail_Task__c> retailTasklst,Map<Id,Retail_Task__c> oldMap,Map<Id,Retail_Task__c>newMap,Boolean isInsert,Boolean isUpdate){
           Set<Id> dealerIds = new Set<Id>();
          
             for(Retail_Task__c retailtaskObj : retailTasklst){
@@ -271,27 +271,31 @@ public with sharing class RetailTaskHelper {
    //                         system.debug();
                             if(subject != null && plainBody != null){
                                 mail.setToAddresses(businessUserEmailAddress);
-                                subject  = subject.replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
-                                plainBody  = plainBody .replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
-                                plainBody  = plainBody.replace('{!RetailTask.ContractNumber}',retailTaskObj.ContractNumber__c);
-                                plainBody  = plainBody.replace('{!RetailTask.FINANCED}',String.valueOf(retailTaskObj.Amount_Financed__c));
-                                if(retailtaskObj.Status__c == UtilConstant.IRREGULAR || retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
-                                   if(retailTaskObj.Settlement_Officer__c != null){
-                                      plainBody  = plainBody.replace('(Settlement officer)',retailTaskObj.Settlement_Officer__c);
-                                   }else{
-                                       plainBody  = plainBody.replace('(Settlement officer)','');
-                                   }
-                                   if(retailTaskObj.Compliance_Comment__c != null){
-                                       plainBody  = plainBody.replace('(Compliance comment)',retailTaskObj.Compliance_Comment__c);
-                                   }else{
-                                       plainBody  = plainBody.replace('(Compliance comment)','');
-                                   }
-                                }
-                                mail.setSubject(subject);
-                                mail.setPlainTextBody(plainBody);
-                                mails.add(mail);
-                                system.debug('::Eneter here:'+subject);
-                                 system.debug('::Eneter here:'+plainBody );
+                                if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c)){
+                                    subject  = subject.replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                  
+                                    plainBody  = plainBody .replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                    plainBody  = plainBody.replace('{!RetailTask.ContractNumber}',retailTaskObj.ContractNumber__c);
+                                    plainBody  = plainBody.replace('{!RetailTask.FINANCED}',String.valueOf(retailTaskObj.Amount_Financed__c));
+                                    if(retailtaskObj.Status__c == UtilConstant.IRREGULAR || retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
+                                       if(retailTaskObj.Settlement_Officer__c != null){
+                                          plainBody  = plainBody.replace('(Settlement officer)',retailTaskObj.Settlement_Officer__c);
+                                       }else{
+                                           plainBody  = plainBody.replace('(Settlement officer)','');
+                                       }
+                                       if(retailTaskObj.Compliance_Comment__c != null){
+                                           plainBody  = plainBody.replace('(Compliance comment)',retailTaskObj.Compliance_Comment__c);
+                                       }else{
+                                           plainBody  = plainBody.replace('(Compliance comment)','');
+                                       }
+                                    }
+                              
+                                    mail.setSubject(subject);
+                                    mail.setPlainTextBody(plainBody);
+                                    mails.add(mail);
+                                    system.debug('::Eneter here:'+subject);
+                                     system.debug('::Eneter here:'+plainBody );
+                               }
                             }
                     }
                      
@@ -301,5 +305,5 @@ public with sharing class RetailTaskHelper {
     
     // End of added part, Polaris Yu 2013-8-23
             }
-		}
-	}
+        }
+    }

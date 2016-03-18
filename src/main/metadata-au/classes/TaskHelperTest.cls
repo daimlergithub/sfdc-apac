@@ -371,10 +371,13 @@ private class TaskHelperTest {
 		                                    whatid=le1.id,
 		                                    Status__c='Complete');
             insert tsk;
+            Task tsk1 = [select Company__c from task where id =:tsk.id];
+            system.debug('tsk.........'+tsk.Company__c);
             list<Task> TaskList =new list<Task>();
             TaskList.add(tsk);
             Taskhelper.updateCompany(TaskList);
     		Test.stopTest();
+          	system.assertEquals(le1.Company_Account__c, tsk1.Company__c);
         }
         
 }

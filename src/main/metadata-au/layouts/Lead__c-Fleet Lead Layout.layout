@@ -23,7 +23,7 @@
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -37,14 +37,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Title__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Public__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -61,7 +53,7 @@
                 <field>Sub_BusinessUnit__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>

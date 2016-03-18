@@ -151,19 +151,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd visit (leads) update on leads</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4th follow up or touch base</fullName>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1369,21 +1357,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -2545,21 +2518,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4005,21 +3963,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -4260,22 +4203,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Subject</picklist>
-            <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Call</fullName>
                 <default>false</default>
@@ -5210,21 +5137,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6670,21 +6582,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -6926,22 +6823,6 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call</fullName>
                 <default>false</default>
             </values>
@@ -6955,6 +6836,10 @@
             </values>
             <values>
                 <fullName>Quote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8150,21 +8035,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9622,21 +9492,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -11086,21 +10941,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -11333,22 +11173,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Subject</picklist>
-            <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Call</fullName>
                 <default>false</default>
@@ -12279,21 +12103,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13711,21 +13520,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15151,21 +14945,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -16364,21 +16143,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -17573,21 +17337,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19033,21 +18782,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -19288,22 +19022,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Subject</picklist>
-            <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Call</fullName>
                 <default>false</default>
@@ -20517,21 +20235,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -20772,22 +20475,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Subject</picklist>
-            <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Call</fullName>
                 <default>false</default>
@@ -21734,21 +21421,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23019,21 +22691,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -24183,21 +23840,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25391,21 +25033,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
                 <fullName>2nd Attempt</fullName>
@@ -26589,22 +26216,7 @@
                 <fullName>9</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_Offer__c</picklist>
-            <values>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedez Bench Finance %26Insurance offer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>        
         <picklistValues>
             <picklist>Reason__c</picklist>
             <values>
@@ -27023,6 +26635,19 @@ result[i].errors);
 window.location.reload(true);
 }
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Task</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Task</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/00T/e?what_id=a0Z7A000000X7Cw&amp;RecordType=0127A0000004OqT&amp;ekp=00T&amp;ent=Task&amp;isdtp=vw&amp;nonce=bb5e476e1f99e00155a5e6980246424a43baeebc12b66abce922f67cd55c8077&amp;tsk6={!Retail_Task__c.ContractNumber__c}</url>
     </webLinks>
     <webLinks>
         <fullName>Redo_Survey</fullName>
