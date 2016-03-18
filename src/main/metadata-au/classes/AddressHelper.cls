@@ -338,7 +338,8 @@ public class AddressHelper
     {
         string orgId=UserInfo.getOrganizationId();
         string sfdcTypeName='Address__c';
+        string sfdcMarketDiscriminator='AU';
         if(!test.isrunningtest())
-            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
     } 
 }
