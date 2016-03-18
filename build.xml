@@ -157,6 +157,7 @@
 			   <sf:include name="AddressSearchValidationControllerTest"/>
 			   <sf:include name="UtilAddressTranslation"/>
 			   <sf:include name="UtilwebserviceTest"/>
+			   <sf:include name="DealerLocatorHttpResponseGenerator"/>
 			   <sf:include name="WebServiceMockImpl"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
