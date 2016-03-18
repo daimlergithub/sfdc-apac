@@ -3913,11 +3913,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Portal_ID2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_Link__c.Portal_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9169,11 +9164,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Batch_No__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Body_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

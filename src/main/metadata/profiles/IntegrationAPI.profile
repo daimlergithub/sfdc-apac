@@ -9168,11 +9168,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Body_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Bought_Vehicle_Brand__c</field>
         <readable>true</readable>
     </fieldPermissions>
