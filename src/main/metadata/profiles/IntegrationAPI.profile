@@ -1463,6 +1463,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Behavioural_Group__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.BillingAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3258,6 +3263,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Primary_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Processed__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3969,6 +3979,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Role2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Role_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8588,6 +8603,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8768,6 +8788,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.Public__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.QC_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8784,6 +8809,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Recording_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8843,12 +8873,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.Start_Call_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Survey_Result_Link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Task_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8909,6 +8949,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.WhoId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.YTD_Penetration__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9108,12 +9153,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Attachment_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Base_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Batch_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Body_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9224,6 +9279,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Credit_Limit_Request__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9649,6 +9709,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_InfoSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Lead_Items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Lead_Priority__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10388,6 +10458,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Units_for_Prospect__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10485,6 +10560,11 @@
         <editable>true</editable>
         <field>Lead__c.Visited_Showroom_Date__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Volume__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12628,6 +12708,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Retail_Task__c.Advise_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Retail_Task__c.Amount_Financed__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12689,6 +12774,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Client_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Compliance_Comment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13099,6 +13189,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Service_Position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Settlement_Officer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14333,6 +14428,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Task.Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14438,6 +14538,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Task.Next_Steps__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.Notification_Email_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14459,6 +14564,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.OfficePhone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Ordered_Against_Factory__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14503,6 +14613,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Task.Product_Offer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Public__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.QC_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14514,6 +14634,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.QC_Quantity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Quote_Live__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14607,6 +14732,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Task_Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Task.Task_RecordType_Name__c</field>
         <readable>true</readable>
@@ -14664,6 +14794,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.WhoId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.YTD_Penetration__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16796,6 +16931,10 @@
         <recordType>Task.Campaign_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Task-Campaign Task</layout>
+        <recordType>Task.DRM_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Task-DM</layout>
         <recordType>Task.DM</recordType>
     </layoutAssignments>
@@ -18411,6 +18550,11 @@
         <default>false</default>
         <recordType>Task.DM</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.DRM_Task</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
