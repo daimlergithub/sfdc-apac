@@ -103,7 +103,7 @@ public with sharing class AddressHelperJP {
         string sfdcMarketDiscriminator = 'JP';
         string orgId=UserInfo.getOrganizationId();
        
-        string sfdcTypeName='Address__C';
+        string sfdcTypeName='Address__c';
         if(!test.isrunningtest())
             
             UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
