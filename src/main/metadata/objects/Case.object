@@ -110,10 +110,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Escaltaion Confirmed</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Final approval done</fullName>
             <default>false</default>
         </values>
