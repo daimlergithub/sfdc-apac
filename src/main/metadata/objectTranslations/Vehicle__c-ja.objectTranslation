@@ -37,7 +37,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>バウマスタ</label>
+        <label>バウムスタ</label>
         <name>Baumuster__c</name>
     </fields>
     <fields>
@@ -4440,7 +4440,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Mod Pack</label>
+        <label>MP</label>
         <name>Modification_Package__c</name>
     </fields>
     <fields>
@@ -4460,7 +4460,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>ナショナルモデル</label>
+        <label>NT</label>
         <name>National_Model__c</name>
     </fields>
     <fields>
@@ -5414,7 +5414,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Eternal scrap</masterLabel>
-            <translation>永久廃車</translation>
+            <translation>永久抹消</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invoiced vehicle</masterLabel>
@@ -5434,7 +5434,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Temporary scrap</masterLabel>
-            <translation>一時廃車</translation>
+            <translation>一時抹消</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Required</masterLabel>
@@ -5457,12 +5457,28 @@
             <translation><!-- CV --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Dream Car</masterLabel>
+            <translation><!-- Dream Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NGCC</masterLabel>
+            <translation><!-- NGCC --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PC</masterLabel>
             <translation><!-- PC --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>SUV</masterLabel>
+            <translation><!-- SUV --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>VAN</masterLabel>
             <translation><!-- VAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart</masterLabel>
+            <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
     <fields>

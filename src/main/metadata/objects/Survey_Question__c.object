@@ -185,12 +185,27 @@
         <type>Picklist</type>
     </fields>
     <label>Survey Question</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Survey Questions</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Survey__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OrderNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Question__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OrderNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Question__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Survey__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OrderNumber__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Question__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Set_Single_Opinion_Text_Next_Question</fullName>

@@ -1814,6 +1814,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- CAC SourceId --></label>
+        <name>CAC_SourceId__c</name>
+    </fields>
+    <fields>
         <label><!-- Car License --></label>
         <name>Car_License__c</name>
     </fields>
@@ -1860,6 +1864,10 @@
     <fields>
         <label><!-- Contact Failed For 3 Days Date --></label>
         <name>Contact_Failed_For_3_Days_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Search --></label>
+        <name>Contact_Search__c</name>
     </fields>
     <fields>
         <label>商談希望タイミング</label>
@@ -6110,7 +6118,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Changed car in same company</masterLabel>
-            <translation>同一法人内での代替</translation>
+            <translation>同一法人内での購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Changed to other domestic maker</masterLabel>
@@ -6998,31 +7006,31 @@
         <name>Preferred_Contact_Date__c</name>
         <picklistValues>
             <masterLabel>Friday</masterLabel>
-            <translation>金曜日</translation>
+            <translation>金</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Monday</masterLabel>
-            <translation>月曜日</translation>
+            <translation>月</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Saturday</masterLabel>
-            <translation>土曜日</translation>
+            <translation>土</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sunday</masterLabel>
-            <translation>日曜日</translation>
+            <translation>日</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Thursday</masterLabel>
-            <translation>木曜日</translation>
+            <translation>木</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tuesday</masterLabel>
-            <translation>火曜日</translation>
+            <translation>火</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wednesday</masterLabel>
-            <translation>水曜日</translation>
+            <translation>水</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Weekday</masterLabel>
@@ -7030,7 +7038,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Weekend</masterLabel>
-            <translation>週末</translation>
+            <translation>土日祝</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7074,7 +7082,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
-            <translation>なし</translation>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7206,19 +7214,19 @@
         <name>Purchase_Time__c</name>
         <picklistValues>
             <masterLabel>0 - 3 months</masterLabel>
-            <translation>0-3ヶ月以内</translation>
+            <translation>3ヶ月以内</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>4 - 6 months</masterLabel>
-            <translation>4-6ヶ月以内</translation>
+            <translation>6ヶ月以内</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>6 - 12 months</masterLabel>
-            <translation>6-12ヶ月以内</translation>
+            <translation>1年以内</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Above 12 Months</masterLabel>
-            <translation>12ヶ月以降</translation>
+            <translation>1年以上</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Considering</masterLabel>
@@ -7234,7 +7242,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>No Plans</masterLabel>
-            <translation>未定</translation>
+            <translation>予定なし</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>One Week</masterLabel>
@@ -7250,7 +7258,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>above 6 months</masterLabel>
-            <translation>6ヶ月以上</translation>
+            <translation><!-- above 6 months --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>within 1 month</masterLabel>
@@ -7262,7 +7270,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>within 12 month</masterLabel>
-            <translation>12ヶ月以内</translation>
+            <translation><!-- within 12 month --></translation>
         </picklistValues>
     </fields>
     <fields>

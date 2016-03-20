@@ -1367,7 +1367,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <relationshipLabel>Vehicle Relationships</relationshipLabel>
         <relationshipName>Vehicle_Relationships2</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1541,7 +1541,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1584,7 +1584,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3525,7 +3525,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_StartDat
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -5610,14 +5610,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Validity__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Vehicle_ID__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Car_Relation__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Vehicle_Brand__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Vehicle_Class__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Purchase_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>New_Used__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Car_Relation__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Finance_Method__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Selling_Dealer__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Last_Service_Dealer__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Vehicle_ID__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Vehicle_Model__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>New_Used__c</lookupDialogsAdditionalFields>

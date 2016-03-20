@@ -91,6 +91,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Survey_Question__c.Question__c</fields>
         <fields>Response__c</fields>
         <fields>Survey_Question__c.Choices__c</fields>
         <relatedList>SurveyQuestionResponse__c.SurveyTaker__c</relatedList>
@@ -104,7 +105,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Idfl</masterLabel>
+        <masterLabel>00hp0000000IeIJ</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

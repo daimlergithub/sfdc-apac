@@ -72,7 +72,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Fisheries</masterLabel>
-            <translation>水産</translation>
+            <translation>水産・農業・鉱業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Food Manufacturing</masterLabel>
@@ -88,7 +88,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>General equipment manufacturing</masterLabel>
-            <translation>機械</translation>
+            <translation>製造業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Health</masterLabel>
@@ -124,7 +124,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Other financial activities</masterLabel>
-            <translation>その他金融業</translation>
+            <translation>金融業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Paper and paper products industry</masterLabel>
@@ -176,7 +176,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Telecommunications Services</masterLabel>
-            <translation>通信</translation>
+            <translation>IT</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade</masterLabel>
@@ -196,7 +196,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Warehousing</masterLabel>
-            <translation>倉庫・運輸関連</translation>
+            <translation>交通・運輸</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Water Transportation</masterLabel>

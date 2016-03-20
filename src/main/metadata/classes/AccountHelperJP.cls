@@ -22,9 +22,9 @@ public class AccountHelperJP
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
-                for(Account Acc : listNewAccounts)
-                {
-            
+            for(Account Acc : listNewAccounts)
+            {
+                
                 if(Acc.Mobile__c != Null && Acc.Mobile__c != '')
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
@@ -85,19 +85,19 @@ public class AccountHelperJP
 **  Created By: Sudhir 
 **  Date: 2015-12-22
 **/
-                public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
+    public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
-       {
-                for(Account Acc : listNewAccounts)
-                {
+        {
+            for(Account Acc : listNewAccounts)
+            {
                 Account OldAcc = accountOldMap.get(Acc.id);
                 if(Acc.Mobile__c != OldAcc.Mobile__c)
                 {
                     Acc.SMS_Last_Modified_By__c = UserInfo.getName();
                     Acc.SMS_Last_Modified_Date__c = System.now();
                 }   
-                                
+                
                 if(Acc.Mobile2__c!= OldAcc.Mobile2__c )
                 {
                     Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
@@ -169,41 +169,41 @@ public class AccountHelperJP
             {      
                 if(a.MD__c == 'JP')
                 {                    
-                        addressid.add(a.Primary_Address_Reference__c);
+                    addressid.add(a.Primary_Address_Reference__c);
                 }
             }
             If(!addressid.isEmpty())
             {   
-                 addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
-            }   
-             For(Account acc:listNewAccounts)
-                {      
-                    if(acc.MD__c == 'JP')
-                    {   
-                        If(acc.Primary_Address_Reference__c !=Null  && addr!=Null)
-                        {              
-                            Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                            system.debug('!!!!!!!'+add.id);
-                            if(addtrmap1.containsKey(add.Province__c))
-                            {
-                                province = addtrmap1.get(add.Province__c);
-                            }
-                            acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
-                            acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
-                        }
-                        else if(acc.Primary_Address_Reference__c ==Null)
+                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+            }
+            For(Account acc:listNewAccounts)
+            {      
+                if(acc.MD__c == 'JP')
+                {   
+                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
+                    {              
+                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                        if(addtrmap1.containsKey(add.Province__c))
                         {
-                             acc.Primary_Address_Display__c ='';
+                            province = addtrmap1.get(add.Province__c);
                         }
-                            
-                    }              
-                }     
-                
+                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
+                    }
+                    else if(acc.Primary_Address_Reference__c ==Null)
+                    {
+                        acc.Primary_Address_Display__c ='';
+                    }
+                    
+                }
+            }     
+            
             
         }    
     }    
-
-        /** Upadte Primary contact information based on corresponding picklist values.
+    
+    /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
 ** Date: 2015-12-23 
 **/
@@ -252,6 +252,10 @@ public class AccountHelperJP
                     {
                         acc.Primary_Phone_Display__c = acc.Home_Phone_2__c;
                     }
+                    else if((acc.Primary_Phone__c != Null && acc.Primary_Phone__c != '' ) && acc.Primary_Phone__c =='Work Phone')
+                    {
+                        acc.Primary_Phone_Display__c = acc.Work_Phone__c;
+                    }
                     else if((acc.Primary_Phone__c != Null && acc.Primary_Phone__c != '' ) && acc.Primary_Phone__c =='Other2')
                     {
                         acc.Primary_Phone_Display__c = acc.Phone;
@@ -266,7 +270,7 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
         
     }
-        
+    
     /** Upadte Primary contact information based on corresponding picklist values.
 ** Created By: Sudhir 
 ** Date: 2015-12-23 
@@ -292,7 +296,7 @@ public class AccountHelperJP
                     }
                     if((acc.Primary_Email__c == 'E-mail1') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email__c != OldAcc.Email__c))) 
                     {
-                       acc.Primary_Email_Display__c = acc.Email__c;
+                        acc.Primary_Email_Display__c = acc.Email__c;
                     }
                     else if((acc.Primary_Email__c == 'E-mail2') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email2__c != OldAcc.Email2__c))) 
                     {
@@ -318,6 +322,11 @@ public class AccountHelperJP
                     {
                         acc.Primary_Phone_Display__c = acc.Home_Phone_2__c;
                     }
+                    else if((acc.Primary_Phone__c =='Work Phone') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Work_Phone__c != OldAcc.Work_Phone__c)))
+                    {
+                        acc.Primary_Phone_Display__c = acc.Work_Phone__c;
+                    }
+                    
                     else if((acc.Primary_Phone__c =='Other2') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Phone != OldAcc.Phone)))
                     {
                         acc.Primary_Phone_Display__c = acc.Phone;
@@ -331,17 +340,17 @@ public class AccountHelperJP
             CustomLogUtil.DebugException(ex);
         }
         CustomLogUtil.DebugLogInsert();
-            
+        
     }
-        /** To generate UCID value based on Record type.
-         ** To Create Account link Record.
+    /** To generate UCID value based on Record type.
+** To Create Account link Record.
 ** Created By: Sreeram
 ** Date: 2016-01-10 
 **/
-
+    
     public static void createUCID(list<Account> TriggerNew,boolean isInsert)
     {
-         try
+        try
         {
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
@@ -367,31 +376,31 @@ public class AccountHelperJP
                     for(Account acc : accountlist)
                     {                        
                         
-                            if(acc.RecordTypeId == accPerson_RecordTypeId){
-                                    ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
+                        if(acc.RecordTypeId == accPerson_RecordTypeId){
+                            ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
+                        }
+                        else
+                            if(acc.RecordTypeId == accCompany_RecordTypeId){
+                                ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
-                            else
-                                if(acc.RecordTypeId == accCompany_RecordTypeId){
-                                    ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
-                                }
-
-                            if(ucidsequence != null && ucidsequence.length() > 0)
-                            {
-                                for (i=0; i < 14; i++)
-                                { 
-                                    integer cp = ucidsequence.codePointAt(i); 
-                                    checksum += cp; 
-                                }
-                                
-                                ucidsequence += checksumSet.substring(mod, mod+1);
-                                acc.UCID__c = ucidsequence;
-                                acclist.add(acc);
-                             }
-                         
+                        
+                        if(ucidsequence != null && ucidsequence.length() > 0)
+                        {
+                            for (i=0; i < 14; i++)
+                            { 
+                                integer cp = ucidsequence.codePointAt(i); 
+                                checksum += cp; 
+                            }
+                            
+                            ucidsequence += checksumSet.substring(mod, mod+1);
+                            acc.UCID__c = ucidsequence;
+                            acclist.add(acc);
+                        }
+                        
                     }
                     update acclist;
                     map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
-					for(Account acc : accountlist)
+                    for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
                         Account_Link__c acclink = new Account_Link__c();
@@ -410,10 +419,26 @@ public class AccountHelperJP
         }
         catch(DMLException ex)
         {
-
+            
             CustomLogUtil.DebugException(ex);
         }
         CustomLogUtil.DebugLogInsert();
-    
+        
     }
+    
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+    {
+        string sfdcMarketDiscriminator = 'JP';
+        string orgId=UserInfo.getOrganizationId();
+       
+        string sfdcTypeName='Account';
+        if(!test.isrunningtest())
+            
+            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+        
+        System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
+    }
+    
+    
 }

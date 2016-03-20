@@ -64,7 +64,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -140,7 +140,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -167,7 +167,7 @@
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -198,7 +198,7 @@
         <referenceTo>Survey__c</referenceTo>
         <relationshipName>SurveyTakers1</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -262,6 +262,25 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Surveys Taken</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Survey__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Survey_Taking_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey_Taking_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Survey__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Survey_Taking_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -1,36 +1,79 @@
 /*
-    Type:      class
-    Purpose:   1.Validates SameAddressType 
-    Create By: Sriram kalluri
+Type:      class
+Purpose:   1.Validates SameAddressType 
+Create By: Sriram kalluri
 */
 public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
+{
+    list<Address__C> ListAddOld = (list<Address__C>)trigger.old;
+    list<Address__C> ListAddNew = (list<Address__C>)trigger.new;
+    string serializedObject;
+    
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+        
     {
-    
-            public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+        /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
         
-            {
-                /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
-                
-                 if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
-                     
-                    AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
-                }
-                
-                 if ((Trigger.isAfter && Trigger.isUpdate)){
-                     
-                    AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
-                }
+        if ((Trigger.isBefore && Trigger.isUpdate)||(Trigger.isBefore && Trigger.isInsert)){
+            
+            AddressHelperJP.validateSameAddressType(trigger.new,(Map<Id,Address__c>)Trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+        }
         
-            }
+        if ((Trigger.isAfter && Trigger.isUpdate)){
+            
+            AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+        }
         
-                public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
-            {
         
-                /* any code that may use any trigger functionality like trigger.isBefore, trigger.new, ... */
+        if(isAfter && isInsert)
+        {
+            serializedObject=json.serialize(ListAddNew);
+            
+            
+            AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+        } 
+        if(isAfter && isUpdate)
+        {
+            serializedObject=json.serialize(ListAddNew);
+            
+            AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
+        }
         
-            }
-    
-     
-    
+        if(isAfter && isDelete)
+        {
+            serializedObject=json.serialize(ListAddOld);
+            AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
+        }
+        
     }
+    
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+        
+    {
+        
+        if(isAfter && isInsert)
+        {
+            serializedObject=json.serialize(ListAddNew);
+            
+            
+            AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+        } 
+        if(isAfter && isUpdate)
+        {
+            serializedObject=json.serialize(ListAddNew);
+            
+            AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
+        }
+        
+        if(isAfter && isDelete)
+        {
+            serializedObject=json.serialize(ListAddOld);
+            AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
+        }
+        
+    }
+    
+    
+    
+}

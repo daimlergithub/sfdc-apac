@@ -1818,6 +1818,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- CAC SourceId --></label>
+        <name>CAC_SourceId__c</name>
+    </fields>
+    <fields>
         <label><!-- Car License --></label>
         <name>Car_License__c</name>
     </fields>
@@ -1864,6 +1868,10 @@
     <fields>
         <label><!-- Contact Failed For 3 Days Date --></label>
         <name>Contact_Failed_For_3_Days_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Search --></label>
+        <name>Contact_Search__c</name>
     </fields>
     <fields>
         <label><!-- Contact Timing --></label>

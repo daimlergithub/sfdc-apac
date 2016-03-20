@@ -1182,6 +1182,10 @@
         <name>DMS_Customer_ID__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Sales Function --></label>
+        <name>DRM__c</name>
+    </fields>
+    <fields>
         <label><!-- DUP Number --></label>
         <name>DUPNumber__c</name>
     </fields>
@@ -4092,7 +4096,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fisheries</masterLabel>
-            <translation>水産</translation>
+            <translation>水産・農業・鉱業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Food Manufacturing</masterLabel>
@@ -4108,7 +4112,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>General equipment manufacturing</masterLabel>
-            <translation>機械</translation>
+            <translation>製造業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Health</masterLabel>
@@ -4144,7 +4148,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other financial activities</masterLabel>
-            <translation>その他金融業</translation>
+            <translation>金融業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Paper and paper products industry</masterLabel>
@@ -4196,7 +4200,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Telecommunications Services</masterLabel>
-            <translation>通信</translation>
+            <translation>IT</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade</masterLabel>
@@ -4216,7 +4220,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warehousing</masterLabel>
-            <translation>倉庫・運輸関連</translation>
+            <translation>交通・運輸</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Water Transportation</masterLabel>
@@ -4476,7 +4480,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class</masterLabel>
-            <translation>Cクラス</translation>
+            <translation>新型GLC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Coupe</masterLabel>
@@ -6769,7 +6773,7 @@ Allows up to 240 characters --></help>
             <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>-->
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6957,7 +6961,7 @@ Allows up to 240 characters --></help>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>

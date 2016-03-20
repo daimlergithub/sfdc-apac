@@ -1212,6 +1212,13 @@
         <shortDescription>Customer・Assistance・Center</shortDescription>
         <value>Customer・Assistance・Center</value>
     </labels>
+	<labels>
+        <fullName>CustomerAssistanceCenter2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CustomerAssistanceCenter2</shortDescription>
+        <value>Customer Assistance Center</value>
+    </labels>
     <labels>
         <fullName>CustomerType</fullName>
         <language>en_US</language>
@@ -3025,6 +3032,13 @@
         <value>Sales &amp; Marketing</value>
     </labels>
     <labels>
+        <fullName>Sama</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sama</shortDescription>
+        <value>Sama</value>
+    </labels> 
+    <labels>
         <fullName>Same</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3396,14 +3410,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TerminateVehicleRelationship</shortDescription>
-        <value>No Vehicle Relationship found for Termination</value>
+        <value>Terminate Vehicle Relationship</value>
     </labels>
     <labels>
         <fullName>Terminate_Vehicle_Relationship</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Terminate Vehicle Relationship</shortDescription>
-        <value>Terminate Vehicle Relationship</value>
+        <value>No Vehicle Relationship found for Termination.</value>
     </labels>
     <labels>
         <fullName>Thankyouforyourbusiness</fullName>
@@ -4215,4 +4229,46 @@
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
+	<labels>
+        <fullName>InsufficientAccessToCreate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InsufficientAccessToCreate</shortDescription>
+        <value>Insufficient privilege to create new vehicle.</value>
+    </labels>
+	<labels>
+        <fullName>SalesTEL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales TEL</shortDescription>
+        <value>Sales TEL</value>
+    </labels>
+	<labels>
+        <fullName>SalesMail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Mail</shortDescription>
+        <value>Sales Mail</value>
+    </labels>
+	<labels>
+        <fullName>ConfidentialPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ConfidentialPDF</shortDescription>
+        <value>Confidential</value>
+    </labels>
+	<labels>
+        <fullName>RequestPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RequestPDF</shortDescription>
+        <value>Request</value>
+    </labels>
+	<labels>
+        <fullName>SlashPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SlashPDF</shortDescription>
+        <value>/</value>
+    </labels> 
 </CustomLabels>

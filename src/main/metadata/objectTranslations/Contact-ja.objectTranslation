@@ -607,6 +607,18 @@ Adds an active member/membership status/update activity generated sales leads- -
             <section>Function Infomation</section>
         </sections>
     </layouts>
+    <recordTypes>
+        <label><!-- DealerStaff --></label>
+        <name>DealerStaff</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Directors &amp; Shareholders --></label>
+        <name>Directors_Shareholders</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBAuP &amp; MBFS Contacts --></label>
+        <name>MBAuP_Contacts</name>
+    </recordTypes>
     <validationRules>
         <errorMessage><!-- You must check only one for &quot;Dealer Lead Gate Keeper&quot; and &quot;Dealer Complaint User&quot;. --></errorMessage>
         <name>RestrictCheckComplaintAndLeadGateKeeper</name>

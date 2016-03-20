@@ -101,7 +101,7 @@
         <label>Additional Address</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -112,7 +112,7 @@
         <label>Address</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -123,7 +123,7 @@
         <label>Attention</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -292,7 +292,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -326,7 +326,7 @@ Modify Reason:
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -453,7 +453,7 @@ Modify Reason:
         <relationshipLabel>DM Request (Expected DM Material1)</relationshipLabel>
         <relationshipName>DM_Request2</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -466,7 +466,7 @@ Modify Reason:
         <relationshipLabel>DM Request (Expected DM Material2)</relationshipLabel>
         <relationshipName>DM_Request3</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -479,7 +479,7 @@ Modify Reason:
         <relationshipLabel>DM Request (Expected DM Material3)</relationshipLabel>
         <relationshipName>DM_Request4</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -515,7 +515,7 @@ Modify Reason:
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -572,7 +572,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Province</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -619,7 +619,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -652,7 +652,7 @@ Modify Reason:
         <inlineHelpText>The date when the deliver was ordered to the mail sender</inlineHelpText>
         <label>Sent Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -858,7 +858,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -879,7 +879,7 @@ Modify Reason:
         <label>Zip Code</label>
         <length>8</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -997,11 +997,15 @@ Modify Reason:
     </nameField>
     <pluralLabel>DM Request</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Customer_Name__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Actual_DM_Material1__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Actual_DM_Material2__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Actual_DM_Material3__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Expected_DM_Material3__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status3__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sent_Date__c</customTabListAdditionalFields>
         <listViewButtons>Download_Catalogue</listViewButtons>
         <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>

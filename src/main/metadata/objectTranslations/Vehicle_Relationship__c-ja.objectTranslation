@@ -1376,11 +1376,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual loan through Dealer</masterLabel>
-            <translation>ローン残価設定型 販売店</translation>
+            <translation>ローン 残価設定型 販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Residual loan through MBF</masterLabel>
-            <translation>ローン残価設定型 MBF</translation>
+            <translation>ローン 残価設定型 MBF</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
@@ -1761,7 +1761,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation>同僚社員</translation>
+            <translation>同僚</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
@@ -3069,7 +3069,7 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
-   
+    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>

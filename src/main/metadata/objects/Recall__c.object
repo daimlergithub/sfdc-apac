@@ -110,7 +110,7 @@
         <externalId>false</externalId>
         <label>Recall Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -131,7 +131,7 @@
         <label>Recall Reason</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -142,7 +142,7 @@
         <label>Recall Kind</label>
         <length>20</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -232,6 +232,31 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Recalls</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Recall_Reason__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Recall_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Recall_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Recall_No__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Recall_Class__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Vehicle_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VIN__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Recall_Reason__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Recall_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Recall_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Recall_No__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Recall_Class__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Vehicle_ID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VIN__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Recall_Reason__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Recall_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Recall_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Recall_No__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Recall_Class__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vehicle_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VIN__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

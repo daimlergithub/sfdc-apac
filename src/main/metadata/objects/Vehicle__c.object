@@ -6865,6 +6865,22 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>CV</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NGCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dream Car</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -14234,11 +14250,27 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Dream Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NGCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>PC</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28989,9 +29021,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>BodyType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EuroVIN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Class__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Model_Description__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CommissionNumber__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>UsVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>EuroVIN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>

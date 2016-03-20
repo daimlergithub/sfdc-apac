@@ -97,4 +97,18 @@ public with sharing class AddressHelperJP {
         
           }
     
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+    {
+        string sfdcMarketDiscriminator = 'JP';
+        string orgId=UserInfo.getOrganizationId();
+       
+        string sfdcTypeName='Address__c';
+        if(!test.isrunningtest())
+            
+            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+        
+        System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
+    }
+    
 }
