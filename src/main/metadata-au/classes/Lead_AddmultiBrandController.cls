@@ -57,6 +57,8 @@ public with sharing class Lead_AddmultiBrandController
     leadllist=[select id,Lead_Items__c from Lead__c where id=:ApexPages.currentPage().getParameters().get('id')];
     system.debug('%updatelleadllisteadllist^$%$%$%$'+leadllist);
         String commaSepratedList='';
+        string regexForNullValue ='null';
+        string nullValue ='';
 
         for(wrappermultibrandclass wrper:wrapperlist)
         {                    
@@ -68,10 +70,11 @@ public with sharing class Lead_AddmultiBrandController
                     oldleaditems.put(led.Id,led.Lead_Items__c);                    
                     led.Lead_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty; 
                 }
-                else if(led.Lead_Items__c == null && led.Lead_Items__c == '')
+                else if(led.Lead_Items__c == null || led.Lead_Items__c == '')
                 {
                     led.Lead_Items__c = commaSepratedList;
                 }
+                led.Lead_Items__c = led.Lead_Items__c.replaceAll(regexForNullValue,nullValue);
                 mapupdateleadllist.put(led.id,led);
             }
         }
