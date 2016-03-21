@@ -537,6 +537,11 @@
 		<token tokenonly="true">INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD</token>
 	</changetext>
 	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_VEHICLERELATIONSHIP_NO_ID</token>
+	</changetext>
+	<changetext>
 		<filename>objects\Dealer_Locator__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Dealer_Locator']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID</token>
