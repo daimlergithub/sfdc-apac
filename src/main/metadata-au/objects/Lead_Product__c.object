@@ -108,7 +108,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Product_Offer__c</fullName>
         <externalId>false</externalId>
         <label>Product Offer</label>
-        <picklist> 
+        <picklist>
             <picklistValues>
                 <fullName>Service plan</fullName>
                 <default>false</default>
@@ -207,9 +207,41 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <label>Lead Product</label>
     <listViews>
+        <fullName>Active_Quote_List_View</fullName>
+        <columns>NAME</columns>
+        <columns>Quote_Information__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Quote_Live__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Quote List View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Fleet_Vans_user_Manager</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Inactive_Quote_List_View</fullName>
+        <columns>NAME</columns>
+        <columns>Quote_Information__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Quote_Live__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Inactive Quote List View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Fleet_Vans_user_Manager</group>
+        </sharedTo>
     </listViews>
     <nameField>
         <label>Lead Product Name</label>
