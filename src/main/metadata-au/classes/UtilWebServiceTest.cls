@@ -2,7 +2,7 @@
 public class UtilWebServiceTest
 {
     static Dealer_Locator__c objDl;
-	
+    
     public static testMethod void testEntityUpdateNotification()
     {
         //
@@ -31,7 +31,7 @@ public class UtilWebServiceTest
         Schema.DescribeSObjectResult r = Dealer_Locator__c.sObjectType.getDescribe();
         String sfdcId = r.getKeyPrefix();
         string sfdcTypeName='Dealer_Locator__c';
-        UtilWebService.entityUpdateNotification(UserInfo.getOrganizationId(),sfdcId,sfdcTypeName,'INSERT',json.serialize(objDl1));
+        UtilWebService.entityUpdateNotification(UserInfo.getOrganizationId(),sfdcId,sfdcTypeName,'AU','INSERT',json.serialize(objDl1));
         Test.stoptest();
         system.assertNotEquals(Null, sfdcId);
     }
