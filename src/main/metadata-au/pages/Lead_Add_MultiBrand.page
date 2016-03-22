@@ -11,7 +11,7 @@
             <apex:pageBlockSection id="refreshdata" columns="4">
                 <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
                     <apex:outputLabel value="Brand">
-                        <apex:selectList value="{!wrap.vehiclebrand}">
+                        <apex:selectList value="{!wrap.vehiclebrand}" size="1">
                             <apex:selectOptions value="{!brands}" /> 
                         </apex:selectList> 
                     </apex:outputLabel>
