@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <!--<alerts>
-        <fullName>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</fullName>
-        <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+        <fullName>Email_On_Task_Creation</fullName>
+        <description>Email On Task Creation</description>
         <protected>false</protected>
         <recipients>
-            <type>owner</type>
+            <recipient>Task_AU_Emails</recipient>
+            <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
+        <template>unfiled$public/TestTaskEmail</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_notification_to_the_task_owner</fullName>
+        <description>Email notification to the task owner</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Task_AU_Emails</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/TestTaskEmail</template>
     </alerts>-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
@@ -39,7 +51,7 @@
     </fieldUpdates>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>false</active>
+        <active>true</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -71,7 +83,7 @@
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
@@ -116,10 +128,6 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
-        <!--<actions>
-            <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
-            <type>Alert</type>
-        </actions>-->
         <active>true</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
