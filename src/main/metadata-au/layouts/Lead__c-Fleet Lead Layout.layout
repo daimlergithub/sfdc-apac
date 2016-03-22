@@ -38,6 +38,10 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Items__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -136,6 +140,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Year_Interest__c</field>
+            </layoutItems>
+            <layoutItems>
+                <height>200</height>
+                <page>Lead_Add_MultiBrand</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>1300</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
