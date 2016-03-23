@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!--<alerts>
+    <alerts>
+        <fullName>Email_Notification_On_Task_Creation</fullName>
+        <description>Email Notification On Task Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Notification_On_Task_Creation</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Notification_to_the_assigned_to_user_With_Time_Trigger</fullName>
+        <description>Email Notification to the assigned to user With Time Trigger</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Notification_to_the_assigned_to_user_With_Time_Trigger</template>
+    </alerts>
+    <alerts>
         <fullName>Email_On_Task_Creation</fullName>
         <description>Email On Task Creation</description>
         <protected>false</protected>
@@ -21,7 +43,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/TestTaskEmail</template>
-    </alerts>-->
+    </alerts>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -56,7 +78,7 @@
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet Delete</value>
+            <value>Fleet,Fleet(Delete)</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.Status</field>
@@ -79,7 +101,7 @@
             <value>AU</value>
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
@@ -87,7 +109,7 @@
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet Delete</value>
+            <value>Fleet,Fleet(Delete)</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.MD__c</field>
@@ -98,7 +120,7 @@
 Content of email will be reference the task number and due date.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <!--<rules>
+    <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
         <active>true</active>
         <criteriaItems>
@@ -108,7 +130,7 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>-->
+    </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
         <active>true</active>
@@ -116,7 +138,7 @@ Content of email will be reference the task number and due date.</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <!--<rules>
+    <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
         <active>true</active>
         <criteriaItems>
@@ -125,7 +147,7 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>If status is not completed 48 hours after the due date, send an email notification to DRM user and the National Sales Manager user</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>-->
+    </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
         <active>true</active>
