@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <!--<alerts>
+        <fullName>Email_Notification_On_Task_Creation</fullName>
+        <description>Email Notification On Task Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Notification_On_Task_Creation</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Notification_to_the_assigned_to_user_With_Time_Trigger</fullName>
+        <description>Email Notification to the assigned to user With Time Trigger</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Notification_to_the_assigned_to_user_With_Time_Trigger</template>
+    </alerts>
+    <alerts>
         <fullName>Email_On_Task_Creation</fullName>
         <description>Email On Task Creation</description>
         <protected>false</protected>
@@ -56,7 +78,7 @@
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet Delete</value>
+            <value>Fleet,Fleet(Delete)</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.Status</field>
@@ -79,7 +101,7 @@
             <value>AU</value>
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
@@ -87,7 +109,7 @@
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet Delete</value>
+            <value>Fleet,Fleet(Delete)</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.MD__c</field>
