@@ -7071,6 +7071,26 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>It's not allowed to change service number.</errorMessage>
     </validationRules>
     <webLinks>
+        <fullName>New_DRM_Task</fullName>
+        <availability>online</availability>
+        <description>Creates new task with contract number prepopulated.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New DRM Task</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00T/e?RecordType=OBJECT_ACTIVITIES_DRMTASK_RECORDTYPE_ID&amp;OBJECT_ACTIVITIES_WEBLINK_CALLER_FIELD_ID={!Retail_Task__c.ContractNumber__c}</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Finance_Fleet_Lead</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
