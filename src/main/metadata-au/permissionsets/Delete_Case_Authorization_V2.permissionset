@@ -1891,11 +1891,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.DRM_MBFS_Contact__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.DRM__c</field>
         <readable>false</readable>
     </fieldPermissions>
