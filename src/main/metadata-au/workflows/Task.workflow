@@ -47,38 +47,38 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <rules>
-        <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>Fleet,Fleet(Delete)</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Task.Status</field>
-            <operation>notEqual</operation>
-            <value>Complete,Deferred</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Task.Due_Task_Notification__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Task.ActivityDate</field>
-            <operation>greaterOrEqual</operation>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Task.MD__c</field>
-            <operation>equals</operation>
-            <value>AU</value>
-        </criteriaItems>
-        <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
+		<rules>
+			<fullName>Notification to the assigned to user With Time Trigger</fullName>
+			<active>false</active>
+			<booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+			<criteriaItems>
+				<field>User.ProfileId</field>
+				<operation>equals</operation>
+				<value>Fleet,Fleet(Delete)</value>
+			</criteriaItems>
+			<criteriaItems>
+				<field>Task.Status</field>
+				<operation>notEqual</operation>
+				<value>Complete,Deferred</value>
+			</criteriaItems>
+			<criteriaItems>
+				<field>Task.Due_Task_Notification__c</field>
+				<operation>equals</operation>
+				<value>True</value>
+			</criteriaItems>
+			<criteriaItems>
+				<field>Task.ActivityDate</field>
+				<operation>greaterOrEqual</operation>
+				<value>TODAY</value>
+			</criteriaItems>
+			<criteriaItems>
+				<field>Task.MD__c</field>
+				<operation>equals</operation>
+				<value>AU</value>
+			</criteriaItems>
+			<description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
+			<triggerType>onAllChanges</triggerType>
+		</rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
         <active>true</active>
@@ -96,9 +96,9 @@
 Content of email will be reference the task number and due date.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <!--<rules>
+    <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -106,17 +106,17 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>-->
+    </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <!--<rules>
+    <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -130,7 +130,7 @@ Content of email will be reference the task number and due date.</description>
             <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Task.OwnerId</field>
@@ -153,7 +153,7 @@ Content of email will be reference the task number and due date.</description>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>-->
+    </rules>
     <rules>
         <fullName>TestTaskEmail</fullName>
         <active>false</active>
