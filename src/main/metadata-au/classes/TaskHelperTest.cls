@@ -16,7 +16,9 @@ private class TaskHelperTest {
     private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
     private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     public static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-	private static Account personAccount;
+    private static final String Finance_Fleet_lead_RECORDTYPEID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
+	private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static Account personAccount;
 	private static Account testPersonAccount;
 	private static Task taskObj;
     public static Campaign cmpAs;
@@ -158,8 +160,7 @@ private class TaskHelperTest {
         Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '139138', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130112',PersonOtherPhone = '130113',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '987654135');
         insert acc;
         insert acccase;
-        
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+
         
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
         insert dealer;
@@ -261,6 +262,7 @@ private class TaskHelperTest {
             userID.add(userobj.id);
             TaskHelper.autoUpdateSSITask(userID);
             system.assertEquals(dealer.id, conComplaint.AccountId);
+            
         } 
     }
     
@@ -352,4 +354,31 @@ private class TaskHelperTest {
                                     );
        return testSMSTask;                             
     }
+    
+    static testmethod void updateCompanyonTask(){
+        User userobj = UtilTestData.createUser('SSI Supervisor','Fleet');
+        system.runAs( userobj ) {        
+            Account acc = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58399243', Name = 'testacc');
+            insert acc;
+            Test.startTest();
+            Lead__c le1 = new Lead__c();
+            //le1.Need_Assign_To_Dealer__c = 'Need';
+            le1.Company_Account__c = acc.id;
+            le1.RecordTypeId = Finance_Fleet_lead_RECORDTYPEID;
+            le1.CAC_Lead_Status__c = 'Qualified';
+            insert le1;
+            Task tsk = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+		                                    whatid=le1.id,
+		                                    Status__c='Complete');
+            insert tsk;
+            Task tsk1 = [select Company__c from task where id =:tsk.id];
+            system.debug('tsk.........'+tsk.Company__c);
+            list<Task> TaskList =new list<Task>();
+            TaskList.add(tsk);
+            Taskhelper.updateCompany(TaskList);
+    		Test.stopTest();
+          	system.assertEquals(le1.Company_Account__c, tsk1.Company__c);
+        }
+        
+}
 }

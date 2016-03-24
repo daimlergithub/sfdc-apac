@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <ownerRules>
+    <criteriaBasedRules>
         <fullName>Lead_Sharing_Rule</fullName>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
-        <sharedFrom>
-            <allInternalUsers></allInternalUsers>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Finance Fleet Lead,Fleet Vans</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
         <name>Lead Sharing Rule</name>
-    </ownerRules>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Lead_With_CRMOne_User</fullName>
+        <sharedTo>
+            <role>Australia</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Public__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Share Lead With CRMOne User</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

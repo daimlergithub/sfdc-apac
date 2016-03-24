@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>A child object under &quot;Template&quot;, will be mapped with customer&apos;s reply. It will define and lead to follow-up actions.</description>
+    <description>A child object under "Template", will be mapped with customer's reply. It will define and lead to follow-up actions.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
@@ -119,7 +119,7 @@
     </fields>
     <fields>
         <fullName>SMSCode__c</fullName>
-        <description>Support Customer&apos;s response code.</description>
+        <description>Support Customer's response code.</description>
         <externalId>false</externalId>
         <label>SMS Code</label>
         <length>2</length>
@@ -182,12 +182,12 @@
         <fullName>No_Next_SMS_when_Send_Closure_SMS</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(NextSMSTemplate__c)),SendClosureSMS__c=TRUE)</errorConditionFormula>
-        <errorMessage>You can not choose &quot;Next SMS&quot; and &quot;Send Closure SMS&quot; together!</errorMessage>
+        <errorMessage>You can not choose "Next SMS" and "Send Closure SMS" together!</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Template_Closure_SMS_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>(RecordType.Name == &apos;Generate OB Task&apos; || RecordType.Name == &apos;Register Campaign&apos;) &amp;&amp; SendClosureSMS__c &amp;&amp; Template__c != null &amp;&amp; ISBLANK(Template__r.Closure_SMS__c)</errorConditionFormula>
+        <errorConditionFormula>(RecordType.Name == 'Generate OB Task' || RecordType.Name == 'Register Campaign') &amp;&amp; SendClosureSMS__c &amp;&amp; Template__c != null &amp;&amp; ISBLANK(Template__r.Closure_SMS__c)</errorConditionFormula>
         <errorMessage>Your must enter a Closure SMS value for your template if the Send Closure SMS is checked.</errorMessage>
     </validationRules>
 </CustomObject>

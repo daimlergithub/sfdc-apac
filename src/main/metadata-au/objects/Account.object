@@ -772,6 +772,33 @@ LEN( Phone ) &lt;&gt; 0
         <visibleLines>2</visibleLines>
     </fields>
     <fields>
+        <fullName>Behavioural_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Behavioural Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New to the brand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Revolver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attriter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Keeper</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>BillingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3916,7 +3943,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <description>Added based on the GSSN interface mapping
 
 Feb-18-2012: Added by Rob and Falk</description>
-        <externalId>True</externalId>
+        <externalId>true</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
         <required>false</required>
@@ -5268,17 +5295,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Opt_Out_Portal_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Opt Out Portal Reason</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>FS_Opt_In_Work_Phone__c</fullName>
@@ -6969,9 +6985,10 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -7331,7 +7348,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Opt_In_Email3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -7402,6 +7419,17 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_Out_Portal_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Opt Out Portal Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Opt_Out_Portal__c</fullName>
@@ -8365,6 +8393,37 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <picklistValues>
                 <fullName>Other2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Segment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Field</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Faithful</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Testing</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -10762,6 +10821,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_Group__c</picklist>
+            <values>
+                <fullName>Attriter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to the brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13819,6 +13897,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Primary_Segment__c</picklist>
+            <values>
+                <fullName>Faithful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Testing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -14684,6 +14785,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_Group__c</picklist>
+            <values>
+                <fullName>Attriter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to the brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17629,6 +17749,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Primary_Segment__c</picklist>
+            <values>
+                <fullName>Faithful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Testing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -18298,6 +18441,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_Group__c</picklist>
+            <values>
+                <fullName>Attriter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to the brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21187,6 +21349,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Primary_Segment__c</picklist>
+            <values>
+                <fullName>Faithful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Testing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -22091,6 +22276,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_Group__c</picklist>
+            <values>
+                <fullName>Attriter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to the brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25204,6 +25408,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Primary_Segment__c</picklist>
+            <values>
+                <fullName>Faithful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Field</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Testing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -26297,6 +26524,44 @@ else {
         <openType>replace</openType>
         <protected>false</protected>
         <url>/001/e?retURL=/001/o&amp;RecordType=OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID&amp;ent=Account&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID_lkid={!Account.Id}&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Finance_Fleet_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Finance Fleet Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=0121a000000V7Nd&amp;CF00N1a000005s559_lkid={!Account.Id}&amp;CF00N1a000005s559={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Fleet_Vans_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Fleet Vans Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=012m00000008ZlTAAU&amp;CF00N1a000005s559_lkid={!Account.Id}&amp;CF00N1a000005s559={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Person_Account</fullName>

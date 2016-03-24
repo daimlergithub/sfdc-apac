@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Keep customer&apos;s reply here and to be displayed under SMS task</description>
+    <description>Keep customer's reply here and to be displayed under SMS task</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -203,7 +203,7 @@
         <fullName>ValidReply__c</fullName>
         <description>Not shown to user, just for VF section display</description>
         <externalId>false</externalId>
-        <formula>IF( IsValid__c , &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>IF( IsValid__c , "Yes", "No")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Valid Reply?</label>
         <required>false</required>

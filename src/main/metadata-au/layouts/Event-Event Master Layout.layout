@@ -58,6 +58,10 @@
                 <behavior>Edit</behavior>
                 <field>Source_System__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MTH_Penetration__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

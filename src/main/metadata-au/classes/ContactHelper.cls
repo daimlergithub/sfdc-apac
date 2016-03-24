@@ -465,6 +465,31 @@ public class ContactHelper {
         }
     }
     
+   /* public static void autopopulateOfAccountField(List<Contact> contacts){
+      set<Id> accountIds = new set<Id>();  
+      Map<Id,String> accountContactName = new Map<Id,String>();
+      For(Contact con:contacts)
+      {
+          accountIds.add(con.AccountId);
+      }
+      for(Contact con: [Select AccountId,Name from contact where Salutation = 'DRM MBFS' and AccountId IN:accountIds]){
+         accountContactName.put(con.accountId,con.Name);
+        }
+        List<Account> accList = new List<Account>();
+       if(accountContactName!=null && !accountContactName.IsEmpty()){
+      for(Account accObj: [SELECT Id,DRM_MBFS_Contact__c  FROM Account where Id IN: accountContactName.keySet()]){
+          if(accountContactName.containsKey(accObj.Id)){
+              accObj.DRM_MBFS_Contact__c   = accountContactName.get(accObj.Id);
+              accList.add(accObj);
+          }
+      }
+     }
+      if(accList!=null && !accList.IsEmpty()){
+          update accList;
+      }
+     
+   }*/
+      
     public static void assignGateKeeperToLeadOwner(Set<ID> dealerIds) {
         Map<String, User> userMap = new Map<String, User>();
         for(User usr : [select Id, AccountId, Contact.AccountId from User 

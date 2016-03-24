@@ -123,7 +123,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/Central_LOGO.png</logo>
     <pushNotifications>
         <pushNotification>
             <fieldNames>DeadLine__c</fieldNames>
@@ -145,9 +144,6 @@
     <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
             <tab>QC__c</tab>
         </mapping>
         <mapping>
@@ -158,6 +154,9 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

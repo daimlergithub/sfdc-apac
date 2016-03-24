@@ -26,6 +26,7 @@ public class TriggerRetailTaskTriggerHandler
         //existing au functionality
         if(Trigger.isUpdate && Trigger.isAfter){
             RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert,Trigger.isUpdate);
+            RetailTaskHelper.sentEmailAfterStatusToCurrent(trigger.new,oldmap,newmap,Trigger.isInsert,Trigger.isUpdate);
         }
     }
 }

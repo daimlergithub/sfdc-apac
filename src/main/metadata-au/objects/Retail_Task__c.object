@@ -87,6 +87,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Advise_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Advise Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Amount_Financed__c</fullName>
         <externalId>false</externalId>
         <label>Amount Financed</label>
@@ -184,14 +192,14 @@
     <fields>
         <fullName>CMS_Contract_Link__c</fullName>
         <externalId>false</externalId>
-		<formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>    
+    </fields>
     <fields>
         <fullName>Campaign_Description__c</fullName>
         <externalId>false</externalId>
@@ -211,6 +219,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Compliance_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Compliance Comment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Contact_Date__c</fullName>
@@ -864,9 +880,10 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -980,7 +997,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1413,6 +1430,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Settlement_Officer__c</fullName>
+        <externalId>false</externalId>
+        <label>Settlement Officer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2268,6 +2295,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Related_Vehicle__r.VehicleStatus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Welcome_Call_Task__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2654,7 +2692,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -3795,7 +3833,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -4684,7 +4722,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -5553,7 +5591,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -6442,7 +6480,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -7032,4 +7070,55 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Action_Detail__c</errorDisplayField>
         <errorMessage>It's not allowed to change service number.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>New_DRM_Task</fullName>
+        <availability>online</availability>
+        <description>Creates new task with contract number prepopulated.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New DRM Task</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00T/e?RecordType=OBJECT_ACTIVITIES_DRMTASK_RECORDTYPE_ID&amp;OBJECT_ACTIVITIES_WEBLINK_CALLER_FIELD_ID={!Retail_Task__c.ContractNumber__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Finance_Fleet_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Finance Fleet Lead</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a0s/e?RecordType=0121a000000V7Nd&amp;CF00N1a000005s55f_lkid={!Retail_Task__c.Id}&amp;CF00N1a000005s55f={!Retail_Task__c.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Task</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Task</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/00T/e?what_id=a0Z7A000000X7Cw&amp;RecordType=0127A0000004OqT&amp;ekp=00T&amp;ent=Task&amp;isdtp=vw&amp;nonce=bb5e476e1f99e00155a5e6980246424a43baeebc12b66abce922f67cd55c8077&amp;tsk6={!Retail_Task__c.ContractNumber__c}</url>
+    </webLinks>
 </CustomObject>

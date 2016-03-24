@@ -1420,6 +1420,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -1596,12 +1607,22 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MTH_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>MTH Penetration</label>
+        <length>20</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -1614,6 +1635,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Steps__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Steps</label>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Notification_Email_Flag__c</fullName>
@@ -1762,6 +1790,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>Ordered_Against_Factory__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ordered Against Factory</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
         <label>Other Activity</label>
@@ -1861,6 +1896,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Public__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Public</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>QC_ID__c</fullName>
@@ -2492,6 +2534,13 @@ noted by Lio on 10.28.2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Task_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Task Details</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Task_RecordType_Name__c</fullName>
         <externalId>false</externalId>
         <formula>RecordType.Name</formula>
@@ -2586,6 +2635,15 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>YTD_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>YTD Penetration</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eDM_Template_ID__c</fullName>
@@ -3370,7 +3428,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
-        <!--<listViewButtons>Activate_Deactivate_CROs</listViewButtons>-->
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>

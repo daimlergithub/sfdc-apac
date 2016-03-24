@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Email_On_Lead_Owner_Changed</fullName>
+        <description>Email On Lead Owner Changed</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
+    </alerts>
+    <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
@@ -53,6 +64,53 @@
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
+        <fullName>Lead_Untouched_for_4_days_after_creation</fullName>
+        <description>Lead Untouched for 4 days after creation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Key_Account_Manager_users</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
+    </alerts>
+    <alerts>
+        <fullName>Once_Fleet_Vans_lead_is_created_an_email_alert_will_be_sent_to_Fleet_MBaup_Delet</fullName>
+        <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Lead_Notification_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</fullName>
+        <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NSM_user</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>SMDFM_users</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_days</fullName>
+        <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
+    </alerts>
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -70,6 +128,28 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Doc_fee_updation_on_Fee_type</fullName>
+        <description>Update Documentation Fee to “0” when the Fee Type is selected as Waived.</description>
+        <field>Doc_Fee__c</field>
+        <formula>0</formula>
+        <name>Doc fee updation on Fee type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Orig_fee_updation_on_Fee_type</fullName>
+        <description>Update Origination Fee to “0” when the Fee Type is selected as Waived.</description>
+        <field>Orig_Fee__c</field>
+        <formula>0</formula>
+        <name>Orig fee updation on Fee type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
@@ -444,6 +524,31 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>Email Notification to Lead Owner</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Lead_Untouched_for_4_days_after_creation</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>4</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
             <name>Email_notification_when_customer_doesn_t_allow_dealer_contact</name>
@@ -522,13 +627,38 @@ Proxy_Date_Time__c
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Escalation%3A Lead not touched for 7 days</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>This Lead has not been touched for 7 days after creation.</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Finance Send Notification Email To Dealer Recipients Before 15 Days</fullName>
         <actions>
             <name>Update_Finance_Send_Email_Before_15_Days</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Finance_Send_Email_Before_15_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Finance_Send_Email_Before_15_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -538,7 +668,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Finance_Send_Email_Before_20_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Finance_Send_Email_Before_20_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -548,7 +678,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 45 ,  Is_Fleet_Send_Email_Before_45_Days__c = FALSE )</formula>
+        <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 45 ,  Is_Fleet_Send_Email_Before_45_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -558,7 +688,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
+        <formula>AND(MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -652,6 +782,55 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Notify_Manager_Ob_Creation_Fleet_Van_Lead</fullName>
+        <actions>
+            <name>Once_Fleet_Vans_lead_is_created_an_email_alert_will_be_sent_to_Fleet_MBaup_Delet</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fleet Vans</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>Once Fleet Vans lead is created an email alert will be sent to Fleet-MBaup (Delete) users</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Origination and Documentation field updation</fullName>
+        <actions>
+            <name>Doc_fee_updation_on_Fee_type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Orig_fee_updation_on_Fee_type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Fee_Type__c</field>
+            <operation>equals</operation>
+            <value>Waived</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <description>Update Origination Fee and Documentation Fee to “0” when the Fee Type is selected as Waived.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Reassigned lead to Non-BDC</fullName>
         <actions>
             <name>Update_Lead_Accepted_Date_Time_to_Now</name>
@@ -676,6 +855,17 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <operation>notEqual</operation>
             <value>Accepted</value>
         </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Email On Lead Owner Changed</fullName>
+        <actions>
+            <name>Email_On_Lead_Owner_Changed</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the lead owner is changed sent email notification to Owner of Lead</description>
+        <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Finance Fleet Lead',MD__c == 'AU')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -713,15 +903,21 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Status_Category__c</field>
             <operation>equals</operation>
             <value>Closed Won</value>
         </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.RecordType</field>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Fleet Lead</value>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -733,7 +929,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>Created as per the Jira ticket  SFDCAU-485,making contact searchable as a global.</description>
-        <formula>Contact__c != null</formula>
+        <formula>Contact__c != null &amp;&amp; MD__c = 'AU'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -759,7 +955,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>true</active>
         <description>Updates the Customer Type field with the values
 New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
-        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Prospect'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'),  true, false))</formula>
+        <formula>IF(AND(MD__c = 'AU',(Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Prospect'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -771,7 +967,7 @@ New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
         <active>true</active>
         <description>Updates the Customer Type field with the values 
 Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</description>
-        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.PC_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Customer'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'),  true, false))</formula>
+        <formula>IF(AND(MD__c = 'AU',(Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.PC_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Customer'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

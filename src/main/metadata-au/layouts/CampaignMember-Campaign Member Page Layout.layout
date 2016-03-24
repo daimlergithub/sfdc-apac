@@ -9,6 +9,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>CampaignId</field>
             </layoutItems>
             <layoutItems>
@@ -82,6 +86,9 @@
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
+    <miniLayout>
+        <fields>MD__c</fields>
+    </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

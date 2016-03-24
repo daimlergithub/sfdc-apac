@@ -73,6 +73,9 @@
         <fullName>EndDateTime</fullName>
     </fields>
     <fields>
+        <fullName>EventSubtype</fullName>
+    </fields>
+    <fields>
         <fullName>IsAllDayEvent</fullName>
     </fields>
     <fields>
@@ -155,5 +158,5 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

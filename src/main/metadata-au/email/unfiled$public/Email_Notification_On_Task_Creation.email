@@ -1,0 +1,9 @@
+Hi, 
+
+A new Taskhas been created: 
+
+{!Task.Link} 
+
+And the due date is : {!Task.ActivityDate} 
+
+Please to do not respond to this email.

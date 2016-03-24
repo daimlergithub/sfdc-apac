@@ -1121,10 +1121,14 @@ public class AccountHelper {
     @Future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
     {
-    string orgId=UserInfo.getOrganizationId();
+        string sfdcMarketDiscriminator='AU';
+       string orgId=UserInfo.getOrganizationId();
           string sfdcTypeName='Account';
           if(!test.isrunningtest())
-               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+          
+               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+               
+               System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     //Existing AU related functionality ends here   
 }

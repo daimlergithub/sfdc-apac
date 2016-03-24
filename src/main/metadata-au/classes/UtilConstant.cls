@@ -36,12 +36,18 @@ Global with sharing class UtilConstant {
     public final static String VALID = 'Valid';
     public final static string SSI='ssi__c';
     public final static string CLOSED='Closed';
-    public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
+    public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';  
     public final static string ORGWIDE_EMAIL_ADDRESS='DailyAssignedLeadsReport eMail Address';
     public final static string ORGWIDE_EMAIL_ADDRESS_DEFAULT='customer_care@daimler.com';
     public final static string ORGWIDE_EMAIL_ADDRESS_EMC='EMC Email Address';
     public static boolean Recursivefire=false;
     public final static string ENTITY_UPDATE_NOTIFICATION='Entity Update Notification';
+    public final static string DRM_Task ='DRM Task';
+    public final static string CURRENT  ='Current';
+    public final static string IRREGULAR  ='Irregular';
+    public final static string REGULARCOMPILED  ='Irregular Complied';
+    public final static String DRM_MBFS = 'DRM MBFS';
+    public final static String Finance_Fleet_lead = 'Finance Fleet Lead';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {

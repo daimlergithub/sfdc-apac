@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>DRM_Assigned_Task</fullName>
+        <description>DRM_Assigned_Task</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/DRM</template>
+    </alerts>
+    <alerts>
         <fullName>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</fullName>
         <description>Dealer Email Notification on Amount of Assigned Leads</description>
         <protected>false</protected>
@@ -97,7 +107,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR( AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;), Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;), MBFS_Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;), Activation_Date__c &lt;= TODAY(), MBFS_Activation_Date__c &lt;= TODAY() ) )</formula>
+        <formula>OR( AND(  MD__c = &apos;AU&apos;, ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;), Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;), MBFS_Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;), Activation_Date__c &lt;= TODAY(), MBFS_Activation_Date__c &lt;= TODAY() ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -121,6 +131,11 @@
             <field>Account.Activation_Date__c</field>
             <operation>notEqual</operation>
             <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -151,13 +166,13 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR( AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), (Inactivation_Date__c &lt;= TODAY()), (NOT(ISBLANK(Inactivation_Date__c))), OR( ( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ), ( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;)) ) ), AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), ( Inactivation_Date__c &lt;= TODAY()), ( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ), ( MBFS_Inactivation_Date__c &lt;= TODAY() ), (NOT(ISBLANK( MBFS_Inactivation_Date__c ))), (NOT(ISBLANK(Inactivation_Date__c))) ) )</formula>
+        <formula>OR( AND(  MD__c = &apos;AU&apos;,(RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), (Inactivation_Date__c &lt;= TODAY()), (NOT(ISBLANK(Inactivation_Date__c))), OR( ( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ), ( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;)) ) ), AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), ( Inactivation_Date__c &lt;= TODAY()), ( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ), ( MBFS_Inactivation_Date__c &lt;= TODAY() ), (NOT(ISBLANK( MBFS_Inactivation_Date__c ))), (NOT(ISBLANK(Inactivation_Date__c))) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Deactivate Dealer With Time Trigger</fullName>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND ((3 AND 6 AND 8) OR  (4 AND 5 AND 9)OR  (3 AND 4 AND 7 AND 8 AND 9))</booleanFilter>
+        <booleanFilter>1 AND 2 AND ((3 AND 6 AND 8) OR  (4 AND 5 AND 9)OR  (3 AND 4 AND 7 AND 8 AND 9)) AND 10</booleanFilter>
         <criteriaItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
@@ -201,6 +216,11 @@
             <field>Account.Inactivation_Date__c</field>
             <operation>notEqual</operation>
         </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -233,13 +253,24 @@ Modify Reason:
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Send_Email_To_DRM_Account</fullName>
+        <actions>
+            <name>DRM_Assigned_Task</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the ownership of Account changes an email notification will be triggered to the new Assigned user.</description>
+        <formula>IF( ISCHANGED(OwnerId) , true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Credit License Number</fullName>
         <actions>
             <name>Credit_License_Number</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Account.Credit_License__c</field>
             <operation>equals</operation>
@@ -253,6 +284,11 @@ Modify Reason:
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

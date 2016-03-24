@@ -6,5 +6,5 @@
     <tab>standard-Chatter</tab>
     <tab>standard-Contact</tab>
     <tab>Dealer_Locator__c</tab>
-	<tab>Address__c</tab>
+    <tab>Address__c</tab>
 </CustomApplication>

@@ -1,0 +1,35 @@
+<messaging:emailTemplate subject="Lead has not been touched for 7 days" recipientType="User" relatedToType="Lead__c">
+<messaging:htmlEmailBody >
+
+Escalation after 7 days:
+<br/><br/>
+
+HI,
+<br/><br/>
+The following lead has not been actioned within the last 7 days.
+<br/><br/>
+Lead No.
+<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+relatedTo.Id}">
+    {!relatedTo.name}
+</apex:outputLink>
+<br/><br/>
+
+Please to do not respond to this email.  
+<br/><br/>
+
+Mercedes-Benz Financial Services Australia Pty Ltd  
+<br/>
+Level 1/41 Lexia Place 
+<br/>
+Mulgrave Victoria 3170 
+<br/>
+               
+Phone  : 61 (03) 8554 3135 <br/>
+Fax    : 61 (03) 8554 3423  <br/>
+Website:<apex:outputLink value="{!LEFT($Api.Partner_Server_URL_140,FIND('.com',$Api.Partner_Server_URL_140)+4)+relatedTo.Id}">
+ www.mercedes-benzfinancialservices.com.au 
+ </apex:outputLink><br/>
+
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

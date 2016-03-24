@@ -1,0 +1,11 @@
+Hi, 
+
+A DRM task has been assigned to you. 
+
+Task Owner: {!Task.OwnerId}
+
+Notes of Task activity: {!Task.Description}
+
+CMS Contract Number: {!Task.Caller__c}
+
+Lead Number: {!Task.What}

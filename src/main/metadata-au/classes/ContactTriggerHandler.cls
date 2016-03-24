@@ -48,7 +48,7 @@ public class ContactTriggerHandler
                      
         if (trigger.isAfter && trigger.isInsert) {
             ContactHelper.AfterInsertUpdateEvents(trigger.new);
-             ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);          
+             ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);
         }
        
         if (trigger.isAfter && trigger.isUpdate) {        

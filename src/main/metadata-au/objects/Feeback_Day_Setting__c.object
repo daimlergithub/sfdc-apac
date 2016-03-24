@@ -7,7 +7,7 @@
     <fields>
         <fullName>Actual_End_Day__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>The format is &quot;3.31&quot;</inlineHelpText>
+        <inlineHelpText>The format is "3.31"</inlineHelpText>
         <label>Actual End Day</label>
         <length>255</length>
         <required>false</required>
@@ -18,7 +18,7 @@
     <fields>
         <fullName>Actual_Start_Day__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>The format is &quot;1.1&quot;</inlineHelpText>
+        <inlineHelpText>The format is "1.1"</inlineHelpText>
         <label>Actual  Start Day</label>
         <length>255</length>
         <required>false</required>
@@ -29,7 +29,7 @@
     <fields>
         <fullName>Final_Feedback_Day__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>If you want to make the feedback day to the next year, please make sure the text looks like &quot;Next Year 1.31&quot; otherwise the system cannot parse the data correctly.</inlineHelpText>
+        <inlineHelpText>If you want to make the feedback day to the next year, please make sure the text looks like "Next Year 1.31" otherwise the system cannot parse the data correctly.</inlineHelpText>
         <label>Final Feedback Day</label>
         <length>255</length>
         <required>false</required>

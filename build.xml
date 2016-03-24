@@ -129,6 +129,7 @@
 				<sf:exclude name="SurveyQuestionResponse__c"/>
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
+				<sf:exclude name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="components">
 				<sf:include name="DatePickerExtend"/>
@@ -196,6 +197,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
+				<sf:include name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="letterhead"/>			
 			<sf:typeset name="tabs">
@@ -322,7 +324,8 @@
 			<sf:include name="ComplaintDescriptionController"/>	
 			<sf:include name="ComplaintDescriptionControllerTest"/>	
 			<sf:include name="InlineVFToShowVehicleDetailController"/>
-            <sf:include name="InlineVFToShowVehicleDetailTest"/>			
+            <sf:include name="InlineVFToShowVehicleDetailTest"/>
+			<sf:include name="LeadProductDetailsInputController"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -330,6 +333,7 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="ComplaintDescriptionViewAll"/>
 				<sf:include name="InlineVFPageToShowGenericVehicleDetails"/>
+				<sf:include name="LeadProductDetailsInput"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
@@ -373,6 +377,7 @@
 	<target name="deploy34">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
+			<sf:include name="TaskHelperApexSharing"/>
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
 			<sf:include name="TaskTriggerHandler"/>
@@ -678,6 +683,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>	
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAftertestclass"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
 			<sf:include name="CampaignHelperTest"/>
@@ -815,6 +821,8 @@
 			<sf:include name="CampaignMemberHistoryControllerTest"/>
 			<sf:include name="lead_Addresscontroller"/>
 			<sf:include name="lead_AddresscontrollerTest"/>
+			<sf:include name="Lead_AddmultiBrandController"/>
+			<sf:include name="Lead_AddmultiBrandControllerTest"/>
 			<sf:include name="LeadMassChangeDealerController"/>
 			<sf:include name="LeadMassChangeDealerControllerTest"/>
 			<sf:include name="UtilVehicleRelationshipTest"/>
@@ -848,6 +856,7 @@
 				<sf:include name="CampaignMemberHistory"/>
 				<sf:include name="Lead_Address"/>
 				<sf:include name="LeadMassChangeDealer"/>
+				<sf:include name="Lead_Add_MultiBrand"/>
 				<sf:include name="TaskMassChangeActivateDeactive"/>	
 				<sf:include name="ActivityReportUserBased"/>
 				<sf:include name="DealerLookup"/>

@@ -205,7 +205,7 @@
     <fields>
         <fullName>Unique_Code__c</fullName>
         <caseSensitive>false</caseSensitive>
-        <description>not shown to user, it&apos;s for campaign member de-dup purpose</description>
+        <description>not shown to user, it's for campaign member de-dup purpose</description>
         <externalId>false</externalId>
         <label>Unique Code</label>
         <length>40</length>
@@ -246,7 +246,7 @@
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&apos;/soap/ajax/29.0/connection.js&apos;)}
+        <url>{!REQUIRESCRIPT('/soap/ajax/29.0/connection.js')}
 var selectedRecords = {!GETRECORDIDS( $ObjectType.Retail_Campaign_Member__c)};
 sforce.connection.deleteIds(selectedRecords);
 navigateToUrl(window.location.href);</url>

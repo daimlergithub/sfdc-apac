@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Lead _status_not_updated</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <group>Fleet_DFM_Administrator</group>
+        <group>Fleet_Delete</group>
+        <group>Fleet_Vans_user_Manager</group>
+        <group>Head_Of_Sales_Mktg</group>
+        <group>National_Sales_Manager</group>
+        <group>Senior_Manager</group>
+        <group>Senior_Manager_DFM</group>
+    </sharedTo>
+</ReportFolder>
