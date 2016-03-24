@@ -49,13 +49,11 @@ public class ContactTriggerHandler
         if (trigger.isAfter && trigger.isInsert) {
             ContactHelper.AfterInsertUpdateEvents(trigger.new);
              ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);
-             ContactHelper.autopopulateOfAccountField(trigger.new);          
         }
        
         if (trigger.isAfter && trigger.isUpdate) {        
             ContactHelper.AfterInsertUpdateEvents(trigger.new);  
             ContactHelper.CopyFirstNameLastNameToDRM(trigger.new,(Map<Id,Contact>)Trigger.oldMap);
-            ContactHelper.autopopulateOfAccountField(trigger.new);
              
         }
            
