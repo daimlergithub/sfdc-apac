@@ -126,10 +126,10 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
-        <actions>
+        <!--<actions>
             <name>When_tasks_are_created_or_assigned_to_DRM_a_notification_Email_will_be_sent</name>
             <type>Alert</type>
-        </actions>
+        </actions>-->
         <active>false</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
