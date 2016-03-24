@@ -1762,14 +1762,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
-    </fields>
-	<fields>
-        <fullName>Ordered_Against_Factory__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Ordered Against Factory</label>
-        <type>Checkbox</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
@@ -1870,14 +1863,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>	
-	<fields>
-        <fullName>Public__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Public</label>
-        <type>Checkbox</type>
-    </fields>
+    </fields>		
     <fields>
         <fullName>QC_ID__c</fullName>
         <externalId>true</externalId>
