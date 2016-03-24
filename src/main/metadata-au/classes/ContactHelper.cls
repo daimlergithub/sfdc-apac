@@ -465,7 +465,7 @@ public class ContactHelper {
         }
     }
     
-    public static void autopopulateOfAccountField(List<Contact> contacts){
+   /* public static void autopopulateOfAccountField(List<Contact> contacts){
       set<Id> accountIds = new set<Id>();  
       Map<Id,String> accountContactName = new Map<Id,String>();
       For(Contact con:contacts)
@@ -488,7 +488,7 @@ public class ContactHelper {
           update accList;
       }
      
-   }
+   }*/
       
     public static void assignGateKeeperToLeadOwner(Set<ID> dealerIds) {
         Map<String, User> userMap = new Map<String, User>();
