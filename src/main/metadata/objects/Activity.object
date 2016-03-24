@@ -1670,7 +1670,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Next Steps</label>
         <required>false</required>
         <type>TextArea</type>
-    </fields
+    </fields>
     <fields>
         <fullName>Notification_Email_Flag__c</fullName>
         <defaultValue>false</defaultValue>
