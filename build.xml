@@ -683,6 +683,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>	
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAftertestclass"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
 			<sf:include name="CampaignHelperTest"/>
