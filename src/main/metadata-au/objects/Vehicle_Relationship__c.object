@@ -4156,7 +4156,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <filters>
             <field>CREATED_DATE</field>
             <operation>equals</operation>
-            <value>TODAY</value>
         </filters>
         <label>New vehicles</label>
         <language>en_US</language>

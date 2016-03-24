@@ -279,8 +279,7 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
-	</changetext>
-	
+	</changetext>	
 	<changetext>
 		<filename>settings\Case.settings</filename>
 		<xpath>/CaseSettings/defaultCaseOwner/text()</xpath>
@@ -291,7 +290,16 @@
 		<xpath>/CaseSettings/defaultCaseUser/text()</xpath>
 		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
-	
+	<changetext>
+		<filename>objects\Retail_Task__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DRM_Task']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACTIVITIES_WEBLINK_CALLER_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Task__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DRM_Task']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACTIVITIES_DRMTASK_RECORDTYPE_ID</token>
+	</changetext>
 	<!-- remove tab visibility for SocialPersona from profiles -->
 	<removeelement deploy="false">
 		<filename>profiles\*.profile</filename>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead__c.Customer_Name__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Opportunity_Name__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.CAC_Lead_Status__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Close_Date__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Assigned_Dealer__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.CAC_Lead_Status__c</column>
+            <operator>equals</operator>
+            <value>New Enquiry,Contact Attempt Made,Qualified,Request Actioned,Pending Response,Pending Credit Information,Quote Provided,Quote Accepted,Offer Accepted,Actioned,Refer to Head Office,Credit Application Submitted,Application Approved,Application Rejected,Credit in Progress,Documents Received,Financials Requested,Pending Settlement,Sold Vehicle,Sold Vehicle and Finance,Sold Finance,Refinanced,Policy Sold,Settled,Closed,Lost,Brochure Sent,Customer targeted,Establish customer contact,Make first appointment,Customer needs analysis,Customer profile,Solution discovery,Evaluation vehicle,Feedback on vehicle,Customer offer,Follow-up on offer,First orders,Deal lost,Lead closed,Appointment Kept</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Lead_Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c.Proxy_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

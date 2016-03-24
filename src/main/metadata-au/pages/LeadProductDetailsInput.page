@@ -1,0 +1,28 @@
+<apex:page standardController="Lead_Product__c" extensions="LeadProductDetailsInputController">
+    <apex:pageMessages id="pgmasg"></apex:pageMessages>
+    <script>
+        function refreshpage()
+        {
+            window.top.location='/{!Lead_Product__c.id}';
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="refreshdata" columns="4">
+                <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
+                                       
+                    <apex:inputText value="{!wrap.vechmodel}" label="No. of Vehicles" /> 
+                        <apex:selectList value="{!wrap.vehiclebrand}"  label="Model" size="1">
+                            <apex:selectOptions value="{!brands}"  /> 
+                        </apex:selectList>
+                        <apex:inputText value="{!wrap.vechquanty}" label="Vehicle Model Details"/>
+                    <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
+                </apex:repeat>           
+            </apex:pageBlockSection> 
+            <br/> 
+            <center>
+            <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()" style="align:centre"/> 
+            </center>        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

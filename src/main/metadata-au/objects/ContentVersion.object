@@ -1924,7 +1924,6 @@
     </fields>
     <fields>
         <fullName>FileType</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Language</fullName>
@@ -2040,6 +2039,10 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SharingOption</fullName>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>TagCsv</fullName>

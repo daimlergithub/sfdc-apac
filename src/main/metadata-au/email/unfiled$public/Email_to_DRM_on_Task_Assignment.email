@@ -6,6 +6,6 @@ Task Owner: {!Task.OwnerId}
 
 Notes of Task activity: {!Task.Description}
 
-CMS Contract Number
+CMS Contract Number: {!Task.Caller__c}
 
 Lead Number: {!Task.What}

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Email_To_Notify_Fleet_Vans_on_Customer_Contact_Task_Creation</fullName>
+        <description>Email To Notify Fleet Vans on Customer Contact Task Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Customer_Contact_Report_notification_email</template>
+    </alerts>
+    <alerts>
         <fullName>Email_To_Notify_To_Fleet_Vans_on_Order_Task_Creation</fullName>
         <description>Email To Notify To Fleet Vans on Order Task Creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_Delete</recipient>
+            <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -16,7 +27,7 @@
         <description>Email To Notify To Fleet Vans on Quote Task Creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_Delete</recipient>
+            <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -24,7 +35,11 @@
     </alerts>
     <rules>
         <fullName>Notify_To_Fleet_Vans_on_Customer_Contact_Task_Creation</fullName>
-        <active>false</active>
+        <actions>
+            <name>Email_To_Notify_Fleet_Vans_on_Customer_Contact_Task_Creation</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
         <criteriaItems>
             <field>Lead_Product__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -44,7 +59,7 @@
             <name>Email_To_Notify_To_Fleet_Vans_on_Order_Task_Creation</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead_Product__c.RecordTypeId</field>
             <operation>equals</operation>

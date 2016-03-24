@@ -1,3 +1,0 @@
-<apex:page tabStyle="Campaign" action="{!URLfor('/701?isdtp=it')}">
-  <h1>Campaign</h1>
-</apex:page>

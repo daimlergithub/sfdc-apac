@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Email_On_Lead_Owner_Changed</fullName>
+        <description>Email On Lead Owner Changed</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Fleet_MBaup_Delete</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
+    </alerts>
+    <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
@@ -57,11 +68,7 @@
         <description>Lead Untouched for 4 days after creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>NSM_user</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
-            <recipient>SMDFM_users</recipient>
+            <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -83,7 +90,11 @@
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
+            <recipient>NSM_user</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <recipient>SMDFM_users</recipient>
             <type>group</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -848,7 +859,11 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
     </rules>
     <rules>
         <fullName>Send Email On Lead Owner Changed</fullName>
-        <active>false</active>
+        <actions>
+            <name>Email_On_Lead_Owner_Changed</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
         <description>Whenever the lead owner is changed sent email notification to Owner of Lead</description>
         <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Finance Fleet Lead',MD__c == 'AU')</formula>
         <triggerType>onAllChanges</triggerType>

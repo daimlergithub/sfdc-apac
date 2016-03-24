@@ -12,6 +12,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -190,6 +194,9 @@
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
+    <miniLayout>
+        <fields>MD__c</fields>
+    </miniLayout>
     <relatedContent>
         <relatedContentItems>
             <layoutItem>

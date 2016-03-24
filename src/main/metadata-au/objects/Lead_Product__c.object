@@ -60,7 +60,6 @@
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Lead Products</relationshipLabel>
         <relationshipName>Lead_Products</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -77,12 +76,21 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Lead_Product_Items__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Product Items</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>Lead__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Lead</label>
         <referenceTo>Lead__c</referenceTo>
-        <relationshipLabel>Lead Products</relationshipLabel>
         <relationshipName>Lead_Products</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -205,18 +213,50 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Lead Product</label>
+    <label>Lead Detail</label>
+    <listViews>
+        <fullName>Active_Quote_List_View</fullName>
+        <columns>NAME</columns>
+        <columns>Quote_Information__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Quote_Live__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Quote List View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Fleet_Vans_user_Manager</group>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Inactive_Quote_List_View</fullName>
+        <columns>NAME</columns>
+        <columns>Quote_Information__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Quote_Live__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Inactive Quote List View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>Fleet_Vans_user_Manager</group>
+        </sharedTo>
     </listViews>
     <nameField>
         <label>Lead Product Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Lead Products</pluralLabel>
+    <pluralLabel>Lead Details</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Customer_Contact</fullName>

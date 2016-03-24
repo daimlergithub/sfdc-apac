@@ -115,7 +115,7 @@
     <fields>
         <fullName>R_WithSettlement__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL(Settlement_Type__c ,&apos;No Settlement Require&apos;),0,1)</formula>
+        <formula>if( ISPICKVAL(Settlement_Type__c ,'No Settlement Require'),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>With Settlement</label>
         <precision>18</precision>
@@ -128,7 +128,7 @@
     <fields>
         <fullName>R_Without_Settlement__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL(Settlement_Type__c ,&apos;No Settlement Require&apos;),1,0)</formula>
+        <formula>if( ISPICKVAL(Settlement_Type__c ,'No Settlement Require'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Without Settlement</label>
         <precision>18</precision>
@@ -209,8 +209,8 @@
     <validationRules>
         <fullName>Other_Settlement_Type_Mandatory</fullName>
         <active>true</active>
-        <description>When Settlement Type is &quot;Others&quot;, &quot;Other Settlement Type&quot; field should be mandatory.</description>
-        <errorConditionFormula>ISPICKVAL( Settlement_Type__c , &apos;Others&apos;) &amp;&amp;  ISBLANK( Other_Settlement_Type__c )</errorConditionFormula>
+        <description>When Settlement Type is "Others", "Other Settlement Type" field should be mandatory.</description>
+        <errorConditionFormula>ISPICKVAL( Settlement_Type__c , 'Others') &amp;&amp;  ISBLANK( Other_Settlement_Type__c )</errorConditionFormula>
         <errorMessage>Please fill in Other Settlement Type.</errorMessage>
     </validationRules>
 </CustomObject>
