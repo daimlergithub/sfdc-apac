@@ -1870,29 +1870,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Product_Offer__c</fullName>
-        <externalId>false</externalId>
-        <label>Product Offer</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedez Bench Finance &amp;Insurance offer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
+    </fields>	
 	<fields>
         <fullName>Public__c</fullName>
         <defaultValue>false</defaultValue>
