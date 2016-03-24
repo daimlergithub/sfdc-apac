@@ -129,6 +129,7 @@
 				<sf:exclude name="SurveyQuestionResponse__c"/>
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
+				<sf:exclude name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="components">
 				<sf:include name="DatePickerExtend"/>
@@ -196,6 +197,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
+				<sf:include name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="letterhead"/>			
 			<sf:typeset name="tabs">
