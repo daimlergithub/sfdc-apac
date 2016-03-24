@@ -145,10 +145,10 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Task created or assigned to DRM</fullName>
-        <actions>
+        <!--<actions>
             <name>send_email_alert_to_owner_on_DRM_task_creation_or_assignment</name>
             <type>Alert</type>
-        </actions>
+        </actions> -->
         <active>false</active>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
