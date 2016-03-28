@@ -32,6 +32,10 @@
                 <behavior>Required</behavior>
                 <field>Nature_of_Request__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Credit_Limit_Request__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
