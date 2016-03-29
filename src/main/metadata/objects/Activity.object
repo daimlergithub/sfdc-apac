@@ -472,6 +472,7 @@
                 <controllingFieldValues>E-mail</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
+			
             <picklistValues>
                 <fullName>Other</fullName>
                 <controllingFieldValues>E-mail</controllingFieldValues>
