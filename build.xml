@@ -918,12 +918,12 @@
 		</deploy>
     </target>
 	
-	<target name="deploy53">
+	<!--<target name="deploy53">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="reports"/>
 			<sf:typeset name="reportTypes"/>
 		</deploy>
-    </target>
+    </target>-->
 
 	<target name="loaddata-oliver">
 		<mkdir dir="logs"/>
