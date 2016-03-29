@@ -3914,11 +3914,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Portal_ID2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_Link__c.Portal_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
