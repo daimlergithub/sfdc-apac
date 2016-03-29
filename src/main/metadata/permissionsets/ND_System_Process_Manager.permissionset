@@ -17208,10 +17208,6 @@ Default Flag, All 6 DMS Codes</description>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Dealer_Locator__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>EP_Log_Interface__c</tab>
         <visibility>None</visibility>
     </tabSettings>
