@@ -3910,7 +3910,7 @@
         <editable>false</editable>
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
-    </fieldPermissions
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_ID__c</field>
