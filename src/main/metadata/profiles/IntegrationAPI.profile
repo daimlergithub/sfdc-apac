@@ -5,6 +5,7 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+	
     <applicationVisibilities>
         <application>Central_Dealer_Portal</application>
         <default>false</default>
@@ -3910,6 +3911,11 @@
         <editable>true</editable>
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_ID2__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8818,11 +8824,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Quote_Live__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8874,6 +8875,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.SSI_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.SentTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14704,11 +14710,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.QC_Quantity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Quote_Live__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
