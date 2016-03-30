@@ -1653,6 +1653,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Next_Steps__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Steps</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Notification_Email_Flag__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1744,7 +1751,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
@@ -1845,7 +1852,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
+    </fields>		
     <fields>
         <fullName>QC_ID__c</fullName>
         <externalId>true</externalId>
