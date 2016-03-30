@@ -113,7 +113,7 @@
 	<criteriaBasedRules>
         <fullName>Dealer_Account_Read_Only_for_Supervisor_Operator_Supervisor_Team_B</fullName>
         <sharedTo>
-            <role>Supervisor_Team_B</role>
+            <roleAndSubordinatesInternal>Supervisor_Team_B</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
