@@ -5,7 +5,8 @@ public class DealerLocatorHelper
     {
     string orgId=UserInfo.getOrganizationId();
           string sfdcTypeName='Dealer_Locator__c';
+         string sfdcMarketDiscriminator='AU';
           if(!test.isrunningtest())
-               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
     }
 }
