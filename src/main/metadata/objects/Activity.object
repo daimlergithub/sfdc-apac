@@ -472,6 +472,7 @@
                 <controllingFieldValues>E-mail</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
+			
             <picklistValues>
                 <fullName>Other</fullName>
                 <controllingFieldValues>E-mail</controllingFieldValues>
@@ -1598,6 +1599,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MTH_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>MTH Penetration</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>More_Than_2_OB_Times__c</fullName>
         <externalId>false</externalId>
         <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
@@ -1706,13 +1716,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Phone</type>
     </fields>
     <fields>
-        <fullName>Ordered_Against_Factory__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Ordered Against Factory</label>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
         <label>Other Activity</label>
@@ -1814,28 +1817,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Product_Offer__c</fullName>
-        <externalId>false</externalId>
-        <label>Product Offer</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Service plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After Sales offer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedez Bench Finance &amp;Insurance offer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
         <fullName>Public__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1870,13 +1851,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Quote_Live__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Quote Live</label>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Reason__c</fullName>
@@ -2944,7 +2918,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-	
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
