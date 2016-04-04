@@ -2000,21 +2000,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>Retail Task</label>
-    <listViews>
-        <fullName>ALL</fullName>
-        <columns>NAME</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>VIN__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>UPDATEDBY_USER</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <label>ALL</label>
-        <language>en_US</language>
-    </listViews>
+    <label>Retail Task</label>   
     <listViews>
         <fullName>RetailActivity</fullName>
         <columns>NAME</columns>
