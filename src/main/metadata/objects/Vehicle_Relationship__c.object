@@ -49,7 +49,7 @@
     <description>Contact Portfolio: Vehicle Relationship record linked to customer and a vehicle</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -1584,7 +1584,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1593,7 +1593,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <externalId>false</externalId>
         <label>End Setting Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -2067,7 +2067,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>MOT Owner Name</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2089,7 +2089,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>MOT User</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2135,7 +2135,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2245,7 +2245,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2396,7 +2396,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3176,7 +3176,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Purchase
         <inlineHelpText>Purchase date of vehicle (information from leads, not from sales)</inlineHelpText>
         <label>Purchase Date</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -3261,7 +3261,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Registra
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3283,7 +3283,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Registra
         <label>Registration City</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3438,7 +3438,7 @@ What factors were influential in your purchase decision?
         <referenceTo>User</referenceTo>
         <relationshipName>Vehicle_Relationship1</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3496,7 +3496,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Provided
         <referenceTo>User</referenceTo>
         <relationshipName>Vehicle_Relationship2</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3560,7 +3560,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Status"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4009,7 +4009,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <relationshipLabel>Vehicle Relationships</relationshipLabel>
         <relationshipName>Vehicle_Relationships</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -4186,7 +4186,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <relationshipLabel>Vehicle Relationship</relationshipLabel>
         <relationshipName>Vehicle_Relationship</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -4196,7 +4196,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>Vehicle Fax</label>
         <length>63</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -4207,7 +4207,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>Vehicle Mail</label>
         <length>63</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
