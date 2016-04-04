@@ -5,8 +5,7 @@
         <description>Email On Lead Owner Changed</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_MBaup_Delete</recipient>
-            <type>group</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
