@@ -190,7 +190,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRelation“</description>
+Attribute in Data Dictionary object Vehicle Relationship is â€VehicleRel_CarRelationâ€œ</description>
         <externalId>false</externalId>
         <inlineHelpText>Person's relationship to the vehicle</inlineHelpText>
         <label>Car Relation</label>
@@ -1349,7 +1349,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contact“</description>
+Attribute in Data Dictionary object Vehicle Relationship is â€VehicleRel_Contactâ€œ</description>
         <externalId>false</externalId>
         <inlineHelpText>ID of related person</inlineHelpText>
         <label>Contact</label>
@@ -1537,7 +1537,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDate“</description>
+Attribute in Data Dictionary object Vehicle Relationship is â€VehicleRel_EndDateâ€œ</description>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
@@ -1910,7 +1910,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastServiceDealer“</description>
+Attribute in Data Dictionary object Vehicle Relationship is â€VehicleRel_LastServiceDealerâ€œ</description>
         <externalId>false</externalId>
         <inlineHelpText>Name of last service dealer</inlineHelpText>
         <label>Last Service Dealer</label>
@@ -2359,7 +2359,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husband・Wife</fullName>
+                <fullName>Husbandãƒ»Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
