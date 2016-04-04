@@ -269,14 +269,42 @@ public with sharing class RetailTaskHelper {
                                 plainBody = emailTemplateObjForRegular.Body ;
                             }
    //                         system.debug();
-                            if(subject != null && plainBody != null){
+                            if(subject != null && plainBody != null && !businessUserEmailAddress.isEmpty()){
                                 mail.setToAddresses(businessUserEmailAddress);
-                                if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c)){
-                                    subject  = subject.replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
-                                  
-                                    plainBody  = plainBody .replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
-                                    plainBody  = plainBody.replace('{!RetailTask.ContractNumber}',retailTaskObj.ContractNumber__c);
-                                    plainBody  = plainBody.replace('{!RetailTask.FINANCED}',String.valueOf(retailTaskObj.Amount_Financed__c));
+                                if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
+                                {
+                                    if(retailTaskObj.Related_Dealer__c!= null)
+                                    {
+                                        subject  = subject.replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                    }
+                                    else
+                                    {
+                                        subject = subject.replace('{!Account.Name}', '');
+                                    }
+                                    if(retailTaskObj.Related_Dealer__c != null)
+                                    {
+                                        plainBody  = plainBody .replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody .replace('{!Account.Name}','');
+                                    }
+                                    if(retailTaskObj.ContractNumber__c != null)
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.ContractNumber}',retailTaskObj.ContractNumber__c);
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.ContractNumber}','');
+                                    }
+                                    if(retailTaskObj.Amount_Financed__c != null)
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.FINANCED}',String.valueOf(retailTaskObj.Amount_Financed__c));
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.FINANCED}','');
+                                    }
                                     if(retailtaskObj.Status__c == UtilConstant.IRREGULAR || retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
                                        if(retailTaskObj.Settlement_Officer__c != null){
                                           plainBody  = plainBody.replace('(Settlement officer)',retailTaskObj.Settlement_Officer__c);
