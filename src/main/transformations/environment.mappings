@@ -45,6 +45,7 @@ dev_sb_asia_dev9=mohanaraja.alla.ntt@asia.daimler-apac.com.asiadev9
 dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4
 dev_sb_asia_dev10=sergio.kobayashi@nttdata.com.asiadev10
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
-
+dev_sb_asia_mrdev=narasimha.gundurao.tt@asia.daimler-apac.com.mrdev
+dev_sb_asia_mr=narasimha.gundurao.ntt@asia.daimler-apac.com.mr,arun.iyer.ntt@asia.daimler-apac.com.mr
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
