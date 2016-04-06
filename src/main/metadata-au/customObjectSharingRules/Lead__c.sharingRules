@@ -41,3 +41,4 @@
         <accessLevel>Read</accessLevel>
         <name>Share Lead With CRMOne User</name>
     </criteriaBasedRules>
+</CustomObjectSharingRules>
