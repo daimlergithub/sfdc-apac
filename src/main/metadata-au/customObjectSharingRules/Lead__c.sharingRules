@@ -41,22 +41,3 @@
         <accessLevel>Read</accessLevel>
         <name>Share Lead With CRMOne User</name>
     </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>Share_Van_Lead_With_Van_Users</fullName>
-        <sharedTo>
-            <group>Fleet_Vans_Users</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Fleet Vans</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>AU</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>Share Van Lead With Van Users</name>
-    </criteriaBasedRules>
-</CustomObjectSharingRules>
