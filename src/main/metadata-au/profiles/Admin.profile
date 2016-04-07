@@ -9480,9 +9480,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Attachment_Flag__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -15567,6 +15567,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>VIN_Mapping__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>VIN_Mapping__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
