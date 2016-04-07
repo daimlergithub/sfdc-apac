@@ -23,10 +23,6 @@
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Sub_Source__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Source_Campaign__c</field>
             </layoutItems>
