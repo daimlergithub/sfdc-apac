@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>Lead_Detail_Sharing_Rule</fullName>
+        <sharedTo>
+            <group>Fleet_MBaup_Delete</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>All lead products (quote, order, customer contact report) can automatically view the Vans MBAuP team if they have a Fleet MBAuP or Fleet(Delete) MBAuP profile. This means they they do not have to share these lead products to their own team members because it can be viewed by all of them. It only needs to be shared to members NOT part of this team.</description>
+        <name>Lead Detail Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Sharing_Rule_for_Fleet_MBAup</fullName>
+        <sharedTo>
+            <group>Fleet_MBaup</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Sharing Rule for Fleet MBAup</name>
+    </criteriaBasedRules> 
+</CustomObjectSharingRules>
