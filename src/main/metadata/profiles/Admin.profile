@@ -15303,6 +15303,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>true</readable>
     </fieldPermissions>
