@@ -172,11 +172,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountNZHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>    
     <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
         <enabled>true</enabled>
