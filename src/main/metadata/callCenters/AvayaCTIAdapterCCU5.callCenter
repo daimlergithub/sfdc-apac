@@ -167,7 +167,7 @@
         <items>
             <label>Enable Console Logout? (Y/N)</label>
             <name>callLogOut</name>
-            <value>N</value>
+            <value>Y</value>
         </items>
         <label>Softphone Options</label>
         <name>SoftphoneOptions</name>
