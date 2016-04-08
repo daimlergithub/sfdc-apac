@@ -48,9 +48,9 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -60,6 +60,7 @@
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>
         <label>Hide Survey Name</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -72,6 +73,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -83,6 +85,7 @@
         <inlineHelpText>Message to be displayed to the user when the Survey has been submitted</inlineHelpText>
         <label>Submit Response</label>
         <required>true</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -91,6 +94,7 @@
         <externalId>false</externalId>
         <label>Survey Container CSS</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -100,6 +104,7 @@
         <externalId>false</externalId>
         <label>Survey Header</label>
         <length>32000</length>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>10</visibleLines>
@@ -109,6 +114,7 @@
         <externalId>false</externalId>
         <label>Thank You Text</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
@@ -120,6 +126,7 @@
         <label>URL</label>
         <length>255</length>
         <required>true</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -130,6 +137,7 @@
         <label>Thank You Link</label>
         <length>200</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -139,6 +147,7 @@
         <externalId>false</externalId>
         <label>Thank You Text</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -153,6 +162,7 @@
     </listViews>
     <nameField>
         <label>Survey Name</label>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Surveys</pluralLabel>
