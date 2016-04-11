@@ -2049,6 +2049,10 @@ noted by Lio on 10.28.2013</description>
                 <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>training required</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>

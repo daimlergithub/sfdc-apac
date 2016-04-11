@@ -6678,6 +6678,10 @@
                 <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>training required</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>SSI_Status__c</picklist>
