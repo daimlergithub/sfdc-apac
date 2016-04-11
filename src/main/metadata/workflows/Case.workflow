@@ -102,6 +102,27 @@
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
     </alerts>
     <fieldUpdates>
+        <fullName>ChangeStatus</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>ChangeStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ChangeStatusforApproval</fullName>
+        <description>Change Status to &apos;Waiting for final approval&apos;</description>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>ChangeStatusforApproval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Final_Approval_Rejecte</fullName>
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
@@ -181,6 +202,91 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Final_approval_done</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Status Final approval done</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Final_approval_rejected</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Status Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Waiting_for_Reponse_approval</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Status Waiting for Reponse approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Final_approval_done</fullName>
+        <description>Change Status to &apos;Final approval done&apos;</description>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Status to Final approval done</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Final_approval_rejected</fullName>
+        <description>Change Status to &apos;Final approval rejected&apos;</description>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Status to Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Waiting_for_Reponse_approval</fullName>
+        <description>Change Status to Waiting for Reponse approval</description>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Status to Waiting for Reponse approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateApprovalSubmit</fullName>
+        <description>Update Approval_Submit_Date__C  with System.today()</description>
+        <field>Approval_Submit_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Approval_Submit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_ApprovalSubmit_Date</fullName>
+        <description>Update Approval_Submit_Date__C  with System.today()</description>
+        <field>Approval_Submit_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update ApprovalSubmit Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Approval_submit_date</fullName>
