@@ -172,7 +172,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
         <enabled>true</enabled>
@@ -1164,7 +1164,7 @@
     <classAccesses>
         <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>false</enabled>
@@ -1857,6 +1857,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Complaint_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9410,7 +9415,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead_Product__c.Lead__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18049,7 +18054,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadProductDetailsInput</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Add_MultiBrand</apexPage>
@@ -18519,7 +18524,8 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Fleet_Vans</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18534,7 +18540,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Lead__c.Sales_Leads</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
