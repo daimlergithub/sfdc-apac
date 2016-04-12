@@ -5,7 +5,6 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
-	
     <applicationVisibilities>
         <application>Central_Dealer_Portal</application>
         <default>false</default>
@@ -1610,6 +1609,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Complaint_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Complaint_Priority__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
