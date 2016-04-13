@@ -17082,8 +17082,8 @@
         <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout to all except Fleet%2Ffleet delete</layout>
+	<layoutAssignments>
+        <layout>Lead__c-Finance Fleet Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
