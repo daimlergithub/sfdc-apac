@@ -85,7 +85,7 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>Lead_Address_Vehicle_Layout</page>
+                <page>Lead_Address</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
