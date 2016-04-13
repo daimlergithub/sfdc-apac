@@ -35,7 +35,11 @@
                         <apex:outputField value="{!row.Address_Type__c}" style="width:7%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
-                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
+                        <!--out put field to display address Type  --> 
+                        <apex:outputField value="{!row.Name}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
                         <apex:outputText value="{!row.ZipCode__c}"  style="width:8%; white-space:none;">                              
                         </apex:outputText>
