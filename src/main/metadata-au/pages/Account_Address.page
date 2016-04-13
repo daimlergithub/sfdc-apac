@@ -32,9 +32,8 @@
              <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
              <apex:outputField value="{!addressList_details.Company_Name__c}"/>
              <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
-             <apex:outputField value="{!addressList_details.city__c}"/>
+             <apex:outputField value="{!addressList_details.City__c}"/>
              <apex:outputField value="{!addressList_details.District__c}"/>
-             <apex:outputField value="{!addressList_details.Province__c}"/>
              <apex:outputField value="{!addressList_details.Country__c}"/>
              <apex:outputField value="{!addressList_details.ZipCode__c}"/>
              <apex:outputField value="{!addressList_details.Status__c}"/>   
@@ -46,7 +45,6 @@
              <apex:outputText label="Address Line 2"/>
              <apex:outputText label="City"/>
              <apex:outputText label="Suburb"/>
-             <apex:outputText label="State"/>
              <apex:outputText label="Country"/>
              <apex:outputText label="Post Code"/>
              <apex:outputText label="Status"/> 
