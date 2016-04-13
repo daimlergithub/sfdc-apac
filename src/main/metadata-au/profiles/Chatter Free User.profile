@@ -1606,6 +1606,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>multiBrandaddextension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1857,6 +1861,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Complaint_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15571,6 +15580,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17910,6 +17924,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ca_tour_style</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>createMultiBrand</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

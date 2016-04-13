@@ -172,7 +172,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
         <enabled>true</enabled>
@@ -1164,7 +1164,7 @@
     <classAccesses>
         <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>false</enabled>
@@ -1606,6 +1606,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>multiBrandaddextension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1857,6 +1861,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Complaint_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15571,6 +15580,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18222,6 +18236,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>createMultiBrand</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>labs_survey_css</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -18471,7 +18489,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead_Product__c.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18991,6 +19008,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>

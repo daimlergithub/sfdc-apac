@@ -26,5 +26,5 @@
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <name>Sharing Rule for Fleet MBAup</name>
-    </criteriaBasedRules> 
+    </criteriaBasedRules>
 </CustomObjectSharingRules>
