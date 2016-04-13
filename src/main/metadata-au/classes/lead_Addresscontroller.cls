@@ -11,11 +11,13 @@ public static Id AccountId;
 public static id ContactId; 
 public string mobileNum{get; set;}
 public string recordtypeid{get; set;}
+public string marketdiscriminator{get; set;}    
 public string homePhone{get ; set;}
 public string companyname{get ; set;}
 public string workPhone{get; set;}
 public string email{get; set;}
-public string zipcode{get; set;}  
+public string zipcode{get; set;}
+public string city{get; set;}
 public string addressline1{get; set;}
 public string addressline2{get; set;}
 public string suburb{get; set;}
@@ -79,15 +81,17 @@ public static list<Account> updateAccountList = new list<Account>();
                    zipcode =led.Company_Account__r.Zipcode__c ;                                                                        
         	  recordtypeid = leadList.get(0).RecordType.developername;
                     system.debug(')@$$#$%$#%$#%'+recordtypeid);
-              addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Company_Name__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
+              addresslist=[select id,Name,Customer__c,MD__c,Preferred__c,city__c,Address_Type__c,Company_Name__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                             from Address__c Where Customer__c=:AccountId AND Preferred__c=:true Limit 1]; 
              if(addresslist!=Null && !addresslist.isEmpty())
              {
+                 marketdiscriminator = addresslist.get(0).Md__c;
                  addr.id =  addresslist.get(0).id;
                  addr.Address_Type__c = addresslist.get(0).Address_Type__c;
                  addressline1 = addresslist.get(0).Address_Line_1__c;
                  addressline2 = addresslist.get(0).Address_Line_2__c;
                  suburb = addresslist.get(0).District__c;
+                 city = addresslist.get(0).city__c;
                  addr.Province__c = addresslist.get(0).Province__c;
               	 companyname = addresslist.get(0).Company_Name__c;
               	 addr.Country__c = addresslist.get(0).Country__c;
