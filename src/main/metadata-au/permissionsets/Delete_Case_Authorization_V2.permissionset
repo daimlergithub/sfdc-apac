@@ -561,23 +561,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadProductDetailsInputController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingWrapService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Lead_AddmultiBrandController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1581,10 +1569,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>multiBrandaddextension</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1693,11 +1677,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Batch_No__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Behavioural_Group__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1843,11 +1822,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Complaint_Amount__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Complaint_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3498,11 +3472,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Primary_Phone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Primary_Segment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9292,17 +9261,7 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead_Product__c.Account__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead_Product__c.Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead_Product__c.Lead_Product_Items__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10633,11 +10592,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Test_Drive_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Threshold_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15467,11 +15421,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>VIN_Mapping__c.MD__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16855,14 +16804,6 @@ yujing.he@daimler.com</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>LeadProductDetailsInput</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Add_MultiBrand</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17040,10 +16981,6 @@ yujing.he@daimler.com</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ca_tour_style</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>createMultiBrand</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

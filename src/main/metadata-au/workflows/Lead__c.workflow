@@ -1113,6 +1113,35 @@ Modify Reason:
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Update Status and Date time of Non-BDC Dealer</fullName>
+        <actions>
+            <name>Update_CAC_Lead_Status_to_Accepted</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Dealer_Lead_Status_to_Accepted</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Lead_Accepted_Date_Time_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Lead_Assigned_Date_Time_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Lead_Recieved_Date_Time_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Created by: Mouse Liu 
+Used by: Lead__c (US-Lead-14) 
+Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
+        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "No", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL,ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Test Drive Date Time</fullName>
         <actions>
             <name>Update_Proxy_Date_Time_to_Test_Drive</name>

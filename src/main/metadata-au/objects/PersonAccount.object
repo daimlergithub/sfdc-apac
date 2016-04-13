@@ -166,25 +166,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_Group__c</picklist>
-            <values>
-                <fullName>Attriter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to the brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolver</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Bus_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -3170,29 +3151,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Primary_Segment__c</picklist>
-            <values>
-                <fullName>Faithful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loyal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Testing</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -4065,25 +4023,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Behavioural_Group__c</picklist>
-            <values>
-                <fullName>Attriter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to the brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7263,29 +7202,6 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Primary_Segment__c</picklist>
-            <values>
-                <fullName>Faithful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loyal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Testing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8187,25 +8103,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_Group__c</picklist>
-            <values>
-                <fullName>Attriter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to the brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolver</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Bus_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -11357,29 +11254,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Primary_Segment__c</picklist>
-            <values>
-                <fullName>Faithful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loyal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Testing</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -12233,25 +12107,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Behavioural_Group__c</picklist>
-            <values>
-                <fullName>Attriter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to the brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15347,29 +15202,6 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Primary_Segment__c</picklist>
-            <values>
-                <fullName>Faithful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loyal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Testing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16275,25 +16107,6 @@
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Behavioural_Group__c</picklist>
-            <values>
-                <fullName>Attriter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to the brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolver</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -19476,29 +19289,6 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Primary_Segment__c</picklist>
-            <values>
-                <fullName>Faithful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Field</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loyal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Testing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
