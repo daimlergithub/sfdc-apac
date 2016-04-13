@@ -1861,6 +1861,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Contact_Background__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15571,6 +15576,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17076,12 +17086,12 @@
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout to all except Fleet%2Ffleet delete</layout>
-        <recordType>Lead__c.Fleet_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
         <recordType>Lead__c.Insurance_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -18976,6 +18986,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>

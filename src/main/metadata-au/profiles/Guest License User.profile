@@ -1861,6 +1861,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Contact_Background__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15567,6 +15572,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>VIN_Mapping__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

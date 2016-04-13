@@ -172,7 +172,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
         <enabled>true</enabled>
@@ -1164,7 +1164,7 @@
     <classAccesses>
         <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
+    </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>false</enabled>
@@ -1857,6 +1857,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Complaint_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15571,6 +15576,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17065,6 +17075,10 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Finance Fleet Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -17074,10 +17088,6 @@
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout to all except Fleet%2Ffleet delete</layout>
-        <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
@@ -18471,7 +18481,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead_Product__c.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

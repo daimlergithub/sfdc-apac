@@ -17075,10 +17075,6 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout to all except Fleet%2Ffleet delete</layout>
-        <recordType>Lead__c.Fleet_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -17092,6 +17088,10 @@
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
