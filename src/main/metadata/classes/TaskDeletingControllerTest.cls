@@ -38,7 +38,7 @@ public static void preparedTestData(List<Profile> userProfile)
   static testMethod void TestRemoveTask_ElseConditon()
   {
     
-        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' ]);       
+        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' limit 1]);       
        //data for user object
     
               preparedTestData(userProfile);
