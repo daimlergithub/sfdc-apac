@@ -12,7 +12,7 @@ public static void preparedTestData(List<Profile> userProfile)
                                       localesidkey = 'en_US', profileid = userProfile.get(0).id ,
                                       timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
                                       insert usr;
-     user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+     user = [select Profile.Name from User where profileid =:userProfile.get(0).id limit 1];
 }
   static testMethod void testTaskDeletingController()
   {
@@ -38,7 +38,7 @@ public static void preparedTestData(List<Profile> userProfile)
   static testMethod void TestRemoveTask_ElseConditon()
   {
     
-        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' limit 1]);       
+        List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager']);       
        //data for user object
     
               preparedTestData(userProfile);
