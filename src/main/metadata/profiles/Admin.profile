@@ -1536,6 +1536,11 @@
         <field>Account.Complaint_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
+        <field>Account.Complaint_priority__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Contact_Background__c</field>
