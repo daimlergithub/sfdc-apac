@@ -17989,14 +17989,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>Lead_Address_Finance_Fleet_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
