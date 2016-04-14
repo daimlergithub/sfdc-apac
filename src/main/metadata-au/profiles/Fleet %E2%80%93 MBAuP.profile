@@ -18497,7 +18497,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-
         <recordType>Lead_Product__c.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18529,12 +18528,10 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Fleet_Lead</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
-
         <recordType>Lead__c.Fleet_Vans</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18550,7 +18547,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-
         <recordType>Lead__c.Sales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
