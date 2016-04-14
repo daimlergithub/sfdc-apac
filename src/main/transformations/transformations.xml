@@ -754,4 +754,24 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID_VANS</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
 </transformations>
