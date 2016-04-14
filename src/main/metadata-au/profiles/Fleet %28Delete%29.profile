@@ -9466,11 +9466,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Additional_Comments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
         <readable>false</readable>
     </fieldPermissions>
