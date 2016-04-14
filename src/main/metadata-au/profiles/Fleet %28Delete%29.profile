@@ -1861,6 +1861,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Complaint_Priority__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Contact_Background__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6031,6 +6036,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Complaint_Contact_LastName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Complaint_Creator_Department__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6087,6 +6097,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.CreateByCAC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Created_by_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7362,6 +7377,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.US_VIN__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Updated_by_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15571,6 +15591,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>VIN_Mapping__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>VIN_Mapping__c.WMI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17076,7 +17101,7 @@
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
+        <layout>Lead__c-Fleet%2FFleet Delete Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -17662,6 +17687,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>Lead_Product__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Lead__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -18035,14 +18069,6 @@
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Address_Finance_Fleet_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
@@ -18981,7 +19007,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
