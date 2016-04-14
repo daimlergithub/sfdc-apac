@@ -6679,7 +6679,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

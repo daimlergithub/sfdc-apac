@@ -95,7 +95,7 @@
         <fullName>Activity_Comment__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Activity Comment</inlineHelpText>
-        <label>Activity Comment</label>
+        <label>Dealer Summary</label>
         <required>false</required>
         <type>TextArea</type>
     </fields>
@@ -507,7 +507,7 @@
         <fullName>Activity_Info__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Activity Info</inlineHelpText>
-        <label>Activity Info</label>
+        <label>Monthly Objective</label>
         <required>false</required>
         <type>TextArea</type>
     </fields>
@@ -1639,7 +1639,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <fields>
         <fullName>Next_Steps__c</fullName>
         <externalId>false</externalId>
-        <label>Next Steps</label>
+        <label>Ongoing/Other</label>
         <required>false</required>
         <type>TextArea</type>
     </fields>
@@ -1799,7 +1799,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
-        <label>Other Activity</label>
+        <label>Wholesale</label>
         <length>100</length>
         <required>false</required>
         <type>Text</type>
@@ -2050,7 +2050,7 @@ noted by Lio on 10.28.2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

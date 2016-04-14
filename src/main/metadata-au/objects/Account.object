@@ -5624,6 +5624,22 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Internal</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>StarFleet (dealer fleet sales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government (ambulances, defence)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental (rental cars eg Eurocar)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Fleet</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -12716,7 +12732,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Direct Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fleet Buyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+<fullName>Government %28ambulances%2C defence%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12784,11 +12808,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Rental %28rental cars eg Eurocar%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Retail Customer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sprinter Body Builder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarFleet %28dealer fleet sales%29</fullName>
                 <default>false</default>
             </values>
             <values>
