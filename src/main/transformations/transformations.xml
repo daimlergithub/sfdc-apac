@@ -86,6 +86,12 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
+	</changetext>
+
 	
 	<changetext>
 		<filename>objects\QC__c.object</filename>
@@ -518,7 +524,17 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+	</changetext>/*
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ID</token>
+	</changetext>*/
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
