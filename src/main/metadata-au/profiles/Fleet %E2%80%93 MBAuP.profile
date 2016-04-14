@@ -6036,6 +6036,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Complaint_Contact_LastName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Complaint_Creator_Department__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6092,6 +6097,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.CreateByCAC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Created_by_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7367,6 +7377,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.US_VIN__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Updated_by_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17075,6 +17090,10 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Finance Fleet Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -17084,10 +17103,6 @@
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout to all except Fleet%2Ffleet delete</layout>
-        <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
@@ -18065,14 +18080,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>Lead_Address_Finance_Fleet_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -18521,11 +18528,10 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Fleet_Lead</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Fleet_Vans</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

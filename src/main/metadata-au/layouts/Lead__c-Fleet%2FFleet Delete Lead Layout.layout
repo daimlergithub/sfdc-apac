@@ -107,10 +107,10 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>Lead_Address_Finance_Fleet_Layout</page>
+                <page>Lead_Address</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
-                <width>100%</width>
+                <width>1300</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -330,7 +330,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h1a000001fjYn</masterLabel>
+        <masterLabel>00hq0000001XE3Y</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
