@@ -9665,6 +9665,18 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Complaint_Contact_LastName__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Complaint_Creator_Department__c</fullName>
         <externalId>false</externalId>
         <label>Complaint Creator Department</label>
@@ -9830,6 +9842,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_by_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created by EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Critical_Complaint__c</fullName>
@@ -16189,6 +16213,18 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Updated_by_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated by EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Urgent__c</fullName>
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>
@@ -20145,7 +20181,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
@@ -20316,7 +20351,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-    
     <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
@@ -20552,7 +20586,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Sample Cases</label>
     </listViews>
-    
     <listViews>
         <fullName>Support_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
@@ -20644,7 +20677,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
