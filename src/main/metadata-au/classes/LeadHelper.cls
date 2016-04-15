@@ -1385,74 +1385,91 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
 			   
    
    //Email notification when Assigned Dealer is changed.
-public static void emailNotificationsToAssignedDealer(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate){
-			 system.debug('emailNotificationsToAssignedDealer');
-		  
-	   map<id,Lead__c> sendEmailMap=new map<id,Lead__c>();
-	  for(Lead__c lead :listNewLeads){
-		   
-		if(lead.RecordTypeId == leadFleetRt && lead.Assigned_Dealer__c != null&& (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)))
-	   {         
-					 sendEmailMap.put(lead.id,lead);
-					 system.debug('sendEmailMap'+sendEmailMap);
-	   }
-				}  
-				  if(!sendEmailMap.isEmpty())
-				  {
-					EmailTemplate etToOwner = [SELECT Id,Body,Subject FROM EmailTemplate WHERE Name = 'Email notification when Assigned Dealer is changed' limit 1];
-					system.debug('etToOwner'+etToOwner);
-					List<Messaging.Email> mailList = new List<Messaging.Email>();
-					list<Lead__c>  accountOwnerids=[select id,Name,Assigned_Dealer__r.owner.Email from Lead__c where id in:sendEmailMap.keyset()];
-					String[] toAdresss = new String[]{};
-								if(!accountOwnerids.isEmpty())
-		{     
-								 for(Lead__c lead :accountOwnerids)
-						{	
-			 
-							 // Send email notification to the new owner
-							toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
-							system.debug('lead.Assigned_Dealer__r.owner.Email'+lead.Assigned_Dealer__r.owner.Email);
-							String subject = etToOwner.subject.replace('{!Lead__c.Name}',lead.Name);
-							system.debug('subject'+subject);
-							String body = etToOwner.body.replace('{!Lead__c.Name}',lead.Name);
-							system.debug('body'+body);
-							Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
-							mail.setToAddresses(toAdresss);
-							mail.setSaveAsActivity(false);
-							//system.debug('lead.Assigned_Dealer__r.ownerid'+lead.Assigned_Dealer__r.ownerid);    
-						   // mail.setTargetObjectId(lead.Assigned_Dealer__r.ownerid);
-						   // mail.setTemplateId(etToOwner.Id);
-							mail.setSubject(subject);
-							mail.setPlainTextBody(body);
-						   if (!Test.isRunningTest())
-							   {
-								 mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
-								}
-						   
-						   // mail.setWhatId(lead.Id);
-							mailList.add(mail);
-							toAdresss.clear();
-					  }
-		}      
-		  
-				  if(!mailList.isEmpty())
-		{
-			try
-			{  system.debug('mailList'+mailList);
-				
-			 Messaging.SendEmailResult[] results = Messaging.sendEmail(mailList);
-			 if (results[0].success) {
+	public static void emailNotificationsToAssignedDealer(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate){
+             system.debug('emailNotificationsToAssignedDealer');
+          
+       map<id,Lead__c> sendEmailMap=new map<id,Lead__c>();
+      for(Lead__c lead :listNewLeads){
+           
+        if(lead.RecordTypeId == leadFleetRt && lead.Assigned_Dealer__c != null&& (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)))
+       {         
+                     sendEmailMap.put(lead.id,lead);
+                     system.debug('sendEmailMap'+sendEmailMap);
+       }
+                } 
+                Map<Id,List<String>> mapAccountIdAndEmail = new Map<Id,List<String>>(); 
+                  if(!sendEmailMap.isEmpty())
+                  {
+                    EmailTemplate etToOwner = [SELECT Id,Body,Subject FROM EmailTemplate WHERE Name = 'Email notification when Assigned Dealer is changed' limit 1];
+                    system.debug('etToOwner'+etToOwner);
+                    List<Messaging.Email> mailList = new List<Messaging.Email>();
+                    list<Lead__c>  accountOwnerids=[select id,Name,Assigned_Dealer__r.owner.Email,Assigned_Dealer__c from Lead__c where id in:sendEmailMap.keyset()];
+                    if(accountOwnerids != null){
+                        Set<Id> accountId = new Set<Id>();
+                        for(Lead__c leadObj: accountOwnerids){
+                            accountId.add(leadObj.Assigned_Dealer__c);
+                        }
+                        
+                        List<Contact> contactlst = [Select Email,Id,AccountId FROM Contact where AccountId IN:accountId and Salutation = 'DRM MBFS'];
+                        for(Contact contactObj :contactlst ){
+                            if(!mapAccountIdAndEmail.containsKey(contactObj.AccountId))
+                            {
+                               mapAccountIdAndEmail.put(contactObj.AccountId,new List<String>());
+                            }
+                                mapAccountIdAndEmail.get(contactObj.AccountId).add(contactObj.Email);
+                        }
+                    }
+                    String[] toAdresss = new String[]{};
+                    if(!accountOwnerids.isEmpty())
+                    {     
+                     for(Lead__c lead :accountOwnerids)
+                        {   
+             
+                             // Send email notification to the new owner
+                            toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
+                            toAdresss.addAll(mapAccountIdAndEmail.get(lead.Assigned_Dealer__c));
+                            system.debug('lead.Assigned_Dealer__r.owner.Email'+lead.Assigned_Dealer__r.owner.Email);
+                            String subject = etToOwner.subject.replace('{!Lead__c.Name}',lead.Name);
+                            system.debug('subject'+subject);
+                            String body = etToOwner.body.replace('{!Lead__c.Name}',lead.Name);
+                            system.debug('body'+body);
+                            Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
+                            mail.setToAddresses(toAdresss);
+                            mail.setSaveAsActivity(false);
+                            //system.debug('lead.Assigned_Dealer__r.ownerid'+lead.Assigned_Dealer__r.ownerid);    
+                           // mail.setTargetObjectId(lead.Assigned_Dealer__r.ownerid);
+                           // mail.setTemplateId(etToOwner.Id);
+                            mail.setSubject(subject);
+                            mail.setPlainTextBody(body);
+                           if (!Test.isRunningTest())
+                               {
+                                 mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
+                                }
+                           
+                           // mail.setWhatId(lead.Id);
+                            mailList.add(mail);
+                            toAdresss.clear();
+                      }
+        }      
+          
+                  if(!mailList.isEmpty())
+        {
+            try
+           {  system.debug('mailList'+mailList);
+                
+             Messaging.SendEmailResult[] results = Messaging.sendEmail(mailList);
+             if (results[0].success) {
 
-			   System.debug('The email was sent successfully.');
-			 }   
-			}
-			catch(DMLException e){
-				system.debug('Email notification when Assigned Dealer is changed Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
-			}
-		   
-		}                                                
-}  
-					 
-	//Existing Au functionality ends here
-}
+               System.debug('The email was sent successfully.');
+             }   
+            }
+            catch(DMLException e){
+                system.debug('Email notification when Assigned Dealer is changed Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+            }
+           
+        }                                                
+	}  
+                     
+    //Existing Au functionality ends here
+	}
 }
