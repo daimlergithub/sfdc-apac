@@ -18511,7 +18511,11 @@
         <default>false</default>
         <recordType>Lead__c.Finance_Lead</recordType>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <visible>false</visible>
+=======
+        <visible>true</visible>
+>>>>>>> 179b408fb6314b84abb9e1a5c4e7946e588ab1f0
 =======
         <visible>true</visible>
 >>>>>>> 179b408fb6314b84abb9e1a5c4e7946e588ab1f0

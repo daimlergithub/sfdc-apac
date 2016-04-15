@@ -18514,6 +18514,9 @@
         <visible>false</visible>
 =======
         <visible>true</visible>
+<<<<<<< HEAD
+>>>>>>> 179b408fb6314b84abb9e1a5c4e7946e588ab1f0
+=======
 >>>>>>> 179b408fb6314b84abb9e1a5c4e7946e588ab1f0
     </recordTypeVisibilities>
     <recordTypeVisibilities>

@@ -16811,14 +16811,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>Lead_Address_Finance_Fleet_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17204,10 +17196,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Lead__c.Finance_Lead</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
