@@ -86,6 +86,12 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
+	</changetext>
+
 	
 	<changetext>
 		<filename>objects\QC__c.object</filename>
@@ -521,6 +527,26 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ASSIGNED_DEALER_ID</token>
 	</changetext>
@@ -543,6 +569,16 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
 		<token tokenonly="true">INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID_VANS</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Dealer_Locator__c.object</filename>
