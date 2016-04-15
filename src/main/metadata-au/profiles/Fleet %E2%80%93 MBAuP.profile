@@ -18528,10 +18528,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Fleet_Lead</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Fleet_Vans</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
