@@ -18511,7 +18511,6 @@
         <default>false</default>
         <recordType>Lead__c.Finance_Lead</recordType>
         <visible>false</visible>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
