@@ -10065,7 +10065,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Lead_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
