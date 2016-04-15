@@ -263,7 +263,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
-        <customButtons>New_Fleet_Lead</customButtons>
+
         <customButtons>New_Finance_Lead</customButtons>
         <customButtons>New_Insurance_Lead</customButtons>
         <customButtons>New_Finance_Fleet_Lead</customButtons>
