@@ -17090,10 +17090,6 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
