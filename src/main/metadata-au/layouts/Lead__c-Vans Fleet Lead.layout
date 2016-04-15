@@ -27,7 +27,7 @@
                 <field>Source_Campaign__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Nature_of_Request__c</field>
             </layoutItems>
             <layoutItems>
@@ -202,7 +202,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h7A000000NCyB</masterLabel>
+        <masterLabel>00hq0000001itWE</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
