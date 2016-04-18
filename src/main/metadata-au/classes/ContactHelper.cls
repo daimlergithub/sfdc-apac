@@ -563,4 +563,27 @@ public class ContactHelper {
       }
       CustomLogUtil.DebugLogInsert();
     }
+    
+    
+    public static void validateAccount(List<Contact> contacts,map<Id,Contact> newMap,map<Id,Contact> oldMap){
+        set<Id> contactIDs = new set<Id>();
+        for( contact c:contacts){
+            if (c.Salutation == 'DRM MBFS' && newMap.get(c.Id).AccountId != oldMap.get(c.Id).AccountId){
+            contactIDs.add(c.Id);
+            }
+        }
+        system.debug('contactIDs -->'+contactIDs+'--Map--'+newMap);
+        
+        List<Task> openTask = [Select Id, WhoId from Task where Status != 'Complete' and whoid in :contactIDs];
+        
+        if (openTask != null && openTask.size() > 0){
+            system.debug('Open Task'+openTask );
+            for(Task taskObj : openTask ){
+                if(newMap.containsKey(taskObj.WhoId )){
+                    system.debug('Open Task--->'+openTask );
+                    newMap.get(taskObj.WhoId).addError('Can not change the Account as Task are not Completed');
+                }
+            }
+        }    
+    }
 }

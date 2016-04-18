@@ -11,6 +11,16 @@
         <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
     </alerts>
     <alerts>
+        <fullName>Email_To_Lead_Owner</fullName>
+        <description>Email_To_Lead_Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Email_Template/Lead_Created</template>
+    </alerts>
+    <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
@@ -866,6 +876,21 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <description>Whenever the lead owner is changed sent email notification to Owner of Lead</description>
         <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Finance Fleet Lead',MD__c == 'AU')</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send_Email_To_Lead_Owner</fullName>
+        <actions>
+            <name>Email_To_Lead_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Fleet Lead</value>
+        </criteriaItems>
+        <description>This email will be sent whenever the Finance Fleet Lead has been created</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Set Lead Successful Call Number is 0</fullName>

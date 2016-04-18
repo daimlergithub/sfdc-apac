@@ -5624,7 +5624,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Internal</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>StarFleet (dealer fleet sales)</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12740,7 +12740,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-<fullName>Government %28ambulances%2C defence%29</fullName>
+                <fullName>Government %28ambulances%2C defence%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26327,6 +26327,27 @@ RecordType.DeveloperName == 'PersonAccount',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Title or Firstname could't be null, please input.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validation_on_Fleet_Category</fullName>
+        <active>true</active>
+        <description>This Validation rule ensures that only Fleet MBAup and Fleet MBAup Delete can select the mentioned values.</description>
+        <errorConditionFormula>($Profile.Name &lt;&gt; 'Fleet – MBAuP' &amp;&amp; $Profile.Name &lt;&gt; 'Fleet (Delete) – MBAuP' &amp;&amp; $Profile.Name != 'IntegrationAPI') 
+
+&amp;&amp; 
+(ISCHANGED(Fleet_Category__c) || ISNEW() ) 
+&amp;&amp; 
+( 
+ISPICKVAL( Fleet_Category__c,'StarFleet (dealer fleet sales)') 
+|| 
+ISPICKVAL( Fleet_Category__c,'Government (ambulances, defence)') 
+|| 
+ISPICKVAL( Fleet_Category__c ,'Rental (rental cars eg Eurocar)') 
+||
+ISPICKVAL( Fleet_Category__c ,'Direct Fleet') 
+)</errorConditionFormula>
+        <errorDisplayField>Fleet_Category__c</errorDisplayField>
+        <errorMessage>Only Fleet MBAuP and Fleet MBAuP delete can select this picklist values</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
