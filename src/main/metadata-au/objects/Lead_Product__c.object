@@ -67,6 +67,47 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Actions__c</fullName>
+        <externalId>false</externalId>
+        <label>Actions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Contact_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Contact Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Date__c</fullName>
         <externalId>false</externalId>
         <label>Date</label>
@@ -111,6 +152,35 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Ordered_against_Factory__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ordered against Factory</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Product_Offer__c</fullName>
@@ -213,6 +283,53 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st Meeting Metro Visit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd Visit reporting penetration and volume</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd visit (leads) update on leads</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4th follow up or touch base</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <label>Lead Detail</label>
     <listViews>
         <fullName>Active_Quote_List_View</fullName>
@@ -263,6 +380,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Customer Contact</label>
         <picklistValues>
+            <picklist>Customer_Contact_Type__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Product_Offer__c</picklist>
             <values>
                 <fullName>After Sales offer</fullName>
@@ -325,6 +457,45 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject__c</picklist>
+            <values>
+                <fullName>1st Meeting Metro Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2nd Visit reporting penetration and volume</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd visit %28leads%29 update on leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4th follow up or touch base</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -334,6 +505,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Order</label>
         <picklistValues>
+            <picklist>Customer_Contact_Type__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Product_Offer__c</picklist>
             <values>
                 <fullName>After Sales offer</fullName>
@@ -396,6 +582,45 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject__c</picklist>
+            <values>
+                <fullName>1st Meeting Metro Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2nd Visit reporting penetration and volume</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd visit %28leads%29 update on leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4th follow up or touch base</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -405,6 +630,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Quote</label>
         <picklistValues>
+            <picklist>Customer_Contact_Type__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Person</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Product_Offer__c</picklist>
             <values>
                 <fullName>After Sales offer</fullName>
@@ -467,6 +707,45 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject__c</picklist>
+            <values>
+                <fullName>1st Meeting Metro Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2nd Visit reporting penetration and volume</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd visit %28leads%29 update on leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4th follow up or touch base</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quote</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

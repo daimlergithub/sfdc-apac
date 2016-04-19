@@ -9421,6 +9421,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead_Product__c.Actions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Customer_Contact_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9441,6 +9456,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead_Product__c.Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Order_Information__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Ordered_against_Factory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Product_Offer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9457,6 +9487,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Product__c.Related_To__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17080,18 +17115,18 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Customer Contact Layout</layout>
         <recordType>Lead_Product__c.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead_Product__c-Lead Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Product__c-Order Layout</layout>
         <recordType>Lead_Product__c.Order</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Quote Layout</layout>
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -19003,7 +19038,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
