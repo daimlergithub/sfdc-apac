@@ -1166,10 +1166,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerAccountNZHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>

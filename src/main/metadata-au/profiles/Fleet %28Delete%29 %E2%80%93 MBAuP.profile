@@ -174,10 +174,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountNZHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1167,10 +1163,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerAccountNZHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
