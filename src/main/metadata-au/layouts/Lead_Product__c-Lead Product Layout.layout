@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>    
+<?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <layoutSections>
         <customLabel>true</customLabel>
@@ -11,7 +11,7 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Account__c</field>
             </layoutItems>
             <layoutItems>
@@ -22,10 +22,6 @@
                 <behavior>Edit</behavior>
                 <field>Quote_Information__c</field>
             </layoutItems>
-
-
-
-
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -37,7 +33,7 @@
                 <field>Product_Offer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Lead__c</field>
             </layoutItems>
         </layoutColumns>
@@ -53,8 +49,8 @@
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
+                <showScrollbars>true</showScrollbars>
+                <width>1100</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
