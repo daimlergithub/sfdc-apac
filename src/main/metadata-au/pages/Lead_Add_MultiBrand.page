@@ -11,7 +11,7 @@
             <apex:pageBlockSection id="refreshdata" columns="4">
                 <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
                     <apex:outputLabel value="Brand">
-                        <apex:selectList value="{!wrap.vehiclebrand}" >                           
+                        <apex:selectList value="{!wrap.vehiclebrand}" size="1" style="width:80px">                           
                             <apex:selectOptions value="{!brands[0]}" rendered="{!if(brands.size>0,true,false)}"/>
                             <apex:selectOptions value="{!brands[1]}" rendered="{!if(brands.size>1,true,false)}"/>
                             <apex:selectOptions value="{!brands[2]}" rendered="{!if(brands.size>2,true,false)}"/>
@@ -23,7 +23,7 @@
                         <apex:inputText value="{!wrap.vechmodel}"/>
                     </apex:outputLabel>
                     <apex:outputLabel value="Quantity">
-                        <apex:inputText value="{!wrap.vechquanty}"/>
+                        <apex:inputText value="{!wrap.vechquanty}" style="width:60px"/>
                     </apex:outputLabel>
                     <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
                 </apex:repeat>
