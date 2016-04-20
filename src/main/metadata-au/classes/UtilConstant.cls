@@ -48,6 +48,7 @@ Global with sharing class UtilConstant {
     public final static string REGULARCOMPILED  ='Irregular Complied';
     public final static String DRM_MBFS = 'DRM MBFS';
     public final static String Finance_Fleet_lead = 'Finance Fleet Lead';
+    public final static String Fleet_Vans = 'Fleet Vans';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
