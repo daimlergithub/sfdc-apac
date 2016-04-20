@@ -27,15 +27,24 @@ public with sharing class LeadProductDetailsInputController
         public List<SelectOption> brands{get; set;}
     }
         
-    public List<SelectOption> getbrands()
+    public list<List<SelectOption>> getbrands()
     {
         carmodellist = [select name from Car_Model__c];
+        List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
         List<SelectOption> options = new List<SelectOption>();
-        for(Car_Model__c carmod :carmodellist)
-        {
-            options.add(new selectoption(carmod.Name,carmod.Name));
+        integer counter=0;
+        for(integer i=0;i<carmodellist.size();i++)
+        {           
+            options.add(new selectoption(carmodellist[i].Name,carmodellist[i].Name));
+            if(counter==999 || i==carmodellist.size()-1){
+                optionslist.add(options);
+                options =new List<SelectOption>();
+                counter=-1;
+            }
+            counter++;
+            
         }
-        return options;
+        return optionslist;
     }
     public void addrow()
     {        

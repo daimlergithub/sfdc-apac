@@ -30,19 +30,19 @@ public with sharing class Lead_AddmultiBrandController
     public list<List<SelectOption>> getbrands()
     {
         carmodellist = [select name from Car_Model__c];
-		List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
+        List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
         List<SelectOption> options = new List<SelectOption>();
-		integer counter=0;
+        integer counter=0;
         for(integer i=0;i<carmodellist.size();i++)
-        {			
+        {           
             options.add(new selectoption(carmodellist[i].Name,carmodellist[i].Name));
-			if(counter==999 || i==carmodellist.size()-1){
-				optionslist.add(options);
-				options =new List<SelectOption>();
-				counter=-1;
-			}
-			counter++;
-			
+            if(counter==999 || i==carmodellist.size()-1){
+                optionslist.add(options);
+                options =new List<SelectOption>();
+                counter=-1;
+            }
+            counter++;
+            
         }
         return optionslist;
     }
