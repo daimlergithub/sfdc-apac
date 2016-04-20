@@ -31,6 +31,7 @@ public class TaskHelper {
    // private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
     public static String Finance_Fleet_lead_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Finance_Fleet_lead).getRecordTypeId();
+    public static String leet_vans_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Fleet_Vans).getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
        
@@ -848,11 +849,11 @@ public class TaskHelper {
     /*
      Updates the Company__c of Task with Account name
      */
-    public static void updateCompany(List<Task> newTask){
+   public static void updateCompany(List<Task> newTask){
          system.debug('userMap'+Finance_Fleet_lead_RECORDTYPEID);
                     map<id,id> taskMap =new  map<id,id>();
                     map<id,id> leadMap = new map<id,id>();
-       				map<id,id> leadAccountMap = new map<id,id>();		
+                    map<id,id> leadAccountMap = new map<id,id>();       
                     map<id,string> userMap = new map<id,string>();
                     list<Task> updateTaskList =new list<Task>();
                     
@@ -864,28 +865,29 @@ public class TaskHelper {
         
                     for(Lead__c lead:[select id,RecordTypeId,Contact__c,Company_Account__c from Lead__c where id IN:taskMap.values()]){
                         leadMap.put(lead.id, lead.RecordTypeId);
-                        if(lead.Contact__c !=null && lead.Contact__c !=''){
+                        if(lead.Contact__c !=null){
                             leadAccountMap.put(lead.id, lead.Contact__c);
                           }else{
                               leadAccountMap.put(lead.id, lead.Company_Account__c);                                    
-                               }
+                          }
                      }
         
                     for(User user:[select id,Profile.Name from User where id IN:taskMap.keySet()]){                        
                         userMap.put(user.id, user.Profile.Name);
                     }
                     
-			        system.debug('taskMap'+taskMap);
-			        system.debug('leadAccountMap'+leadAccountMap);
-			        system.debug('userMap'+userMap);
+                    system.debug('taskMap'+taskMap);
+                    system.debug('leadAccountMap'+leadAccountMap);
+                    system.debug('userMap'+userMap);
         
-			        for(Task task:newTask){
-			            if(leadMap.get(task.WhatId)==Finance_Fleet_lead_RECORDTYPEID && (userMap.get(task.OwnerId)=='Fleet' || userMap.get(task.OwnerId)=='Fleet (Delete)' )){
-			                task.Company__c=leadAccountMap.get(task.WhatId);
-			               system.debug('Final task'+task); 
-			            }         
-			            
-			        }
+                    for(Task task:newTask){
+                            if(leadMap.get(task.WhatId)==Finance_Fleet_lead_RECORDTYPEID  || leadMap.get(task.WhatId) == leet_vans_RECORDTYPEID /*&& (userMap.get(task.OwnerId)=='Fleet' || userMap.get(task.OwnerId)=='Fleet (Delete)' )*/){
+                                task.Company__c=leadAccountMap.get(task.WhatId);
+                               system.debug('Final task'+task); 
+                            }    
+                            
+                        
+                    }
                    
         
        }
