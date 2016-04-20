@@ -49,8 +49,8 @@
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>1300</width>
+                <showScrollbars>true</showScrollbars>
+                <width>1100</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
