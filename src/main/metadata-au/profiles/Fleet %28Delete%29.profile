@@ -20,8 +20,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-	 <applicationVisibilities>
-	 <applicationVisibilities>
+	<applicationVisibilities>
         <application>Chatter_Answers_Moderator</application>
         <default>false</default>
         <visible>false</visible>
