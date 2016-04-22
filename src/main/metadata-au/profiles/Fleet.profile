@@ -587,7 +587,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadProductDetailsInputController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
@@ -599,11 +599,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
@@ -1595,6 +1595,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>leadProudctAttendeescontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -10366,6 +10370,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Priority_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Proxy_Date_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18100,14 +18109,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadProductDetailsInput</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Add_MultiBrand</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Product_Attendee</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

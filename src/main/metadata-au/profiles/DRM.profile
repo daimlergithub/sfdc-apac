@@ -1598,6 +1598,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>leadProudctAttendeescontroller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>lead_Addresscontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -10366,6 +10370,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Priority_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Proxy_Date_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -17141,6 +17150,10 @@
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Finance Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
         <recordType>Lead__c.Insurance_Lead</recordType>
     </layoutAssignments>
@@ -18087,14 +18100,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadProductDetailsInput</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Add_MultiBrand</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Product_Attendee</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18537,6 +18554,11 @@
         <default>true</default>
         <recordType>Lead__c.Finance_Lead</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

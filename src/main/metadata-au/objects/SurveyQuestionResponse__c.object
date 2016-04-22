@@ -115,9 +115,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>SurveyTaker</label>
         <referenceTo>SurveyTaker__c</referenceTo>
+        <relationshipLabel>Survey Question Responses</relationshipLabel>
         <relationshipName>Survey_Question_Answers</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>

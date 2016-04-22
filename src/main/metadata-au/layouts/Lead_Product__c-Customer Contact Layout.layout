@@ -43,18 +43,17 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Vehicle Details</label>
+        <label>Lead Product Attendee</label>
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>LeadProductDetailsInput</page>
+                <page>Lead_Product_Attendee</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>1100</width>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -94,7 +93,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hq0000000OtYm</masterLabel>
+        <masterLabel>00h7A000000NOoh</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

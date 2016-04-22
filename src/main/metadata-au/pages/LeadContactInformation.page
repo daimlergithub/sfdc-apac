@@ -1,5 +1,6 @@
 <apex:page standardController="Lead__c" extensions="LeadContactController" id="pageid" showHeader="false" sidebar="false" showChat="false">
  <apex:form id="form1" rendered="{!IF($Profile.Name !='Customer Retention', true , false)}">
+ <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
  <apex:pageMessages id="showmsg"></apex:pageMessages>
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
       <apex:outputPanel layout="block" style="overflow:auto;height:275px" >
