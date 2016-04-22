@@ -221,6 +221,12 @@
 			</sf:typeset>
 			<sf:typeset name="groups"/>
 			<sf:typeset name="queues"/>
+		<sf:typeset name="pages"> 
+			<sf:include name="Lead_Product_Attendee"/>
+		</sf:typeset>
+		<sf:typeset name="classes">
+			<sf:include name="leadProudctAttendeescontroller"/>
+		</sf:typeset>		
 		</deploy>
     </target>
 	
@@ -442,7 +448,7 @@
 				<sf:include name="ChangePassword"/>
 				<sf:include name="SiteLogin"/>				
 				<sf:include name="ForgotPassword"/>
-				<sf:include name="SiteRegister"/>
+				<sf:include name="SiteRegister"/>				
 		</sf:typeset>		
 		<sf:typeset name="components">
 				<sf:include name="SitePoweredBy"/>   
@@ -472,7 +478,8 @@
 			<sf:include name="ExtSelectAssignedDealer"/>
 			<sf:include name="ExtSelectAssignedDealerTest"/>
             <sf:include name="LeadContactController"/>
-			<sf:include name="LeadContactControllerTest"/>			
+			<sf:include name="LeadContactControllerTest"/>
+			<sf:include name="LeadProductAttendeeController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
