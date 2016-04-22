@@ -224,6 +224,9 @@
 		<sf:typeset name="pages"> 
 			<sf:include name="Lead_Product_Attendee"/>
 		</sf:typeset>
+		<sf:typeset name="classes">
+			<sf:include name="leadProudctAttendeescontroller"/>
+		</sf:typeset>		
 		</deploy>
     </target>
 	
