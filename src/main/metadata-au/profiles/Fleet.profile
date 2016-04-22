@@ -587,7 +587,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadProductDetailsInputController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
@@ -599,11 +599,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
