@@ -443,6 +443,7 @@
 				<sf:include name="SiteLogin"/>				
 				<sf:include name="ForgotPassword"/>
 				<sf:include name="SiteRegister"/>
+				<sf:include name="LeadProductAttendee"/>
 		</sf:typeset>		
 		<sf:typeset name="components">
 				<sf:include name="SitePoweredBy"/>   
@@ -472,7 +473,8 @@
 			<sf:include name="ExtSelectAssignedDealer"/>
 			<sf:include name="ExtSelectAssignedDealerTest"/>
             <sf:include name="LeadContactController"/>
-			<sf:include name="LeadContactControllerTest"/>			
+			<sf:include name="LeadContactControllerTest"/>
+			<sf:include name="LeadProductAttendeeController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
