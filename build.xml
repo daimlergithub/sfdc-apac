@@ -443,7 +443,7 @@
 				<sf:include name="SiteLogin"/>				
 				<sf:include name="ForgotPassword"/>
 				<sf:include name="SiteRegister"/>
-				<sf:include name="LeadProductAttendee"/>
+				<sf:include name="Lead_Product_Attendee"/>
 		</sf:typeset>		
 		<sf:typeset name="components">
 				<sf:include name="SitePoweredBy"/>   
