@@ -10370,11 +10370,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Priority_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Proxy_Date_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>

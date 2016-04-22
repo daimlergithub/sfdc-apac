@@ -21,6 +21,7 @@
         <visible>false</visible>
     </applicationVisibilities>
 	 <applicationVisibilities>
+	 <applicationVisibilities>
         <application>Chatter_Answers_Moderator</application>
         <default>false</default>
         <visible>false</visible>
@@ -10366,11 +10367,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Price_Range__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Priority_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
