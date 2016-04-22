@@ -2,7 +2,9 @@ public with sharing class Lead_AddmultiBrandController
 {
     
     public List<wrappermultibrandclass> wrapperlist = new List<wrappermultibrandclass>();
+    public set<string> carmodelset = new set<string>();
     Public list<Car_Model__c> carmodellist;
+    Public list<string> carmodelstrng = new list<string>();
     Public list<Lead__c> leadllist=new list<Lead__c>();
     Public map<id,Lead__c> mapupdateleadllist=new map<id,Lead__c>();
     public map<id,string> oldleaditems= new map<id,string>();
@@ -30,13 +32,18 @@ public with sharing class Lead_AddmultiBrandController
     public list<List<SelectOption>> getbrands()
     {
         carmodellist = [select name from Car_Model__c];
+        for(Car_Model__c card :carmodellist)
+        {
+            carmodelset.add(card.name);
+        }
+        carmodelstrng.addAll(carmodelset);
         List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
         List<SelectOption> options = new List<SelectOption>();
         integer counter=0;
-        for(integer i=0;i<carmodellist.size();i++)
+        for(integer i=0;i<carmodelstrng.size();i++)
         {           
-            options.add(new selectoption(carmodellist[i].Name,carmodellist[i].Name));
-            if(counter==999 || i==carmodellist.size()-1){
+            options.add(new selectoption(carmodelstrng[i],carmodelstrng[i]));
+            if(counter==999 || i==carmodelstrng.size()-1){
                 optionslist.add(options);
                 options =new List<SelectOption>();
                 counter=-1;

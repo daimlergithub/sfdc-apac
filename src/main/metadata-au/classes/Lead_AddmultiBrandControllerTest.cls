@@ -3,7 +3,7 @@ public with sharing class Lead_AddmultiBrandControllerTest
 {
     Public static Lead__c lead = new Lead__c();
     public static list<Lead__c> ledlist = new list<Lead__c>();
-    public static List<SelectOption> listselops = new List<SelectOption>();
+    public static list<List<SelectOption>> listselops = new list<List<SelectOption>>();
     public static void cretaetestdata()
     {
         Account acc = new Account();

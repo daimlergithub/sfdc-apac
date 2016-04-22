@@ -1,0 +1,24 @@
+<apex:page standardController="Lead_Product__c" extensions="leadProudctAttendeescontroller">
+    <apex:pageMessages id="pgmasg"></apex:pageMessages>
+    <script>
+        function refreshpage()
+        {
+            window.top.location='/{!Lead_Product__c.id}';
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="refreshdata" columns="3">
+                <apex:repeat value="{!wrapperattendees}" var="wrap" id="wrapuser">                                       
+                    <apex:inputField value="{!wrap.ledprdt.Ownerid}" label="Attendees" required="false"/>                                               
+                    <apex:inputText value="{!wrap.attendees}" label="Attendees"/>
+                    <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton" />
+                </apex:repeat>           
+            </apex:pageBlockSection> 
+            <br/> 
+            <center>
+            <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()" style="align:centre"/> 
+            </center>        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
