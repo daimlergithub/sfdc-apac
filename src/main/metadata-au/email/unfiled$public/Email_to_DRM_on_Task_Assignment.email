@@ -2,7 +2,7 @@ Hi,
 
 A DRM task has been assigned to you. 
 
-Task Owner: {!Task.OwnerId}
+Task Owner: {!Task.Owner}
 
 Notes of Task activity: {!Task.Description}
 

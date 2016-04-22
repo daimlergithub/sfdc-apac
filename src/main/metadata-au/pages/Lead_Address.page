@@ -1,5 +1,7 @@
 <apex:page standardController="Lead__c" extensions="lead_Addresscontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
-<apex:form >  
+
+<apex:form > 
+<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> 
     <apex:pageMessages id="showmsg"></apex:pageMessages>
     <apex:pageBlock rendered="{!If(recordtypeid == 'Sales_Leads',If(marketdiscriminator == 'AU',true,false),false)}">  
         <apex:pageBlockSection columns="2" > 
