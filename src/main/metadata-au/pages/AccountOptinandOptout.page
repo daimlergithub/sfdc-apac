@@ -5,7 +5,7 @@
               <apex:commandLink value="Update" action="{!updateAddress}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!isShow}"/>
           </apex:pageBlockButtons>
           <apex:pageBlockSection columns="2">
-              <apex:inputCheckbox label="Opt-in MBAup" value="{!objAddress.Opt_In_Hardcopy__c}"/>
+              <apex:inputCheckbox label="Opt-in MBNZ" value="{!objAddress.Opt_In_Hardcopy__c}"/>
               <apex:inputCheckbox label="Opt-in MBFS" value="{!objAddress.FS_Opt_In_Hardcopy__c}"/>
               <apex:outputText label="Last Modified By" value="{!objAddress.Hardcopy_Last_Modified_By__c}"/>
               <apex:outputText label="Last Modified By" value="{!objAddress.FS_Hardcopy_Last_Modified_By__c}"/>
