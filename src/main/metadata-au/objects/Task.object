@@ -6679,7 +6679,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Training Required</fullName>
+                <fullName>training required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6842,22 +6842,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Subject</picklist>
-            <values>
-                <fullName>1st Meeting Metro Visit%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit reporting penetration and volume%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base%2E</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Call</fullName>
                 <default>false</default>
