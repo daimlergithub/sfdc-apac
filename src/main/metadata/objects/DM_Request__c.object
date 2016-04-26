@@ -193,6 +193,15 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Case Number</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Customer_Name__c</field>
+                <operation>notEqual</operation>
+                <valueField>Case.Account.Id</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Case</referenceTo>
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
@@ -284,6 +293,14 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NEW</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -511,6 +528,15 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Lead</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Customer_Name__c</field>
+                <operation>notEqual</operation>
+                <valueField>Lead__c.Contact__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Lead__c</referenceTo>
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
@@ -787,10 +813,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Returned</fullName>
                 <default>false</default>
             </picklistValues>
@@ -898,7 +920,6 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -918,7 +939,6 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
     </listViews>
-    
     <listViews>
         <fullName>Open_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -987,8 +1007,6 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
-    
-    
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>

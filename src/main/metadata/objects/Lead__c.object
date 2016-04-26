@@ -6922,6 +6922,22 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6979,10 +6995,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Magainze Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9791,15 +9803,15 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Phone and Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone and Email</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -45176,10 +45188,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -47372,6 +47380,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
@@ -47413,6 +47429,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49062,10 +49082,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Phone and Email</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -49075,10 +49091,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56207,7 +56219,27 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Allocated</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58386,15 +58418,11 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealers</fullName>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58402,31 +58430,59 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
+                <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>MB Connection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz driving Academy</fullName>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz financial</fullName>
+                <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magainze Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58434,11 +58490,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Web%2FMobile Phone</fullName>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -59973,18 +60037,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Phone</fullName>
+                <fullName>Fax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Phone and Email</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
             <values>
-                <fullName>none</fullName>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
