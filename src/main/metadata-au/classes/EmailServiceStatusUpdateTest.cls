@@ -74,7 +74,7 @@ private class EmailServiceStatusUpdateTest {
         email.subject ='UpdateLeadStatus';
         email.htmlBodyIsTruncated = false;
         env.fromAddress = 'blankxyz@gmail.com';
-        email.subject=String.valueof(leada.id)+':Contact Attempt Made:';
+        email.subject='Lead No.'+leada.Name+':'+String.valueof(leada.id)+':Contact Attempt Made:';
         EmailServiceStatusUpdate emailProcess = new EmailServiceStatusUpdate();
         system.debug(email.subject);
         emailProcess.handleInboundEmail(email, env);
@@ -84,7 +84,7 @@ private class EmailServiceStatusUpdateTest {
         system.assertEquals('Contact Attempt Made',leadAfterUpdate.CAC_Lead_Status__c);
         system.assertEquals(null,leadAfterUpdate.CAC_Lost_Reason__c);
 
-        email.subject=String.valueof(leada.id)+':Closed:Interest Rate:';
+        email.subject='Lead No.'+leada.Name+':'+String.valueof(leada.id)+':Closed:Interest Rate:';
         emailProcess.handleInboundEmail(email, env);
         
         leadAfterUpdate = [select CAC_Lost_Reason__c,CAC_Lead_Status__c from Lead__c where id =: leada.id];
