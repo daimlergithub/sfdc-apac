@@ -41,7 +41,7 @@
       </apex:pageblockButtons>
    </apex:pageBlock>
     
-        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'AU',true,false),false)}">
+        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'AU' && !($Profile.Name == 'Fleet' || $Profile.Name == 'Fleet (Delete)'),true,false),false)}">
             <apex:pageBlockSection columns="2">
                 <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
                 <apex:outputText label="Address Line 1" value="{!addressline1}"/>
@@ -54,6 +54,24 @@
                 <apex:outputText label="Status" value="{!addr.Status__c}"/> 
             </apex:pageBlockSection>        
         </apex:pageBlock>
+    	<apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'AU' && ($Profile.Name == 'Fleet' || $Profile.Name == 'Fleet (Delete)'),true,false),false)}">
+            <apex:pageBlockSection columns="2">
+                <apex:inputField label="Address Type" value="{!addr.Address_Type__c}"/> 
+                <apex:inputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:inputText label="Company Name" value="{!companyname}"/>
+                <apex:inputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:inputText label="Suburb" value="{!suburb}"/>
+                <apex:inputField label="State" value="{!addr.Province__c}"/> 
+                <apex:inputField label="Country" value="{!addr.Country__c}"/> 
+                <apex:inputText label="Post Code" value="{!postcode}"/>
+                <apex:inputField label="Status" value="{!addr.Status__c}"/>
+                
+            </apex:pageBlockSection> 
+            <apex:pageBlockButtons location="bottom">
+        		<apex:commandButton value="Update" action="{!UpdateAddress}" styleClass="btn"/> 
+      		</apex:pageblockButtons> 
+        </apex:pageBlock>
+
         <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'NZ',true,false),false)}">
             <apex:pageBlockSection columns="2">
                 <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 

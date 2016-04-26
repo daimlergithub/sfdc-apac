@@ -81,7 +81,7 @@
 		</rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
