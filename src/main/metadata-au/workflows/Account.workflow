@@ -166,7 +166,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR( AND(  MD__c = &apos;AU&apos;,(RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), (Inactivation_Date__c &lt;= TODAY()), (NOT(ISBLANK(Inactivation_Date__c))), OR( ( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ), ( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;)) ) ), AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), ( Inactivation_Date__c &lt;= TODAY()), ( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ), ( MBFS_Inactivation_Date__c &lt;= TODAY() ), (NOT(ISBLANK( MBFS_Inactivation_Date__c ))), (NOT(ISBLANK(Inactivation_Date__c))) ) )</formula>
+        <formula>OR( AND(  MD__c = &apos;AU&apos;,(RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), (Inactivation_Date__c &lt;= TODAY()), (NOT(ISBLANK(Inactivation_Date__c))), OR( ( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ), ( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;)) ) ), AND( MD__c = &apos;AU&apos;, (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), ( Inactivation_Date__c &lt;= TODAY()), ( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ), ( MBFS_Inactivation_Date__c &lt;= TODAY() ), (NOT(ISBLANK( MBFS_Inactivation_Date__c ))), (NOT(ISBLANK(Inactivation_Date__c))) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

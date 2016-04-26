@@ -53,6 +53,10 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Business_Unit__c</field>
             </layoutItems>
@@ -106,7 +110,7 @@
         <label>Address Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>Lead_Address</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -130,12 +134,12 @@
                 <field>Interested_Vehicle_Brand__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Model_Interest__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Year_Interest__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Year__c</field>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
@@ -145,24 +149,7 @@
                 <width>1300</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_Units__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Credit_Limit_Request__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Units_for_Prospect__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Volume__c</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
