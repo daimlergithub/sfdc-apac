@@ -1768,6 +1768,10 @@
             <translation>GLK</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLS-Class</masterLabel>
+            <translation>GLS</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation>Mクラス</translation>
         </picklistValues>
@@ -2023,6 +2027,5 @@
             <section>Segment Information</section>
         </sections>
     </layouts>
-    
     <nameFieldLabel>モデル名</nameFieldLabel>
 </CustomObjectTranslation>

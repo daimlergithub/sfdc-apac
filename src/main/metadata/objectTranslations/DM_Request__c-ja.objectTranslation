@@ -51,6 +51,10 @@
     </fields>
     <fields>
         <label>ケース番号</label>
+        <lookupFilter>
+            <errorMessage>本カタログリクエストと同じ顧客に紐付くケースを選択して下さい。</errorMessage>
+            <informationalMessage>ケースの検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Case_Number__c</name>
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
@@ -84,6 +88,14 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation>MBコネクション</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCare</masterLabel>
+            <translation>Mケア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -126,8 +138,16 @@
             <translation><!-- My Mercedes --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>NEW</masterLabel>
+            <translation><!-- NEW --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation>アウトバウンド・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -229,6 +249,10 @@
     </fields>
     <fields>
         <label>リード</label>
+        <lookupFilter>
+            <errorMessage>本カタログリクエストと同じ顧客に紐付くリードを選択して下さい。</errorMessage>
+            <informationalMessage>リードの検索と選択が可能です。</informationalMessage>
+        </lookupFilter>
         <name>Lead__c</name>
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
@@ -396,10 +420,6 @@
         <picklistValues>
             <masterLabel>Approving</masterLabel>
             <translation>承認中</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Failed</masterLabel>
-            <translation>送付失敗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not send</masterLabel>
