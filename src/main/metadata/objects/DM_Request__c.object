@@ -195,11 +195,13 @@ Modify Reason:
         <label>Case Number</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
             <filterItems>
-                <field>$Source.Customer_Name__c</field>
-                <operation>notEqual</operation>
-                <valueField>Case.Account.Id</valueField>
+                <field>Case.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
             </filterItems>
+            <infoMessage>Search and select case.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Case</referenceTo>
@@ -300,11 +302,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>NEW</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -530,11 +540,13 @@ Modify Reason:
         <label>Lead</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
             <filterItems>
-                <field>$Source.Customer_Name__c</field>
-                <operation>notEqual</operation>
-                <valueField>Lead__c.Contact__c</valueField>
+                <field>Lead__c.Contact__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
             </filterItems>
+            <infoMessage>Search and select leads.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Lead__c</referenceTo>
@@ -919,7 +931,7 @@ Modify Reason:
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
-    </listViews>
+	</listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
