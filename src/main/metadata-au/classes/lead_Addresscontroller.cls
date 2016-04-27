@@ -236,6 +236,11 @@ public String getworkPhone(){
               
        return null;
    } 
+    
+    Public Pagereference UpdateAddress(){
+    	update addr;
+        return null;
+    }
          
       
 }
