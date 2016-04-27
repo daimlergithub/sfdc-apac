@@ -860,7 +860,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>Waived</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.Market__c</field>
+			<field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
