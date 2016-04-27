@@ -2050,7 +2050,7 @@ noted by Lio on 10.28.2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Training Required</fullName>
+                <fullName>training required</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

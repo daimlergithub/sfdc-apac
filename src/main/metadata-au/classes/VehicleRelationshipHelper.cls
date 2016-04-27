@@ -174,7 +174,6 @@ public with sharing class VehicleRelationshipHelper {
         //update PC CV VAN tenure
         @TestVisible
         private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete){
-            
             if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null && userInfo.id!=null ){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
@@ -288,6 +287,7 @@ public with sharing class VehicleRelationshipHelper {
         {
             //UtilDB.updateSobjects(accounts.values());
             String JSONString = JSON.serialize(accounts.values());
+            updateaccounts(JSONString);
         }
     }    
     @future
@@ -331,7 +331,13 @@ public with sharing class VehicleRelationshipHelper {
                     if(isupdate)
                         isdeleteValue=true;
                 }
-                
+                if((isupdate && oldMap.get(cvr.Id).Contact__c != cvr.Contact__c))
+                {
+                System.debug('On change of account name');
+                    insertCvrs.add(cvr);
+                   if(isupdate)
+                   isdeleteValue=true;
+                }
                 if(((isupdate && oldMap.get(cvr.Id).Car_Relation__c!='Owner' && cvr.Car_Relation__c =='Owner')))
                 {
                     insertCvrs.add(cvr);
@@ -340,7 +346,6 @@ public with sharing class VehicleRelationshipHelper {
                 }
             }
         } 
-        
         //US_AU-CD-001 & 002 & 001.1 & 002.1
         if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty() && insertCvrs!=null && !insertCvrs.isEmpty() ){
             updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,isInsert,isupdate,isdeleteValue);

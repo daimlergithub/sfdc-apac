@@ -1,4 +1,5 @@
 <apex:page standardController="Lead_Product__c" extensions="LeadProductDetailsInputController">
+<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <apex:pageMessages id="pgmasg"></apex:pageMessages>
     <script>
         function refreshpage()
@@ -6,7 +7,9 @@
             window.top.location='/{!Lead_Product__c.id}';
         }
     </script>
+    
     <apex:form >
+     <div width= "100%">
         <apex:pageBlock id="pb">
             <apex:pageBlockSection id="refreshdata" columns="4">
                 <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
@@ -30,5 +33,6 @@
             <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()" style="align:centre"/> 
             </center>        
         </apex:pageBlock>
+      </div>
     </apex:form>
 </apex:page>
