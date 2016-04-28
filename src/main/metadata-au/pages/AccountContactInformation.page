@@ -10,10 +10,10 @@
             <td></td> 
             <td></td>
             <th>Status</th>           
-            <apex:outputPanel rendered="{!IF($Profile.Name !='Head Office - Marketing', True , False)}">
+            <apex:outputPanel rendered="{!IF(accountList_details.MD__c !='NZ', True , False)}">
             	<th>Opt-in MBAup</th>
             </apex:outputPanel>
-            <apex:outputPanel rendered="{!IF($Profile.Name =='Head Office - Marketing', True , False)}">
+            <apex:outputPanel rendered="{!IF(accountList_details.MD__c =='NZ', True , False)}">
             	<th>Opt-in MBNZ</th>
             </apex:outputPanel>
             <th>Opt-in MBFS</th>        
