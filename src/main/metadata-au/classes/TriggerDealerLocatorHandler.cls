@@ -10,16 +10,19 @@ public class TriggerDealerLocatorHandler
         if(trigger.isAfter && trigger.isInsert && obj.profile.Name!='IntegrationAPI')
         {
           serializedObject=json.serialize(newDL);
+		   serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             DealerLocatorHelper.entityNotifyUpdate('INSERT',newDL[0].Id,serializedObject);
         }
         if(trigger.isAfter && trigger.isUpdate && obj.profile.Name!='IntegrationAPI')
         {
           serializedObject=json.serialize(newDL);
+		   serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
              DealerLocatorHelper.entityNotifyUpdate('UPDATE',newDL[0].Id,serializedObject);
         }
         if(trigger.isbefore && trigger.isDelete && obj.profile.Name!='IntegrationAPI')
         {
           serializedObject=json.serialize(oldDL);
+		   serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             DealerLocatorHelper.entityNotifyUpdate('DELETE',oldDL[0].Id,serializedObject);
         }
     }
