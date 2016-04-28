@@ -306,10 +306,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>NEW</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
             </picklistValues>
