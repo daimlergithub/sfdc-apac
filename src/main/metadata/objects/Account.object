@@ -12091,10 +12091,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NEW</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -16634,10 +16630,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NEW</fullName>
                 <default>false</default>
             </values>
             <values>

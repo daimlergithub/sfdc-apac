@@ -718,10 +718,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>NEW</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -5381,10 +5377,6 @@
             </values>
             <values>
                 <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NEW</fullName>
                 <default>false</default>
             </values>
             <values>
