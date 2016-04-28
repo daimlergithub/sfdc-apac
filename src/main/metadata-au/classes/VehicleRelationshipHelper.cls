@@ -288,6 +288,7 @@ public with sharing class VehicleRelationshipHelper {
         {
             //UtilDB.updateSobjects(accounts.values());
             String JSONString = JSON.serialize(accounts.values());
+            updateaccounts(JSONString);
         }
     }    
     @future
