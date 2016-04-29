@@ -20670,7 +20670,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <sharingModel>ControlledByParent</sharingModel>
+	<sharingModel>ControlledByParent</sharingModel>
     <webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
@@ -20684,9 +20684,19 @@
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 
-var user = sforce.connection.getUserInfo();  
-var roleid = sforce.connection.query("select Id from UserRole where  name like '%Customer Service Manager%'");
-if(user.roleId==roleid.records.Id)
+var user = sforce.connection.getUserInfo();
+var querystring = "select Id from UserRole where name IN ('Customer Service Manager','Customer Retention Office 1','Customer Retention Office 2','Customer Retention Office 3','Customer Retention Office 4')"; 
+var roleid = sforce.connection.query(querystring);
+records = roleid.getArray("records");
+var flag=false;
+for (var i=0; i&lt; records.length; i++) {
+
+  if(user.roleId==records[i].Id){
+var flag=true;
+}
+}
+
+if(flag)
 {
 window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');
 }

@@ -29,7 +29,10 @@ public class TriggerAccountHandler
              AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
              serializedObject=json.serialize(newDL);
              if(obj.profile.Name!='IntegrationAPI' && System.IsBatch() == false && System.isFuture() == false)
+			 {
+			  serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
                  AccountHelper.entityNotifyUpdate('INSERT',newDL[0].Id,serializedObject);
+		    }
          }
          if(trigger.isAfter && trigger.isUpdate)
          {
@@ -37,7 +40,10 @@ public class TriggerAccountHandler
              AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
              serializedObject=json.serialize(newDL);
           if(obj.profile.Name!='IntegrationAPI' && !test.isrunningtest() && System.IsBatch() == false && System.isFuture() == false)
+		  {
+		      serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
                AccountHelper.entityNotifyUpdate('UPDATE',newDL[0].Id,serializedObject);
+	      }
              //Kernel code
              //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
          }
@@ -46,7 +52,10 @@ public class TriggerAccountHandler
              AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
              serializedObject=json.serialize(oldDL);
              if(obj.profile.Name!='IntegrationAPI' && System.IsBatch() == false && System.isFuture() == false)
+			 {
+			     serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
                  AccountHelper.entityNotifyUpdate('DELETE',oldDL[0].Id,serializedObject);
+		    }
          }
          if(trigger.isBefore && trigger.isInsert)
          {
