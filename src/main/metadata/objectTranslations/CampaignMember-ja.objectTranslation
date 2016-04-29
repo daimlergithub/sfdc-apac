@@ -36,8 +36,100 @@
         <label>タッチポイント</label>
         <name>Data_Source__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation>24時間ツーリングサポート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation>キャンペーン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers</masterLabel>
+            <translation>販売店対応相談窓口</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>E-mail SNS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English Customer Desk</masterLabel>
+            <translation>English Customer Desk</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>イベント</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter</masterLabel>
+            <translation>手紙/ハガキ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M-Care</masterLabel>
+            <translation>Mケア</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation>MBコネクション</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach call</masterLabel>
+            <translation>マイバッハ・コール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Call Catalogue</masterLabel>
+            <translation>メルセデスコールカタログ受付</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Magazine Survey</masterLabel>
+            <translation>メルセデス・マガジン・アンケート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me Haneda</masterLabel>
+            <translation>Mercedes me 羽田</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation>メルセデス・コール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
+            <translation>メルセデス・ベンツ オーナーホットライン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz School of Excelence</masterLabel>
+            <translation>メルセデス・ベンツ サークル　オブ　エクセレンス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz phone</masterLabel>
+            <translation>代表電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Model-Year Reference desk</masterLabel>
+            <translation>年式照会窓口</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation>My Mercedes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound call</masterLabel>
+            <translation>アウトバウンド・コール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall desk</masterLabel>
+            <translation>リコール専用窓口</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response Sheet</masterLabel>
+            <translation>レスポンスシート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -159,16 +251,24 @@
     <fields>
         <name>Salutation</name>
         <picklistValues>
+            <masterLabel>Dr.</masterLabel>
+            <translation>Dr.</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Mr.</masterLabel>
-            <translation><!-- Mr. --></translation>
+            <translation>Mr.</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mrs.</masterLabel>
-            <translation><!-- Mrs. --></translation>
+            <translation>Mrs.</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <masterLabel>Ms.</masterLabel>
+            <translation>Ms.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prof.</masterLabel>
+            <translation>Prof.</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -364,11 +464,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Responded</masterLabel>
-            <translation><!-- Responded --></translation>
+            <translation>返信</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>発送済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sent02</masterLabel>
