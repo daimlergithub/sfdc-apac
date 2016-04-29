@@ -138,10 +138,6 @@
             <translation><!-- My Mercedes --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>NEW</masterLabel>
-            <translation><!-- NEW --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
         </picklistValues>
