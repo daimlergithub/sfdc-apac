@@ -46,6 +46,10 @@
         <label>Vehicle Details</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Product_Items__c</field>
+            </layoutItems>
+            <layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
@@ -103,7 +107,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hq0000001iu6l</masterLabel>
+        <masterLabel>00h7A000000NEkL</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -12,6 +12,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Name__c</field>
             </layoutItems>
             <layoutItems>
@@ -37,6 +45,10 @@
         <editHeading>true</editHeading>
         <label>Vehicle Details</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Product_Items__c</field>
+            </layoutItems>
             <layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
@@ -109,7 +121,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000002E7zI</masterLabel>
+        <masterLabel>00h7A000000NOoi</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

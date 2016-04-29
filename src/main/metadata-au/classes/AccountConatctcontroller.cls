@@ -14,6 +14,7 @@ public class AccountConatctcontroller{
     public Boolean shouldRedirect {public get; private set;}
     public String accountid{get;set;}
     public boolean isnoerror{get;set;}
+    public string marketDiscriminator{get;set;}
     //Constructor Called to get the current account record id
     public AccountConatctcontroller(ApexPages.StandardController stdController) {    
         accountList_details= new Account();
@@ -21,6 +22,8 @@ public class AccountConatctcontroller{
         isnoerror=false;
         shouldRedirect = false;
         accountid=ApexPages.currentPage().getParameters().get('id');
+        Account accObj = [Select MD__c FROM Account where Id =:accountid];        
+        marketDiscriminator = accObj.MD__c;
         if(ApexPages.currentPage().getParameters().get('id')!=Null)
         {
             contactList=[select id,Mobile__c,Mobile_Status__c,Mobile2__c,SMS_MMS_IM_Status_2__c,PersonHomePhone,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Status_2__c,Home_Phone_2__c,
