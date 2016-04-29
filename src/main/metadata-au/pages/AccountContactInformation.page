@@ -9,22 +9,33 @@
         <tr>        
             <td></td> 
             <td></td>
-            <th>Status</th>        
-            <th>Opt-in MBAuP</th>    
-            <th>Opt-in MBFS</th>        
+            <th>Status</th>           
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
+                <th>Opt-in MBAup</th>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IF(marketDiscriminator =='NZ', True , False)}">
+                <th>Opt-in MBNZ</th>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
+            <th>Opt-in MBFS</th>  
+            </apex:outputPanel>      
             <th>Preferred</th> 
             <th>Last Modified By</th>        
             <th>Last Modified Date</th> 
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
             <th>FS Last Modified By</th>        
-            <th>Fs Last Modified Date</th>     
+            <th>Fs Last Modified Date</th> 
+            </apex:outputPanel>    
         </tr>
         
         <tr>        
         <th>Mobile 1</th>       
             <td><apex:inputField value="{!accountList_details.Mobile__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Mobile_Status__c}"/></td>       
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>        
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}"/></td>  
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>  
+            </apex:outputPanel>      
             <td><apex:inputField value="{!accountList_details.Preferred_Mobile_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.SMS_Last_Modified_By__c}                             
@@ -32,8 +43,11 @@
                   <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.SMS_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                   </apex:actionFunction>                
-            </td>        
+            </td> 
+                  
             <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date__c}"/></td>
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
+
             <td>
                 <apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_SMS_Last_Modified_By__c}</apex:outputLink>
@@ -42,14 +56,17 @@
                 </apex:actionFunction> 
             </td>        
             <td><apex:outputField value="{!accountList_details.FS_SMS_Last_Modified_Date__c}"/></td>     
+            </apex:outputPanel>
         </tr>
        
         <tr>        
         <th>Mobile 2</th>     
             <td><apex:inputField value="{!accountList_details.Mobile2__c}"/></td>  
             <td><apex:inputField value="{!accountList_details.SMS_MMS_IM_Status_2__c}"/></td>        
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>  
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td> 
+            </apex:outputPanel>       
             <td><apex:inputField value="{!accountList_details.Preferred_Mobile_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.SMS_Last_Modified_By2__c}</apex:outputLink>  
@@ -58,22 +75,26 @@
                 </apex:actionFunction>               
             </td>                  
             <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date2__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
+
              <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_SMS_Last_Modified_By2__c}</apex:outputLink> 
                  <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_SMS_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>                
             </td>        
-            <td><apex:outputField value="{!accountList_details.FS_SMS_Last_Modified_Date2__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.FS_SMS_Last_Modified_Date2__c}"/></td>    
+             </apex:outputPanel>       
         </tr>
          
         <tr>        
         <th>Home Phone 1</th>        
             <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>   
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>  
+            </apex:outputPanel>     
             <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By__c}</apex:outputLink> 
@@ -81,22 +102,28 @@
                          <apex:param name="userName" value="{!accountList_details.Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>               
             </td>
-            <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date__c}"/></td>    
+            <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date__c}"/></td>   
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+ 
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Home_Phone_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>               
             </td>                  
-            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date__c}"/></td>  
+            </apex:outputPanel>     
         </tr>
         
         <tr>        
         <th>Home Phone 2</th>        
             <td><apex:inputField value="{!accountList_details.Home_Phone_2__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>  
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+  
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>  
+            </apex:outputPanel>           
             <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By2__c}</apex:outputLink>
@@ -105,14 +132,15 @@
                 </apex:actionFunction>                
             </td>      
             <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date2__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Home_Phone_Last_Modified_By2__c}</apex:outputLink>   
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>             
             </td>                  
-            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date2__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.FS_Home_Phone_Last_Modified_Date2__c}"/></td>    
+            </apex:outputPanel>     
         </tr>
        
         <tr>        
@@ -120,7 +148,9 @@
             <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td> 
+            </apex:outputPanel>            
             <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By__c}</apex:outputLink>
@@ -129,14 +159,16 @@
                 </apex:actionFunction>                 
             </td>      
             <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Work_Phone_Last_Modified_By__c}</apex:outputLink>   
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>              
             </td>                   
-            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date__c}"/></td>
+            </apex:outputPanel>          
         </tr>
         
         <tr>        
@@ -144,7 +176,9 @@
             <td><apex:inputField value="{!accountList_details.Phone}"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td>            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td> 
+            </apex:outputPanel>            
             <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By2__c}</apex:outputLink>
@@ -153,22 +187,25 @@
                 </apex:actionFunction>                
             </td>      
             <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date2__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Work_Phone_Last_Modified_By2__c}</apex:outputLink>    
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>            
             </td>                             
-            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date2__c}"/></td>              
+            <td><apex:outputField value="{!accountList_details.FS_Work_Phone_Last_Modified_Date2__c}"/></td>    
+            </apex:outputPanel>                 
         </tr>
         
         <tr>        
         <th>Email 1</th>        
             <td><apex:inputField value="{!accountList_details.Email__c}"/></td>           
             <td><apex:inputField value="{!accountList_details.Email_Status__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}"/></td> 
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>  
+            </apex:outputPanel>          
             <td><apex:inputField value="{!accountList_details.Preferred_Email_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By__c}</apex:outputLink> 
@@ -177,22 +214,25 @@
                 </apex:actionFunction> 
             </td>      
             <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Email_Last_Modified_By__c}</apex:outputLink>  
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>               
             </td>                 
-            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date__c}"/></td>  
+            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date__c}"/></td>
+            </apex:outputPanel>  
         </tr>
         
         <tr>        
         <th>Email 2</th>        
             <td><apex:inputField value="{!accountList_details.Email2__c}"/></td>                           
             <td><apex:inputField value="{!accountList_details.Email_Status_2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}"/></td>
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">    
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>
+            </apex:outputPanel>            
             <td><apex:inputField value="{!accountList_details.Preferred_Email_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By2__c}</apex:outputLink>
@@ -201,14 +241,15 @@
                 </apex:actionFunction>                                  
             </td>      
             <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date2__c}"/></td>
-            
+            <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}"> 
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Email_Last_Modified_By2__c}</apex:outputLink>       
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>                                             
                 </apex:actionFunction>              
             </td>                
-            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date2__c}"/></td>        
+            <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date2__c}"/></td>  
+            </apex:outputPanel>      
         </tr>  
      </table>  
      <apex:pageBlockButtons location="bottom">
@@ -231,7 +272,7 @@
    </apex:outputPanel>
    
       <apex:outputPanel id="pnlId">
-      		<script  type="text/javascript">
+            <script  type="text/javascript">
       function refreshParentPage()
     {
         
