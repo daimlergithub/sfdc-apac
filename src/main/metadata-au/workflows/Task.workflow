@@ -85,7 +85,7 @@
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet(Delete)</value>
+            <value>Fleet,Fleet (Delete),System Administrator</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.MD__c</field>
