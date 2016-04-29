@@ -150,6 +150,15 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Lead_Status_is_Closed</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Closed</literalValue>
+        <name>Lead Status is Closed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Orig_fee_updation_on_Fee_type</fullName>
         <description>Update Origination Fee to “0” when the Fee Type is selected as Waived.</description>
         <field>Orig_Fee__c</field>
@@ -533,6 +542,25 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>Close_Lead_After_90 days_of_Creation</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Lead_Status_is_Closed</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Lead__c.CreatedDate</offsetFromField>
+            <timeLength>90</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Email Notification to Lead Owner</fullName>
         <active>true</active>
         <criteriaItems>
@@ -832,7 +860,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>Waived</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.Market__c</field>
+			<field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
