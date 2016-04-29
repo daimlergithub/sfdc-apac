@@ -20,7 +20,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-	<applicationVisibilities>
+    <applicationVisibilities>
         <application>Chatter_Answers_Moderator</application>
         <default>false</default>
         <visible>false</visible>
@@ -8464,6 +8464,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.City__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Locator__c.Comment__c</field>
         <readable>true</readable>
@@ -9465,12 +9470,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead_Product__c.Next_Steps__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead_Product__c.Order_Information__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead_Product__c.Ordered_against_Factory__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Product__c.Outcome__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9491,6 +9506,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead_Product__c.Related_To__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Product__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10366,6 +10386,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Price_Range__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Priority_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19055,6 +19080,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
