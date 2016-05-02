@@ -593,7 +593,8 @@ public class AccountHelper {
                        CV_No_Brand_Purchases__c,
                        VAN_Status__c,
                        VAN_Tenure__c,
-                       VAN_No_Brand_Purchases__c
+                       VAN_No_Brand_Purchases__c,
+                       System_Data_Source__c
                 from Account
                 where Id in :ids]);
     }
