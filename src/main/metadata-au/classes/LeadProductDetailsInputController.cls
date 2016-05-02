@@ -10,6 +10,7 @@ public with sharing class LeadProductDetailsInputController
     
     public LeadProductDetailsInputController(ApexPages.StandardController controller)
     {
+		//Test
         //controller.addFields(new List<string>{'Id','Lead_Items__c'});
         //lead = (Lead__c)controller.getRecord();
         //system.debug('lead t^$%$%$%$'+lead);

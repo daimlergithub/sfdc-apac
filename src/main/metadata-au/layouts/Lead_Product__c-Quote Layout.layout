@@ -46,12 +46,16 @@
         <label>Vehicle Details</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Product_Items__c</field>
+            </layoutItems>
+        <!--   <layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>1100</width>
-            </layoutItems>
+            </layoutItems> -->
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
@@ -117,7 +121,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000002E7zJ</masterLabel>
+        <masterLabel>00h7A000000NOoj</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

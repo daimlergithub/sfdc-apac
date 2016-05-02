@@ -375,7 +375,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Lead Detail</label>
+    <label>Lead Product</label>
     <listViews>
         <fullName>Active_Quote_List_View</fullName>
         <columns>NAME</columns>
@@ -414,16 +414,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </sharedTo>
     </listViews>
     <nameField>
-        <label>Lead Product Name</label>
+        <label>Lead Detail Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Lead Details</pluralLabel>
+    <pluralLabel>Lead Products</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Customer_Contact</fullName>
         <active>true</active>
-        <label>Customer Contact</label>
+        <label>Customer Contact Report</label>
         <picklistValues>
             <picklist>Customer_Contact_Type__c</picklist>
             <values>

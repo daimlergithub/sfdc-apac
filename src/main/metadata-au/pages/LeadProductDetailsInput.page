@@ -5,8 +5,10 @@
         {
             window.top.location='/{!Lead_Product__c.id}';
         }
+		
     </script>
     <apex:form >
+	<!-- This is the change-->
         <apex:pageBlock id="pb">
             <apex:pageBlockSection id="refreshdata" columns="4">
                 <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">

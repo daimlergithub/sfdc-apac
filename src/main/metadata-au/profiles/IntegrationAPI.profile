@@ -8468,6 +8468,11 @@
         <editable>true</editable>
         <field>Dealer_Locator__c.Dealer_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_Locator__c.City__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19575,10 +19580,10 @@
         <enabled>true</enabled>
         <name>ConvertLeads</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>CreateAuditFields</name>
-    </userPermissions>
+    </userPermissions> -->
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
@@ -19811,10 +19816,10 @@
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
     </userPermissions>
-    <userPermissions>
+   <!-- <userPermissions>
         <enabled>true</enabled>
         <name>UpdateWithInactiveOwner</name>
-    </userPermissions>
+    </userPermissions> -->
     <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>

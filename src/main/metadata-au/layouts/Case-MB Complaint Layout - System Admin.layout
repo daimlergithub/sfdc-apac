@@ -160,8 +160,8 @@
                 <field>Handling_Level__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_Status__c</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -460,10 +460,6 @@
         <editHeading>true</editHeading>
         <label>CAC fields</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Case_Type__c</field>

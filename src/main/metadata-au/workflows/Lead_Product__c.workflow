@@ -8,6 +8,9 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Customer_Contact_Report_notification_email</template>
     </alerts>
@@ -19,6 +22,9 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Order_notification_email</template>
     </alerts>
@@ -29,6 +35,9 @@
         <recipients>
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Quote_notification_email</template>

@@ -12,6 +12,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Name__c</field>
             </layoutItems>
             <layoutItems>
@@ -36,6 +40,10 @@
                 <behavior>Edit</behavior>
                 <field>Comments__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -46,12 +54,16 @@
         <label>Lead Product Attendee</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Product_Items__c</field>
+            </layoutItems>
+          <!--  <layoutItems>
                 <height>200</height>
                 <page>Lead_Product_Attendee</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
-            </layoutItems>
+            </layoutItems> -->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -116,7 +128,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000002E7zH</masterLabel>
+        <masterLabel>00h7A000000NOoh</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
