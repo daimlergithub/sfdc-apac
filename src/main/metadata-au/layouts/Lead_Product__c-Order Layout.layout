@@ -49,13 +49,13 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Product_Items__c</field>
             </layoutItems>
-			<layoutItems>
+		<!--	<layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>1100</width>
-            </layoutItems>
+            </layoutItems> -->
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
