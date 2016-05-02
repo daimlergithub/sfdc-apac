@@ -1137,6 +1137,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
@@ -7682,11 +7686,87 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>B-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7703,6 +7783,18 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>VANEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIANO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VITO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9951,6 +10043,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14998,6 +15094,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20136,6 +20236,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>M-Class</fullName>
                 <default>false</default>
             </values>
@@ -25248,6 +25352,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -25268,6 +25376,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLC-Class</fullName>
                 <default>false</default>
             </values>
@@ -25277,6 +25389,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
