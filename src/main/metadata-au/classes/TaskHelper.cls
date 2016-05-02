@@ -865,11 +865,8 @@ public class TaskHelper {
         
                     for(Lead__c lead:[select id,RecordTypeId,Contact__c,Company_Account__c from Lead__c where id IN:taskMap.values()]){
                         leadMap.put(lead.id, lead.RecordTypeId);
-                        if(lead.Contact__c !=null){
-                            leadAccountMap.put(lead.id, lead.Contact__c);
-                          }else{
-                              leadAccountMap.put(lead.id, lead.Company_Account__c);                                    
-                          }
+                        leadAccountMap.put(lead.id, lead.Company_Account__c);                                    
+                          
                      }
         
                     for(User user:[select id,Profile.Name from User where id IN:taskMap.keySet()]){                        
