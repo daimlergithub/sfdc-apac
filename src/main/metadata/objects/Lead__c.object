@@ -2435,6 +2435,70 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Campaign_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event/S’Ship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Car_License__c</fullName>
         <externalId>false</externalId>
         <label>Car License</label>
@@ -20319,6 +20383,61 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -32529,6 +32648,61 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Out of Campaign Period</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44747,6 +44921,61 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -55777,6 +56006,61 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Non-Daimler Purchase</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
