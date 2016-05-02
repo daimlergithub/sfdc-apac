@@ -55,7 +55,7 @@
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>1100</width>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

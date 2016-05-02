@@ -49,7 +49,7 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Product_Items__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
