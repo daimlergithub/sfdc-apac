@@ -18,14 +18,7 @@
             </apex:outputPanel>
             <apex:outputPanel rendered="{!IF(marketDiscriminator !='NZ', True , False)}">
             <th>Opt-in MBFS</th>  
-            </apex:outputPanel>      
-            <apex:outputPanel rendered="{!IF(accountList_details.MD__c !='NZ', True , False)}">
-            	<th>Opt-in MBAup</th>
-            </apex:outputPanel>
-            <apex:outputPanel rendered="{!IF(accountList_details.MD__c =='NZ', True , False)}">
-            	<th>Opt-in MBNZ</th>
-            </apex:outputPanel>
-            <th>Opt-in MBFS</th>        
+            </apex:outputPanel>           
             <th>Preferred</th> 
             <th>Last Modified By</th>        
             <th>Last Modified Date</th> 
