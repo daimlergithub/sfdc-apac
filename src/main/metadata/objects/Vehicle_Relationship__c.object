@@ -47,7 +47,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Contact Portfolio: Vehicle Relationship record linked to customer and a vehicle</description>
-    <enableActivities>true</enableActivities> 
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -1413,15 +1413,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Employee Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Alternative Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2335,22 +2335,6 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Parent</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2363,6 +2347,10 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Grand parent</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2371,7 +2359,11 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Company</fullName>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2379,19 +2371,27 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Business partner</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Partner</fullName>
+                <fullName>Friend</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Relative</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Manager</fullName>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

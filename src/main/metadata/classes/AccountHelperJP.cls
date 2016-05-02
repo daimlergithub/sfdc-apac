@@ -187,7 +187,7 @@ public class AccountHelperJP
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
-                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }

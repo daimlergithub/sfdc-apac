@@ -696,7 +696,7 @@ LEN( Phone ) &lt;&gt; 0
         <type>LongTextArea</type>
         <visibleLines>2</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Behavioural_Group__c</fullName>
         <externalId>false</externalId>
         <label>Behavioural Group</label>
@@ -1699,23 +1699,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
         <label>Data Source</label>
         <picklist>
             <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd party data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1723,27 +1707,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz Academy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB website</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1771,23 +1739,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Road Assistant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Company call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Recall desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cataloue Call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1827,7 +1783,63 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Company call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cataloue Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Connection</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2816,6 +2828,14 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
         <label>Cars Dlr Class After Sales</label>
         <picklist>
             <picklistValues>
+                <fullName>Designated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Authorized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Metro</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2825,14 +2845,6 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Rural</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Authorized</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Designated</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2847,18 +2859,6 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
         <label>Cars Dlr Class Sales</label>
         <picklist>
             <picklistValues>
-                <fullName>Metro</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Provincial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rural</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>NORMAL</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2868,6 +2868,18 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>AUTHORIZEDFACTORY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Metro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Provincial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rural</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -5850,6 +5862,186 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
         <label>Hobby</label>
         <picklist>
             <picklistValues>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Skiing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Snowboarding</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Football</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Swimming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Surfin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weight Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tennis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Baseball</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Running</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bicycle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Climbing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yogi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tri-athlon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marathon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Racing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volleyball</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gardening</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Camping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Photography</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cooking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cinema</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Art(painting)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Playing musical instruments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music (jazz)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music (popular)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music (classical)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese tradicional opera</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorcycle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel(Domestic)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collecting (wine/gin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shopping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Video games</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pets(Dogs)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pets(others)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>DIY</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5866,14 +6058,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Sailing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5882,15 +6066,11 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Chinese traditional opera</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Photography</fullName>
+                <fullName>Art(photography)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5906,15 +6086,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Collecting (wine/gin)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Collecting (Cigars)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5934,15 +6106,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Climbing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5954,10 +6118,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Beauty Salon</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5966,35 +6126,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Art(photography)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(painting)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Art(design)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reading</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6002,19 +6134,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Music (classical)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (popular)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Equestrian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6833,11 +6953,15 @@ Modify Reason:
         <label>Interest model</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>A-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>A-Class</fullName>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6849,59 +6973,15 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>C-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>C-Class Sedon</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Stationwagon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class Coupe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Sedon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Stationwagon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Coupe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Cabriolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class Sedon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class Coupe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6913,7 +6993,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class</fullName>
+                <fullName>CL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6925,11 +7005,27 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLE-Class</fullName>
+                <fullName>CLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>R-Class</fullName>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Sedon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Stationwagon</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6937,11 +7033,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GL-Class</fullName>
+                <fullName>GLA-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLA-Class</fullName>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6949,23 +7053,43 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>V-Class</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AMG</fullName>
+                <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SLS-AMG</fullName>
+                <fullName>R-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AMG GT</fullName>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Sedon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLS-AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6977,7 +7101,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Maybach</fullName>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7710,39 +7834,19 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <label>Occupation</label>
         <picklist>
             <picklistValues>
-                <fullName>enterprise and public institution responsible officer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Professionals &amp; Technical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Government employees</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Freelancers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Office Staff</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Self-employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7762,19 +7866,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Teacher</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Housewife</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Student</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Housekeeping</fullName>
+                <fullName>Show Business</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7786,11 +7878,19 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Show Business</fullName>
+                <fullName>Government employees</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Pensioner</fullName>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professionals &amp; Technical</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7802,11 +7902,35 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Technician</fullName>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housekeeping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8603,15 +8727,15 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
         <label>Preferred Contact Method</label>
         <picklist>
             <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8726,15 +8850,55 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Others</fullName>
+                <fullName>Korean</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mandarin Chinese</fullName>
-                <default>true</default>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cantonese</fullName>
+                <fullName>German</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8981,19 +9145,19 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Sales TEL</label>
         <picklist>
             <picklistValues>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Home Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Work Mobile</fullName>
+                <fullName>Mobile</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Work Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Work Mobile</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -9010,7 +9174,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Primary_Segment__c</fullName>
         <externalId>false</externalId>
         <label>Primary Segment</label>
@@ -9798,6 +9962,17 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Address Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Sales_Sanction_Comment__c</fullName>
@@ -11368,7 +11543,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		 <picklistValues>
+        <picklistValues>
             <picklist>Behavioural_Group__c</picklist>
             <values>
                 <fullName>Attriter</fullName>
@@ -11877,6 +12052,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MCare</fullName>
                 <default>false</default>
             </values>
@@ -11922,6 +12101,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13580,47 +13763,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Art%28painting%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Art%28photography%29</fullName>
+                <fullName>Baseball</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Badminton</fullName>
+                <fullName>Bicycle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bar</fullName>
+                <fullName>Camping</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese traditional opera</fullName>
+                <fullName>Cinema</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13628,59 +13787,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Collecting %28wine%2Fgin%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current events</fullName>
+                <fullName>Cooking</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DIY</fullName>
+                <fullName>Diving</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
+                <fullName>Driving</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13688,7 +13807,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Flying</fullName>
+                <fullName>Food</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13704,23 +13823,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Humanity</fullName>
+                <fullName>Japanese tradicional opera</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Martial Arts</fullName>
+                <fullName>Marathon</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
+                <fullName>Motorcycle</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Music %28classical%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music %28jazz%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13732,15 +13851,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pets%28Dogs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pets%28others%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Photography</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
+                <fullName>Playing musical instruments</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13752,23 +13879,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Riding horse</fullName>
+                <fullName>Running</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sailing</fullName>
+                <fullName>Shopping</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shopping mall</fullName>
+                <fullName>Skiing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Slimming Beauty</fullName>
+                <fullName>Snowboarding</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Social</fullName>
+                <fullName>Spa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surfin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13776,15 +13907,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13796,7 +13919,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Travelling</fullName>
+                <fullName>Travel%28Domestic%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tri-athlon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volleyball</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13804,7 +13939,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yoga</fullName>
+                <fullName>Yogi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14357,10 +14492,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
             </values>
@@ -14369,7 +14500,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLE-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15056,11 +15195,59 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Japanese</fullName>
                 <default>true</default>
             </values>
             <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15177,7 +15364,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Testing</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>		
+        </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
             <values>
@@ -15990,7 +16177,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Behavioural_Group__c</picklist>
             <values>
                 <fullName>Attriter</fullName>
@@ -16391,6 +16578,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
@@ -16403,11 +16594,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16443,7 +16646,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17910,43 +18113,55 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
-                <fullName>Bar</fullName>
+                <fullName>Art%28painting%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bowling</fullName>
+                <fullName>Baseball</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car racing</fullName>
+                <fullName>Bicycle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DIY</fullName>
+                <fullName>Camping</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dinner</fullName>
+                <fullName>Cinema</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Drama</fullName>
+                <fullName>Climbing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fashion%28Fashion%29</fullName>
+                <fullName>Collecting %28wine%2Fgin%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fine art</fullName>
+                <fullName>Cooking</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fish</fullName>
+                <fullName>Diving</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Flying</fullName>
+                <fullName>Driving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Football</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17954,43 +18169,119 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Humanity</fullName>
+                <fullName>Golf</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Music</fullName>
+                <fullName>Japanese tradicional opera</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Politics</fullName>
+                <fullName>Marathon</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Private clubs</fullName>
+                <fullName>Motorcycle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Riding horse</fullName>
+                <fullName>Music %28classical%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sailing</fullName>
+                <fullName>Music %28jazz%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shopping mall</fullName>
+                <fullName>Music %28popular%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Slimming Beauty</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tea culture</fullName>
+                <fullName>Personal finance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Travelling</fullName>
+                <fullName>Pets%28Dogs%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pets%28others%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photography</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Playing musical instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Racing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reading</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Running</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shopping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skiing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Snowboarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surfin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swimming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tennis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel%28Domestic%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tri-athlon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volleyball</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17998,7 +18289,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yoga</fullName>
+                <fullName>Yogi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18379,10 +18670,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
             </values>
@@ -18391,7 +18678,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLE-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19066,15 +19361,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
+                <fullName>Chinese</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19082,12 +19373,60 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mandarin Chinese</fullName>
-                <default>true</default>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -19173,7 +19512,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		   <picklistValues>
+        <picklistValues>
             <picklist>Primary_Segment__c</picklist>
             <values>
                 <fullName>Faithful</fullName>
