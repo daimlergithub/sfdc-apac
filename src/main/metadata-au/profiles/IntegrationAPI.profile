@@ -19816,10 +19816,10 @@
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
     </userPermissions>
-    <userPermissions>
+   <!-- <userPermissions>
         <enabled>true</enabled>
         <name>UpdateWithInactiveOwner</name>
-    </userPermissions>
+    </userPermissions> -->
     <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>
