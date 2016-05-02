@@ -19580,10 +19580,10 @@
         <enabled>true</enabled>
         <name>ConvertLeads</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>CreateAuditFields</name>
-    </userPermissions>
+    </userPermissions> -->
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
