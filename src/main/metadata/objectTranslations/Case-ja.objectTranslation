@@ -72,7 +72,7 @@
         <name>Alternative_Transport_Method__c</name>
     </fields>
     <fields>
-        <label><!-- Approval Submit date --></label>
+        <label>ケース完了（承認依頼）日時</label>
         <name>Approval_Submit_Date__c</name>
     </fields>
     <fields>
@@ -6173,6 +6173,10 @@
             <translation>CIロゴ（スターマーク/AMG/グリル/インポータラベル/バッジ）</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>CLI</masterLabel>
+            <translation>CLI</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>CS survey gift</masterLabel>
             <translation>CSアンケート謝礼品</translation>
         </picklistValues>
@@ -6310,7 +6314,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <translation>None</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Out of MBJ scope request</masterLabel>
@@ -6378,7 +6382,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Retro fit campaign</masterLabel>
-            <translation><!-- Retro fit campaign --></translation>
+            <translation>レトロフィットキャンペーン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SSI inquiry</masterLabel>
@@ -6782,7 +6786,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Importer label</masterLabel>
-            <translation><!-- MBJ Importer label --></translation>
+            <translation>[MBJ（インポーター）]インポータラベル発行（販売店から依頼）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MBJ Loyalty</masterLabel>
@@ -7041,6 +7045,14 @@
             <translation>[車両]ツーリングサポート転送</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Vehicle Touring support accident</masterLabel>
+            <translation>[車両]ツーリングサポート事故</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Touring support breakdown</masterLabel>
+            <translation>[車両]ツーリングサポート故障</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Vehicle Warranty</masterLabel>
             <translation>[車両]保証</translation>
         </picklistValues>
@@ -7130,7 +7142,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Accident</masterLabel>
-            <translation><!-- Accident --></translation>
+            <translation>事故</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Advisory Mercedes-Benz driving Academy</masterLabel>
@@ -7142,7 +7154,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Breakdown</masterLabel>
-            <translation><!-- Breakdown --></translation>
+            <translation>故障</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CSR</masterLabel>
@@ -7720,6 +7732,14 @@
             <translation>手紙/ハガキ</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation>MBコネクション</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCare</masterLabel>
+            <translation>Mケア</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Maybach call</masterLabel>
             <translation>マイバッハ・コール</translation>
         </picklistValues>
@@ -7770,6 +7790,10 @@
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation>アウトバウンド・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -10552,7 +10576,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation>E-mail</translation>
+            <translation>Eメール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>FAX</masterLabel>
@@ -11295,7 +11319,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GL SUV</masterLabel>
-            <translation><!-- GL SUV --></translation>
+            <translation>GLS SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GL-Class</masterLabel>
@@ -11347,7 +11371,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class SUV</masterLabel>
-            <translation>Mクラス SUV</translation>
+            <translation>GLE SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MARCO POLO</masterLabel>
@@ -14611,13 +14635,4 @@
         <label><!-- eDM --></label>
         <name>eDM</name>
     </webLinks>
-    <workflowTasks>
-        <name>approval</name>
-        <subject><!-- approval needed --></subject>
-    </workflowTasks>
-    <workflowTasks>
-        <description><!-- Please check the Case Closing Approval Step 2 --></description>
-        <name>test_Approval_process_alert</name>
-        <subject><!-- test Approval process alert --></subject>
-    </workflowTasks>
 </CustomObjectTranslation>
