@@ -905,6 +905,15 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>COS_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>COS Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
         <label>CV No. Brand Purchases</label>
