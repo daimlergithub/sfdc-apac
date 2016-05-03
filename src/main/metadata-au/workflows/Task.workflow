@@ -43,6 +43,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/TestTaskEmail</template>
+    </alerts>
+    <alerts>
+        <fullName>Notification_On_Task_Creation</fullName>
+        <description>Email Notification On Task Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Notification_On_Task_Creation</template>
     </alerts>-->
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
@@ -73,7 +83,7 @@
     </fieldUpdates>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>false</active>
+        <active>True</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -105,11 +115,15 @@
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-        <active>false</active>
+        <!--<actions>
+            <name>Notification_On_Task_Creation</name>
+            <type>Alert</type>
+        </actions>-->
+        <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet (Delete),System Administrator</value> 
+            <value>Fleet,Fleet (Delete),System Administrator</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.MD__c</field>
@@ -122,7 +136,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <active>false</active>
+        <active>True</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -133,14 +147,14 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-        <active>false</active>
+        <active>True</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
-        <active>false</active>
+        <active>True</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -150,7 +164,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
-        <active>false</active>
+        <active>True</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Task.OwnerId</field>
@@ -165,7 +179,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Task created or assigned to DRM</fullName>
-        <active>false</active>
+        <active>True</active>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
         <triggerType>onAllChanges</triggerType>
@@ -190,7 +204,7 @@ Content of email will be reference the task number and due date.</description>
             <name>Update_Call_Start_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
@@ -200,7 +214,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Update_Comment_With_TimeStamp</fullName>
-        <active>false</active>
+        <active>True</active>
         <criteriaItems>
             <field>Task.RecordTypeId</field>
             <operation>equals</operation>
