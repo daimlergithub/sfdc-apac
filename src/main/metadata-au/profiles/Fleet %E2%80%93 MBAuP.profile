@@ -9610,6 +9610,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Campaign_Channel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Car_License__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18783,7 +18788,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.Customer_Contact</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -18807,6 +18812,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Task.General_Task</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -18838,12 +18844,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.Order</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.Quote</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
