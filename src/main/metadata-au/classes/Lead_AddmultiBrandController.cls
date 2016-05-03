@@ -31,11 +31,15 @@ public with sharing class Lead_AddmultiBrandController
         
     public list<List<SelectOption>> getbrands()
     {
-        carmodellist = [select name from Car_Model__c];
+        carmodellist = [select Brand__c from Car_Model__c];
         for(Car_Model__c card :carmodellist)
         {
-            carmodelset.add(card.name);
+            if(card.Brand__c != null && card.Brand__c != '')
+            {
+                carmodelset.add(card.Brand__c);
+            }                        
         }
+        system.debug('Car Model*****' + carmodellist.get(0).Brand__c);
         carmodelstrng.addAll(carmodelset);
         List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
         List<SelectOption> options = new List<SelectOption>();
