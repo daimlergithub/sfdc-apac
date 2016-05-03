@@ -17147,10 +17147,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -18977,11 +18973,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Lead__c.Fleet_Lead</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -19580,10 +19571,10 @@
         <enabled>true</enabled>
         <name>ConvertLeads</name>
     </userPermissions>
-    <!--<userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>CreateAuditFields</name>
-    </userPermissions> -->
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
@@ -19816,10 +19807,10 @@
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
     </userPermissions>
-   <!-- <userPermissions>
+ <userPermissions>
         <enabled>true</enabled>
         <name>UpdateWithInactiveOwner</name>
-    </userPermissions> -->
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>

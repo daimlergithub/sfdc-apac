@@ -8,9 +8,6 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
-        <recipients>
-            <type>owner</type>
-        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Customer_Contact_Report_notification_email</template>
     </alerts>
@@ -22,9 +19,6 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
-        <recipients>
-            <type>owner</type>
-        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Order_notification_email</template>
     </alerts>
@@ -35,9 +29,6 @@
         <recipients>
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
-        </recipients>
-        <recipients>
-            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Quote_notification_email</template>
@@ -52,7 +43,7 @@
         <criteriaItems>
             <field>Lead_Product__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Customer Contact</value>
+            <value>Customer Contact Report</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead_Product__c.MD__c</field>

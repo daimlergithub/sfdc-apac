@@ -915,7 +915,12 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead</value>
+            <value>Finance Fleet Lead,Fleet Vans</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
         </criteriaItems>
         <description>This email will be sent whenever the Finance Fleet Lead has been created</description>
         <triggerType>onCreateOnly</triggerType>

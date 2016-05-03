@@ -179,7 +179,10 @@ public with sharing class VehicleRelationshipHelper {
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
                  if(isCustomer && !cols.isEmpty())
-                    userInfo.put(cols[0], 'customer');   
+                 {
+                    if(userInfo.get(cols[0]) != 'Complainant')
+                        userInfo.put(cols[0], 'customer');
+                }
                                  
                 integer numberofP =1;       
                 integer MaxnumberofP =99;    
@@ -226,7 +229,15 @@ public with sharing class VehicleRelationshipHelper {
                  return userInfo;    
             }
             
-            return null;
+            else if( isdelete && preRecords == null || preRecords.get(vehicleGroup) == null)
+            {
+            integer Zerono=0;
+            System.debug('else loop');
+            List<String> cols = colsMap.get(vehicleGroup);
+            userInfo.put(cols[1], Zerono);
+            }
+            
+            return userInfo;
                
         }
     
@@ -278,6 +289,22 @@ public with sharing class VehicleRelationshipHelper {
                 {
                     if(vehichles.get(curCvr.Vehicle_ID__c) != null && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c != null)
                     acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete);
+                    ////////    SFDCAU-735; update status to 'Complainant' based on Vehichle group if Car relation is 'Complainant' /////////
+                    if(curCvr.Car_Relation__c == 'Complainant' && acc.System_Data_Source__c == 'ICC')
+                    {
+                        if((acc.Buy_Cycle__c == 1) && (acc.CV_No_Brand_Purchases__c == 0 || acc.CV_No_Brand_Purchases__c == null) && (acc.VAN_No_Brand_Purchases__c == 0 || acc.VAN_No_Brand_Purchases__c == null) && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c == 'PC')
+                        {
+                            acc.PC_Status__c = 'Complainant';
+                        }
+                        if((acc.Buy_Cycle__c == 0 || acc.Buy_Cycle__c == null) && (acc.CV_No_Brand_Purchases__c == 1) && (acc.VAN_No_Brand_Purchases__c == 0 || acc.VAN_No_Brand_Purchases__c == null) && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c == 'CV')
+                        {
+                            acc.CV_Status__c = 'Complainant';
+                        }
+                        if((acc.Buy_Cycle__c == 0 || acc.Buy_Cycle__c == null) && (acc.CV_No_Brand_Purchases__c == 0 || acc.CV_No_Brand_Purchases__c == null) && (acc.VAN_No_Brand_Purchases__c == 1) && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c == 'VAN')
+                        {
+                            acc.VAN_Status__c = 'Complainant';
+                        }
+                    }
                     if(acc != null && acc.id != null){
                     accounts.put(acc.id,acc);
                     }
@@ -288,7 +315,7 @@ public with sharing class VehicleRelationshipHelper {
         {
             //UtilDB.updateSobjects(accounts.values());
             String JSONString = JSON.serialize(accounts.values());
-			updateaccounts(JSONString);
+            updateaccounts(JSONString);
         }
     }    
     @future
@@ -334,6 +361,12 @@ public with sharing class VehicleRelationshipHelper {
                 }
                 
                 if(((isupdate && oldMap.get(cvr.Id).Car_Relation__c!='Owner' && cvr.Car_Relation__c =='Owner')))
+                {
+                    insertCvrs.add(cvr);
+                    if(isupdate)
+                        isdeleteValue=false;
+                }
+                if((isInsert || isupdate) && cvr.Car_Relation__c =='Complainant')
                 {
                     insertCvrs.add(cvr);
                     if(isupdate)
