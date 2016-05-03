@@ -115,10 +115,10 @@
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-        <actions>
+        <!--<actions>
             <name>Notification_On_Task_Creation</name>
             <type>Alert</type>
-        </actions>
+        </actions>-->
         <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
