@@ -5,14 +5,16 @@
         {
             window.top.location='/{!Lead_Product__c.id}';
         }
+		
     </script>
     <apex:form >
+	<!-- This is the change-->
         <apex:pageBlock id="pb">
             <apex:pageBlockSection id="refreshdata" columns="4">
                 <apex:repeat value="{!wrappermultibrand}" var="wrap" id="wrapmulbrand">
                                        
                     <apex:inputText value="{!wrap.vechmodel}" label="No. of Vehicles" /> 
-                        <apex:outputLabel value="Brand">
+                        <apex:outputLabel value="Model" style="font-weight:bold">
                         <apex:selectList value="{!wrap.vehiclebrand}" size="1">                           
                             <apex:selectOptions value="{!brands[0]}" rendered="{!if(brands.size>0,true,false)}"/>
                             <apex:selectOptions value="{!brands[1]}" rendered="{!if(brands.size>1,true,false)}"/>
@@ -21,7 +23,7 @@
                             <apex:selectOptions value="{!brands[4]}" rendered="{!if(brands.size>4,true,false)}"/>                                                       
                         </apex:selectList> 
                     </apex:outputLabel>                        
-                    <apex:inputText value="{!wrap.vechquanty}" label="Vehicle Model Details"/>
+                    <apex:inputText value="{!wrap.vechquanty}" label="Brand"/>
                     <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
                 </apex:repeat>           
             </apex:pageBlockSection> 
