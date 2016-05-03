@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Lead_Created</name>
     <style>none</style>
-    <subject>Finance Fleet Lead has been created</subject>
+    <subject>Lead has been created</subject>
     <type>text</type>
 </EmailTemplate>
