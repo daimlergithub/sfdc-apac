@@ -527,22 +527,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <picklistValues>
             <picklist>Subject__c</picklist>
             <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit reporting penetration and volume</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call</fullName>
                 <default>false</default>
             </values>
@@ -556,10 +540,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Quote</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -671,22 +651,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <picklistValues>
             <picklist>Subject__c</picklist>
             <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit reporting penetration and volume</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call</fullName>
                 <default>false</default>
             </values>
@@ -700,10 +664,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Quote</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -815,22 +775,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <picklistValues>
             <picklist>Subject__c</picklist>
             <values>
-                <fullName>1st Meeting Metro Visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2nd Visit reporting penetration and volume</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3rd visit %28leads%29 update on leads</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4th follow up or touch base</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call</fullName>
                 <default>false</default>
             </values>
@@ -844,10 +788,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Quote</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
