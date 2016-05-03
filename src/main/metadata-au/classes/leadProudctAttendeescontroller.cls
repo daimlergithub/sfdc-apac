@@ -73,7 +73,7 @@ public with sharing class leadProudctAttendeescontroller
                     if(usermap.containskey(wrper.ledprdt.Ownerid)){
                     
                     led.Lead_Product_Items__c+= usermap.get(wrper.ledprdt.Ownerid).name;
-                    }led.Lead_Product_Items__c+= '-' + wrper.attendees; 
+                    }led.Lead_Product_Items__c+= ',' + wrper.attendees; 
                 }
                 else if(led.Lead_Product_Items__c == null || led.Lead_Product_Items__c == '')
                 {
