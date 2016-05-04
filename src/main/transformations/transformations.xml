@@ -618,6 +618,11 @@
 	<changetext>
 		<filename>objects\Address__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Address']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_COMPANY_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Address__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Address']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID</token>
 	</changetext>
 	<changetext>
