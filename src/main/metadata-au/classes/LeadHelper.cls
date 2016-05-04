@@ -1441,10 +1441,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                            // mail.setTemplateId(etToOwner.Id);
                             mail.setSubject(subject);
                             mail.setPlainTextBody(body);
-                           if (!Test.isRunningTest())
+                         /*  if (!Test.isRunningTest())
                                {
                                  mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
-                                }
+                                }*/
                            
                            // mail.setWhatId(lead.Id);
                             mailList.add(mail);
