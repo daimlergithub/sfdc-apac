@@ -12878,12 +12878,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Actual_Outstanding_Balance_To_Shinpan__c</field>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Actual_Outstanding_Balance__c</field>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14104,6 +14104,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Sub_Product__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Supporting_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
