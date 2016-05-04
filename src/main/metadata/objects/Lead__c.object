@@ -2456,6 +2456,54 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>CA_Application_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Application Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CA_Lead_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CA_Updated_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Submission Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CA_status_change_date__c</fullName>
+        <externalId>false</externalId>
+        <label>CA status change date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Car_License__c</fullName>
         <externalId>false</externalId>
         <label>Car License</label>
@@ -3429,6 +3477,22 @@ Contact__r.Email__c
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Product Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Financial_Product2__c</fullName>
@@ -20757,6 +20821,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CA_Lead_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -20917,6 +20988,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -32971,6 +33049,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CA_Lead_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -33195,6 +33280,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45160,10 +45252,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
@@ -45188,6 +45276,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -45197,6 +45289,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Non-Daimler Purchase</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Lead_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45349,6 +45448,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56263,6 +56369,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CA_Lead_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -56451,6 +56564,13 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
