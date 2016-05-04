@@ -6663,7 +6663,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26501,7 +26501,7 @@
         <description>This validation rule will error out an error if the subject of Task is “Visit” and Comment box is still blank.</description>
         <errorConditionFormula>AND(OR(RecordType.DeveloperName = 'General_Task',RecordType.DeveloperName = 'DRM_Task'),OR( 
 Subject == '1st Meeting Metro Visit.',Subject == '2nd Visit reporting penetration and volume.',
-Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or touch base.'),ISBLANK( Description),$Profile.Name != 'IntegrationAPI',MD__c == 'AU')</errorConditionFormula>
+Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or touch base.',Subject = 'Visit'),ISBLANK( Description),$Profile.Name != 'IntegrationAPI',MD__c == 'AU')</errorConditionFormula>
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please provide the Comments.</errorMessage>
     </validationRules>
