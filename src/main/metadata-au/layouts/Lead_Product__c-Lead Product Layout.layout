@@ -11,10 +11,6 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Account__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Date__c</field>
             </layoutItems>
@@ -49,13 +45,13 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Product_Items__c</field>
             </layoutItems>
-       <!--     <layoutItems>
+            <layoutItems>
                 <height>200</height>
                 <page>LeadProductDetailsInput</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>1100</width>
-            </layoutItems>  -->
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

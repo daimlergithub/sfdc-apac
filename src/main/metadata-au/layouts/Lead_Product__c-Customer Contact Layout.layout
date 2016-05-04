@@ -40,10 +40,6 @@
                 <behavior>Edit</behavior>
                 <field>Comments__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Account__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -57,13 +53,13 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Product_Items__c</field>
             </layoutItems>
-          <!--  <layoutItems>
+            <layoutItems>
                 <height>200</height>
                 <page>Lead_Product_Attendee</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
-            </layoutItems> -->
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
