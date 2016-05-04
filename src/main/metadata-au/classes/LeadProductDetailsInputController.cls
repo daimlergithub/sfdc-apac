@@ -12,7 +12,7 @@ public with sharing class LeadProductDetailsInputController
     
     public LeadProductDetailsInputController(ApexPages.StandardController controller)
     {
-		//Test
+        //Test
         //controller.addFields(new List<string>{'Id','Lead_Items__c'});
         //lead = (Lead__c)controller.getRecord();
         //system.debug('lead t^$%$%$%$'+lead);
@@ -20,6 +20,7 @@ public with sharing class LeadProductDetailsInputController
         wrapper.vehiclebrand = '';
         wrapper.vechmodel = '';
         wrapper.vechquanty = 'Mercedez Benz';
+        wrapper.vechmodeldetails = '';
         wrapperlist.add(wrapper);
     }
     public class wrappermultibrandclass
@@ -27,20 +28,22 @@ public with sharing class LeadProductDetailsInputController
         public string vehiclebrand{get; set;}
         public string vechmodel{get; set;}
         public string vechquanty{get; set;}
+        public string vechmodeldetails{get;set;}
         public List<SelectOption> brands{get; set;}
     }
         
     public list<List<SelectOption>> getbrands()
     {
-        carmodellist = [select model__c from Car_Model__c where vehicle_group__c = 'Van'];
+        carmodelstrng.clear();
+        carmodellist = [select Name from Car_Model__c where vehicle_group__c = 'Van' and Brand__c ='Mercedes-Benz'];
         for(Car_Model__c card :carmodellist)
         {
-            if(card.model__c != null && card.model__c != '')
+            if(card.Name!= null && card.Name!= '')
             {
-                carmodelset.add(card.model__c);
+                carmodelset.add(card.Name);
             }                        
         }
-        system.debug('Car Model*****' + carmodellist.get(0).model__c);
+        system.debug('Car Model*****' + carmodellist.get(0).Name);
         carmodelstrng.addAll(carmodelset);
         List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
         List<SelectOption> options = new List<SelectOption>();
@@ -63,7 +66,8 @@ public with sharing class LeadProductDetailsInputController
         wrappermultibrandclass wrapper = new wrappermultibrandclass();
         wrapper.vehiclebrand ='';
         wrapper.vechmodel = '';
-        wrapper.vechquanty = 'Mercedez Benz';        
+        wrapper.vechquanty = 'Mercedez-Benz';
+        wrapper.vechmodeldetails = '';
         if(wrapperlist.size() <10)
         {
             wrapperlist.add(wrapper);
@@ -85,10 +89,10 @@ public with sharing class LeadProductDetailsInputController
                 if(led.Lead_Product_Items__c !=null)
                 {
                     oldleaditems.put(led.Id,led.Lead_Product_Items__c);               
-                    led.Lead_Product_Items__c =oldleaditems.get(led.Id)+ '\n' +wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty ;
+                    led.Lead_Product_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vechquanty + '-' +wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechmodeldetails;
                 }else
                 {
-                    led.Lead_Product_Items__c = wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty ;
+                    led.Lead_Product_Items__c =  wrper.vechquanty + '-' + wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechmodeldetails;
                 }
                 mapupdateleadllist.put(led.id,led);
             }

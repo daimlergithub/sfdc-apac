@@ -922,7 +922,7 @@ $Profile.Name != 'IntegrationAPI'
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url> 
+        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_COMPANY_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
     <webLinks>
         <fullName>New_DealerAddress</fullName>
@@ -947,6 +947,6 @@ $Profile.Name != 'IntegrationAPI'
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url> 
+        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
 </CustomObject>
