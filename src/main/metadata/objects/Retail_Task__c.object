@@ -97,19 +97,19 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Actual_Outstanding_Balance_To_Shinpan__c</fullName>
+        <fullName>Actual_Outstanding_Bal_To_Shinpan_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Balance__c, null)</formula>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Bal_To_Shinpan__c, null)</formula>
         <label>actual outstanding balance(Dealer)</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Actual_Outstanding_Balance__c</fullName>
+        <fullName>Actual_Outstanding_Bal_To_Shinpan__c</fullName>
         <externalId>false</externalId>
         <label>actual outstanding balance</label>
         <precision>18</precision>
@@ -3269,7 +3269,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Special_Flag_Exclude__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Special Flag (to exclude)</label>
+        <label>Special Flag (to include)</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -3277,7 +3277,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Special_Flag_Include__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Special Flag (to include)</label>
+        <label>Special Flag (to exclude)</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -3360,6 +3360,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Supporting_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Supporting Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Supporting Dealer)</relationshipLabel>
+        <relationshipName>Retail_Tasks6</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Suspend_Payment__c</fullName>
