@@ -186,6 +186,10 @@
                 <behavior>Edit</behavior>
                 <field>Orig_Fee__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Waived_Reason__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
