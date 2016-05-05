@@ -1598,6 +1598,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>leadProudctAttendeescontroller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>lead_Addresscontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -8461,17 +8465,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Dealer_Locator__c.City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Dealer_Locator__c.Comment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Locator__c.Dealer_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Dealer_Locator__c.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9465,6 +9469,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Product__c.Next_Steps__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Product__c.Order_Information__c</field>
         <readable>true</readable>
@@ -9473,6 +9482,11 @@
         <editable>true</editable>
         <field>Lead_Product__c.Ordered_against_Factory__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Product__c.Outcome__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9493,6 +9507,11 @@
         <editable>true</editable>
         <field>Lead_Product__c.Related_To__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Product__c.Status__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9588,6 +9607,11 @@
         <editable>true</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Campaign_Channel__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10370,6 +10394,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Priority_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Proxy_Date_Time__c</field>
         <readable>true</readable>
@@ -10958,6 +10987,11 @@
         <editable>true</editable>
         <field>Lead__c.Volume__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Waived_Reason__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17120,18 +17154,18 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Customer Contact Layout</layout>
         <recordType>Lead_Product__c.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead_Product__c-Lead Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Product__c-Order Layout</layout>
         <recordType>Lead_Product__c.Order</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Quote Layout</layout>
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -18526,6 +18560,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Lead_Product_Attendee</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -19537,6 +19575,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
