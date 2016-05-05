@@ -65,7 +65,7 @@ public with sharing class leadProudctAttendeescontroller
             {
                 system.debug('wrper.ledprdt.Owner.Name----'+wrper+'---Name--'+wrper.ledprdt.Owner.Name);
                 if(wrper.ledprdt.ownerid != null){
-                commaSepratedList +=usermap.get(wrper.ledprdt.Ownerid).name+ '-' + wrper.attendees ;
+                commaSepratedList +=usermap.get(wrper.ledprdt.Ownerid).name+ ',' + wrper.attendees ;
                 if(led.Lead_Product_Items__c != null && wrper.ledprdt.ownerid != null)                
                 {
                     oldleaditems.put(led.Id,led.Lead_Product_Items__c);                    
