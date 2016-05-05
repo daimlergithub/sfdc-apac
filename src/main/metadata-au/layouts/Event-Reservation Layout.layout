@@ -31,10 +31,6 @@
                 <field>DurationInMinutes</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>DurationInMinutes</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
