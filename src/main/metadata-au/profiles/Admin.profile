@@ -10990,6 +10990,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Waived_Reason__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Work_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17149,18 +17154,18 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Customer Contact Layout</layout>
         <recordType>Lead_Product__c.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead_Product__c-Lead Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Product__c-Order Layout</layout>
         <recordType>Lead_Product__c.Order</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
+        <layout>Lead_Product__c-Quote Layout</layout>
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -19570,6 +19575,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>

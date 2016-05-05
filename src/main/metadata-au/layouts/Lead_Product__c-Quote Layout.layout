@@ -18,10 +18,6 @@
                 <behavior>Edit</behavior>
                 <field>Product_Offer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Account__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

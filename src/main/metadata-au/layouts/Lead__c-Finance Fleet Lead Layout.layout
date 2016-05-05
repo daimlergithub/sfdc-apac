@@ -19,6 +19,10 @@
                 <field>Company_Account__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contact__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Lead_Source__c</field>
             </layoutItems>
@@ -38,10 +42,6 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Items__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -51,10 +51,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MD__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -131,22 +127,30 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interested_Vehicle_Brand__c</field>
+                <field>Number_of_Units__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Model__c</field>
+                <behavior>Edit</behavior>
+                <field>Credit_Limit_Request__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Year__c</field>
+                <behavior>Edit</behavior>
+                <field>Units_for_Prospect__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Volume__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Items__c</field>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
                 <page>Lead_Add_MultiBrand</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>1300</width>
+                <width>900</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -262,7 +266,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000002Dfih</masterLabel>
+        <masterLabel>00h7A000000NMqM</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

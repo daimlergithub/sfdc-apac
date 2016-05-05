@@ -38,10 +38,6 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Items__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -142,14 +138,19 @@
                 <field>Volume__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Items__c</field>
+            </layoutItems>
+            <layoutItems>
                 <height>200</height>
                 <page>Lead_Add_MultiBrand</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>1400</width>
+                <width>900</width>
             </layoutItems>
         </layoutColumns>
-        <style>OneColumn</style>
+        <layoutColumns/>
+        <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -184,6 +185,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Orig_Fee__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Waived_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -324,7 +329,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000002Dfii</masterLabel>
+        <masterLabel>00h7A000000NMqN</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -15,6 +15,19 @@
         <name>Lead Detail Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Quote_Live_Share</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Australia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Quote_Live__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Quote Live_Share</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Sharing_Rule_for_Fleet_MBAup</fullName>
         <sharedTo>
             <group>Fleet_MBaup</group>
@@ -26,5 +39,5 @@
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <name>Sharing Rule for Fleet MBAup</name>
-    </criteriaBasedRules> 
+    </criteriaBasedRules>
 </CustomObjectSharingRules>
