@@ -749,7 +749,12 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_FIELD_ID</token>
-	</changetext>	
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
