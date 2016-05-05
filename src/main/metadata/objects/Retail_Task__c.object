@@ -3679,11 +3679,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Voluntary_Insurance_Premium_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL(Voluntary_Insurance_Type__c, 'VITDB') , Voluntary_Insurance_Premium__c, null)</formula>
+        <formula>IF( ISPICKVAL(Voluntary_Insurance_Type__c, 'Yes (DIS)') , Voluntary_Insurance_Premium__c, null)</formula>
         <label>Voluntary Insurance Premium(Dealer)</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
