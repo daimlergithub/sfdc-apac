@@ -263,7 +263,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
-
         <customButtons>New_Finance_Lead</customButtons>
         <customButtons>New_Insurance_Lead</customButtons>
         <customButtons>New_Finance_Fleet_Lead</customButtons>
@@ -303,6 +302,10 @@
         <fields>OWNER.ALIAS</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Lead_Product__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
