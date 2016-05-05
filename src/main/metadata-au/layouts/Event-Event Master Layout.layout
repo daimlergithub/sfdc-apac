@@ -28,6 +28,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>StartDateTime</field>
             </layoutItems>
             <layoutItems>
