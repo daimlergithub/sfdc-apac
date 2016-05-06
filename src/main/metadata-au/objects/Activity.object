@@ -2540,7 +2540,7 @@ noted by Lio on 10.28.2013</description>
     <fields>
         <fullName>Task_Details__c</fullName>
         <externalId>false</externalId>
-        <label>Task Details</label>
+        <label>Outcome</label>
         <required>false</required>
         <type>TextArea</type>
     </fields>
