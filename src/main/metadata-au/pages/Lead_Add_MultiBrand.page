@@ -27,7 +27,7 @@
                     </apex:outputLabel>
                     <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
                 </apex:repeat>
-                <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()"/>                
+                <apex:commandButton action="{!save}" value="Insert Vehicle" oncomplete="refreshpage()"/>                
             </apex:pageBlockSection>         
         </apex:pageBlock>
     </apex:form>

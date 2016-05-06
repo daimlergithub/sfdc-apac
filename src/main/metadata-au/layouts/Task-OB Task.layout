@@ -3,7 +3,6 @@
     <customButtons>View_Campaing_Member</customButtons>
     <customButtons>Survey</customButtons>
     <customButtons>Send_SMS</customButtons>
-    <emailDefault>false</emailDefault>
     <excludeButtons>DeleteSeries</excludeButtons>
     <excludeButtons>FollowupEvent</excludeButtons>
     <excludeButtons>FollowupTask</excludeButtons>
@@ -221,11 +220,11 @@
     </relatedContent>
     <relatedObjects>WhoId</relatedObjects>
     <relatedObjects>WhatId</relatedObjects>
-    <showEmailCheckbox>true</showEmailCheckbox>
+    <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh28</masterLabel>
+        <masterLabel>00h1a000001fjZB</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
