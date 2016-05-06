@@ -67,10 +67,6 @@
                 <field>Campaign_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
