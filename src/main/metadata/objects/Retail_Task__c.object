@@ -3269,7 +3269,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Special_Flag_Exclude__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Special Flag (to include)</label>
+        <label>Special Flag (to exclude)</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -3277,7 +3277,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Special_Flag_Include__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Special Flag (to exclude)</label>
+        <label>Special Flag (to include)</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
