@@ -35,7 +35,7 @@ public with sharing class LeadProductDetailsInputController
     public list<List<SelectOption>> getbrands()
     {
         carmodelstrng.clear();
-        carmodellist = [select Name from Car_Model__c where vehicle_group__c = 'Van' and Brand__c ='Mercedes-Benz'];
+       /* carmodellist = [select Name from Car_Model__c where vehicle_group__c = 'Van' and Brand__c ='Mercedes-Benz'];
         for(Car_Model__c card :carmodellist)
         {
             if(card.Name!= null && card.Name!= '')
@@ -58,7 +58,17 @@ public with sharing class LeadProductDetailsInputController
             }
             counter++;
             
-        }
+        }*/
+        List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
+        List<SelectOption> options = new List<SelectOption>();
+        options.add(new selectoption('Vito Van','Vito Van'));
+        options.add(new selectoption('Vito Crew Cab','Vito Crew Cab'));
+        options.add(new selectoption('Valente','Valente'));
+        options.add(new selectoption('Sprinter Van','Sprinter Van'));
+        options.add(new selectoption('Sprinter Cab Chassis','Sprinter Cab Chassis'));
+        options.add(new selectoption('Sprinter Minibus','Sprinter Minibus'));
+        optionslist.add (options);
+        
         return optionslist;
     }
     public void addrow()
