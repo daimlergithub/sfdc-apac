@@ -55,6 +55,14 @@
                 <behavior>Edit</behavior>
                 <field>Source_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Company__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -71,10 +79,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

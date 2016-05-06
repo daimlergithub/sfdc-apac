@@ -84,11 +84,11 @@ public with sharing class Lead_AddmultiBrandController
         {                    
             for(Lead__c led:leadllist)
             {
-                commaSepratedList +=wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty ;
+                commaSepratedList +=wrper.vehiclebrand + ',' + wrper.vechmodel + ',' + wrper.vechquanty ;
                 if(led.Lead_Items__c != null)                
                 {
                     oldleaditems.put(led.Id,led.Lead_Items__c);                    
-                    led.Lead_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechquanty; 
+                    led.Lead_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vehiclebrand + ',' + wrper.vechmodel + ',' + wrper.vechquanty; 
                 }
                 else if(led.Lead_Items__c == null || led.Lead_Items__c == '')
                 {

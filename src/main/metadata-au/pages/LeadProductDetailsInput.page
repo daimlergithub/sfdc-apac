@@ -15,7 +15,7 @@
                     
                     <apex:inputText value="{!wrap.vechquanty}" label="Brand"/>
                                        
-                    <apex:inputText value="{!wrap.vechmodel}" label="No. of Vehicles" /> 
+                    
                         
                         <apex:selectList value="{!wrap.vehiclebrand}" size="1" label="Vehicle Model" style="font-weight:bold">                           
                             <apex:selectOptions value="{!brands[0]}" rendered="{!if(brands.size>0,true,false)}"/>
@@ -26,13 +26,13 @@
                         </apex:selectList> 
                                       
                     <apex:inputText value="{!wrap.vechmodeldetails}" label="Vehicle Model Details"/>
-                    
+                    <apex:inputText value="{!wrap.vechmodel}" label="No. of Vehicles" /> 
                     <apex:commandButton action="{!addrow}" value="+" reRender="refreshdata,pgmasg" id="thebutton"/>
                 </apex:repeat>           
             </apex:pageBlockSection> 
             <br/> 
             <center>
-            <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()" style="align:centre"/> 
+            <apex:commandButton action="{!save}" value="Insert Vehicle" oncomplete="refreshpage()" style="align:centre"/> 
             </center>        
         </apex:pageBlock>
     </apex:form>

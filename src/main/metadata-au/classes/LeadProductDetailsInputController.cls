@@ -19,7 +19,7 @@ public with sharing class LeadProductDetailsInputController
         wrappermultibrandclass wrapper = new wrappermultibrandclass();
         wrapper.vehiclebrand = '';
         wrapper.vechmodel = '';
-        wrapper.vechquanty = 'Mercedez Benz';
+        wrapper.vechquanty = 'Mercedes-Benz';
         wrapper.vechmodeldetails = '';
         wrapperlist.add(wrapper);
     }
@@ -66,7 +66,7 @@ public with sharing class LeadProductDetailsInputController
         wrappermultibrandclass wrapper = new wrappermultibrandclass();
         wrapper.vehiclebrand ='';
         wrapper.vechmodel = '';
-        wrapper.vechquanty = 'Mercedez-Benz';
+        wrapper.vechquanty = 'Mercedes-Benz';
         wrapper.vechmodeldetails = '';
         if(wrapperlist.size() <10)
         {
@@ -89,10 +89,10 @@ public with sharing class LeadProductDetailsInputController
                 if(led.Lead_Product_Items__c !=null)
                 {
                     oldleaditems.put(led.Id,led.Lead_Product_Items__c);               
-                    led.Lead_Product_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vechquanty + '-' +wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechmodeldetails;
+                    led.Lead_Product_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vechquanty + ',' +wrper.vehiclebrand + ',' + wrper.vechmodeldetails+',' + wrper.vechmodel  ;
                 }else
                 {
-                    led.Lead_Product_Items__c =  wrper.vechquanty + '-' + wrper.vehiclebrand + '-' + wrper.vechmodel + '-' + wrper.vechmodeldetails;
+                    led.Lead_Product_Items__c =  wrper.vechquanty + ',' + wrper.vehiclebrand +',' + wrper.vechmodeldetails+ ',' + wrper.vechmodel  ;
                 }
                 mapupdateleadllist.put(led.id,led);
             }
