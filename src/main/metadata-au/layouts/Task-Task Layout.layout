@@ -32,6 +32,14 @@
                 <behavior>Edit</behavior>
                 <field>WhoId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Company__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -54,10 +62,6 @@
         <editHeading>true</editHeading>
         <label>Additional Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Priority</field>

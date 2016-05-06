@@ -3,7 +3,6 @@
     <customButtons>Survey</customButtons>
     <customButtons>Redo_Survey</customButtons>
     <customButtons>View_SSI</customButtons>
-    <emailDefault>false</emailDefault>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DeleteSeries</excludeButtons>
     <excludeButtons>FollowupEvent</excludeButtons>
@@ -55,6 +54,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>End_call_time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Company__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -190,11 +193,11 @@
     </relatedContent>
     <relatedObjects>WhoId</relatedObjects>
     <relatedObjects>WhatId</relatedObjects>
-    <showEmailCheckbox>true</showEmailCheckbox>
+    <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh2B</masterLabel>
+        <masterLabel>00h1a000001fjZE</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
