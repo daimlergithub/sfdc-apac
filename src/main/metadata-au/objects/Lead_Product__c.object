@@ -388,9 +388,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </filters>
         <label>Active Quote List View</label>
         <language>en_US</language>
-        <sharedTo>
-            <group>Fleet_Vans_user_Manager</group>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All</fullName>
@@ -409,9 +406,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </filters>
         <label>Inactive Quote List View</label>
         <language>en_US</language>
-        <sharedTo>
-            <group>Fleet_Vans_user_Manager</group>
-        </sharedTo>
     </listViews>
     <nameField>
         <label>Lead Detail Name</label>
@@ -694,7 +688,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedez Bench Finance %26 Insurance offer</fullName>
+                <fullName>Mercedes Benz Finance %26 Insurance offer</fullName>
                 <default>false</default>
             </values>
             <values>
