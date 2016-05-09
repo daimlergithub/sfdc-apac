@@ -214,7 +214,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedez Bench Finance &amp; Insurance offer</fullName>
+                <fullName>Mercedes Benz Finance &amp; Insurance offer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -564,7 +564,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedez Bench Finance %26 Insurance offer</fullName>
+                <fullName>Mercedes Benz Finance %26 Insurance offer</fullName>
                 <default>false</default>
             </values>
             <values>
