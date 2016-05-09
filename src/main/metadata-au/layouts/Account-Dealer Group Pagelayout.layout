@@ -68,7 +68,7 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
@@ -110,6 +110,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Lead__c</fields>
+        <fields>Product_Offer__c</fields>
+        <fields>Date__c</fields>
         <relatedList>Lead_Product__c.Account__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
