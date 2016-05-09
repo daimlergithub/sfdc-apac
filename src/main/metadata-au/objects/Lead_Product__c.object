@@ -440,7 +440,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedez Bench Finance %26 Insurance offer</fullName>
+                <fullName>Mercedes Benz Finance %26 Insurance offer</fullName>
                 <default>false</default>
             </values>
             <values>
