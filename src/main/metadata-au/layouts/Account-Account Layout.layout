@@ -365,7 +365,7 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
@@ -443,6 +443,13 @@
         <fields>ACCOUNT.PC_TITLE</fields>
         <fields>ACCOUNT.PC_EMAIL</fields>
         <relatedList>RelatedPartnerList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Lead__c</fields>
+        <fields>Product_Offer__c</fields>
+        <fields>Date__c</fields>
+        <relatedList>Lead_Product__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
