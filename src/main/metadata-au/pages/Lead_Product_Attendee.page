@@ -17,7 +17,7 @@
             </apex:pageBlockSection> 
             <br/> 
             <center>
-            <apex:commandButton action="{!save}" value="Save" oncomplete="refreshpage()" style="align:centre"/> 
+            <apex:commandButton action="{!save}" value="Insert Attendees" oncomplete="refreshpage()" style="align:centre"/> 
             </center>        
         </apex:pageBlock>
     </apex:form>

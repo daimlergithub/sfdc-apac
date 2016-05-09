@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Escalation after 24 hours</name>
     <style>none</style>
-    <subject>DRM Task - {!Retail_Task__c.Account__c} – {!Task.CallObject}</subject>
+    <subject>Task - {!Retail_Task__c.Account__c} – {!Task.CallObject}</subject>
     <type>text</type>
 </EmailTemplate>
