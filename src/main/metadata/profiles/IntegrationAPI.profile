@@ -19755,7 +19755,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Claim__c.Insurance_Claim</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
