@@ -17193,10 +17193,6 @@
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Co-Borrower%2FGuarantor Layout</layout>
-        <recordType>Account_Link__c.Co_Borrower_Guarantor</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact Layout</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
@@ -19104,11 +19100,6 @@
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Dealer</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account_Link__c.Co_Borrower_Guarantor</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
