@@ -338,6 +338,8 @@
         <fields>Lead__c</fields>
         <fields>Product_Offer__c</fields>
         <fields>Date__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Attachment_Flag__c</fields>
         <relatedList>Lead_Product__c.Account__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>

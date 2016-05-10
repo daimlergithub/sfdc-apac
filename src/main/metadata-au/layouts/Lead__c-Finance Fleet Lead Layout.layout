@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Print</customButtons>
     <customButtons>Select_Assigned_Dealer</customButtons>
+    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -51,6 +52,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Public__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -144,6 +149,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Items__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Waived_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
