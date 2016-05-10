@@ -17491,10 +17491,6 @@
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Vans Fleet Lead</layout>
-        <recordType>Lead__c.Fleet_Vans</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19268,11 +19264,6 @@
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Lead__c.Fleet_Vans</recordType>
-        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
