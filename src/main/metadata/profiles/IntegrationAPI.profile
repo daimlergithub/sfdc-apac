@@ -17271,10 +17271,6 @@
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
-        <recordType>Campaign.Internal_Campaign_Brief</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
@@ -19182,11 +19178,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Campaign.Internal_Campaign_Brief</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
