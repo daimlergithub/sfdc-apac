@@ -14482,10 +14482,6 @@
         <editable>false</editable>
         <field>Settlement_Management__c.Total_Settlement_Amount__c</field>
         <readable>true</readable>
-    </fieldPermissions>>
-        <editable>true</editable>
-        <field>SocialPersona.UserId</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
