@@ -14938,11 +14938,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ServiceContract.ParentServiceContractId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ServiceContract.RootServiceContractId</field>
         <readable>false</readable>
     </fieldPermissions>
