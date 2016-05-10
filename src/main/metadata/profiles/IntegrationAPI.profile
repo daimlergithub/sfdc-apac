@@ -19106,11 +19106,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.Company_Soft_Deleted</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Dealer</recordType>
         <visible>true</visible>
