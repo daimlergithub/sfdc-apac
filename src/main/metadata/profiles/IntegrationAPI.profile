@@ -17175,10 +17175,6 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
-        <recordType>Account.Dealer_Group</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19108,11 +19104,6 @@
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Dealer</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.Dealer_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
