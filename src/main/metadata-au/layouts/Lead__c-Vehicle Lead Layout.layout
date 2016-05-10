@@ -40,6 +40,10 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Channel__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
