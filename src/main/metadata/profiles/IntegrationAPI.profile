@@ -17476,10 +17476,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Insurance_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -19263,11 +19259,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Lead__c.Insurance_Lead</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
