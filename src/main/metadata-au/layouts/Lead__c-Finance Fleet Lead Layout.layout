@@ -151,10 +151,6 @@
                 <field>Lead_Items__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Waived_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
                 <height>200</height>
                 <page>Lead_Add_MultiBrand</page>
                 <showLabel>false</showLabel>
