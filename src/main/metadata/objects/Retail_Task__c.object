@@ -4740,6 +4740,3435 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
     </recordTypes>
     <recordTypes>
+        <fullName>Insurance_Contract</fullName>
+        <active>true</active>
+        <label>Insurance Contract</label>
+        <picklistValues>
+            <picklist>Bank_Account_Type__c</picklist>
+            <values>
+                <fullName>Common</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Condition_Change__c</picklist>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Replacement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Category__c</picklist>
+            <values>
+                <fullName>Change of Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Marital_Status__c</picklist>
+            <values>
+                <fullName>Married</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Married</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>CEDYNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JACCS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORICO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>Close End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dual Auto Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Open End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Start Up Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor1_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor2_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor3_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry_Code__c</picklist>
+            <values>
+                <fullName>A - Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B - Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C - Fishery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D - Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E - Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F - Manufacture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G - Utility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>H - Transport%2FTelecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J - Wholesale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K - Retail%2FRestaurant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L - Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M - Finance%2FInsurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N - Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P - Medical Service%2FWelfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Q - Education%2FReligion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R - Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S - Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Company__c</picklist>
+            <values>
+                <fullName>Aioi Nissay Dowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsui Sumitomo Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sompo Japan Nipponkoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo Marine %26 Nichido</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lease_Category__c</picklist>
+            <values>
+                <fullName>Financial Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Occupation_Type__c</picklist>
+            <values>
+                <fullName>Corporate Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Manager%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Staff%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housekeeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part Timer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lump-Sum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sales_Type__c</picklist>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courtesy Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Group Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rent-a-Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Code__c</picklist>
+            <values>
+                <fullName>Body Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New car%2Fused car sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Predelivery inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wear %26 Tear Jobs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forced Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Voluntary_Insurance_Type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28DIS%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Lease_Contract</fullName>
+        <active>true</active>
+        <label>Lease Contract</label>
+        <picklistValues>
+            <picklist>Bank_Account_Type__c</picklist>
+            <values>
+                <fullName>Common</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Condition_Change__c</picklist>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Replacement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Category__c</picklist>
+            <values>
+                <fullName>Change of Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Marital_Status__c</picklist>
+            <values>
+                <fullName>Married</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Married</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>CEDYNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JACCS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORICO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>Close End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dual Auto Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Open End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Start Up Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor1_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor2_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor3_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry_Code__c</picklist>
+            <values>
+                <fullName>A - Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B - Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C - Fishery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D - Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E - Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F - Manufacture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G - Utility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>H - Transport%2FTelecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J - Wholesale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K - Retail%2FRestaurant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L - Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M - Finance%2FInsurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N - Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P - Medical Service%2FWelfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Q - Education%2FReligion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R - Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S - Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Company__c</picklist>
+            <values>
+                <fullName>Aioi Nissay Dowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsui Sumitomo Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sompo Japan Nipponkoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo Marine %26 Nichido</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lease_Category__c</picklist>
+            <values>
+                <fullName>Financial Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Occupation_Type__c</picklist>
+            <values>
+                <fullName>Corporate Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Manager%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Staff%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housekeeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part Timer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lump-Sum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sales_Type__c</picklist>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courtesy Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Group Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rent-a-Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Code__c</picklist>
+            <values>
+                <fullName>Body Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New car%2Fused car sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Predelivery inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wear %26 Tear Jobs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forced Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Voluntary_Insurance_Type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28DIS%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Loan_Contract</fullName>
+        <active>true</active>
+        <label>Loan Contract</label>
+        <picklistValues>
+            <picklist>Bank_Account_Type__c</picklist>
+            <values>
+                <fullName>Common</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Condition_Change__c</picklist>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Replacement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Category__c</picklist>
+            <values>
+                <fullName>Change of Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renew</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contractor_Marital_Status__c</picklist>
+            <values>
+                <fullName>Married</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Married</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>CEDYNA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JACCS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORICO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Name__c</picklist>
+            <values>
+                <fullName>Close End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Close End Lease %28Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dual Auto Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select Plus%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open End Lease %28Select%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End Mileage Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Close End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-lease %28Open End%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Start Up Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Follow_Up_Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Group__c</picklist>
+            <values>
+                <fullName>Aftersales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaigns only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle sales letters</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor1_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor2_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantor3_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry_Code__c</picklist>
+            <values>
+                <fullName>A - Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B - Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C - Fishery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D - Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E - Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F - Manufacture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G - Utility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>H - Transport%2FTelecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J - Wholesale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K - Retail%2FRestaurant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L - Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M - Finance%2FInsurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N - Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P - Medical Service%2FWelfare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Q - Education%2FReligion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R - Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S - Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Company__c</picklist>
+            <values>
+                <fullName>Aioi Nissay Dowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsui Sumitomo Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sompo Japan Nipponkoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo Marine %26 Nichido</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lease_Category__c</picklist>
+            <values>
+                <fullName>Financial Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Occupation_Type__c</picklist>
+            <values>
+                <fullName>Corporate Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Manager%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee %28Staff%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housekeeper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part Timer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Worker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lump-Sum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sales_Type__c</picklist>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Courtesy Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Group Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rent-a-Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Code__c</picklist>
+            <values>
+                <fullName>Body Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New car%2Fused car sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Predelivery inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wear %26 Tear Jobs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forced Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Accepted vehicle order VS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acquisition%2Fcold call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aftersales estimate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Birthday card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car anniversary 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Satisfaction Invtgn 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer complaint - staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Bokking Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incoming telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice New Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost sale - new</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Contact Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New vehicle lost sale letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outgoing telephone call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post-sale follow up call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-qualification call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Satisfaction Investign 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom visit by customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit to customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome pack</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Voluntary_Insurance_Type__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28DIS%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes %28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Retail_Activity</fullName>
         <active>true</active>
         <label>Retail Activity</label>

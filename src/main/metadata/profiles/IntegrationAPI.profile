@@ -17658,6 +17658,18 @@
         <layout>Retail_Campaign__c-Segmentation</layout>
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Lease_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Loan_Contract</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout</layout>
         <recordType>Retail_Task__c.Insurance</recordType>
@@ -19449,6 +19461,21 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Lease_Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Loan_Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
