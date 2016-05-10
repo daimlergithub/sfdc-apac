@@ -14477,7 +14477,7 @@
         <editable>false</editable>
         <field>Settlement_Management__c.Total_Settlement_Amount__c</field>
         <readable>false</readable>
-    </fieldPermissions
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SocialPost.AnalyzerScore</field>
