@@ -7376,6 +7376,11 @@
         <field>Claim__c.Accident_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Payment_Amount__c</field>
@@ -19748,6 +19753,11 @@
         <default>false</default>
         <recordType>Case.Touring_Support</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Claim.Insurance_Claim</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
