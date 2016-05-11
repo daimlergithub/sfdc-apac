@@ -1330,9 +1330,9 @@
         <fullName>Fine_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Fine Rate</label>
-        <precision>18</precision>
+        <precision>15</precision>
         <required>false</required>
-        <scale>5</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -2238,6 +2238,22 @@
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mitsui Sumitomo Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokyo Marine &amp; Nichido</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sompo Japan Nipponkoa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aioi Nissay Dowa</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3555,6 +3571,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Subrogation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forced Termination</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -5005,10 +5045,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
-                <fullName>Common</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Current</fullName>
                 <default>false</default>
             </values>
@@ -5053,10 +5089,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Female</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Contractor_Marital_Status__c</picklist>
@@ -5064,25 +5096,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Married</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Not Married</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_Loan_Company_Name__c</picklist>
-            <values>
-                <fullName>CEDYNA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JACCS</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>ORICO</fullName>
                 <default>false</default>
@@ -5091,75 +5107,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Finance_Product_Name__c</picklist>
             <values>
-                <fullName>Close End Lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Close End Lease %28Mileage Plan Select Plus%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Close End Lease %28Mileage Plan Select%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Close End Lease %28Mileage Plan%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dual Auto Loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal Loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open End Lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open End Lease %28Select Plus%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open End Lease %28Select%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Re-lease %28Close End Mileage Plan%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Re-lease %28Close End%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Re-lease %28Open End%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Re-loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Start Up Plan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Super Welcome Plan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Super Welcome Plan Plus</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Welcome Plan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Welcome Plan Plus</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5458,20 +5406,12 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Guarantor1_Gender__c</picklist>
             <values>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Male</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Guarantor2_Gender__c</picklist>
-            <values>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Male</fullName>
                 <default>false</default>
@@ -5480,10 +5420,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Guarantor3_Gender__c</picklist>
             <values>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Male</fullName>
                 <default>false</default>
             </values>
@@ -5491,87 +5427,31 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Industry_Code__c</picklist>
             <values>
-                <fullName>A - Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B - Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C - Fishery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D - Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E - Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>F - Manufacture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>G - Utility</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>H - Transport%2FTelecommunications</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>J - Wholesale</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>K - Retail%2FRestaurant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>L - Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>M - Finance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>N - Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>P - Medical Service%2FWelfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Q - Education%2FReligion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R - Public Officer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S - Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Insurance_Company__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Aioi Nissay Dowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mitsui Sumitomo Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sompo Japan Nipponkoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo Marine %26 Nichido</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Lease_Category__c</picklist>
-            <values>
-                <fullName>Financial Lease</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Operational Lease</fullName>
                 <default>false</default>
@@ -5583,67 +5463,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>New</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Used</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Occupation_Type__c</picklist>
             <values>
-                <fullName>Corporate Worker</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee %28Manager%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee %28Staff%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Executive Officer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Housekeeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Part Timer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pensioner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public Officer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public Worker</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Self-employed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Student</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5717,30 +5541,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
         <picklistValues>
             <picklist>Sales_Type__c</picklist>
-            <values>
-                <fullName>Company Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Courtesy Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Group Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rent-a-Car</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Retail</fullName>
                 <default>false</default>
@@ -5832,10 +5632,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Cancellation Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5985,14 +5781,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lost sale - new</fullName>
                 <default>false</default>
             </values>
@@ -6095,14 +5883,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Yes %28DIS%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes %28Dealer%29</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
     </recordTypes>
     <recordTypes>
@@ -6123,34 +5903,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Condition_Change__c</picklist>
             <values>
-                <fullName>Cancel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contract Change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Early Termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Replacement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Contract_Category__c</picklist>
             <values>
-                <fullName>Change of Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Renew</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6178,18 +5938,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_Loan_Company_Name__c</picklist>
-            <values>
-                <fullName>CEDYNA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JACCS</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>ORICO</fullName>
                 <default>false</default>
@@ -6807,10 +6555,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Payment_Method__c</picklist>
             <values>
-                <fullName>Installment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lump-Sum</fullName>
                 <default>false</default>
             </values>
@@ -6934,6 +6678,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -6946,11 +6694,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Draft</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forced Termination</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6962,11 +6722,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Save</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7230,34 +6998,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Condition_Change__c</picklist>
             <values>
-                <fullName>Cancel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contract Change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Early Termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Replacement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Contract_Category__c</picklist>
             <values>
-                <fullName>Change of Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Renew</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7783,10 +7531,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Lease_Category__c</picklist>
             <values>
-                <fullName>Financial Lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Operational Lease</fullName>
                 <default>false</default>
             </values>
@@ -7914,10 +7658,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Payment_Method__c</picklist>
             <values>
-                <fullName>Installment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lump-Sum</fullName>
                 <default>false</default>
             </values>
@@ -8041,6 +7781,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -8053,11 +7797,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consent Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Draft</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forced Termination</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8069,11 +7825,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Matured</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Save</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subrogation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8307,14 +8071,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <picklist>Voluntary_Insurance_Type__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes %28DIS%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes %28Dealer%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
