@@ -102,7 +102,7 @@
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
         <recipients>
-            <recipient>NSM_user</recipient>
+            <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
         <recipients>

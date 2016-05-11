@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Contacts_Relation</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -284,6 +283,7 @@
         <fields>Opportunity_Name__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
+        <fields>Attachment_Flag__c</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
     </relatedLists>
     <relatedLists>

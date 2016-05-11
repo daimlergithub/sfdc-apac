@@ -2,8 +2,8 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>ISO-8859-1</encodingKey>
-    <name>Escalation after 24 hours</name>
+    <name>General Task Email</name>
     <style>none</style>
-    <subject>Incomplete Task</subject>
+    <subject>Task has been created</subject>
     <type>text</type>
 </EmailTemplate>
