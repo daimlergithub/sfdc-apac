@@ -80,6 +80,9 @@
             <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
@@ -105,6 +108,9 @@
         <recipients>
             <recipient>SMDFM_users</recipient>
             <type>group</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
