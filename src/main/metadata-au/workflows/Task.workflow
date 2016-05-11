@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!--<alerts>
-        <fullName>Email_Notification_On_Task_Creation</fullName>
-        <description>Email Notification On Task Creation</description>
+    <alerts>
+        <fullName>Email_To_NSM_For_Changing_Visit</fullName>
+        <description>Email_To_NSM_For_Changing_Visit</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_MBaup_Delete</recipient>
-            <type>group</type>
+            <recipient>arpita.sinha@nttdata.com.au</recipient>
+            <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_Notification_On_Task_Creation</template>
+        <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
     <alerts>
-        <fullName>Email_Notification_to_the_assigned_to_user_With_Time_Trigger</fullName>
-        <description>Email Notification to the assigned to user With Time Trigger</description>
+        <fullName>Escalation_after_48_hours</fullName>
+        <description>Escalation_after_48_hours</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Fleet_MBaup_Delete</recipient>
-            <type>group</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_Notification_to_the_assigned_to_user_With_Time_Trigger</template>
+        <template>unfiled$public/Escalation_after_48_hours</template>
     </alerts>
     <alerts>
-        <fullName>Email_On_Task_Creation</fullName>
-        <description>Email On Task Creation</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts>
-    <alerts>
-        <fullName>Email_notification_to_the_task_owner</fullName>
-        <description>Email notification to the task owner</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>Task_AU_Emails</recipient>
-            <type>group</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/TestTaskEmail</template>
-    </alerts>
-    <alerts>
-        <fullName>Notification_On_Task_Creation</fullName>
-        <description>Email Notification On Task Creation</description>
+        <fullName>Send_Email_Notification_On_Task_Creation</fullName>
+        <description>Send Email Notification On Task Creation</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Notification_On_Task_Creation</template>
-    </alerts>-->
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
+        <description>Send_Email_To_DRM_User_After_24hrs_DueDate</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Escalation_after_24_hours</template>
+    </alerts>
+    <alerts>
+        <fullName>Task_Has_Been_Created</fullName>
+        <description>Task_Has_Been_Created</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/General_Task_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>send_email_alert_to_owner_on_DRM_task_creation_or_assignment</fullName>
+        <description>send email alert to owner on DRM task creation or assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -82,8 +89,27 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>General Task Email</fullName>
+        <actions>
+            <name>Task_Has_Been_Created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>True</active>
+        <active>true</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -115,10 +141,10 @@
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-        <!--<actions>
-            <name>Notification_On_Task_Creation</name>
+        <actions>
+            <name>Send_Email_Notification_On_Task_Creation</name>
             <type>Alert</type>
-        </actions>-->
+        </actions>
         <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -136,7 +162,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <active>True</active>
+        <active>true</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -147,14 +173,18 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-        <active>True</active>
+        <actions>
+            <name>Email_To_NSM_For_Changing_Visit</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
-        <active>True</active>
+        <active>true</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -164,7 +194,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
-        <active>True</active>
+        <active>true</active>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Task.OwnerId</field>
@@ -179,7 +209,11 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Task created or assigned to DRM</fullName>
-        <active>True</active>
+        <actions>
+            <name>send_email_alert_to_owner_on_DRM_task_creation_or_assignment</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
         <triggerType>onAllChanges</triggerType>
@@ -214,7 +248,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Update_Comment_With_TimeStamp</fullName>
-        <active>True</active>
+        <active>true</active>
         <criteriaItems>
             <field>Task.RecordTypeId</field>
             <operation>equals</operation>
