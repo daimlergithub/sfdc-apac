@@ -13020,11 +13020,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Annual_Call_Task_2_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Annual_Call_Task_3_del__c</field>
         <readable>true</readable>
     </fieldPermissions>
