@@ -16779,9 +16779,6 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead_Product__c-Lead Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
