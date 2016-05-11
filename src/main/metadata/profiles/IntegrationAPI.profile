@@ -16664,10 +16664,6 @@
         <layout>Attribute__c-Car Attribute Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Audit_Trail__c-Account History Layout</layout>
-        <recordType>Audit_Trail__c.Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Batch_Job__c-Batch Job Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
