@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
-        <fullName>Email_To_NSM_For_Changing_Visit</fullName>
-        <description>Email_To_NSM_For_Changing_Visit</description>
-        <protected>false</protected>
-        <recipients>
-            <recipient>arpita.sinha@nttdata.com.au</recipient>
-            <type>user</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Complaint_update_notification</template>
-    </alerts>
    <!-- <alerts>
         <fullName>Escalation_after_48_hours</fullName>
         <description>Escalation_after_48_hours</description>
@@ -90,10 +79,6 @@
     </fieldUpdates>
     <rules>
         <fullName>General Task Email</fullName>
-       <!-- <actions>
-            <name>Task_Has_Been_Created</name>
-            <type>Alert</type>
-        </actions> -->
         <active>true</active>
         <criteriaItems>
             <field>Task.RecordTypeId</field>
@@ -173,10 +158,6 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
-       <!-- <actions>
-            <name>Email_To_NSM_For_Changing_Visit</name>
-            <type>Alert</type>
-        </actions> -->
         <active>false</active>
         <description>Whenever Status field changes from visit 1 to visit 2 and so on and email notification will be sent to NSM</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
@@ -209,10 +190,6 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Task created or assigned to DRM</fullName>
-       <!-- <actions>
-            <name>send_email_alert_to_owner_on_DRM_task_creation_or_assignment</name>
-            <type>Alert</type>
-        </actions> -->
         <active>true</active>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
