@@ -31,11 +31,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_AS</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBAuP_MBFS_Dealer</application>
         <default>false</default>
         <visible>false</visible>
