@@ -9345,11 +9345,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead_Product__c.Lead_Product_Items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead_Product__c.Lead__c</field>
         <readable>true</readable>
     </fieldPermissions>
