@@ -17808,10 +17808,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
-        <recordType>Vehicle_Relationship__c.Company</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
         <recordType>Vehicle_Relationship__c.Individual</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -19424,11 +19420,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Tool_Kit__c.smart_Event</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Vehicle_Relationship__c.Company</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
