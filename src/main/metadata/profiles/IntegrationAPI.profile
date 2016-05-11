@@ -18979,10 +18979,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>PreOrder__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>QC__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
