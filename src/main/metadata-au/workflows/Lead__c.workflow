@@ -80,6 +80,9 @@
             <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
@@ -99,12 +102,15 @@
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
         <recipients>
-            <recipient>NSM_user</recipient>
+            <recipient>Key_Account_Manager_users</recipient>
             <type>group</type>
         </recipients>
         <recipients>
             <recipient>SMDFM_users</recipient>
             <type>group</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>

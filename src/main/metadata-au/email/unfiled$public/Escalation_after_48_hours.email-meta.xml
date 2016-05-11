@@ -4,6 +4,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Escalation after 48 hours</name>
     <style>none</style>
-    <subject>Task - {!Retail_Task__c.Account__c} – {!Task.CallObject}</subject>
+    <subject>Incomplete Task</subject>
     <type>text</type>
 </EmailTemplate>
