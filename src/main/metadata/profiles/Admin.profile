@@ -7256,6 +7256,16 @@
         <field>Claim__c.MD__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Payment_Date__c</field>
@@ -14229,6 +14239,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Vehicle_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Voluntary_Insurance_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
