@@ -84,10 +84,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CallDisposition</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Other_Activity__c</field>
             </layoutItems>
         </layoutColumns>
