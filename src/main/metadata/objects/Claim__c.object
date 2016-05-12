@@ -63,6 +63,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -121,6 +131,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Service Content</label>
         <length>70</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transaction</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

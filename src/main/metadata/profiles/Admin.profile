@@ -7252,6 +7252,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Claim__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Payment_Date__c</field>
         <readable>true</readable>
@@ -9203,6 +9218,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead_Product__c.Actions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Attachment_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Customer_Contact_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9223,6 +9258,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead_Product__c.Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Next_Steps__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Order_Information__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Ordered_against_Factory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Outcome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Product_Offer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9234,6 +9294,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Product__c.Quote_Live__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Subject__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10730,6 +10800,11 @@
         <editable>false</editable>
         <field>Lead__c.Volume__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Waived_Reason__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14167,6 +14242,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Voluntary_Insurance_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Voluntary_Insurance_Premium_Dealer__c</field>
         <readable>true</readable>
@@ -14959,11 +15039,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Settlement_Management__c.Total_Settlement_Amount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SocialPersona.SourceApp</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17507,6 +17582,10 @@
         <layout>Claim__c-Claim Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Claim__c-Claim Layout</layout>
+        <recordType>Claim__c.Insurance_Claim</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CollaborationGroup-Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -17764,6 +17843,18 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Segmentation</layout>
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Lease_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Loan_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
@@ -19270,6 +19361,11 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Claim__c.Insurance_Claim</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Contact.DealerStaff</recordType>
         <visible>true</visible>
@@ -19443,6 +19539,21 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Retail_Task__c.Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Lease_Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Loan_Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -19806,7 +19917,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
