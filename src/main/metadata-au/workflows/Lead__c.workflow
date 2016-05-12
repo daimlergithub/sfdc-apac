@@ -572,7 +572,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead</value>
+            <value>Fleet Finance Lead</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.Market__c</field>
@@ -675,7 +675,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead</value>
+            <value>Fleet Finance Lead</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.Market__c</field>
@@ -858,7 +858,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead</value>
+            <value>Fleet Finance Lead</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.Fee_Type__c</field>
@@ -908,7 +908,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>Whenever the lead owner is changed sent email notification to Owner of Lead</description>
-        <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Finance Fleet Lead',MD__c == 'AU')</formula>
+        <formula>AND(ISCHANGED( OwnerId ),RecordType.Name  == 'Fleet Finance Lead',MD__c == 'AU')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -921,7 +921,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead,Fleet Vans</value>
+            <value>Fleet Finance Lead,Fleet Vans</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
