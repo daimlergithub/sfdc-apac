@@ -8,7 +8,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Finance Fleet Lead</value>
+            <value>Fleet Finance Lead</value>
         </criteriaItems>
         <criteriaItems>
             <field>MD__c</field>
@@ -56,7 +56,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Finance Fleet Lead,Fleet Vans</value>
+            <value>Fleet Finance Lead,Fleet Vans</value>
         </criteriaItems>
         <criteriaItems>
             <field>MD__c</field>
@@ -76,11 +76,11 @@
             <operation>equals</operation>
             <value>True</value>
         </criteriaItems>
-		<criteriaItems>
-		    <field>RecordTypeId</field>
+        <criteriaItems>
+            <field>RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Finance Fleet Lead,Fleet Vans</value>
-	    </criteriaItems>
+            <value>Fleet Finance Lead,Fleet Vans</value>
+        </criteriaItems>
         <accessLevel>Read</accessLevel>
         <description>This is a criteria based sharing rule which shares the record with all CRMOne users depending upon the public checkbox is ticked or not,</description>
         <name>Share_Task_With_CRMOne_User</name>
