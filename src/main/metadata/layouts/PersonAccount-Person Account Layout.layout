@@ -139,10 +139,6 @@
                 <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
@@ -237,7 +233,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Finance_Sanction_Comment__c</field>
+                <field>COS_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -584,7 +580,7 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
@@ -636,6 +632,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>ContractNumber__c</fields>
+        <fields>Product_Name__c</fields>
         <fields>Type__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>

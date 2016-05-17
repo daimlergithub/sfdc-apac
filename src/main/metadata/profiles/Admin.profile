@@ -14716,6 +14716,11 @@
         <field>Retail_Task__c.Voluntary_Insurance_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
+        <field>Retail_Task__c.Product_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Welcome_Call_Task__c</field>
