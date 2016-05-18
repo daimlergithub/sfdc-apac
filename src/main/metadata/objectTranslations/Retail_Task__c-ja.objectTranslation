@@ -18,7 +18,27 @@
         <name>Action_Taken__c</name>
     </fields>
     <fields>
-        <label><!-- Amount Financed --></label>
+        <label><!-- Initial Dealer Code --></label>
+        <name>Activation_Dealer_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- actual outstanding balance(Dealer) --></label>
+        <name>Actual_Outstanding_Balance_To_Shinpan__c</name>
+    </fields>
+    <fields>
+        <label><!-- actual outstanding balance --></label>
+        <name>Actual_Outstanding_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- actual payment amount cust to Shinpan --></label>
+        <name>Actual_Payment_Cust_To_Shinpan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Advise Date --></label>
+        <name>Advise_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease contract amount --></label>
         <name>Amount_Financed__c</name>
     </fields>
     <fields>
@@ -38,6 +58,10 @@
         <name>Annual_Call__c</name>
     </fields>
     <fields>
+        <label><!-- Annual Income(10K) --></label>
+        <name>Annual_Income__c</name>
+    </fields>
+    <fields>
         <label>申請日</label>
         <name>ApplicationDate__c</name>
     </fields>
@@ -46,12 +70,80 @@
         <name>Assist_End_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Balloon / RV Amount --></label>
+        <label><!-- Balloon / RV Amount (excluding tax) --></label>
         <name>Balloon_RV_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Base Interest Rate --></label>
+        <label><!-- Account holder name (kana) --></label>
+        <name>Bank_Account_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account holder name (kanji) --></label>
+        <name>Bank_Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Type --></label>
+        <name>Bank_Account_Type__c</name>
+        <picklistValues>
+            <masterLabel>Common</masterLabel>
+            <translation>当座</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current</masterLabel>
+            <translation>普通</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Bank Code --></label>
+        <name>Bank_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Name (Kana) --></label>
+        <name>Bank_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Name (Kanji) --></label>
+        <name>Bank_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBF Base Interest Rate --></label>
         <name>Base_Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Amount 1 (excluding tax) --></label>
+        <name>Bonus_Amount1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Amount 2 (excluding tax) --></label>
+        <name>Bonus_Amount2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Month 1 --></label>
+        <name>Bonus_Month1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Month 2 --></label>
+        <name>Bonus_Month2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Booking Month --></label>
+        <name>Booking_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Code --></label>
+        <name>Branch_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Name (Kana) --></label>
+        <name>Branch_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Branch Name (Kanji) --></label>
+        <name>Branch_Name__c</name>
     </fields>
     <fields>
         <label><!-- Broker Name --></label>
@@ -66,8 +158,48 @@
         <name>Campaign_Description__c</name>
     </fields>
     <fields>
+        <label><!-- Central Customer Number --></label>
+        <name>Central_Customer_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Client ID --></label>
         <name>Client_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Common Comments --></label>
+        <name>Common_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Comment --></label>
+        <name>Compliance_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of contract condition change --></label>
+        <name>Condition_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change of Contract Condition --></label>
+        <name>Condition_Change__c</name>
+        <picklistValues>
+            <masterLabel>Cancel</masterLabel>
+            <translation>取消</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Change</masterLabel>
+            <translation>条件変更</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Termination</masterLabel>
+            <translation>解約</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Replacement</masterLabel>
+            <translation>車両入替</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Contact Date --></label>
@@ -78,8 +210,188 @@
         <name>ContractNumber__c</name>
     </fields>
     <fields>
+        <label><!-- Contract Category --></label>
+        <name>Contract_Category__c</name>
+        <picklistValues>
+            <masterLabel>Change of Contract</masterLabel>
+            <translation>異動</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>新規</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renew</masterLabel>
+            <translation>更改</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Date --></label>
+        <name>Contract_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Invalid Flag --></label>
+        <name>Contract_Invalid_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Start Date/Disbursement Date --></label>
+        <name>Contract_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Status Change Date --></label>
+        <name>Contract_Status_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Update Date --></label>
+        <name>Contract_Update_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (kana)-Actual --></label>
+        <name>Contractor_Address1_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (kanji)-Actual --></label>
+        <name>Contractor_Address1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (kana)-Registration --></label>
+        <name>Contractor_Address2_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (kanji)-Registration --></label>
+        <name>Contractor_Address2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (Kana) - Mailing --></label>
+        <name>Contractor_Address3_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address (Kanji) - Mailing --></label>
+        <name>Contractor_Address3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Birthdate --></label>
+        <name>Contractor_BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Established Date --></label>
+        <name>Contractor_Company_Esatblished_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Company Name (Kana) --></label>
+        <name>Contractor_Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Company Name (Kanji) --></label>
+        <name>Contractor_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number-Actual --></label>
+        <name>Contractor_Fax1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number-Registration --></label>
+        <name>Contractor_Fax2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax - Mailing --></label>
+        <name>Contractor_Fax3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Gender --></label>
+        <name>Contractor_Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation>女性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation>男性</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contractor Email --></label>
+        <name>Contractor_Mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marital Status --></label>
+        <name>Contractor_Marital_Status__c</name>
+        <picklistValues>
+            <masterLabel>Married</masterLabel>
+            <translation><!-- Married --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Married</masterLabel>
+            <translation><!-- Not Married --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phone2-Actual --></label>
+        <name>Contractor_MobilePhone1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone2-Registration --></label>
+        <name>Contractor_MobilePhone2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone2 - Mailing --></label>
+        <name>Contractor_MobilePhone3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Name (katakana) --></label>
+        <name>Contractor_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Name (kanji) --></label>
+        <name>Contractor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone1-Actual --></label>
+        <name>Contractor_Phone1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone1-Registration --></label>
+        <name>Contractor_Phone2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone1 - Mailing --></label>
+        <name>Contractor_Phone3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code-Actual --></label>
+        <name>Contractor_ZipCode1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code-Registration --></label>
+        <name>Contractor_ZipCode2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code - Mailing --></label>
+        <name>Contractor_ZipCode3__c</name>
+    </fields>
+    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Loan Company Name --></label>
+        <name>Credit_Loan_Company_Name__c</name>
+        <picklistValues>
+            <masterLabel>CEDYNA</masterLabel>
+            <translation>セディナ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CMS</masterLabel>
+            <translation>CMS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JACCS</masterLabel>
+            <translation>ジャックス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ORICO</masterLabel>
+            <translation>オリコ</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Current Make --></label>
@@ -102,12 +414,20 @@
         <name>Dealer_Number__c</name>
     </fields>
     <fields>
+        <label><!-- Delinquency Flag --></label>
+        <name>Delinquency__c</name>
+    </fields>
+    <fields>
         <label><!-- Description --></label>
         <name>Description__c</name>
     </fields>
     <fields>
         <label><!-- Direct Debit Authority --></label>
         <name>Direct_Debit_Authority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Down Payment (excluding tax) --></label>
+        <name>Down_Payment__c</name>
     </fields>
     <fields>
         <label>契約期間</label>
@@ -142,8 +462,96 @@
         <name>FPI_Premium_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Family Members(Children) --></label>
+        <name>Family_Members_Children__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family Members(Others) --></label>
+        <name>Family_Members_Others__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family Members(Total) --></label>
+        <name>Family_Members_Total__c</name>
+    </fields>
+    <fields>
         <label><!-- Finance Brand --></label>
         <name>Finance_Brand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Product Name --></label>
+        <name>Finance_Product_Name__c</name>
+        <picklistValues>
+            <masterLabel>Close End Lease</masterLabel>
+            <translation>クローズエンドリース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
+            <translation>クローズエンドリース（マイレージプラン　セレクトプラス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
+            <translation>クローズエンドリース（マイレージプラン　セレクト）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
+            <translation>クローズエンドリース（マイレージプラン）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dual Auto Loan</masterLabel>
+            <translation>デュアルオートローン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal Loan</masterLabel>
+            <translation>通常ローン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease</masterLabel>
+            <translation>オープンエンドリース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease (Select Plus)</masterLabel>
+            <translation>オープンエンドリース（セレクトプラス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease (Select)</masterLabel>
+            <translation>オープンエンドリース（セレクト）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
+            <translation>再リース（クローズエンド　マイレージプラン）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Close End)</masterLabel>
+            <translation>再リース（クローズエンド）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Open End)</masterLabel>
+            <translation>再リース（オープンエンド）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-loan</masterLabel>
+            <translation>再ローン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Start Up Plan</masterLabel>
+            <translation>スタートアッププラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Welcome Plan</masterLabel>
+            <translation>スーパーウェルカムプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Welcome Plan Plus</masterLabel>
+            <translation>スーパーウェルカムプランプラス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome Plan</masterLabel>
+            <translation>ウェルカムプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome Plan Plus</masterLabel>
+            <translation>ウェルカムプランプラス</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Finance Product Type --></label>
@@ -172,6 +580,14 @@
             <masterLabel>Unknown</masterLabel>
             <translation><!-- Unknown --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Fine Rate --></label>
+        <name>Fine_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Installment Amount --></label>
+        <name>First_Installment_Amount__c</name>
     </fields>
     <fields>
         <label><!-- Fleet --></label>
@@ -470,24 +886,300 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Guarantor1 Address (kana) - actual --></label>
+        <name>Guarantor1_Address_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Address (Kanji) - actual --></label>
+        <name>Guarantor1_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Birthdate --></label>
+        <name>Guarantor1_BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Company Name (Kana) --></label>
+        <name>Guarantor1_Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Company Name (Kanji) --></label>
+        <name>Guarantor1_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1  Fax - actual --></label>
+        <name>Guarantor1_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Gender --></label>
+        <name>Guarantor1_Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation>女性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation>男性</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1  Phone2 - actual --></label>
+        <name>Guarantor1_MobilePhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Name (Kana) --></label>
+        <name>Guarantor1_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Name (Kanji) --></label>
+        <name>Guarantor1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1  Phone1 - actual --></label>
+        <name>Guarantor1_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor1 Zip Code - actual --></label>
+        <name>Guarantor1_ZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Address (kana) - actual --></label>
+        <name>Guarantor2_Address_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Address (Kanji) - actual --></label>
+        <name>Guarantor2_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Birthdate --></label>
+        <name>Guarantor2_BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Company Name (Kana) --></label>
+        <name>Guarantor2_Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Company Name (Kanji) --></label>
+        <name>Guarantor2_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2  Fax - actual --></label>
+        <name>Guarantor2_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Gender --></label>
+        <name>Guarantor2_Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation>女性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation>男性</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2  Phone2 - actual --></label>
+        <name>Guarantor2_MobilePhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Name (Kana) --></label>
+        <name>Guarantor2_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Name (Kanji) --></label>
+        <name>Guarantor2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2  Phone1 - actual --></label>
+        <name>Guarantor2_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor2 Zip Code - actual --></label>
+        <name>Guarantor2_ZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Address (kana) - actual --></label>
+        <name>Guarantor3_Address_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Address (Kanji) - actual --></label>
+        <name>Guarantor3_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Birthdate --></label>
+        <name>Guarantor3_BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Company Name (Kana) --></label>
+        <name>Guarantor3_Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Company Name (Kanji) --></label>
+        <name>Guarantor3_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3  Fax - actual --></label>
+        <name>Guarantor3_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Gender --></label>
+        <name>Guarantor3_Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation>女性</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation>男性</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3  Phone2 - actual --></label>
+        <name>Guarantor3_MobilePhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Name (Kana) --></label>
+        <name>Guarantor3_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Name (Kanji) --></label>
+        <name>Guarantor3_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3  Phone1 - actual --></label>
+        <name>Guarantor3_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guarantor3 Zip Code - actual --></label>
+        <name>Guarantor3_ZipCode__c</name>
+    </fields>
+    <fields>
         <label><!-- Incident Date --></label>
         <name>Incident_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indemnity Amount --></label>
+        <name>Indemnity_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry Type --></label>
+        <name>Industry_Code__c</name>
+        <picklistValues>
+            <masterLabel>A - Agriculture</masterLabel>
+            <translation>A - 農業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B - Forestry</masterLabel>
+            <translation>B - 林業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C - Fishery</masterLabel>
+            <translation>C - 漁業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D - Mining</masterLabel>
+            <translation>D - 鉱業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E - Construction</masterLabel>
+            <translation>E - 建設業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F - Manufacture</masterLabel>
+            <translation>F - 製造業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G - Utility</masterLabel>
+            <translation>G - 電気・ガス・水道業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>H - Transport/Telecommunications</masterLabel>
+            <translation>H - 運輸・通信</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>J - Wholesale</masterLabel>
+            <translation>J - 卸売業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>K - Retail/Restaurant</masterLabel>
+            <translation>K - 小売業・飲食店</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L - Real Estate</masterLabel>
+            <translation>L - 不動産業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M - Finance/Insurance</masterLabel>
+            <translation>M - 金融・保険業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N - Service</masterLabel>
+            <translation>N - サービス業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P - Medical Service/Welfare</masterLabel>
+            <translation>P - 医療・福祉</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q - Education/Religion</masterLabel>
+            <translation>Q - 学術・教育・宗教</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R - Public Officer</masterLabel>
+            <translation>R - 公務</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S - Other</masterLabel>
+            <translation>S - 分類不能の産業</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Information --></label>
         <name>Information__c</name>
     </fields>
     <fields>
+        <label><!-- Insurance Company --></label>
+        <name>Insurance_Company__c</name>
+        <picklistValues>
+            <masterLabel>Aioi Nissay Dowa</masterLabel>
+            <translation>あいおいニッセイ同和</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsui Sumitomo Insurance</masterLabel>
+            <translation>三井住友海上</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sompo Japan Nipponkoa</masterLabel>
+            <translation>損保ジャパン日本興亜</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokyo Marine &amp; Nichido</masterLabel>
+            <translation>東京海上日動</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Insurance Rating --></label>
         <name>Insurance_Rating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insured Name (Kana) --></label>
+        <name>Insured_Name_Native__c</name>
     </fields>
     <fields>
         <label><!-- Insured Name --></label>
         <name>Insured_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Interest Rate --></label>
+        <label><!-- Customer Interest Rate --></label>
         <name>Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interface Valid Flag --></label>
+        <name>Interface_Valid_Flag__c</name>
     </fields>
     <fields>
         <label><!-- Latest Contract Date --></label>
@@ -498,16 +1190,56 @@
         <name>Latest_Invoice_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Latest Sales Person --></label>
+        <label><!-- Sales Person --></label>
         <name>Latest_Sales_Person__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Contract Type --></label>
+        <name>Lease_Category__c</name>
+        <picklistValues>
+            <masterLabel>Financial Lease</masterLabel>
+            <translation>ファイナンスリース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Lease</masterLabel>
+            <translation>オペレーティングリース</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Lease Exp. Date --></label>
         <name>Lease_Exp_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Total Outstanding balance (Lease) --></label>
+        <name>Lease_Remaining_Balance_With_RV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outstanding Balance (lease without RV) --></label>
+        <name>Lease_Remaining_Balance_Without_RV__c</name>
+    </fields>
+    <fields>
         <label><!-- Level of Cover --></label>
         <name>Level_of_Cover__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Principal --></label>
+        <name>Loan_Principal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Balance (loan with Ballon) --></label>
+        <name>Loan_Remaining_Bal_Baloon_Dealer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outstanding Balance (loan with Ballon) --></label>
+        <name>Loan_Remaining_Balance_With_Baloon__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBF Anti social force flag --></label>
+        <name>MBF_Anti_Social_Force_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBF Comments --></label>
+        <name>MBF_Comments__c</name>
     </fields>
     <fields>
         <label><!-- MD --></label>
@@ -530,12 +1262,128 @@
         <name>MOT_User_Name__c</name>
     </fields>
     <fields>
+        <label><!-- Maximum lease extention Date --></label>
+        <name>Maximum_lease_extention_Date__c</name>
+    </fields>
+    <fields>
         <label>最大走行距離</label>
         <name>MileageMaximum__c</name>
     </fields>
     <fields>
-        <label><!-- Monthly Repayment --></label>
+        <label><!-- Model --></label>
+        <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly payment amount (including tax) --></label>
+        <name>Monthly_Repayment_Tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly payment amount (excluding tax) --></label>
         <name>Monthly_Repayment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Net premium(2nd Year   long-term policy) --></label>
+        <name>Net_Premium2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Net premium(3rd Year   long-term policy) --></label>
+        <name>Net_Premium3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Net premium --></label>
+        <name>Net_Premium__c</name>
+    </fields>
+    <fields>
+        <label><!-- New/Used Car --></label>
+        <name>New_Used__c</name>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>新車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation>中古車</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Non MB Branded Insurance --></label>
+        <name>Non_MB_Insurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Employees --></label>
+        <name>Number_Of_Employees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Interfaced  Contractor --></label>
+        <name>Number_of_Interfaced_Contractor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Interfaced  Guarantor --></label>
+        <name>Number_of_Interfaced_Guarantor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Occupation Type --></label>
+        <name>Occupation_Type__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Worker</masterLabel>
+            <translation>法人従業員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee (Manager)</masterLabel>
+            <translation>会社管理職</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee (Staff)</masterLabel>
+            <translation>会社従業員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Officer</masterLabel>
+            <translation>会社役員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housekeeper</masterLabel>
+            <translation>主婦/主夫</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Management</masterLabel>
+            <translation>法人役員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Part Timer</masterLabel>
+            <translation>パート／アルバイト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pensioner</masterLabel>
+            <translation>年金生活者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Manager</masterLabel>
+            <translation>法人管理職</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Officer</masterLabel>
+            <translation>公務員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Worker</masterLabel>
+            <translation>公務員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-employed</masterLabel>
+            <translation>自営業</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student</masterLabel>
+            <translation>学生</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Offer Prohibit Flag --></label>
+        <name>Offer_Prohibit__c</name>
     </fields>
     <fields>
         <label><!-- Origin --></label>
@@ -552,6 +1400,22 @@
             <masterLabel>Service</masterLabel>
             <translation><!-- Service --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outlet Name --></label>
+        <name>Outlet_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Flag --></label>
+        <name>Parent_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dual Pair contract number --></label>
+        <name>Parent_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment End Date --></label>
+        <name>Payment_End_Date__c</name>
     </fields>
     <fields>
         <label><!-- Payment Frequency --></label>
@@ -590,6 +1454,34 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Payment method of long term --></label>
+        <name>Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Installment</masterLabel>
+            <translation>分割</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lump-Sum</masterLabel>
+            <translation>一括</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Start Date --></label>
+        <name>Payment_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of One months delay --></label>
+        <name>Payment_status_One_Month_Delay__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Two months delay --></label>
+        <name>Payment_status_Two_Month_Delay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Payments --></label>
+        <name>Payments__c</name>
+    </fields>
+    <fields>
         <label><!-- Policy Class --></label>
         <name>Policy_Class__c</name>
     </fields>
@@ -602,6 +1494,10 @@
         <name>Premium_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Change of premium --></label>
+        <name>Premium_Change__c</name>
+    </fields>
+    <fields>
         <label><!-- Problem Actual Detail --></label>
         <name>Problem_Actual_Detail__c</name>
     </fields>
@@ -612,6 +1508,82 @@
     <fields>
         <label><!-- Problem --></label>
         <name>Problem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Name --></label>
+        <name>Product_Name__c</name>
+        <picklistValues>
+            <masterLabel>Close End Lease</masterLabel>
+            <translation><!-- Close End Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
+            <translation><!-- Close End Lease (Mileage Plan Select Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
+            <translation><!-- Close End Lease (Mileage Plan Select) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
+            <translation><!-- Close End Lease (Mileage Plan) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dual Auto Loan</masterLabel>
+            <translation><!-- Dual Auto Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal Loan</masterLabel>
+            <translation><!-- Normal Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease</masterLabel>
+            <translation><!-- Open End Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease (Select Plus)</masterLabel>
+            <translation><!-- Open End Lease (Select Plus) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open End Lease (Select)</masterLabel>
+            <translation><!-- Open End Lease (Select) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
+            <translation><!-- Re-lease (Close End Mileage Plan) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Close End)</masterLabel>
+            <translation><!-- Re-lease (Close End) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-lease (Open End)</masterLabel>
+            <translation><!-- Re-lease (Open End) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-loan</masterLabel>
+            <translation><!-- Re-loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Start Up Plan</masterLabel>
+            <translation><!-- Start Up Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Welcome Plan</masterLabel>
+            <translation><!-- Super Welcome Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Welcome Plan Plus</masterLabel>
+            <translation><!-- Super Welcome Plan Plus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome Plan</masterLabel>
+            <translation><!-- Welcome Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome Plan Plus</masterLabel>
+            <translation><!-- Welcome Plan Plus --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Product Variation --></label>
@@ -632,6 +1604,10 @@
     <fields>
         <label><!-- Purchase Year --></label>
         <name>Purchase_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Re-lease Prohibit flag --></label>
+        <name>Re_lease_Prohibit_flag__c</name>
     </fields>
     <fields>
         <label><!-- Related Contact --></label>
@@ -671,6 +1647,38 @@
     <fields>
         <label><!-- Retail LastModifiedDate --></label>
         <name>Retail_LastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Type --></label>
+        <name>Sales_Type__c</name>
+        <picklistValues>
+            <masterLabel>Company Car</masterLabel>
+            <translation>カンパニーカー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Courtesy Car</masterLabel>
+            <translation>代車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Employee</masterLabel>
+            <translation>販売店従業員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demo Car</masterLabel>
+            <translation>デモカー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Group Employee</masterLabel>
+            <translation>グループ従業員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rent-a-Car</masterLabel>
+            <translation>レンタカー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation>リテール</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Sector --></label>
@@ -796,7 +1804,7 @@
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Service Mileage --></label>
+        <label><!-- Current Mileage --></label>
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
@@ -808,6 +1816,10 @@
         <name>Service_Position__c</name>
     </fields>
     <fields>
+        <label><!-- Settlement Officer --></label>
+        <name>Settlement_Officer__c</name>
+    </fields>
+    <fields>
         <label><!-- Signer --></label>
         <name>Signer__c</name>
         <relationshipLabel><!-- Retail Tasks (Signer) --></relationshipLabel>
@@ -817,12 +1829,28 @@
         <name>Source_System__c</name>
     </fields>
     <fields>
+        <label><!-- Special Flag (to exclude) --></label>
+        <name>Special_Flag_Exclude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Flag (to include) --></label>
+        <name>Special_Flag_Include__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Interest Amount --></label>
+        <name>Split_Payment_Comission_Fee__c</name>
+    </fields>
+    <fields>
         <label>契約開始日</label>
         <name>StartDate__c</name>
     </fields>
     <fields>
         <label>契約ステータス</label>
         <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>契約中</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
             <translation>承認済</translation>
@@ -836,12 +1864,24 @@
             <translation>解約済</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Consent Termination</masterLabel>
+            <translation>早期解約</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Draft</masterLabel>
             <translation>ドラフト</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Early Termination</masterLabel>
+            <translation>早期完済</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Expired</masterLabel>
             <translation>保証終了</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forced Termination</masterLabel>
+            <translation>強制解約</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>In service</masterLabel>
@@ -852,12 +1892,20 @@
             <translation><!-- Invalid --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Matured</masterLabel>
+            <translation>契約終了</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Rejected</masterLabel>
             <translation>差し戻し</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Save</masterLabel>
             <translation>一時保存</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subrogation</masterLabel>
+            <translation>代位弁済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
@@ -885,8 +1933,21 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Supporting Dealer --></label>
+        <name>Supporting_Dealer__c</name>
+        <relationshipLabel><!-- Retail Tasks (Supporting Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Suspend Payment --></label>
+        <name>Suspend_Payment__c</name>
+    </fields>
+    <fields>
         <label><!-- The Day After Start One Year --></label>
         <name>The_Day_After_Start_One_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Payment Amount --></label>
+        <name>Total_Split_Payment__c</name>
     </fields>
     <fields>
         <label>契約種別</label>
@@ -986,6 +2047,14 @@
         <picklistValues>
             <masterLabel>Invoice New Vehicle</masterLabel>
             <translation><!-- Invoice New Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation>リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost sale - new</masterLabel>
@@ -1109,6 +2178,38 @@
         <name>Vehicle_Registration_No__c</name>
     </fields>
     <fields>
+        <label><!-- Vehicle Status --></label>
+        <name>Vehicle_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Voluntary Insurance Company --></label>
+        <name>Voluntary_Insurance_Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Voluntary Insurance Premium(Dealer) --></label>
+        <name>Voluntary_Insurance_Premium_Dealer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Voluntary Insurance Premium --></label>
+        <name>Voluntary_Insurance_Premium__c</name>
+    </fields>
+    <fields>
+        <label><!-- Voluntary Insurance Type --></label>
+        <name>Voluntary_Insurance_Type__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>無し</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes (DIS)</masterLabel>
+            <translation>有り（DIS）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes (Dealer)</masterLabel>
+            <translation>有り（Dealer）</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Welcome Call Task --></label>
         <name>Welcome_Call_Task__c</name>
     </fields>
@@ -1153,6 +2254,18 @@
     <recordTypes>
         <label>Contract</label>
         <name>Contract</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Insurance Contract --></label>
+        <name>Insurance_Contract</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Lease Contract --></label>
+        <name>Lease_Contract</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Loan Contract --></label>
+        <name>Loan_Contract</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Retail Activity --></label>

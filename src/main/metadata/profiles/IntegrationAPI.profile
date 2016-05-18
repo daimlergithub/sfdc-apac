@@ -13496,6 +13496,11 @@
         <field>Retail_Task__c.Bank_Account_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Retail_Task__c.Actual_Maturity_Date__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Bank_Account_Number__c</field>
@@ -13643,11 +13648,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Contract_Start_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Contract_Status_Change_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13693,7 +13693,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Contractor_Company_Esatblished_Date__c</field>
+        <field>Retail_Task__c.Contractor_Company_Established_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14710,6 +14710,11 @@
         <editable>false</editable>
         <field>Retail_Task__c.Vehicle_Status__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
+        <field>Retail_Task__c.Product_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
