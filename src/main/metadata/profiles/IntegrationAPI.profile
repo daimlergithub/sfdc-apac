@@ -12790,6 +12790,16 @@
         <field>Retail_Task__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
+        <field>Retail_Task__c.Product_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Retail_Task__c.Actual_Maturity_Date__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Action_Detail__c</field>
@@ -12888,6 +12898,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Current_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Contractor_Company_Established_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
