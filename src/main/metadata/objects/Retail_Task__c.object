@@ -102,6 +102,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Actual_Maturity_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Maturity Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Outstanding_Balance_To_Shinpan__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Balance__c, null)</formula>
@@ -611,15 +620,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Contract_Start_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Contract Start Date/Disbursement Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Contract_Status_Change_Date__c</fullName>
         <externalId>false</externalId>
         <label>Contract Status Change Date</label>
@@ -713,7 +713,7 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Contractor_Company_Esatblished_Date__c</fullName>
+        <fullName>Contractor_Company_Established_Date__c</fullName>
         <externalId>false</externalId>
         <label>Established Date</label>
         <required>false</required>
