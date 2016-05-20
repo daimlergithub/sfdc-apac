@@ -3666,6 +3666,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Cancelled2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Early Termination</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5872,51 +5876,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancellation Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Expired</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In service</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Save</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for cancellation approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>pullback</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7002,15 +6962,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancellation Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Cancelled2</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7018,15 +6970,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Early Termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Expired</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7034,43 +6978,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>In service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Matured</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Save</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Subrogation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for cancellation approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>pullback</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8180,15 +8092,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancellation Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Cancelled2</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8196,15 +8100,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Early Termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Expired</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8212,43 +8108,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>In service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Matured</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Save</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Subrogation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waiting for cancellation approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>pullback</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
