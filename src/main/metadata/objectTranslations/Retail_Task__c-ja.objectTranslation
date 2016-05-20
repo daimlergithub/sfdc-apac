@@ -22,6 +22,10 @@
         <name>Activation_Dealer_Code__c</name>
     </fields>
     <fields>
+        <label><!-- Actual Maturity Date --></label>
+        <name>Actual_Maturity_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- actual outstanding balance(Dealer) --></label>
         <name>Actual_Outstanding_Balance_To_Shinpan__c</name>
     </fields>
@@ -234,10 +238,6 @@
         <name>Contract_Invalid_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Start Date/Disbursement Date --></label>
-        <name>Contract_Start_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Contract Status Change Date --></label>
         <name>Contract_Status_Change_Date__c</name>
     </fields>
@@ -275,7 +275,7 @@
     </fields>
     <fields>
         <label><!-- Established Date --></label>
-        <name>Contractor_Company_Esatblished_Date__c</name>
+        <name>Contractor_Company_Established_Date__c</name>
     </fields>
     <fields>
         <label><!-- Contractor Company Name (Kana) --></label>
@@ -1510,7 +1510,7 @@
         <name>Problem__c</name>
     </fields>
     <fields>
-        <label><!-- Product Name --></label>
+        <label>商品名</label>
         <name>Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
@@ -1862,6 +1862,10 @@
         <picklistValues>
             <masterLabel>Cancelled</masterLabel>
             <translation>解約済</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled2</masterLabel>
+            <translation><!-- Cancelled2 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Consent Termination</masterLabel>
@@ -2225,6 +2229,123 @@
         <label><!-- livetime --></label>
         <name>livetime__c</name>
     </fields>
+    <layouts>
+        <layout>Retail Task Layout (Insurance)</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Insurance Information --></label>
+            <section>Insurance Information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout (Lease)</layout>
+        <sections>
+            <label><!-- Bank Account Information --></label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Finance Information --></label>
+            <section>Finance Information</section>
+        </sections>
+        <sections>
+            <label><!-- Flags --></label>
+            <section>Flags</section>
+        </sections>
+        <sections>
+            <label><!-- Guarantor information --></label>
+            <section>Guarantor information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout (Loan)</layout>
+        <sections>
+            <label><!-- Bank Account Information --></label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Finance Information --></label>
+            <section>Finance Information</section>
+        </sections>
+        <sections>
+            <label><!-- Flags --></label>
+            <section>Flags</section>
+        </sections>
+        <sections>
+            <label><!-- Guarantor information --></label>
+            <section>Guarantor information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Retail Task Layout(Contract)</layout>
         <sections>
