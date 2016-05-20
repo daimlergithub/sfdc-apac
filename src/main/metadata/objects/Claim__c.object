@@ -137,9 +137,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Updated_By_EP_Transaction__c</fullName>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
-        <label>Updated By EP Transaction</label>
+        <label>Updated By EP Transactions</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
