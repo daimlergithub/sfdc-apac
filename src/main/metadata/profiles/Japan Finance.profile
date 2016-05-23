@@ -7961,11 +7961,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>ContractLineItem.RootContractLineItemId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>ContractLineItem.StartDate</field>
         <readable>true</readable>
