@@ -110,6 +110,18 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Actual_Outstanding_Bal_To_Shinpan_Dealer__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Bal_To_Shinpan__c, null)</formula>
+        <label>actual outstanding balance(Dealer)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Actual_Outstanding_Balance_To_Shinpan__c</fullName>
         <externalId>false</externalId>
@@ -131,6 +143,17 @@
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Actual_Outstanding_Bal_To_Shinpan__c</fullName>
+        <externalId>false</externalId>
+        <label>actual outstanding balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>

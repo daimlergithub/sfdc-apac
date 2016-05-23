@@ -7368,7 +7368,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <field>Claim__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -13404,6 +13404,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Activation_Dealer_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
