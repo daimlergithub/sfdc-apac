@@ -110,7 +110,7 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Actual_Outstanding_Bal_To_Shinpan_Dealer__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Bal_To_Shinpan__c, null)</formula>
@@ -118,6 +118,19 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_Outstanding_Bal_To_Shinpan__c</fullName>
+        <externalId>false</externalId>
+        <label>actual outstanding balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -143,17 +156,6 @@
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Actual_Outstanding_Bal_To_Shinpan__c</fullName>
-        <externalId>false</externalId>
-        <label>actual outstanding balance</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -374,7 +376,7 @@
         <fullName>Bonus_Amount1__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 1 (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -386,7 +388,7 @@
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 2 (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -1098,7 +1100,7 @@
         <fullName>Down_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Down Payment (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -1365,7 +1367,7 @@
         <fullName>First_Installment_Amount__c</fullName>
         <externalId>false</externalId>
         <label>First Installment Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -2157,7 +2159,7 @@
         <fullName>Indemnity_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Indemnity Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -2581,7 +2583,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Monthly_Repayment_Tax__c</fullName>
         <externalId>false</externalId>
         <label>Monthly payment amount (including tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -3606,7 +3608,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Split_Payment_Comission_Fee__c</fullName>
         <externalId>false</externalId>
         <label>Total Interest Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -3767,7 +3769,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Total_Split_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Total Payment Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>

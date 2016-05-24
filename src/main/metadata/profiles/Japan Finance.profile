@@ -111,6 +111,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__DataAssessment</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -390,6 +395,10 @@
     <classAccesses>
         <apexClass>CommunitiesSelfRegControllerTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactController</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
@@ -6936,6 +6945,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.SourceId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.Source_System__c</field>
         <readable>false</readable>
@@ -7961,6 +7975,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ContractLineItem.ParentContractLineItemId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContractLineItem.RootContractLineItemId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ContractLineItem.StartDate</field>
         <readable>true</readable>
@@ -7984,6 +8008,11 @@
         <editable>true</editable>
         <field>ContractLineItem.TotalPrice</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contract_Relation__c.Case_Key__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13472,6 +13501,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Actual_Outstanding_Bal_To_Shinpan__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Retail_Task__c.Actual_Outstanding_Balance_To_Shinpan__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14701,9 +14740,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Supporting_Dealer__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15471,6 +15510,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ServiceContract.ParentServiceContractId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ServiceContract.RootServiceContractId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ServiceContract.ShippingAddress</field>
         <readable>true</readable>
@@ -15558,6 +15607,321 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Settlement_Management__c.Total_Settlement_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.AreWeFollowing</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.Bio</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.Followers</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.Following</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.IsBlacklisted</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.IsFollowingUs</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.Klout</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.ListedCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.MediaProvider</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.MediaType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.NumberOfFriends</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.NumberOfTweets</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.ProfileType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.R6SourceId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.RealName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.SourceApp</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.TopicType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.UserId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.AnalyzerScore</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.AssignedTo</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.AttachmentType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.AttachmentUrl</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Classification</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.CommentCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Content</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.DeletedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.EngagementLevel</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ExternalPostId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.HarvestDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.InboundLinkCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.IsOutbound</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.KeywordGroupName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Language</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.LikesAndVotes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.MediaProvider</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.MediaType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.MessageType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.OutboundSocialAccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.PersonaId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.PostPriority</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.PostTags</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.PostUrl</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.R6PostId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.R6SourceId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.R6TopicId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Recipient</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.RecipientType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ReplyToId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ResponseContextExternalId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ReviewedStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Sentiment</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Shares</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.SourceTags</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.SpamRating</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.StatusMessage</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ThreadSize</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.TopicProfileName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.TopicType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.UniqueCommentors</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.ViewCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPost.WhoId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18198,6 +18562,9 @@
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>EmailMessage-Email Message Layout - Email-to-Case</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Entitlement-Entitlement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -18381,15 +18748,15 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <layout>Retail_Task__c-Retail Task Layout %28Insurance%29</layout>
         <recordType>Retail_Task__c.Insurance_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <layout>Retail_Task__c-Retail Task Layout %28Lease%29</layout>
         <recordType>Retail_Task__c.Lease_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <layout>Retail_Task__c-Retail Task Layout %28Loan%29</layout>
         <recordType>Retail_Task__c.Loan_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -18452,6 +18819,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>SocialPersona-Social Persona Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SocialPost-Social Post Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Solution-Solution Layout</layout>
@@ -18769,6 +19139,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>SocialPost</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>SurveyQuestionResponse__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -19026,6 +19405,14 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>SampleAngularPage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SampleContacts</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>SelectAssignedDealer</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -19048,6 +19435,10 @@
     <pageAccesses>
         <apexPage>SiteTemplate</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SlickCTI_CSS</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
@@ -19767,6 +20158,11 @@
     <tabVisibilities>
         <tab>standard-Case</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    
+    <tabVisibilities>
+        <tab>standard-SocialPost</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
