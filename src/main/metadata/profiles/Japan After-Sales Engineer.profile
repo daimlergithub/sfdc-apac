@@ -392,10 +392,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ContactController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ContactHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
