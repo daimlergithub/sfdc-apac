@@ -328,9 +328,9 @@
         <fullName>Bonus_Amount1__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 1 (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -339,9 +339,9 @@
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 2 (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1010,9 +1010,9 @@
         <fullName>Down_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Down Payment (excluding tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1265,9 +1265,9 @@
         <fullName>First_Installment_Amount__c</fullName>
         <externalId>false</externalId>
         <label>First Installment Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -2021,9 +2021,9 @@
         <fullName>Indemnity_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Indemnity Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -2290,7 +2290,7 @@
         <fullName>Loan_Principal__c</fullName>
         <externalId>false</externalId>
         <label>Loan Principal</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
@@ -2422,9 +2422,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Monthly_Repayment_Tax__c</fullName>
         <externalId>false</externalId>
         <label>Monthly payment amount (including tax)</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -3387,9 +3387,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Split_Payment_Comission_Fee__c</fullName>
         <externalId>false</externalId>
         <label>Total Interest Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -3501,9 +3501,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Total_Split_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Total Payment Amount</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -3810,7 +3810,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Voluntary Insurance Premium</label>
         <precision>16</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
