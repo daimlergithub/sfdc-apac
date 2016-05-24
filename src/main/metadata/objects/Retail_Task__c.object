@@ -376,9 +376,9 @@
         <fullName>Bonus_Amount1__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 1 (excluding tax)</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -388,9 +388,9 @@
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
         <label>Bonus Amount 2 (excluding tax)</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1100,9 +1100,9 @@
         <fullName>Down_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Down Payment (excluding tax)</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1367,9 +1367,9 @@
         <fullName>First_Installment_Amount__c</fullName>
         <externalId>false</externalId>
         <label>First Installment Amount</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -2159,9 +2159,9 @@
         <fullName>Indemnity_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Indemnity Amount</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -2581,9 +2581,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Monthly_Repayment_Tax__c</fullName>
         <externalId>false</externalId>
         <label>Monthly payment amount (including tax)</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -3606,9 +3606,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Split_Payment_Comission_Fee__c</fullName>
         <externalId>false</externalId>
         <label>Total Interest Amount</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -3767,9 +3767,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Total_Split_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Total Payment Amount</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -4094,9 +4094,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Voluntary_Insurance_Premium__c</fullName>
         <externalId>false</externalId>
         <label>Voluntary Insurance Premium</label>
-        <precision>16</precision>
+        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
