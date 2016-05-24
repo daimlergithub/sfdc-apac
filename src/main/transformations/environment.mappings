@@ -17,13 +17,13 @@ dev_sb_kernel_dev2=sneha.chail.ntt@kernel.daimler-apac.com.dev2
 dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
 dev_sb_kernel_dev4=arun.iyer.ntt@kernel.daimler-apac.com.dev4
 dev_sb_kernel_dev5=shivashankar.nalluri.ntt@kernel.daimler-apac.com.dev5,mohanaraja.alla.ntt@kernel.daimler-apac.com.dev5
-dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
+dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6,narasimha.gundurao.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev11
 
 #kernel PROD org
-kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
+kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com,sukumar.rajashekaran.ntt@kernel.daimler-apac.com
 kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
 
 # Asia Dev Sandboxes
