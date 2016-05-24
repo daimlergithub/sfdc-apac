@@ -18131,10 +18131,6 @@
         <layout>Claim__c-Claim Layout</layout>
         <recordType>Claim__c.Insurance_Claim</recordType>
     </layoutAssignments>
-	<layoutAssignments>
-        <layout>Claim__c-Insurance Claim Layout</layout>
-        <recordType>Claim__c.Insurance_Claim</recordType>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>CollaborationGroup-Group Layout</layout>
     </layoutAssignments>
