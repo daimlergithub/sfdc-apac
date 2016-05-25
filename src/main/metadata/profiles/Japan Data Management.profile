@@ -392,10 +392,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ContactHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ContactHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1446,9 +1442,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.COS_Flag__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13481,7 +13477,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Actual_Outstanding_Balance_To_Shinpan__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13726,9 +13722,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Contractor_Address2__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14031,29 +14027,29 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_Address_Native__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_BirthDate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_Company_Name_Native__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_Company_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14086,9 +14082,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Guarantor1_ZipCode__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14256,7 +14252,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Interface_Valid_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14286,9 +14282,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Lease_Remaining_Balance_With_RV__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14431,9 +14427,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Outlet_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14751,7 +14747,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.VIN_Link__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14776,7 +14772,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Voluntary_Insurance_Premium_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18126,6 +18122,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Claim__c-Claim Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Claim__c-Insurance Claim Layout</layout>
         <recordType>Claim__c.Insurance_Claim</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -18388,6 +18387,18 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout %28Insurance%29</layout>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout %28Lease%29</layout>
+        <recordType>Retail_Task__c.Lease_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout %28Loan%29</layout>
+        <recordType>Retail_Task__c.Loan_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -18401,18 +18412,6 @@
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Service%29</layout>
         <recordType>Retail_Task__c.Service</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout %28Insurance%29</layout>
-        <recordType>Retail_Task__c.Insurance_Contract</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout %28Lease%29</layout>
-        <recordType>Retail_Task__c.Lease_Contract</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout %28Loan%29</layout>
-        <recordType>Retail_Task__c.Loan_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -19953,6 +19952,11 @@
     <tabVisibilities>
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    
+    <tabVisibilities>
+        <tab>standard-SocialPost</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
