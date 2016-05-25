@@ -18,23 +18,31 @@
         <name>Action_Taken__c</name>
     </fields>
     <fields>
-        <label><!-- Initial Dealer Code --></label>
+        <label>契約時販売店</label>
         <name>Activation_Dealer_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Actual Maturity Date --></label>
+        <label>ローン実満了日</label>
         <name>Actual_Maturity_Date__c</name>
     </fields>
     <fields>
-        <label><!-- actual outstanding balance(Dealer) --></label>
+        <label>実残高</label>
+        <name>Actual_Outstanding_Bal_To_Shinpan_Dealer__c</name>
+    </fields>
+    <fields>
+        <label>実残高</label>
+        <name>Actual_Outstanding_Bal_To_Shinpan__c</name>
+    </fields>
+    <fields>
+        <label>実残高</label>
         <name>Actual_Outstanding_Balance_To_Shinpan__c</name>
     </fields>
     <fields>
-        <label><!-- actual outstanding balance --></label>
+        <label>実残高</label>
         <name>Actual_Outstanding_Balance__c</name>
     </fields>
     <fields>
-        <label><!-- actual payment amount cust to Shinpan --></label>
+        <label>実支払額</label>
         <name>Actual_Payment_Cust_To_Shinpan__c</name>
     </fields>
     <fields>
@@ -42,7 +50,7 @@
         <name>Advise_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Lease contract amount --></label>
+        <label>リース料総額（消費税抜き）</label>
         <name>Amount_Financed__c</name>
     </fields>
     <fields>
@@ -62,7 +70,7 @@
         <name>Annual_Call__c</name>
     </fields>
     <fields>
-        <label><!-- Annual Income(10K) --></label>
+        <label>年収(税込)（万円）</label>
         <name>Annual_Income__c</name>
     </fields>
     <fields>
@@ -74,23 +82,23 @@
         <name>Assist_End_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Balloon / RV Amount (excluding tax) --></label>
+        <label>リース/ローン残価（消費税抜き）</label>
         <name>Balloon_RV_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Account holder name (kana) --></label>
+        <label>口座名義人(カナ）</label>
         <name>Bank_Account_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Account holder name (kanji) --></label>
+        <label>口座名義人</label>
         <name>Bank_Account_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Account Number --></label>
+        <label>口座番号</label>
         <name>Bank_Account_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Account Type --></label>
+        <label>口座種別</label>
         <name>Bank_Account_Type__c</name>
         <picklistValues>
             <masterLabel>Common</masterLabel>
@@ -102,51 +110,51 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Bank Code --></label>
+        <label>銀行コード</label>
         <name>Bank_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Name (Kana) --></label>
+        <label>銀行名（カナ）</label>
         <name>Bank_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Bank Name (Kanji) --></label>
+        <label>銀行名(漢字）</label>
         <name>Bank_Name__c</name>
     </fields>
     <fields>
-        <label><!-- MBF Base Interest Rate --></label>
+        <label>MBFベース金利</label>
         <name>Base_Interest_Rate__c</name>
     </fields>
     <fields>
-        <label><!-- Bonus Amount 1 (excluding tax) --></label>
+        <label>ボーナス支払金額1（消費税抜き）</label>
         <name>Bonus_Amount1__c</name>
     </fields>
     <fields>
-        <label><!-- Bonus Amount 2 (excluding tax) --></label>
+        <label>ボーナス支払金額2（消費税抜き）</label>
         <name>Bonus_Amount2__c</name>
     </fields>
     <fields>
-        <label><!-- Bonus Month 1 --></label>
+        <label>ボーナス支払月1</label>
         <name>Bonus_Month1__c</name>
     </fields>
     <fields>
-        <label><!-- Bonus Month 2 --></label>
+        <label>ボーナス支払月2</label>
         <name>Bonus_Month2__c</name>
     </fields>
     <fields>
-        <label><!-- Booking Month --></label>
+        <label>計上月</label>
         <name>Booking_Month__c</name>
     </fields>
     <fields>
-        <label><!-- Branch Code --></label>
+        <label>支店コード</label>
         <name>Branch_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Branch Name (Kana) --></label>
+        <label>支店名(カナ）</label>
         <name>Branch_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Branch Name (Kanji) --></label>
+        <label>支店名(漢字）</label>
         <name>Branch_Name__c</name>
     </fields>
     <fields>
@@ -158,11 +166,11 @@
         <name>CMS_Contract_Link__c</name>
     </fields>
     <fields>
-        <label><!-- Campaign Description --></label>
+        <label>ファイナンスキャンペーン名</label>
         <name>Campaign_Description__c</name>
     </fields>
     <fields>
-        <label><!-- Central Customer Number --></label>
+        <label>CCN</label>
         <name>Central_Customer_Number__c</name>
     </fields>
     <fields>
@@ -170,11 +178,11 @@
         <name>Client_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Common Comments --></label>
+        <label>共通コメント</label>
         <name>Common_Comments__c</name>
     </fields>
     <fields>
-        <label><!-- Company Name --></label>
+        <label>販売会社</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>
@@ -182,11 +190,11 @@
         <name>Compliance_Comment__c</name>
     </fields>
     <fields>
-        <label><!-- Date of contract condition change --></label>
+        <label>異動日</label>
         <name>Condition_Change_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Change of Contract Condition --></label>
+        <label>異動事由</label>
         <name>Condition_Change__c</name>
         <picklistValues>
             <masterLabel>Cancel</masterLabel>
@@ -214,7 +222,7 @@
         <name>ContractNumber__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Category --></label>
+        <label>契約区分</label>
         <name>Contract_Category__c</name>
         <picklistValues>
             <masterLabel>Change of Contract</masterLabel>
@@ -230,15 +238,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Contract Date --></label>
+        <label>契約日</label>
         <name>Contract_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Invalid Flag --></label>
+        <label>契約Validフラグ</label>
         <name>Contract_Invalid_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Status Change Date --></label>
+        <label>契約ステータス変更日</label>
         <name>Contract_Status_Change_Date__c</name>
     </fields>
     <fields>
@@ -246,59 +254,63 @@
         <name>Contract_Update_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Address (kana)-Actual --></label>
+        <label>現住所（カナ）</label>
         <name>Contractor_Address1_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Address (kanji)-Actual --></label>
+        <label>現住所（漢字）</label>
         <name>Contractor_Address1__c</name>
     </fields>
     <fields>
-        <label><!-- Address (kana)-Registration --></label>
+        <label>登記住所（カナ）</label>
         <name>Contractor_Address2_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Address (kanji)-Registration --></label>
+        <label>登記住所（漢字）</label>
         <name>Contractor_Address2__c</name>
     </fields>
     <fields>
-        <label><!-- Address (Kana) - Mailing --></label>
+        <label>送付先住所（カナ）</label>
         <name>Contractor_Address3_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Address (Kanji) - Mailing --></label>
+        <label>送付先住所（漢字）</label>
         <name>Contractor_Address3__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Birthdate --></label>
+        <label>生年月日</label>
         <name>Contractor_BirthDate__c</name>
     </fields>
     <fields>
-        <label><!-- Established Date --></label>
+        <label>設立年月</label>
+        <name>Contractor_Company_Esatblished_Date__c</name>
+    </fields>
+    <fields>
+        <label>設立年月</label>
         <name>Contractor_Company_Established_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Company Name (Kana) --></label>
+        <label>会社名（カナ）</label>
         <name>Contractor_Company_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Company Name (Kanji) --></label>
+        <label>会社名（漢字）</label>
         <name>Contractor_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Fax Number-Actual --></label>
+        <label>現住所FAX番号</label>
         <name>Contractor_Fax1__c</name>
     </fields>
     <fields>
-        <label><!-- Fax Number-Registration --></label>
+        <label>登記住所FAX番号</label>
         <name>Contractor_Fax2__c</name>
     </fields>
     <fields>
-        <label><!-- Fax - Mailing --></label>
+        <label>送付先住所FAX番号</label>
         <name>Contractor_Fax3__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Gender --></label>
+        <label>性別</label>
         <name>Contractor_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -310,11 +322,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Contractor Email --></label>
+        <label>メールアドレス</label>
         <name>Contractor_Mail__c</name>
     </fields>
     <fields>
-        <label><!-- Marital Status --></label>
+        <label>配偶者</label>
         <name>Contractor_Marital_Status__c</name>
         <picklistValues>
             <masterLabel>Married</masterLabel>
@@ -326,47 +338,47 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Phone2-Actual --></label>
+        <label>現住所電話番号２</label>
         <name>Contractor_MobilePhone1__c</name>
     </fields>
     <fields>
-        <label><!-- Phone2-Registration --></label>
+        <label>登記住所電話番号２</label>
         <name>Contractor_MobilePhone2__c</name>
     </fields>
     <fields>
-        <label><!-- Phone2 - Mailing --></label>
+        <label>送付先住所電話番号２</label>
         <name>Contractor_MobilePhone3__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Name (katakana) --></label>
+        <label>契約者名（カナ）/会社名（カナ）</label>
         <name>Contractor_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Name (kanji) --></label>
+        <label>契約者名（漢字）/会社名（漢字）</label>
         <name>Contractor_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Phone1-Actual --></label>
+        <label>現住所電話番号１</label>
         <name>Contractor_Phone1__c</name>
     </fields>
     <fields>
-        <label><!-- Phone1-Registration --></label>
+        <label>登記住所電話番号１</label>
         <name>Contractor_Phone2__c</name>
     </fields>
     <fields>
-        <label><!-- Phone1 - Mailing --></label>
+        <label>送付先住所電話番号１</label>
         <name>Contractor_Phone3__c</name>
     </fields>
     <fields>
-        <label><!-- Zip Code-Actual --></label>
+        <label>現住所郵便番号</label>
         <name>Contractor_ZipCode1__c</name>
     </fields>
     <fields>
-        <label><!-- Zip Code-Registration --></label>
+        <label>登記住所郵便番号</label>
         <name>Contractor_ZipCode2__c</name>
     </fields>
     <fields>
-        <label><!-- Zip Code - Mailing --></label>
+        <label>送付先住所郵便番号</label>
         <name>Contractor_ZipCode3__c</name>
     </fields>
     <fields>
@@ -374,7 +386,7 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label><!-- Credit Loan Company Name --></label>
+        <label>信販名</label>
         <name>Credit_Loan_Company_Name__c</name>
         <picklistValues>
             <masterLabel>CEDYNA</masterLabel>
@@ -414,7 +426,7 @@
         <name>Dealer_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Delinquency Flag --></label>
+        <label>支払延滞フラグ</label>
         <name>Delinquency__c</name>
     </fields>
     <fields>
@@ -426,7 +438,7 @@
         <name>Direct_Debit_Authority__c</name>
     </fields>
     <fields>
-        <label><!-- Down Payment (excluding tax) --></label>
+        <label>頭金（消費税抜き）</label>
         <name>Down_Payment__c</name>
     </fields>
     <fields>
@@ -450,7 +462,7 @@
         <name>EOC_Call__c</name>
     </fields>
     <fields>
-        <label>契約終了日</label>
+        <label>契約終了日/満了日/満期日</label>
         <name>EndDate__c</name>
     </fields>
     <fields>
@@ -462,15 +474,15 @@
         <name>FPI_Premium_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Family Members(Children) --></label>
+        <label>同居の家族人数（子供）</label>
         <name>Family_Members_Children__c</name>
     </fields>
     <fields>
-        <label><!-- Family Members(Others) --></label>
+        <label>同居の家族人数（他家族）</label>
         <name>Family_Members_Others__c</name>
     </fields>
     <fields>
-        <label><!-- Family Members(Total) --></label>
+        <label>同居の家族人数（合計）</label>
         <name>Family_Members_Total__c</name>
     </fields>
     <fields>
@@ -582,11 +594,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Fine Rate --></label>
+        <label>過走行単価</label>
         <name>Fine_Rate__c</name>
     </fields>
     <fields>
-        <label><!-- First Installment Amount --></label>
+        <label>初回支払額</label>
         <name>First_Installment_Amount__c</name>
     </fields>
     <fields>
@@ -886,31 +898,31 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Address (kana) - actual --></label>
+        <label>現住所（カナ）</label>
         <name>Guarantor1_Address_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Address (Kanji) - actual --></label>
+        <label>現住所（漢字）</label>
         <name>Guarantor1_Address__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Birthdate --></label>
+        <label>生年月日</label>
         <name>Guarantor1_BirthDate__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Company Name (Kana) --></label>
+        <label>会社名（カナ）1</label>
         <name>Guarantor1_Company_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Company Name (Kanji) --></label>
+        <label>会社名（漢字）1</label>
         <name>Guarantor1_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1  Fax - actual --></label>
+        <label>現住所FAX番号</label>
         <name>Guarantor1_Fax__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Gender --></label>
+        <label>性別</label>
         <name>Guarantor1_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -922,51 +934,51 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Guarantor1  Phone2 - actual --></label>
+        <label>現住所電話番号２</label>
         <name>Guarantor1_MobilePhone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Name (Kana) --></label>
+        <label>保証人名1（カナ） / 会社名1（カナ）</label>
         <name>Guarantor1_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Name (Kanji) --></label>
+        <label>保証人名1（漢字）/ 会社名1（漢字）</label>
         <name>Guarantor1_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1  Phone1 - actual --></label>
+        <label>現住所電話番号１</label>
         <name>Guarantor1_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor1 Zip Code - actual --></label>
+        <label>現住所郵便番号</label>
         <name>Guarantor1_ZipCode__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Address (kana) - actual --></label>
+        <label>現住所（カナ）</label>
         <name>Guarantor2_Address_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Address (Kanji) - actual --></label>
+        <label>現住所（漢字）</label>
         <name>Guarantor2_Address__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Birthdate --></label>
+        <label>生年月日</label>
         <name>Guarantor2_BirthDate__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Company Name (Kana) --></label>
+        <label>会社名（カナ）2</label>
         <name>Guarantor2_Company_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Company Name (Kanji) --></label>
+        <label>会社名（漢字）2</label>
         <name>Guarantor2_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2  Fax - actual --></label>
+        <label>現住所FAX番号</label>
         <name>Guarantor2_Fax__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Gender --></label>
+        <label>性別</label>
         <name>Guarantor2_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -978,51 +990,51 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Guarantor2  Phone2 - actual --></label>
+        <label>現住所電話番号２</label>
         <name>Guarantor2_MobilePhone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Name (Kana) --></label>
+        <label>保証人名2（カナ） / 会社名2（カナ）</label>
         <name>Guarantor2_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Name (Kanji) --></label>
+        <label>保証人名2（漢字）/ 会社名2（漢字）</label>
         <name>Guarantor2_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2  Phone1 - actual --></label>
+        <label>現住所電話番号１</label>
         <name>Guarantor2_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor2 Zip Code - actual --></label>
+        <label>現住所郵便番号</label>
         <name>Guarantor2_ZipCode__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Address (kana) - actual --></label>
+        <label>現住所（カナ）</label>
         <name>Guarantor3_Address_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Address (Kanji) - actual --></label>
+        <label>現住所（漢字）</label>
         <name>Guarantor3_Address__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Birthdate --></label>
+        <label>生年月日</label>
         <name>Guarantor3_BirthDate__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Company Name (Kana) --></label>
+        <label>会社名（カナ）3</label>
         <name>Guarantor3_Company_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Company Name (Kanji) --></label>
+        <label>会社名（漢字）3</label>
         <name>Guarantor3_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3  Fax - actual --></label>
+        <label>現住所FAX番号</label>
         <name>Guarantor3_Fax__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Gender --></label>
+        <label>性別</label>
         <name>Guarantor3_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -1034,23 +1046,23 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Guarantor3  Phone2 - actual --></label>
+        <label>現住所電話番号２</label>
         <name>Guarantor3_MobilePhone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Name (Kana) --></label>
+        <label>保証人名3（カナ） / 会社名3（カナ）</label>
         <name>Guarantor3_Name_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Name (Kanji) --></label>
+        <label>保証人名3（漢字）/ 会社名3（漢字）</label>
         <name>Guarantor3_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3  Phone1 - actual --></label>
+        <label>現住所電話番号１</label>
         <name>Guarantor3_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Guarantor3 Zip Code - actual --></label>
+        <label>現住所郵便番号</label>
         <name>Guarantor3_ZipCode__c</name>
     </fields>
     <fields>
@@ -1058,11 +1070,11 @@
         <name>Incident_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Indemnity Amount --></label>
+        <label>内外装減点免責額</label>
         <name>Indemnity_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Industry Type --></label>
+        <label>業種</label>
         <name>Industry_Code__c</name>
         <picklistValues>
             <masterLabel>A - Agriculture</masterLabel>
@@ -1138,7 +1150,7 @@
         <name>Information__c</name>
     </fields>
     <fields>
-        <label><!-- Insurance Company --></label>
+        <label>保険会社</label>
         <name>Insurance_Company__c</name>
         <picklistValues>
             <masterLabel>Aioi Nissay Dowa</masterLabel>
@@ -1166,7 +1178,7 @@
         <name>Insurance_Rating__c</name>
     </fields>
     <fields>
-        <label><!-- Insured Name (Kana) --></label>
+        <label>被保険者名</label>
         <name>Insured_Name_Native__c</name>
     </fields>
     <fields>
@@ -1174,11 +1186,11 @@
         <name>Insured_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Customer Interest Rate --></label>
+        <label>顧客金利</label>
         <name>Interest_Rate__c</name>
     </fields>
     <fields>
-        <label><!-- Interface Valid Flag --></label>
+        <label>インターフェースvalidフラグ</label>
         <name>Interface_Valid_Flag__c</name>
     </fields>
     <fields>
@@ -1190,11 +1202,11 @@
         <name>Latest_Invoice_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Person --></label>
+        <label>販売担当者</label>
         <name>Latest_Sales_Person__c</name>
     </fields>
     <fields>
-        <label><!-- Lease Contract Type --></label>
+        <label>リースタイプ</label>
         <name>Lease_Category__c</name>
         <picklistValues>
             <masterLabel>Financial Lease</masterLabel>
@@ -1210,11 +1222,11 @@
         <name>Lease_Exp_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Total Outstanding balance (Lease) --></label>
+        <label>月額リース料残高＋残価（消費税抜き）</label>
         <name>Lease_Remaining_Balance_With_RV__c</name>
     </fields>
     <fields>
-        <label><!-- Outstanding Balance (lease without RV) --></label>
+        <label>&quot;月額リース料残高（除く残価：消費税抜き) &quot;</label>
         <name>Lease_Remaining_Balance_Without_RV__c</name>
     </fields>
     <fields>
@@ -1222,11 +1234,11 @@
         <name>Level_of_Cover__c</name>
     </fields>
     <fields>
-        <label><!-- Loan Principal --></label>
+        <label>ローン元金</label>
         <name>Loan_Principal__c</name>
     </fields>
     <fields>
-        <label><!-- Balance (loan with Ballon) --></label>
+        <label>ローン残高</label>
         <name>Loan_Remaining_Bal_Baloon_Dealer__c</name>
     </fields>
     <fields>
@@ -1234,11 +1246,11 @@
         <name>Loan_Remaining_Balance_With_Baloon__c</name>
     </fields>
     <fields>
-        <label><!-- MBF Anti social force flag --></label>
+        <label>MBF反社フラグ</label>
         <name>MBF_Anti_Social_Force_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- MBF Comments --></label>
+        <label>MBFコメント</label>
         <name>MBF_Comments__c</name>
     </fields>
     <fields>
@@ -1262,7 +1274,7 @@
         <name>MOT_User_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Maximum lease extention Date --></label>
+        <label>リース契約可能年月</label>
         <name>Maximum_lease_extention_Date__c</name>
     </fields>
     <fields>
@@ -1270,31 +1282,31 @@
         <name>MileageMaximum__c</name>
     </fields>
     <fields>
-        <label><!-- Model --></label>
+        <label>モデル名</label>
         <name>Model__c</name>
     </fields>
     <fields>
-        <label><!-- Monthly payment amount (including tax) --></label>
+        <label>月額（消費税込み）</label>
         <name>Monthly_Repayment_Tax__c</name>
     </fields>
     <fields>
-        <label><!-- Monthly payment amount (excluding tax) --></label>
+        <label>月額（消費税抜き）</label>
         <name>Monthly_Repayment__c</name>
     </fields>
     <fields>
-        <label><!-- Net premium(2nd Year   long-term policy) --></label>
+        <label>長期分割2年目保険料</label>
         <name>Net_Premium2__c</name>
     </fields>
     <fields>
-        <label><!-- Net premium(3rd Year   long-term policy) --></label>
+        <label>長期分割3年目保険料</label>
         <name>Net_Premium3__c</name>
     </fields>
     <fields>
-        <label><!-- Net premium --></label>
+        <label>合計保険料</label>
         <name>Net_Premium__c</name>
     </fields>
     <fields>
-        <label><!-- New/Used Car --></label>
+        <label>新車/中古車区分</label>
         <name>New_Used__c</name>
         <picklistValues>
             <masterLabel>New</masterLabel>
@@ -1306,23 +1318,23 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Non MB Branded Insurance --></label>
+        <label>非MB保険フラグ</label>
         <name>Non_MB_Insurance__c</name>
     </fields>
     <fields>
-        <label><!-- Number Of Employees --></label>
+        <label>従業員数</label>
         <name>Number_Of_Employees__c</name>
     </fields>
     <fields>
-        <label><!-- Number of Interfaced  Contractor --></label>
+        <label>インターフェース予定 contractor数</label>
         <name>Number_of_Interfaced_Contractor__c</name>
     </fields>
     <fields>
-        <label><!-- Number of Interfaced  Guarantor --></label>
+        <label>インターフェース予定 Guarantor数</label>
         <name>Number_of_Interfaced_Guarantor__c</name>
     </fields>
     <fields>
-        <label><!-- Occupation Type --></label>
+        <label>職業</label>
         <name>Occupation_Type__c</name>
         <picklistValues>
             <masterLabel>Corporate Worker</masterLabel>
@@ -1382,7 +1394,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Offer Prohibit Flag --></label>
+        <label>オファー禁止フラグ</label>
         <name>Offer_Prohibit__c</name>
     </fields>
     <fields>
@@ -1402,19 +1414,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Outlet Name --></label>
+        <label>販売拠点</label>
         <name>Outlet_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Parent Flag --></label>
+        <label>関連フラグ</label>
         <name>Parent_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Dual Pair contract number --></label>
+        <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Payment End Date --></label>
+        <label>最終回支払予定年月日</label>
         <name>Payment_End_Date__c</name>
     </fields>
     <fields>
@@ -1454,7 +1466,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payment method of long term --></label>
+        <label>長期払込方法</label>
         <name>Payment_Method__c</name>
         <picklistValues>
             <masterLabel>Installment</masterLabel>
@@ -1466,19 +1478,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payment Start Date --></label>
+        <label>初回支払年月日</label>
         <name>Payment_Start_Date__c</name>
     </fields>
     <fields>
-        <label><!-- # of One months delay --></label>
+        <label>1ヶ月延滞回数</label>
         <name>Payment_status_One_Month_Delay__c</name>
     </fields>
     <fields>
-        <label><!-- # of Two months delay --></label>
+        <label>2ヶ月延滞回数</label>
         <name>Payment_status_Two_Month_Delay__c</name>
     </fields>
     <fields>
-        <label><!-- Number of Payments --></label>
+        <label>支払回数</label>
         <name>Payments__c</name>
     </fields>
     <fields>
@@ -1494,7 +1506,7 @@
         <name>Premium_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Change of premium --></label>
+        <label>異動保険料</label>
         <name>Premium_Change__c</name>
     </fields>
     <fields>
@@ -1606,7 +1618,7 @@
         <name>Purchase_Year__c</name>
     </fields>
     <fields>
-        <label><!-- Re-lease Prohibit flag --></label>
+        <label>再リース禁止フラグ</label>
         <name>Re_lease_Prohibit_flag__c</name>
     </fields>
     <fields>
@@ -1649,7 +1661,7 @@
         <name>Retail_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Type --></label>
+        <label>販売形態</label>
         <name>Sales_Type__c</name>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
@@ -1804,7 +1816,7 @@
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Current Mileage --></label>
+        <label>走行距離</label>
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
@@ -1825,19 +1837,19 @@
         <relationshipLabel><!-- Retail Tasks (Signer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Source System --></label>
+        <label>ソースシステム</label>
         <name>Source_System__c</name>
     </fields>
     <fields>
-        <label><!-- Special Flag (to exclude) --></label>
+        <label>スペシャルフラグ（除く）</label>
         <name>Special_Flag_Exclude__c</name>
     </fields>
     <fields>
-        <label><!-- Special Flag (to include) --></label>
+        <label>スペシャルフラグ(含む)</label>
         <name>Special_Flag_Include__c</name>
     </fields>
     <fields>
-        <label><!-- Total Interest Amount --></label>
+        <label>分割払手数料</label>
         <name>Split_Payment_Comission_Fee__c</name>
     </fields>
     <fields>
@@ -1937,12 +1949,12 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Supporting Dealer --></label>
+        <label>サポートディーラー</label>
         <name>Supporting_Dealer__c</name>
         <relationshipLabel><!-- Retail Tasks (Supporting Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Suspend Payment --></label>
+        <label>支払停止抗弁権</label>
         <name>Suspend_Payment__c</name>
     </fields>
     <fields>
@@ -1950,7 +1962,7 @@
         <name>The_Day_After_Start_One_Year__c</name>
     </fields>
     <fields>
-        <label><!-- Total Payment Amount --></label>
+        <label>分割支払い金合計</label>
         <name>Total_Split_Payment__c</name>
     </fields>
     <fields>
@@ -2170,15 +2182,15 @@
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label>VIN</label>
+        <label>車台番号</label>
         <name>VIN_Link__c</name>
     </fields>
     <fields>
-        <label>VIN</label>
+        <label>車台番号</label>
         <name>VIN__c</name>
     </fields>
     <fields>
-        <label><!-- Vehicle Registration No --></label>
+        <label>登録番号</label>
         <name>Vehicle_Registration_No__c</name>
     </fields>
     <fields>
@@ -2186,19 +2198,19 @@
         <name>Vehicle_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Voluntary Insurance Company --></label>
+        <label>保険会社</label>
         <name>Voluntary_Insurance_Company__c</name>
     </fields>
     <fields>
-        <label><!-- Voluntary Insurance Premium(Dealer) --></label>
+        <label>保険料</label>
         <name>Voluntary_Insurance_Premium_Dealer__c</name>
     </fields>
     <fields>
-        <label><!-- Voluntary Insurance Premium --></label>
+        <label>保険料</label>
         <name>Voluntary_Insurance_Premium__c</name>
     </fields>
     <fields>
-        <label><!-- Voluntary Insurance Type --></label>
+        <label>任意保険有無</label>
         <name>Voluntary_Insurance_Type__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
