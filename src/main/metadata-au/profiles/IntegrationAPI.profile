@@ -8095,11 +8095,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ContractLineItem.ParentContractLineItemId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ContractLineItem.RootContractLineItemId</field>
         <readable>false</readable>
     </fieldPermissions>
