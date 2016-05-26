@@ -1367,7 +1367,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
 	<fields>
-        <fullName>Complaint_priority__c</fullName>
+        <fullName>Complaint_Priority__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Complaint priority</label>
