@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Claim --></value>
+        <value>請求</value>
     </caseValues>
     <fields>
         <label>事故発生日</label>
@@ -48,7 +48,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Claim Name --></nameFieldLabel>
+    <nameFieldLabel>請求 請求名</nameFieldLabel>
     <recordTypes>
         <label><!-- Insurance Claim --></label>
         <name>Insurance_Claim</name>
