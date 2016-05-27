@@ -511,7 +511,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No Choice Yet</fullName>
@@ -3290,7 +3290,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto IT  PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT  PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11501,7 +11501,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -16135,7 +16135,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
