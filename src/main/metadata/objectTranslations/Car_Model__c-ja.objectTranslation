@@ -1796,6 +1796,10 @@
             <translation>SL</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>SLC-Class</masterLabel>
+            <translation>SLC</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
             <translation>SLK</translation>
         </picklistValues>

@@ -16889,6 +16889,10 @@ Modify Reason:
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>SLC ROADSTER</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -33167,6 +33171,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </values>
             <values>

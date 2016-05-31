@@ -1141,6 +1141,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <fullName>GLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
@@ -7766,6 +7770,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>SLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -10071,6 +10079,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15122,6 +15134,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20261,6 +20277,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25417,6 +25437,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>

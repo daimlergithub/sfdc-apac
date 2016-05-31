@@ -3290,7 +3290,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto IT  PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT  PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7093,6 +7093,14 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14519,6 +14527,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -14528,6 +14540,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18697,6 +18713,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -18706,6 +18726,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
