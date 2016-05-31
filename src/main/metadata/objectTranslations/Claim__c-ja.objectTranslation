@@ -44,11 +44,11 @@
     <layouts>
         <layout>Insurance Claim Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel>請求 請求名</nameFieldLabel>
+    <nameFieldLabel>請求名</nameFieldLabel>
     <recordTypes>
         <label><!-- Insurance Claim --></label>
         <name>Insurance_Claim</name>
