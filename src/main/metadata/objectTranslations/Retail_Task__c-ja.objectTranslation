@@ -74,7 +74,7 @@
         <name>Annual_Income__c</name>
     </fields>
     <fields>
-        <label>申請日</label>
+        <label>申込日</label>
         <name>ApplicationDate__c</name>
     </fields>
     <fields>
@@ -250,7 +250,7 @@
         <name>Contract_Status_Change_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Update Date --></label>
+        <label>契約更新日</label>
         <name>Contract_Update_Date__c</name>
     </fields>
     <fields>
@@ -490,7 +490,7 @@
         <name>Finance_Brand__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Product Name --></label>
+        <label>ファイナンス商品名</label>
         <name>Finance_Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
@@ -1226,7 +1226,7 @@
         <name>Lease_Remaining_Balance_With_RV__c</name>
     </fields>
     <fields>
-        <label>&quot;月額リース料残高（除く残価：消費税抜き) &quot;</label>
+        <label>月額リース料残高（除く残価：消費税抜き)</label>
         <name>Lease_Remaining_Balance_Without_RV__c</name>
     </fields>
     <fields>
@@ -1242,7 +1242,7 @@
         <name>Loan_Remaining_Bal_Baloon_Dealer__c</name>
     </fields>
     <fields>
-        <label><!-- Outstanding Balance (loan with Ballon) --></label>
+        <label>ローン残高</label>
         <name>Loan_Remaining_Balance_With_Baloon__c</name>
     </fields>
     <fields>
@@ -1853,7 +1853,7 @@
         <name>Split_Payment_Comission_Fee__c</name>
     </fields>
     <fields>
-        <label>契約開始日</label>
+        <label>契約開始/検収/立替処理/始期</label>
         <name>StartDate__c</name>
     </fields>
     <fields>
@@ -2244,117 +2244,117 @@
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
         <sections>
-            <label><!-- Comments --></label>
+            <label>コメント</label>
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contractor Information --></label>
+            <label>契約者情報</label>
             <section>Contractor Information</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Insurance Information --></label>
+            <label>保険情報</label>
             <section>Insurance Information</section>
         </sections>
         <sections>
-            <label><!-- Main Information --></label>
+            <label>保証/契約の詳細</label>
             <section>Main Information</section>
         </sections>
         <sections>
-            <label><!-- Payment Information --></label>
+            <label>支払情報</label>
             <section>Payment Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
         <sections>
-            <label><!-- Bank Account Information --></label>
+            <label>口座情報</label>
             <section>Bank Account Information</section>
         </sections>
         <sections>
-            <label><!-- Comments --></label>
+            <label>コメント</label>
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contractor Information --></label>
+            <label>契約者情報</label>
             <section>Contractor Information</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Finance Information --></label>
+            <label>ファイナンス情報</label>
             <section>Finance Information</section>
         </sections>
         <sections>
-            <label><!-- Flags --></label>
+            <label>フラグ情報</label>
             <section>Flags</section>
         </sections>
         <sections>
-            <label><!-- Guarantor information --></label>
+            <label>保証人情報</label>
             <section>Guarantor information</section>
         </sections>
         <sections>
-            <label><!-- Main Information --></label>
+            <label>保証/契約の詳細</label>
             <section>Main Information</section>
         </sections>
         <sections>
-            <label><!-- Payment Information --></label>
+            <label>支払情報</label>
             <section>Payment Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Loan)</layout>
         <sections>
-            <label><!-- Bank Account Information --></label>
+            <label>口座情報</label>
             <section>Bank Account Information</section>
         </sections>
         <sections>
-            <label><!-- Comments --></label>
+            <label>コメント</label>
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contractor Information --></label>
+            <label>契約者情報</label>
             <section>Contractor Information</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Finance Information --></label>
+            <label>ファイナンス情報</label>
             <section>Finance Information</section>
         </sections>
         <sections>
-            <label><!-- Flags --></label>
+            <label>フラグ情報</label>
             <section>Flags</section>
         </sections>
         <sections>
-            <label><!-- Guarantor information --></label>
+            <label>保証人情報</label>
             <section>Guarantor information</section>
         </sections>
         <sections>
-            <label><!-- Main Information --></label>
+            <label>保証/契約の詳細</label>
             <section>Main Information</section>
         </sections>
         <sections>
-            <label><!-- Payment Information --></label>
+            <label>支払情報</label>
             <section>Payment Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
