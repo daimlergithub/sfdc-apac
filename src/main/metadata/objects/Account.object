@@ -7060,6 +7060,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7069,6 +7073,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7093,14 +7101,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>V-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

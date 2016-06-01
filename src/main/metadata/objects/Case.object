@@ -16815,6 +16815,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>SLC ROADSTER</fullName>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SLK ROADSTER</fullName>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
@@ -16887,10 +16892,6 @@ Modify Reason:
             <picklistValues>
                 <fullName>E-Class COUPE</fullName>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

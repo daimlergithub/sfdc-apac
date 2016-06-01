@@ -1077,6 +1077,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1139,10 +1143,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>GLS-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
