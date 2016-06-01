@@ -82,7 +82,7 @@ Vehicle Model Interest: {!relatedTo.Vehicle_Model_Interest__c}<br/>
 <b>Notes</b><br/>
 {!relatedTo.Description__c}<br/>
 <br/><br/>
-<c:eoc_links leadId="{!relatedTo.id}" />
+<c:eoc_links leadId="{!relatedTo.id}" leadName="{!relatedTo.Name}"/>
 <br/>
 
 Lead No. 

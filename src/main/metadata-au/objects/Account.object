@@ -9217,6 +9217,17 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sales_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Primary_Address_Reference__r.Address_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Address Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sales_Sanction_Comment__c</fullName>
         <externalId>false</externalId>
         <label>Customer Memo</label>

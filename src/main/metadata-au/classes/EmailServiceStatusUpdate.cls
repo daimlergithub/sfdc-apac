@@ -54,7 +54,7 @@ system.debug('email==================='+email);
             return makeErrorResult();
         }else{
             List<String> params = body.split(':');
-            updateObj = [select CAC_Lost_Reason__c, CAC_Lead_Status__c, Description__c from Lead__c where id = :params[0]];
+            updateObj = [select CAC_Lost_Reason__c, CAC_Lead_Status__c, Description__c from Lead__c where id = :params[1]];
             if(updateObj == null){
                 return makeErrorResult();
             }
@@ -64,8 +64,9 @@ system.debug('email==================='+email);
             //lead status pick list value
             Set<String> STATUS_PICKLIST = getPicklistValues('Lead__c','CAC_Lead_Status__c');
 
-            if(STATUS_PICKLIST.contains(params[1])){
-                updateObj.CAC_Lead_Status__c= params[1];
+            string params1=params[2].replace('+', ' ');
+            if(STATUS_PICKLIST.contains(params1)){
+                updateObj.CAC_Lead_Status__c= params1;
             }else{
                  return makeErrorResult();
             }
@@ -76,9 +77,10 @@ system.debug('email==================='+email);
                 updateObj.Description__c += '\r\n' + email.plainTextBody;
             }
             
-            if(params.size()>2){
-                if(LOST_REASON_PICKLIST.contains(params[2])){
-                    updateObj.CAC_Lost_Reason__c= params[2];
+            if(params.size()>3){ 
+			    string params2=params[3].replace('+', ' ');
+                if(LOST_REASON_PICKLIST.contains(params2)){
+                    updateObj.CAC_Lost_Reason__c= params2;
                 }else{
                     return makeErrorResult();
                 }
