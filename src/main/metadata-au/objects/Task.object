@@ -26494,7 +26494,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Comment_Is_Mandatory_If_Subject_Is_Visit</fullName>
         <active>true</active>
