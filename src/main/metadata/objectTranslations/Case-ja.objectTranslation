@@ -11510,6 +11510,10 @@
             <translation><!-- SL63 AMG --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>SLC ROADSTER</masterLabel>
+            <translation>SLC ロードスター</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>SLK ROADSTER</masterLabel>
             <translation>SLK ロードスター</translation>
         </picklistValues>

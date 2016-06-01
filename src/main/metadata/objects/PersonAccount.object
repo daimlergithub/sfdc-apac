@@ -3058,6 +3058,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -3067,6 +3071,10 @@
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7738,6 +7746,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -7747,6 +7759,10 @@
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17054,6 +17070,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -17063,6 +17083,10 @@
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
