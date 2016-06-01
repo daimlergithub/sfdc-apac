@@ -104,28 +104,28 @@
         <picklist>
             <picklistValues>
                 <fullName>Complete</fullName>
-                <closed>true</closed>
                 <default>false</default>
+                <closed>true</closed>
             </picklistValues>
             <picklistValues>
                 <fullName>Not Started</fullName>
-                <closed>false</closed>
                 <default>true</default>
+                <closed>false</closed>
             </picklistValues>
             <picklistValues>
                 <fullName>In Progress</fullName>
-                <closed>false</closed>
                 <default>false</default>
+                <closed>false</closed>
             </picklistValues>
             <picklistValues>
                 <fullName>Waiting for someone else</fullName>
-                <closed>false</closed>
                 <default>false</default>
+                <closed>false</closed>
             </picklistValues>
             <picklistValues>
                 <fullName>Deferred</fullName>
-                <closed>false</closed>
                 <default>false</default>
+                <closed>false</closed>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6663,7 +6663,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Training Required</fullName>
+                <fullName>training required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26513,7 +26513,6 @@ Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or tou
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please enter Comment</errorMessage>
     </validationRules>
-	<sharingModel>ControlledByParent</sharingModel> 
     <webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
@@ -26527,19 +26526,9 @@ Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or tou
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 
-var user = sforce.connection.getUserInfo();
-var querystring = "select Id from UserRole where name IN ('Customer Service Manager','Customer Retention Office 1','Customer Retention Office 2','Customer Retention Office 3','Customer Retention Office 4')"; 
-var roleid = sforce.connection.query(querystring);
-records = roleid.getArray("records");
-var flag=false;
-for (var i=0; i&lt; records.length; i++) {
-
-  if(user.roleId==records[i].Id){
-var flag=true;
-}
-}
-
-if(flag)
+var user = sforce.connection.getUserInfo();  
+var roleid = sforce.connection.query("select Id from UserRole where  name like '%Customer Service Manager%'");
+if(user.roleId==roleid.records.Id)
 {
 window.open('/apex/TaskMassChangeActivateDeactive','','top=150,left=200,width=600,height=400');
 }
