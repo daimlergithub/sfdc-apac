@@ -1315,9 +1315,9 @@
         </pushNotification>
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
-    <tab>standard-home</tab>
-	<tab>standard-Account</tab>
+    <tab>standard-Account</tab>
     <tab>standard-Case</tab>
+	<tab>Claim__c</tab>
     <tab>Tasks</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
@@ -1367,6 +1367,9 @@
         <mapping>
             <tab>Survey__c</tab>
         </mapping>
+		<mapping>
+            <tab>Claim__c</tab>
+        </mapping>
         <mapping>
             <tab>Tasks</tab>
         </mapping>
@@ -1380,9 +1383,6 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
-        </mapping>
-		<mapping>
-            <tab>standard-home</tab>
         </mapping>
         <mapping>
             <fieldName>ParentId</fieldName>
