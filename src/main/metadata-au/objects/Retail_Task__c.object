@@ -253,12 +253,9 @@
     </fields>
     <fields>
         <fullName>Bank_Account_Number__c</fullName>
-        <externalId>false</externalId> 
+        <externalId>false</externalId>
         <label>Bank Account Number</label>
-        <length>15</length> 
-        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "'}", ContractNumber__c , "_self" )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>CMS Contract No.</label> 
+        <length>15</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -342,7 +339,6 @@
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
         <label>Base Interest Rate</label>
-		
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -2198,7 +2194,6 @@
         <formula>IF( AND( Number_of_Interfaced_Contractor__c  = 0, Number_of_Interfaced_Guarantor__c  = 0) , true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Interface Valid Flag</label>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -2931,7 +2926,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <fullName>Dual Auto Loan</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
@@ -3677,7 +3671,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Sub_Product__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Product</label>
@@ -3964,7 +3958,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-	<fields>	
+    <fields>
         <fullName>Supporting_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4383,7 +4377,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>All</label>
         <language>en_US</language>
     </listViews>
-	<nameField>
+    <nameField>
         <label>Name / ID</label>
         <type>Text</type>
     </nameField>
@@ -4392,6 +4386,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Contract</fullName>
         <active>true</active>
         <label>Contract</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
@@ -5534,6 +5535,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Insurance</label>
         <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
                 <fullName>Asset Loan</fullName>
@@ -6423,6 +6431,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Retail Activity</label>
         <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
                 <fullName>Asset Loan</fullName>
@@ -7291,6 +7306,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Roadside_Assistant</fullName>
         <active>true</active>
         <label>Roadside Assistant</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
@@ -8180,6 +8202,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Service</fullName>
         <active>true</active>
         <label>Service</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
@@ -9094,7 +9123,7 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Action_Detail__c</errorDisplayField>
         <errorMessage>It's not allowed to change service number.</errorMessage>
-    </validationRules> 
+    </validationRules>
     <webLinks>
         <fullName>New_DRM_Task</fullName>
         <availability>online</availability>
@@ -9146,5 +9175,4 @@ $Profile.Name != 'IntegrationAPI'
         <protected>false</protected>
         <url>/00T/e?what_id=a0Z7A000000X7Cw&amp;RecordType=0127A0000004OqT&amp;ekp=00T&amp;ent=Task&amp;isdtp=vw&amp;nonce=bb5e476e1f99e00155a5e6980246424a43baeebc12b66abce922f67cd55c8077&amp;tsk6={!Retail_Task__c.ContractNumber__c}</url>
     </webLinks>
-</CustomObject> 
-</CustomObject> 
+</CustomObject>
