@@ -1367,6 +1367,9 @@
         <mapping>
             <tab>Survey__c</tab>
         </mapping>
+		<mapping>
+            <tab>Claim__c</tab>
+        </mapping>
         <mapping>
             <tab>Tasks</tab>
         </mapping>
