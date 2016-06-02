@@ -7371,8 +7371,8 @@
         <field>CaseDeadelineCalc__mdt.CaseDeadelineCalc9__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+        <fieldPermissions>
+        <editable>true</editable>
         <field>Claim__c.Accident_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7387,27 +7387,27 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Claim__c.Payment_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Claim__c.Payment_amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Claim__c.Policy_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Claim__c.Related_Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Claim__c.Service_Contents__c</field>
         <readable>true</readable>
     </fieldPermissions>
