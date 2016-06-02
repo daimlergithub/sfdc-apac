@@ -26305,6 +26305,52 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Please enter at least 2 characters for "Last Name".</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Normalization_FirstName</fullName>
+        <active>true</active>
+        <description>VALIDATION: minimum 2 maximum 40 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc. (UTF 8 values).</description>
+        <errorConditionFormula>LEN(FirstName) &gt; 2 &amp;&amp; LEN(FirstName) &lt; 40 &amp;&amp;  CONTAINS(FirstName, "\\-\\")  &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;
+IF(
+    OR(CONTAINS(FirstName, "-"),CONTAINS(FirstName, " "))
+    ,IF(
+        AND(
+            LEFT(FirstName,1)=UPPER(LEFT(FirstName,1))
+            ,IF(CONTAINS(FirstName, "-"),MID(FirstName,FIND("-", FirstName)+1,1)=UPPER(MID(FirstName,FIND("-", FirstName)+1,1))
+										,MID(FirstName,FIND(" ", FirstName)+1,1)=UPPER(MID(FirstName,FIND(" ", FirstName)+1,1)))
+        )
+        ,false
+        ,true
+    )
+    ,IF(LEFT(FirstName,1)=UPPER(LEFT(FirstName,1)), false, true)
+)</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First letter must be capital letter, remaining letters to be small.
+Initials should be capitalised
+Length of characters should be min 2 to max 40 only.
+NO space before or after hyphen</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Normalization_LastName</fullName>
+        <active>true</active>
+        <description>VALIDATION: minimum 2 maximum 80 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc. (UTF 8 values).</description>
+        <errorConditionFormula>LEN(LastName) &gt; 2 &amp;&amp; LEN(LastName) &lt; 80 &amp;&amp;  CONTAINS(LastName, "\\-\\")  &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;
+IF(
+    OR(CONTAINS(LastName, "-"),CONTAINS(LastName, " "))
+    ,IF(
+        AND(
+            LEFT(LastName,1)=UPPER(LEFT(LastName,1))
+            ,IF(CONTAINS(LastName, "-"),MID(LastName,FIND("-", LastName)+1,1)=UPPER(MID(LastName,FIND("-", LastName)+1,1))
+										,MID(LastName,FIND(" ", LastName)+1,1)=UPPER(MID(LastName,FIND(" ", LastName)+1,1)))
+        )
+        ,false
+        ,true
+    )
+    ,IF(LEFT(LastName,1)=UPPER(LEFT(LastName,1)), false, true)
+)</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Length of characters should be min 2 to max 80 only.
+NO space before or after hyphe</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Reason_For_Inactivation_Mandatory</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
