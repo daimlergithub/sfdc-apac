@@ -7371,7 +7371,7 @@
         <field>CaseDeadelineCalc__mdt.CaseDeadelineCalc9__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+        <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Accident_date__c</field>
         <readable>true</readable>
