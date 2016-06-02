@@ -1984,7 +1984,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2033,6 +2041,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

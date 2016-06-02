@@ -339,7 +339,6 @@
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
         <label>Base Interest Rate</label>
-		
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -2195,7 +2194,6 @@
         <formula>IF( AND( Number_of_Interfaced_Contractor__c  = 0, Number_of_Interfaced_Guarantor__c  = 0) , true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Interface Valid Flag</label>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -2928,7 +2926,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <fullName>Dual Auto Loan</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
@@ -3674,7 +3671,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Sub_Product__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Product</label>
@@ -3961,7 +3958,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-	<fields>	
+    <fields>
         <fullName>Supporting_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4380,7 +4377,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>All</label>
         <language>en_US</language>
     </listViews>
-	<nameField>
+    <nameField>
         <label>Name / ID</label>
         <type>Text</type>
     </nameField>
@@ -4389,6 +4386,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Contract</fullName>
         <active>true</active>
         <label>Contract</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
@@ -5531,6 +5535,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Insurance</label>
         <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
                 <fullName>Asset Loan</fullName>
@@ -6420,6 +6431,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <active>true</active>
         <label>Retail Activity</label>
         <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
                 <fullName>Asset Loan</fullName>
@@ -7288,6 +7306,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Roadside_Assistant</fullName>
         <active>true</active>
         <label>Roadside Assistant</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
@@ -8177,6 +8202,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Service</fullName>
         <active>true</active>
         <label>Service</label>
+        <picklistValues>
+            <picklist>Credit_Loan_Company_Name__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Finance_Product_Type__c</picklist>
             <values>
