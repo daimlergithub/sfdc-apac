@@ -3499,13 +3499,13 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Status"<
             <picklistValues>
                 <fullName>Disposed - Previously Owned</fullName>
                 <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-		<picklistValues>
+            </picklistValues>			
+			<picklistValues>
                 <fullName>Active</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
