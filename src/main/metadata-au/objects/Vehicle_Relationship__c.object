@@ -3502,6 +3502,10 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Status"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+		<picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6435,6 +6439,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Disposed - Previously Owned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>TV__c</picklist>
@@ -8997,6 +9005,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Disposed - Previously Owned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>TV__c</picklist>
@@ -11531,6 +11543,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Disposed - Previously Owned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>TV__c</picklist>
@@ -12134,6 +12150,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Disposed - Previously Owned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>TV__c</picklist>
@@ -12466,6 +12486,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Disposed - Previously Owned</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12829,6 +12853,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Disposed - Previously Owned</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
