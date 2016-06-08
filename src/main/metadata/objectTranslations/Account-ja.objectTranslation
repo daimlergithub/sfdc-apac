@@ -2379,118 +2379,118 @@ Allows up to 240 characters --></help>
         <label>Dealer DMS SR コード1</label>
         <name>Dealer_DMS_SR_Code__c</name>
     </fields>
-    <fields>
+   <!-- <fields>
         <label>DMS</label>
         <name>Dealer_DMS__c</name>
         <picklistValues>
             <masterLabel>AMWIN</masterLabel>
-            <translation><!-- AMWIN --></translation>
+            <translation>AMWIN</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AS 400</masterLabel>
-            <translation><!-- AS 400 --></translation>
+            <translation>AS 400</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ASW</masterLabel>
-            <translation><!-- ASW --></translation>
+            <translation>ASW</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto IT (Equip)</masterLabel>
-            <translation><!-- Auto IT (Equip) --></translation>
+            <translation>Auto IT (Equip)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto IT (Units)</masterLabel>
-            <translation><!-- Auto IT (Units) --></translation>
+            <translation>Auto IT (Units)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
+            <translation>Auto IT  PMDS Viaduct 2000</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
-            <translation><!-- Auto Mac --></translation>
+            <translation>Auto Mac</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Quote</masterLabel>
-            <translation><!-- Auto Quote --></translation>
+            <translation>Auto Quote</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS Quote plus</masterLabel>
-            <translation><!-- DMS Quote plus --></translation>
+            <translation>DMS Quote plus</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ERA</masterLabel>
-            <translation><!-- ERA --></translation>
+            <translation>ERA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Easy Mate (Global Soultions)</masterLabel>
-            <translation><!-- Easy Mate (Global Soultions) --></translation>
+            <translation>Easy Mate (Global Soultions)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gateway Solutions – Voyager</masterLabel>
-            <translation><!-- Gateway Solutions – Voyager --></translation>
+            <translation>Gateway Solutions – Voyager</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Global Dealer Systems</masterLabel>
-            <translation><!-- Global Dealer Systems --></translation>
+            <translation>Global Dealer Systems</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Goldmine</masterLabel>
-            <translation><!-- Goldmine --></translation>
+            <translation>Goldmine</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leading Hand</masterLabel>
-            <translation><!-- Leading Hand --></translation>
+            <translation>Leading Hand</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Markinson</masterLabel>
-            <translation><!-- Markinson --></translation>
+            <translation>Markinson</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NOVA - Reynolds</masterLabel>
-            <translation><!-- NOVA - Reynolds --></translation>
+            <translation>NOVA - Reynolds</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No DMS</masterLabel>
-            <translation><!-- No DMS --></translation>
+            <translation>No DMS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oracle</masterLabel>
-            <translation><!-- Oracle --></translation>
+            <translation>Oracle</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PPG</masterLabel>
-            <translation><!-- PPG --></translation>
+            <translation>PPG</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quick Books</masterLabel>
-            <translation><!-- Quick Books --></translation>
+            <translation>Quick Books</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quote Plus</masterLabel>
-            <translation><!-- Quote Plus --></translation>
+            <translation>Quote Plus</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Revolutions</masterLabel>
-            <translation><!-- Revolutions --></translation>
+            <translation>Revolutions</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reynolds CFS / Dealer Pro</masterLabel>
-            <translation><!-- Reynolds CFS / Dealer Pro --></translation>
+            <translation>Reynolds CFS / Dealer Pro</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Titan</masterLabel>
-            <translation><!-- Titan --></translation>
+            <translation>Titan</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unifleet</masterLabel>
-            <translation><!-- Unifleet --></translation>
+            <translation>Unifleet</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VQS</masterLabel>
-            <translation><!-- VQS --></translation>
+            <translation>VQS</translation>
         </picklistValues>
-    </fields>
+    </fields>-->
     <fields>
         <label><!-- Dated Started Fuso --></label>
         <name>Dealer_Dated_Started_Fuso__c</name>
