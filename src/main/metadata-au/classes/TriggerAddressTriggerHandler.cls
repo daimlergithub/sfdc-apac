@@ -13,6 +13,7 @@ public class TriggerAddressTriggerHandler
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,oldmap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.New);
         if(obj.profile.Name!='IntegrationAPI')
+		 serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
              AddressHelper.entityNotifyUpdate('INSERT',trigger.New[0].Id,serializedObject);
     }
     if(trigger.isAfter && trigger.isUpdate)
@@ -20,6 +21,7 @@ public class TriggerAddressTriggerHandler
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,oldmap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.New);
         if(obj.profile.Name!='IntegrationAPI')
+		 serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
              AddressHelper.entityNotifyUpdate('UPDATE',trigger.New[0].Id,serializedObject);
     }
     if(trigger.isAfter && trigger.isDelete)
@@ -27,6 +29,7 @@ public class TriggerAddressTriggerHandler
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,oldmap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.Old);
         if(obj.profile.Name!='IntegrationAPI')
+		 serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
              AddressHelper.entityNotifyUpdate('DELETE',trigger.Old[0].Id,serializedObject);
     }
     if(trigger.isBefore && trigger.isInsert)
