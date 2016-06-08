@@ -128,6 +128,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Actual_Outstanding_Balance_To_Shinpan__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Balance__c, null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>actual outstanding balance(Dealer)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_Outstanding_Balance__c</fullName>
+        <externalId>false</externalId>
+        <label>actual outstanding balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Actual_Payment_Cust_To_Shinpan__c</fullName>
         <externalId>false</externalId>
         <label>actual payment amount cust to Shinpan</label>

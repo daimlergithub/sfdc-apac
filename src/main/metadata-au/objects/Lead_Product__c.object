@@ -126,6 +126,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Lead_Product_Item__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Product Item</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Lead_Product_Items__c</fullName>
         <externalId>false</externalId>
         <label>Lead Product Items</label>
