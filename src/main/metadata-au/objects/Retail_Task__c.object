@@ -257,8 +257,7 @@
         <label>Bank Account Number</label>
         <length>15</length> 
         <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "'}", ContractNumber__c , "_self" )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>CMS Contract No.</label> 
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs> 
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
