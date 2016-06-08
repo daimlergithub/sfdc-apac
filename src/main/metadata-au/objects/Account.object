@@ -26318,7 +26318,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Normalization_FirstName</fullName>
         <active>true</active>
-        <description>VALIDATION: minimum 2 maximum 40 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc. (UTF 8 values).</description>
+        <description>VALIDATION: minimum 2 maximum 40 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc.   (UTF 8 values).</description>
         <errorConditionFormula>LEN(FirstName) &gt; 2 &amp;&amp; LEN(FirstName) &lt; 40 &amp;&amp;  CONTAINS(FirstName, "\\-\\")  &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;
 IF(
     OR(CONTAINS(FirstName, "-"),CONTAINS(FirstName, " "))
@@ -26342,7 +26342,7 @@ NO space before or after hyphen</errorMessage>
     <validationRules>
         <fullName>Normalization_LastName</fullName>
         <active>true</active>
-        <description>VALIDATION: minimum 2 maximum 80 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc. (UTF 8 values).</description>
+        <description>VALIDATION: minimum 2 maximum 80 alphabetic characters, including non-English characters, e.g.  é, ñ, è, ö, etc.   (UTF 8 values).</description>
         <errorConditionFormula>LEN(LastName) &gt; 2 &amp;&amp; LEN(LastName) &lt; 80 &amp;&amp;  CONTAINS(LastName, "\\-\\")  &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;
 IF(
     OR(CONTAINS(LastName, "-"),CONTAINS(LastName, " "))
