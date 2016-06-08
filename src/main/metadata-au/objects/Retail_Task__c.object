@@ -253,10 +253,9 @@
     </fields>
     <fields>
         <fullName>Bank_Account_Number__c</fullName>
-        <externalId>false</externalId> 
+        <externalId>false</externalId>
         <label>Bank Account Number</label>
-        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "'}", ContractNumber__c , "_self" )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs> 
+        <length>15</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
