@@ -26512,9 +26512,8 @@ Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or tou
         <errorConditionFormula>AND(OR(RecordType.DeveloperName = 'General_Task',RecordType.DeveloperName = 'DRM_Task'),ISPICKVAL( Status , 'Complete'),ISBLANK( Description),$Profile.Name != 'IntegrationAPI', MD__c = 'AU')</errorConditionFormula>
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please enter Comment</errorMessage>
-    </validationRules> 
-	<sharingModel>ControlledByParent</sharingModel> 
-    <webLinks>
+    </validationRules>
+	<webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -26533,7 +26532,6 @@ var roleid = sforce.connection.query(querystring);
 records = roleid.getArray("records");
 var flag=false;
 for (var i=0; i&lt; records.length; i++) {
-
   if(user.roleId==records[i].Id){
 var flag=true;
 }
