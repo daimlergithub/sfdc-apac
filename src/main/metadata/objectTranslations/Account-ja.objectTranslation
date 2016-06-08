@@ -732,10 +732,6 @@
         <name>CMS_SAP_No__c</name>
     </fields>
     <fields>
-        <label>COSフラグ</label>
-        <name>COS_Flag__c</name>
-    </fields>
-    <fields>
         <label><!-- CV No. Brand Purchases --></label>
         <name>CV_No_Brand_Purchases__c</name>
     </fields>
@@ -1015,10 +1011,6 @@
     <fields>
         <label>苦情件数</label>
         <name>Complaint_Amount__c</name>
-    </fields>
-    <fields>
-        <label><!-- Complaint priority --></label>
-        <name>Complaint_priority__c</name>
     </fields>
     <fields>
         <label><!-- Contact Background --></label>
@@ -2411,8 +2403,8 @@ Allows up to 240 characters --></help>
             <translation><!-- Auto IT (Units) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
+            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
+            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
@@ -4727,6 +4719,10 @@ Allows up to 240 characters --></help>
             <translation>Sクラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>S-Class Cabriolet</masterLabel>
+            <translation>新型Sクラス カブリオレ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>S-Class Coupe</masterLabel>
             <translation>Sクラス クーペ</translation>
         </picklistValues>
@@ -4736,7 +4732,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
-            <translation>SL</translation>
+            <translation>新型SL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLC-Class</masterLabel>
+            <translation>新型SLC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -6974,6 +6974,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
+    <!--<layouts>
+        <layout>3rd Pary Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Fields</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>Other information</label>
+            <section>Other information</section>
+        </sections>
+        <sections>
+            <label>Retail Information</label>
+            <section>Retail Information</section>
+        </sections>
+    </layouts>-->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7081,6 +7101,166 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
+    <!--<layouts>
+        <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>Additional Information</label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label>Address Information</label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label>Contact Info Status</label>
+            <section>Contact Info Status</section>
+        </sections>
+        <sections>
+            <label>Contact Information</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>Dealer Information</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>Duplication Information</label>
+            <section>Duplication Information</section>
+        </sections>
+        <sections>
+            <label>Other Information</label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label>Person Account Basic Information</label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label>Retail Information</label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>Telematics Related Information</label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections>
+            <label>Whole activities</label>
+            <section>Whole activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Dealer Portal</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Fields</label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>Other information</label>
+            <section>Other information</section>
+        </sections>
+        <sections>
+            <label>Retail Information</label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>Whole activities</label>
+            <section>Whole activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Other User</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>Additional Information</label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label>Address Information</label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label>Contact Info Status</label>
+            <section>Contact Info Status</section>
+        </sections>
+        <sections>
+            <label>Contact Information</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>Dealer Information</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>Duplication Information</label>
+            <section>Duplication Information</section>
+        </sections>
+        <sections>
+            <label>Other Information</label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label>Person Account Basic Information</label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label>Retail Information</label>
+            <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>Telematics Related Information</label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections>
+            <label>Whole activities</label>
+            <section>Whole activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PA Layout-Soft Deleted</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>Contact Information</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>Main Contact and Consent</label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label>Person Account Basic Information</label>
+            <section>Person Account Basic Information</section>
+        </sections>
+        <sections>
+            <label>Profile Information</label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>主要コンタクト・コンセント</label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label>New Section</label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>プロフィール情報</label>
+            <section>Profile Information</section>
+        </sections>
+    </layouts>-->
     <recordTypes>
         <label>Company</label>
         <name>Company</name>

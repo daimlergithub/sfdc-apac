@@ -511,7 +511,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No Choice Yet</fullName>
@@ -7078,6 +7078,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7087,6 +7091,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11519,7 +11527,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -14537,6 +14545,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -14546,6 +14558,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16153,7 +16169,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -18715,6 +18731,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -18724,6 +18744,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
