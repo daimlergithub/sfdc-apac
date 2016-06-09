@@ -13,7 +13,7 @@ public class AddresscontrollerTest
       createAccount();
       createAddress(); 
       list<Address__c> addlist=new list<Address__c>();
-      addlist = [select id,Name,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
+      addlist = [select id,Name,Customer__c,MD__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                           from Address__c Where Customer__c=:objAcct.Id AND Preferred__c=:true Limit 1]; 
      test.startTest();
      ApexPages.currentPage().getParameters().put('Id',objAcct.id);
