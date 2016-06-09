@@ -283,10 +283,6 @@
     </fields>
     <fields>
         <label>設立年月</label>
-        <name>Contractor_Company_Esatblished_Date__c</name>
-    </fields>
-    <fields>
-        <label>設立年月</label>
         <name>Contractor_Company_Established_Date__c</name>
     </fields>
     <fields>
@@ -2070,7 +2066,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Loan</masterLabel>
-            <translation><!-- Loan --></translation>
+            <translation>ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost sale - new</masterLabel>

@@ -137,8 +137,8 @@
                 <field>Bonus_Amount2__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Actual_Outstanding_Balance__c</field>
+                <behavior>Edit</behavior>
+                <field>Actual_Outstanding_Bal_To_Shinpan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -675,7 +675,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000NNZX</masterLabel>
+        <masterLabel>00hO0000000T2tl</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
