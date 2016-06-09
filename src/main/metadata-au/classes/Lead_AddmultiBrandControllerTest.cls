@@ -28,6 +28,14 @@ public with sharing class Lead_AddmultiBrandControllerTest
         lead.Sub_BusinessUnit__c='Auto Body Repairer';
         lead.CAC_Lead_Status__c = 'Credit Review in Process'; 
         ledlist.add(lead);
+        
+        Car_Model__c card = new Car_Model__c();
+        card.Name = 'JLR';
+        card.Vehicle_Group__c = 'PC';
+        card.Brand_code__c = 'AC';
+        card.Series__c = 'B-class';
+        card.Model__c = 'A160';
+        insert card;
     }
 	public static testmethod void unittest()
     {
