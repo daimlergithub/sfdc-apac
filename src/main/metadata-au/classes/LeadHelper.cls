@@ -628,11 +628,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
         }
-        /*
+       
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
-        } */
+        } 
     }
    
     public static void auBefore_Insert_Update_Events(list<Lead__c> listNewLeads,map<id,Lead__c> mapLeadOldmap,boolean isInsert,boolean isUpdate)
@@ -841,22 +841,25 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
     }
    
-     //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
+      //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
     public static void sendServicePartsEmail (List<Lead__c> leadsForSend, Set<Id> DealerIds, String EmailType) {
     system.debug('ENtered Email Method');
         Map<Lead__c, List<String>> leadContactToEmails = new Map<Lead__c, List<String>>();
         Map<Lead__c, List<String>> leadContactCCEmails = new Map<Lead__c, List<String>>();
-       
+         List<Contact> MonkContacts = new List<Contact>();  
+        
+        EmailTemplate VehicleTemplate = [select id ,developername from EmailTemplate where developername = 'EMC_Qualified_Vehicle_Lead'];
+        
         List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c from Contact where AccountId in :DealerIds
                                     and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_BusinessUnit__c != null and Email != null and contact.Inactive__c = false];
-         //TODO                           
+         //TODO                            
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c from MBAuP_Contact__c where Dealer_Name__c in :DealerIds
                                     and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_Business_Unit__c != null and Email_Address__c != null];*/
-       
+        
         for(Lead__c lead : leadsForSend) {
             List<String> TOemails = new List<String>();
             List<String> CCemails = new List<String>();
-           
+            
             for(Contact contact : listContact) {
                 //modified by Shuang Li Defect0345 Start
                 if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) {
@@ -887,10 +890,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             if(!CCemails.isEmpty()) {
                 leadContactCCEmails.put(lead, CCemails);
             }
-        }       
+        }        
         
         List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
-       
+        
         //2014-2-19 Barney lai start
         Map<Id, Account> leadAccounts = new Map<Id, Account>();
         Set<Id> contactIds = new Set<Id>();
@@ -912,88 +915,19 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-       
+        system.debug('leadContactToEmails'+leadContactToEmails);
         for(Lead__c lead : leadContactToEmails.keyset()) {
+            Contact MonkContact = MonkCotact(leadContactToEmails.get(lead)[0]);
+             MonkContacts.add(MonkContact);
+            
             Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-            message.setToAddresses(leadContactToEmails.get(lead));
+            //message.setToAddresses(leadContactToEmails.get(lead));
             if(leadContactCCEmails.containsKey(lead)) {
                 message.setCCAddresses(leadContactCCEmails.get(lead));
             }
-            message.setSubject(EmailType + ' - Lead (lead reference - ' + lead.name+', '+lead.Business_Unit__c + ', ' + lead.CreatedDate + ')');
-            String htmlBody = 'Lead (lead reference - '+lead.name+', '+lead.Business_Unit__c+', '+lead.CreatedDate+')';
-            htmlBody += 'has been assigned to you for action.<br/>';
-            htmlBody += '<br/>Please review and action this lead.<br/><br/>';
-            if(leadAccounts.containsKey(lead.Id)) {
-                htmlBody += 'Customer Name: ' + leadAccounts.get(lead.Id).Name + '<br/>';
-                htmlBody += 'Title: ' + leadAccounts.get(lead.Id).Salutation + '<br/>';
-            } else {
-                htmlBody += 'Customer Name: <br/>Title: <br/>';
-            }
-           if(lead.Business_Unit__c == null) {
-                htmlBody += 'Business Unit: <br/>';
-            } else {
-                htmlBody += 'Business Unit: ' + lead.Business_Unit__c + '<br/>';
-            }
-            if(lead.Nature_of_Request__c == null) {
-                htmlBody += 'Nature of Request: <br/>';
-            } else {
-                htmlBody += 'Nature of Request: '+lead.Nature_of_Request__c + '<br/>';
-            }
-            if(lead.Home_Phone__c == null) {
-                htmlBody += 'Home Phone: <br/>';
-            } else {
-                htmlBody += 'Home Phone: '+lead.Home_Phone__c+'<br/>';
-            }
-            if(lead.Work_Phone__c == null) {
-                htmlBody += 'Work Phone: <br/>';
-            } else {
-                htmlBody += 'Work Phone: '+lead.Work_Phone__c+'<br/>';
-            }
-            if(lead.Mobile__c == null) {
-                htmlBody += 'Mobile: <br/>';
-            } else {
-                htmlBody += 'Mobile: '+lead.Mobile__c+'<br/>';
-            }
-            //if(lead.Email__c == null) {
-               // htmlBody += 'Email: <br/>';
-            //} //else {
-                //htmlBody += 'Email: '+lead.Email__c+'<br/>';
-            //}
-            if(lead.Preferred_Test_Drive_Time__c == null) {
-                htmlBody += 'Preferred Test Drive Date: <br/>';
-            } else {
-                htmlBody += 'Preferred Test Drive Date: '+lead.Test_Drive_Date__c+'<br/>';
-            }
-            if(lead.Preferred_Test_Drive_Time__c == null) {
-                htmlBody += 'Preferred Test Drive Time: <br/>';
-            } else {
-                htmlBody += 'Preferred Test Drive Time: '+lead.Preferred_Test_Drive_Time__c+'<br/>';
-            }
-            if(lead.Purchase_Time__c == null) {
-                htmlBody += 'Purchase date intent: <br/>';
-            } else {
-                htmlBody += 'Purchase date intent: '+lead.Purchase_Time__c+'<br/>';
-            }
-            if(lead.Preferred_Contact_Method__c == null) {
-                htmlBody += 'Preferred method of communication: <br/>';
-            } else {
-                htmlBody += 'Preferred method of communication: '+lead.Preferred_Contact_Method__c+'<br/>';
-            }
-            if(lead.MB_Vehicle_Interest__c == null) {
-                htmlBody += 'MB Vehicle Interest (Make/Model): <br/>';
-            } else {
-                htmlBody += 'MB Vehicle Interest (Make/Model): '+lead.MB_Vehicle_Interest__c+'<br/>';
-            }
-            if(lead.Description__c == null) {
-                htmlBody += 'Description: <br/>';
-            } else {
-                htmlBody += 'Description: '+lead.Description__c+'<br/>';
-            }
-            htmlBody += '<br/><a href="https://c.ap1.visual.force.com/'+lead.id+'">'+lead.name+'</a><br/>';
-            htmlBody += '<br/>Kind Regards,<br/>';
-            htmlBody += 'Enquiry Management Centre<br/>';
-           
-            message.setHtmlBody(htmlBody);
+            message.setWhatId(lead.id);
+            message.setTemplateId(VehicleTemplate.Id);
+            message.setTargetObjectId(MonkContact.id);
             message.setsaveAsActivity(false);
             if(EmailType == 'Immediate Notice')
             {
@@ -1010,10 +944,15 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             try{
                 Messaging.sendEmail(messages);
             }
-            catch(DMLException e){
+            catch(Exception e){
                 system.debug('Send ServiceParts Leads Immediate Notice/24H/72H Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
             }
+            finally{
+            if(!MonkContacts.isEmpty()){
+                delete MonkContacts;
+            }  
         }
+    }
     }
    
     //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
