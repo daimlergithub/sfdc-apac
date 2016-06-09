@@ -238,7 +238,7 @@ public with sharing class VehicleExtension {
                     } 
                 
                      //Create Class model map.
-                    tempSet = classModelMap.get(cm.Series__c);
+                    tempSet = classModelMap.get(cm.Brand__c+cm.Series__c);
                     if(tempSet == null){
                         classModelMap.put(cm.Brand__c+cm.Series__c, new Set<String>{cm.Name});
                     }else{
@@ -246,7 +246,7 @@ public with sharing class VehicleExtension {
                     }
                     //Create model Range map.
                    
-                    tempSet = modelRangeMap.get(cm.Name);
+                    tempSet = modelRangeMap.get(cm.Brand__c+cm.Series__c+cm.Name);
                     if(tempSet == null){
                         modelRangeMap.put(cm.Brand__c+cm.Series__c+cm.Name, new Set<String>{cm.Range__c});
                     }else{
@@ -255,7 +255,7 @@ public with sharing class VehicleExtension {
                 
                  //Create  Range MP map.
                    
-                    tempSet = rangeMpMap.get(cm.Range__c);
+                    tempSet = rangeMpMap.get(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c);
                     if(tempSet == null){
                         rangeMpMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Mod_Pack__c});
                     }else{
@@ -264,7 +264,7 @@ public with sharing class VehicleExtension {
                 
                  //Create  Range Vehicle group map.
                    
-                    tempSet = rangeVgMap.get(cm.Range__c);
+                    tempSet = rangeVgMap.get(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c);
                     if(tempSet == null){
                         rangeVgMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
                     }else{
@@ -273,7 +273,7 @@ public with sharing class VehicleExtension {
                 
                 //Create  Range steering group map.
                    
-                    tempSet = rangeSteeringMap.get(cm.Range__c);
+                    tempSet = rangeSteeringMap.get(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c);
                     if(tempSet == null){
                         rangeSteeringMap.put(cm.Brand__c+cm.Series__c+cm.Name+cm.Range__c, new Set<String>{cm.Steering__c});
                     }else{
