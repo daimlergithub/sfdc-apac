@@ -225,7 +225,8 @@
 			<sf:include name="Lead_Product_Attendee"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
-			<sf:include name="leadProudctAttendeescontroller"/>
+			<sf:include name="leadProudctAttendeescontroller"/>			
+			<sf:include name="LeadProudctAttendeescontrollerTest"/>
 		</sf:typeset>		
 		</deploy>
     </target>
@@ -331,7 +332,8 @@
 			<sf:include name="ComplaintDescriptionControllerTest"/>	
 			<sf:include name="InlineVFToShowVehicleDetailController"/>
             <sf:include name="InlineVFToShowVehicleDetailTest"/>
-			<sf:include name="LeadProductDetailsInputController"/>			
+			<sf:include name="LeadProductDetailsInputController"/>
+			<sf:include name="LeadProductDetailsInputControllerTest"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -479,7 +481,6 @@
 			<sf:include name="ExtSelectAssignedDealerTest"/>
             <sf:include name="LeadContactController"/>
 			<sf:include name="LeadContactControllerTest"/>
-			<sf:include name="LeadProductAttendeeController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
