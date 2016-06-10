@@ -326,11 +326,11 @@
         <name>Contractor_Marital_Status__c</name>
         <picklistValues>
             <masterLabel>Married</masterLabel>
-            <translation><!-- Married --></translation>
+            <translation>配偶者有</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not Married</masterLabel>
-            <translation><!-- Not Married --></translation>
+            <translation>配偶者無</translation>
         </picklistValues>
     </fields>
     <fields>
