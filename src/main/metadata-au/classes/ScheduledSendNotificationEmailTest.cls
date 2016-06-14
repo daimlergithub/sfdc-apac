@@ -9,7 +9,7 @@ public class ScheduledSendNotificationEmailTest{
     static testMethod void testScheduledSendNotificationEmail(){
         String personRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-        String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
+        String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
         User usr1 = UtilTestData.createUser('Australia','Fleet');
         system.runAs(usr1){
         
