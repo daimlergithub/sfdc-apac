@@ -443,7 +443,7 @@ public with sharing class LeadHelperTest {
         insert account1;
 		
 		Lead__c lead1 = new Lead__c();
-        lead1.recordTypeId = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
+        lead1.recordTypeId = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
       //  lead1.CAC_Lead_Status__c = 'Qualified';
          lead1.Company_Account__c=acc.Id;
          lead1.Assigned_Dealer__c = acc.Id;
