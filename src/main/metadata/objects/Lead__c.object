@@ -2422,9 +2422,9 @@
     </fields>
     <fields>
         <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
+        <caseSensitive>false</caseSensitive>
         <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
+        <externalId>false</externalId>
         <label>CAC SourceId</label>
         <length>40</length>
         <required>false</required>
@@ -18752,7 +18752,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Competitive Reasons</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
