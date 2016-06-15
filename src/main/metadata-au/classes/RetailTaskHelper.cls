@@ -188,7 +188,7 @@ public with sharing class RetailTaskHelper {
         if(fltCntrctList.size() > 0){
             // Get the fleet lead record type information
             RecordType fleetLdRT = [SELECT Id, Name FROM RecordType
-                                    WHERE Name = 'Finance Fleet Lead'];
+                                    WHERE Name = 'Fleet Finance Lead'];
             if(fleetLdRT != null){
                 for(Retail_Task__c curCntrct : fltCntrctList){
                     Lead__c newLead = new Lead__c();

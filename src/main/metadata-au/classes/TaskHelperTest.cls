@@ -16,7 +16,7 @@ private class TaskHelperTest {
     private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
     private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     public static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-    private static final String Finance_Fleet_lead_RECORDTYPEID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Fleet Lead').getRecordTypeId();
+    private static final String Finance_Fleet_lead_RECORDTYPEID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
 	private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     private static Account personAccount;
 	private static Account testPersonAccount;
