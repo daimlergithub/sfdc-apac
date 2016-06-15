@@ -2444,8 +2444,8 @@
     </fields>
     <fields>
         <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <externalId>true</externalId>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
         <label>CAC SourceId</label>
         <length>40</length>
         <required>false</required>
