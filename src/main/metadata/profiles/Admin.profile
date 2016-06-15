@@ -10896,6 +10896,12 @@
         <field>Lead_Product__c.Lead_Product_Item__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    </fieldPermissions>
+		 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead_Product__c.Lead_Product_Items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 		 <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Product__c.Name__c</field>
