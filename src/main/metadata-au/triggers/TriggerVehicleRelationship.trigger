@@ -14,7 +14,7 @@
     3. CC Modified on 2014-06-12
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerVehicleRelationshipTriggerHandler
 */
-trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, before update, before insert,after delete) 
+trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert,after update, before update, before insert,after delete) 
 {
     TriggerUtil.handleTrigger('TriggerVehicleRelationship');
 }
