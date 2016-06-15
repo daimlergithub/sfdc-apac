@@ -35,6 +35,9 @@ public class AccountHelper {
      */
     public static final String ERROR_MSG_CP_016 = Label.Account_Cann_t_be_Customer;
     
+    public static Map<Id, GroupMember> groupMemberMap = new Map<Id, GroupMember>([Select GroupId, UserOrGroupId From GroupMember  Where Group.DeveloperName =: 'MB_Financial_Services' AND UserOrGroupId =: userinfo.getUserID()]);
+   
+    
     /**
        get record counts from accout which Dealer_Default_Flag__c = true and "Dealer DMS SR Code 1" has a value
        return a Map Key is Dealer_DMS_SR_Code__c , 
@@ -209,8 +212,7 @@ public class AccountHelper {
     //Id profileId = userinfo.getProfileId();
     //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
 
-   Map<Id, GroupMember> groupMemberMap = new Map<Id, GroupMember>([Select GroupId, UserOrGroupId From GroupMember  Where Group.DeveloperName =: 'MB_Financial_Services' AND UserOrGroupId =: userinfo.getUserID()]);
-   System.debug('@@@@ groupMap '+groupMemberMap);
+   
  CustomLogUtil.CustomLoggingEntry('Account Helper Class trackUpdatHistoryForFsInfo Method'+'profileName = ' + profileName + ' groupMember Name = '+ groupMemberMap.size());
         if(profileName!= 'IntegrationAPI'){
 
@@ -594,7 +596,7 @@ public class AccountHelper {
                        VAN_Status__c,
                        VAN_Tenure__c,
                        VAN_No_Brand_Purchases__c,
-                       System_Data_Source__c
+					   System_Data_Source__c
                 from Account
                 where Id in :ids]);
     }
@@ -611,6 +613,7 @@ public class AccountHelper {
         Set<Id> vehicleRelationIds = new Set<Id>();
         Set<Id> customerIds = new Set<Id>();
         set<id> setAccId= new set<Id>();
+        Map<id,Account> accounts = new Map<id,Account>();
         Map<String,Integer> tempcount = new Map<String,Integer>();
         Map<String,Integer> counttenure = new Map<String,Integer>();       
         List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>(); 
@@ -624,7 +627,7 @@ public class AccountHelper {
         {   
         Vehiclecount=new Map<Id, Map<String,Integer>>();
         Vehicletenure =new Map<Id, Map<String,Integer>>();
-            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c, Purchase_Date__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+            list<Account> lstCustomers=[select id,RecordType.Name,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c, Purchase_Date__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
             
             if(lstCustomers!=null && !lstCustomers.isEmpty())
             {   
@@ -756,6 +759,28 @@ public class AccountHelper {
                     
                 }
             }
+            
+             
+                    for(Account objAccount:lstCustomers)
+                     {
+                    if(objAccount.Recordtype.name == 'Person Account Soft Deleted')
+                     {                    
+                       objAccount.PC_Tenure__c=0;
+                       objAccount.CV_Tenure__c =0;
+                       objAccount.Buy_Cycle__c=0;
+                       objAccount.CV_No_Brand_Purchases__c=0;
+                       objAccount.VAN_Tenure__c=0;
+                       objAccount.VAN_No_Brand_Purchases__c=0;
+                       accounts.Put(objAccount.id,objAccount);                        
+                     
+                     }
+                     } 
+                     if(accounts.values()!=null && !accounts.values().isEmpty())   
+                      { 
+                        UtilConstant.Recursivefire=true;
+                        update accounts.values();
+                        
+                      }
         }
         }
     
@@ -817,8 +842,8 @@ public class AccountHelper {
             }         
             }           
             
-        }
-         
+        } 
+         system.debug('@@@@@@@@@'+accounts.values());
           if(accounts.values()!=null && !accounts.values().isEmpty() && System.IsBatch() == false && System.isFuture() == false)   
           { 
             UtilConstant.Recursivefire=true;
@@ -838,6 +863,7 @@ public class AccountHelper {
     @future
     public static void updateaccounts(String str)
     {
+        system.debug('@@@@@@@@@'+str);
         List<Account> webList=(List<Account>)JSON.deserialize(str,List<Account>.class);
         UtilDB.updateSobjects(webList);
     }
