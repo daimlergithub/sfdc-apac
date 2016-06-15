@@ -133,7 +133,7 @@
         <fullName>Lead_Product_Items__c</fullName>
         <externalId>false</externalId>
         <label>Lead Product Items</label>
-        <length>32768</length>
+        <length>32000</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
