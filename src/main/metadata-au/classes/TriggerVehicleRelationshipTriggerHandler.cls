@@ -46,7 +46,7 @@ public class TriggerVehicleRelationshipTriggerHandler
       //      VehicleRelationshipHelper.auBefore_Insert_Update_Events(Trigger.new);
        // }
        
-        if(trigger.isbefore  && trigger.isUpdate)
+        if(trigger.isafter  && trigger.isUpdate)
         {
             /*AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);

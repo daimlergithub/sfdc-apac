@@ -173,33 +173,35 @@ public with sharing class VehicleRelationshipHelper {
     };
         //update PC CV VAN tenure
         @TestVisible
-        private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete){
+        private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete,boolean brandValue,boolean tenureValue){
             
             if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null && userInfo.id!=null ){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
                  if(isCustomer && !cols.isEmpty())
-                 {
-                    if(userInfo.get(cols[0]) != 'Complainant')
-                        userInfo.put(cols[0], 'customer');
-                }
-                                 
-                integer numberofP =1;       
-                integer MaxnumberofP =99;    
+                    {
+                     if(userInfo.get(cols[0]) != 'Complainant')
+                      userInfo.put(cols[0], 'customer');
+                    }   
+                        
+                integer numberofP =1; 
+                      
+                integer MaxnumberofP =99;     
                 if(userInfo.get(cols[1])!=null)
-                {            
+                {          
+               numberofP =integer.valueOf(userInfo.get(cols[1]));  
                     if(isinsert)
                     {
                         numberofP = integer.valueOf(userInfo.get(cols[1]))+1;  
                     } 
-                    if(isupdate)
+                    if(isupdate && brandValue)
                     {                        
                         numberofP =integer.valueOf(userInfo.get(cols[1]))+1;   
                              
                     }        
                     
                     if(isdelete)
-                    {
+                    { 
                         numberofP = integer.valueOf(userInfo.get(cols[1]))-1;         
                     }
                 }
@@ -213,10 +215,19 @@ public with sharing class VehicleRelationshipHelper {
                 }
               
                 integer tenure = 0;
-                integer Maxtenure= 99;
-                if(preRecord.get(userInfo.id) != null){
-                    tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
+                integer Maxtenure= 99; 
+                if(preRecord.get(userInfo.id) != null){ 
+                if(isupdate && tenureValue)
+                {
+                tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
                 }
+                else
+                {
+                tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
+                }
+                    
+                }
+                 
                 
                 if((tenure > 99 || tenure < -99) && tenure !=null)
                 {
@@ -231,10 +242,10 @@ public with sharing class VehicleRelationshipHelper {
             
             else if( isdelete && preRecords == null || preRecords.get(vehicleGroup) == null)
             {
-            integer Zerono=0;
-            System.debug('else loop');
+            integer Zerono=0; 
             List<String> cols = colsMap.get(vehicleGroup);
             userInfo.put(cols[1], Zerono);
+            userInfo.put(cols[2] , Zerono);
             }
             
             return userInfo;
@@ -242,7 +253,7 @@ public with sharing class VehicleRelationshipHelper {
         }
     
     //When PA gets a Vehicle-Relationship
-    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs,boolean isInsert,boolean isupdate,boolean isdelete) {
+    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs,boolean isInsert,boolean isupdate,boolean isdelete,boolean brandValue,boolean tenureValue) {
         Map<id,Account> accounts = new Map<id,Account>();
          Map<id,Vehicle__c> vehichles = new  Map<id,Vehicle__c>();        
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
@@ -288,7 +299,7 @@ public with sharing class VehicleRelationshipHelper {
                 if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null && acc!=null && acc.Id!=null) 
                 {
                     if(vehichles.get(curCvr.Vehicle_ID__c) != null && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c != null)
-                    acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete);
+                    acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete,brandValue,tenureValue);
                     ////////    SFDCAU-735; update status to 'Complainant' based on Vehichle group if Car relation is 'Complainant' /////////
                     if(curCvr.Car_Relation__c == 'Complainant' && acc.System_Data_Source__c == 'ICC')
                     {
@@ -305,6 +316,7 @@ public with sharing class VehicleRelationshipHelper {
                             acc.VAN_Status__c = 'Complainant';
                         }
                     }
+                    
                     if(acc != null && acc.id != null){
                     accounts.put(acc.id,acc);
                     }
@@ -322,7 +334,7 @@ public with sharing class VehicleRelationshipHelper {
     public static void updateaccounts(String str)
     {
         List<Account> webList=(List<Account>)JSON.deserialize(str,List<Account>.class);
-        UtilDB.updateSobjects(webList);
+        UtilDB.updateSobjects(webList); 
     }
     
     public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,map<id,Vehicle_Relationship__c> oldMap,boolean isInsert,boolean isupdate,boolean isdelete)
@@ -331,6 +343,8 @@ public with sharing class VehicleRelationshipHelper {
         Set<Id> customerIds = new Set<Id>();
         List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>();
         boolean isdeleteValue=false;
+        boolean tenureValue=false;
+        boolean brandValue=false;
         for(Vehicle_Relationship__c cvr : listVRNew) {
             if(isInsert || isdelete || isupdate){
                 if(isdelete)
@@ -350,34 +364,43 @@ public with sharing class VehicleRelationshipHelper {
                     vehicleIds.add(cvr.Vehicle_ID__c);
                 }
                 if(((isInsert || isdelete) && cvr.Car_Relation__c =='Owner'))
-                {
-                    insertCvrs.add(cvr);
+                {                
+                    insertCvrs.add(cvr); 
                 }
                 if(((isupdate && oldMap.get(cvr.Id).Car_Relation__c=='Owner' && cvr.Car_Relation__c !='Owner')))
                 {
                     insertCvrs.add(cvr);
                     if(isupdate)
                         isdeleteValue=true;
-                }
-                
+                } 
                 if(((isupdate && oldMap.get(cvr.Id).Car_Relation__c!='Owner' && cvr.Car_Relation__c =='Owner')))
                 {
                     insertCvrs.add(cvr);
                     if(isupdate)
                         isdeleteValue=false;
+                        brandValue=true;
                 }
-                if((isInsert || isupdate) && cvr.Car_Relation__c =='Complainant')
+                if(((isupdate && oldMap.get(cvr.Id).Purchase_Date__c != cvr.Purchase_Date__c)))
                 {
+                       insertCvrs.add(cvr);
+                        if(isupdate)
+                        isdeleteValue=false;
+                        tenureValue=true; 
+                }
+                
+                
+                if(((isupdate && oldMap.get(cvr.Id).Contact__c != cvr.Contact__c)))
+                { 
                     insertCvrs.add(cvr);
                     if(isupdate)
-                        isdeleteValue=false;
+                    isdeleteValue=false; 
                 }
             }
         } 
         
         //US_AU-CD-001 & 002 & 001.1 & 002.1
         if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty() && insertCvrs!=null && !insertCvrs.isEmpty() ){
-            updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,isInsert,isupdate,isdeleteValue);
+            updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,isInsert,isupdate,isdeleteValue,brandValue,tenureValue);
         }
         
         
