@@ -160,6 +160,7 @@
 				<sf:include name="FleerCorverList"/>
 				<sf:include name="FleerCorverListTest"/>
 				<sf:include name="TestDataUtil"/>
+				<sf:include name="UtilConstant"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="RetailTaskHelper"/>							
 				<sf:include name="ScheduledSendNotificationEmail"/>
@@ -370,7 +371,6 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
-			<sf:include name="UtilConstant"/>
 			<sf:include name="UtilConstantTest"/>
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="NiceWebServices"/>
