@@ -160,6 +160,7 @@
 				<sf:include name="FleerCorverList"/>
 				<sf:include name="FleerCorverListTest"/>
 				<sf:include name="TestDataUtil"/>
+				<sf:include name="LeadHelper"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -518,7 +519,6 @@
 	<target name="deploy37">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="LeadHelper"/>
 			<sf:include name="LeadHelperTest"/>
 			<sf:include name="ReservationMessageTemplate"/>
 			<sf:include name="ReservationMessageTemplateTest"/>
