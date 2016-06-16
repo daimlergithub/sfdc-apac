@@ -94,7 +94,7 @@
     </rules>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
