@@ -161,6 +161,9 @@
 				<sf:include name="FleerCorverListTest"/>
 				<sf:include name="TestDataUtil"/>
 				<sf:include name="LeadHelper"/>
+				<sf:include name="RetailTaskHelper"/>							
+				<sf:include name="ScheduledSendNotificationEmail"/>
+				<sf:include name="ScheduledSendNotificationEmailTest"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -699,7 +702,6 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
-			<sf:include name="RetailTaskHelper"/>
 			<sf:include name="RetailTaskHelperTest"/>
 			<sf:include name="HistoryRespondController"/>
 			<sf:include name="HistoryRespondControllerTest"/>
@@ -843,9 +845,7 @@
 			<sf:include name="NewCMSContractsRelationController"/>
 			<sf:include name="NewCMSContractsRelationControllerTest"/>
 			<sf:include name="ReportUserController"/>	
-			<sf:include name="ReportUserControllerTest"/>			
-			<sf:include name="ScheduledSendNotificationEmail"/>
-			<sf:include name="ScheduledSendNotificationEmailTest"/>	
+			<sf:include name="ReportUserControllerTest"/>	
 			<sf:include name="ScheduledSharingContractToCROs"/>
 			<sf:include name="ScheduledSharingContractToCROsTest"/>				
 		</sf:typeset>	
