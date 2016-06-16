@@ -228,10 +228,13 @@
 			<sf:typeset name="queues"/>
 		<sf:typeset name="pages"> 
 			<sf:include name="Lead_Product_Attendee"/>
+			<sf:include name="LeadProductDetailsInput"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="leadProudctAttendeescontroller"/>
 			<sf:include name="LeadProudctAttendeescontrollerTest"/>
+			<sf:include name="LeadProductDetailsInputController"/>
+			<sf:include name="LeadProductDetailsInputControllerTest"/>
 		</sf:typeset>		
 		</deploy>
     </target>
@@ -336,9 +339,7 @@
 			<sf:include name="ComplaintDescriptionController"/>	
 			<sf:include name="ComplaintDescriptionControllerTest"/>	
 			<sf:include name="InlineVFToShowVehicleDetailController"/>
-            <sf:include name="InlineVFToShowVehicleDetailTest"/>
-			<sf:include name="LeadProductDetailsInputController"/>
-			<sf:include name="LeadProductDetailsInputControllerTest"/>		
+            <sf:include name="InlineVFToShowVehicleDetailTest"/>		
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -346,7 +347,6 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="ComplaintDescriptionViewAll"/>
 				<sf:include name="InlineVFPageToShowGenericVehicleDetails"/>
-				<sf:include name="LeadProductDetailsInput"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
