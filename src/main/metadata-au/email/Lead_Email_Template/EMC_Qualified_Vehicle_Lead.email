@@ -1,0 +1,35 @@
+<messaging:emailTemplate subject="Immediate Notice – Lead (Lead Reference - {!relatedTo.Name} , 
+{!relatedTo.Business_Unit__c} , {!DATEVALUE(relatedTo.CreatedDate)})"  recipientType="Contact" relatedToType="Lead__c">
+<messaging:htmlEmailBody >
+Lead (lead reference - {!relatedTo.name}, {!relatedTo.Business_Unit__c}, <apex:outputText value="{0,date, dd/MM/yyyy}" style=""> <apex:param value="{!relatedTo.CreatedDate}"/></apex:outputText>) <br/>
+
+has been assigned to you for action.<br/>
+<br/>Please review and action this lead.<br/><br/>
+
+<apex:outputPanel rendered="{!if(isblank(relatedTo.Contact__c),if(isblank(relatedTo.Company_Account__c),false,true),true)}">
+Customer Name: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Salutation,relatedTo.Contact__r.Salutation)} {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Name,relatedTo.Contact__r.FirstName)} {!if(isblank(relatedTo.Contact__c),'',relatedTo.Contact__r.LastName)}<br/>
+</apex:outputPanel>
+Mobile 1: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.SMS_Last_Modified_By__c=='DLM'),relatedTo.Company_Account__r.Mobile__c,''),if((relatedTo.Contact__r.SMS_Last_Modified_By__c=='DLM'),relatedTo.Contact__r.Mobile__c,''))}"  /><br/>
+Mobile 2: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.SMS_Last_Modified_By2__c=='DLM'),relatedTo.Company_Account__r.Mobile2__c,''),if((relatedTo.Contact__r.SMS_Last_Modified_By2__c=='DLM'),relatedTo.Contact__r.Mobile2__c,''))}"  /> <br/>
+Home Phone 1: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Home_Phone_Last_Modified_By__c=='DLM'),relatedTo.Company_Account__r.Individual_Home_Phone__c,''),if((relatedTo.Contact__r.Home_Phone_Last_Modified_By__c=='DLM'),relatedTo.Contact__r.Individual_Home_Phone__c,''))}"  /> <br/>
+Home Phone 2: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Home_Phone_Last_Modified_By2__c=='DLM'),relatedTo.Company_Account__r.Home_Phone_2__c,''),if((relatedTo.Contact__r.Home_Phone_Last_Modified_By2__c=='DLM'),relatedTo.Contact__r.Home_Phone_2__c,''))}"  /> <br/>
+Work Phone 1: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Work_Phone_Last_Modified_By__c=='DLM'),relatedTo.Company_Account__r.Work_Phone__c,''),if((relatedTo.Contact__r.Work_Phone_Last_Modified_By__c=='DLM'),relatedTo.Contact__r.Work_Phone__c,''))}"  /> <br/>
+Work Phone 2: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Work_Phone_Last_Modified_By2__c=='DLM'),relatedTo.Company_Account__r.Phone,''),if((relatedTo.Contact__r.Work_Phone_Last_Modified_By2__c=='DLM'),relatedTo.Contact__r.Phone,''))}"  /><br/>
+Email 1: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Email_Last_Modified_By__c=='DLM'),relatedTo.Company_Account__r.Email__c,''),if((relatedTo.Contact__r.Email_Last_Modified_By__c=='DLM'),relatedTo.Contact__r.Email__c,''))}"  /> <br/>
+Email 2: <apex:OutputText value=" {!if(isblank(relatedTo.Contact__c),if((relatedTo.Company_Account__r.Email_Last_Modified_By2__c=='DLM'),relatedTo.Company_Account__r.Email2__c,''),if((relatedTo.Contact__r.Email_Last_Modified_By2__c=='DLM'),relatedTo.Contact__r.Email2__c,''))}"  /> <br/><br/>
+
+Business Unit: {!relatedTo.Business_Unit__c}<br/>
+Nature of Request: {!relatedTo.Nature_of_Request__c}<br/>
+Preferred Test Drive Date: <apex:outputText value="{0,date, dd/MM/yyyy}" style=""> <apex:param value="{!relatedTo.Test_Drive_Date__c}"/></apex:outputText><br/>
+Preferred Test Drive Time: {!relatedTo.Preferred_Test_Drive_Time__c}<br/>
+Purchase date intent: {!relatedTo.Purchase_Time__c}<br/>
+Preferred method of communication: {!relatedTo.Preferred_Contact_Method__c}<br/>
+MB Vehicle Interest (Make/Model): {!relatedTo.MB_Vehicle_Interest__c}<br/>
+Description: {!relatedTo.Description__c}<br/><br/>
+
+{!relatedTo.name}<br/><br/>
+
+
+Kind Regards,<br/>
+Enquiry Management Centre</messaging:htmlEmailBody>
+</messaging:emailTemplate>

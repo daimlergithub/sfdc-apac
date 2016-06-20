@@ -50,6 +50,7 @@
         </filters>
         <label>Last 7 Days</label>
     </listViews>
+    
     <recordTypes>
         <fullName>InternalIdeasIdeaRecordType</fullName>
         <active>true</active>

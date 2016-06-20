@@ -60,43 +60,95 @@
         <label>BodyType</label>
         <picklist>
             <picklistValues>
-                <fullName>4 DOOR COUPE</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CABRIO</fullName>
+                <fullName>5 door</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>COUPE</fullName>
+                <fullName>4 door Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ESTATE</fullName>
+                <fullName>Mpv</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HATCHBACK</fullName>
+                <fullName>ATW</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MPV</fullName>
+                <fullName>Cabrio</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ROADSTER</fullName>
+                <fullName>Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SEDAN</fullName>
+                <fullName>Estate</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SPORTCOUPE</fullName>
+                <fullName>Hatch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hatchback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LWB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>People Mover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roadster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SportCoupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports Tourer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SWB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Van</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wagon</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -131,6 +183,20 @@
         <externalId>false</externalId>
         <label>Description</label>
         <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

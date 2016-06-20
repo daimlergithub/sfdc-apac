@@ -11,7 +11,7 @@
 global class ScheduledSendNotificationEmail implements Schedulable{
 
     private static final String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-    private static final String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Lead').getRecordTypeId();
+    private static final String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
 
     global void execute(SchedulableContext SC) {
         

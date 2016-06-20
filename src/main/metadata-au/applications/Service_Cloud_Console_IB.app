@@ -130,7 +130,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/MB_LOGO.png</logo>
     <pushNotifications>
         <pushNotification>
             <fieldNames>DeadLine__c</fieldNames>

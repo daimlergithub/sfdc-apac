@@ -90,7 +90,7 @@
     </fields>
     <fields>
         <fullName>Recipient_Eamil__c</fullName>
-        <defaultValue>&quot;support-daimlercrmcn@nttdata.com&quot;</defaultValue>
+        <defaultValue>"support-daimlercrmcn@nttdata.com"</defaultValue>
         <externalId>false</externalId>
         <label>Recipient Eamil</label>
         <required>false</required>

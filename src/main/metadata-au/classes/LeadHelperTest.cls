@@ -411,7 +411,56 @@ public with sharing class LeadHelperTest {
            }
     }
      
-
+      @istest(seealldata = false)
+    public static void emailNotificationsToAssignedDealerTest() {
+        Trigger__c TriggerCampaignLead=new Trigger__c(Name='TriggerCampaignLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='AU');
+        upsert TriggerCampaignLead;
+        
+        Test.startTest();
+        Account acc = new Account();
+        acc.Name = 'account name';
+        acc.Phone = '10786';
+        acc.Area_Code__c = '010';
+        acc.Fax = '10086';
+        acc.BillingCity = 'San Francisco';
+        acc.BillingCountry = 'USA';
+        acc.BillingPostalCode = '94105';
+        acc.BillingState = 'CA';
+        acc.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
+        acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        insert acc;
+		Account account1 = new Account();
+        account1.Name = 'account name1';
+        account1.Phone = '10786';
+        account1.Area_Code__c = '010';
+        account1.Fax = '10086';
+        account1.BillingCity = 'San Francisco';
+        account1.BillingCountry = 'USA';
+        account1.BillingPostalCode = '94105';
+        account1.BillingState = 'CA';
+        account1.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
+        account1.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        insert account1;
+		
+		Lead__c lead1 = new Lead__c();
+        lead1.recordTypeId = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
+      //  lead1.CAC_Lead_Status__c = 'Qualified';
+         lead1.Company_Account__c=acc.Id;
+         lead1.Assigned_Dealer__c = acc.Id;
+         lead1.Lead_Source__c = 'Web Form';
+         lead1.Nature_of_Request__c='General Enquiry';
+         lead1.Business_Unit__c= 'Vans';
+         lead1.Sub_BusinessUnit__c='Auto Body Repairer';
+         lead1.CAC_Lead_Status__c = 'Credit Review in Process';
+         insert lead1;
+		 lead1.Assigned_Dealer__c=account1.id;
+		 update lead1;
+        // LeadHelper.emailNotificationsToAssignedDealer(listNewLeads, leadNewMap, leadOldMap, isInsert, isUpdate)
+         Test.stopTest();
+         Lead__c lead2 = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+         System.assertEquals(lead1.Assigned_Dealer__c, lead2.Assigned_Dealer__c);
+		 
+    }
     
      
 

@@ -188,7 +188,7 @@ public with sharing class RetailTaskHelper {
         if(fltCntrctList.size() > 0){
             // Get the fleet lead record type information
             RecordType fleetLdRT = [SELECT Id, Name FROM RecordType
-                                    WHERE Name = 'Fleet Lead'];
+                                    WHERE Name = 'Fleet Finance Lead'];
             if(fleetLdRT != null){
                 for(Retail_Task__c curCntrct : fltCntrctList){
                     Lead__c newLead = new Lead__c();
@@ -230,5 +230,108 @@ public with sharing class RetailTaskHelper {
             }
         }
     }
+    
+    public static void sentEmailAfterStatusToCurrent(List<Retail_Task__c> retailTasklst,Map<Id,Retail_Task__c> oldMap,Map<Id,Retail_Task__c>newMap,Boolean isInsert,Boolean isUpdate){
+          Set<Id> dealerIds = new Set<Id>();
+         
+            for(Retail_Task__c retailtaskObj : retailTasklst){
+                if(retailtaskObj.Status__c == UtilConstant.CURRENT || retailtaskObj.Status__c == UtilConstant.IRREGULAR|| retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
+                    dealerIds.add(retailtaskObj.Related_Dealer__c);
+                }
+            }
+            if(dealerIds != null && dealerIds.size() > 0){
+                List<Messaging.SingleEmailMessage> mails =  new List<Messaging.SingleEmailMessage>();
+                String[] businessUserEmailAddress = new String[]{};
+                
+                for(Account accountObj : [Select Id,(Select Id,Email FROM Contacts where Job_Title__c ='Management - F&I Business Manager') FROM Account where Id IN:dealerIds]){
+                    for(Contact contactObj : accountObj.Contacts){
+                            businessUserEmailAddress.add(contactObj.Email);
+                    }
+                 }
+                 
+                 EmailTemplate emailTemplateObj = [Select Subject,Body FROM EmailTemplate where isActive = true and DeveloperName ='Settlement_Email_Template'];
+                 EmailTemplate emailTemplateObjForRegular  = [Select Subject,Body FROM EmailTemplate where isActive = true and DeveloperName ='Irregular_Contract'];
+                 if(emailTemplateObj != null){
+                     Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                     
+                     String body;
+                     Map<Id,Account> acclst = new Map<Id,Account>([SELECT Name,Id FROM Account where Id IN:dealerIds]);
+                     for(Retail_Task__c retailTaskObj : retailTasklst){
+                        
+                            String subject ='';
+                            String plainBody ='';
+                            if(retailtaskObj.Status__c == UtilConstant.CURRENT && oldMap.get(retailtaskObj.Id).status__c != UtilConstant.CURRENT){
+                              subject  = emailTemplateObj.Subject;
+                              plainBody = emailTemplateObj.Body ;
+                            }else if((retailtaskObj.Status__c == UtilConstant.IRREGULAR && oldMap.get(retailtaskObj.Id).status__c != UtilConstant.IRREGULAR) || (retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED
+                                   &&  oldMap.get(retailtaskObj.Id).status__c != UtilConstant.REGULARCOMPILED)) {
+                                subject  = emailTemplateObjForRegular.Subject;
+                                plainBody = emailTemplateObjForRegular.Body ;
+                            }
+   //                         system.debug();
+                            if(subject != null && plainBody != null && !businessUserEmailAddress.isEmpty()){
+                                mail.setToAddresses(businessUserEmailAddress);
+                                if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
+                                {
+                                    if(retailTaskObj.Related_Dealer__c!= null)
+                                    {
+                                        subject  = subject.replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                    }
+                                    else
+                                    {
+                                        subject = subject.replace('{!Account.Name}', '');
+                                    }
+                                    if(retailTaskObj.Related_Dealer__c != null)
+                                    {
+                                        plainBody  = plainBody .replace('{!Account.Name}',acclst.get(retailTaskObj.Related_Dealer__c).Name);
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody .replace('{!Account.Name}','');
+                                    }
+                                    if(retailTaskObj.ContractNumber__c != null)
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.ContractNumber}',retailTaskObj.ContractNumber__c);
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.ContractNumber}','');
+                                    }
+                                    if(retailTaskObj.Amount_Financed__c != null)
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.FINANCED}',String.valueOf(retailTaskObj.Amount_Financed__c));
+                                    }
+                                    else
+                                    {
+                                        plainBody  = plainBody.replace('{!RetailTask.FINANCED}','');
+                                    }
+                                    if(retailtaskObj.Status__c == UtilConstant.IRREGULAR || retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
+                                       if(retailTaskObj.Settlement_Officer__c != null){
+                                          plainBody  = plainBody.replace('(Settlement officer)',retailTaskObj.Settlement_Officer__c);
+                                       }else{
+                                           plainBody  = plainBody.replace('(Settlement officer)','');
+                                       }
+                                       if(retailTaskObj.Compliance_Comment__c != null){
+                                           plainBody  = plainBody.replace('(Compliance comment)',retailTaskObj.Compliance_Comment__c);
+                                       }else{
+                                           plainBody  = plainBody.replace('(Compliance comment)','');
+                                       }
+                                    }
+                              
+                                    mail.setSubject(subject);
+                                    mail.setPlainTextBody(plainBody);
+                                    mails.add(mail);
+                                    system.debug('::Eneter here:'+subject);
+                                     system.debug('::Eneter here:'+plainBody );
+                               }
+                            }
+                    }
+                     
+                      
+                      Messaging.sendEmail(mails);
+                }
+    
     // End of added part, Polaris Yu 2013-8-23
-}
+            }
+        }
+    }

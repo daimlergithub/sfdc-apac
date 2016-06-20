@@ -36,4 +36,8 @@
         <name>Events</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>Reports</name>
+        <type>StandardAppMenuItem</type>
+    </appMenuItems>
 </AppMenu>

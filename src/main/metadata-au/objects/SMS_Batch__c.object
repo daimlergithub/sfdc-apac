@@ -151,7 +151,7 @@
         <description>Batch Start Time should not be earlier than Now</description>
         <errorConditionFormula>OR(AND(ISNEW(), Batch_Start__c&lt; NOW() ),AND( ISCHANGED( Batch_Start__c ), Batch_Start__c &lt;NOW() ))</errorConditionFormula>
         <errorDisplayField>Batch_Start__c</errorDisplayField>
-        <errorMessage>Sorry you can&apos;t set the batch start time be ealier than current time.</errorMessage>
+        <errorMessage>Sorry you can't set the batch start time be ealier than current time.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Activate_All</fullName>
@@ -162,24 +162,24 @@
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/14.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/14.0/apex.js")}
 var r;
 if ({!Campaign.SMS_Task_Verified__c}){
     r = true;
 }else{
-    r = confirm(&quot;The checkbox SMS/MMS Task Verified is unchecked, still create SMS/MMS?&quot;); 
+    r = confirm("The checkbox SMS/MMS Task Verified is unchecked, still create SMS/MMS?"); 
 }
 if (r == true) { 
-    var id= &quot;{!Campaign.Id}&quot;;
+    var id= "{!Campaign.Id}";
     var status = sforce.apex.execute( 
-    &quot;SMSBatchService&quot;, 
-    &quot;ActiveAll&quot;, 
+    "SMSBatchService", 
+    "ActiveAll", 
     { 
     CampaignId: id
     }); 
 
-    if (status == &apos;&apos;) { 
+    if (status == '') { 
         window.location.reload();
     } else { 
         alert(status); 
@@ -195,17 +195,17 @@ if (r == true) {
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
-var id= &quot;{!Campaign.Id}&quot;; 
+        <url>{!REQUIRESCRIPT("/soap/ajax/14.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/14.0/apex.js")} 
+var id= "{!Campaign.Id}"; 
 var status = sforce.apex.execute( 
-&quot;SMSBatchService&quot;, 
-&quot;SuspendAll&quot;, 
+"SMSBatchService", 
+"SuspendAll", 
 { 
 CampaignId: id
 }); 
 
-if (status == &apos;&apos;) { 
+if (status == '') { 
 window.location.reload();
 } else { 
 alert(status); 

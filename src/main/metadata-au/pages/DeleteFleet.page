@@ -5,8 +5,8 @@
            
        window.onload = function() {             
             
-            if("{!$Profile.Name}" == "Fleet (Delete)" && "{!Lead__c.RecordType.name}" != "Fleet Lead") { 
-                alert("This profile shall only be available to delete only Fleet Leads records. ");
+            if("{!$Profile.Name}" == "Fleet (Delete)" && "{!Lead__c.RecordType.name}" != "Finance Fleet Lead") { 
+                alert("This profile shall only be available to delete only Finance Fleet Leads records. ");
                 window.location.href = "/" + "{!Lead__c}";
             } else {
                 sforce.connection.sessionId = "{!$Api.Session_ID}";

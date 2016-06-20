@@ -69,7 +69,7 @@
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Information related to the brand&apos; in Data Dictionary.
+Function: Mapping 'Information related to the brand' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -137,7 +137,7 @@ Modify Reason:
         <description>/* 
 Created by: Chris.Huang 
 Used by: Chris.Huang 
-Function: Summary DM Stock Flow Quanlity where Type equals &apos;Decrease Stock&apos;. 
+Function: Summary DM Stock Flow Quanlity where Type equals 'Decrease Stock'. 
 Used in: Formular 
 
 Modify History 
@@ -175,7 +175,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Information in English&apos; in Data Dictionary.
+Function: Mapping 'Information in English' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -195,7 +195,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  Chris.Huang
-Function: Summary DM Stock Flow Quanlity where Type equals &apos;Increase Stock&apos;.
+Function: Summary DM Stock Flow Quanlity where Type equals 'Increase Stock'.
 Used in: Formular 
 
 Modify History
@@ -232,9 +232,10 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -286,7 +287,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Notes&apos; in Data Dictionary.
+Function: Mapping 'Notes' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -305,7 +306,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  Chris.Huang
-Function: When DM Request Status changed to &apos;Sent&apos;, this field auto add 1.
+Function: When DM Request Status changed to 'Sent', this field auto add 1.
 Used in: Trigger, Formular
 
 Modify History
@@ -326,7 +327,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Information related to car&apos; in Data Dictionary.
+Function: Mapping 'Information related to car' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -1756,7 +1757,7 @@ Modify Reason:
     <fields>
         <fullName>Stock_Alert__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Threshold__c &gt;= Stock__c ,IMAGE( &quot;/img/samples/flag_red.gif&quot;,&quot;&quot;),&quot;&quot;)</formula>
+        <formula>IF(Threshold__c &gt;= Stock__c ,IMAGE( "/img/samples/flag_red.gif",""),"")</formula>
         <label>Stock Alert</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1888,7 +1889,7 @@ Modify Reason:
         <fullName>Format_DM_Material_Name</fullName>
         <active>false</active>
         <description>Make sure DM Material Name input conversion: Brand-Series-Type.</description>
-        <errorConditionFormula>!ISCHANGED( Stock__c ) &amp;&amp; !ISCHANGED( SentTotal__c ) &amp;&amp; NOT(REGEX( Name , &quot;.*-.*-.*&quot;))</errorConditionFormula>
+        <errorConditionFormula>!ISCHANGED( Stock__c ) &amp;&amp; !ISCHANGED( SentTotal__c ) &amp;&amp; NOT(REGEX( Name , ".*-.*-.*"))</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Must input conversion: Brand-Series-Type.</errorMessage>
     </validationRules>

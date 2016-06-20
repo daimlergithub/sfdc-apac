@@ -289,6 +289,19 @@
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.CLOSED</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>Activity.Company__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>Merge</excludeButtons>
         <fields>FULL_NAME</fields>
         <fields>CONTACT.RECORDTYPE</fields>
@@ -341,12 +354,15 @@
         <relatedList>Vehicle_Relationship__c.Finance_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Finance_Fleet_Lead</customButtons>
+        <customButtons>New_Fleet_Vans_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
         <fields>CAC_Lead_Status__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
+        <fields>Attachment_Flag__c</fields>
         <relatedList>Lead__c.Assigned_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -366,6 +382,15 @@
         <fields>NAME</fields>
         <relatedList>Vehicle_Inspection__c.Customer_Name__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Lead__c</fields>
+        <fields>Product_Offer__c</fields>
+        <fields>Date__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Attachment_Flag__c</fields>
+        <relatedList>Lead_Product__c.Account__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -373,7 +398,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jm86</masterLabel>
+        <masterLabel>00h1a000001fjY4</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

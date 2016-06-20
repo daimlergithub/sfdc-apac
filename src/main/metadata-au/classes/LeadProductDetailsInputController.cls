@@ -1,0 +1,113 @@
+public with sharing class LeadProductDetailsInputController
+{   
+    public List<wrappermultibrandclass> wrapperlist = new List<wrappermultibrandclass>();
+    public set<string> carmodelset = new set<string>();
+    Public list<Car_Model__c> carmodellist;
+    Public list<string> carmodelstrng = new list<string>();
+    Public list<Lead_Product__c> leadproductllist=new list<Lead_Product__c>();
+    Public map<id,Lead_Product__c> mapupdateleadllist=new map<id,Lead_Product__c>();
+    public map<id,string> oldleaditems = new map<id,string>();
+    public List<wrappermultibrandclass> wrappermultibrand{get{return wrapperlist;}set{wrapperlist=value;}}
+    
+    
+    public LeadProductDetailsInputController(ApexPages.StandardController controller)
+    {
+        //Test
+        //controller.addFields(new List<string>{'Id','Lead_Items__c'});
+        //lead = (Lead__c)controller.getRecord();
+        //system.debug('lead t^$%$%$%$'+lead);
+        wrappermultibrandclass wrapper = new wrappermultibrandclass();
+        wrapper.vehiclebrand = '';
+        wrapper.vechmodel = '';
+        wrapper.vechquanty = 'Mercedes-Benz';
+        wrapper.vechmodeldetails = '';
+        wrapperlist.add(wrapper);
+    }
+    public class wrappermultibrandclass
+    {
+        public string vehiclebrand{get; set;}
+        public string vechmodel{get; set;}
+        public string vechquanty{get; set;}
+        public string vechmodeldetails{get;set;}
+        public List<SelectOption> brands{get; set;}
+    }
+        
+    public list<List<SelectOption>> getbrands()
+    {
+        carmodelstrng.clear();
+       /* carmodellist = [select Name from Car_Model__c where vehicle_group__c = 'Van' and Brand__c ='Mercedes-Benz'];
+        for(Car_Model__c card :carmodellist)
+        {
+            if(card.Name!= null && card.Name!= '')
+            {
+                carmodelset.add(card.Name);
+            }                        
+        }
+        system.debug('Car Model*****' + carmodellist.get(0).Name);
+        carmodelstrng.addAll(carmodelset);
+        List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
+        List<SelectOption> options = new List<SelectOption>();
+        integer counter=0;
+        for(integer i=0;i<carmodelstrng.size();i++)
+        {           
+            options.add(new selectoption(carmodelstrng[i],carmodelstrng[i]));
+            if(counter==999 || i==carmodelstrng.size()-1){
+                optionslist.add(options);
+                options =new List<SelectOption>();
+                counter=-1;
+            }
+            counter++;
+            
+        }*/
+        List<list<SelectOption>> optionslist = new list<List<SelectOption>>();
+        List<SelectOption> options = new List<SelectOption>();
+        options.add(new selectoption('Vito Van','Vito Van'));
+        options.add(new selectoption('Vito Crew Cab','Vito Crew Cab'));
+        options.add(new selectoption('Valente','Valente'));
+        options.add(new selectoption('Sprinter Van','Sprinter Van'));
+        options.add(new selectoption('Sprinter Cab Chassis','Sprinter Cab Chassis'));
+        options.add(new selectoption('Sprinter Minibus','Sprinter Minibus'));
+        optionslist.add (options);
+        
+        return optionslist;
+    }
+    public void addrow()
+    {        
+        wrappermultibrandclass wrapper = new wrappermultibrandclass();
+        wrapper.vehiclebrand ='';
+        wrapper.vechmodel = '';
+        wrapper.vechquanty = 'Mercedes-Benz';
+        wrapper.vechmodeldetails = '';
+        if(wrapperlist.size() <10)
+        {
+            wrapperlist.add(wrapper);
+        }
+        else{
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,'You cannot add more than 10 rows'));
+        }
+    }
+    public void save()
+    {
+        leadproductllist=[select id,Lead_Product_Items__c from Lead_Product__c where id=:ApexPages.currentPage().getParameters().get('id')];
+        String commaSepratedList='';
+
+        for(wrappermultibrandclass wrper:wrapperlist)
+        {                    
+            for(Lead_Product__c led : leadproductllist)
+            {
+
+                if(led.Lead_Product_Items__c !=null)
+                {
+                    oldleaditems.put(led.Id,led.Lead_Product_Items__c);               
+                    led.Lead_Product_Items__c =oldleaditems.get(led.Id)+ '\n' + wrper.vechquanty + ',' +wrper.vehiclebrand + ',' + wrper.vechmodeldetails+',' + wrper.vechmodel  ;
+                }else
+                {
+                    led.Lead_Product_Items__c =  wrper.vechquanty + ',' + wrper.vehiclebrand +',' + wrper.vechmodeldetails+ ',' + wrper.vechmodel  ;
+                }
+                mapupdateleadllist.put(led.id,led);
+            }
+        }
+        update mapupdateleadllist.values();
+
+    }
+}

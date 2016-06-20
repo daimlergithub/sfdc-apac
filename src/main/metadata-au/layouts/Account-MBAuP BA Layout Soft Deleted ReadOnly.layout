@@ -66,7 +66,7 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
@@ -107,6 +107,19 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.CLOSED</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>Activity.Company__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Service_Date__c</fields>
         <fields>Type__c</fields>
@@ -137,7 +150,6 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>System__c</fields>
         <fields>RECORDTYPE</fields>
@@ -149,7 +161,6 @@
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>System__c</fields>
         <fields>RECORDTYPE</fields>
@@ -193,6 +204,8 @@
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Finance_Fleet_Lead</customButtons>
+        <customButtons>New_Fleet_Vans_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Assigned_Dealer__c</fields>
@@ -200,6 +213,7 @@
         <fields>Opportunity_Name__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
+        <fields>Attachment_Flag__c</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -210,6 +224,15 @@
         <fields>NAME</fields>
         <relatedList>Vehicle_Inspection__c.Inspection_Dealership__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Lead__c</fields>
+        <fields>Product_Offer__c</fields>
+        <fields>Date__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Attachment_Flag__c</fields>
+        <relatedList>Lead_Product__c.Account__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -217,7 +240,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000InOo</masterLabel>
+        <masterLabel>00h1a000001fjY6</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

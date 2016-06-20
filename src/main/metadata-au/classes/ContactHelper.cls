@@ -465,6 +465,31 @@ public class ContactHelper {
         }
     }
     
+   /* public static void autopopulateOfAccountField(List<Contact> contacts){
+      set<Id> accountIds = new set<Id>();  
+      Map<Id,String> accountContactName = new Map<Id,String>();
+      For(Contact con:contacts)
+      {
+          accountIds.add(con.AccountId);
+      }
+      for(Contact con: [Select AccountId,Name from contact where Salutation = 'DRM MBFS' and AccountId IN:accountIds]){
+         accountContactName.put(con.accountId,con.Name);
+        }
+        List<Account> accList = new List<Account>();
+       if(accountContactName!=null && !accountContactName.IsEmpty()){
+      for(Account accObj: [SELECT Id,DRM_MBFS_Contact__c  FROM Account where Id IN: accountContactName.keySet()]){
+          if(accountContactName.containsKey(accObj.Id)){
+              accObj.DRM_MBFS_Contact__c   = accountContactName.get(accObj.Id);
+              accList.add(accObj);
+          }
+      }
+     }
+      if(accList!=null && !accList.IsEmpty()){
+          update accList;
+      }
+     
+   }*/
+      
     public static void assignGateKeeperToLeadOwner(Set<ID> dealerIds) {
         Map<String, User> userMap = new Map<String, User>();
         for(User usr : [select Id, AccountId, Contact.AccountId from User 
@@ -537,5 +562,28 @@ public class ContactHelper {
         CustomLogUtil.DebugException(ex);
       }
       CustomLogUtil.DebugLogInsert();
+    }
+    
+    
+    public static void validateAccount(List<Contact> contacts,map<Id,Contact> newMap,map<Id,Contact> oldMap){
+        set<Id> contactIDs = new set<Id>();
+        for( contact c:contacts){
+            if (c.Salutation == 'DRM MBFS' && newMap.get(c.Id).AccountId != oldMap.get(c.Id).AccountId){
+            contactIDs.add(c.Id);
+            }
+        }
+        system.debug('contactIDs -->'+contactIDs+'--Map--'+newMap);
+        
+        List<Task> openTask = [Select Id, WhoId from Task where Status != 'Complete' and whoid in :contactIDs];
+        
+        if (openTask != null && openTask.size() > 0){
+            system.debug('Open Task'+openTask );
+            for(Task taskObj : openTask ){
+                if(newMap.containsKey(taskObj.WhoId )){
+                    system.debug('Open Task--->'+openTask );
+                    newMap.get(taskObj.WhoId).addError('Can not change the Account as Task are not Completed');
+                }
+            }
+        }    
     }
 }
