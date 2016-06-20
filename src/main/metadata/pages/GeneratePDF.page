@@ -340,14 +340,14 @@
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='No' ,true,false)}">
                   <img src="/img/checkbox_unchecked.gif"></img>
               </apex:outputPanel>
-             {!$Label.Couldnotexplain}
+             {!$Label.NotAccepted}
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='Rejected' ,true,false)}">
                   <img src="/img/checkbox_checked.gif"></img>
               </apex:outputPanel>
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='Rejected' ,true,false)}">
                   <img src="/img/checkbox_unchecked.gif"></img>
               </apex:outputPanel>
-              {!$Label.NotAccepted}
+              {!$Label.Couldnotexplain}
             </td>
             <td class="TdLabel" align="left" width="10%" rowspan="1" colspan="1" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-bottom-width:3px;">{!$Label.CaseNumber}</td>
             <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-right-width:3px;border-bottom-width:3px;">{!Case.CaseNumber}</td>
