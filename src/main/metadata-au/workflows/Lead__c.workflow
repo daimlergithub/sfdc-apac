@@ -700,7 +700,7 @@ Proxy_Date_Time__c
             <name>Update_Finance_Send_Email_Before_15_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Finance_Send_Email_Before_15_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -710,7 +710,7 @@ Proxy_Date_Time__c
             <name>Update_Finance_Send_Email_Before_20_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Finance_Send_Email_Before_20_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -720,7 +720,7 @@ Proxy_Date_Time__c
             <name>Update_Finance_Send_Email_Before_45_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 45 ,  Is_Fleet_Send_Email_Before_45_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -730,7 +730,7 @@ Proxy_Date_Time__c
             <name>Update_Finance_Send_Email_Before_60_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'AU',  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
