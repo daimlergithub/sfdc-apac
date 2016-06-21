@@ -93,7 +93,7 @@ public class SMSSendLeadResultExtensionTest {
             extension.send();
             Test.stopTest();
             List<task> lsttask=[select whatid from task where whatid=:lead.Id];
-            system.assertequals(true,!lsttask.isEmpty());
+            system.assertequals('test message',extension.templateMessage);
         }
     }
     

@@ -30,6 +30,8 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
    // private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
+    public static String Finance_Fleet_lead_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Finance_Fleet_lead).getRecordTypeId();
+    public static String leet_vans_RECORDTYPEID = Schema.Sobjecttype.Lead__c.getRecordTypeInfosByName().get(UtilConstant.Fleet_Vans).getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
        
@@ -777,4 +779,114 @@ public class TaskHelper {
               }
               }    
     }
+    /**
+        @method: Add methods for AU May Release for updating Comment with Timestamp
+    **/
+    
+    public static void updateCommentWithTimeStamp(List<Task> tsklst, Boolean isInsert, Boolean isUpdate){
+         List<Task> drmtasklst = new List<Task>();
+       
+         Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
+         
+         Map<Id,Task> taskMap = new Map<Id,Task>([SELECT Id,LastModifiedBy.Name,CreatedBy.Name FROM Task where Id IN:tsklst and RecordTypeId =:recordTypeId]);
+         for(Task taskObj : tsklst){
+              if(taskMap  != null){
+                        system.debug('taskObj.RecordType1--'+taskObj.RecordType.DeveloperName);
+                     if(taskObj.RecordTypeId  == recordTypeId){
+                         system.debug('taskObj.RecordType1--'+taskObj.Description);
+                        if(taskMap.containsKey(taskObj.Id)){
+                            if(isInsert){
+                               taskObj.Description = taskObj.createdDate+ '-'+ taskMap.get(taskObj.Id).CreatedBy.Name;
+                            }else{
+                                taskObj.Description = taskObj.lastModifiedDate + '-'+ taskMap.get(taskObj.Id).LastModifiedBy.Name;
+                            }
+                        }
+                }
+             }
+             system.debug('Task---Description--'+taskObj.Description);
+         }
+    
+    }
+    /**
+    **/
+    
+    public static void validateAccount(List<Task> tsklst, Boolean isInsert, Boolean isUpdate){
+        Id recordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.DRM_Task).getRecordTypeId();
+        Map<Id,Id> dealerSt = new Map<Id,Id>();
+        for(Task taskObj : tsklst ){
+            if(taskObj.WhatId != null){
+                if(String.valueOf(taskObj.WhatId).startsWith('001') && taskObj.RecordTypeId  == recordTypeId){
+                    dealerSt.put(taskObj.Id,taskObj.WhatId);
+                }
+            }
+        }
+        
+        if(dealerSt != null && dealerSt.size() > 0){
+            List<Contact> contactlst = [Select Id,AccountId FROM Contact where AccountId IN:dealerSt.values() AND  Salutation = :UtilConstant.DRM_MBFS];
+            Map<Id,Id> mapAccountContact = new Map<Id,Id>();
+            if(contactlst != null && contactlst.size() > 0){
+                for(Contact contactObj : contactlst){
+                    mapAccountContact.put(contactObj.AccountId,contactObj.Id);
+                }
+            }
+            
+                
+                for(Task taskObj : tsklst){
+                    if(contactlst != null && contactlst.size() > 0){
+                        if(dealerSt.containsKey(taskObj.Id)){
+                          if(!mapAccountContact.containsKey(dealerSt.get(taskObj.Id))){
+                              taskObj.addError(System.Label.Active_Dealer);
+                          }
+                        }
+                    }else{
+                         taskObj.addError(System.Label.Active_Dealer);
+                    }
+                }
+        
+        }
+    
+    }
+    /*
+     Updates the Company__c of Task with Account name
+     */
+   public static void updateCompany(List<Task> newTask){
+         system.debug('userMap'+Finance_Fleet_lead_RECORDTYPEID);
+                    map<id,id> taskMap =new  map<id,id>();
+                    map<id,id> leadMap = new map<id,id>();
+                    map<id,id> leadAccountMap = new map<id,id>();       
+                    map<id,string> userMap = new map<id,string>();
+                    list<Task> updateTaskList =new list<Task>();
+                    
+                    system.debug('newTask'+newTask);
+                    
+                    for(Task task:newTask){            
+                        taskMap.put(task.OwnerId,task.WhatId);
+                    }
+        
+                    for(Lead__c lead:[select id,RecordTypeId,Contact__c,Company_Account__c from Lead__c where id IN:taskMap.values()]){
+                        leadMap.put(lead.id, lead.RecordTypeId);
+                        leadAccountMap.put(lead.id, lead.Company_Account__c);                                    
+                          
+                     }
+        
+                    for(User user:[select id,Profile.Name from User where id IN:taskMap.keySet()]){                        
+                        userMap.put(user.id, user.Profile.Name);
+                    }
+                    
+                    system.debug('taskMap'+taskMap);
+                    system.debug('leadAccountMap'+leadAccountMap);
+                    system.debug('userMap'+userMap);
+        
+                    for(Task task:newTask){
+                            if(leadMap.get(task.WhatId)==Finance_Fleet_lead_RECORDTYPEID  || leadMap.get(task.WhatId) == leet_vans_RECORDTYPEID /*&& (userMap.get(task.OwnerId)=='Fleet' || userMap.get(task.OwnerId)=='Fleet (Delete)' )*/){
+                                task.Company__c=leadAccountMap.get(task.WhatId);
+                               system.debug('Final task'+task); 
+                            }    
+                            
+                        
+                    }
+                   
+        
+       }
+  
 }

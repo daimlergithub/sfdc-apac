@@ -1,33 +1,91 @@
-<apex:page standardController="Lead__c" extensions="lead_Addresscontroller">
-<apex:form >  
-    <apex:pageBlock >  
-        <apex:pageBlockSection columns="2" rendered="{!!Preferred}"> 
-             <apex:outputText label="Home Phone" value="{!homePhone}"/> 
-             <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
-             <apex:outputText label="Work Phone" value="{!workPhone}" />
-             <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
-             <apex:outputText label="Email" value="{!email}"/>
-             <apex:outputField value="{!addressList_details.District__c}"/>
-             <apex:outputText label="Mobile" value="{!mobileNum}"/>
-             <apex:outputField value="{!addressList_details.Province__c}"/>
-             <apex:outputText value=""/> 
-             <apex:outputField value="{!addressList_details.ZipCode__c}"/>            
-        </apex:pageBlockSection>    
-         <apex:pageBlockSection columns="2" rendered="{!Preferred}"> 
-             <apex:outputText label="Home Phone" value="{!homePhone}"/>
-             <apex:outputText label="Address Line 1"/>
-             <apex:outputText label="Work Phone" value="{!workPhone}" />
-             <apex:outputText label="Address Line 2"/>
-             <apex:outputText label="Email" value="{!email}"/>
-             <apex:outputText label="Suburb"/>
-             <apex:outputText label="Mobile" value="{!mobileNum}"/>
-             <apex:outputText label="State"/>
-             <apex:outputText label=""/>
-             <apex:outputText label="Post Code"/>            
-        </apex:pageBlockSection>   
-      <!--<apex:pageMessage strength="3" summary="No Preferred Address Found" severity="warning" rendered="{!Preferred}"/>-->   
+<apex:page standardController="Lead__c" extensions="lead_Addresscontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
+
+<apex:form > 
+<apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> 
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <apex:pageBlock rendered="{!If(recordtypeid == 'Sales_Leads',If(marketdiscriminator == 'AU',true,false),false)}">  
+        <apex:pageBlockSection columns="2" > 
+             <apex:inputText label="Home Phone" value="{!HomePhone}"/> 
+             <apex:inputText label="Address Line 1" value="{!addressline1}"/>
+             <apex:inputText label="Work Phone" value="{!workPhone}"/>
+             <apex:inputText label="Address Line 2" value="{!addressline2}"/>
+             <apex:inputText label="Email" value="{!email}"/>
+             <apex:inputText label="Suburb" value="{!suburb}"/>
+             <apex:inputText label="Mobile" value="{!mobileNum}"/>
+             <apex:inputField value="{!addr.Province__c}"/>
+             <apex:inputText label="Account Post Code" value="{!zipcode}"/> 
+             <apex:inputText label="Post Code" value="{!postcode}"/>
+                      
+        </apex:pageBlockSection>      
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Save" action="{!Save}" styleClass="btn"/> 
+      </apex:pageblockButtons>
    </apex:pageBlock>
- </apex:form>
+    
+    <apex:pageBlock rendered="{!If(recordtypeid == 'Sales_Leads',If(marketdiscriminator == 'NZ',true,false),false)}">  
+        <apex:pageBlockSection columns="2" > 
+             <apex:inputText label="Home Phone" value="{!HomePhone}"/> 
+             <apex:inputText label="Address Line 1" value="{!addressline1}"/>
+             <apex:inputText label="Work Phone" value="{!workPhone}"/>
+             <apex:inputText label="Address Line 2" value="{!addressline2}"/>
+             <apex:inputText label="Email" value="{!email}"/>
+             <apex:inputText label="Suburb" value="{!suburb}"/>
+             <apex:inputText label="Mobile" value="{!mobileNum}"/>
+             <apex:inputText label="City" value="{!city}"/>
+             <apex:inputText label="Account Post Code" value="{!zipcode}"/> 
+             <apex:inputText label="Post Code" value="{!postcode}"/>
+                      
+        </apex:pageBlockSection>      
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Save" action="{!Save}" styleClass="btn"/> 
+      </apex:pageblockButtons>
+   </apex:pageBlock>
+    
+        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'AU' && !($Profile.Name == 'Fleet' || $Profile.Name == 'Fleet (Delete)'),true,false),false)}">
+            <apex:pageBlockSection columns="2">
+                <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
+                <apex:outputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:outputText label="Company Name" value="{!companyname}"/>
+                <apex:outputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:outputText label="Suburb" value="{!suburb}"/>
+                <apex:outputText label="State" value="{!addr.Province__c}"/> 
+                <apex:outputText label="Country" value="{!addr.Country__c}"/> 
+                <apex:outputText label="Post Code" value="{!postcode}"/>
+                <apex:outputText label="Status" value="{!addr.Status__c}"/> 
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'AU' && ($Profile.Name == 'Fleet' || $Profile.Name == 'Fleet (Delete)'),true,false),false)}"  >
+            <apex:pageBlockSection columns="2" collapsible="true">
+                <apex:inputField label="Address Type" value="{!addr.Address_Type__c}"/> 
+                <apex:inputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:inputText label="Company Name" value="{!companyname}"/>
+                <apex:inputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:inputText label="Suburb" value="{!suburb}"/>
+                <apex:inputField label="State" value="{!addr.Province__c}"/> 
+                <apex:inputField label="Country" value="{!addr.Country__c}"/> 
+                <apex:inputText label="Post Code" value="{!postcode}"/>
+                <apex:inputField label="Status" value="{!addr.Status__c}"/>
+                <apex:pageblockSectionItem >
+                     <apex:commandButton value="Update" action="{!Save}" styleClass="btn"/>
+                </apex:pageblockSectionItem>
+              </apex:pageBlockSection> 
+             
+        </apex:pageBlock>
+
+        <apex:pageBlock rendered="{!If(recordtypeid == 'Fleet_Lead',If(marketdiscriminator == 'NZ',true,false),false)}">
+            <apex:pageBlockSection columns="2" collapsible="true">
+                <apex:outputText label="Address Type" value="{!addr.Address_Type__c}"/> 
+                <apex:outputText label="Address Line 1" value="{!addressline1}"/>
+                <apex:outputText label="Company Name" value="{!companyname}"/>
+                <apex:outputText label="Address Line 2" value="{!addressline2}"/>
+                <apex:outputText label="Suburb" value="{!suburb}"/>
+                <apex:outputText label="City" value="{!city}"/> 
+                <apex:outputText label="Country" value="{!addr.Country__c}"/> 
+                <apex:outputText label="Post Code" value="{!postcode}"/>
+                <apex:outputText label="Status" value="{!addr.Status__c}"/> 
+            </apex:pageBlockSection>        
+        </apex:pageBlock>    
+    </apex:form>
  <style>
         .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
         {

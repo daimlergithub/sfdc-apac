@@ -86,6 +86,12 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASUBSOURCE_FIELD_ID</token>
+	</changetext>
+
 	
 	<changetext>
 		<filename>objects\QC__c.object</filename>
@@ -279,8 +285,7 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
-	</changetext>
-	
+	</changetext>	
 	<changetext>
 		<filename>settings\Case.settings</filename>
 		<xpath>/CaseSettings/defaultCaseOwner/text()</xpath>
@@ -291,7 +296,16 @@
 		<xpath>/CaseSettings/defaultCaseUser/text()</xpath>
 		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
-	
+	<changetext>
+		<filename>objects\Retail_Task__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DRM_Task']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACTIVITIES_WEBLINK_CALLER_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Task__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DRM_Task']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACTIVITIES_DRMTASK_RECORDTYPE_ID</token>
+	</changetext>
 	<!-- remove tab visibility for SocialPersona from profiles -->
 	<removeelement deploy="false">
 		<filename>profiles\*.profile</filename>
@@ -513,6 +527,26 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ACCOUNT_COMPONENTID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ASSIGNED_DEALER_ID</token>
 	</changetext>
@@ -538,8 +572,15 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID_VANS</token>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_VEHICLERELATIONSHIP_NO_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_VEHICLERELATIONSHIP_NO_ID</token> 
 	</changetext>
 	<changetext>
 		<filename>objects\Dealer_Locator__c.object</filename>
@@ -575,6 +616,11 @@
 		<filename>objects\Address__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Address']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Address__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Address']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_COMPANY_RECORDTYPE_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Address__c.object</filename>
@@ -705,7 +751,12 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_FIELD_ID</token>
-	</changetext>	
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>

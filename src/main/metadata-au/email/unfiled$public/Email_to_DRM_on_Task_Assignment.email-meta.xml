@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email to DRM on Task Assignment</name>
+    <style>none</style>
+    <subject>You have assigned this task</subject>
+    <type>text</type>
+</EmailTemplate>

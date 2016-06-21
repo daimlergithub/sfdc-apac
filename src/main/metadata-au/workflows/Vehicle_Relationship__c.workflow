@@ -26,7 +26,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>true</formula>
+        <formula>true &amp;&amp; MD__c = &apos;AU&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

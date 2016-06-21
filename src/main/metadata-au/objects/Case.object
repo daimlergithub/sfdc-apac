@@ -8458,6 +8458,19 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Complaint_Contact_LastName__c</fullName>
+        <description>Hold the Last Name of the person that filed the Complaint. Data will come from ICC interface.</description>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Complaint_Creator_Department__c</fullName>
         <externalId>false</externalId>
         <label>Complaint Creator Department</label>
@@ -8623,6 +8636,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_by_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created by EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Critical_Complaint__c</fullName>
@@ -11516,6 +11541,10 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -13361,7 +13390,7 @@ Modify Reason:
     <fields>
         <fullName>Resolution_Time__c</fullName>
         <externalId>false</externalId>
-        <formula>Approval_Submit_date__c - CreatedDate</formula>
+        <formula>Approval_Submit_Date__c - CreatedDate</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Resolution Time</label>
         <precision>18</precision>
@@ -14440,6 +14469,18 @@ Modify Reason:
         <externalId>false</externalId>
         <label>US VIN</label>
         <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_by_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated by EP Transactions</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

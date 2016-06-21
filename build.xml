@@ -129,6 +129,7 @@
 				<sf:exclude name="SurveyQuestionResponse__c"/>
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
+				<sf:exclude name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="components">
 				<sf:include name="DatePickerExtend"/>
@@ -159,6 +160,11 @@
 				<sf:include name="FleerCorverList"/>
 				<sf:include name="FleerCorverListTest"/>
 				<sf:include name="TestDataUtil"/>
+				<sf:include name="UtilConstant"/>
+				<sf:include name="LeadHelper"/>
+				<sf:include name="RetailTaskHelper"/>							
+				<sf:include name="ScheduledSendNotificationEmail"/>
+				<sf:include name="ScheduledSendNotificationEmailTest"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -196,6 +202,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
+				<sf:include name="Lead_Product__c"/>
 			</sf:typeset>
 			<sf:typeset name="letterhead"/>			
 			<sf:typeset name="tabs">
@@ -219,6 +226,16 @@
 			</sf:typeset>
 			<sf:typeset name="groups"/>
 			<sf:typeset name="queues"/>
+		<sf:typeset name="pages"> 
+			<sf:include name="Lead_Product_Attendee"/>
+			<sf:include name="LeadProductDetailsInput"/>
+		</sf:typeset>
+		<sf:typeset name="classes">
+			<sf:include name="leadProudctAttendeescontroller"/>
+			<sf:include name="LeadProudctAttendeescontrollerTest"/>
+			<sf:include name="LeadProductDetailsInputController"/>
+			<sf:include name="LeadProductDetailsInputControllerTest"/>
+		</sf:typeset>		
 		</deploy>
     </target>
 	
@@ -322,7 +339,7 @@
 			<sf:include name="ComplaintDescriptionController"/>	
 			<sf:include name="ComplaintDescriptionControllerTest"/>	
 			<sf:include name="InlineVFToShowVehicleDetailController"/>
-            <sf:include name="InlineVFToShowVehicleDetailTest"/>			
+            <sf:include name="InlineVFToShowVehicleDetailTest"/>		
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -354,7 +371,6 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
-			<sf:include name="UtilConstant"/>
 			<sf:include name="UtilConstantTest"/>
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="NiceWebServices"/>
@@ -373,6 +389,7 @@
 	<target name="deploy34">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
+			<sf:include name="TaskHelperApexSharing"/>
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
 			<sf:include name="TaskTriggerHandler"/>
@@ -437,7 +454,7 @@
 				<sf:include name="ChangePassword"/>
 				<sf:include name="SiteLogin"/>				
 				<sf:include name="ForgotPassword"/>
-				<sf:include name="SiteRegister"/>
+				<sf:include name="SiteRegister"/>				
 		</sf:typeset>		
 		<sf:typeset name="components">
 				<sf:include name="SitePoweredBy"/>   
@@ -467,7 +484,7 @@
 			<sf:include name="ExtSelectAssignedDealer"/>
 			<sf:include name="ExtSelectAssignedDealerTest"/>
             <sf:include name="LeadContactController"/>
-			<sf:include name="LeadContactControllerTest"/>			
+			<sf:include name="LeadContactControllerTest"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
@@ -505,7 +522,6 @@
 	<target name="deploy37">
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
-			<sf:include name="LeadHelper"/>
 			<sf:include name="LeadHelperTest"/>
 			<sf:include name="ReservationMessageTemplate"/>
 			<sf:include name="ReservationMessageTemplateTest"/>
@@ -533,6 +549,7 @@
 			<sf:include name="Finance_Leads_Only"/>			
 			<sf:include name="Leads_Assignment_to_Dealer_Gate_Keepers"/>
 			<sf:include name="Leads_Immediate_Notice"/>
+			<sf:include name="Email_notification_when_Assigned_Dealer_is_changed"/>
 		</sf:typeset>
 		<sf:typeset name="components">
 			<sf:include name="eoc_links"/>			
@@ -678,6 +695,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>	
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAftertestclass"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
 			<sf:include name="CampaignHelperTest"/>
@@ -685,7 +703,6 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
-			<sf:include name="RetailTaskHelper"/>
 			<sf:include name="RetailTaskHelperTest"/>
 			<sf:include name="HistoryRespondController"/>
 			<sf:include name="HistoryRespondControllerTest"/>
@@ -728,7 +745,7 @@
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>		 	
 			<sf:include name="BatchUpdateRecords"/>
-			<sf:include name="BatchUpdateRecordsTest"/>			
+			<sf:include name="BatchUpdateRecordsTest"/>
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="LeadConverting"/>
@@ -815,6 +832,8 @@
 			<sf:include name="CampaignMemberHistoryControllerTest"/>
 			<sf:include name="lead_Addresscontroller"/>
 			<sf:include name="lead_AddresscontrollerTest"/>
+			<sf:include name="Lead_AddmultiBrandController"/>
+			<sf:include name="Lead_AddmultiBrandControllerTest"/>
 			<sf:include name="LeadMassChangeDealerController"/>
 			<sf:include name="LeadMassChangeDealerControllerTest"/>
 			<sf:include name="UtilVehicleRelationshipTest"/>
@@ -827,9 +846,7 @@
 			<sf:include name="NewCMSContractsRelationController"/>
 			<sf:include name="NewCMSContractsRelationControllerTest"/>
 			<sf:include name="ReportUserController"/>	
-			<sf:include name="ReportUserControllerTest"/>			
-			<sf:include name="ScheduledSendNotificationEmail"/>
-			<sf:include name="ScheduledSendNotificationEmailTest"/>	
+			<sf:include name="ReportUserControllerTest"/>	
 			<sf:include name="ScheduledSharingContractToCROs"/>
 			<sf:include name="ScheduledSharingContractToCROsTest"/>				
 		</sf:typeset>	
@@ -848,6 +865,7 @@
 				<sf:include name="CampaignMemberHistory"/>
 				<sf:include name="Lead_Address"/>
 				<sf:include name="LeadMassChangeDealer"/>
+				<sf:include name="Lead_Add_MultiBrand"/>
 				<sf:include name="TaskMassChangeActivateDeactive"/>	
 				<sf:include name="ActivityReportUserBased"/>
 				<sf:include name="DealerLookup"/>

@@ -7,6 +7,9 @@
     <customButtons>Car_Model_Comparison</customButtons>
     <customButtons>Search_Dealers</customButtons>
     <customButtons>Merge</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -863,6 +866,8 @@
         <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Finance_Fleet_Lead</customButtons>
+        <customButtons>New_Fleet_Vans_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Assigned_Dealer__c</fields>
@@ -914,7 +919,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh1m</masterLabel>
+        <masterLabel>00h1a000001fjZ1</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>2</sizeY>
         <summaryLayoutItems>

@@ -143,8 +143,7 @@
     <tab>standard-Knowledge</tab>
     <workspaceMappings>
         <mapping>
-            <fieldName>AccountId</fieldName>
-            <tab>standard-Opportunity</tab>
+            <tab>standard-Account</tab>
         </mapping>
         <mapping>
             <fieldName>AccountId</fieldName>
@@ -155,13 +154,14 @@
             <tab>standard-Contact</tab>
         </mapping>
         <mapping>
-            <tab>standard-Lead</tab>
-        </mapping>
-        <mapping>
             <tab>standard-Knowledge</tab>
         </mapping>
         <mapping>
-            <tab>standard-Account</tab>
+            <tab>standard-Lead</tab>
+        </mapping>
+        <mapping>
+            <fieldName>AccountId</fieldName>
+            <tab>standard-Opportunity</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>
