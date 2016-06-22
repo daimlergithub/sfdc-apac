@@ -244,8 +244,12 @@ public with sharing class RetailTaskHelper {
                 String[] businessUserEmailAddress = new String[]{};
                 
                 for(Account accountObj : [Select Id,(Select Id,Email FROM Contacts where Job_Title__c ='Management - F&I Business Manager') FROM Account where Id IN:dealerIds]){
-                    for(Contact contactObj : accountObj.Contacts){
+                    for(Contact contactObj : accountObj.Contacts)
+					{
+						if(contactObj.Email != null)
+						{
                             businessUserEmailAddress.add(contactObj.Email);
+						}
                     }
                  }
                  
