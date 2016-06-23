@@ -17382,12 +17382,6 @@
         <layout>SurveyTaker__c-SurveyTaker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>SurveyQuestionResponse__c-Survey Question Response Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>SurveyTaker__c-Survey Taken Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Survey_Question__c-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
