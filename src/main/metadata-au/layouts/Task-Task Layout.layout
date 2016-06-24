@@ -18,10 +18,6 @@
                 <behavior>Edit</behavior>
                 <field>ActivityDate</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MTH_Penetration__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
