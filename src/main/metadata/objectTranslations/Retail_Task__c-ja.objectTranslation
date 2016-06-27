@@ -102,11 +102,11 @@
         <name>Bank_Account_Type__c</name>
         <picklistValues>
             <masterLabel>Common</masterLabel>
-            <translation>当座</translation>
+            <translation>普通</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Current</masterLabel>
-            <translation>普通</translation>
+            <translation>当座</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1522,75 +1522,75 @@
         <name>Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
-            <translation><!-- Close End Lease --></translation>
+            <translation>クローズエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select Plus) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan) --></translation>
+            <translation>クローズエンドリース（マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dual Auto Loan</masterLabel>
-            <translation><!-- Dual Auto Loan --></translation>
+            <translation>デュアルオートローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal Loan</masterLabel>
-            <translation><!-- Normal Loan --></translation>
+            <translation>通常ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease</masterLabel>
-            <translation><!-- Open End Lease --></translation>
+            <translation>オープンエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select Plus)</masterLabel>
-            <translation><!-- Open End Lease (Select Plus) --></translation>
+            <translation>オープンエンドリース（セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select)</masterLabel>
-            <translation><!-- Open End Lease (Select) --></translation>
+            <translation>オープンエンドリース（セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
-            <translation><!-- Re-lease (Close End Mileage Plan) --></translation>
+            <translation>再リース（クローズエンド　マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End)</masterLabel>
-            <translation><!-- Re-lease (Close End) --></translation>
+            <translation>再リース（クローズエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Open End)</masterLabel>
-            <translation><!-- Re-lease (Open End) --></translation>
+            <translation>再リース（オープンエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-loan</masterLabel>
-            <translation><!-- Re-loan --></translation>
+            <translation>再ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Start Up Plan</masterLabel>
-            <translation><!-- Start Up Plan --></translation>
+            <translation>スタートアッププラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan</masterLabel>
-            <translation><!-- Super Welcome Plan --></translation>
+            <translation>スーパーウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan Plus</masterLabel>
-            <translation><!-- Super Welcome Plan Plus --></translation>
+            <translation>スーパーウェルカムプランプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan</masterLabel>
-            <translation><!-- Welcome Plan --></translation>
+            <translation>ウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan Plus</masterLabel>
-            <translation><!-- Welcome Plan Plus --></translation>
+            <translation>ウェルカムプランプラス</translation>
         </picklistValues>
     </fields>
     <fields>

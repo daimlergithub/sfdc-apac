@@ -115,10 +115,6 @@
                 <behavior>Readonly</behavior>
                 <field>Service_Mileage__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Amount_Financed__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
