@@ -273,7 +273,7 @@ public with sharing class RetailTaskHelper {
                                 plainBody = emailTemplateObjForRegular.Body ;
                             }
    //                         system.debug();
-                            if(subject != null && plainBody != null && !businessUserEmailAddress.isEmpty()){
+                            if(subject != null && subject != '' && plainBody != null && plainBody!= '' && !businessUserEmailAddress.isEmpty()){
                                 mail.setToAddresses(businessUserEmailAddress);
                                 if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
                                 {

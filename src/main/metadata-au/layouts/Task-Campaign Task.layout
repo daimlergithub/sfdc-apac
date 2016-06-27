@@ -49,10 +49,6 @@
                 <behavior>Edit</behavior>
                 <field>Due_Task_Notification__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MTH_Penetration__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
