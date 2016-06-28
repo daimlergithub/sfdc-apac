@@ -8,16 +8,14 @@
         1. Barney Lai Created on 2014-02-25
 */
 
-global class ScheduledSharingContractToCROs implements Schedulable{
+global class ScheduledSharingContractToCROs implements Database.batchable<sObject>,Schedulable{
 
     private static final Id AnnualCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
     private static final Id EOCCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
     private static final Id WelcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
     private static final Id personAccountRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    String contractStatus = '(\'Current\',\'Default-Collection Officer\',\'Default-External Agent\',\'Overdue\')';
     
-
-    global void execute(SchedulableContext SC) { 
-        List<Retail_Task__c> contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> Welcontracts = new List<Retail_Task__c>();
         List<Retail_Task__c> Ann1contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> Ann2contracts = new List<Retail_Task__c>();
@@ -26,17 +24,41 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         List<Retail_Task__c> EOC2contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> EOC3contracts = new List<Retail_Task__c>(); 
         
+    
+    public void execute(SchedulableContext ctx) {
+        ScheduledSharingContractToCROs ScheduledBatch = new ScheduledSharingContractToCROs();
+        ID batchprocessid = Database.executeBatch(ScheduledBatch); 
+    }
+
+    global Database.querylocator start(Database.BatchableContext BC){
+        return Database.getQueryLocator(
+            'select id, StartDate__c,EndDate__c, Account__c, Welcome_Call__c, Annual_Call__c, EOC_Call__c, '+
+            'Welcome_Call_Task__c, Annual_Call_Task_1_del__c, Annual_Call_Task_2_del__c, Annual_Call_Task_3_del__c,'+
+            'EOC_Call_Task_1_del__c, EOC_Call_Task_2_del__c, EOC_Call_Task_3_del__c from Retail_Task__c '+ 
+                     'where GFV__c = true and Status__c in'+contractStatus+'');
+    }
+    
+    global void execute(Database.BatchableContext BC, List<Retail_Task__c> contracts){     
+       
+        
         List<Task> preTask = new List<Task>();
         List<Retail_Task__c> preContract = new List<Retail_Task__c>();
         List<Id> accountIds = new List<Id>();
+        List<Task> listTask= new List<Task>();
         Map<Id, Id> accountIdContactId = new Map<Id, Id>();
-        Map<Id, List<String>> accountIdPhone = new Map<Id, List<String>>();
-        List<String> contractStatus = new List<String>{'Current','Default-Collection Officer','Default-External Agent','Overdue'};
-        
-        contracts = [select id, StartDate__c,EndDate__c, Account__c, Welcome_Call__c, Annual_Call__c, EOC_Call__c, 
-                     Welcome_Call_Task__c, Annual_Call_Task_1_del__c, Annual_Call_Task_2_del__c, Annual_Call_Task_3_del__c, 
-                     EOC_Call_Task_1_del__c, EOC_Call_Task_2_del__c, EOC_Call_Task_3_del__c from Retail_Task__c 
-                     where GFV__c = true and Status__c in :contractStatus];
+        Map<Id, List<String>> accountIdPhone = new Map<Id, List<String>>(); 
+        Map<ID,set<String>> firstendoftask=new Map<ID,set<String>>();      
+        listTask=[select id,subject,whatid,whoid from  task where what.type='Retail_Task__c' and (recordtypeid=:EOCCallRT OR recordtypeid=:AnnualCallRT)];
+          
+          if(listTask.size() > 0)
+        for(Task taskObj :listTask){
+            
+            if(!firstendoftask.containsKey(taskObj.whatId)){
+                firstendoftask.put(taskObj.whatId,new Set<String>());
+            }
+                firstendoftask.get(taskObj.whatId).add(taskObj.subject);
+        }
+        System.debug('@@@@@  firstendoftask'+firstendoftask);
         
         if(contracts.size() > 0)
         {
@@ -138,8 +160,15 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
               phone = accountIdPhone.get(con.Account__c);
-              Task t = createTask(con,  'First Year Annual Call', contactid, phone, AnnualCallRT);
+              
+                if(firstendoftask.get(con.id).contains('First Year Annual Call') && !firstendoftask.isEmpty())
+              {
+              }
+              else
+              {
+              Task t = createTask(con,'First Year Annual Call', contactid, phone, AnnualCallRT);
                 preTask.add(t);
+              }
                 system.debug('tesks2'+preTask);
                   
               
@@ -153,9 +182,16 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               contactid = accountIdContactId.get(con.Account__c);
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
-              phone = accountIdPhone.get(con.Account__c);
+              phone = accountIdPhone.get(con.Account__c);                              
+          
+              if(firstendoftask.get(con.id).contains('Second Year Annual Call') && !firstendoftask.isEmpty())
+              {
+              }
+              else
+              {
               Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
-              preTask.add(t);                  
+              preTask.add(t); 
+              }
           
         }
         }
@@ -168,8 +204,15 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
               phone = accountIdPhone.get(con.Account__c);              
-              Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
-              preTask.add(t);                
+                 
+              if(firstendoftask.get(con.id).contains('Third Year Annual Call') && !firstendoftask.isEmpty())
+              {
+              }
+              else
+              {
+               Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
+              preTask.add(t);  
+              }          
               
           
         }
@@ -185,9 +228,15 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
               phone = accountIdPhone.get(con.Account__c);
+              if(firstendoftask.get(con.id).contains('First End of Contract Call')  && !firstendoftask.isEmpty())
+              { 
+              
+              }
+              else
+              {              
               Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
               preTask.add(t);
-                 
+              }
               
           }
         }
@@ -200,8 +249,16 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
               phone = accountIdPhone.get(con.Account__c);
+              
+              if(firstendoftask.get(con.id).contains('Second End of Contract Call')  && !firstendoftask.isEmpty())
+              {
+              
+              }
+              else
+              {
               Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
               preTask.add(t);
+              }
             
           }
         }
@@ -214,8 +271,15 @@ global class ScheduledSharingContractToCROs implements Schedulable{
               List<String> phone = new List<String>();
               if(accountIdPhone.get(con.Account__c) != null)
               phone = accountIdPhone.get(con.Account__c);
+              
+              if(firstendoftask.get(con.id).contains('Final End of Contract Call') && !firstendoftask.isEmpty())
+              {
+              }
+              else
+              {              
               Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
-              preTask.add(t);
+              preTask.add(t);              
+              }
                   
               
           }
@@ -332,4 +396,8 @@ global class ScheduledSharingContractToCROs implements Schedulable{
                     system.debug('Error message:'+ex.getmessage());
                 }
     }
+
+
+global void finish(Database.BatchableContext bc){
+    }   
 }
