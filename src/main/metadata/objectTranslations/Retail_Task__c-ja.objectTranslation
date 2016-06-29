@@ -82,6 +82,10 @@
         <name>Assist_End_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Update date --></label>
+        <name>Balance_Update_Date__c</name>
+    </fields>
+    <fields>
         <label>リース/ローン残価（消費税抜き）</label>
         <name>Balloon_RV_Amount__c</name>
     </fields>
@@ -242,7 +246,7 @@
         <name>Contract_Date__c</name>
     </fields>
     <fields>
-        <label>契約Validフラグ</label>
+        <label>無効フラグ</label>
         <name>Contract_Invalid_Flag__c</name>
     </fields>
     <fields>
@@ -346,11 +350,11 @@
         <name>Contractor_MobilePhone3__c</name>
     </fields>
     <fields>
-        <label>契約者名（カナ）/会社名（カナ）</label>
+        <label>契約者名（カナ</label>
         <name>Contractor_Name_Native__c</name>
     </fields>
     <fields>
-        <label>契約者名（漢字）/会社名（漢字）</label>
+        <label>契約者名（漢字</label>
         <name>Contractor_Name__c</name>
     </fields>
     <fields>
@@ -382,7 +386,7 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label>信販名</label>
+        <label>情報元システム</label>
         <name>Credit_Loan_Company_Name__c</name>
         <picklistValues>
             <masterLabel>CEDYNA</masterLabel>
@@ -458,7 +462,7 @@
         <name>EOC_Call__c</name>
     </fields>
     <fields>
-        <label>契約終了日/満了日/満期日</label>
+        <label>契約開始/検収/立替処理/始期</label>
         <name>EndDate__c</name>
     </fields>
     <fields>
@@ -934,11 +938,11 @@
         <name>Guarantor1_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名1（カナ） / 会社名1（カナ）</label>
+        <label>保証人名1（カナ）</label>
         <name>Guarantor1_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名1（漢字）/ 会社名1（漢字）</label>
+        <label>保証人名1（漢字）</label>
         <name>Guarantor1_Name__c</name>
     </fields>
     <fields>
@@ -990,11 +994,11 @@
         <name>Guarantor2_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名2（カナ） / 会社名2（カナ）</label>
+        <label>保証人名2（カナ）</label>
         <name>Guarantor2_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名2（漢字）/ 会社名2（漢字）</label>
+        <label>保証人名2（漢字</label>
         <name>Guarantor2_Name__c</name>
     </fields>
     <fields>
@@ -1046,11 +1050,11 @@
         <name>Guarantor3_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名3（カナ） / 会社名3（カナ）</label>
+        <label>保証人名3（カナ）</label>
         <name>Guarantor3_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名3（漢字）/ 会社名3（漢字）</label>
+        <label>保証人名3（漢字）</label>
         <name>Guarantor3_Name__c</name>
     </fields>
     <fields>
@@ -1849,7 +1853,7 @@
         <name>Split_Payment_Comission_Fee__c</name>
     </fields>
     <fields>
-        <label>契約開始/検収/立替処理/始期</label>
+        <label>契約終了日/満了日/満期日</label>
         <name>StartDate__c</name>
     </fields>
     <fields>
@@ -2252,16 +2256,8 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>保険情報</label>
-            <section>Insurance Information</section>
-        </sections>
-        <sections>
             <label>保証/契約の詳細</label>
             <section>Main Information</section>
-        </sections>
-        <sections>
-            <label>支払情報</label>
-            <section>Payment Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
@@ -2279,16 +2275,16 @@
             <section>Comments</section>
         </sections>
         <sections>
+            <label><!-- Contract Status --></label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
             <label>契約者情報</label>
             <section>Contractor Information</section>
         </sections>
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>ファイナンス情報</label>
-            <section>Finance Information</section>
         </sections>
         <sections>
             <label>フラグ情報</label>
@@ -2304,7 +2300,11 @@
         </sections>
         <sections>
             <label>支払情報</label>
-            <section>Payment Information</section>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Remaining Balance Information --></label>
+            <section>Remaining Balance Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
@@ -2322,16 +2322,16 @@
             <section>Comments</section>
         </sections>
         <sections>
+            <label><!-- Contract Status --></label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
             <label>契約者情報</label>
             <section>Contractor Information</section>
         </sections>
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>ファイナンス情報</label>
-            <section>Finance Information</section>
         </sections>
         <sections>
             <label>フラグ情報</label>
@@ -2347,7 +2347,11 @@
         </sections>
         <sections>
             <label>支払情報</label>
-            <section>Payment Information</section>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Remaining Balance Information --></label>
+            <section>Remaining Balance Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
