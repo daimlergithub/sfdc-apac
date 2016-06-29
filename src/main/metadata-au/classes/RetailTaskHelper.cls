@@ -245,11 +245,11 @@ public with sharing class RetailTaskHelper {
                 
                 for(Account accountObj : [Select Id,(Select Id,Email FROM Contacts where Job_Title__c ='Management - F&I Business Manager') FROM Account where Id IN:dealerIds]){
                     for(Contact contactObj : accountObj.Contacts)
-					{
-						if(contactObj.Email != null)
-						{
+                    {
+                        if(contactObj.Email != null)
+                        {
                             businessUserEmailAddress.add(contactObj.Email);
-						}
+                        }
                     }
                  }
                  
@@ -273,7 +273,7 @@ public with sharing class RetailTaskHelper {
                                 plainBody = emailTemplateObjForRegular.Body ;
                             }
    //                         system.debug();
-                            if(subject != null && plainBody != null && !businessUserEmailAddress.isEmpty()){
+                            if(subject != null && subject !='' && plainBody != null && plainBody != '' && !businessUserEmailAddress.isEmpty()){
                                 mail.setToAddresses(businessUserEmailAddress);
                                 if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
                                 {
@@ -332,7 +332,7 @@ public with sharing class RetailTaskHelper {
                     }
                      
                       
-                      Messaging.sendEmail(mails);
+                     // Messaging.sendEmail(mails);
                 }
     
     // End of added part, Polaris Yu 2013-8-23

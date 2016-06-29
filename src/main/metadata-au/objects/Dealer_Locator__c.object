@@ -1001,7 +1001,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Dealer_locator_Mandatory_Fields</fullName>
         <active>true</active>
         <description>Post Code, Business Unit, Offered Service, PMA, Suburb, and State should be mandatory.</description>
-        <errorConditionFormula>AND( OR(ISBLANK( Post_Code__c ) ,  ISBLANK( TEXT(Business_Unit__c)) ,  ISBLANK( TEXT( Offered_Service__c )  ), ISBLANK( TEXT(  PMA__c  )  ) , ISBLANK(  Suburb__c  ) , ISBLANK( TEXT(   State__c   )  )),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND( OR(ISBLANK( Post_Code__c ) ,  ISBLANK( TEXT(Business_Unit__c)) ,  ISBLANK( TEXT( Offered_Service__c )  ), ISBLANK( TEXT(  PMA__c  )  ) , ISBLANK(  Suburb__c  ) , ISBLANK( TEXT(   State__c   )  )) , MD__c = 'AU' ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Post Code, Business Unit, Offered Service, PMA, Suburb, and State are mandatory.</errorMessage>
     </validationRules>
     <webLinks>
