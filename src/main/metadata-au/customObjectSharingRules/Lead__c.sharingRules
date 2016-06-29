@@ -18,7 +18,7 @@
         <criteriaItems>
             <field>Public__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>False</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>If record type is Fleet Finance Lead and MD__c = &apos;AU&apos; and public is false then share it wil DFM Users.</description>
@@ -42,7 +42,7 @@
         <criteriaItems>
             <field>Public__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>False</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>If record type is Fleet Vans and MD__c = &apos;AU&apos; and public is false then share it wil MBAup- Fleet Vans users.</description>
@@ -54,9 +54,9 @@
             <allInternalUsers></allInternalUsers>
         </sharedTo>
         <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Fleet Finance Lead,Fleet Vans</value>
+            <field>Public__c</field>
+            <operation>equals</operation>
+            <value>True</value>
         </criteriaItems>
         <criteriaItems>
             <field>MD__c</field>
