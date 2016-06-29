@@ -221,6 +221,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Balance_Update_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Update date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Balloon_RV_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Balloon / RV Amount (excluding tax)</label>
