@@ -160,7 +160,7 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);
-                  if(!firstendoftask.isEmpty() && firstendoftask != null)
+                 if(firstendoftask.containsKey(con.id))
                   {
                         if(firstendoftask.get(con.id).contains('First Year Annual Call'))
                       {
@@ -169,10 +169,14 @@
                       {
                       Task t = createTask(con,'First Year Annual Call', contactid, phone, AnnualCallRT);
                         preTask.add(t);
-                      }
-                        system.debug('tesks2'+preTask);
+                      }                      
                       
                   }
+                  else
+                      {
+                      Task t = createTask(con,'First Year Annual Call', contactid, phone, AnnualCallRT);
+                        preTask.add(t);
+                      } 
               }
             }
             if(Ann2contracts.size() > 0)
@@ -184,7 +188,7 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);                              
-              if(!firstendoftask.isEmpty() && firstendoftask != null)
+              if(firstendoftask.containsKey(con.id))
               {
                   if(firstendoftask.get(con.id).contains('Second Year Annual Call'))
                   {
@@ -194,7 +198,11 @@
                   Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
                   preTask.add(t); 
                   }
-              }
+              }else
+                  {
+                  Task t = createTask(con,  'Second Year Annual Call', contactid, phone, AnnualCallRT);
+                  preTask.add(t); 
+                  }
             }
             }
             if(Ann3contracts.size() > 0)
@@ -206,7 +214,7 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);              
-                if(!firstendoftask.isEmpty() && firstendoftask != null)
+               if(firstendoftask.containsKey(con.id))
                 {     
                   if(firstendoftask.get(con.id).contains('Third Year Annual Call') )
                   {
@@ -217,7 +225,11 @@
                   preTask.add(t);  
                   }          
                   
-              }
+              }else
+                  {
+                   Task t = createTask(con,  'Third Year Annual Call', contactid, phone, AnnualCallRT);
+                  preTask.add(t);  
+                  } 
             }
             }
             //EOC Call
@@ -231,18 +243,22 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);
-                  if(!firstendoftask.isEmpty() && firstendoftask != null)
+                 if(firstendoftask.containsKey(con.id))
                   {
-                  if(firstendoftask.get(con.id).contains('First End of Contract Call')  && !firstendoftask.isEmpty())
-                  { 
-                  
-                  }
-                  else
+                      if(firstendoftask.get(con.id).contains('First End of Contract Call')  && !firstendoftask.isEmpty())
+                      { 
+                      
+                      }
+                      else
+                      {              
+                      Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
+                      preTask.add(t);
+                      }
+                 }else
                   {              
                   Task t = createTask(con,  'First End of Contract Call', contactid, phone, EOCCallRT);
                   preTask.add(t);
-                  }
-                 } 
+                  } 
               }
             }
             if(EOC2contracts.size() > 0)
@@ -254,18 +270,22 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);
-                  if(!firstendoftask.isEmpty() && firstendoftask != null)
+                  if(firstendoftask.containsKey(con.id))
                   {
-                  if(firstendoftask.get(con.id).contains('Second End of Contract Call')  && !firstendoftask.isEmpty())
-                  {
-                  
-                  }
-                  else
-                  {
-                  Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
-                  preTask.add(t);
-                  }
-                }
+                      if(firstendoftask.get(con.id).contains('Second End of Contract Call')  && !firstendoftask.isEmpty())
+                      {
+                      
+                      }
+                      else
+                      {
+                      Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
+                      preTask.add(t);
+                      }
+                }else
+                      {
+                      Task t = createTask(con,  'Second End of Contract Call', contactid, phone, EOCCallRT);
+                      preTask.add(t);
+                      }
               }
             }
             if(EOC3contracts.size() > 0)
@@ -277,17 +297,21 @@
                   List<String> phone = new List<String>();
                   if(accountIdPhone.get(con.Account__c) != null)
                   phone = accountIdPhone.get(con.Account__c);
-                  if(!firstendoftask.isEmpty() && firstendoftask != null)
+                  if(firstendoftask.containsKey(con.id))
                   {
-                  if(firstendoftask.get(con.id).contains('Final End of Contract Call') && !firstendoftask.isEmpty())
-                  {
-                  }
-                  else
-                  {              
-                  Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
-                  preTask.add(t);              
-                  }
-                  }    
+                      if(firstendoftask.get(con.id).contains('Final End of Contract Call') && !firstendoftask.isEmpty())
+                      {
+                      }
+                      else
+                      {              
+                      Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
+                      preTask.add(t);              
+                      }
+                  }else
+                      {              
+                      Task t = createTask(con,  'Final End of Contract Call', contactid, phone, EOCCallRT);
+                      preTask.add(t);              
+                      }   
                   
               }
             }     
