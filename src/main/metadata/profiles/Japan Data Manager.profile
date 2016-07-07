@@ -13292,6 +13292,11 @@
         <field>Retail_Task__c.Balloon_RV_Amount__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.2.Balance_Update_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Base_Interest_Rate__c</field>
