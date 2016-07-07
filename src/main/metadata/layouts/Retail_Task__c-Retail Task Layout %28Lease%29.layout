@@ -29,7 +29,7 @@
                 <field>Payment_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Product_Name__c</field>
             </layoutItems>
             <layoutItems>
@@ -219,17 +219,17 @@
         <label>Remaining Balance Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Lease_Remaining_Balance_Without_RV__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Balance_Update_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Lease_Remaining_Balance_With_RV__c</field>
             </layoutItems>
         </layoutColumns>
@@ -340,7 +340,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Contractor_Address1_Native__c</field>
+                <field>Contractor_Address1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -425,7 +425,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Contractor_Address1__c</field>
+                <field>Contractor_Address1_Native__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -442,7 +442,7 @@
                 <field>Contractor_Address2_Native__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Contractor_MobilePhone2__c</field>
             </layoutItems>
             <layoutItems>
@@ -677,7 +677,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Flag_Exclude__c</field>
+                <field>Special_Flag_Include__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -691,7 +691,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Flag_Include__c</field>
+                <field>Special_Flag_Exclude__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -758,7 +758,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000T2tk</masterLabel>
+        <masterLabel>00hp0000000F7EZ</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
