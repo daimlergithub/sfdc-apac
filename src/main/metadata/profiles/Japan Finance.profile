@@ -42,7 +42,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Data_Management</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -52,7 +52,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBJ_Master_Data_Management</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
