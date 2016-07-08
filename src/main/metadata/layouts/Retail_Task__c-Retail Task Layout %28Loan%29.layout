@@ -33,7 +33,7 @@
                 <field>Payment_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Product_Name__c</field>
             </layoutItems>
             <layoutItems>
@@ -42,15 +42,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>New_Used__c</field>
+                <field>Related_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Model__c</field>
+                <field>VIN__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Supporting_Dealer__c</field>
+                <behavior>Readonly</behavior>
+                <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -95,15 +95,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Related_Vehicle__c</field>
+                <field>New_Used__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>VIN__c</field>
+                <field>Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Related_Dealer__c</field>
+                <behavior>Edit</behavior>
+                <field>Supporting_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -185,10 +185,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Payment_End_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Base_Interest_Rate__c</field>
             </layoutItems>
             <layoutItems>
@@ -209,14 +205,18 @@
                 <field>Loan_Remaining_Balance_With_Baloon__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Actual_Payment_Cust_To_Shinpan__c</field>
+                <behavior>Edit</behavior>
+                <field>Balance_Update_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Actual_Outstanding_Bal_To_Shinpan__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Actual_Payment_Cust_To_Shinpan__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -246,7 +246,7 @@
                 <field>Contract_Status_Change_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Actual_Maturity_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -611,7 +611,7 @@
                 <field>Suspend_Payment__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Offer_Prohibit__c</field>
             </layoutItems>
         </layoutColumns>
@@ -686,6 +686,9 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
