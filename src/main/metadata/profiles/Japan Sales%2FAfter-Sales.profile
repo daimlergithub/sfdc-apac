@@ -13543,7 +13543,7 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.2.Balance_Update_Date__c</field>
+        <field>Retail_Task__c.Balance_Update_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
