@@ -6986,7 +6986,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7030,7 +7030,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7086,7 +7086,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7119,6 +7119,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14453,7 +14457,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14497,7 +14501,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14553,7 +14557,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14588,6 +14592,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>smart Electric Car</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>New E-Class Sedan</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Job__c</picklist>
@@ -18639,7 +18647,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18683,7 +18691,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18739,7 +18747,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18772,6 +18780,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart Electric Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
