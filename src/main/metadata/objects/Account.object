@@ -7768,7 +7768,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <fullName>New_No_SAP_Vehicle_Cars__c</fullName>
         <externalId>false</externalId>
         <label>New No. SAP Vehicle Cars</label>
-        <length>6</length>
+        <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7790,7 +7790,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <fullName>New_No_SAP_Vehicle_Vans__c</fullName>
         <externalId>false</externalId>
         <label>New No. SAP Vehicle Vans</label>
-        <length>6</length>
+        <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
