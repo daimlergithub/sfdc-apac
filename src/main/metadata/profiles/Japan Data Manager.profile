@@ -16929,10 +16929,6 @@
         <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
-	<layoutAssignments>
-        <layout>Account-Company Layout</layout>
-        <recordType>Account.CompanySoftDeleted</recordType>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-CompanySoftDeleted</layout>
         <recordType>Account.CompanySoftDeleted</recordType>
