@@ -19446,10 +19446,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>LeadProduct_AttendiesDetails</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Lead_Add_MultiBrand</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
