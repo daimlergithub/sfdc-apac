@@ -6587,6 +6587,17 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Insurance_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Interest_Model__c</fullName>
         <externalId>false</externalId>
         <label>Interest model</label>
