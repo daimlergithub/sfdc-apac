@@ -23,9 +23,14 @@ public with sharing class AccountMergeController{
     public String chosenSlaveId             {get; set;}
     public String chosenMasterId            {get; set;}
     public String chosenDupReason           {get; set;}      
-        
+    public Account Acct                     {get; set;}
+    public List<Address__C> MasterAddresses {get; set;}
+    public List<Address__C> SlaveAddresses  {get; set;}
+    public List<AddressWrapper> AddWrapList {get; set;}
+    public set<string> SoqlFieldset;
     // Get All Account fields Describe
     private Map<String, Schema.SObjectField> fieldNamesMap = Account.sObjectType.getDescribe().fields.getMap();
+    private Map<String, Schema.SObjectField> fieldAddressNamesMap = Address__c.sObjectType.getDescribe().fields.getMap();
     private ApexPages.StandardController controller;
     /** 
      * @Description : Reject duplicate Accouts and create new log by creating record on "Rejected_Duplicate_Log__c".
@@ -135,30 +140,60 @@ public with sharing class AccountMergeController{
      * @Date 12/01/2015(mm/dd/yy)      
      */      
     public AccountMergeController(ApexPages.StandardController con) {
-        controller = con;  
+        controller = con;
+         Acct = [select id,RecordType.developerName from Account where id = :con.getId()];
+        SoqlFieldset = new set<string>();
+        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsCompany'));
+        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsPerson'));
+        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyCompany'));
+        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyPerson'));
         Account acc = this.getQueriedAccount(con.getId());
         // Populate dupNummer used in  soql
         String dupNummer = acc.DUPNumber__c;       
         slaves=new List<Account>();
-        slaves=  [Select Name,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+        
+        boolean mastercount=true;
+        boolean slavecount=true;
+        for(Account acc1:[Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
                  DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
-                 WHERE DUPNumber__c =:dupNummer AND DUPNumber__c != null];            
-          
+                 WHERE DUPNumber__c =:dupNummer AND DUPNumber__c != null]){
+            if (acc1.Master_Record__c && mastercount){
+                slaves.add(acc1);
+                mastercount=false;
+            }else if(slavecount){
+                 slaves.add(acc1);
+                slavecount=false;
+                
+            }
+            
+        }
          
         // Initiate hasMessage and wraps
         hasMessage = false;
         wraps = new List<AccountWrapper>();
+        MasterAddresses = new list<Address__c>();
+        SlaveAddresses = new list<Address__C>();
+        
+        
         getMasterAndslaveId();
-        try{           
-          master = Database.query('SELECT ' + this.getSOQLFieldList(this.fieldAPIList) +                
-                ' Phone,IsPersonAccount,DUPNumber__c, Name,Id FROM Account ' +
+        try{
+            
+          master = Database.query('SELECT ' +   getSOQLFieldList(SoqlFieldset) +          
+                ' IsPersonAccount,DUPNumber__c, Id,recordType.developerName FROM Account ' +
                 ' WHERE DUPNumber__c =\''+dupNummer+'\''+
-                ' AND Master_Record__c = true');
-         slave = this.getQueriedAccount(chosenSlaveId);      
-                }
+                ' AND Master_Record__c = true limit 1' );
+            system.debug('**master'+master);    
+          MasterAddresses = Database.query('SELECT '+ this.getSOQLFieldList(this.fieldAddressAPIList) + 'id from address__c where customer__c =\''+master.id+'\''); 
+        system.debug('**MasterAddresses'+MasterAddresses);        
+         slave = this.getQueriedAccount(chosenSlaveId); 
+        system.debug('**slave'+slave);
+         SlaveAddresses =  Database.query('SELECT '+ this.getSOQLFieldList(this.fieldAddressAPIList) + 'id from address__c where customer__c =\''+slave.id+'\'');
+         system.debug('**SlaveAddresses'+SlaveAddresses);
+        }
         Catch(Exception e){
           hasMessage=true;
           ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master record found for duplicate merge'));
+          system.debug(e.getmessage() + '******');
         }               
         // Populate Inner class List
         If(master!=Null && slave!=Null){
@@ -170,7 +205,30 @@ public with sharing class AccountMergeController{
                                        Label.CP_No_Search_Result));
             } 
            this.populateAccountWrappers();
+           system.debug('*MasterAddresses'+MasterAddresses);
+           system.debug('*SlaveAddresses'+MasterAddresses);
+           this.populateAddressWrappers();
           }
+    }
+    
+    
+    private void populateAddressWrappers() {
+        AddWrapList = new list<AddressWrapper>();
+        
+        integer maxValue =(MasterAddresses.size()>SlaveAddresses.size()?MasterAddresses.size():SlaveAddresses.size());
+        for(integer i=0;i<maxValue;i++){
+             
+            AddressWrapper wrap = new AddressWrapper();
+            if(MasterAddresses.size() > i)
+            {
+            wrap.MasterAddress = MasterAddresses[i];
+            }
+            if(SlaveAddresses.size() > i)
+            {
+            wrap.SlaveAddress = SlaveAddresses[i];
+            }
+            AddWrapList.add(wrap);
+        }   
     }
      /** 
      * @Description : Get quried account with fields list in AccountMergeFields FieldSet by accId
@@ -179,8 +237,12 @@ public with sharing class AccountMergeController{
      * @Date 12/01/2015(mm/dd/yy)      
      */    
     private Account getQueriedAccount(Id accId) {
-        String soql = 'SELECT ' + this.getSOQLFieldList(this.fieldAPIList) /*+ 
+        
+        
+        String soql = 'SELECT ' + getSOQLFieldList(SoqlFieldset) /*+ 
            this.getSOQLFieldList(FieldMappingConstant.PHONE_DMS_FIELDS_MAPPING.values())*/;
+        
+        system.debug('soql-------->'+soql);
         
         // Prevent duplicate Master_Record__c and DUPNumber__c in SOQL Field List,
         if (!soql.contains('Master_Record__c')) {
@@ -197,7 +259,7 @@ public with sharing class AccountMergeController{
         
         
         return Database.query(soql + 
-            ' IsPersonAccount,phone,Name,Id,PersonEmail  FROM Account WHERE Id =\''+accId+'\'');
+            ' IsPersonAccount,phone,Id,PersonEmail,recordType.developerName  FROM Account WHERE Id =\''+accId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
@@ -208,8 +270,13 @@ public with sharing class AccountMergeController{
      * @Date 12/01/2015(mm/dd/yy)      
      */ 
     private void populateAccountWrappers() {
-        wraps = new List<AccountWrapper>();         
-        for (String fieldAPI : this.fieldAPIList) {
+        wraps = new List<AccountWrapper>(); 
+        List<string> TotalFieldset = new list<string>();
+        set<string> readonlyset = (Acct.recordType.developerName == 'PersonAccount'? getFieldssetByFieldSet('AccountMergeReadonlyPerson') : getFieldssetByFieldSet('AccountMergeReadonlyCompany'));
+        TotalFieldset.addAll(fieldAPIList);
+        TotalFieldset.addAll(readonlyset);
+        
+        for (String fieldAPI : TotalFieldset) {
             AccountWrapper wrap = new AccountWrapper();
             
             // Populate fieldLabel and fieldAPI
@@ -225,7 +292,7 @@ public with sharing class AccountMergeController{
             wrap.isSlaveNull = (slaveFieldValue == null);
             
             // If two values are both null, so,
-            if (masterFieldValue == null && slaveFieldValue == null) {
+            if ((masterFieldValue == null && slaveFieldValue == null) || readonlyset.contains(fieldAPI)) {
                 wrap.isSame = true;
                 wrap.isMasterChecked = false;
                 wrap.isSlaveChecked = false;
@@ -234,7 +301,7 @@ public with sharing class AccountMergeController{
             }
          
             if ((masterFieldValue != null && masterFieldValue == slaveFieldValue) ||
-                    fieldAPI == 'Master_Record__c') {
+                    fieldAPI == 'Master_Record__c' ) {
                 wrap.isSame = true;
                 wrap.isMasterChecked = true;
                 wrap.isSlaveChecked = false;
@@ -260,11 +327,28 @@ public with sharing class AccountMergeController{
      * @Date 12/01/2015(mm/dd/yy)      
      */     
     public List<String> fieldAPIList {
+        
         get {
-            return this.getFieldsListByFieldSet(System.Label.AccountMergeFields);
+            
+            if(Acct.recordType.developerName == 'PersonAccount')
+            {
+            return this.getFieldsListByFieldSet('AccountMergeFieldsPerson');
+            }
+            else
+            {
+                return this.getFieldsListByFieldSet('AccountMergeFieldsCompany');
+            }
         }
         set;
-    }    
+    }
+    public List<String> fieldAddressAPIList {        
+        get {            
+            
+                return this.getFieldsListByFieldSetAddress('AddressFieldset');
+           
+        }
+        set;
+    }   
      /** 
      * @Description : Get the SOQL Expr by fieldList
      * @author  Sneha chail
@@ -278,6 +362,14 @@ public with sharing class AccountMergeController{
         
         return SOQLFieldList;
     }    
+    private String getSOQLFieldList(set<String> fieldList) {
+        String SOQLFieldList = '';
+        for (String field : fieldList) {
+            SOQLFieldList += field + ', ';
+        }
+        
+        return SOQLFieldList;
+    }   
     /** 
      * @Description : Get the Field Set Member
      * @author  Sneha chail
@@ -291,7 +383,25 @@ public with sharing class AccountMergeController{
             fieldsList.add(member.getFieldPath());
         }
         return fieldsList;
-    }    
+    } 
+    private set<String> getFieldssetByFieldSet(String fieldSetName) {
+        set<String> fieldsList = new set<String>();
+        List<Schema.FieldSetMember> fieldsetMembers = SObjectType.Account.FieldSets.getMap().
+            get(fieldSetName).getFields();
+        for (Schema.FieldSetMember member : fieldsetMembers) {
+            fieldsList.add(member.getFieldPath());
+        }
+        return fieldsList;
+    } 
+    private List<String> getFieldsListByFieldSetAddress(String fieldSetName) {
+        List<String> fieldsList = new List<String>();
+        List<Schema.FieldSetMember> fieldsetMembers = SObjectType.Address__c.FieldSets.getMap().
+            get(fieldSetName).getFields();
+        for (Schema.FieldSetMember member : fieldsetMembers) {
+            fieldsList.add(member.getFieldPath());
+        }
+        return fieldsList;
+    }   
     /** 
      * @Description : Inner Wrapper Class       
      * @author  Sneha chail
@@ -337,14 +447,34 @@ public with sharing class AccountMergeController{
             }
         }
         // Update Slave RecordTypeId and Owner
+        if(slave.RecordType.developerName == 'PersonAccount' && master.RecordType.developerName == 'PersonAccount')
+        {
         slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 
             UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
         slave.OwnerId = usr.Id;       
-        slave.Master_Account_Id__c = master.Id;              
-      
+        slave.Master_Account_Id__c = master.Id;
+        }
+         else if(slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')
+         {
+             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 
+            'CompanySoftDeleted'); 
+        slave.OwnerId = usr.Id;       
+        slave.Master_Account_Id__c = master.Id;
+                 
+         }
+        // If the merged record is the last suspected duplicate to the master record, 
+        // after merge, also remove master record (checkbox) and Dup Number 
+        // from the master record.
+             
+         Rejected_Duplicate_Log__c duplicateLog = new Rejected_Duplicate_Log__c(
+         Master_Account__c = master.Id,
+         Duplicate_Account__c = slave.Id ,
+         Duplicate_Reason_Code__c = slave.Dup_Reason__c,
+         Status__c=system.label.Confirmed);
         // Set SavePoint, if slave DML failed, master DML should be rollback .
-        SavePoint sp = Database.setSavepoint();
+        SavePoint sp = Database.setSavepoint();        
         try {
+            insert duplicateLog;
             update master;
             update slave;
         }
@@ -406,5 +536,12 @@ public with sharing class AccountMergeController{
                 }
             }
         }
+    }
+    
+    public class AddressWrapper
+    {
+        public Address__c MasterAddress {get; set;}
+        public Address__c SlaveAddress {get; set;}
+        
     }
 }

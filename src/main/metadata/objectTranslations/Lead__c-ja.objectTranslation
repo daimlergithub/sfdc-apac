@@ -7054,7 +7054,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>希望連絡先</label>
+        <label>希望連絡方法</label>
         <name>Preferred_Contact_Method__c</name>
         <picklistValues>
             <masterLabel>Email</masterLabel>
@@ -7192,6 +7192,10 @@
     <fields>
         <label><!-- *Proxy Date Time --></label>
         <name>Proxy_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public --></label>
+        <name>Public__c</name>
     </fields>
     <fields>
         <label><!-- Purchase Amount --></label>
@@ -10521,6 +10525,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Threshold Date --></label>
+        <name>Threshold_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Title --></label>
         <name>Title__c</name>
     </fields>
@@ -12358,6 +12366,10 @@
         <name>UCID__c</name>
     </fields>
     <fields>
+        <label><!-- Units for Prospect --></label>
+        <name>Units_for_Prospect__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
@@ -14129,6 +14141,26 @@
     <fields>
         <label><!-- Visited Showroom Date --></label>
         <name>Visited_Showroom_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Volume --></label>
+        <name>Volume__c</name>
+    </fields>
+    <fields>
+        <label><!-- Waived Reason --></label>
+        <name>Waived_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Competitive Reasons</masterLabel>
+            <translation><!-- Competitive Reasons --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Loyalty</masterLabel>
+            <translation><!-- Customer Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Existing Relationship</masterLabel>
+            <translation><!-- Existing Relationship --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Work Phone --></label>
