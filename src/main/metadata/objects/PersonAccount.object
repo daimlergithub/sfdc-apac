@@ -2970,7 +2970,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3014,7 +3014,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3050,6 +3050,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>New E-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>R-Class</fullName>
                 <default>false</default>
             </values>
@@ -3066,7 +3070,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7654,7 +7658,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7698,7 +7702,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7734,6 +7738,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>New E-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -7754,7 +7762,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12276,7 +12284,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12320,7 +12328,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12372,7 +12380,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16978,7 +16986,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17022,7 +17030,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17058,6 +17066,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>New E-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -17078,7 +17090,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21823,7 +21835,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21867,7 +21879,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21919,7 +21931,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
