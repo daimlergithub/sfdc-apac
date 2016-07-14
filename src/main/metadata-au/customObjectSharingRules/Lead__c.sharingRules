@@ -25,6 +25,29 @@
         <name>Finance Fleet Lead Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Finance_Fleet_Lead_Sharing_Rule_For_All_Users</fullName>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fleet Finance Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Public__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Finance Fleet Lead Sharing Rule For All Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Fleet_Vans_Lead_Sharing_Rule</fullName>
         <sharedTo>
             <role>MBauP_Fleet_Vans</role>
@@ -49,10 +72,15 @@
         <name>Fleet Vans Lead Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Lead_Sharing_Rule</fullName>
+        <fullName>Fleet_Vans_Lead_Sharing_Rule_For_All_Users</fullName>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fleet Vans</value>
+        </criteriaItems>
         <criteriaItems>
             <field>Public__c</field>
             <operation>equals</operation>
@@ -63,7 +91,25 @@
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
+        <name>Fleet Vans Lead Sharing Rule For All Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Lead_Sharing_Rule</fullName>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Fleet Finance Lead,Fleet Vans</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
         <name>Lead Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>

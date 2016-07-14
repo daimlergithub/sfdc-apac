@@ -16829,6 +16829,10 @@
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account-Fleet%2FFleet%28delete%29 Layout</layout>
+        <recordType>Account.Company</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
