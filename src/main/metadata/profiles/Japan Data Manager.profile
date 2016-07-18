@@ -13252,6 +13252,11 @@
         <field>Retail_Task__c.Action_Taken__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Actual_Maturity_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Amount_Financed__c</field>
@@ -13291,6 +13296,11 @@
         <editable>false</editable>
         <field>Retail_Task__c.Balloon_RV_Amount__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Balance_Update_Date__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16920,6 +16930,10 @@
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account-CompanySoftDeleted</layout>
+        <recordType>Account.CompanySoftDeleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
@@ -18247,6 +18261,11 @@
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Company</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.CompanySoftDeleted</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

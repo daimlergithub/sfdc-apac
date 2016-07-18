@@ -714,7 +714,7 @@
         <relationshipLabel><!-- Vehicles --></relationshipLabel>
     </fields>
     <fields>
-        <label>モデルレンジ</label>
+        <label>モデル名</label>
         <name>Car_Model__c</name>
         <relationshipLabel><!-- Vehicles --></relationshipLabel>
     </fields>

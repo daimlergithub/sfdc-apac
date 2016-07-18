@@ -1,53 +1,53 @@
 <apex:page standardController="Account" extensions="AccountMergeController" sidebar="false" showHeader="false">
     <style>
         .rollup td {
-            padding: 5px;
-            height:15px;
-            text-align: left;
-            valign: middle;
-            border-bottom: 1px solid #BBB;
+        padding: 5px;
+        height:15px;
+        text-align: left;
+        valign: middle;
+        border-bottom: 1px solid #BBB;
         }
         
         .headerRow td {
-            padding-left:10px;
-            font-weight:bold;
-         }
-         
+        padding-left:10px;
+        font-weight:bold;
+        }
+        
         a {
-            color: #015BA7;
-            text-decoration: none;
+        color: #015BA7;
+        text-decoration: none;
         }
         
         body a:hover {
-           text-decoration: underline;
-           color: #015BA7;
+        text-decoration: underline;
+        color: #015BA7;
         }
     </style>
     
     <apex:includeScript value="{!$Resource.jquery142}"/>
     <script>
-        jquery = jQuery.noConflict();
-        jquery(document).ready(function() {
-            jquery(':radio').change(function() {
-                var name = jquery(this).attr('name');
-                jquery('input[name=' + name + ']').each(function() {
-                    jquery(this).next().val(jquery(this).attr('checked'));
-                });
+    jquery = jQuery.noConflict();
+    jquery(document).ready(function() {
+        jquery(':radio').change(function() {
+            var name = jquery(this).attr('name');
+            jquery('input[name=' + name + ']').each(function() {
+                jquery(this).next().val(jquery(this).attr('checked'));
             });
         });
-        
-        function setEntityValues (conid) {
-            for (var frm = 0; frm < document.forms.length; frm++) {
-                for (var fld = 0; fld < document.forms[frm].elements.length; fld++) {
-                    var elt = document.forms[frm].elements[fld];
-                    if (elt.type == "radio") {
-                        if (elt.value == conid) {
-                            elt.checked = true;
-                        }
+    });
+    
+    function setEntityValues (conid) {
+        for (var frm = 0; frm < document.forms.length; frm++) {
+            for (var fld = 0; fld < document.forms[frm].elements.length; fld++) {
+                var elt = document.forms[frm].elements[fld];
+                if (elt.type == "radio") {
+                    if (elt.value == conid) {
+                        elt.checked = true;
                     }
                 }
             }
         }
+    }
     </script>
     
     <apex:sectionHeader title="{!$Label.Account_Merge}" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
@@ -58,7 +58,7 @@
             <apex:pageBlockButtons >
                 <apex:commandButton value="{!$Label.Previous}" action="{!previous}" immediate="true"/>              
                 <apex:commandButton action="{!mergeAccount}" value="{!$Label.Merge}" Id="save" 
-                    onclick="if (confirm('{!$Label.CP_Merge_Account_Confirm}')) return true; return false;"/>
+                                    onclick="if (confirm('{!$Label.CP_Merge_Account_Confirm}')) return true; return false;"/>
             </apex:pageBlockButtons>          
             <apex:outputpanel Id="detail">
                 <table cellspacing="0" cellpadding="0" width="80%" align="center" class="rollup" style="margin-left:20px">
@@ -124,10 +124,30 @@
                                 </td>         
                             </tr>
                         </apex:repeat>
+                        <apex:repeat var="wrapouter" value="{!AddWrapList}">
+                            <apex:repeat var="wrap" value="{!fieldAddressAPIList}">
+                                <tr onmouseover="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" 
+                                    onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}">
+                                    
+                                    <td style="text-align:right; width:20%; background-color: #EEEEEE">
+                                        <b>{!$ObjectType.Address__c.Fields[wrap].Label}</b>
+                                    </td>
+                                    
+                                    <td style="width:40%">
+                                        <apex:outputField value="{!wrapouter.MasterAddress[wrap]}"/>
+                                        
+                                    </td>
+                                    
+                                    <td style="width:40%">
+                                        <apex:outputField value="{!wrapouter.SlaveAddress[wrap]}"/>
+                                    </td>         
+                                </tr>
+                            </apex:repeat>  
+                        </apex:repeat>
                     </tbody>
                 </table>
             </apex:outputpanel>
-
+            
         </apex:pageBlock>
     </apex:form>
 </apex:page>

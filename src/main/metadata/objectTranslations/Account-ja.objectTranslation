@@ -4627,7 +4627,7 @@ Allows up to 240 characters --></help>
             <translation>Cクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Sedon</masterLabel>
+            <masterLabel>C-Class Sedan</masterLabel>
             <translation>Cクラス セダン</translation>
         </picklistValues>
         <picklistValues>
@@ -4671,7 +4671,7 @@ Allows up to 240 characters --></help>
             <translation>Eクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Sedon</masterLabel>
+            <masterLabel>E-Class Sedan</masterLabel>
             <translation>Eクラス セダン</translation>
         </picklistValues>
         <picklistValues>
@@ -4727,7 +4727,7 @@ Allows up to 240 characters --></help>
             <translation>Sクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>S-Class Sedon</masterLabel>
+            <masterLabel>S-Class Sedan</masterLabel>
             <translation>Sクラス セダン</translation>
         </picklistValues>
         <picklistValues>
@@ -4761,6 +4761,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>smart Electric Car</masterLabel>
             <translation>smart電気自動車</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>New E-Class Sedan</masterLabel>
+            <translation>新型Eクラス セダン</translation>
         </picklistValues>
     </fields>
     <fields>
