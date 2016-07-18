@@ -4762,6 +4762,10 @@ Allows up to 240 characters --></help>
             <masterLabel>smart Electric Car</masterLabel>
             <translation>smart電気自動車</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>New E-Class Sedan</masterLabel>
+            <translation>新型Eクラス セダン</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Is Blacklist --></label>
