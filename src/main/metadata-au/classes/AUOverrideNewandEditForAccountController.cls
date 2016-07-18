@@ -119,7 +119,7 @@ public with sharing class AUOverrideNewandEditForAccountController
   
   @TestVisible private Account getAccountDeatails(id recordId)
   {
-    Account objAcc=[Select id,Recordtypeid,Name,City__c,isPersonAccount,Website,Fax,Fleet__c,
+    Account objAcc=[Select id,Recordtypeid,Name,City__c,isPersonAccount,Website,Fax,Fleet__c,Description,Dealer_ABN__c,AccountNumber,
             ParentId,Company_Name__c,Fleet_Category__c,Add_User__c,Add_Date__c,Work_Phone__c,Individual_Home_Phone__c,Opt_In_Work_Phone__c,Opt_In_Home_Phone__c,
             FS_Opt_In_Work_Phone__c,FS_Opt_In_Home_Phone__c,Mobile__c,Opt_In_SMS__c,FS_Opt_In_SMS__c,Email__c,FS_Opt_In_Email__c,Opt_In_Email__c
             from Account where id=:recordId];

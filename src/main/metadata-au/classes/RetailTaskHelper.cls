@@ -1,7 +1,7 @@
 public with sharing class RetailTaskHelper {
     public static Set<ID> vehicleIds = new Set<ID>();
     public static Set<ID> customerIds = new Set<ID>();
-    
+    private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT)].Id;
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
     {
         List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
@@ -233,7 +233,6 @@ public with sharing class RetailTaskHelper {
     
     public static void sentEmailAfterStatusToCurrent(List<Retail_Task__c> retailTasklst,Map<Id,Retail_Task__c> oldMap,Map<Id,Retail_Task__c>newMap,Boolean isInsert,Boolean isUpdate){
           Set<Id> dealerIds = new Set<Id>();
-         
             for(Retail_Task__c retailtaskObj : retailTasklst){
                 if(retailtaskObj.Status__c == UtilConstant.CURRENT || retailtaskObj.Status__c == UtilConstant.IRREGULAR|| retailtaskObj.Status__c == UtilConstant.REGULARCOMPILED){
                     dealerIds.add(retailtaskObj.Related_Dealer__c);
@@ -273,7 +272,8 @@ public with sharing class RetailTaskHelper {
                                 plainBody = emailTemplateObjForRegular.Body ;
                             }
    //                         system.debug();
-                            if(subject != null && subject !='' && plainBody != null && plainBody != '' && !businessUserEmailAddress.isEmpty()){
+
+                            if(subject != null && subject != '' && plainBody != null && plainBody!= '' && !businessUserEmailAddress.isEmpty()){
                                 mail.setToAddresses(businessUserEmailAddress);
                                 if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
                                 {
@@ -324,7 +324,9 @@ public with sharing class RetailTaskHelper {
                               
                                     mail.setSubject(subject);
                                     mail.setPlainTextBody(plainBody);
+                                    mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
                                     mails.add(mail);
+                                    
                                     system.debug('::Eneter here:'+subject);
                                      system.debug('::Eneter here:'+plainBody );
                                }
