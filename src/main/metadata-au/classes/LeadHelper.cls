@@ -631,7 +631,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
-            sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
+            //sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         } 
     }
    
