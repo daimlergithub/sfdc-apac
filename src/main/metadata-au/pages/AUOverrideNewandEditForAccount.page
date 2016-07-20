@@ -20,6 +20,12 @@
             <apex:inputField value="{!objAccount.ParentId}" />
             <apex:inputField value="{!objAccount.Company_Name__c}" />   
             <apex:outputtext value="{!recordType}" label="Account Record Type"/>
+            <apex:outputText value="" />
+            <apex:inputField value="{!objAccount.Description}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}" />
+            <apex:outputText value="" />
+            <apex:inputField value="{!objAccount.Dealer_ABN__c}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}"/>
+            <apex:outputText value="" />
+            <apex:inputField value="{!objAccount.AccountNumber}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}" />
         </apex:pageBlockSection>
         
         <apex:pageBlockSection columns="2" id="pbsOtherInfoId" title="Other Informations" collapsible="false">

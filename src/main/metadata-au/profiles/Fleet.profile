@@ -10259,7 +10259,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_Items__c</field>
-        <readable>true</readable>
+        <readable>true</readable
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18112,13 +18112,13 @@
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Account-Fleet%2FFleet%28delete%29 Layout</layout>
+        <recordType>Account.Company</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-System Admin%2FEMC Company Layout</layout>
-        <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
@@ -19901,7 +19901,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Finance_Lead</recordType>
-        <visible>false</visible>
+        <visible>false</visible
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -20408,7 +20408,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-SocialPost</tab>
         <visibility>DefaultOff</visibility>

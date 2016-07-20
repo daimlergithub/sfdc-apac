@@ -9541,7 +9541,6 @@
         <field>Lead_Product__c.Lead_Product_Item__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Product__c.Lead_Product_Items__c</field>
         <readable>true</readable>
@@ -18462,14 +18461,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Finance_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
+        <recordType>Lead__c.Finance_Lead</recordType
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
@@ -19906,7 +19898,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-        <visible>false</visible>
+        <visible>false</visible
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

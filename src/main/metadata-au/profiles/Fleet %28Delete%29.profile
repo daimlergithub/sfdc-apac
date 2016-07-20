@@ -18112,13 +18112,13 @@
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account-Fleet%2FFleet%28delete%29 Layout</layout>
+        <recordType>Account.Company</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-System Admin%2FEMC Company Layout</layout>
-        <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AccountContactRole-Account Contact Role Layout</layout>
@@ -18463,7 +18463,7 @@
         <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
-    <layoutAssignments>
+    <layoutAssignments
         <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>

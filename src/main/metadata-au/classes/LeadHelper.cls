@@ -628,10 +628,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
         }
-       
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
-            sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
+           // sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         } 
     }
    
@@ -688,7 +687,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
 
         if(!mailEocLead.isEmpty()){
-            send171Email(mailEocLead);
+            //send171Email(mailEocLead);
         }
     }
    
@@ -777,11 +776,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     if(dlerGKIdMap.get(dlerId) != null){
                         ldNewOwnerMap.put(curLdId, dlerGKIdMap.get(dlerId));
                     }
-                    If(!Test.isRunningtest()) {
+                    /*If(!Test.isRunningtest()) {
                         for(User curUser : dlerGKUsers){
                             ldNewOwnerMap.put(curLdId, curUser.Id);
                         }
-                    }
+                    }*/
                 }
 
                 if(!ldNewOwnerMap.isEmpty()){

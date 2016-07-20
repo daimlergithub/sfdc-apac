@@ -18020,10 +18020,12 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+
         <apexPage>Lead_Product_Attendee</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
     </pageAccesses>

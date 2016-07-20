@@ -32,7 +32,7 @@
              <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
              <apex:outputField value="{!addressList_details.Company_Name__c}"/>
              <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
-             <apex:outputField value="{!addressList_details.City__c}"/>
+             <apex:outputField value="{!addressList_details.city__c}"/>
              <apex:outputField value="{!addressList_details.District__c}"/>
              <apex:outputField value="{!addressList_details.Country__c}"/>
              <apex:outputField value="{!addressList_details.ZipCode__c}"/>

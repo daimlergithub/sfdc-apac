@@ -2470,13 +2470,13 @@ noted by Lio on 10.28.2013</description>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <externalId>true</externalId>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
         <label>Source ID</label>
         <length>40</length>
         <required>false</required>
         <type>Text</type>
-        <unique>true</unique>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Source_System__c</fullName>
