@@ -589,7 +589,7 @@
         <label>Contact Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>ContractNumber__c</fullName>
@@ -641,7 +641,7 @@
         <externalId>false</externalId>
         <label>Contract Invalid Flag</label>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Checkbox</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -668,7 +668,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -707,7 +707,6 @@
         <label>Address (Kana) - Mailing</label>
         <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -718,9 +717,8 @@
         <label>Address (Kanji) - Mailing</label>
         <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -729,7 +727,7 @@
         <label>Contractor Birthdate</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contractor_Company_Established_Date__c</fullName>
@@ -1629,35 +1627,6 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Franchise_Description__c</fullName>
-        <externalId>false</externalId>
-        <label>Franchise Description</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GAP_Cover__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>GAP Cover</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>GAP_Premium_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>GAP Premium Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>GFV__c</fullName>
@@ -2724,42 +2693,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Outlet_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Outlet Name</label>
-        <length>70</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Parent_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Parent Flag</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Parent_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Dual Pair contract number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Payment_End_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Payment End Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Payment_Frequency__c</fullName>
@@ -4124,26 +4057,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Supporting_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Supporting Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Retail Tasks (Supporting Dealer)</relationshipLabel>
-        <relationshipName>Retail_Tasks6</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Suspend_Payment__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Suspend Payment</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>The_Day_After_Start_One_Year__c</fullName>
