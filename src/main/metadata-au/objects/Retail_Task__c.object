@@ -666,7 +666,6 @@
         <label>Address (kana)-Actual</label>
         <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2297,6 +2296,7 @@
         <type>Date</type>
     </fields>
     <fields>
+		<fullName>Latest_Invoice_Date__c</fullName>
         <externalId>false</externalId>
         <label>Latest Invoice Date</label>
         <required>false</required>
