@@ -4637,7 +4637,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields><fullName>Monthly_Repayment_Tax__c</fullName>
+    <fields>
         <fullName>Voluntary_Insurance_Company__c</fullName>
         <externalId>false</externalId>
         <label>Voluntary Insurance Company</label>
