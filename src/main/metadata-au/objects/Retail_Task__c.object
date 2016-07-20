@@ -2509,6 +2509,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+		<fullName>Monthly_Repayment_Tax__c</fullName>
         <externalId>false</externalId>
         <label>Monthly payment amount (including tax)</label>
         <precision>18</precision>
