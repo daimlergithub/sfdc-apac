@@ -462,7 +462,7 @@
         <name>EOC_Call__c</name>
     </fields>
     <fields>
-        <label>契約開始/検収/立替処理/始期</label>
+        <label>契約終了日/満了日/満期日</label>
         <name>EndDate__c</name>
     </fields>
     <fields>
@@ -1853,7 +1853,7 @@
         <name>Split_Payment_Comission_Fee__c</name>
     </fields>
     <fields>
-        <label>契約終了日/満了日/満期日</label>
+        <label>契約開始/検収/立替処理/始期</label>
         <name>StartDate__c</name>
     </fields>
     <fields>
