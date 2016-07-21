@@ -19894,7 +19894,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
-        <visible>false</visible
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
