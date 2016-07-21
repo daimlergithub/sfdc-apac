@@ -43,7 +43,7 @@
 	</target>
 	
 	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy15, deploy20, deploy21, deploy25,
-	deploy29,deploy30,deploy31,deploy32,deploy33,deploy34,deploy35,deploy36,deploy37,deploy39, deploy40,deploy41, deploy42, deploy43,deploy44,deploy45,deploy49,deploy50,
+	deploy30,deploy31,deploy32,deploy33,deploy34,deploy35,deploy36,deploy37,deploy39, deploy40,deploy41, deploy42, deploy43,deploy44,deploy45,deploy49,deploy50,
 	deploy51,deploy52,postDestructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
