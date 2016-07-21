@@ -9562,7 +9562,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable
+        <editable>false</editable>
         <field>Lead_Product__c.Next_Steps__c</field>
         <readable>false</readable>
     </fieldPermissions>
