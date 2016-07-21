@@ -18457,7 +18457,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Finance_Lead</recordType
+        <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
