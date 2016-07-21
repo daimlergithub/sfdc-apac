@@ -10259,7 +10259,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_Items__c</field>
-        <readable>true</readable
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
