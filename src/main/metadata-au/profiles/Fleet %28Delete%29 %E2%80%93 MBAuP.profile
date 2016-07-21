@@ -9537,12 +9537,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead_Product__c.Lead_Product_Item__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
         <editable>true</editable>
-        <field>Lead_Product__c.Lead_Product_Items__c</field>
+        <field>Lead_Product__c.Lead_Product_Item__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
