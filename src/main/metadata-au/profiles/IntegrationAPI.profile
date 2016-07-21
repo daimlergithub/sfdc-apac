@@ -14201,7 +14201,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Indemnity_Amount__c</field>
-        <field>Retail_Task__c.Incident_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

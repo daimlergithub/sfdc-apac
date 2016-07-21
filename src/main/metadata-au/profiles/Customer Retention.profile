@@ -18470,9 +18470,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
