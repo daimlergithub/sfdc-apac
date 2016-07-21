@@ -19901,7 +19901,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Finance_Lead</recordType>
-        <visible>false</visible
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
