@@ -7556,7 +7556,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Service_Contents__c</field>
-        <readable>true</readable>
+        <readable>true</readable> 
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
