@@ -12983,19 +12983,9 @@
         <field>Retail_Campaign__c.Region_Recommendation__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Campaign__c.Relevant_Central_Campaign__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Campaign__c.Relevant_Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13007,7 +12997,17 @@
         <editable>false</editable>
         <field>Retail_Campaign__c.Show_up_Rate__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Relevant_Central_Campaign__c</field>
+        <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Relevant_Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Showroom__c</field>
