@@ -13799,7 +13799,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable
+        <editable>true</editable>
         <field>Retail_Task__c.GAP_Premium_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
