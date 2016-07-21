@@ -7558,11 +7558,6 @@
         <field>Claim__c.Service_Contents__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Claim__c.Updated_By_EP_Transaction__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Updated_By_EP_Transactions__c</field>
