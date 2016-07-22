@@ -566,9 +566,9 @@ Proxy_Date_Time__c
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-    <rules>
+        <rules>
         <fullName>Email Notification to Lead Owner</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -579,8 +579,13 @@ Proxy_Date_Time__c
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Settled,Closed,Lost</value>
+        </criteriaItems>
         <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
                 <name>Lead_Untouched_for_4_days_after_creation</name>
@@ -669,9 +674,9 @@ Proxy_Date_Time__c
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+     <rules>
         <fullName>Escalation%3A Lead not touched for 7 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -682,8 +687,13 @@ Proxy_Date_Time__c
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Settled,Closed,Lost</value>
+        </criteriaItems>
         <description>This Lead has not been touched for 7 days after creation.</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
                 <name>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</name>
