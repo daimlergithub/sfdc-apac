@@ -114,6 +114,8 @@
 				<sf:include name="Campaign"/>
 				<sf:include name="CampaignMember"/>				
 			    <sf:include name=".*__c"/>
+				<sf:include name="Lead_Priority_Score__mdt"/>
+				<sf:include name="Vehicle_Class_Priority_Score__mdt"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
 				<sf:exclude name="External_Picklist__c"/>
