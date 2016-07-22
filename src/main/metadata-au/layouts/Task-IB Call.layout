@@ -48,10 +48,6 @@
                 <behavior>Readonly</behavior>
                 <field>QC_Link__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MTH_Penetration__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

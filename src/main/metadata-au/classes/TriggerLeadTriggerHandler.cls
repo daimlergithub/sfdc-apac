@@ -35,6 +35,7 @@ public class TriggerLeadTriggerHandler
         LeadHelper.ShareLeadsToCampaignUser(trigger.new,oldmap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.emailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.sendEmailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
        // AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isAfter && trigger.isUpdate)
@@ -44,6 +45,7 @@ public class TriggerLeadTriggerHandler
         LeadHelper.ShareLeadsToCampaignUser(trigger.new,oldmap,newmap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.emailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.sendEmailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         //AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isInsert)
@@ -54,6 +56,7 @@ public class TriggerLeadTriggerHandler
         UtilLead.beforeInsert_updateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.leadPriorityScore(trigger.new);        
         //AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isUpdate)
@@ -62,8 +65,7 @@ public class TriggerLeadTriggerHandler
         /*UtilLead.beforeInsert_updateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);
-        
+        LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);                
        // AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
        // AuLeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);
     }

@@ -1,0 +1,5 @@
+<apex:component controller="BrochureLinkController" access="global">
+<apex:attribute name="leadId" type="id" description="Lead account Id" assignTo="{!leadId1}"/>
+<apex:outputLink value="{!URL}">{!URL}</apex:outputLink>
+<apex:outputLink value="{!URL1}">{!URL1}</apex:outputLink>
+</apex:component>

@@ -22,7 +22,7 @@ public class lead_AddresscontrollerTest {
         objlead_Addresscontroller.getaddressList_details();
         test.stopTest();
          list<Address__c> addresslist=new list<Address__c>();
-         addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
+         addresslist=[select id,Name,MD__c,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                             from Address__c Where  Preferred__c=:true Limit 1]; 
         System.assertEquals(addresslist[0],objlead_Addresscontroller.getaddressList_details());
         

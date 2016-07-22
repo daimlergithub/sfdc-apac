@@ -1,0 +1,16 @@
+<messaging:emailTemplate subject="Thank you for your enquiry" recipientType="Contact" relatedToType="Lead__c" >
+<messaging:htmlEmailBody >
+<apex:image value="https://c.cs21.content.force.com/servlet/servlet.FileDownload?file=015q0000000Aim3" height="80" width="80"/>
+        <font face ="Arial regular" size ="6px">        
+        <p> Dear {!relatedTo.Company_Account__r.Name} </p>
+         Thank you for expressing your interest in the Mercedes-Benz {!relatedTo.MB_Vehicle_Interest__c} <br/>        
+         A member of our Enquiry Management Centre will be in contact with you shortly to discuss your request.<br/>         
+         In the meantime, you can access brochures, specifications and wallpapers in the Download Centre, by following the link below.<br/>         
+Download Centre :<apex:OutputText rendered="{!relatedTo.Business_Unit__c!=''}"><c:Brochure_component leadId="{!relatedTo.id}"/></apex:OutputText><br/> 
+Driveaway Pricing Calculator :<apex:OutputText rendered="{!relatedTo.Business_Unit__c!=''}"><c:Brochure_component leadId="{!relatedTo.id}"/></apex:OutputText> <br/><br/>
+        
+        Kind Regards,<br/>
+        Mercedes-Benz Cars Australia.
+        </font>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

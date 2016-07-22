@@ -26493,7 +26493,8 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes> 
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Comment_Is_Mandatory_If_Subject_Is_Visit</fullName>
         <active>true</active>
@@ -26512,8 +26513,7 @@ Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or tou
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please enter Comment</errorMessage>
     </validationRules>
-	<sharingModel>ControlledByParent</sharingModel> 
-    <webLinks>
+	<webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -26532,7 +26532,6 @@ var roleid = sforce.connection.query(querystring);
 records = roleid.getArray("records");
 var flag=false;
 for (var i=0; i&lt; records.length; i++) {
-
   if(user.roleId==records[i].Id){
 var flag=true;
 }
