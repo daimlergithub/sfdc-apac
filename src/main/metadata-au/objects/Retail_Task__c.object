@@ -54,15 +54,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	<fields>
-        <fullName>Balance_Update_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Update date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
     <fields>
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -252,6 +243,14 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Balance_Update_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Update date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Balloon_RV_Amount__c</fullName>
@@ -555,35 +554,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Franchise_Description__c</fullName>
-        <externalId>false</externalId>
-        <label>Franchise Description</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GAP_Cover__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>GAP Cover</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>GAP_Premium_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>GAP Premium Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Contact_Date__c</fullName>
         <externalId>false</externalId>
         <label>Contact Date</label>
@@ -642,7 +612,6 @@
         <label>Contract Invalid Flag</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Contract_Status_Change_Date__c</fullName>
@@ -807,42 +776,6 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Outlet_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Outlet Name</label>
-        <length>70</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Parent_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Parent Flag</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Parent_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Dual Pair contract number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Payment_End_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Payment End Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contractor_Mail__c</fullName>
@@ -1628,6 +1561,35 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Franchise_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Franchise Description</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GAP_Cover__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>GAP Cover</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GAP_Premium_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>GAP Premium Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>GFV__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2219,26 +2181,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>	
-        <fullName>Supporting_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Supporting Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Retail Tasks (Supporting Dealer)</relationshipLabel>
-        <relationshipName>Retail_Tasks6</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Suspend_Payment__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Suspend Payment</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>Insurance_Rating__c</fullName>
         <externalId>false</externalId>
@@ -2296,7 +2238,7 @@
         <type>Date</type>
     </fields>
     <fields>
-		<fullName>Latest_Invoice_Date__c</fullName>
+        <fullName>Latest_Invoice_Date__c</fullName>
         <externalId>false</externalId>
         <label>Latest Invoice Date</label>
         <required>false</required>
@@ -2509,7 +2451,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-		<fullName>Monthly_Repayment_Tax__c</fullName>
+        <fullName>Monthly_Repayment_Tax__c</fullName>
         <externalId>false</externalId>
         <label>Monthly payment amount (including tax)</label>
         <precision>18</precision>
@@ -2550,6 +2492,49 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Net premium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>New/Used Car</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Non_MB_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Non MB Branded Insurance</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2696,6 +2681,42 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Outlet_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Outlet Name</label>
+        <length>70</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Parent Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Dual Pair contract number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Payment_Frequency__c</fullName>
         <externalId>false</externalId>
         <label>Payment Frequency</label>
@@ -2802,7 +2823,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Policy_Class__c</fullName>
         <externalId>false</externalId>
         <label>Policy Class</label>
-        <length>20</length>
+        <length>50</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -2826,8 +2847,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <required>false</required>
         <scale>5</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Premium_Change__c</fullName>
@@ -4058,6 +4078,26 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Supporting_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Supporting Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Supporting Dealer)</relationshipLabel>
+        <relationshipName>Retail_Tasks6</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Suspend_Payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Suspend Payment</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>The_Day_After_Start_One_Year__c</fullName>
@@ -11174,7 +11214,7 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Action_Detail__c</errorDisplayField>
         <errorMessage>It's not allowed to change service number.</errorMessage>
-    </validationRules> 
+    </validationRules>
     <webLinks>
         <fullName>New_DRM_Task</fullName>
         <availability>online</availability>

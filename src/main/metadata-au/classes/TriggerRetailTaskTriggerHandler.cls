@@ -22,6 +22,8 @@ public class TriggerRetailTaskTriggerHandler
             
             //existing au functionality
             RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert,Trigger.isUpdate);
+            RetailTaskHelper.upadteAccountafterInsertUpadte(trigger.new);
+            RetailTaskHelper.upadteAccountFinancstatusafterInsertUpadte(trigger.new);
         }
         //existing au functionality
         if(Trigger.isUpdate && Trigger.isAfter){
