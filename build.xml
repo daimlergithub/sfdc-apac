@@ -161,6 +161,8 @@
 				<sf:include name="FleerCorverListTest"/>
 				<sf:include name="TestDataUtil"/>
 				<sf:include name="UtilConstant"/>
+				<sf:include name="utilVehicleClass"/>
+				<sf:include name="utilPriorityScore"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="RetailTaskHelper"/>							
 				<sf:include name="ScheduledSendNotificationEmail"/>
@@ -440,7 +442,8 @@
 			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
 			<sf:include name="ShareCampaignByCollaborationTest"/>
 			<sf:include name="TrialCustomerPortalHomePageController"/>
-			<sf:include name="TrialCustomerPortalHomePageTest"/>				
+			<sf:include name="TrialCustomerPortalHomePageTest"/>
+			<sf:include name="BrochureLinkController"/>	
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
@@ -463,6 +466,7 @@
 				<sf:include name="SiteLogin"/>
 				<sf:include name="SiteHeader"/>
 				<sf:include name="SiteFooter"/>
+				<sf:include name="Brochure_component"/>
 		</sf:typeset>
 		</deploy>				
     </target>
