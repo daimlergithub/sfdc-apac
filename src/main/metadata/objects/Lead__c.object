@@ -203,6 +203,36 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Behavioural_group__c</fullName>
+        <description>This is used to calcuate the priority score.</description>
+        <externalId>false</externalId>
+        <label>Behavioural Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Revolvers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Body_Type__c</fullName>
         <externalId>false</externalId>
         <label>Body_Type</label>
@@ -2304,6 +2334,10 @@
                 <fullName>Western Star</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2412,6 +2446,22 @@
                 <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
                 <controllingFieldValues>Lost(CAC)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitor Due To Other Reason</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed Mind/Not Interested/Not Ready</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monetary Reasons – trade in/finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Unavailable/Future Stock/Delay</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -8025,17 +8075,79 @@ Modify Reason:
         <label>Lead Priority</label>
         <picklist>
             <picklistValues>
-                <fullName>A  (Highest priority)</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B  (Medium priority)</fullName>
+                <fullName>Warm</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C  (Lowest priority)</fullName>
+                <fullName>Cold</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Source_Channel__c</fullName>
+        <description>To know how a lead was influence to buy a vehicle</description>
+        <externalId>false</externalId>
+        <label>Lead Source Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event/S’Ship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8098,6 +8210,22 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Retail Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound visit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone-in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone-out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic-in</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9153,6 +9281,66 @@ Collectioner_Name__r.MobilePhone
                 <fullName>Agility</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Contact us</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request a Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Future Models</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>POVL Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Carsales Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Form – MB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Form – Me Store</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive – Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brochure – Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive – Mercedes me</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brochure – Mercedes me</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Programme</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Early Pay Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fleet Programme</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9306,6 +9494,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nurture_Date__c</fullName>
+        <description>Date when the nurture started</description>
+        <externalId>false</externalId>
+        <label>Nurture Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Nurture__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To see if this particular lead is nurtured by EMC</description>
+        <externalId>false</externalId>
+        <label>Nurture</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>OB_Call_Amount__c</fullName>
@@ -9751,6 +9961,20 @@ Modify Reason:
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Score__c</fullName>
+        <description>Used for lead scoring</description>
+        <externalId>false</externalId>
+        <label>Priority Score</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Proxy_Date_Time__c</fullName>
@@ -14309,6 +14533,26 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <controllingFieldValues>Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>AMG New Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance and Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Service Feedback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -14367,6 +14611,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Submission_Time__c</fullName>
+        <description>To capture the submitted date of leads from DLM</description>
+        <externalId>false</externalId>
+        <label>Submission Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Successful_Call_Number__c</fullName>
@@ -18329,6 +18584,27 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Use__c</fullName>
+        <description>Capture if this vehicle use is for business or personal</description>
+        <externalId>false</externalId>
+        <label>Vehicle Use</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Vehicle_Year_Current__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Year - Current</label>
@@ -18985,6 +19261,25 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_group__c</picklist>
+            <values>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolvers</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23770,15 +24065,66 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
-                <fullName>A  %28Highest priority%29</fullName>
+                <fullName>Cold</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B  %28Medium priority%29</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C  %28Lowest priority%29</fullName>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Source_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30702,6 +31048,17 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vehicle_Use__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -31059,6 +31416,25 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Assigned_Dealer_by_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_group__c</picklist>
+            <values>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolvers</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36416,15 +36792,66 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
-                <fullName>A  %28Highest priority%29</fullName>
+                <fullName>Cold</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B  %28Medium priority%29</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C  %28Lowest priority%29</fullName>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Source_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -43508,6 +43935,17 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vehicle_Use__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -43873,6 +44311,25 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_group__c</picklist>
+            <values>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolvers</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48198,15 +48655,66 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
-                <fullName>A  %28Highest priority%29</fullName>
+                <fullName>Cold</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B  %28Medium priority%29</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C  %28Lowest priority%29</fullName>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Source_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54726,6 +55234,17 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Vehicle_Use__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -55083,6 +55602,25 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Assigned_Dealer_by_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Behavioural_group__c</picklist>
+            <values>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Revolvers</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -59164,15 +59702,66 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
-                <fullName>A  %28Highest priority%29</fullName>
+                <fullName>Cold</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B  %28Medium priority%29</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C  %28Lowest priority%29</fullName>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lead_Source_Channel__c</picklist>
+            <values>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FS%E2%80%99Ship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -65736,6 +66325,17 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Use__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

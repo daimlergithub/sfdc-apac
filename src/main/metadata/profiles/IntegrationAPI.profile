@@ -7242,7 +7242,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <field>Claim__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9268,6 +9268,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Batch_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Behavioural_group__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13378,6 +13383,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Welcome_Call_Task__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Balance_Update_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
