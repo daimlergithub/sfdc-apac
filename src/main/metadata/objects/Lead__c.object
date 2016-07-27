@@ -203,10 +203,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Behavioural_group_c__c</fullName>
+        <fullName>Behavioural_group__c</fullName>
         <description>This is used to calcuate the priority score.</description>
         <externalId>false</externalId>
-        <label>Behavioural_group__c</label>
+        <label>Behavioural Group</label>
         <picklist>
             <picklistValues>
                 <fullName>Revolvers</fullName>
@@ -19265,7 +19265,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
+            <picklist>Behavioural_group__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>
@@ -31420,7 +31420,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
+            <picklist>Behavioural_group__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>
@@ -44315,7 +44315,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
+            <picklist>Behavioural_group__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>
@@ -55606,7 +55606,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
+            <picklist>Behavioural_group__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>

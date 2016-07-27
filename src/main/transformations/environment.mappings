@@ -14,7 +14,7 @@ dev_sb_asia_Test=arun.iyer.ntt@mbj.daimler-apac.com.test
 # Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
 dev_sb_kernel_dev2=sneha.chail.ntt@kernel.daimler-apac.com.dev2
-dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
+dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.kerneldev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
 dev_sb_kernel_dev4=arun.iyer.ntt@kernel.daimler-apac.com.dev4
 dev_sb_kernel_dev5=shivashankar.nalluri.ntt@kernel.daimler-apac.com.dev5,mohanaraja.alla.ntt@kernel.daimler-apac.com.dev5
 dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6,narasimha.gundurao.ntt@kernel.daimler-apac.com.dev6
