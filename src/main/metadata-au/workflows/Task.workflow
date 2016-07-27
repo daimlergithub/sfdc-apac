@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-   <!-- <alerts>
+    <alerts>
         <fullName>Escalation_after_48_hours</fullName>
         <description>Escalation_after_48_hours</description>
         <protected>false</protected>
@@ -9,8 +9,8 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_48_hours</template>
-    </alerts> -->
-   <!-- <alerts>
+    </alerts> 
+    <alerts>
         <fullName>Send_Email_Notification_On_Task_Creation</fullName>
         <description>Send Email Notification On Task Creation</description>
         <protected>false</protected>
@@ -19,8 +19,8 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Notification_On_Task_Creation</template>
-    </alerts> -->
-   <!-- <alerts>
+    </alerts> 
+   <alerts>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
         <description>Send_Email_To_DRM_User_After_24hrs_DueDate</description>
         <protected>false</protected>
@@ -29,8 +29,8 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Escalation_after_24_hours</template>
-    </alerts> -->
-   <!-- <alerts>
+    </alerts> 
+    <alerts>
         <fullName>Task_Has_Been_Created</fullName>
         <description>Task_Has_Been_Created</description>
         <protected>false</protected>
@@ -49,7 +49,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
-    </alerts> -->
+    </alerts> 
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
