@@ -18,34 +18,11 @@
         <criteriaItems>
             <field>Public__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>If record type is Fleet Finance Lead and MD__c = &apos;AU&apos; and public is false then share it wil DFM Users.</description>
         <name>Finance Fleet Lead Sharing Rule</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>Finance_Fleet_Lead_Sharing_Rule_For_All_Users</fullName>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Fleet Finance Lead</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Public__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>AU</value>
-        </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <name>Finance Fleet Lead Sharing Rule For All Users</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Fleet_Vans_Lead_Sharing_Rule</fullName>
@@ -65,34 +42,11 @@
         <criteriaItems>
             <field>Public__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>If record type is Fleet Vans and MD__c = &apos;AU&apos; and public is false then share it wil MBAup- Fleet Vans users.</description>
         <name>Fleet Vans Lead Sharing Rule</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>Fleet_Vans_Lead_Sharing_Rule_For_All_Users</fullName>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Fleet Vans</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Public__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>AU</value>
-        </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <name>Fleet Vans Lead Sharing Rule For All Users</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Lead_Sharing_Rule</fullName>
@@ -109,7 +63,7 @@
             <operation>equals</operation>
             <value>AU</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <name>Lead Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
