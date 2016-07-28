@@ -9334,10 +9334,6 @@ Collectioner_Name__r.MobilePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Early Pay Out</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Fleet Programme</fullName>
                 <default>false</default>
             </picklistValues>

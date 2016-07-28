@@ -2851,7 +2851,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Premium Amount</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>5</scale>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
