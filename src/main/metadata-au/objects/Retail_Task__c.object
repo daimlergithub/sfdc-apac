@@ -2528,6 +2528,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>NoClaimBonus__c</fullName>
+        <externalId>false</externalId>
+        <label>No Claim Bonus</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>Non_MB_Insurance__c</fullName>
         <externalId>false</externalId>
         <label>Non MB Branded Insurance</label>
