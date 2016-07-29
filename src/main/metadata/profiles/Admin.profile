@@ -10210,12 +10210,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Preferred_Dropoff_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Preferred_Negotiation_DateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Preferred_Negotiation_Place__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Preferred_Pickup_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17725,6 +17735,11 @@
         <layout>Idea-Idea Layout</layout>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
     </layoutAssignments>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Lead_Product__c.Customer_Contact_Report</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
@@ -17897,6 +17912,10 @@
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout</layout>
         <recordType>Retail_Task__c.Loan_Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <recordType>Retail_Task__c.Warranty</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
@@ -19606,6 +19625,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Service</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Task__c.Warranty</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
