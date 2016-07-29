@@ -17735,11 +17735,6 @@
         <layout>Idea-Idea Layout</layout>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
     </layoutAssignments>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Lead_Product__c.Customer_Contact_Report</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
