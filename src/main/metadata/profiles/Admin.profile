@@ -19624,11 +19624,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Retail_Task__c.Warranty</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <recordType>SMS_Code__c.GenerateDownstreamMMS</recordType>
         <visible>true</visible>
