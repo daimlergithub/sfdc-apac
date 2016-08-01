@@ -77,10 +77,6 @@
         <description>Lead Untouched for 4 days after creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
