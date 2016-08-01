@@ -564,7 +564,7 @@ Proxy_Date_Time__c
     </rules>
         <rules>
         <fullName>Email Notification to Lead Owner</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -672,7 +672,7 @@ Proxy_Date_Time__c
     </rules>
      <rules>
         <fullName>Escalation%3A Lead not touched for 7 days</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
