@@ -233,36 +233,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Behavioural_group_c__c</fullName>
-        <description>This is used to calcuate the priority score.</description>
-        <externalId>false</externalId>
-        <label>Behavioural_group__c</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Revolvers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Keepers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New to brand</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Attriters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Body_Type__c</fullName>
         <externalId>false</externalId>
         <label>Body_Type</label>
@@ -19506,25 +19476,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
-            <values>
-                <fullName>Attriters</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keepers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolvers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Bought_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -31836,25 +31787,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Behavioural_group__c</picklist>
-            <values>
-                <fullName>Attriters</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keepers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolvers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>
@@ -44942,25 +44874,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
-            <values>
-                <fullName>Attriters</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keepers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolvers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Bought_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -56408,25 +56321,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Behavioural_group__c</picklist>
-            <values>
-                <fullName>Attriters</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Keepers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New to brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revolvers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Behavioural_group_c__c</picklist>
             <values>
                 <fullName>Attriters</fullName>
                 <default>false</default>
