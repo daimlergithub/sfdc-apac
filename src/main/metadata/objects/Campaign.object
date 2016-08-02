@@ -377,18 +377,18 @@
             <controllingField>Repeated_Campaign__c</controllingField>
             <picklistValues>
                 <fullName>Ad Hoc</fullName>
-                <controllingFieldValues>unchecked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>unchecked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Regular-Continuous</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Regular-Periodic</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -668,243 +668,243 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
-                <controllingFieldValues>StarElite</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>StarElite</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G65 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S65 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TRUCKS</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 L AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GenericModel</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML 55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Sport Sedan</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -920,108 +920,108 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1386,7 +1386,7 @@
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -1754,33 +1754,33 @@
             <controllingField>Repeated_Campaign__c</controllingField>
             <picklistValues>
                 <fullName>Daily</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Weekly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bi-Weekly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Monthly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Quarterly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yearly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2254,13 +2254,18 @@
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CAMPAIGN.ACTIVE</field>
             <operation>equals</operation>
-            <value>1</value>
+            <value>0</value>
         </filters>
-        <label>All Active Campaigns</label>
+        <label>すべての有効キャンペーン</label>
+        <language>ja</language>
     </listViews>
     <listViews>
         <fullName>AllActiveCentralCampaigns</fullName>
@@ -11472,7 +11477,7 @@
     <validationRules>
         <fullName>CAS_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAS_Marketing_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
+        <errorConditionFormula>RecordType.Name = 'CAS Marketing Campaign' &amp;&amp; ISNEW() &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -11482,14 +11487,14 @@
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
         <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
- UPPER(MD__c) = 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),UPPER(MD__c) = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -11508,7 +11513,7 @@ OR(
  RecordType.Name == 'S&amp;M Media Central Campaign',
  RecordType.Name == 'AS Central Campaign'
 ), 
- OR(PRIORVALUE(Status)== 'Published',PRIORVALUE(Status)=='Closed'),
+ OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
  OR(  ISCHANGED( Campaign_Code__c ),
       ISCHANGED( Name ),
       ISCHANGED( Description ), 
@@ -11608,7 +11613,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
@@ -11634,13 +11639,10 @@ NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
     </validationRules>
     <validationRules>
         <fullName>SMS_eDM_Template_is_Required</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( 
-ISBLANK(Template__c), 
+        <active>true</active>
+        <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
-ISPICKVAL(Execution_Type__c ,"SMS"), 
-ISPICKVAL(Execution_Type__c ,"MMS"), 
-ISPICKVAL(Execution_Type__c ,"eDM") 
+ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
 ) 
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
@@ -11689,7 +11691,7 @@ IsActive = True
         <masterLabel>Create Child Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -11700,7 +11702,7 @@ IsActive = True
         <masterLabel>Create Complex Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>

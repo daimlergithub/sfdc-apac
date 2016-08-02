@@ -171,8 +171,8 @@
         <customTabListAdditionalFields>URL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
         <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
         <lookupDialogsAdditionalFields>Submit_Response__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>URL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UPDATEDBY_USER</lookupDialogsAdditionalFields>
