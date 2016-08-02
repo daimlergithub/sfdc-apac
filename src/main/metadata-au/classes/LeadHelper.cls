@@ -1517,7 +1517,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         map<string,string> prospectleadRequestMap = utilPriorityScore.natureOfRequestMap;
         map<string,Decimal> prospectnumberOfMbMap = utilPriorityScore.noOfMBsMap;
         map<string,Decimal> prosleadMap = utilPriorityScore.prospectLeadMap;
+        map<id,string> accountPCStatusMap = new map<id,string>();
+        map<id,string> accountCVStatusMap = new map<id,string>();
+        map<id,string> accountVANStatusMap = new map<id,string>();
         set<id> rtids = new set<id>();
+        
         
         for(Lead__c led : leadlist)
         {                        
@@ -1532,21 +1536,42 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         if(!accids.isEmpty() && accids != null)
         {
-            vehrellist = [select id,Car_Relation__c,Contact__c from Vehicle_Relationship__c where Contact__c IN : accids];
+            vehrellist = [select id,Car_Relation__c,Contact__c from Vehicle_Relationship__c where Contact__c IN :accids];
+            contractList = [select id,Account__c,RecordType.Developername from Retail_Task__c where Account__c IN :accids];
+            accountlist = [select id,PC_Status__c,CV_Status__c,VAN_Status__c from Account where ID IN :accids];
         }
-        
-        if(!accids.isEmpty() && accids != null)
+        system.debug('accountpcstatus>>> ' + accountlist.get(0).pc_status__c);
+        for(Lead__c le : leadlist)
         {
-            contractList = [select id,Account__c,RecordType.Developername from Retail_Task__c where ID IN : accids];
+            for(Account acc: accountlist)
+            {
+                if(le.Contact__c == acc.id)
+                {                    
+                    accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
+                    accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
+                    accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);                        
+                }
+                else if(le.Company_Account__c == acc.id)
+                {                    
+                    accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
+                    accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
+                    accountVANStatusMap.put(acc.Id, acc.VAN_Status__c); 
+                }
+            }
         }
+        system.debug('accountPCCVVANStatusMap>>>>'+ accountPCStatusMap); 
+        system.debug('accountPCCVVANStatusMap>>>>'+ accountCVStatusMap); 
+        system.debug('accountPCCVVANStatusMap>>>>'+ accountVANStatusMap);
         
         for(Lead__c led : leadlist)
-        {            
+        {
+            	            
              if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)))
              {
-                 if((led.Contact__r.PC_status__c == 'Owner' || led.Contact__r.CV_status__c == 'Owner' || led.Contact__r.VAN_status__c == 'Owner')
-                     || led.Company_Account__r.PC_status__c == 'Owner' || led.Company_Account__r.CV_status__c == 'Owner' 
-                     || led.Company_Account__r.VAN_status__c == 'Owner')
+                
+                 if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && (accountPCStatusMap.get(led.Contact__c) == 'Customer' 
+                    || accountCVStatusMap.get(led.Contact__c) == 'Customer' || accountVANStatusMap.get(led.Contact__c) == 'Customer'))                
                  {
                     Decimal Count = 0 ;
                     Decimal numberOfMBs = 0;
@@ -1568,34 +1593,40 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     List<string> servicecontractlist = new List<string>();
                     List<string> insuranceContractList = new List<string>();
                     List<string> financecontractList = new List<string>();
-                    for(Vehicle_Relationship__c vrel : vehrellist)
+                    if(!vehrellist.isEmpty() && vehrellist != null)
                     {
-                        if((led.Contact__c == vrel.Contact__c) && vrel.Car_Relation__c == 'Owner')
+                        for(Vehicle_Relationship__c vrel : vehrellist)
                         {
-                            Count++;
-                            accvehlmap.put(vrel.Contact__c, Count);
-                        }
-                        else if((led.Company_Account__c == vrel.Contact__c) && vrel.Car_Relation__c == 'Owner')
-                        {
-                           Count++;
-                           accvehlmap.put(vrel.Contact__c, Count);
+                            if((led.Contact__c == vrel.Contact__c) && vrel.Car_Relation__c == 'Owner')
+                            {
+                                Count++;
+                                accvehlmap.put(vrel.Contact__c, Count);
+                            }
+                            else if((led.Company_Account__c == vrel.Contact__c) && vrel.Car_Relation__c == 'Owner')
+                            {
+                               Count++;
+                               accvehlmap.put(vrel.Contact__c, Count);
+                            }
                         }
                     }
-                    for(Retail_Task__c rtask : contractList)
+					if(!contractList.isEmpty() && contractList != null)
                     {
-                        if(led.Contact__c == rtask.Account__c)
+                        for(Retail_Task__c rtask : contractList)
                         {
-                            if(rtask.RecordTypeId == serviceContractRT)
+                            if(led.Contact__c == rtask.Account__c)
                             {
-                                servicecontractlist.add(rtask.RecordType.DeveloperName);
-                            }
-                            else if(rtask.RecordTypeId == insuranceContractRT)
-                            {
-                                insuranceContractList.add(rtask.RecordType.DeveloperName);
-                            }
-                            else if(rtask.RecordTypeId == contractRT)
-                            {
-                                financecontractList.add(rtask.RecordType.DeveloperName);
+                                if(rtask.RecordTypeId == serviceContractRT)
+                                {
+                                    servicecontractlist.add(rtask.RecordType.DeveloperName);
+                                }
+                                else if(rtask.RecordTypeId == insuranceContractRT)
+                                {
+                                    insuranceContractList.add(rtask.RecordType.DeveloperName);
+                                }
+                                else if(rtask.RecordTypeId == contractRT)
+                                {
+                                    financecontractList.add(rtask.RecordType.DeveloperName);
+                                }
                             }
                         }
                     }
@@ -1695,17 +1726,6 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         value =  'No';
                         insuranceScore = contractMap.get(value);                    
                     }
-                    system.debug('enquirytype>>' + enquirytype);
-                    system.debug('purchasetime>>' + purchasetime);
-                    system.debug('behavgroup>>' + behavgroup);
-                    system.debug('numberOfMBScore>>' + numberOfMBScore);
-                    system.debug('contractScore>>' + contractScore);
-                    system.debug('mbVechInterestScore>>' + mbVechInterestScore);
-                    system.debug('serviceScore>>' + serviceScore);
-                    system.debug('priorityScore>>' + priorityScore);
-                    system.debug('highestClassMap>>' + highestClassMap);
-                    system.debug('vehicleInterest>>' + vehicleInterest);
-                    system.debug('vehicleInterestList>>' + vehicleInterestList);
                     
                     priorityScore = enquirytype + purchasetime + behavgroup + numberOfMBScore + vechClassScore + contractScore + 
                                     mbVechInterestScore + serviceScore + insuranceScore;
@@ -1727,9 +1747,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     }
                 }
              }
-            else if((led.Contact__r.PC_status__c == 'Prospect' && led.Contact__r.CV_status__c == 'Prospect' && led.Contact__r.VAN_status__c == 'Prospect')
-                     || led.Company_Account__r.PC_status__c == 'Prospect' && led.Company_Account__r.CV_status__c == 'Prospect' 
-                     && led.Company_Account__r.VAN_status__c == 'Prospect')
+            else if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
+                    && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')  
             {
                 Decimal enquirytype = 0;
                 Decimal purchasetime = 0;
@@ -1746,17 +1766,17 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 List<string> insuranceContractList = new List<string>();
                 List<string> financecontractList = new List<string>();
                 
-                if((led.Contact__r.PC_status__c == 'Prospect' && led.Contact__r.CV_status__c == 'Prospect' 
-                    && led.Contact__r.VAN_status__c == 'Prospect')|| led.Company_Account__r.PC_status__c == 'Prospect' 
-                    && led.Company_Account__r.CV_status__c == 'Prospect' && led.Company_Account__r.VAN_status__c == 'Prospect')
+                if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
+                    && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')
                 {
                     prospect = 'yes';
                     prospectleadscore = prosleadMap.get(prospect);
                 }
                 
-                if(led.Lead_Source__c != null && led.Lead_Source__c != '' && enquiryMap.containsKey(led.Lead_Source__c))
+                if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && enquiryMap.containsKey(led.Nature_of_Request__c))
                 {
-                    enquirytype = enquiryMap.get(led.Lead_Source__c);
+                    enquirytype = enquiryMap.get(led.Nature_of_Request__c);
                 }
                 
                 if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && purchaseMap.containsKey(led.Purchase_Time__c))
@@ -1788,18 +1808,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             maxKey = key;
                         }
                     }
-                    //highestClassMap.put(vehicleInterestList.get(0), vechClassMap.get(vehicleInterestList.get(0)));
                     system.debug('maxKey>>' + maxKey);
                     system.debug('maxvalue>>' + maxvalue);
                     mbVechInterestScore = maxvalue ;
                 }
-                system.debug('enquirytype>>' + enquirytype);
-                system.debug('purchasetime>>' + purchasetime);
-                system.debug('mbVechInterestScore>>' + mbVechInterestScore);
-                system.debug('priorityScore>>' + priorityScore);
-                system.debug('highestClassMap>>' + highestClassMap);
-                system.debug('vehicleInterest>>' + vehicleInterest);
-                system.debug('vehicleInterestList>>' + vehicleInterestList);
                 
                 priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
                 system.debug('priorityScore>>' + priorityScore);

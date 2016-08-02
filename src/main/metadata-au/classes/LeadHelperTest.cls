@@ -261,7 +261,7 @@ public with sharing class LeadHelperTest {
                LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
                LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
                LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
-                          Test.stopTest();         
+               Test.stopTest();         
                Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
                system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
                system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
@@ -366,7 +366,7 @@ public with sharing class LeadHelperTest {
                LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,false,true);
                LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,true,false);
                LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,false,true);
-                LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,true,false);
+               LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,true,false);
                Test.stopTest();
                Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
@@ -456,16 +456,93 @@ public with sharing class LeadHelperTest {
 		 lead1.Assigned_Dealer__c=account1.id;
 		 update lead1;
         // LeadHelper.emailNotificationsToAssignedDealer(listNewLeads, leadNewMap, leadOldMap, isInsert, isUpdate)
-         Test.stopTest();
-         Lead__c lead2 = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+        Lead__c lead3 = new Lead__c();
+        lead3.recordTypeId = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Vans').getRecordTypeId();
+        lead3.Company_Account__c=acc.Id;
+        lead3.Assigned_Dealer__c = acc.Id;
+        lead3.Lead_Source__c = 'Web Form';
+        lead3.Nature_of_Request__c='General Enquiry';
+        lead3.Business_Unit__c= 'Vans';
+        lead3.Sub_BusinessUnit__c='Auto Body Repairer';
+        lead3.CAC_Lead_Status__c = 'Credit Review in Process';
+        insert lead3;
+        Test.stopTest();
+        Lead__c lead2 = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
          System.assertEquals(lead1.Assigned_Dealer__c, lead2.Assigned_Dealer__c);
 		 
     }
-    
-     
-
-    
-    
+    public static testmethod void leadPriorityScoreTest()
+    {
+        Trigger__c TriggerCampaignLead=new Trigger__c(Name='TriggerCampaignLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='AU');
+        upsert TriggerCampaignLead;
+        
+        test.startTest();
+        account = new Account();
+        account.Name = 'account name';
+        account.Phone = '10096';
+        account.Area_Code__c = '010';
+        account.Dealer_Allocation__c='MBAuP';
+        account.Activation_Date__c=system.today();
+        account.Fax = '10076';
+        account.BillingCity = 'San Francisco';
+        account.BillingCountry = 'USA';
+        account.BillingPostalCode = '94105';
+        account.BillingState = 'CA';
+        account.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
+        account.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        insert account;
+        
+        Account acc = new Account();
+        acc.Salutation = 'Lord';
+        acc.FirstName = 'Jon' ;
+        acc.LastName = 'Snow' ;
+        acc.Gender__c = '0=Male';
+        acc.ZipCode__c = '200235';
+        acc.Type = '0=Company';
+        acc.Phone = '12332111'; 
+        acc.Status__c = '0=Customer';
+        acc.RecordTypeId = PersonRecordtypeid;
+        acc.Area_Code__c = '010';
+        acc.PC_Status__c = 'Customer';
+        acc.VAN_Status__c = 'Prospect';
+        acc.CV_Status__c = 'Prospect';
+        insert acc;
+        
+        Vehicle__c vehicles1 = new Vehicle__c();
+        vehicles1.EuroVIN__c = '12345678901111111';
+        vehicles1.UsVIN__c = '12345678902222222';
+        vehicles1.Class__c = 'G-Class';
+        vehicles1.Vehicle_Group__c = 'PC';
+        insert vehicles1;
+        
+        Vehicle_Relationship__c vrel = new Vehicle_Relationship__c();
+        vrel.Vehicle_ID__c = vehicles1.Id;
+        vrel.Car_Relation__c = 'Owner';
+        vrel.Contact__c = acc.Id;
+        insert vrel;
+        
+        lead = new Lead__c();
+        lead.Contact__c = acc.Id;
+        lead.recordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId();
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c='Test Drive Request';
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c='Parts';
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+		lead.MB_Vehicle_Interest__c = 'G-Class';
+		lead.Purchase_Time__c = '24 Hours';
+		lead.Assigned_Dealer__c = account.Id;
+        lead.MD__c = 'AU';
+        insert lead;
+        
+         test.stopTest();
+        Lead__c lead2 = [select contact__c, contact__r.PC_status__c,Business_Unit__c,Nature_of_Request__c from Lead__c where id =:lead.id ];
+        //System.assertEquals(lead2.contact__r.PC_status__c, 'Customer');
+        system.assertEquals(lead2.Nature_of_Request__c, 'Test Drive Request');
+       
+        
+    }
+         
      static void getLead(User usr){
         //User usr = UtilTestData.createUser('IB CSR','CAC IB CSR');
          account = new Account();
@@ -544,6 +621,9 @@ public with sharing class LeadHelperTest {
         customer.RecordTypeId = PersonRecordtypeid;
         customer.Dealer_Lead_Gate_Keeper__c = usr.id;
         customer.Area_Code__c = '010';
+        customer.PC_Status__c = 'Customer';
+        customer.VAN_Status__c = 'Prospect';
+        customer.CV_Status__c = 'Prospect';
         insert customer;
         
         lead = new Lead__c();
