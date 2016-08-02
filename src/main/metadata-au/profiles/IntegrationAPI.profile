@@ -18757,12 +18757,8 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout</layout>
+        <layout>Retail_Task__c-Insurance Layout</layout>
         <recordType>Retail_Task__c.Insurance</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout</layout>
-        <recordType>Retail_Task__c.Roadside_Assistant</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
@@ -18778,6 +18774,10 @@
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Service%29</layout>
         <recordType>Retail_Task__c.Service</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Roadside Assistant Layout</layout>
+        <recordType>Retail_Task__c.Roadside_Assistant</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Warranty Layout</layout>
