@@ -1415,12 +1415,12 @@
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Address_Line_1_is_mandatory</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Address_Line_1__c
 is Mandatory while creating new Address</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
    OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) ),
    ISNEW()
 )</errorConditionFormula>
@@ -1531,12 +1531,13 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>ZIPCODE is mandatory</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Province_is_mandatory</fullName>
         <active>true</active>
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
-  ISPICKVAL(Province__c,''),
+OR(MD__c = 'JP',MD__c = 'KR'),
+  ISPICKVAL(Province__c,""),
   ISNEW()
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
