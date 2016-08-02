@@ -582,7 +582,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Lost</value>
+            <value>Settled,Closed,Deal Lost</value>
         </criteriaItems>
         <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -690,7 +690,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Lost</value>
+            <value>Settled,Closed,Deal Lost</value>
         </criteriaItems>
         <description>This Lead has not been touched for 7 days after creation.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
