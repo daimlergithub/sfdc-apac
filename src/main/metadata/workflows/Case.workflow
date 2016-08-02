@@ -22,6 +22,16 @@
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <alerts>
+        <fullName>Case_need_to_be_handle_before_deadline_KR</fullName>
+        <description>Case need to be handle before deadline KR</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
         <fullName>Complaint_Update_Notification</fullName>
         <description>Complaint Update Notification</description>
         <protected>false</protected>
@@ -102,6 +112,27 @@
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
     </alerts>
     <fieldUpdates>
+        <fullName>ChangeStatus</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>ChangeStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ChangeStatusforApproval</fullName>
+        <description>Change Status to &apos;Waiting for final approval&apos;</description>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>ChangeStatusforApproval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Final_Approval_Rejecte</fullName>
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
@@ -181,6 +212,91 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Final_approval_done</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Status Final approval done</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Final_approval_rejected</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Status Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Waiting_for_Reponse_approval</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Status Waiting for Reponse approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Final_approval_done</fullName>
+        <description>Change Status to &apos;Final approval done&apos;</description>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Status to Final approval done</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Final_approval_rejected</fullName>
+        <description>Change Status to &apos;Final approval rejected&apos;</description>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Status to Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_to_Waiting_for_Reponse_approval</fullName>
+        <description>Change Status to Waiting for Reponse approval</description>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Status to Waiting for Reponse approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateApprovalSubmit</fullName>
+        <description>Update Approval_Submit_Date__C  with System.today()</description>
+        <field>Approval_Submit_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Approval_Submit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_ApprovalSubmit_Date</fullName>
+        <description>Update Approval_Submit_Date__C  with System.today()</description>
+        <field>Approval_Submit_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update ApprovalSubmit Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Approval_submit_date</fullName>
@@ -365,12 +481,36 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case Deadline Notification KR</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 24 hours before the deadline</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_need_to_be_handle_before_deadline_KR</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case handling level Assignment Notification to Dealer</fullName>
         <actions>
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -385,6 +525,11 @@
             <field>Case.Previous_Owner__c</field>
             <operation>notEqual</operation>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
         <description>When RO change handling level to Dealer, send a email to Dealer.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -394,7 +539,7 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -408,6 +553,11 @@
         <criteriaItems>
             <field>Case.Previous_Owner__c</field>
             <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <description>When RO change handling level to RO, send a email to RO.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -466,7 +616,7 @@
             <name>Update_Creator_Department_to_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -477,6 +627,11 @@
             <operation>startsWith</operation>
             <value>Dealer</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -486,8 +641,8 @@
             <name>Update_Creator_Department_To_ROCO</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -502,6 +657,11 @@
             <field>User.ProfileId</field>
             <operation>equals</operation>
             <value>BMBS Service Technical Manager</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -559,11 +719,17 @@
             <name>Send_Email_to_Gate_Keeper</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Case.SendEmailToGateKeeper__c</field>
             <operation>equals</operation>
             <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -631,6 +797,16 @@
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
