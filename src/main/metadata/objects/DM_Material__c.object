@@ -243,7 +243,8 @@ Modify Reason:
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -1876,6 +1877,88 @@ Modify Reason:
         <label>Low inventory of direct mail information</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>NAME</columns>
+        <columns>DM_Material_External_Id__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Label_Printing_Name__c</columns>
+        <columns>Active__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>販売店</value>
+        </filters>
+        <label>販売店カタログ_有効</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View2</fullName>
+        <columns>NAME</columns>
+        <columns>DM_Material_External_Id__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Label_Printing_Name__c</columns>
+        <columns>Active__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>notContain</operation>
+            <value>販売店</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>メーカーカタログ</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View3</fullName>
+        <columns>NAME</columns>
+        <columns>DM_Material_External_Id__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Label_Printing_Name__c</columns>
+        <columns>Active__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>販売店</value>
+        </filters>
+        <label>販売店カタログ_全て</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View4</fullName>
+        <columns>NAME</columns>
+        <columns>DM_Material_External_Id__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Label_Printing_Name__c</columns>
+        <columns>Active__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>notContain</operation>
+            <value>販売店</value>
+        </filters>
+        <label>メーカーカタログ全て</label>
+        <language>ja</language>
+    </listViews>
     <nameField>
         <label>DM Name</label>
         <trackHistory>true</trackHistory>
@@ -1918,7 +2001,7 @@ Modify Reason:
     <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  MD__c ='JP', $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c ='JP',MD__c ='KR'), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>

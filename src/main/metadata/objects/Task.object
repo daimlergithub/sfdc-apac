@@ -104,13 +104,13 @@
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
-                <closed>false</closed>
                 <default>true</default>
+                <closed>false</closed>
             </picklistValues>
             <picklistValues>
                 <fullName>Closed</fullName>
-                <closed>true</closed>
                 <default>false</default>
+                <closed>true</closed>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -15862,13 +15862,12 @@
     <validationRules>
         <fullName>Activity_Status_is_Required</fullName>
         <active>true</active>
-        <description>Activity Status is equired when Status equals to 'Closed'.</description>
-        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',
-MD__c ='JP',		
+        <description>Task is being closed then the "Activity Status" should be mandatorily entered.</description>
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',		
 RecordType.DeveloperName = 'SSI_Task', 
 ISPICKVAL(Status, 'Closed'), 
-ISPICKVAL( Activity_Status__c, '' ) 
-)</errorConditionFormula>
+ISPICKVAL( Activity_Status__c, '' ),MD__c= 'JP'||MD__c='KR')</errorConditionFormula>
+        <errorDisplayField>Related_Task_Id__c</errorDisplayField>
         <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>
     <validationRules>
