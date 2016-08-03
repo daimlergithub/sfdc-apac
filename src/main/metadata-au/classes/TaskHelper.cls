@@ -888,5 +888,32 @@ public class TaskHelper {
                    
         
        }
+	   
+	public static void UpdateOpenActivity(List<Task> newTask){
+    
+               set<id> WhatIds = new set<id>();
+               map<id,Lead_Product__c> accIds = new map<id,Lead_Product__c>();  
+               list<Lead_Product__c> led = new list<Lead_Product__c>();
+               list<Account> acc1 = new list<Account>();
+                
+                for(Task tsk: newTask) {
+                    if (tsk.RecordTypeId == GeneralTaskRecordTypeId){
+                        WhatIds.add(tsk.whatid);
+                    }
+                }
+                if(WhatIds != null) {
+                    Led = [Select id,Account__c from Lead_Product__c where id =: WhatIds];
+                    
+                    for(Lead_Product__c l:led){
+                        accIds.put(l.id,l);
+                    }
+                                                              
+                    for(Task t : newTask ){
+                     if( t.RecordTypeId == GeneralTaskRecordTypeId){
+                        t.whatid = accIds.get(t.whatid).Account__c; 
+                      }
+                   }     
+              }
+    }
   
 }
