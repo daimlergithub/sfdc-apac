@@ -121,14 +121,19 @@ public class CaseHelperJPTest{
         init();
         createCaseToComputeDeadline();
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'JP');
-        insert testCase1;       
+        insert testCase1;
+               
         Case cs = [Select DeadLine__c from Case Where Id =: testCase1.Id];
         System.debug('Case Record...' +cs.DeadLine__c);
         Date todayDate = Date.today();
-        Date deadLineDate = todayDate.addDays(10);
+        
+        CaseDeadelineCalc__mdt caseDeadline = [Select CaseDeadelineCalc1__c FROM CaseDeadelineCalc__mdt WHERE QualifiedApiName ='Japan_Case_Deadlines'];
+        integer days = (Integer)caseDeadline.CaseDeadelineCalc1__c ;
+        
+        Date deadLineDate = todayDate.addDays(days);
         //system.assertEquals(todayDate,cs.DeadLine__c);
         
-        List<Case> insertedCases = [Select DeadLine__c from Case Where DeadLine__c != null];
+        List<Case> insertedCases = [Select DeadLine__c from Case Where DeadLine__c != null AND Id =: testCase1.Id];
         system.debug('Inserted Cases..' +insertedCases);
         for(Case c : insertedCases){
             system.assertEquals(c.DeadLine__c, deadLineDate);

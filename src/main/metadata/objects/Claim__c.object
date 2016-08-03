@@ -55,82 +55,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>BodyType__c</fullName>
+        <fullName>Accident_date__c</fullName>
         <externalId>false</externalId>
-        <label>BodyType</label>
-        <picklist>
-            <picklistValues>
-                <fullName>4 DOOR COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CABRIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ESTATE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HATCHBACK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MPV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROADSTER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SEDAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SPORTCOUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Car_Model__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Car Model</label>
-        <referenceTo>Car_Model__c</referenceTo>
-        <relationshipLabel>VIN Mappings</relationshipLabel>
-        <relationshipName>VIN_Mappings</relationshipName>
+        <label>Accident date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Date</type>
     </fields>
     <fields>
-        <fullName>Classifier__c</fullName>
+        <fullName>Created_By_EP_Transaction__c</fullName>
         <externalId>false</externalId>
-        <label>Classifier</label>
-        <length>14</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Description__c</fullName>
-        <externalId>false</externalId>
-        <label>Description</label>
-        <length>100</length>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -150,22 +86,77 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>WMI__c</fullName>
+        <fullName>Payment_Date__c</fullName>
         <externalId>false</externalId>
-        <label>WMI</label>
-        <length>3</length>
+        <label>Payment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Policy_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Policy Number</label>
+        <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>VIN Mapping</label>
+    <fields>
+        <fullName>Related_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contract</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Claims</relationshipLabel>
+        <relationshipName>Claims</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Contents__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Content</label>
+        <length>70</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Claim</label>
     <nameField>
-        <displayFormat>VIN-{0000000}</displayFormat>
-        <label>Name</label>
-        <type>AutoNumber</type>
+        <label>Claim Name</label>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>VIN Mappings</pluralLabel>
+    <pluralLabel>Claims</pluralLabel>
+    <recordTypes>
+        <fullName>Insurance_Claim</fullName>
+        <active>true</active>
+        <label>Insurance Claim</label>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

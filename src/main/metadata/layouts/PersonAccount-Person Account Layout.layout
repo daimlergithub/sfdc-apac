@@ -139,10 +139,6 @@
                 <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
@@ -237,7 +233,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Finance_Sanction_Comment__c</field>
+                <field>COS_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -303,7 +299,7 @@
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>1360</width>
+                <width>1400</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -345,6 +341,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sales_Address_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -394,6 +394,9 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -577,7 +580,7 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
@@ -629,6 +632,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>ContractNumber__c</fields>
+        <fields>Product_Name__c</fields>
         <fields>Type__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>

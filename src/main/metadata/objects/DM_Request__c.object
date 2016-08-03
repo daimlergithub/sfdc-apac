@@ -193,6 +193,17 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Case Number</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
+            <filterItems>
+                <field>Case.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
+            </filterItems>
+            <infoMessage>Search and select case.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Case</referenceTo>
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
@@ -287,7 +298,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -520,6 +543,17 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Lead</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
+            <filterItems>
+                <field>Lead__c.Contact__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Customer_Name__c</valueField>
+            </filterItems>
+            <infoMessage>Search and select leads.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Lead__c</referenceTo>
         <relationshipLabel>DM Request</relationshipLabel>
         <relationshipName>DM_Request</relationshipName>
@@ -804,10 +838,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

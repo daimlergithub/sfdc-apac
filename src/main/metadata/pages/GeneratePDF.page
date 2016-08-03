@@ -173,7 +173,10 @@
        </div>
        <div class="Row" style="margin-left:10px;">
            <div class="CellLabel" style="border-right-style: hidden;width:140px;border-left-width:3px;border-bottom-width:3px;">{!$Label.Customer}</div>
-           <div class="Cell" style="width:211px;border-bottom-width:3px;">{!Case.Account.LastName}&nbsp;{!Case.Account.FirstName} {!$Label.Sama}</div>
+           <div class="Cell" style="width:211px;border-bottom-width:3px;">
+               <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Person Account',true,false)}">{!Case.Account.LastName} &nbsp; {!Case.Account.FirstName} {!$Label.Sama}</apex:outputlabel>
+               <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name__c} {!$Label.Sama}</apex:outputlabel>
+           </div>
            <div class="CellLabel" style="border-left-style: hidden;width:140px;border-bottom-width:3px;">{!$Label.CaseNumber}</div>
            <div class="Cell" style="width:211px;border-left-style: hidden;border-bottom-width:3px;border-right-width:3px;">{!Case.CaseNumber}</div>
        </div>
@@ -227,7 +230,7 @@
              <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;border-left-width:3px;">{!$Label.Kana}</td>
              <td align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">
                <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Person Account',true,false)}">{!Case.Account.LastName_Native_1__c} &nbsp; {!Case.Account.FirstName_Native_1__c}</apex:outputlabel>
-               <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name__c}</apex:outputlabel>
+               <apex:outputlabel rendered="{!If(Case.Account.RecordType.Name=='Company',true,false)}">{!Case.Account.Company_Name_Native_1__c}</apex:outputlabel>
              </td>
              <td class="TdLabel" align="left" width="20%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.CustomerType}</td>
              <td align="left" width="30%" style="border-top-style: hidden;border-right-width:3px;"><apex:outputField value="{!Case.Customer_Type__c}"></apex:outputField></td>
@@ -337,14 +340,14 @@
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='No' ,true,false)}">
                   <img src="/img/checkbox_unchecked.gif"></img>
               </apex:outputPanel>
-             {!$Label.Couldnotexplain}
+             {!$Label.NotAccepted}
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c =='Rejected' ,true,false)}">
                   <img src="/img/checkbox_checked.gif"></img>
               </apex:outputPanel>
               <apex:outputPanel rendered="{!If(case.Dealer_Contact__c !='Rejected' ,true,false)}">
                   <img src="/img/checkbox_unchecked.gif"></img>
               </apex:outputPanel>
-              {!$Label.NotAccepted}
+              {!$Label.Couldnotexplain}
             </td>
             <td class="TdLabel" align="left" width="10%" rowspan="1" colspan="1" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-bottom-width:3px;">{!$Label.CaseNumber}</td>
             <td align="left" width="20%" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-right-width:3px;border-bottom-width:3px;">{!Case.CaseNumber}</td>

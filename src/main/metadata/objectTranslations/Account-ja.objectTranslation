@@ -596,6 +596,26 @@
         <name>Batch_No__c</name>
     </fields>
     <fields>
+        <label><!-- Behavioural Group --></label>
+        <name>Behavioural_Group__c</name>
+        <picklistValues>
+            <masterLabel>Attriter</masterLabel>
+            <translation><!-- Attriter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Keeper</masterLabel>
+            <translation><!-- Keeper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New to the brand</masterLabel>
+            <translation><!-- New to the brand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revolver</masterLabel>
+            <translation><!-- Revolver --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>拠点名（英語）</label>
         <name>Branch_name_ENG__c</name>
     </fields>
@@ -1233,6 +1253,10 @@
             <translation>手紙/ハガキ</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation>MBコネクション</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
             <translation>MBマガジン</translation>
         </picklistValues>
@@ -1297,12 +1321,20 @@
             <translation>My Mercedes</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>NEW</masterLabel>
+            <translation><!-- NEW --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>OB Call</masterLabel>
             <translation>OBコール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation>アウトバウンド・コール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partners</masterLabel>
@@ -2347,118 +2379,118 @@ Allows up to 240 characters --></help>
         <label>Dealer DMS SR コード1</label>
         <name>Dealer_DMS_SR_Code__c</name>
     </fields>
-    <fields>
+   <!-- <fields>
         <label>DMS</label>
         <name>Dealer_DMS__c</name>
         <picklistValues>
             <masterLabel>AMWIN</masterLabel>
-            <translation><!-- AMWIN --></translation>
+            <translation>AMWIN</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AS 400</masterLabel>
-            <translation><!-- AS 400 --></translation>
+            <translation>AS 400</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ASW</masterLabel>
-            <translation><!-- ASW --></translation>
+            <translation>ASW</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto IT (Equip)</masterLabel>
-            <translation><!-- Auto IT (Equip) --></translation>
+            <translation>Auto IT (Equip)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto IT (Units)</masterLabel>
-            <translation><!-- Auto IT (Units) --></translation>
+            <translation>Auto IT (Units)</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
+            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
+            <translation>Auto IT  PMDS Viaduct 2000</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
-            <translation><!-- Auto Mac --></translation>
+            <translation>Auto Mac</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Auto Quote</masterLabel>
-            <translation><!-- Auto Quote --></translation>
+            <translation>Auto Quote</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS Quote plus</masterLabel>
-            <translation><!-- DMS Quote plus --></translation>
+            <translation>DMS Quote plus</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ERA</masterLabel>
-            <translation><!-- ERA --></translation>
+            <translation>ERA</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Easy Mate (Global Soultions)</masterLabel>
-            <translation><!-- Easy Mate (Global Soultions) --></translation>
+            <translation>Easy Mate (Global Soultions)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gateway Solutions – Voyager</masterLabel>
-            <translation><!-- Gateway Solutions – Voyager --></translation>
+            <translation>Gateway Solutions – Voyager</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Global Dealer Systems</masterLabel>
-            <translation><!-- Global Dealer Systems --></translation>
+            <translation>Global Dealer Systems</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Goldmine</masterLabel>
-            <translation><!-- Goldmine --></translation>
+            <translation>Goldmine</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leading Hand</masterLabel>
-            <translation><!-- Leading Hand --></translation>
+            <translation>Leading Hand</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Markinson</masterLabel>
-            <translation><!-- Markinson --></translation>
+            <translation>Markinson</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>NOVA - Reynolds</masterLabel>
-            <translation><!-- NOVA - Reynolds --></translation>
+            <translation>NOVA - Reynolds</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No DMS</masterLabel>
-            <translation><!-- No DMS --></translation>
+            <translation>No DMS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oracle</masterLabel>
-            <translation><!-- Oracle --></translation>
+            <translation>Oracle</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PPG</masterLabel>
-            <translation><!-- PPG --></translation>
+            <translation>PPG</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quick Books</masterLabel>
-            <translation><!-- Quick Books --></translation>
+            <translation>Quick Books</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quote Plus</masterLabel>
-            <translation><!-- Quote Plus --></translation>
+            <translation>Quote Plus</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Revolutions</masterLabel>
-            <translation><!-- Revolutions --></translation>
+            <translation>Revolutions</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reynolds CFS / Dealer Pro</masterLabel>
-            <translation><!-- Reynolds CFS / Dealer Pro --></translation>
+            <translation>Reynolds CFS / Dealer Pro</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Titan</masterLabel>
-            <translation><!-- Titan --></translation>
+            <translation>Titan</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unifleet</masterLabel>
-            <translation><!-- Unifleet --></translation>
+            <translation>Unifleet</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>VQS</masterLabel>
-            <translation><!-- VQS --></translation>
+            <translation>VQS</translation>
         </picklistValues>
-    </fields>
+    </fields>-->
     <fields>
         <label><!-- Dated Started Fuso --></label>
         <name>Dealer_Dated_Started_Fuso__c</name>
@@ -3705,7 +3737,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Art(painting)</masterLabel>
-            <translation><!-- Art(painting) --></translation>
+            <translation>美術鑑賞</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Art(photography)</masterLabel>
@@ -3720,12 +3752,20 @@ Allows up to 240 characters --></help>
             <translation><!-- Bar --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Baseball</masterLabel>
+            <translation>野球</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Basketball</masterLabel>
             <translation><!-- Basketball --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Beauty Salon</masterLabel>
             <translation><!-- Beauty Salon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bicycle</masterLabel>
+            <translation>自転車（マウンテンバイクなど）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Bowling</masterLabel>
@@ -3736,6 +3776,10 @@ Allows up to 240 characters --></help>
             <translation><!-- Bridge --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Camping</masterLabel>
+            <translation>キャンプ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Car racing</masterLabel>
             <translation><!-- Car racing --></translation>
         </picklistValues>
@@ -3744,8 +3788,12 @@ Allows up to 240 characters --></help>
             <translation><!-- Chinese traditional opera --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Cinema</masterLabel>
+            <translation>映画鑑賞</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Climbing</masterLabel>
-            <translation><!-- Climbing --></translation>
+            <translation>登山</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collecting (Cigars)</masterLabel>
@@ -3765,7 +3813,11 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collecting (wine/gin)</masterLabel>
-            <translation><!-- Collecting (wine/gin) --></translation>
+            <translation>ワイン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cooking</masterLabel>
+            <translation>料理・菓子作り</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Current events</masterLabel>
@@ -3780,8 +3832,16 @@ Allows up to 240 characters --></help>
             <translation><!-- Dinner --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Diving</masterLabel>
+            <translation>ダイビング</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Drama</masterLabel>
             <translation><!-- Drama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Driving</masterLabel>
+            <translation>自動車でのドライブ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Equestrian</masterLabel>
@@ -3805,31 +3865,47 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fishing</masterLabel>
-            <translation><!-- Fishing --></translation>
+            <translation>釣り</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Flying</masterLabel>
             <translation><!-- Flying --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Food</masterLabel>
+            <translation>食べ歩き</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Football</masterLabel>
-            <translation><!-- Football --></translation>
+            <translation>サッカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gardening</masterLabel>
-            <translation><!-- Gardening --></translation>
+            <translation>園芸・ガーデニング</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Golf</masterLabel>
-            <translation><!-- Golf --></translation>
+            <translation>ゴルフ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Humanity</masterLabel>
             <translation><!-- Humanity --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Japanese tradicional opera</masterLabel>
+            <translation>古典芸能鑑賞（能・歌舞伎など）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marathon</masterLabel>
+            <translation>マラソン</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Martial Arts</masterLabel>
             <translation><!-- Martial Arts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motorcycle</masterLabel>
+            <translation>バイクでのツーリング</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Music</masterLabel>
@@ -3841,19 +3917,39 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Music (classical)</masterLabel>
-            <translation><!-- Music (classical) --></translation>
+            <translation>音楽鑑賞（クラシック）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Music (jazz)</masterLabel>
+            <translation>音楽鑑賞（ジャズ）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Music (popular)</masterLabel>
-            <translation><!-- Music (popular) --></translation>
+            <translation>音楽鑑賞（ボピュラーミュージック）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal finance</masterLabel>
+            <translation>財テク</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pets(Dogs)</masterLabel>
+            <translation>ペット（犬）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pets(others)</masterLabel>
+            <translation>ペット（犬以外）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Photography</masterLabel>
-            <translation><!-- Photography --></translation>
+            <translation>写真・カメラ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Playing musical instruments</masterLabel>
+            <translation>楽器演奏</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Politics</masterLabel>
@@ -3865,35 +3961,59 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Racing</masterLabel>
-            <translation><!-- Racing --></translation>
+            <translation>モータースポーツ／Ｆ１</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Reading</masterLabel>
-            <translation><!-- Reading --></translation>
+            <translation>読書</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Riding horse</masterLabel>
             <translation><!-- Riding horse --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Running</masterLabel>
+            <translation>ジョギング</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Sailing</masterLabel>
             <translation><!-- Sailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shopping</masterLabel>
+            <translation>ショッピング</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Shopping mall</masterLabel>
             <translation><!-- Shopping mall --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Skiing</masterLabel>
+            <translation>スキー</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Slimming Beauty</masterLabel>
             <translation><!-- Slimming Beauty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Snowboarding</masterLabel>
+            <translation>スノーボード</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Social</masterLabel>
             <translation><!-- Social --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Spa</masterLabel>
+            <translation>リラクゼーション（エステなど）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surfin</masterLabel>
+            <translation>サーフィン</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Swimming</masterLabel>
-            <translation><!-- Swimming --></translation>
+            <translation>水泳</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>TV</masterLabel>
@@ -3901,7 +4021,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tea</masterLabel>
-            <translation><!-- Tea --></translation>
+            <translation>華道・茶道</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tea culture</masterLabel>
@@ -3909,23 +4029,43 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Tennis</masterLabel>
-            <translation><!-- Tennis --></translation>
+            <translation>テニス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Travel</masterLabel>
-            <translation><!-- Travel --></translation>
+            <translation>海外旅行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel(Domestic)</masterLabel>
+            <translation>国内旅行</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Travelling</masterLabel>
             <translation><!-- Travelling --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Tri-athlon</masterLabel>
+            <translation>トライアスロン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video games</masterLabel>
+            <translation>家庭用ゲーム機</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volleyball</masterLabel>
+            <translation>バレーボール</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Weight Training</masterLabel>
-            <translation><!-- Weight Training --></translation>
+            <translation>フィットネス・ジム・ピラティス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yoga</masterLabel>
-            <translation><!-- Yoga --></translation>
+            <translation>ヨガ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yogi</masterLabel>
+            <translation>ヨガ</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4487,7 +4627,7 @@ Allows up to 240 characters --></help>
             <translation>Cクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Sedon</masterLabel>
+            <masterLabel>C-Class Sedan</masterLabel>
             <translation>Cクラス セダン</translation>
         </picklistValues>
         <picklistValues>
@@ -4531,7 +4671,7 @@ Allows up to 240 characters --></help>
             <translation>Eクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Sedon</masterLabel>
+            <masterLabel>E-Class Sedan</masterLabel>
             <translation>Eクラス セダン</translation>
         </picklistValues>
         <picklistValues>
@@ -4543,10 +4683,6 @@ Allows up to 240 characters --></help>
             <translation>Gクラス</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GL-Class</masterLabel>
-            <translation>GL</translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>GLA-Class</masterLabel>
             <translation>GLA</translation>
         </picklistValues>
@@ -4555,8 +4691,16 @@ Allows up to 240 characters --></help>
             <translation>新型GLE</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLE-Class Coupe</masterLabel>
+            <translation>新型GLE クーペ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
             <translation>GLK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS-Class</masterLabel>
+            <translation>新型GLS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach</masterLabel>
@@ -4575,16 +4719,24 @@ Allows up to 240 characters --></help>
             <translation>Sクラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>S-Class Cabriolet</masterLabel>
+            <translation>新型Sクラス カブリオレ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>S-Class Coupe</masterLabel>
             <translation>Sクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>S-Class Sedon</masterLabel>
+            <masterLabel>S-Class Sedan</masterLabel>
             <translation>Sクラス セダン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
-            <translation>SL</translation>
+            <translation>新型SL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLC-Class</masterLabel>
+            <translation>新型SLC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -4609,6 +4761,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>smart Electric Car</masterLabel>
             <translation>smart電気自動車</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>New E-Class Sedan</masterLabel>
+            <translation>新型Eクラス セダン</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5465,7 +5621,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>希望連絡先</label>
+        <label>希望連絡手段</label>
         <name>Preferred_Contact_Method__c</name>
         <picklistValues>
             <masterLabel>Direct Mail</masterLabel>
@@ -5473,7 +5629,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation>メール</translation>
+            <translation>Eメール</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fax</masterLabel>
@@ -5516,10 +5672,6 @@ Allows up to 240 characters --></help>
         <label>主要言語</label>
         <name>Preferred_Language__c</name>
         <picklistValues>
-            <masterLabel>Cantonese</masterLabel>
-            <translation>広東語</translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Chinese</masterLabel>
             <translation>中国語</translation>
         </picklistValues>
@@ -5528,16 +5680,60 @@ Allows up to 240 characters --></help>
             <translation>英語</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation>フランス語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation>ドイツ語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindhi</masterLabel>
+            <translation>ヒンディー語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation>イタリア語</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Japanese</masterLabel>
             <translation>日本語</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Mandarin Chinese</masterLabel>
-            <translation>中国語</translation>
+            <masterLabel>Korean</masterLabel>
+            <translation>韓国語</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation>ポルトガル語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation>ロシア語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation>スペイン語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tagalogue</masterLabel>
+            <translation>タガログ語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thai</masterLabel>
+            <translation>タイ語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation>トルコ語</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnamese</masterLabel>
+            <translation>ベトナム語</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5686,6 +5882,30 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Work Phone</masterLabel>
             <translation>勤務先電話</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Segment --></label>
+        <name>Primary_Segment__c</name>
+        <picklistValues>
+            <masterLabel>Faithful</masterLabel>
+            <translation><!-- Faithful --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fan</masterLabel>
+            <translation><!-- Fan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field</masterLabel>
+            <translation><!-- Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyal</masterLabel>
+            <translation><!-- Loyal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation><!-- Testing --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6035,6 +6255,10 @@ Allows up to 240 characters --></help>
             <masterLabel>Valid</masterLabel>
             <translation>有効</translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>セールス住所区分</label>
+        <name>Sales_Address_Type__c</name>
     </fields>
     <fields>
         <label>カスタマーメモ</label>
@@ -6758,22 +6982,22 @@ Allows up to 240 characters --></help>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>Custom Links</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Fields</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>Other information</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Retail Information</label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>-->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -6885,47 +7109,47 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>Additional Information</label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Address Information</label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Contact Info Status</label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label>Contact Information</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label>Dealer Information</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Duplication Information</label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>Other Information</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Person Account Basic Information</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Retail Information</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Telematics Related Information</label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Whole activities</label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -6933,23 +7157,23 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>Custom Links</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Fields</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>Other information</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Retail Information</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Whole activities</label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -6957,47 +7181,47 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label></label>
+            <label>Additional Information</label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Address Information</label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Contact Info Status</label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label>Contact Information</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label>Dealer Information</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Duplication Information</label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>Other Information</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Person Account Basic Information</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Retail Information</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Telematics Related Information</label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Whole activities</label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7005,19 +7229,19 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label>Contact Information</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label>Main Contact and Consent</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Person Account Basic Information</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label></label>
+            <label>Profile Information</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
@@ -7033,7 +7257,7 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label></label>
+            <label>New Section</label>
             <section>New Section</section>
         </sections>
         <sections>
