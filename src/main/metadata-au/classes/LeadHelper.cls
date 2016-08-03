@@ -634,7 +634,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
-           // sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
+            //sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         } 
     }
    
@@ -864,11 +864,26 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             List<String> CCemails = new List<String>();
             
             for(Contact contact : listContact) {
+                set<string> BusinessSet = new set<string>();
+                if(contact.Business_Unit__c != null && contact.Business_Unit__c !=''){
+                    for(String s:contact.Business_Unit__c.split(';')){
+                        BusinessSet.add(s.toLowerCase());
+                        system.debug('Busines'+s+'ggggggggggggg'+contact.Business_Unit__c);
+                    }
+                }
+                set<string> Sub = new set<string>();
+                if(contact.Sub_BusinessUnit__c != null && contact.Sub_BusinessUnit__c !=''){
+                    for(String s:contact.Sub_BusinessUnit__c.split(';')){
+                        Sub.add(s.toLowerCase());
+                    }
+                }
+                system.debug('BusinessSet============='+BusinessSet);
+                
                 //modified by Shuang Li Defect0345 Start
-                if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) {
+                if(contact.AccountId == lead.Assigned_Dealer__c && BusinessSet.contains(lead.Business_Unit__c.toLowerCase()) && Sub.contains(lead.Sub_BusinessUnit__c.toLowerCase())) {
                 //modified by Shuang Li Defect0345 End
                     if(contact.Lead_Escalation_Recipient_Type__c.contains(EmailType) && contact.Email != null) {
-                        TOemails.add(contact.Email);
+                        TOemails.add(contact.Email); 
                         system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails.size());
                         system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails[0]);
                     }
