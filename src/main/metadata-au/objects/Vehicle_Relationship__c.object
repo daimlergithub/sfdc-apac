@@ -235,6 +235,10 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Service Only</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>true</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
@@ -4276,6 +4280,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Only</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Class_Summary__c</picklist>
@@ -6846,6 +6854,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Service Only</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Class_Summary__c</picklist>
@@ -9414,6 +9426,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>TradeIn Vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Only</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12293,6 +12309,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Only</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Class_Summary__c</picklist>
@@ -12634,6 +12654,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>TradeIn Vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Only</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
