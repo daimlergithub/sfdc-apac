@@ -2746,11 +2746,6 @@ Service Only - does have at least one After Sales Record</description>
         <externalId>false</externalId>
         <label>CV Status</label>
         <picklist>
-=======
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </picklistValues>
->>>>>>> asia
             <picklistValues>
                 <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
@@ -3081,8 +3076,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <externalId>false</externalId>
         <label>Country</label>
         <picklist>
-=======
->>>>>>> asia
             <picklistValues>
                 <fullName>QQ</fullName>
                 <default>false</default>
