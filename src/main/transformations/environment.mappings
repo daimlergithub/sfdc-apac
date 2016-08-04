@@ -34,7 +34,7 @@ kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
 
 # Asia Dev Sandboxes
 dev_sb_asia_dev1=sukumar.rajashekaran.ntt@mbj.daimler-apac.com.asiadev1
-dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2
+dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2,sekhara.vanga.ntt@asia.daimler-apac.com.asiadev2
 dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
 dev_sb_asia_dev4=narasimha.gundurao@nttdata.com.asiadev4
 dev_sb_asia_dev5=shrinivas.desai.ntt@asia.daimler-apac.com.asiadev5
