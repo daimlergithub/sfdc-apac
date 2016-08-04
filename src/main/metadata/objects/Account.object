@@ -13009,6 +13009,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Customer Flag</label>
         <picklist>
             <picklistValues>
+			<values>
                 <fullName>A</fullName>
                 <default>false</default>
             </values>
