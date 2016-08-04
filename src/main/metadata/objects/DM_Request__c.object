@@ -431,6 +431,15 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Delivery_Type__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Type</label>
@@ -607,6 +616,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receipient_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Receipient Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -927,7 +947,25 @@ Modify Reason:
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
-	</listViews>
+    </listViews>
+    <listViews>
+        <fullName>All_temp</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Created_By_EP_Transaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_By_EP_Transaction__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All_temp</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -946,6 +984,15 @@ Modify Reason:
         </filters>
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -1014,6 +1061,66 @@ Modify Reason:
         </filters>
         <label>Direct request has been sent</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_A_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Additional_Address__c</columns>
+        <columns>Address__c</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>リクエスト日今日</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>

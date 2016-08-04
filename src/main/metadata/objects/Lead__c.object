@@ -16683,6 +16683,20 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Trade_In_Vehicle2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Trade In Vehicle2</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Leads (Trade In Vehicle2)</relationshipLabel>
+        <relationshipName>Leads2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Trade_In_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
         <label>Trade-In Vehicle Brand</label>
@@ -17217,6 +17231,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Trade_in_Vehicle_Text2__c</fullName>
+        <externalId>false</externalId>
+        <label>Trade in Vehicle Text2</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>UCID__c</fullName>
@@ -19437,6 +19463,76 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>DM_S_DM_2016</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>SクラスセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Approving</value>
+        </filters>
+        <label>DM_SクラスセントラルDM 2016_承認中</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>DM_S_DM_20161</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>自動車誕生130周年記念キャンペーン2016</value>
+        </filters>
+        <label>自動車誕生130周年記念キャンペーン2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>DM_S_DM_20162</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>SクラスセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Allocated</value>
+        </filters>
+        <label>DM_SクラスセントラルDM 2016_展開済</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>MBJ_ALL</fullName>
         <columns>NAME</columns>
         <columns>CAC_Lead_Status__c</columns>
@@ -19508,6 +19604,147 @@ Company_Account__r.Work_Phone__c  ,
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
         <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Drop_off_Time__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>001_本日のリード</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>NAME</columns>
+        <columns>UCID__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>Contact__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>メルセデス ミー 東京羽田</value>
+        </filters>
+        <label>メルセデス ミー 東京羽田のリード</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View2</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Drop_off_Time__c</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>002_過去7日間のリード</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>X001</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Vehicle_Model_Interest__c</columns>
+        <columns>MB_Vehicle_Interest__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Drop_off_Time__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <filters>
+            <field>Lead_DataSource__c</field>
+            <operation>equals</operation>
+            <value>My Mercedes</value>
+        </filters>
+        <label>001_本日のリード(My Mercedes)</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>X0011</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>SクラスセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <label>DM_SクラスセントラルDM 2016_新規</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>X130_2016</fullName>
+        <columns>NAME</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>Lead_DataSource__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>SクラスセントラルDM2016</value>
+        </filters>
+        <label>DM_SクラスセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -55490,6 +55727,21 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Waived_Reason__c</picklist>
+            <values>
+                <fullName>Competitive Reasons</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Sales_Leads_Soft_Deleted</fullName>
@@ -66709,6 +66961,21 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <errorMessage>Last Name Native should be Double byte.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lead_assignment</fullName>
+        <active>true</active>
+        <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
+        <errorConditionFormula>AND(
+ NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')),
+ OR( 
+     NOT(ISBLANK(Assigned_Dealer__c)),
+     NOT(ISNULL(Assigned_Dealer__c)) 
+    ),
+ $Profile.Name != 'IntegrationAPI',MD__c= 'JP'||MD__c='KR'
+)</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>Lead status should be "Assigned" once dealer is assigned to the Lead</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
         <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
@@ -66717,6 +66984,16 @@ ISNULL(Lost_Dealer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Lost_Dealer_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lost_To_Whom</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ LEN(Lost_To__c) &lt; 1 ,
+ ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI', MD__c= 'JP'||MD__c='KR'
+)</errorConditionFormula>
+        <errorDisplayField>Lost_To__c</errorDisplayField>
+        <errorMessage>“Lost To” field is mandatory when the lead has been lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
