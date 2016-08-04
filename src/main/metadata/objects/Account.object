@@ -17010,6 +17010,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Loyal</fullName>
                 <default>false</default>
+			</values>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
