@@ -9825,7 +9825,7 @@ Modify Reason:
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Preferred_Dropoff_Time__c</fullName>
+        <fullName>Preferred_Drop_off_Time__c</fullName>
         <description>To caputure the preferred drop-off time from DLM interface (Service Booking)</description>
         <externalId>false</externalId>
         <label>Preferred Drop-off Time</label>
@@ -25165,7 +25165,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Dropoff_Time__c</picklist>
+            <picklist>Preferred_Drop_off_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -38082,7 +38082,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Dropoff_Time__c</picklist>
+            <picklist>Preferred_Drop_off_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -50083,7 +50083,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Dropoff_Time__c</picklist>
+            <picklist>Preferred_Drop_off_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -61304,7 +61304,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Dropoff_Time__c</picklist>
+            <picklist>Preferred_Drop_off_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
