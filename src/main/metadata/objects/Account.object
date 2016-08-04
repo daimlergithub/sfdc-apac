@@ -3997,7 +3997,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
         <label>Competitors</label>
         <picklist>
             <picklistValues>
-                <fullName>Road rescue switching</fullName
+                <fullName>Road rescue switching</fullName>
                 <default>false</default>
                 <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
