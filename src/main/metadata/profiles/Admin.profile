@@ -10210,7 +10210,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Preferred_Dropoff_Time__c</field>
+        <field>Lead__c.Preferred_Drop_off_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
