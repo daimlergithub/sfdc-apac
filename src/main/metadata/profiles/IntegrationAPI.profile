@@ -10482,6 +10482,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Service_Loan_Car__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Source_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
