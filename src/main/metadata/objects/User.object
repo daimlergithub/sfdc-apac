@@ -771,7 +771,6 @@
         <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CORE.PROFILE.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CORE.USERS.SAML_SUBJECT</lookupDialogsAdditionalFields>
         <lookupFilterFields>FULL_NAME</lookupFilterFields>
         <lookupFilterFields>CORE.USER_ROLE.NAME</lookupFilterFields>
         <lookupFilterFields>CORE.PROFILE.NAME</lookupFilterFields>

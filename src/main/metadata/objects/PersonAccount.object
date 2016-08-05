@@ -7878,7 +7878,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7922,7 +7922,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7931,10 +7931,6 @@
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7970,7 +7966,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9122,15 +9118,7 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandarin Chinese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12729,7 +12717,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12773,7 +12761,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12782,10 +12770,6 @@
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12821,7 +12805,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13973,16 +13957,8 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandarin Chinese</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -17516,7 +17492,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17560,7 +17536,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17569,10 +17545,6 @@
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17585,7 +17557,9 @@
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
-            <values>
+				<default>false</default>
+            </values>
+			<values>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
@@ -17606,7 +17580,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18758,15 +18732,7 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandarin Chinese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19217,6 +19183,7 @@
             <values>
                 <fullName>III</fullName>
 				<default>false</default>
+			</values>
             <values>
                 <fullName>IV</fullName>
                 <default>false</default>
@@ -22646,7 +22613,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22690,7 +22657,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22699,10 +22666,6 @@
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22738,7 +22701,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23692,10 +23655,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedan</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mr</fullName>
                 <default>false</default>
             </values>
@@ -23890,16 +23849,8 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandarin Chinese</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>

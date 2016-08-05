@@ -2333,6 +2333,22 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Russia</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2349,44 +2365,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Allow_Data_Sharing__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to allow data sharing 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
-        <externalId>false</externalId>
-        <label>Allow Data Sharing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saudi Arabia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>South Africa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -2450,37 +2428,6 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Behavioural_Group__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer phase</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Care</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales &amp; Service Lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Discard</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2659,161 +2606,77 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Western Star</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Buy_Cycle__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Number of months to replace vehicle, i.e. buying cycle 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
-        <externalId>false</externalId>
-        <label>Buy Cycle</label>
-        <precision>10</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CMS_Dealer_BPID__c</fullName>
-        <externalId>false</externalId>
-        <label>CMS Dealer BPID</label>
-        <length>6</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CMS_SAP_No__c</fullName>
-        <externalId>false</externalId>
-        <label>CMS SAP No</label>
-        <length>7</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>COS_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>COS Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>CV_No_Brand_Purchases__c</fullName>
-        <externalId>false</externalId>
-        <label>CV No. Brand Purchases</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CV_Status__c</fullName>
-        <description>Needs to be coded:
-
-Status a customer can have in regards to CV.
-Prospect - is interested in CV
-Customer - does have at least one CV
-Service Only - does have at least one After Sales Record</description>
-        <externalId>false</externalId>
-        <label>CV Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MCare</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NEW</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Me Haneda</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outbound Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd party data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Academy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB website</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Road Assistant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Company call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cataloue Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Connection</fullName>
-                <default>false</default>
-            </picklistValues>
+			<picklistValues>
+				<fullName>Mercedes Magazine Survey</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>MCare</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>NEW</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Mercedes Me Haneda</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Outbound Call</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Partners</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>3rd party data</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>OB Call</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>IB Call</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>MB Magazine</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Mercedes-Benz</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Mercedes-Benz Academy</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>MB website</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Road Assistant</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Mercedes-Benz Company call</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Cataloue Call</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>MB Connection</fullName>
+				<default>false</default>
+			</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2999,83 +2862,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
                 <fullName>Autohome</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Company__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Company</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Accounts (Company)</relationshipLabel>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Complaint_Amount__c</fullName>
-        <defaultValue>0</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Complaint_Priority__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Priority</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Contact_Background__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Background information on the customer the customer's or any family member's background is with the government 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</description>
-        <externalId>false</externalId>
-        <label>Contact Background</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Corporate_Program__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Corporate Program</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Country__c</fullName>
-        <externalId>false</externalId>
-        <label>Country</label>
-        <picklist>
             <picklistValues>
                 <fullName>QQ</fullName>
                 <default>false</default>
@@ -3364,74 +3150,71 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Air China</fullName>
-                <default>false</default>
+                <fullName>edm_PotentialCustome</fullName>
                 <controllingFieldValues>Partners</controllingFieldValues>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Jingdong mall</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taobao station</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cooperation media</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China telecom / 189 mailbox</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dunhill</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>D&amp;G</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HUGO BOSS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank of communications</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TNT</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Axciom</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G2</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
+                <fullName>Auto Show 2012</fullName>
                 <controllingFieldValues>Event</controllingFieldValues>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other Event</fullName>
+                <fullName>Direct Mail</fullName>
+                <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wifi</fullName>
                 <controllingFieldValues>Event</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Arena</fullName>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C Coupe web special</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz website _ sale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Netcom agency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iQiyi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA web special</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>China Unicom</fullName>
+                <controllingFieldValues>Partners</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Micro-channel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SACP Driving</fullName>
+                <controllingFieldValues>Partners</controllingFieldValues>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fengshun driving academy</fullName>
@@ -3927,14 +3710,12 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>OB Call</fullName>
+                <fullName>Provincial</fullName>
                 <default>false</default>
-                <controllingFieldValues>OB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>BBAC switching</fullName>
+                <fullName>Rural</fullName>
                 <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -3997,64 +3778,52 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
         <label>Competitors</label>
         <picklist>
             <picklistValues>
-                <fullName>Road rescue switching</fullName>
+                <fullName>Alfa</fullName>
                 <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>IB Call</fullName>
+                <fullName>Audi</fullName>
                 <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz Financial</fullName>
+                <fullName>BMW</fullName>
                 <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealers nomination</fullName>
+                <fullName>Case</fullName>
                 <default>false</default>
-                <controllingFieldValues>Dealers</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Magazine Response Card</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
-                <controllingFieldValues>MB Magazine</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>SSI</fullName>
+                <fullName>Citroen</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>DMS</fullName>
+                <fullName>DAF</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Vehicle administration office</fullName>
+                <fullName>Dodge</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Used car</fullName>
+                <fullName>Ferrari</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Fax</fullName>
+                <fullName>Fiat Cars</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Short message</fullName>
+                <fullName>Fiat Trucks</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>VVIP</fullName>
+                <fullName>Ford</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso</fullName>
@@ -4065,19 +3834,16 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other</fullName>
+                <fullName>Hamelex White</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>PowerScreen</fullName>
+                <fullName>Hardi</fullName>
                 <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Wedo</fullName>
+                <fullName>Hino</fullName>
                 <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Holden</fullName>
@@ -4200,63 +3966,52 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>eDM-PC</fullName>
+                <fullName>SAAB</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>eDM-Mobile</fullName>
+                <fullName>Scania</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Skoda</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBDA</fullName>
+                <fullName>Ssangyoung</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz Academy</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>COACH</fullName>
+                <fullName>Subaru</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>mymb</fullName>
+                <fullName>Suzuki</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Owners Club</fullName>
+                <fullName>Toyota</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>edm_PotentialCustome</fullName>
+                <fullName>UD Trucks</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto Show 2012</fullName>
+                <fullName>Volvo Cars</fullName>
                 <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Direct Mail</fullName>
+                <fullName>Volvo Trucks</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Wifi</fullName>
+                <fullName>VW Comm</fullName>
                 <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Arena</fullName>
+                <fullName>VW Pass</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Western Star</fullName>
@@ -4391,18 +4146,16 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>China Unicom</fullName>
+                <fullName>Auto Mac</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Quote</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SACP Driving</fullName>
+                <fullName>DMS Quote plus</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Easy Mate (Global Soultions)</fullName>
@@ -4469,12 +4222,8 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Ogilvy</fullName>
+                <fullName>Goldmine</fullName>
                 <default>false</default>
-                <controllingFieldValues>Campaign</controllingFieldValues>
-                <controllingFieldValues>Dealers</controllingFieldValues>
-                <controllingFieldValues>MB website</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ERA</fullName>
@@ -6202,32 +5951,22 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
         <externalId>false</externalId>
         <label>Email Status</label>
-        <picklist>
-            <controllingField>Dealer_Region__c</controllingField>
+         <picklist>
             <picklistValues>
-                <fullName>NORTH1</fullName>
+                <fullName>Bounce-Back</fullName>
                 <default>false</default>
-                <controllingFieldValues>NORTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>NORTH2</fullName>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
-                <controllingFieldValues>NORTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>NORTH3</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
-                <controllingFieldValues>NORTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>SOUTH1</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
-                <controllingFieldValues>SOUTH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SOUTH2</fullName>
-                <default>false</default>
-                <controllingFieldValues>SOUTH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6241,24 +5980,20 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <label>Email Validity</label>
         <picklist>
             <picklistValues>
-                <fullName>EAST1</fullName>
+                <fullName>Invalid</fullName>
                 <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>EAST2</fullName>
+                <fullName>Valid</fullName>
                 <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>WEST</fullName>
+                <fullName>Unknown</fullName>
                 <default>false</default>
-                <controllingFieldValues>WEST</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>EAST3</fullName>
+                <fullName>Blacklisted</fullName>
                 <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6825,46 +6560,29 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <externalId>false</externalId>
         <label>Fuso Offered Service</label>
         <picklist>
-            <controllingField>Dealer_Region__c</controllingField>
             <picklistValues>
-                <fullName>NORTH1</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
-                <controllingFieldValues>NORTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>NORTH2</fullName>
+                <fullName>Service</fullName>
                 <default>false</default>
-                <controllingFieldValues>NORTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>SOUTH1</fullName>
+                <fullName>Auto Body Repairer</fullName>
                 <default>false</default>
-                <controllingFieldValues>SOUTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>SOUTH2</fullName>
+                <fullName>Parts</fullName>
                 <default>false</default>
-                <controllingFieldValues>SOUTH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>EAST1</fullName>
+                <fullName>Pre-Owned</fullName>
                 <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>EAST2</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
                 <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>EAST3</fullName>
-                <default>false</default>
-                <controllingFieldValues>EAST</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WEST</fullName>
-                <default>false</default>
-                <controllingFieldValues>WEST</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6900,17 +6618,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <externalId>false</externalId>
         <label>Do Not Call Reason</label>
         <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Driver_License_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>GSSN Brand Code Sub "C"/ "D"</label>
-        <length>47</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7125,108 +6832,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Motorcycle</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Email2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-Mail</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified By 2</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-mail ModifiedBy</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified Date 2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-mail ModifiedDate</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Opt_Out_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Opt Out Reason</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Status_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Status 2</label>
-        <picklist>
             <picklistValues>
                 <fullName>Travel(Domestic)</fullName>
                 <default>false</default>
@@ -7431,8 +7036,18 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Email_Opt_Out_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Opt Out Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Home_Phone_2__c</fullName>
@@ -8432,15 +8047,6 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Fleet__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Blacklist</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Is_Invalid__c</fullName>
@@ -9727,94 +9333,72 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Lord</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Friend Recommendation</fullName>
+                <fullName>Madam</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Telephone Query Service</fullName>
+                <fullName>Major</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Other</fullName>
+                <fullName>Master</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>User Guide</fullName>
+                <fullName>Miss</fullName>
                 <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>China Air</fullName>
+                <fullName>Monsieur</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Artron</fullName>
+                <fullName>President</fullName>
                 <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Public Relations</fullName>
+                <fullName>Private</fullName>
                 <default>false</default>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Advertising</fullName>
+                <fullName>Professor</fullName>
                 <default>false</default>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Outdoor Advertising</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Other Activity</fullName>
+                <fullName>QC</fullName>
                 <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Car Exhibition</fullName>
+                <fullName>Rabbi</fullName>
                 <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Third Party (Partner) email contact</fullName>
+                <fullName>Reverend</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>China Telecom/189 email</fullName>
+                <fullName>Saint</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealer email contact</fullName>
+                <fullName>Sargent</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-magazine</fullName>
+                <fullName>Senator</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz Electronic Journal</fullName>
+                <fullName>Sir</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>The Ritz Carlton Hotel</fullName>
+                <fullName>Sister</fullName>
                 <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -9977,11 +9561,10 @@ Modify Reason:
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
         <label>Portal Mail Address</label>
-        <picklist>
+       <picklist>
             <picklistValues>
-                <fullName>Other message</fullName>
+                <fullName>None</fullName>
                 <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10015,48 +9598,40 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
         <label>Preferred Contact Date</label>
         <picklist>
             <picklistValues>
-                <fullName>Third Party Message Contact</fullName>
+                <fullName>Weekday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz Message Contact</fullName>
+                <fullName>Weekend</fullName>
                 <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Monday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Dealer Exhibition Hall</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Chinese radio network</fullName>
+                <fullName>Tuesday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>ML web special</fullName>
+                <fullName>Wednesday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MB official website</fullName>
+                <fullName>Thursday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>B web special</fullName>
+                <fullName>Friday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mobile Phone Web</fullName>
+                <fullName>Saturday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>smart official website</fullName>
+                <fullName>Sunday</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10082,29 +9657,24 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
         <label>Preferred Contact Method</label>
         <picklist>
             <picklistValues>
-                <fullName>Other Web, Community, Blog</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealer Website</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Sina Blog</fullName>
+                <fullName>Fax</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>AMG Website</fullName>
+                <fullName>Direct Mail</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MBDA</fullName>
+                <fullName>SMS</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz DrivingAcademy</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10577,7 +10147,9 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <unique>false</unique>
     </fields>
     <fields>
+		<fullName>Processed__c</fullName>
         <externalId>false</externalId>
+		<defaultValue>false</defaultValue>
         <label>Processed</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -11070,31 +10642,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Main_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Main Aftersales Dealer for this contact 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
-        <externalId>false</externalId>
-        <formula>IF(ISNULL(Id ),0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Is_Account</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>R_remark__c</fullName>
         <externalId>false</externalId>
         <label>Remark</label>
@@ -11297,17 +10844,6 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>No_of_Dealer_Portal_Licenses__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Other Phone2</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Other_Phone__c</fullName>
@@ -11589,17 +11125,6 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Sales_Sanction_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Memo</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Sales_Sanction__c</fullName>
@@ -11957,57 +11482,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Postal_Opt_Out__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Stop All Postal contact for this person 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
-        <externalId>false</externalId>
-        <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ex-Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prospect</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VIP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Driving Academy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Suffix__c</fullName>
@@ -12453,18 +11927,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Primary_Segment__c</fullName>
-        <externalId>false</externalId>
-        <label>VAN No. Brand Purchases</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>VAN_Status__c</fullName>
         <externalId>false</externalId>
         <label>VAN Status</label>
@@ -12798,6 +12260,39 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Sales_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Address Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Sanction_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Memo</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salutation__c</fullName>
+        <externalId>false</externalId>
+        <label>Salutation</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Work_Phone__c</fullName>
         <externalId>false</externalId>
@@ -12981,1525 +12476,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <filterScope>Everything</filterScope>
         <label>Platinum and Gold SLA Customers</label>
     </listViews>
-	<fields>
-        <fullName>Sales_Address_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sales Address Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Sales_Sanction_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Memo</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Sales_Sanction__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Flag</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Province__c</picklist>
-            <values>
-                <fullName>Province1</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Rating</picklist>
-            <values>
-                <fullName>Cold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hot</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warm</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Source_Of_Business__c</picklist>
-            <values>
-                <fullName>Acquisition campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Salutation__c</fullName>
-        <externalId>false</externalId>
-        <label>Salutation</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SelecTrucks_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>SelecTrucks Offered Service</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer News letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Did not ask</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing A%2FS cust</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchise marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Internet advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Journal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LMS System</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoors</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Enquiry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Television Advertise</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade Journal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow pages</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>SLA__c</picklist>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Platinum</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>SMS_MMS_IM_Status_2__c</picklist>
-            <values>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sales_Sanction__c</picklist>
-            <values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>F</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>SelecTrucks_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Smarts_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Special_Mark_on_Account__c</picklist>
-            <values>
-                <fullName>Automotive related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fire department</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lawyer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ministry of Transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Police</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Special_Needs_Class__c</picklist>
-            <values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Special_Vehicle_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status__c</picklist>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prospect</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Suffix__c</picklist>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>jr%2E</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>TSP_Account_Status__c</picklist>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>TSP_Account_Type__c</picklist>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>TSP_Esa_Flg__c</picklist>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Title__c</picklist>
-            <values>
-                <fullName>Dear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hello</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sir</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To Whom It May Concern</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Trucks_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Benz Employees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Benz employee%27s lineal relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>China Mobile specific customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Employees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fengshun driving acedemy VIP customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Agencies</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Secondary Agent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Weibo fans</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Unimog_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>UpsellOpportunity__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Past Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes %28New Car%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes %28Used Car%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>VAN_Status__c</picklist>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prospect</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Vans_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Western_Star_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Work_Phone_Status_2__c</picklist>
-            <values>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
-            <values>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Work_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>X1st_Hobby__c</fullName>
-        <externalId>false</externalId>
-        <label>1st Hobby</label>
-        <picklist>
-            <picklistValues>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Other)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (antiques)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (watches)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (wine/gin)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Cigars)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(photography)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(painting)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(design)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (General)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (classical)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (popular)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion(Fashion)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Movie/Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>X2nd_Hobby__c</fullName>
-        <externalId>false</externalId>
-        <label>2nd Hobby</label>
-        <picklist>
-            <picklistValues>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Other)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (antiques)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (watches)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (wine/gin)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Cigars)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(photography)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(painting)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(design)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (General)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (classical)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (popular)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion(Fashion)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Movie/Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>X3rd_Hobby__c</fullName>
-        <externalId>false</externalId>
-        <label>3rd Hobby</label>
-        <picklist>
-            <picklistValues>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Other)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (antiques)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (watches)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (wine/gin)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Collecting (Cigars)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(photography)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(painting)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Art(design)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (General)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (classical)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music (popular)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion(Fashion)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Movie/Drama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>ZipCode__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Zip Code (Post Code) of customer's address 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
-        <externalId>false</externalId>
-        <label>ZipCode</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>smart_Account_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is only required if Dealer also sell Smart Car. This field can only be updated by dedicated user.smart DM</description>
-        <externalId>false</externalId>
-        <label>smart Account Owner</label>
-        <lookupFilter>
-            <active>false</active>
-            <filterItems>
-                <field>User.IsActive</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <filterItems>
-                <field>User.UserRole.Name</field>
-                <operation>contains</operation>
-                <value>smart DM</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -17694,7 +15670,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17738,7 +15714,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17747,10 +15723,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17786,7 +15758,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18720,14 +16692,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Valid</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>NTHN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STHN</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
@@ -18939,10 +16903,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
-            <values>
-                <fullName>Bounce-Back</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
@@ -19339,10 +17299,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Yogi</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>VAN_Status__c</picklist>
@@ -19432,759 +17388,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X1st_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X2nd_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X3rd_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22782,7 +19985,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedon</fullName>
+                <fullName>C-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22826,7 +20029,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Sedon</fullName>
+                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22835,10 +20038,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>G-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22874,7 +20073,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Sedon</fullName>
+                <fullName>S-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23759,20 +20958,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandarin Chinese</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -24516,759 +21707,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X1st_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X2nd_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>X3rd_Hobby__c</picklist>
-            <values>
-                <fullName>Art%28design%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Art%28photography%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Badminton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basketball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beauty Salon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bowling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bridge</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Cigars%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28Other%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28antiques%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28watches%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DIY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dinner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Drama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equestrian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion%28Fashion%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fine art</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flying</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gardening</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Humanity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martial Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Movie%2FDrama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28General%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Politics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Riding horse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea culture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travelling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weight Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Well-being</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>opera</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
