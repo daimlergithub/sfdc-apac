@@ -12484,10 +12484,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Company</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
-            <values>
+            <!-- <values>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
-            </values>
+            </values> -->
             <values>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
