@@ -98,14 +98,6 @@
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
-            <recipient>SMDFM_users</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
