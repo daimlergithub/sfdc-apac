@@ -20796,7 +20796,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
-    <recordTypes>
+    <!-- <recordTypes>
         <fullName>Chrysler_Complaint</fullName>
         <active>true</active>
         <businessProcess>Chrysler Complaint Process</businessProcess>
@@ -24299,8 +24299,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -35343,8 +35343,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBDA_Complaint</fullName>
         <active>true</active>
         <businessProcess>MBDA Complaint Process</businessProcess>
@@ -45114,8 +45114,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBDA_Inquiry</fullName>
         <active>true</active>
         <businessProcess>MBDA Inquiry Process</businessProcess>
@@ -54665,8 +54665,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBJ_Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -63912,8 +63912,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MB_Complaint</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -68796,8 +68796,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Object_Connector</fullName>
         <active>true</active>
         <businessProcess>Object Connector Process</businessProcess>
@@ -72668,8 +72668,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Retail_Campaign</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -82739,8 +82739,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Roadside_Assistance</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -93278,8 +93278,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Touring_Support</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -102525,7 +102525,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes> -->
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
