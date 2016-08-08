@@ -8509,7 +8509,17 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <controllingFieldValues>Vehicle</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Vehicle Touring support breakdown</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Vehicle others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Touring support accident</fullName>
                 <default>false</default>
                 <controllingFieldValues>Vehicle</controllingFieldValues>
             </picklistValues>
