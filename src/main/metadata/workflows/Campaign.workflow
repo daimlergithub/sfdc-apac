@@ -266,10 +266,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
     </rules>
 	<rules>
         <fullName>Update Campaign Record as %27 Read Only%27</fullName>
-        <actions>
-            <name>Update_Campiagn_record_as_read_only</name>
-            <type>FieldUpdate</type>
-        </actions>
         <active>true</active>
         <criteriaItems>
             <field>Campaign.Status</field>

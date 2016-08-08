@@ -16360,7 +16360,7 @@ Modify Reason:
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Series</label>
-        <picklist>
+       <picklist>
             <controllingField>Vehicle_Brand__c</controllingField>
             <picklistValues>
                 <fullName>Test</fullName>
@@ -16868,6 +16868,11 @@ Modify Reason:
                 <fullName>SL ROADSTER</fullName>
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC ROADSTER</fullName>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK ROADSTER</fullName>

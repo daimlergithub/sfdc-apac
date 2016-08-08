@@ -12483,49 +12483,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <label>Company</label>
         <picklistValues>
-            <picklist>AccountSource</picklist>
-            <values>
-                <fullName>After-Sales Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Active__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -17396,50 +17353,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Dealer</fullName>
         <active>true</active>
         <description>Record type for dealer</description>
-        <label>Dealer</label>
-        <picklistValues>
-            <picklist>AccountSource</picklist>
-            <values>
-                <fullName>After-Sales Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        <label>Dealer</label>		
         <picklistValues>
             <picklist>Active__c</picklist>
             <values>
@@ -21715,49 +21629,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>CompanySoftDeleted</fullName>
         <active>true</active>
         <label>CompanySoftDeleted</label>
-        <picklistValues>
-            <picklist>AccountSource</picklist>
-            <values>
-                <fullName>After-Sales Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Active__c</picklist>
             <values>
