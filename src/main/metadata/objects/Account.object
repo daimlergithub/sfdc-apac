@@ -1134,14 +1134,14 @@
     <fields>
         <fullName>AccountSource</fullName>
          <picklist>
-           <!-- <picklistValues>
+           <picklistValues>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
-            </picklistValues> -->
+            </picklistValues>
             <picklistValues>
                 <fullName>Online Registration</fullName>
                 <default>false</default>
@@ -21717,7 +21717,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>CompanySoftDeleted</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
-            <!-- <values>
+            <values>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </values>
@@ -21728,7 +21728,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
-            </values> -->
+            </values> 
             <values>
                 <fullName>Data marketing</fullName>
                 <default>false</default>
@@ -26781,7 +26781,7 @@ Modify Reason:
 */</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND ($Profile.Name != 'IntegrationAPI',
-	RecordType.Name = 'Person Account',
+	recordtype.Name = 'Person Account',
 	Gov_Background__c = false,
 	
 	AND (
