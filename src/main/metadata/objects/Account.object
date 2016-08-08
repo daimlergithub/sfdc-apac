@@ -12478,20 +12478,20 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <recordTypes>
+    <!-- <recordTypes>
         <fullName>Company</fullName>
         <active>true</active>
         <label>Company</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
-            <!-- <values>
+            <values>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </values> 
             <values>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
-            </values> -->
+            </values> 
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -17391,8 +17391,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-   <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Dealer</fullName>
         <active>true</active>
         <description>Record type for dealer</description>
@@ -21710,8 +21710,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> 
-	<recordTypes>
+    </recordTypes> -->
+	<!-- <recordTypes>
         <fullName>CompanySoftDeleted</fullName>
         <active>true</active>
         <label>CompanySoftDeleted</label>
@@ -26695,7 +26695,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes> -->
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Phone_Display__c</customTabListAdditionalFields>
