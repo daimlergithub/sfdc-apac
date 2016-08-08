@@ -55727,21 +55727,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Waived_Reason__c</picklist>
-            <values>
-                <fullName>Competitive Reasons</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Loyalty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing Relationship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Sales_Leads_Soft_Deleted</fullName>
