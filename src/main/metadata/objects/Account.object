@@ -1134,14 +1134,14 @@
     <fields>
         <fullName>AccountSource</fullName>
          <picklist>
-            <picklistValues>
+           <!-- <picklistValues>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues> -->
             <picklistValues>
                 <fullName>Online Registration</fullName>
                 <default>false</default>
@@ -12487,11 +12487,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <!-- <values>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
-            </values> -->
+            </values> 
             <values>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
-            </values>
+            </values> -->
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -17392,7 +17392,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Dealer</fullName>
         <active>true</active>
         <description>Record type for dealer</description>
@@ -21710,21 +21710,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes> 
 	<recordTypes>
         <fullName>CompanySoftDeleted</fullName>
         <active>true</active>
         <label>CompanySoftDeleted</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
-            <values>
+            <!-- <values>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Autoshow</fullName>
                 <default>false</default>
-            </values>
+            </values>  -->
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
