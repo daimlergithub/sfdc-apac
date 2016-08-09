@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
@@ -12,7 +12,7 @@
     <fieldUpdates>
         <fullName>Campaign_ExecutionIndex_Calculation</fullName>
         <field>Index__c</field>
-        <formula>IF( Previous_Campaign_Execution__c == &apos;&apos; , 1,  Previous_Campaign_Execution__r.Index__c + 1 )</formula>
+        <formula>IF( Previous_Campaign_Execution__c == '' , 1,  Previous_Campaign_Execution__r.Index__c + 1 )</formula>
         <name>Campaign ExecutionIndex Calculation</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -41,19 +41,30 @@
         <field>Campaign_Code__c</field>
         <formula>CASE(
 RecordType.Name,
-&apos;S&amp;M Event BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
-&apos;S&amp;M Media BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
-&apos;AS BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
-&apos;Central Marketing Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
-&apos;CAC CRM Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
-&apos;CAS Marketing Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
-&apos;Campaign Execution - Simple&apos;, &apos;L3&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
-&apos;Campaign Execution - Complex&apos;, &apos;L3&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
-&apos;L2&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c)</formula>
+'S&amp;M Event BMBS Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+TEXT(Region__c) +"_"+Auto_Number__c,
+'S&amp;M Media BMBS Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+TEXT(Region__c) +"_"+Auto_Number__c,
+'AS BMBS Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+TEXT(Region__c) +"_"+Auto_Number__c,
+'Central Marketing Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'CAC CRM Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'CAS Marketing Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'Campaign Execution - Simple', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'Campaign Execution - Complex', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'L2'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c)</formula>
         <name>Update Campaign Code</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Campiagn_record_as_read_only</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Campaign_Execution_Complex_Lock</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update Campaign record as read only</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Content_Preview</fullName>
@@ -88,14 +99,14 @@ RecordType.Name,
         <apiVersion>35.0</apiVersion>
         <endpointUrl>WORKFLOW_OUTBOUND_MESSAGE_ENDPOINTURL_SEND_CAMPAIGN_ID_EP</endpointUrl>
         <fields>Id</fields>
-		<fields>MD__c</fields>
+        <fields>MD__c</fields>
         <includeSessionId>false</includeSessionId>
         <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
         <name>Send Campaign ID to EP</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
-      <rules>
+    <rules>
         <fullName>Activate Campaign When Status Changes to %22Started%22</fullName>
         <actions>
             <name>Activate_Campaign</name>
@@ -217,7 +228,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>AND (  RecordType.DeveloperName=&apos;CAC_Campaign&apos;, OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
+        <formula>AND (  RecordType.DeveloperName='CAC_Campaign', OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -264,8 +275,12 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <formula>AND(1=1,MD__c='JP' ||MD__c='KR')</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Update Campaign Record as %27 Read Only%27</fullName>
+        <actions>
+            <name>Update_Campiagn_record_as_read_only</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <criteriaItems>
             <field>Campaign.Status</field>
