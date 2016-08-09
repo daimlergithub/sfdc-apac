@@ -2973,6 +2973,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>DMS_Sent_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The flag to identify if this is sent AL or not. No manual update</description>
+        <externalId>false</externalId>
+        <label>DMS Sent Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>DUP_Number__c</fullName>
         <externalId>false</externalId>
