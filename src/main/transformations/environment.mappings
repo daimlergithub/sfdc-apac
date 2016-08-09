@@ -36,15 +36,9 @@ kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
 dev_sb_asia_dev1=sukumar.rajashekaran.ntt@mbj.daimler-apac.com.asiadev1
 dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2,sekhara.vanga.ntt@asia.daimler-apac.com.asiadev2
 dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
-<<<<<<< HEAD
-dev_sb_asia_dev4=narasimha.gundurao@nttdata.com.asiadev4
-dev_sb_asia_dev5=shrinivas.desai.ntt@asia.daimler-apac.com.asiadev5
-dev_sb_asia_dev6=ayyavari.venkateswarlu@nttdata.com.asiadev6
-=======
 dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4
 dev_sb_asia_dev5=chethan.annayappa.ntt@asia.daimler-apac.com.asiadev5
 dev_sb_asia_dev6=sriram.kalluri.ntt@asia.daimler-apac.com.asiadev6
->>>>>>> 9c4686fa55abe0f8bfbf4fca630559161e0edbd3
 dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7
 dev_sb_asia_dev8=sreeram.kantamani.ntt@asia.daimler-apac.com.asiadev8
 dev_sb_asia_dev9=mohanaraja.alla.ntt@asia.daimler-apac.com.asiadev9
@@ -54,3 +48,6 @@ dev_sb_asia_mrdev=narasimha.gundurao.tt@asia.daimler-apac.com.mrdev
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
+
+# Asia Korea Dev Sandboxes
+dev_sb_asia_dev11=sneha.chail@nttdata.com.asiadev11

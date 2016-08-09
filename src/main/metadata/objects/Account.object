@@ -1134,7 +1134,7 @@
     <fields>
         <fullName>AccountSource</fullName>
          <picklist>
-            <picklistValues>
+           <picklistValues>
                 <fullName>After-Sales Event</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17348,8 +17348,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> 
+	<recordTypes>
         <fullName>Dealer</fullName>
         <active>true</active>
         <description>Record type for dealer</description>
@@ -26652,7 +26652,7 @@ Modify Reason:
 */</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND ($Profile.Name != 'IntegrationAPI',
-	RecordType.Name = 'Person Account',
+	recordtype.Name = 'Person Account',
 	Gov_Background__c = false,
 	
 	AND (

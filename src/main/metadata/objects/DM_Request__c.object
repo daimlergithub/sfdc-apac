@@ -1105,6 +1105,39 @@ Modify Reason:
         <language>ja</language>
     </listViews>
     <listViews>
+        <fullName>View5</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Attention__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <filters>
+            <field>Delivery_Type__c</field>
+            <operation>notEqual</operation>
+            <value>4</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Sent</value>
+        </filters>
+        <label>リクエスト日昨日カタログ名</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>test_CAC_Surpervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>test CAC Surpervisor</label>
