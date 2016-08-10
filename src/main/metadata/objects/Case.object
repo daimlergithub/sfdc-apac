@@ -11657,6 +11657,18 @@ Modify Reason:
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>EuroVIN__c</fullName>
+        <externalId>false</externalId>
+        <label>EuroVIN</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>External_Case_ID__c</fullName>
         <externalId>false</externalId>
         <label>External Case ID</label>
@@ -15625,6 +15637,13 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>SourceId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Source_System__c</fullName>
         <externalId>false</externalId>
         <label>Source System</label>
@@ -16341,7 +16360,7 @@ Modify Reason:
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Series</label>
-        <picklist>
+       <picklist>
             <controllingField>Vehicle_Brand__c</controllingField>
             <picklistValues>
                 <fullName>Test</fullName>
@@ -20762,9 +20781,27 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
-    <recordTypes>
+    <!-- <recordTypes>
         <fullName>Chrysler_Complaint</fullName>
         <active>true</active>
         <businessProcess>Chrysler Complaint Process</businessProcess>
@@ -24267,8 +24304,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -35311,8 +35348,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBDA_Complaint</fullName>
         <active>true</active>
         <businessProcess>MBDA Complaint Process</businessProcess>
@@ -45082,8 +45119,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBDA_Inquiry</fullName>
         <active>true</active>
         <businessProcess>MBDA Inquiry Process</businessProcess>
@@ -54633,8 +54670,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MBJ_Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -63880,8 +63917,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>MB_Complaint</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -68764,8 +68801,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Object_Connector</fullName>
         <active>true</active>
         <businessProcess>Object Connector Process</businessProcess>
@@ -72636,8 +72673,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Retail_Campaign</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -82707,8 +82744,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Roadside_Assistance</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -93246,8 +93283,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> -->
+    <!-- <recordTypes>
         <fullName>Touring_Support</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -102493,7 +102530,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes> -->
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
@@ -102699,6 +102736,15 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
         <errorMessage>You cann't change owner when the case is escalated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_feedback_field_Mandatory</fullName>
+        <active>true</active>
+        <description>This validation rule is to enforce the the dealers to enter the dealer feedback before closing the case</description>
+        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'), 
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR')</errorConditionFormula>
+        <errorDisplayField>Dealer_Feedback__c</errorDisplayField>
+        <errorMessage>Dealer Feedback is Mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>EU_FIN_field_must_be_17_or_18_digits</fullName>
         <active>false</active>
         <description>"EU FIN" must be 17 or 18 digits.</description>
@@ -102734,6 +102780,20 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
 )</errorConditionFormula>
         <errorDisplayField>Ref_No_Regional__c</errorDisplayField>
         <errorMessage>Please fulfill the Ref.No-Regional field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_EU_VIN</fullName>
+        <active>true</active>
+        <description>EU VIN can't include the character(s) which is not alphanumeric.</description>
+        <errorConditionFormula>AND(
+  NOT( ISNULL(EU_VIN__c) ),
+  NOT(ISBLANK( EU_VIN__c)),
+  NOT(REGEX( EU_VIN__c,
+  "^[A-Za-z0-9]+$")),$Profile.Name != 'IntegrationAPI',
+  (MD__c = 'KR') 
+)</errorConditionFormula>
+        <errorDisplayField>EU_VIN__c</errorDisplayField>
+        <errorMessage>EU VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_US_VIN</fullName>
@@ -103245,10 +103305,10 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>
-        <masterLabel>New Lead</masterLabel>
+        <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_lkid={!Case.CaseNumber}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+		<url>/a0u/e?retURL=%2Fa0u%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=OBJECT_LEAD_OBJECTID&amp;OBJECT_CASE_Assigned_Dealer={! Case.Case_Dealer__c }&amp;OBJECT_LEAD_ACCOUNT={!Case.Account}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>

@@ -213,6 +213,14 @@
                 <fullName>Japan</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -330,8 +338,10 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+	IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+	IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
+	)))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -1435,27 +1445,39 @@
     <validationRules>
         <fullName>AddressLine1_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  Address_Line_1__c  ) &gt; 50 ,true,false) )</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR') ,OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  Address_Line_1__c  ) &gt; 50 ,true,false) )</errorConditionFormula>
         <errorDisplayField>Address_Line_1__c</errorDisplayField>
         <errorMessage>Address Line 1 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>AddressLine2_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Address_Line_1_is_mandatory</fullName>
+        <active>true</active>
+        <description>Address_Line_1__c
+is Mandatory while creating new Address</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
+   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) ),
+   ISNEW()
+)</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP', ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'), ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
         <errorDisplayField>Address_Type__c</errorDisplayField>
         <errorMessage>Address Type is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Block_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Block__c ) &gt; 12 ,true,false) )</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Block__c ) &gt; 12 ,true,false) )</errorConditionFormula>
         <errorMessage>Block should be less than or equal to 12 letters.</errorMessage>
     </validationRules>
     <validationRules>
@@ -1472,14 +1494,14 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>City_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( City__c ) &gt; 12 ,true,false) )</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( City__c ) &gt; 12 ,true,false) )</errorConditionFormula>
         <errorDisplayField>City__c</errorDisplayField>
         <errorMessage>City should be less than or equal to 12 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompanyName_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Company_Name__c ) &gt; 50 ,true,false) )</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Company_Name__c ) &gt; 50 ,true,false) )</errorConditionFormula>
         <errorMessage>Company Name should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
@@ -1489,7 +1511,7 @@ $Profile.Name != 'IntegrationAPI'
 ISPICKVAL(TitleOfHonor__c,'To Company'),
 ISBLANK(Company_Name__c), 
 $Profile.Name != 'IntegrationAPI',
-MD__c = 'JP'   
+OR(MD__c = 'JP',MD__c = 'KR')   
 )</errorConditionFormula>
         <errorDisplayField>Company_Name__c</errorDisplayField>
         <errorMessage>Company name is required when TitleOfHonor is 'To Company'.</errorMessage>
@@ -1500,14 +1522,14 @@ MD__c = 'JP'
         <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native__c,"[^\\x00-\\x7F]+")),
 NOT(ISBLANK(Company_Name_Native__c)),
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Company_Name_Native__c</errorDisplayField>
         <errorMessage>Company name native should be in double byte.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>District_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP',OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  District__c  ) &gt; 18 ,true,false) )</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  District__c  ) &gt; 18 ,true,false) )</errorConditionFormula>
         <errorDisplayField>District__c</errorDisplayField>
         <errorMessage>Town should be less than or equal to 18 letters.</errorMessage>
     </validationRules>
@@ -1525,10 +1547,47 @@ NOT(REGEX(ZipCode__c,"[0-9]{7}"))
         <errorMessage>Please enter a 7 digit Zip code.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>MBK_Invalid_ZipCode</fullName>
+        <active>true</active>
+        <description>This validation rule prevents users from entering invalid Zipcode/PostCode.</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR', 
+OR(ISCHANGED(ZipCode__c),ISNEW()), 
+NOT(ISBLANK(ZipCode__c)), 
+NOT(REGEX(ZipCode__c,"[0-9]{5}")) 
+)</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>ZIP CODE should be minimum 5 digits and ONLY Numbers.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MBK_ZIP_CODE_is_mandatory</fullName>
+        <active>true</active>
+        <description>This validation rule ensures that Zipcode is entered mandatorily.</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
+     OR(MD__c = 'JP',MD__c = 'KR'),
+     OR(ISCHANGED(ZipCode__c),ISNEW()),
+     OR( ISBLANK(ZipCode__c),ISNULL(ZipCode__c) )
+    )</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>ZIPCODE is mandatory</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Province_is_mandatory</fullName>
+        <active>true</active>
+        <description>Province__c is Mandatory while creating new Address</description>
+        <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
+OR(MD__c = 'JP',MD__c = 'KR'),
+  ISPICKVAL(Province__c,""),
+  ISNEW()
+)</errorConditionFormula>
+        <errorDisplayField>Province__c</errorDisplayField>
+        <errorMessage>Province __c is Mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>

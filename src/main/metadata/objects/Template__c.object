@@ -83,189 +83,189 @@
             <controllingField>Type__c</controllingField>
             <picklistValues>
                 <fullName>A-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Saloon</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Coupé</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Long Wheelbase</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G 55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G 63 AMG</fullName>
-                <controllingFieldValues>Price List</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Price List</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G 65 AMG</fullName>
-                <controllingFieldValues>Price List</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Price List</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>M-Class</fullName>
-                <controllingFieldValues>Price List</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Price List</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S 65 L AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Brochure</controllingFieldValues>
                 <controllingFieldValues>Brochure+Price List</controllingFieldValues>
                 <controllingFieldValues>Price List</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -329,6 +329,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TemplateID__c</fullName>
+        <displayFormat>A-{000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>TemplateID</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>Template_ID__c</fullName>
@@ -1134,7 +1143,7 @@
     <validationRules>
         <fullName>SMS_No_more_than_235</fullName>
         <active>true</active>
-        <errorConditionFormula>OR(AND(CONTAINS(RecordType.Name,"SMS"),(LEN( Closure_SMS__c)&gt;235 )),AND(CONTAINS(RecordType.Name,"SMS"),LEN(Message_Detail__c)&gt;235))</errorConditionFormula>
+        <errorConditionFormula>OR(AND(CONTAINS(RecordType.Name,"SMS"),(LEN( Closure_SMS__c)&gt;235 )),AND(CONTAINS(RecordType.Name,"SMS"),LEN(Message_Detail__c)&gt;235),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Sorry, the SMS content is too long. Please make it shorter</errorMessage>
     </validationRules>
 </CustomObject>

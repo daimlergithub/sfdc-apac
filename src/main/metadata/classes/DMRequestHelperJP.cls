@@ -1,7 +1,7 @@
 /*
     Type:      class
     Purpose:   1.Update Address fields of DMRequest on Address type pickilist of DM request  (UpdateDMRequest)
-			   2.Throw error when DMRequest was created or updated by IntegrationAPI profile user(intigrationAPICheck)
+               2.Throw error when DMRequest was created or updated by IntegrationAPI profile user(intigrationAPICheck)
 
     Create By: Sriram kalluri
 */
@@ -32,20 +32,20 @@ public with sharing class  DMRequestHelperJP {
                     CustomerId.add(lstDMR.Customer_Name__c);
                 }  
               
-        		//query for arelated addresses and create a nested map
-        		for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                //query for arelated addresses and create a nested map
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
                 } 
-        	
+            
             for(DM_Request__c lstDMR:triggerNew){          
                
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
                {
                    if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c)
                    {
-                   		if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
+                        if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
                         {
                                 if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                       
                                     Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
@@ -63,8 +63,8 @@ public with sharing class  DMRequestHelperJP {
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);
                                 }
-                            	lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
-                       	}
+                                lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
+                        }
                         else{
                                 lstDMR.adderror(Label.DMRequest_validation_error);
                             }
@@ -100,13 +100,13 @@ public with sharing class  DMRequestHelperJP {
                     CustomerId.add(lstDMR.Customer_Name__c);
                 }  
               
-        		//query for arelated addresses and create a nested map
-        		for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                //query for arelated addresses and create a nested map
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
                 } 
-        	
+            
             for(DM_Request__c lstDMR:triggerNew){          
                 
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
@@ -129,8 +129,8 @@ public with sharing class  DMRequestHelperJP {
                                 else{
                                     lstDMR.adderror(Label.DMRequest_validation_error);
                                 }
-                            	lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
-                       	}
+                                lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
+                        }
                         else{
                                 lstDMR.adderror(Label.DMRequest_validation_error);
                             }                    
@@ -154,7 +154,9 @@ public with sharing class  DMRequestHelperJP {
     public static void updateStatus(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isInsert,boolean isUpdate)
     {
             set<id> CustomerId = new set<id>(); 
-             list<DM_Request__c> DMList =new  list<DM_Request__c>();
+            list<DM_Request__c> DMList =new  list<DM_Request__c>();
+            User Usr = new User();
+            Usr = [SELECT Market__C,Id FROM User WHERE Id = : UserInfo.getUserId()];
             
             //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
@@ -162,9 +164,13 @@ public with sharing class  DMRequestHelperJP {
                 }  
               
         //query for DM_Request__c 
-       			DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
-                          
-       		for(DM_Request__c lstDMR:triggerNew)
+                if(Usr.Market__C=='JP'){
+                    DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+                }
+                else If(Usr.Market__C=='KR'){
+                    DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+                }          
+            for(DM_Request__c lstDMR:triggerNew)
             {
                 if(isUpdate){
              
@@ -229,5 +235,5 @@ public with sharing class  DMRequestHelperJP {
                 
        }
     
-	}
+    }
 }
