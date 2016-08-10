@@ -134,7 +134,11 @@
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
         <label>Custom Links</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <customLink>Contracts</customLink>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
@@ -176,7 +180,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jm6W</masterLabel>
+        <masterLabel>00h1a000000d6eb</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
