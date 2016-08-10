@@ -18746,7 +18746,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Insurance Layout</layout>
-        <recordType>Retail_Task__c.Insurance</recordType>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
@@ -20154,7 +20154,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Retail_Task__c.Insurance</recordType>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
