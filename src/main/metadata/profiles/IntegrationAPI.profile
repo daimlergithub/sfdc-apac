@@ -9235,6 +9235,11 @@
         <field>Lead__c.Amount_Hours__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Appointment_DateTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Assigned_Date_Time__c</field>
@@ -9445,6 +9450,11 @@
         <field>Lead__c.DD_Authority__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.DMS_Sent_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.DUP_Number__c</field>
@@ -9543,6 +9553,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Existing_Contract__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Expected_Close_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Expected_Registration_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10438,6 +10458,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Retail_Campaign_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Retail_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Retail_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
