@@ -3602,6 +3602,16 @@ Contact__r.Email__c
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>	
+    <fields>
+        <fullName>Finance_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Financial_Product2__c</fullName>
@@ -3767,6 +3777,16 @@ Collectioner_Name__r.HomePhone
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Insurance_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Interest_Rate__c</fullName>
@@ -9472,6 +9492,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>	
+    <fields>
+        <fullName>Needs_Check_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Needs Check Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Network_Registration_Date__c</fullName>
@@ -9507,6 +9537,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>	
+    <fields>
+        <fullName>Next_Contact_Contents__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact Contents</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Contact_Customer_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact Customer Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
@@ -10433,6 +10485,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Quotation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Quotation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>RORAC__c</fullName>
@@ -14649,6 +14711,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>ServiceProgram_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Program Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -14671,6 +14743,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	 <fields>
+        <fullName>Simple_Estimation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Simple Estimation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Source_Campaign__c</fullName>
@@ -17297,6 +17379,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Trade_in_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Trade-in Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>UCID__c</fullName>
         <externalId>false</externalId>
@@ -19285,6 +19377,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>WIP_Created_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>WIP Created Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Waived_Reason__c</fullName>

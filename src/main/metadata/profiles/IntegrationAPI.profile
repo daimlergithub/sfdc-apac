@@ -9650,6 +9650,12 @@
         <field>Lead__c.Finance_Approved__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Finance_Proposal_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Financial_Product2__c</field>
@@ -9703,6 +9709,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Instructor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Insurance_Proposal_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10010,6 +10021,11 @@
         <field>Lead__c.Need_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Needs_Check_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Network_Registration_Date__c</field>
@@ -10023,6 +10039,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.NextMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Next_Contact_Contents__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Next_Contact_Customer_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10238,6 +10264,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Questionnair__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Quotation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10560,6 +10591,11 @@
         <field>Lead__c.Selling_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.ServiceProgram_Proposal_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Service_Advisor__c</field>
@@ -10568,6 +10604,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Service_Loan_Car__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Simple_Estimation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10663,6 +10704,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Trade_In_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Trade_in_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10778,6 +10824,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Volume__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.WIP_Created_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
