@@ -1364,8 +1364,13 @@
     <classAccesses>
         <apexClass>superSortTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses>	
     <custom>false</custom>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.ASLead_Notification_Timing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -1684,6 +1689,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DMS_Customer_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.DMS_Retailer_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3130,6 +3140,11 @@
         <editable>true</editable>
         <field>Account.Place_of_Birth__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Portal_Apply_Status__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3546,6 +3561,11 @@
         <field>Account.SMS_MMS_IM_Status_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.SalesLead_Notification_Timing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Sales_Address_Type__c</field>
@@ -3749,6 +3769,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.UpsellOpportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4061,9 +4086,19 @@
         <field>Address__c.Address_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Address_Line_1_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Address_Line_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Address_Line_2_Native__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4076,12 +4111,22 @@
         <field>Address__c.Address_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Block_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Block__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.City_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Address__c.City__c</field>
         <readable>true</readable>
@@ -4109,6 +4154,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Delivery_Point_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.District_Native__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4154,6 +4204,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Preferred__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Province_Native__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9347,6 +9402,11 @@
         <editable>true</editable>
         <field>Lead__c.Amount_Hours__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Appointment_DateTime__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9587,6 +9647,11 @@
         <editable>true</editable>
         <field>Lead__c.DD_Authority__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.DMS_Sent_Flag__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9686,6 +9751,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Existing_Contract__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Expected_Close_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Expected_Registration_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10586,6 +10661,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Retail_Campaign_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Retail_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Retail_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
