@@ -107,6 +107,28 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Address_Line_1_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 1 Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>Address_Line_2_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 2 Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Address_Line_1__c</fullName>
         <externalId>false</externalId>
@@ -160,6 +182,17 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Block_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Block Native</label>
+        <length>24</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Block__c</fullName>
         <externalId>false</externalId>
@@ -167,6 +200,17 @@
         <length>24</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>City_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>City Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -258,6 +302,17 @@
         <externalId>false</externalId>
         <label>Delivery Point ID</label>
         <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>District_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Town Native</label>
+        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -369,6 +424,21 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Province_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Prefecture Native</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Province__c</fullName>

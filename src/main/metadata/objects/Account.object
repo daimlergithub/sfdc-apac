@@ -1127,6 +1127,22 @@
         <label>SuspectAccountFields</label>
     </fieldSets>
     <fields>
+        <fullName>ASLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>ASLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2520,6 +2536,18 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <externalId>false</externalId>
         <label>DMS Customer ID</label>
         <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>DMS_Retailer_ID__c</fullName>
+        <description>The info to identify the Account to register MyM Accont.</description>
+        <externalId>false</externalId>
+        <label>DMS Retailer ID</label>
+        <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9864,6 +9892,22 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Portal_Apply_Status_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal_Apply_Status__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
@@ -11205,6 +11249,22 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
                 <fullName>Valid</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>SalesLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>SalesLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
