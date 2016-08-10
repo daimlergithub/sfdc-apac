@@ -5,25 +5,25 @@
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
       <apex:outputPanel layout="block" style="overflow:auto;height:275px" >
       <apex:pageBlock id="myTable">
-      <table style="width:100%" rules="rows">               
+      <table style="width:100%" rules="rows" >               
         <tr>        
             <td></td> 
             <td></td>
-            <th>Status</th>        
-            <th>Opt-in MBAuP</th>    
-            <th>Opt-in MBFS</th>        
-            <th>Preferred</th> 
-            <th>Last Modified By</th>        
-            <th>Last Modified Date</th> 
-            <th>FS Last Modified By</th>        
+            <th style="padding-right: 10px;">Status</th>        
+            <th style="padding-right: 10px;">Opt-in MBAuP</th>    
+            <th style="padding-right: 10px;">Opt-in MBFS</th>        
+            <th style="padding-right: 10px;">Preferred</th> 
+            <th style="padding-right: 10px;">Last Modified By</th>        
+            <th style="padding-right: 10px;">Last Modified Date</th> 
+            <th style="padding-right: 10px;">FS Last Modified By</th>        
             <th>Fs Last Modified Date</th>     
         </tr>
         
         <tr>        
         <th>Mobile 1</th>       
-            <td><apex:inputField value="{!accountList_details.Mobile__c}" /></td> 
-            <td><apex:inputField value="{!accountList_details.Mobile_Status__c}"/></td>       
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Mobile__c}" style="margin-left: 6px;"/></td> 
+            <td><apex:inputField value="{!accountList_details.Mobile_Status__c}" style="margin-left: 6px;"/></td>       
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>        
             <td><apex:inputField value="{!accountList_details.Preferred_Mobile_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -46,9 +46,9 @@
        
         <tr>        
         <th>Mobile 2</th>     
-            <td><apex:inputField value="{!accountList_details.Mobile2__c}"/></td>  
-            <td><apex:inputField value="{!accountList_details.SMS_MMS_IM_Status_2__c}"/></td>        
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Mobile2__c}" style="margin-left: 6px;"/></td>  
+            <td><apex:inputField value="{!accountList_details.SMS_MMS_IM_Status_2__c}" style="margin-left: 6px;"/></td>        
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
             <td><apex:inputField value="{!accountList_details.Preferred_Mobile_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -70,9 +70,9 @@
          
         <tr>        
         <th>Home Phone 1</th>        
-            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
-            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
+            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}" style="margin-left: 6px;"/></td> 
+            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}" style="margin-left: 12px;"/></td>    
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
             <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -93,9 +93,9 @@
         
         <tr>        
         <th>Home Phone 2</th>        
-            <td><apex:inputField value="{!accountList_details.Home_Phone_2__c}"/></td> 
-            <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Home_Phone_2__c}" style="margin-left: 6px;"/></td> 
+            <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -117,9 +117,9 @@
        
         <tr>        
         <th>Work Phone 1</th>                
-            <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
-            <td><apex:inputField value="{!accountList_details.Work_Phone_Status__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Work_Phone__c}" style="margin-left: 6px;"/></td> 
+            <td><apex:inputField value="{!accountList_details.Work_Phone_Status__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -141,9 +141,9 @@
         
         <tr>        
         <th>Work Phone 2</th>        
-            <td><apex:inputField value="{!accountList_details.Phone}"/></td> 
-            <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Phone}" style="margin-left: 6px;"/></td> 
+            <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -165,9 +165,9 @@
         
         <tr>        
         <th>Email 1</th>        
-            <td><apex:inputField value="{!accountList_details.Email__c}"/></td>           
-            <td><apex:inputField value="{!accountList_details.Email_Status__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Email__c}" style="margin-left: 6px;"/></td>           
+            <td><apex:inputField value="{!accountList_details.Email_Status__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Email_1__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
@@ -189,9 +189,9 @@
         
         <tr>        
         <th>Email 2</th>        
-            <td><apex:inputField value="{!accountList_details.Email2__c}"/></td>                           
-            <td><apex:inputField value="{!accountList_details.Email_Status_2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Email2__c}" style="margin-left: 6px;"/></td>                           
+            <td><apex:inputField value="{!accountList_details.Email_Status_2__c}" style="margin-left: 6px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}" style="margin-left: 12px;"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Email_2__c}"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
