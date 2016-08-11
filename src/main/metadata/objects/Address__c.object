@@ -186,7 +186,7 @@
         <fullName>Block_Native__c</fullName>
         <externalId>false</externalId>
         <label>Block Native</label>
-        <length>24</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -312,7 +312,7 @@
         <fullName>District_Native__c</fullName>
         <externalId>false</externalId>
         <label>Town Native</label>
-        <length>100</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -429,16 +429,12 @@
         <fullName>Province_Native__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture Native</label>
-        <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <length>255</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Province__c</fullName>
