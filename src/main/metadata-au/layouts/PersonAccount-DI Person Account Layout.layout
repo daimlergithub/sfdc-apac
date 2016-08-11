@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -35,6 +34,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>VAN_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Insurance_Status__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -205,13 +208,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedContent>
-        <relatedContentItems>
-            <layoutItem>
-                <component>sfa:socialPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-    </relatedContent>
     <relatedLists>
         <customButtons>New_Individual_Address</customButtons>
         <excludeButtons>New</excludeButtons>

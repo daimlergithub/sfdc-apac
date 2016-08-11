@@ -2548,16 +2548,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Number_Claim_Bonus__c</fullName>
-        <externalId>false</externalId>
-        <label>Number Claim Bonus</label>
-        <precision>5</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Percent</type>
-    </fields>
-    <fields>
         <fullName>Number_Of_Employees__c</fullName>
         <externalId>false</externalId>
         <label>Number Of Employees</label>
@@ -5702,7 +5692,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Insurance</fullName>
+        <fullName>Insurance_Contract</fullName>
         <active>true</active>
         <label>Insurance</label>
         <picklistValues>
