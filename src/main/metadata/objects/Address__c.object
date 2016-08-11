@@ -506,6 +506,28 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Temp_Address__c</fullName>
+        <description>Unnormalized Address</description>
+        <externalId>false</externalId>
+        <label>Temp Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <description>Unnormalized Post Code</description>
+        <externalId>false</externalId>
+        <label>Temp ZipCode</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
         <label>TitleOfHonor</label>
@@ -1085,3 +1107,4 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
 </CustomObject>
+
