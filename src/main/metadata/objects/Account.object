@@ -2453,6 +2453,15 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Customer_LastUpdatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Attributes UpdatedDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Customer_Lifecycle_Phase__c</fullName>
         <externalId>false</externalId>
         <label>Customer phase</label>
@@ -5102,6 +5111,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dealer_Rollout_Status__c</fullName>
+        <description>To manage status of Rollout. Value should be "Not Yet", "In_Progress", "Done"</description>
+        <externalId>false</externalId>
+        <label>Dealer Rollout Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_SAP_MB_Trucks_Freightliner__c</fullName>
@@ -12145,6 +12171,22 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>UsedLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>UsedLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>VAN_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
         <label>VAN No. Brand Purchases</label>
@@ -12322,6 +12364,25 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Warranty_Apply_Status__c</fullName>
+        <description>"The info to identify the Account to share SPO
+""To be sent"", ""Sent""
+Invisible on UI."</description>
+        <externalId>false</externalId>
+        <label>Warranty Apply Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Website</fullName>
