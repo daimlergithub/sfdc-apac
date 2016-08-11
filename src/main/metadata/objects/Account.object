@@ -9892,10 +9892,11 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Portal_Apply_Status_c__c</fullName>
+    <fields>
+        <fullName>Portal_Apply_Status__c</fullName>
+        <description>The info to identify the Account to register MyM Accont.</description>
         <externalId>false</externalId>
-        <label>Portal_Apply_Status__c</label>
+        <label>Portal Apply Status</label>
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>

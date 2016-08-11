@@ -3070,6 +3070,11 @@
         <editable>true</editable>
         <field>Account.Place_of_Birth__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Portal_Apply_Status__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3694,6 +3699,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.UpsellOpportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
