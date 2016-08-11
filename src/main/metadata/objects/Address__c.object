@@ -195,7 +195,7 @@
         <fullName>Block_Native__c</fullName>
         <externalId>false</externalId>
         <label>Block Native</label>
-        <length>24</length>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -307,7 +307,7 @@
         <fullName>District_Native__c</fullName>
         <externalId>false</externalId>
         <label>Town Native</label>
-        <length>100</length>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -412,16 +412,11 @@
         <fullName>Province_Native__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture Native</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
+        <length>255</length>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Province__c</fullName>
@@ -645,13 +640,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Province_Native__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
@@ -829,13 +817,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Province_Native__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
@@ -1005,13 +986,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Province_Native__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
@@ -1107,4 +1081,3 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
 </CustomObject>
-
