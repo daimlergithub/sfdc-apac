@@ -6593,7 +6593,7 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Customer</fullName>
