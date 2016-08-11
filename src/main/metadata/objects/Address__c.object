@@ -1527,8 +1527,7 @@
         <description>Address_Line_1__c
 is Mandatory while creating new Address</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
-   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) ),
-   ISNEW()
+   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) )
 )</errorConditionFormula>
         <errorDisplayField>Address_Line_1__c</errorDisplayField>
         <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
@@ -1618,7 +1617,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{7}"))
         <description>This validation rule prevents users from entering invalid Zipcode/PostCode.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR', 
-OR(ISCHANGED(ZipCode__c),ISNEW()), 
+OR(ISCHANGED(ZipCode__c)), 
 NOT(ISBLANK(ZipCode__c)), 
 NOT(REGEX(ZipCode__c,"[0-9]{5}")) 
 )</errorConditionFormula>
@@ -1631,7 +1630,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <description>This validation rule ensures that Zipcode is entered mandatorily.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
      OR(MD__c = 'JP',MD__c = 'KR'),
-     OR(ISCHANGED(ZipCode__c),ISNEW()),
+     OR(ISCHANGED(ZipCode__c)),
      OR( ISBLANK(ZipCode__c),ISNULL(ZipCode__c) )
     )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
@@ -1643,8 +1642,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
 OR(MD__c = 'JP',MD__c = 'KR'),
-  ISPICKVAL(Province__c,""),
-  ISNEW()
+  ISPICKVAL(Province__c,"")
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>Province __c is Mandatory</errorMessage>
