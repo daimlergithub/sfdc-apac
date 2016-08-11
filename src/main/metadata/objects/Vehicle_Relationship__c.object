@@ -3454,9 +3454,9 @@ What factors were influential in your purchase decision?
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>SalesType_c__c</fullName>
+        <fullName>SalesType__c</fullName>
         <externalId>false</externalId>
-        <label>SalesType__c</label>
+        <label>SalesType</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
