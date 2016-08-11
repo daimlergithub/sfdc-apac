@@ -4228,11 +4228,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address__c.Temp_Address__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Address__c.Temp_ZipCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
