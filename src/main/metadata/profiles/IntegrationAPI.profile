@@ -4021,6 +4021,86 @@
         <field>Account_Link__c.toRole__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.CurrentMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastServiceMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Selling_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Sales_Representative__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Last_Service_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Service_Advisor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Dealer_CompanyCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Dealer_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_LastName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>			
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_FirstName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_LastName_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_FirstName_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Address_Code__c</field>
@@ -19944,6 +20024,16 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Retail_Company</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Retail_Person</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
