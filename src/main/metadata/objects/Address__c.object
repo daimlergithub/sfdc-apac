@@ -56,7 +56,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-	<fieldSets>
+    <fieldSets>
         <fullName>AddressFieldset</fullName>
         <description>Account Merge</description>
         <displayedFields>
@@ -107,21 +107,10 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Address_Line_1_Native__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1 Native</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	 <fields>
-        <fullName>Address_Line_2_Native__c</fullName>
-        <externalId>false</externalId>
-        <label>Address Line 2 Native</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -136,6 +125,17 @@
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 2 Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -182,7 +182,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Block_Native__c</fullName>
         <externalId>false</externalId>
         <label>Block Native</label>
@@ -204,7 +204,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>City_Native__c</fullName>
         <externalId>false</externalId>
         <label>City Native</label>
@@ -308,7 +308,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>District_Native__c</fullName>
         <externalId>false</externalId>
         <label>Town Native</label>
@@ -425,7 +425,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Province_Native__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture Native</label>
@@ -1525,14 +1525,13 @@
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Address_Line_1_is_mandatory</fullName>
         <active>true</active>
         <description>Address_Line_1__c
 is Mandatory while creating new Address</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
-   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) ),
-   ISNEW()
+   OR( ISBLANK(Address_Line_1__c),ISNULL(Address_Line_1__c) )
 )</errorConditionFormula>
         <errorDisplayField>Address_Line_1__c</errorDisplayField>
         <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
@@ -1622,7 +1621,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{7}"))
         <description>This validation rule prevents users from entering invalid Zipcode/PostCode.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR', 
-OR(ISCHANGED(ZipCode__c),ISNEW()), 
+OR(ISCHANGED(ZipCode__c)), 
 NOT(ISBLANK(ZipCode__c)), 
 NOT(REGEX(ZipCode__c,"[0-9]{5}")) 
 )</errorConditionFormula>
@@ -1635,20 +1634,19 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <description>This validation rule ensures that Zipcode is entered mandatorily.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
      OR(MD__c = 'JP',MD__c = 'KR'),
-     OR(ISCHANGED(ZipCode__c),ISNEW()),
+     OR(ISCHANGED(ZipCode__c)),
      OR( ISBLANK(ZipCode__c),ISNULL(ZipCode__c) )
     )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>ZIPCODE is mandatory</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Province_is_mandatory</fullName>
         <active>true</active>
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
 OR(MD__c = 'JP',MD__c = 'KR'),
-  ISPICKVAL(Province__c,""),
-  ISNEW()
+  ISPICKVAL(Province__c,"")
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>Province __c is Mandatory</errorMessage>
