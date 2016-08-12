@@ -21098,8 +21098,7 @@
     <tabVisibilities>
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <userLicense>Premier Support</userLicense>
+    </tabVisibilities> 
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
