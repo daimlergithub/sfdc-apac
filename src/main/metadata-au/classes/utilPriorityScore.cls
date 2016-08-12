@@ -40,7 +40,7 @@ public class utilPriorityScore
             }
             else if(ledpriscre.Purchase_intent__c != null && ledpriscre.Purchase_intent__c != '' && ledpriscre.Customer_Type__c == 'Prospect')
             {
-                prospectenquiryTypeMap.put(ledpriscre.Purchase_intent__c, ledpriscre.Score__c);
+                prospectpurchaseIntentMap.put(ledpriscre.Purchase_intent__c, ledpriscre.Score__c);
             }
 			if(ledpriscre.Behavioural_group__c != null && ledpriscre.Behavioural_group__c != '' && ledpriscre.Customer_Type__c == 'Owner')
             {
