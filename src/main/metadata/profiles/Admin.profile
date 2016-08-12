@@ -20688,10 +20688,6 @@
         <name>AllowUniversalSearch</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
