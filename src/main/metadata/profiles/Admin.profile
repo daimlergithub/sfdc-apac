@@ -9468,6 +9468,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Accepted_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Related_To__c</field>
         <readable>true</readable>
     </fieldPermissions>	
@@ -9476,13 +9481,6 @@
         <field>Lead_Product__c.Lead_Product_Items__c</field>
         <readable>true</readable>
     </fieldPermissions>		
-	
-	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Accepted_Date_Time__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
@@ -15325,6 +15323,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+=======
+>>>>>>> 31b13db91513c6e8ad1380d489a9a81d4c69a680
         <field>Solution.IsPublished</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17026,6 +17026,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Sales_Person__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.SalesType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20290,6 +20295,10 @@
         <name>ActivateOrder</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>AllowUniversalSearch</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
@@ -20310,6 +20319,10 @@
         <name>AuthorApex</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>BulkMacrosAllowed</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>CanInsertFeedSystemFields</name>
     </userPermissions>
@@ -20320,6 +20333,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterEditOwnPost</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ChatterEditOwnRecordPost</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20374,6 +20391,10 @@
         <name>DataExport</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>DelegatedTwoFactor</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>DeleteActivatedContract</name>
     </userPermissions>
@@ -20404,6 +20425,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditHtmlTemplates</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>EditKnowledge</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20570,6 +20595,14 @@
         <name>ManageIpAddresses</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageKnowledge</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageKnowledgeImportExport</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>ManageLeads</name>
     </userPermissions>
@@ -20612,6 +20645,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageSearchPromotionRules</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20688,6 +20725,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ShareInternalArticles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
