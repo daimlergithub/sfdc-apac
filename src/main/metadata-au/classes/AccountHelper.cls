@@ -200,6 +200,7 @@ public class AccountHelper {
             acc.PC_Status__c = 'Prospect';
             acc.CV_Status__c = 'Prospect';
             acc.VAN_Status__c = 'Prospect';
+			acc.Insurance_Status__c = 'Prospect';
         }
         return acc;
     }

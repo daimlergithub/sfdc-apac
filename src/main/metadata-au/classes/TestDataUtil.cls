@@ -35,7 +35,13 @@ public class TestDataUtil {
                     Suffix__c = 'suffix',
                     PersonEmail = 'test@test.com',
                     RecordTypeId = person_RecordTypeId,
-                    PersonMobilePhone = '1800999999',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
+                    PersonMobilePhone = '1800999999',
+                    Email__c='test@mbau.com',
+                    Email2__c = 'testemail2@test.com',
+                    Home_Phone_2__c = '98765413',
+                    PC_Status__c = 'Prospect',
+                    VAN_Status__c= 'Prospect',
+                    CV_Status__c ='Prospect'
                 );
             }
             return standardPersonAccount;

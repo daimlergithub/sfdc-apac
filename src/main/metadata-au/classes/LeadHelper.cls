@@ -1442,7 +1442,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Messaging.Email> mailList = new List<Messaging.Email>();
         for(Lead__c lead :listNewLeads)
         {          
-            if(lead.RecordTypeId == vanLeadRT && lead.Assigned_Dealer__c != null && 
+            if(lead.RecordTypeId == leadVehicleRt && lead.Assigned_Dealer__c != null && 
                (lead.Business_Unit__c == 'Cars' || lead.Business_Unit__c == 'Vans') && (isInsert || (isUpdate && lead.Business_Unit__c != leadOldMap.get(lead.Id).Business_Unit__c)))
             {         
                 accid.add(lead.Assigned_Dealer__c);
@@ -1524,13 +1524,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         map<string,string> leadRequestMap = utilPriorityScore.natureOfRequestMap;
         map<string,Decimal> numberOfMbMap = utilPriorityScore.noOfMBsMap;
         Map<string, Decimal> highestClassMap = new Map<string, Decimal>();
-        map<string,Decimal> prospectenquiryMap = utilPriorityScore.enquiryTypeMap;
-        map<string,Decimal> prospectpurchaseMap = utilPriorityScore.purchaseIntentMap;
-        map<string,Decimal> prospectbehaviouralMap = utilPriorityScore.behaviouralGroupMap;
-        map<string,Decimal> prospectcontractMap = utilPriorityScore.contractRecordTypeMap;
-        map<string,Decimal> prospecttestDriveMap = utilPriorityScore.requestTestDriveMap;
-        map<string,string> prospectleadRequestMap = utilPriorityScore.natureOfRequestMap;
-        map<string,Decimal> prospectnumberOfMbMap = utilPriorityScore.noOfMBsMap;
+        map<string,Decimal> prospectenquiryMap = utilPriorityScore.prospectenquiryTypeMap;
+        map<string,Decimal> prospectpurchaseMap = utilPriorityScore.prospectpurchaseIntentMap;
         map<string,Decimal> prosleadMap = utilPriorityScore.prospectLeadMap;
         map<id,string> accountPCStatusMap = new map<id,string>();
         map<id,string> accountCVStatusMap = new map<id,string>();
@@ -1560,13 +1555,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             for(Account acc: accountlist)
             {
-                if(le.Contact__c == acc.id)
+                if(le.Contact__c == acc.id && le.Contact__c != null )
                 {                    
                     accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
                     accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
                     accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);                        
                 }
-                else if(le.Company_Account__c == acc.id)
+                else if(le.Company_Account__c == acc.id && le.Company_Account__c != null)
                 {                    
                     accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
                     accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
@@ -1574,16 +1569,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-        system.debug('accountPCCVVANStatusMap>>>>'+ accountPCStatusMap); 
-        system.debug('accountPCCVVANStatusMap>>>>'+ accountCVStatusMap); 
-        system.debug('accountPCCVVANStatusMap>>>>'+ accountVANStatusMap);
         
         for(Lead__c led : leadlist)
         {
             	            
              if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)))
              {
-                
+                CustomLogUtil.CustomLoggingEntry('Lead Priority Score ' +leadlist.size() );
                  if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
                     !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && (accountPCStatusMap.get(led.Contact__c) == 'Customer' 
                     || accountCVStatusMap.get(led.Contact__c) == 'Customer' || accountVANStatusMap.get(led.Contact__c) == 'Customer'))                
@@ -1741,11 +1733,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         value =  'No';
                         insuranceScore = contractMap.get(value);                    
                     }
-                    
-                    priorityScore = enquirytype + purchasetime + behavgroup + numberOfMBScore + vechClassScore + contractScore + 
+                    CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime );
+                    CustomLogUtil.CustomLoggingEntry('behavgroup' +behavgroup + 'numberOfMBScore' + numberOfMBScore + 'contractScore' + contractScore );
+                    CustomLogUtil.CustomLoggingEntry('serviceScore' +serviceScore + 'insuranceScore' + insuranceScore );  
+                     priorityScore = enquirytype + purchasetime + behavgroup + numberOfMBScore + vechClassScore + contractScore + 
                                     mbVechInterestScore + serviceScore + insuranceScore;
-                    system.debug('priorityScore>>' + priorityScore);
-               
+                    
+               		CustomLogUtil.CustomLoggingEntry('Priority Score ' +priorityScore );
                     led.Priority_Score__c = priorityScore;
                         
                     if(Integer.valueOf(led.Priority_Score__c) > 38)
@@ -1762,6 +1756,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     }
                 }
              }
+
             else if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
                     !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
                     && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')  
@@ -1771,7 +1766,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 Decimal priorityScore = 0;
                 Decimal mbVechInterestScore = 0;
                 Decimal prospectleadscore = 0;
-                string prospect;
+                string prospect = '';
                 Decimal maxvalue = 0;
                 String value;
                 string maxkey;
@@ -1785,18 +1780,21 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
                     && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')
                 {
-                    prospect = 'yes';
+                    prospect = 'Yes';
+                    system.debug(prosleadMap.size() + '    prosleadMap>>>    ' + prosleadMap.get('Yes'));
                     prospectleadscore = prosleadMap.get(prospect);
                 }
-                
-                if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && enquiryMap.containsKey(led.Nature_of_Request__c))
+                system.debug('    prosleadMa    ' + prospectleadscore);
+                if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && prospectenquiryMap.containsKey(led.Nature_of_Request__c) 
+                   && prospectenquiryMap.get(led.Nature_of_Request__c) != null)
                 {
-                    enquirytype = enquiryMap.get(led.Nature_of_Request__c);
+                    enquirytype = prospectenquiryMap.get(led.Nature_of_Request__c);
                 }
                 
-                if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && purchaseMap.containsKey(led.Purchase_Time__c))
+                if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && prospectpurchaseMap.containsKey(led.Purchase_Time__c) 
+                   && prospectpurchaseMap.get(led.Purchase_Time__c) != null)
                 {
-                    purchasetime = purchaseMap.get(led.Purchase_Time__c);
+                    purchasetime = prospectpurchaseMap.get(led.Purchase_Time__c);
                 }
                 
                 if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '')
@@ -1827,10 +1825,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     system.debug('maxvalue>>' + maxvalue);
                     mbVechInterestScore = maxvalue ;
                 }
-                
+                CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime + 'prospectleadscore' + prospectleadscore);
                 priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
-                system.debug('priorityScore>>' + priorityScore);
-                
+                               
                 led.Priority_Score__c = priorityScore;
                 
                 if(Integer.valueOf(led.Priority_Score__c) > 38)
