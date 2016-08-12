@@ -507,7 +507,7 @@ public with sharing class LeadHelperTest {
         acc.VAN_Status__c = 'Prospect';
         acc.CV_Status__c = 'Prospect';
         insert acc;
-        
+                        
         Vehicle__c vehicles1 = new Vehicle__c();
         vehicles1.EuroVIN__c = '12345678901111111';
         vehicles1.UsVIN__c = '12345678902222222';
@@ -534,7 +534,7 @@ public with sharing class LeadHelperTest {
 		lead.Assigned_Dealer__c = account.Id;
         lead.MD__c = 'AU';
         insert lead;
-        
+                        
          test.stopTest();
         Lead__c lead2 = [select contact__c, contact__r.PC_status__c,Business_Unit__c,Nature_of_Request__c from Lead__c where id =:lead.id ];
         //System.assertEquals(lead2.contact__r.PC_status__c, 'Customer');
@@ -621,10 +621,40 @@ public with sharing class LeadHelperTest {
         customer.RecordTypeId = PersonRecordtypeid;
         customer.Dealer_Lead_Gate_Keeper__c = usr.id;
         customer.Area_Code__c = '010';
-        customer.PC_Status__c = 'Customer';
+        customer.PC_Status__c = 'Prospect';
         customer.VAN_Status__c = 'Prospect';
         customer.CV_Status__c = 'Prospect';
         insert customer;
+        
+        Account acc1 = new Account();
+        acc1.Salutation = 'Lord';
+        acc1.FirstName = 'Jon' ;
+        acc1.LastName = 'Snow' ;
+        acc1.Gender__c = '0=Male';
+        acc1.ZipCode__c = '200235';
+        acc1.Type = '0=Company';
+        acc1.Phone = '12332111'; 
+        acc1.Status__c = '0=Customer';
+        acc1.RecordTypeId = PersonRecordtypeid;
+        acc1.Area_Code__c = '010';
+        acc1.PC_Status__c = 'Prospect';
+        acc1.VAN_Status__c = 'Prospect';
+        acc1.CV_Status__c = 'Prospect';
+        insert acc1;
+        
+        Lead__c lead1 = new Lead__c();
+        lead1.Contact__c = acc1.Id;
+        lead1.recordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId();
+        lead1.Lead_Source__c = LeadSourceValue;
+        lead1.Nature_of_Request__c='Test Drive Request';
+        lead1.Business_Unit__c= BusinessUnitValue;
+        lead1.Sub_BusinessUnit__c='Parts';
+        lead1.CAC_Lead_Status__c = CACLeadStatusValue1;
+		lead1.MB_Vehicle_Interest__c = 'G-Class';
+		lead1.Purchase_Time__c = '24 Hours';
+		lead1.Assigned_Dealer__c = account.Id;
+        lead1.MD__c = 'AU';
+        insert lead1;
         
         lead = new Lead__c();
         lead.Contact__c = customer.Id;
