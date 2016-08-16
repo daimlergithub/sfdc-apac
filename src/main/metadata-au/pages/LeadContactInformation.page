@@ -9,7 +9,7 @@
         <tr>        
             <td></td> 
             <td></td>
-            <th style="padding-right: 10px;">Status</th>        
+            <th style="padding-left: 10px;">Status</th>        
             <th style="padding-right: 10px;">Opt-in MBAuP</th>    
             <th style="padding-right: 10px;">Opt-in MBFS</th>        
             <th style="padding-right: 10px;">Preferred</th> 
@@ -23,9 +23,9 @@
         <th>Mobile 1</th>       
             <td><apex:inputField value="{!accountList_details.Mobile__c}" style="margin-left: 6px;"/></td> 
             <td><apex:inputField value="{!accountList_details.Mobile_Status__c}" style="margin-left: 6px;"/></td>       
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>        
-            <td><apex:inputField value="{!accountList_details.Preferred_Mobile_1__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}" style="margin-left: 26px;"/></td>        
+            <td><apex:inputField value="{!accountList_details.Preferred_Mobile_1__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.SMS_Last_Modified_By__c}                             
                 </apex:outputLink>
@@ -48,9 +48,9 @@
         <th>Mobile 2</th>     
             <td><apex:inputField value="{!accountList_details.Mobile2__c}" style="margin-left: 6px;"/></td>  
             <td><apex:inputField value="{!accountList_details.SMS_MMS_IM_Status_2__c}" style="margin-left: 6px;"/></td>        
-            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
-            <td><apex:inputField value="{!accountList_details.Preferred_Mobile_2__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}" style="margin-left: 26px;"/></td>        
+            <td><apex:inputField value="{!accountList_details.Preferred_Mobile_2__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.SMS_Last_Modified_By2__c}</apex:outputLink>  
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -72,9 +72,9 @@
         <th>Home Phone 1</th>        
             <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}" style="margin-left: 6px;"/></td> 
             <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}" style="margin-left: 12px;"/></td>    
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
-            <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_1__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}" style="margin-left: 26px;"/></td>    
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}" style="margin-left: 26px;"/></td>     
+            <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_1__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -95,9 +95,9 @@
         <th>Home Phone 2</th>        
             <td><apex:inputField value="{!accountList_details.Home_Phone_2__c}" style="margin-left: 6px;"/></td> 
             <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
-            <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_2__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}" style="margin-left: 26px;"/></td>            
+            <td><apex:inputField value="{!accountList_details.Preferred_Home_Phone_2__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -119,9 +119,9 @@
         <th>Work Phone 1</th>                
             <td><apex:inputField value="{!accountList_details.Work_Phone__c}" style="margin-left: 6px;"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
-            <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_1__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}" style="margin-left: 26px;"/></td>            
+            <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_1__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -143,9 +143,9 @@
         <th>Work Phone 2</th>        
             <td><apex:inputField value="{!accountList_details.Phone}" style="margin-left: 6px;"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td>            
-            <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_2__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}" style="margin-left: 26px;"/></td>            
+            <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_2__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -167,9 +167,9 @@
         <th>Email 1</th>        
             <td><apex:inputField value="{!accountList_details.Email__c}" style="margin-left: 6px;"/></td>           
             <td><apex:inputField value="{!accountList_details.Email_Status__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
-            <td><apex:inputField value="{!accountList_details.Preferred_Email_1__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}" style="margin-left: 26px;"/></td>            
+            <td><apex:inputField value="{!accountList_details.Preferred_Email_1__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
@@ -191,9 +191,9 @@
         <th>Email 2</th>        
             <td><apex:inputField value="{!accountList_details.Email2__c}" style="margin-left: 6px;"/></td>                           
             <td><apex:inputField value="{!accountList_details.Email_Status_2__c}" style="margin-left: 6px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}" style="margin-left: 12px;"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
-            <td><apex:inputField value="{!accountList_details.Preferred_Email_2__c}"/></td>
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}" style="margin-left: 26px;"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}" style="margin-left: 26px;"/></td>            
+            <td><apex:inputField value="{!accountList_details.Preferred_Email_2__c}" style="margin-left: 26px;"/></td>
             <td><apex:outputLink onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
