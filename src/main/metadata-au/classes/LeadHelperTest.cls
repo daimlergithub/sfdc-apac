@@ -507,19 +507,26 @@ public with sharing class LeadHelperTest {
         acc.VAN_Status__c = 'Prospect';
         acc.CV_Status__c = 'Prospect';
         insert acc;
-                        
+                                
         Vehicle__c vehicles1 = new Vehicle__c();
         vehicles1.EuroVIN__c = '12345678901111111';
         vehicles1.UsVIN__c = '12345678902222222';
         vehicles1.Class__c = 'G-Class';
         vehicles1.Vehicle_Group__c = 'PC';
         insert vehicles1;
-        
+                
         Vehicle_Relationship__c vrel = new Vehicle_Relationship__c();
         vrel.Vehicle_ID__c = vehicles1.Id;
         vrel.Car_Relation__c = 'Owner';
         vrel.Contact__c = acc.Id;
         insert vrel;
+        
+        Retail_Task__c rtask = new Retail_Task__c();
+        rtask.RecordTypeId = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId(); 
+        rtask.Related_Dealer__c = account.Id; 
+        rtask.Related_Vehicle__c = vehicles1.Id;
+        rtask.Account__c = acc.id;
+        insert rtask;
         
         lead = new Lead__c();
         lead.Contact__c = acc.Id;
@@ -670,10 +677,6 @@ public with sharing class LeadHelperTest {
 
         insert lead;
         return lead;
-    
-    
-      
-    }
-    
-
+          
+    }    
 }
