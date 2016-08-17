@@ -20509,24 +20509,6 @@ Company_Account__r.Work_Phone__c  ,
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
     </listViews>
-    <listViews>
-        <fullName>test_CAC_Surpervisor_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CRM_Approver_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
         <label>Lead No.</label>
