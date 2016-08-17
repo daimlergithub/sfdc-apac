@@ -1663,6 +1663,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Customer_LastUpdatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Customer_Lifecycle_Phase__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2184,6 +2189,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Representative__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Dealer_Rollout_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3836,6 +3846,11 @@
         <field>Account.Vol_NAF_Bonus3__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Warranty_Apply_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Website</field>
@@ -4081,6 +4096,86 @@
         <field>Account_Link__c.toRole__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.CurrentMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.LastServiceMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextServiceDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextInspectionDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.NextMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Selling_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Sales_Representative__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Last_Service_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Service_Advisor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Dealer_CompanyCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Dealer_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>		
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_LastName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>			
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_FirstName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_LastName_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_FirstName_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Address_Code__c</field>
@@ -9373,6 +9468,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Accepted_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead_Product__c.Related_To__c</field>
         <readable>true</readable>
     </fieldPermissions>	
@@ -9381,13 +9481,6 @@
         <field>Lead_Product__c.Lead_Product_Items__c</field>
         <readable>true</readable>
     </fieldPermissions>		
-	
-	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Accepted_Date_Time__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
@@ -13108,6 +13201,66 @@
         <field>Retail_Campaign__c.migr_sourceid__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Membership_Accept_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Contract_Cancellation_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Service_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.MOT_User_Name_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.MOT_User_Postal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.MOT_User_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.MOT_Owner_Name_Native__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Service_Total_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Service_Parts_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Service_Labour_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Service_Currency__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Account__c</field>
@@ -15230,6 +15383,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+=======
+>>>>>>> 31b13db91513c6e8ad1380d489a9a81d4c69a680
         <field>Solution.IsPublished</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16825,7 +16980,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Relationship__c.Portal_Apply_Flag__c</field>
+        <field>Vehicle_Relationship__c.Portal_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16931,6 +17086,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Sales_Person__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.SalesType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17060,7 +17220,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Relationship__c.Warranty_Apply_Flag__c</field>
+        <field>Vehicle_Relationship__c.Warranty_Apply_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17101,6 +17261,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.vehicle_mail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Contractor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Source_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Sales_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17566,6 +17741,31 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.last_updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.Related_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.LastServiceMileage__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+     <fieldPermissions>
+         <editable>true</editable>
+         <field>Vehicle__c.MOT_Expired_Date__c</field>
+         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.Finance_Method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.New_Used__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -19420,6 +19620,16 @@
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+	 <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Retail_Company</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Retail_Person</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
@@ -20145,6 +20355,14 @@
         <name>ActivateOrder</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>AllowUniversalSearch</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AllowViewKnowledge</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
@@ -20165,6 +20383,10 @@
         <name>AuthorApex</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>BulkMacrosAllowed</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>CanInsertFeedSystemFields</name>
     </userPermissions>
@@ -20175,6 +20397,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterEditOwnPost</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ChatterEditOwnRecordPost</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20229,6 +20455,10 @@
         <name>DataExport</name>
     </userPermissions>
     <userPermissions>
+        <enabled>false</enabled>
+        <name>DelegatedTwoFactor</name>
+    </userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>DeleteActivatedContract</name>
     </userPermissions>
@@ -20259,6 +20489,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditHtmlTemplates</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditKnowledge</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20426,6 +20660,14 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageKnowledge</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ManageKnowledgeImportExport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageLeads</name>
     </userPermissions>
     <userPermissions>
@@ -20467,6 +20709,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageSearchPromotionRules</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -20543,6 +20789,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ShareInternalArticles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

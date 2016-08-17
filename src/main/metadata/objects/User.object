@@ -90,9 +90,9 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>DMS_User_ID__c</fullName>
+        <fullName>DMS_UserID__c</fullName>
         <externalId>false</externalId>
-        <label>DMS User ID</label>
+        <label>DMS UserID</label>
         <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>

@@ -2018,6 +2018,22 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FinanceExpiryDate“</
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Finance_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>FirstRegistrationDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2391,6 +2407,18 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>LastServiceMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>LastServiceMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Latest_Contract_Date__c</fullName>
         <description>Attribute in Data Dictionary object Vehicle is ”Vehicle_LatestSalesContractDate“</description>
         <externalId>false</externalId>
@@ -2468,6 +2496,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Expired_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Expired Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>ModelYear__c</fullName>
@@ -4782,6 +4819,22 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>New_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>New Used</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>NextEmissionsCheckDate__c</fullName>
         <externalId>false</externalId>
         <label>NextEmissionsCheckDate</label>
@@ -4995,6 +5048,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicles (Related Dealer)</relationshipLabel>
+        <relationshipName>Vehicles1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Related_From__c</fullName>
@@ -6839,6 +6905,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -7237,6 +7310,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9359,6 +9439,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -11413,6 +11500,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13630,6 +13724,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -15684,6 +15785,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17953,6 +18061,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -20007,6 +20122,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22145,6 +22267,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -23627,6 +23756,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
