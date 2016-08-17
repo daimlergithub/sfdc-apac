@@ -1137,24 +1137,6 @@ Modify Reason:
         <label>リクエスト日昨日カタログ名</label>
         <language>ja</language>
     </listViews>
-    <listViews>
-        <fullName>test_CAC_Surpervisor_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CRM_Approver_DM_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
