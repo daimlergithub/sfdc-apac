@@ -66,6 +66,31 @@
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>Additional_Services__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Service</label>
+        <length>500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+	<fields>
+        <fullName>AfterSales_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Aftersales Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Leads (Aftersales Vehicle)</relationshipLabel>
+        <relationshipName>Leads3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Aftersales_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
@@ -100,6 +125,17 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Appointment_DateTime__c</fullName>
+        <description>Send to AL as book-in date.</description>
+        <externalId>false</externalId>
+        <label>Appointment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Assigned_Date_Time__c</fullName>
@@ -2575,6 +2611,27 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	 <fields>
+        <fullName>Check_In_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Check In Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Check_Out_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Check Out Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Close_Date__c</fullName>
         <externalId>false</externalId>
@@ -2854,6 +2911,33 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Customer_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Information</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Customer_Intention__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Intention</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Customer_Name__c</fullName>
         <externalId>false</externalId>
@@ -2935,6 +3019,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <formula>Existing_Contract__r.Direct_Debit_Authority__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Direct Debit Authority</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>DMS_Sent_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The flag to identify if this is sent AL or not. No manual update</description>
+        <externalId>false</externalId>
+        <label>DMS Sent Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -3442,6 +3537,26 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Expected_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Close Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Registration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Registration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Fax__c</fullName>
         <externalId>false</externalId>
@@ -3527,6 +3642,34 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Finance_Closing_Option__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Closing Option</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Closing_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Closing Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Finance_Product_Name__c</fullName>
         <externalId>false</externalId>
@@ -3542,6 +3685,53 @@ Contact__r.Email__c
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	
+    <fields>
+        <fullName>Finance_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Quotation_Date__c</fullName>
+        <description>Latest Finance Quote Date from JPOS, No manual update</description>
+        <externalId>false</externalId>
+        <label>Finance Quotation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Quotation_No_History__c</fullName>
+        <description>Historical Quotation No. and CA no. with comma separated. No manual update</description>
+        <externalId>false</externalId>
+        <label>Finance Quotation No History</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Finance_Quotation_Number__c</fullName>
+        <description>Latest Finance Quote No. from JPOS, No manual update</description>
+        <externalId>false</externalId>
+        <label>Finance Quotation No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Financial_Product2__c</fullName>
@@ -3679,6 +3869,16 @@ Contact__r.Email__c
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Handover_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Handover Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Home_Phone__c</fullName>
         <externalId>false</externalId>
@@ -3707,6 +3907,44 @@ Collectioner_Name__r.HomePhone
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+	
+    <fields>
+        <fullName>Insurance_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Details</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Insurance_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Interest_Rate__c</fullName>
@@ -6676,6 +6914,53 @@ Collectioner_Name__r.HomePhone
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Invoice_Amount_History__c</fullName>
+        <description>Historical Invoice Amount with comma separated. No manual update</description>
+        <externalId>false</externalId>
+        <label>Invoice Amount History</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Invoice_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Number_History__c</fullName>
+        <description>Historical Invoice No. with comma separated. No manual update</description>
+        <externalId>false</externalId>
+        <label>Invoice Number History</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
     <fields>
         <fullName>Is_Active__c</fullName>
         <description>/* 
@@ -6863,6 +7148,29 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Is Qualify</label>
         <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Job_Card_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Job Card Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Job_Card_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Card No</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -8166,6 +8474,29 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+	 <fields>
+        <fullName>Lead_Lost_Date_Time__c</fullName>
+        <description>Set this date when lead status is changed into Lost.</description>
+        <externalId>false</externalId>
+        <label>Lead Lost Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Possibility_text__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Possibility Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lead_Priority__c</fullName>
@@ -9650,6 +9981,16 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Needs_Check_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Needs Check Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Network_Registration_Date__c</fullName>
         <externalId>false</externalId>
@@ -9684,6 +10025,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Next_Contact_Contents__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact Contents</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Contact_Customer_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact Customer Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
@@ -9770,6 +10133,17 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Order_Confirmation_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Order Confirmation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Order_No__c</fullName>
         <externalId>false</externalId>
@@ -9796,6 +10170,17 @@ Modify Reason:
         <fullName>Order_Placed_Date__c</fullName>
         <externalId>false</externalId>
         <label>Order Placed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Order_Print_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Order Print Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9917,6 +10302,31 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
+    </fields>
+	 <fields>
+        <fullName>Photo_URL1__c</fullName>
+        <externalId>false</externalId>
+        <label>Photo URL1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo_URL2__c</fullName>
+        <description>To keep the photo URL from Customer</description>
+        <externalId>false</externalId>
+        <label>Photo URL2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Pick_up_Time__c</fullName>
@@ -10451,6 +10861,65 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Quotation_Amount__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Quotation Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quotation_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Quotation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Quotation_Number_History__c</fullName>
+        <externalId>false</externalId>
+        <label>Quotation No Histry</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quotation_Number__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Quotation No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quotation_Print_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Quotation Print Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>RORAC__c</fullName>
@@ -11182,6 +11651,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Registration_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Registration No.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Related_Configuration_Codes__c</fullName>
         <externalId>false</externalId>
@@ -11261,6 +11742,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>Requested_Service_Hour__c</fullName>
+        <externalId>false</externalId>
+        <label>Service requested hour</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Reserve_Flag__c</fullName>
         <defaultValue>false</defaultValue>
@@ -11290,6 +11783,36 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <externalId>false</externalId>
         <label>Retail Campaign Name</label>
         <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Does not need to show on UI, but need to link to Account_Link__c (Retail Copy) to send to AL.</description>
+        <externalId>false</externalId>
+        <label>Retail Company</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Leads (Retail Company)</relationshipLabel>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Does not need to show on UI, but need to link to Account_Link__c (Retail Copy) to send to AL.</description>
+        <externalId>false</externalId>
+        <label>Retail Contact</label>
+        <referenceTo>Account_Link__c</referenceTo>
         <relationshipLabel>Leads</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
@@ -14637,6 +15160,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>ServiceProgram_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Program Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -14649,6 +15182,33 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Service_Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Program</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Simple_Estimation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Simple Estimation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Service_Date__c</fullName>
@@ -14685,6 +15245,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Special_Offer__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Offer</label>
+        <length>500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Status_Category__c</fullName>
@@ -17286,6 +17857,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Trade_in_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Trade-in Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Trade_in_Vehicle_Text2__c</fullName>
         <externalId>false</externalId>
@@ -17335,11 +17916,131 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>UsVIN__c</fullName>
         <externalId>false</externalId>
         <label>UsVIN</label>
         <length>17</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Brand__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Brand</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Car_RequestID__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car request ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Color__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Color</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_FirstRegistrationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car FirstRegistration Date</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_InspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Inspection Date</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Mileage__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Mileage</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Price</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Steering__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Car Steering</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -19289,6 +19990,29 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>WIP_Created_Date__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>WIP Created Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WIP_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>WIP No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
