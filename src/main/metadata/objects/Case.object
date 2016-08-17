@@ -11657,6 +11657,18 @@ Modify Reason:
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>EuroVIN__c</fullName>
+        <externalId>false</externalId>
+        <label>EuroVIN</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>External_Case_ID__c</fullName>
         <externalId>false</externalId>
         <label>External Case ID</label>
@@ -15625,6 +15637,13 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>SourceId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Source_System__c</fullName>
         <externalId>false</externalId>
         <label>Source System</label>
@@ -16852,8 +16871,8 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>SLC ROADSTER</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK ROADSTER</fullName>
@@ -102590,11 +102609,11 @@ ISNULL( X2nd_FP_Position_Release_Date__c )
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_Closed_rule</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Login as Regional Office User, Change "Progress Status" to "Closed", click "Save" button. The system won't save and the following error message display:
 "Please fill in Resolved Date before Close the</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Progress_Status__c,'Closed'),
+ISPICKVAL(Progress_Status__c,'Closed'),MD__c = 'KR',$Profile.Name != 'IntegrationAPI',
 OR ( $Profile.Name = 'Regional CRM Manager',
      $Profile.Name = 'Regional CRM Manager', 
      $Profile.Name = 'Central PL/WL Manager'
@@ -102626,7 +102645,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Closed</fullName>
         <active>true</active>
         <description>Status is changed to "Closed"</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status , 'Closed'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Closed'),$Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Closed".</errorMessage>
     </validationRules>
@@ -102634,7 +102653,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Done</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Done"</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval done'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval done'),$Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval done".</errorMessage>
     </validationRules>
@@ -102642,7 +102661,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Final_Approval_Rejected</fullName>
         <active>true</active>
         <description>Status is changed to "Final Approval Rejected"</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval rejected'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Final approval rejected'),$Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Final approval rejected".</errorMessage>
     </validationRules>
@@ -102650,17 +102669,18 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Waiting_for_Final_Approval</fullName>
         <active>true</active>
         <description>Status is changed to "Waiting for Final Approval"</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status , 'Waiting for final approval'),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Waiting for final approval'),$Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Waiting for final approval".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Check_Case_Overdue</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Check "Case Overdue" to Y, click "Save" button. The system won't save and the following error message display:
 "Please fill in Overdue Reason"</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Overdue__c, 'Y'),
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 OR ( $Profile.Name = 'Regional CRM Manager',
      $Profile.Name = 'Regional CRM Manager',
      $Profile.Name = 'Central PL/WL Manager'
@@ -102681,10 +102701,10 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Dealer_Cannt_Change_Owner_For_Escalated</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Dealer Cann't Change Owner For Escalated Cases</description>
         <errorConditionFormula>AND(
- ISCHANGED( OwnerId ),
+ ISCHANGED( OwnerId ),MD__c = 'KR',$Profile.Name != 'IntegrationAPI',
  OR(
    ISPICKVAL(Handling_Level__c , 'Central Office'),
    ISPICKVAL(Handling_Level__c , 'Regional Office')
@@ -102699,15 +102719,23 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
         <errorMessage>You cann't change owner when the case is escalated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_feedback_field_Mandatory</fullName>
+        <active>true</active>
+        <description>This validation rule is to enforce the the dealers to enter the dealer feedback before closing the case</description>
+        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'), RecordType.Name = 'MB_Complaint',
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR')</errorConditionFormula>
+        <errorDisplayField>Dealer_Feedback__c</errorDisplayField>
+        <errorMessage>Dealer Feedback is Mandatory</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>EU_FIN_field_must_be_17_or_18_digits</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>"EU FIN" must be 17 or 18 digits.</description>
-        <errorConditionFormula>NOT(ISBLANK( EU_VIN__c ))&amp;&amp; 
-((LEN( EU_VIN__c ) &lt;&gt; 17) &amp;&amp; (LEN( EU_VIN__c ) &lt;&gt; 18))&amp;&amp;  
-(($Profile.Name="Dealer-Complaint Manager") || 
-($Profile.Name="Dealer-Complaint User") || 
-($Profile.Name="Dealer-Delegated Admin") || 
-($Profile.Name="Dealer-Lead+Complaint Manager"))</errorConditionFormula>
+        <errorConditionFormula>AND((NOT(ISBLANK( EU_VIN__c ))),(LEN( EU_VIN__c ) &lt;&gt; 17),(LEN( EU_VIN__c ) &lt;&gt; 18),MD__c = 'KR',$Profile.Name != 'IntegrationAPI',
+	OR(($Profile.Name="Dealer-Complaint Manager"), 
+		($Profile.Name="Dealer-Complaint User"), 
+		($Profile.Name="Dealer-Delegated Admin"), 
+		($Profile.Name="Dealer-Lead+Complaint Manager")))</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
         <errorMessage>"EU FIN" must be 17 or 18 digits.</errorMessage>
     </validationRules>
@@ -102734,6 +102762,20 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
 )</errorConditionFormula>
         <errorDisplayField>Ref_No_Regional__c</errorDisplayField>
         <errorMessage>Please fulfill the Ref.No-Regional field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_EU_VIN</fullName>
+        <active>true</active>
+        <description>EU VIN can't include the character(s) which is not alphanumeric.</description>
+        <errorConditionFormula>AND(
+  NOT( ISNULL(EU_VIN__c) ),
+  NOT(ISBLANK( EU_VIN__c)),
+  NOT(REGEX( EU_VIN__c,
+  "^[A-Za-z0-9]+$")),$Profile.Name != 'IntegrationAPI',
+  (MD__c = 'KR') 
+)</errorConditionFormula>
+        <errorDisplayField>EU_VIN__c</errorDisplayField>
+        <errorMessage>EU VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_US_VIN</fullName>
@@ -102836,11 +102878,12 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
     </validationRules>
     <validationRules>
         <fullName>Repeat_Complaint_Reason_is_Required</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>If Repeat Complaint Times is more than 1,  Repeat Complaint Reason is required.</description>
         <errorConditionFormula>AND(
 Repeat_Complaint_Times__c &gt; 1,
 TEXT(Case_RepeatCause__c) == null,
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR',RecordType.Name = 'Inquiry',
 OR(
 $Profile.Name = 'CAC IB CSR',
 $Profile.Name = 'CAC IB TL',
@@ -103245,10 +103288,10 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>
-        <masterLabel>New Lead</masterLabel>
+        <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_OBJECTID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=OBJECT_LEAD_TAB_ID?OBJECT_LEAD_ACCOUNT_lkid={!Account.Id}&amp;OBJECT_LEAD_ACCOUNT={!Account.Name}&amp;OBJECT_lEAD_CASE_lkid={!Case.CaseNumber}&amp;OBJECT_LEAD_CASE={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa0u%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=OBJECT_LEAD_OBJECTID&amp;OBJECT_CASE_Assigned_Dealer={! Case.Case_Dealer__c }&amp;OBJECT_LEAD_ACCOUNT={!Case.Account}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>

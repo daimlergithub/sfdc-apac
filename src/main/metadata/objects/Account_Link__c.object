@@ -54,6 +54,187 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
+	<fields>
+        <fullName>CurrentMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>CurrentMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>	
+    <fields>
+        <fullName>LastServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LastServiceMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Mileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NextServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Service Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NextInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Inspection Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NextMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>NextMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Selling_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Selling Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Selling Dealer)</relationshipLabel>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Representative__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Representative</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Last_Service_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Last Service Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Last Service Dealer)</relationshipLabel>
+        <relationshipName>Account_Link1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Dealer_CompanyCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Dealer_GC_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer GC Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Dealer_Company__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Company_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Retail Dealer Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_LastName__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail LastName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_FirstName__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail FirstName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_LastName_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail LastName Native</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_FirstName_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail FirstName Native</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
@@ -398,13 +579,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Husband's Wife</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Role_Text__c</fullName>
         <externalId>false</externalId>
         <label>Role Text</label>
@@ -586,7 +771,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>System__c</fullName>
         <externalId>false</externalId>
-        <label>System</label>
+        <label>Mercedes Me Portal</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1483,6 +1668,302 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+	 <recordTypes>
+        <fullName>Retail_Company</fullName>
+        <active>true</active>
+        <label>Retail Company</label>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retail_Person</fullName>
+        <active>true</active>
+        <label>Retail Person</label>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

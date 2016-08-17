@@ -113,7 +113,6 @@
 	<target name="deploy09">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<sf:include name="User"/>
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
@@ -128,6 +127,7 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="Account"/>
+				<sf:include name="User"/>				
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Address__c"/>
 				<sf:include name="Vehicle__c"/>
@@ -215,6 +215,7 @@
 	
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="queues"/>
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -231,7 +232,7 @@
 				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
 			</sf:typeset>
-			<sf:typeset name="queues"/>
+			
 			
 		</deploy>
     </target>	

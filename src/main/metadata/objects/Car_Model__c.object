@@ -2319,6 +2319,32 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Xbenzall</fullName>
+        <columns>NAME</columns>
+        <columns>Brand__c</columns>
+        <columns>Series__c</columns>
+        <columns>Range__c</columns>
+        <columns>Model_Code__c</columns>
+        <columns>Material_Portal_Code__c</columns>
+        <columns>Class_Name_Native__c</columns>
+        <columns>Model_Native__c</columns>
+        <columns>Series_Description__c</columns>
+        <columns>Model__c</columns>
+        <columns>Model_ShortName__c</columns>
+        <columns>Brand_code__c</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Vehicle_Group__c</columns>
+        <columns>Vehicle_SubGroup__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Brand_Native__c</field>
+            <operation>equals</operation>
+            <value>Mercedes-Benz,メルセデス・ベンツ</value>
+        </filters>
+        <label>Benzすべて</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <label>Car Model Name</label>
         <trackHistory>true</trackHistory>
@@ -2341,4 +2367,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Model_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISBLANK(TEXT(Model__c)),ISBLANK(TEXT(Brand__c)),ISBLANK(TEXT(Series__c))),$Profile.Name != 'IntegrationAPI',MD__c= 'KR')</errorConditionFormula>
+        <errorDisplayField>Model__c</errorDisplayField>
+        <errorMessage>Model is Mandatory.</errorMessage>
+    </validationRules>
 </CustomObject>
