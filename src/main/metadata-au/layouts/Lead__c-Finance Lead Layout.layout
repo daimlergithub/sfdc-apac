@@ -40,6 +40,14 @@
                 <behavior>Edit</behavior>
                 <field>Attachment_Flag__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Registration_No__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -113,11 +121,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Finance_Amount__c</field>
+                <field>Term_Month__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Term_Month__c</field>
+                <behavior>Edit</behavior>
+                <field>Finance_Amount2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
