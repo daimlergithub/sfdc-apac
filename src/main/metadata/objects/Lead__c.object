@@ -3543,6 +3543,18 @@ Contact__r.Email__c
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Existing_Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>"DATEVALUE(Existing_Contract__r.EndDate__c)"</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Existing Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Existing_Contract_No__c</fullName>
         <description>Existing_Contract__r.ContractNumber__c</description>
         <externalId>false</externalId>
@@ -8405,6 +8417,18 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Lead_Possibility__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c  =  DATEVALUE( NOW()) ) , "T1",  IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c   &gt;   DATEVALUE( NOW()) ), "T2",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  =   DATEVALUE( NOW()) ), "HOT1",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  &gt;   DATEVALUE( NOW()) ), "HOT2",  IF(AND( Expected_Close_Date__c  &gt;DATEVALUE( NOW()) , Expected_Registration_Date__c  &gt;DATEVALUE( NOW()) ), "HOT3", null) ) ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Possibility</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead_Possibility_text__c</fullName>
         <externalId>false</externalId>
         <label>Lead Possibility Text</label>
@@ -9881,7 +9905,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Nurture_Start_Date__c</fullName>
         <description>Date when the nurture started</description>
         <externalId>false</externalId>
@@ -10259,6 +10283,104 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Dropoff_Time__c</fullName>
+        <description>To caputure the preferred drop-off time from DLM interface (Service Booking)</description>
+        <externalId>false</externalId>
+        <label>Preferred Drop-off Time</label>
+        <picklist>
+            <picklistValues>
+                <fullName>8:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Preferred_Negotiation_DateTime__c</fullName>
@@ -25850,7 +25972,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
+            <picklist>Preferred_Dropoff_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -38795,7 +38917,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
+            <picklist>Preferred_Dropoff_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -50824,7 +50946,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
+            <picklist>Preferred_Dropoff_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
@@ -62073,7 +62195,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
+            <picklist>Preferred_Dropoff_Time__c</picklist>
             <values>
                 <fullName>1%3A00 pm</fullName>
                 <default>false</default>
