@@ -20933,10 +20933,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>QC_Result_Tracking__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Recall__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
