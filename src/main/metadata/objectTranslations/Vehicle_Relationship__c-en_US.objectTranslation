@@ -1185,6 +1185,11 @@
         <relationshipLabel><!-- Vehicle Relationships --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Contractor --></label>
+        <name>Contractor__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Contractor) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Corporate Sale --></label>
         <name>Corporate_Sale__c</name>
     </fields>
@@ -1862,8 +1867,16 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Portal Apply Flag --></label>
-        <name>Portal_Apply_Flag__c</name>
+        <label><!-- Portal Apply Status --></label>
+        <name>Portal_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Pre Owned Warranty Expiry --></label>
@@ -2618,6 +2631,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- SalesType --></label>
+        <name>SalesType__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Selling Res Person --></label>
         <name>Sales_Consultant__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Selling Res Person) --></relationshipLabel>
@@ -2639,6 +2660,11 @@
         <label><!-- Service Res Person --></label>
         <name>Service_Advisor__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Service Res Person) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Source Lead --></label>
+        <name>Source_Lead__c</name>
+        <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Starmarque --></label>
@@ -2968,8 +2994,16 @@
         <name>Vehicle_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Flag --></label>
-        <name>Warranty_Apply_Flag__c</name>
+        <label><!-- Warranty Apply Status --></label>
+        <name>Warranty_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Warranty Expiry Date --></label>
@@ -3073,7 +3107,6 @@
         <label><!-- Vehicle Mail --></label>
         <name>vehicle_mail__c</name>
     </fields>
-    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>

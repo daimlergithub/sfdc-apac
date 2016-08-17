@@ -19,6 +19,13 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
+        <fullName>Auto Populate Phone and Email</fullName>
+        <active>false</active>
+        <description>Autopopulate the phone and email fields based on the selected customer information</description>
+        <formula>AND(OR(WhoId  &lt;&gt; Null,WhoId  &lt;&gt; &apos;&apos;),MD__c == &apos;KR&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Call Start%2FEnd Time</fullName>
         <actions>
             <name>Update_Call_End_Time</name>
@@ -29,10 +36,21 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
             <value>Inbound,Outbound</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

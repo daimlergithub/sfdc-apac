@@ -964,7 +964,7 @@
         <name>Company_Name_Native_1__c</name>
     </fields>
     <fields>
-        <label>法人格含む法人名</label>
+        <label>法人格除く法人名</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>

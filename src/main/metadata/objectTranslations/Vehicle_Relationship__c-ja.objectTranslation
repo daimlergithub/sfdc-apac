@@ -1181,6 +1181,11 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
+        <label>契約者</label>
+        <name>Contractor__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Contractor) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Corporate Sale --></label>
         <name>Corporate_Sale__c</name>
     </fields>
@@ -1541,7 +1546,7 @@
         <name>Insurer__c</name>
     </fields>
     <fields>
-        <label><!-- Last Service Date --></label>
+        <label>最終サービス日</label>
         <name>Last_Service_Date__c</name>
     </fields>
     <fields>
@@ -1744,7 +1749,7 @@
         <name>Other_Driver__c</name>
     </fields>
     <fields>
-        <label><!-- Owner Dealer --></label>
+        <label>所有拠点</label>
         <name>Owner_Dealer__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Owner Dealer) --></relationshipLabel>
     </fields>
@@ -1859,7 +1864,15 @@
     </fields>
     <fields>
         <label>MM申請フラグ</label>
-        <name>Portal_Apply_Flag__c</name>
+        <name>Portal_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Pre Owned Warranty Expiry --></label>
@@ -2614,6 +2627,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>販売形態</label>
+        <name>SalesType__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>販売担当者</label>
         <name>Sales_Consultant__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Selling Res Person) --></relationshipLabel>
@@ -2635,6 +2656,11 @@
         <label>サービス担当者</label>
         <name>Service_Advisor__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Service Res Person) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>関連リード</label>
+        <name>Source_Lead__c</name>
+        <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Starmarque --></label>
@@ -2965,7 +2991,15 @@
     </fields>
     <fields>
         <label>保証申請フラグ</label>
-        <name>Warranty_Apply_Flag__c</name>
+        <name>Warranty_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Warranty Expiry Date --></label>
@@ -3069,7 +3103,6 @@
         <label>コンタクト先メール</label>
         <name>vehicle_mail__c</name>
     </fields>
-    
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
