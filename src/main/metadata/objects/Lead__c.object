@@ -78,6 +78,22 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>AfterSales_VIN__c</fullName>
+        <description>"Read-only field
+Process Builder would update this field with the value according to the rule below:
+If Current_Vehicle_1__r.RecordType = MB, Current_Vehicle_1__r.UsVIN__c.
+If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroVIN__c"</description>
+        <externalId>false</externalId>
+        <label>Aftersales VIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AfterSales_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
