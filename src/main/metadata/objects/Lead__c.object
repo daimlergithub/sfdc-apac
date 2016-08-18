@@ -77,7 +77,7 @@
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-    <fields>
+	<fields>
         <fullName>AfterSales_VIN__c</fullName>
         <description>"Read-only field
 Process Builder would update this field with the value according to the rule below:
