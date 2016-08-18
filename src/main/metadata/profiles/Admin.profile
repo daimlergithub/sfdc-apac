@@ -10064,7 +10064,8 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Insurance_Type__c</field>
-        <readable>true</r
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interest_Rate__c</field>
@@ -10712,11 +10713,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Quotation_Number_History_c__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Quotation_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11204,8 +11200,7 @@
         <editable>true</editable>
         <field>Lead__c.UsVIN__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-	
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Used_Brand__c</field>

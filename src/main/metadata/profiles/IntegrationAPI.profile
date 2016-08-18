@@ -9908,7 +9908,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Existing_Contract__c</field>
         <readable>true</readable>
@@ -10509,7 +10508,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Orig_Fee__c</field>
         <readable>true</readable>
@@ -10697,11 +10695,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Number_History__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Quotation_Number_History_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
