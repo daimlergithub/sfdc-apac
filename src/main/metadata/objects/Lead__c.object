@@ -94,6 +94,22 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>AfterSales_VIN__c</fullName>
+        <description>"Read-only field
+Process Builder would update this field with the value according to the rule below:
+If Current_Vehicle_1__r.RecordType = MB, Current_Vehicle_1__r.UsVIN__c.
+If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroVIN__c"</description>
+        <externalId>false</externalId>
+        <label>Aftersales VIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AfterSales_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2975,7 +2991,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Customer_Informaiotn__c</fullName>
+        <fullName>Customer_Information__c</fullName>
         <externalId>false</externalId>
         <label>Customer Informaiotn</label>
         <length>3000</length>

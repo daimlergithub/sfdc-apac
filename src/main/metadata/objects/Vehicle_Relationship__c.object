@@ -1894,6 +1894,18 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Last_Modified_User_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(LastModifiedBy.User_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Modified User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Last_Service_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last Service Date</label>
@@ -3425,6 +3437,22 @@ What factors were influential in your purchase decision?
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>SalesType__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Sales_Consultant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3446,22 +3474,6 @@ What factors were influential in your purchase decision?
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SalesType__c</fullName>
-        <externalId>false</externalId>
-        <label>Sales Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Selling_Dealer__c</fullName>
@@ -4582,13 +4594,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Sales_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Currently Owned</fullName>
@@ -4989,13 +4994,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Sales_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Currently Owned</fullName>
@@ -5381,13 +5379,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Safety__c</picklist>
             <values>
                 <fullName>1</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sales_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

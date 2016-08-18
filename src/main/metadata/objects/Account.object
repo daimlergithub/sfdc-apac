@@ -7237,6 +7237,17 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Last_Modified_User_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(LastModifiedBy.User_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Modified User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Last_OB_Task_Create_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last OB Task Create Date</label>
@@ -8566,6 +8577,18 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Apply_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Portal Apply User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Accounts3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>

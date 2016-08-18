@@ -2827,6 +2827,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Last_Modified_User_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Last_OB_Task_Create_Date__c</field>
         <readable>true</readable>
@@ -3154,6 +3159,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Portal_Apply_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Portal_Apply_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3959,6 +3969,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.LastServiceMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Last_Modified_User_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9523,6 +9538,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.AfterSales_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.AfterSales_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9773,7 +9793,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Customer_Informaiotn__c</field>
+        <field>Lead__c.Customer_Information__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17243,6 +17263,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>User.User_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>User.allowance__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17534,6 +17559,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Insurer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Last_Modified_User_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
