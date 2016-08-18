@@ -163,6 +163,34 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>User_Type__c</fullName>
+        <description>Pick-list to represent user's type (MBJ, MBF, External System, Dealer)</description>
+        <externalId>false</externalId>
+        <label>User Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MBJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>External System</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>allowance__c</fullName>
         <description>allowance</description>
         <externalId>false</externalId>
