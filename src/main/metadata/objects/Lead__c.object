@@ -2959,7 +2959,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Customer_Informaiotn__c</fullName>
+        <fullName>Customer_Information__c</fullName>
         <externalId>false</externalId>
         <label>Customer Informaiotn</label>
         <length>3000</length>

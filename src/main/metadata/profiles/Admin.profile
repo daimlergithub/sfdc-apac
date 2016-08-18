@@ -9768,7 +9768,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Customer_Informaiotn__c</field>
+        <field>Lead__c.Customer_Information__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

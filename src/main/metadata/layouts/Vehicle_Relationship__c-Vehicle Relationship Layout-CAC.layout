@@ -50,10 +50,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Warranty_Apply_Flag__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Magazine__c</field>
             </layoutItems>
             <layoutItems>
@@ -105,10 +101,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Card_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Portal_Apply_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
