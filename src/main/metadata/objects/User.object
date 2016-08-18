@@ -90,6 +90,16 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>DMS_UserID__c</fullName>
+        <externalId>false</externalId>
+        <label>DMS UserID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Daily_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Daily Rate</label>
@@ -98,6 +108,61 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Company_Name__c</fullName>
+        <description>Contact.Account.Company_Name__c</description>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Company_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Company Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_DMS_Retailer_ID__c</fullName>
+        <description>Contact.Account.DMS_Retailer_ID__c</description>
+        <externalId>false</externalId>
+        <formula>Contact.Account.DMS_Retailer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer DMS Retailer ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_GC_Code__c</fullName>
+        <description>Contact.Account.Dealer_GC_Code__c</description>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Dealer_GC_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer GC Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_ND_Code__c</fullName>
+        <description>Contact.Account.Dealer_ND_Code__c</description>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Dealer_ND_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer ND Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Outlet_Name__c</fullName>
+        <description>Contact.Account.Name</description>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Outlet Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Flight_Ticket_Budget__c</fullName>
@@ -156,6 +221,34 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Type__c</fullName>
+        <description>Pick-list to represent user's type (MBJ, MBF, External System, Dealer)</description>
+        <externalId>false</externalId>
+        <label>User Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MBJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>External System</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>allowance__c</fullName>

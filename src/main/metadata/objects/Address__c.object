@@ -66,9 +66,29 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_Line_1_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 1 Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address_Line_1__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 2 Native</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -172,10 +192,30 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Block_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Block Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Block__c</fullName>
         <externalId>false</externalId>
         <label>Block</label>
         <length>24</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>City Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -258,6 +298,16 @@
         <externalId>false</externalId>
         <label>Delivery Point ID</label>
         <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>District_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Town Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -359,6 +409,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Province_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Prefecture Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture</label>
@@ -439,6 +499,28 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Temp_Address__c</fullName>
+        <description>Unnormalized Address</description>
+        <externalId>false</externalId>
+        <label>Temp Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <description>Unnormalized Post Code</description>
+        <externalId>false</externalId>
+        <label>Temp ZipCode</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TitleOfHonor__c</fullName>
