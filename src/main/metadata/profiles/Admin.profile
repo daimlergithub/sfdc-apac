@@ -6043,6 +6043,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Current_Vehicle_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Current_Vehicle_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Customer_Background_Info__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6468,6 +6478,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Interested_Competitor_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Interested_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.IsClosedOnCreate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6814,6 +6834,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Purchase_Intention__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Purchased_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7299,6 +7324,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Total_Settlement_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Trade_In_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
