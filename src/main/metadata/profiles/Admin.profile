@@ -9516,6 +9516,11 @@
         <field>Lead__c.Additional_Services__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.AfterSales_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.AfterSales_Vehicle__c</field>
