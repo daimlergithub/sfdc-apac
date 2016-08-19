@@ -889,6 +889,34 @@
         <value>Delete Filter</value>
     </labels>
     <labels>
+        <fullName>Download_Cars</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL Of Download link for Cars</shortDescription>
+        <value>www.mercedes-benz.com.au/downloadcentre</value>
+    </labels>
+    <labels>
+        <fullName>Download_Vans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL Of Download Link For Vans</shortDescription>
+        <value>http://www.mercedes-benz.com.au/content/australia/mpc/mpc_australia__website/en/home_mpc/van/home/vans_world/brochures_specifications.html#_int_van:home:core-navi:brochures_specifications</value>
+    </labels>
+    <labels>
+        <fullName>Driveaway_Pricing_Calculator_Cars</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL Of Driveaway Pricing Calculator Link For Cars</shortDescription>
+        <value>www.driveaway.mercedes-benz.com.au</value>
+    </labels>
+    <labels>
+        <fullName>Driveaway_Pricing_Calculator_Vans</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL Of Driveaway Pricing Calculator Link For Vans</shortDescription>
+        <value>http://www.vans-driveaway.mercedes-benz.com.au/</value>
+    </labels>
+    <labels>
         <fullName>End_Time_Greater_Start_Time</fullName>
         <language>en_US</language>
         <protected>false</protected>
