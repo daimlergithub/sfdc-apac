@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CampaignSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>Allow_Only_to_special_users</fullName>
+        <sharedTo>
+            <role>Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Central Marketing Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Allow Only to special users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>CAC_CRM_Campaign_Share_with_CAC</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
@@ -251,6 +269,19 @@
         <booleanFilter>1 OR ( 2 AND 3)</booleanFilter>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share AS Campaign with Retail AS Marketing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <campaignAccessLevel>All</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Published_MB_BP_with_Central</fullName>
