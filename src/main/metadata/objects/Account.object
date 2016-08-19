@@ -2385,6 +2385,26 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Turkey</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other country in Europe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other country in Southeast Asia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other country in Asia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other country</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2752,6 +2772,10 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             </picklistValues>
             <picklistValues>
                 <fullName>MB Connection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F&amp;I</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -5915,6 +5939,22 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
                 <fullName>Graduate or Above-Foreign</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Master's Degree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor's Degree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Master's Degree-Foreign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor's Degree-Foreign</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -6637,6 +6677,78 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Internal</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Association</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diplomat - NOTE:modify</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US Army</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Affinity Scheme to Commercial Accounts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Affinity Scheme to Professional Groups</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leasing Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Authorities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chauffer Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Account</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7228,11 +7340,56 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Slimming Beauty</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Sports</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Movies&amp;Plays</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concerts&amp;Exhibition</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interior</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wine/Cuisine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Well-being</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hiking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Beauty&amp;Skincare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Home_Phone_2__c</fullName>
@@ -10133,6 +10290,10 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
                 <fullName>Sunday</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Anytime</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11460,6 +11621,14 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
                 <fullName>F</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11674,6 +11843,26 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </picklistValues>
             <picklistValues>
                 <fullName>Automotive related</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diplomat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Army</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -13494,6 +13683,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F%26I</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16950,6 +17143,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Preferred_Contact_Date__c</picklist>
             <values>
+                <fullName>Anytime</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Friday</fullName>
                 <default>false</default>
             </values>
@@ -17307,6 +17504,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>F</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>SelecTrucks_Offered_Service__c</picklist>
@@ -17365,6 +17570,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
+                <fullName>Army</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Automotive related</fullName>
                 <default>false</default>
             </values>
@@ -17373,7 +17586,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Diplomat</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fire department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17386,6 +17607,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBK</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27561,7 +27786,7 @@ NOT(Dealer_Active__c)
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
         <description>Data_Source__c is mandatory while creating person account.</description>
-        <errorConditionFormula>AND(MD__c ='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(Data_Source__c, ""))</errorConditionFormula>
+        <errorConditionFormula>AND( OR(ISCHANGED(Data_Source__c),!ISNEW()),MD__c='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(Data_Source__c, ""))</errorConditionFormula>
         <errorDisplayField>Data_Source__c</errorDisplayField>
         <errorMessage>Please enter Data Source.</errorMessage>
     </validationRules>
@@ -28015,7 +28240,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Phone_Mobile_Workphone_or_HomePhone</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>At least one Phone Number is mandatory for Account Creation.</description>
         <errorConditionFormula>AND( 
 OR ( 
