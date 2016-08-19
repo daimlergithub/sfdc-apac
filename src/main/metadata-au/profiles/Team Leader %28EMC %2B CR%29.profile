@@ -275,10 +275,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BrochureLinkController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CACFieldsExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>

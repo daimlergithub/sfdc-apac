@@ -9,21 +9,25 @@ body {
 }
 </style>
 <apex:image value="https://c.cs21.content.force.com/servlet/servlet.FileDownload?file=015q0000000Aim3" height="40%" width="100%"/>
+    <font face ="Corporate A Condensed" size ="26px" color ="white">
+    <h1> We’ll be in touch shortly. </h1></font>
         <body>
-        <font face ="Arial regular" size ="6px" color ="white">        
-        <h1> Dear {!relatedTo.Company_Account__r.Name} </h1>
+        <font face ="Arial regular" size ="12px" color ="white">        
+        <h1> Dear {!relatedTo.Contact__r.Name} {!relatedTo.Company_Account__r.Name} </h1>
         
-         Thank you for expressing your interest in the Mercedes-Benz {!relatedTo.MB_Vehicle_Interest__c} <br/>        
-         A member of our Enquiry Management Centre will be in contact with you shortly to discuss your request.<br/>         
-         In the meantime, you can access brochures, specifications and wallpapers in the Download Centre, by following the link below.<br/>         
-Download Centre :<apex:OutputText rendered="{!relatedTo.Business_Unit__c!=''}"><c:Brochure_component leadId="{!relatedTo.id}"/></apex:OutputText><br/> 
-Driveaway Pricing Calculator :<apex:OutputText rendered="{!relatedTo.Business_Unit__c!=''}"><c:Brochure_component leadId="{!relatedTo.id}"/></apex:OutputText> <br/><br/>
-        
+         Thank you for expressing your interest in the Mercedes-Benz {!relatedTo.MB_Vehicle_Interest__c}. <br/><br/>       
+         A member of our Enquiry Management Centre will be in contact with you shortly to discuss your request.<br/><br/>         
+         In the meantime, you can access brochures, specifications and wallpapers in the Download Centre, by following the link below.<br/><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Cars'}" value="{!$Label.Download_Cars}">Download Centre </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Cars'}" value="{!$Label.Driveaway_Pricing_Calculator_Cars}">Driveaway Pricing Calculator </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Vans'}" value="{!$Label.Download_Vans}">Download Centre </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Vans'}" value="{!$Label.Driveaway_Pricing_Calculator_Vans}">Driveaway Pricing Calculator </apex:outputLink><br/> 
+        <br/>
         Kind Regards,<br/>
         Mercedes-Benz Cars Australia.
         </font>
         </body>
-        <br/><br/><br/>
+        <br/><br/>
         <p>
         <font color = "White">
         @Mercedes-Benz Australia/Pacific Pty Ltd|
