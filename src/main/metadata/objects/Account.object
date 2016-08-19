@@ -8327,6 +8327,17 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Last_Modified_User_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(LastModifiedBy.User_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Modified User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Last_OB_Task_Create_Date__c</fullName>
         <externalId>false</externalId>
         <label>Last OB Task Create Date</label>
@@ -10022,6 +10033,18 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Apply_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Portal Apply User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Accounts3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
@@ -20167,6 +20190,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuso_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -21363,6 +21457,189 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -21397,6 +21674,49 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27054,10 +27374,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
-        <lookupFilterFields>00N2800000A9C3R</lookupFilterFields>
-        <lookupFilterFields>00N2800000A9C3J</lookupFilterFields>
-        <lookupFilterFields>00N2800000A9C3N</lookupFilterFields>
-        <lookupFilterFields>00N2800000A9C4t</lookupFilterFields>
+        <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
+        <lookupFilterFields>Primary_Address_Display__c</lookupFilterFields>
+        <lookupFilterFields>Primary_Email_Display__c</lookupFilterFields>
+        <lookupFilterFields>UCID__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
