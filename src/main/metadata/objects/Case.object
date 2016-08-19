@@ -9880,6 +9880,34 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Current_Vehicle_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Present Possessed Brand 1</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (Present Possessed Brand 1)</relationshipLabel>
+        <relationshipName>Cases3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Vehicle_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Present Possessed Brand 2</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (Present Possessed Brand 2)</relationshipLabel>
+        <relationshipName>Cases4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Customer_Background_Info__c</fullName>
         <externalId>false</externalId>
         <label>Customer Background Info</label>
@@ -12915,6 +12943,34 @@ Modify Reason:
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Interested_Competitor_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Compared Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (Compared Vehicle)</relationshipLabel>
+        <relationshipName>Cases2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Interested_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Interested Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (Interested Vehicle)</relationshipLabel>
+        <relationshipName>Cases1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>	
+    <fields>
         <fullName>IsClosedOnCreate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -14164,6 +14220,20 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Purchased_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>New Purchase Model</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (New Purchase Model)</relationshipLabel>
+        <relationshipName>Cases6</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>QuestionId</fullName>
@@ -16212,6 +16282,20 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Trade_In_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Trade-In MB Vehicle Model</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Cases (Trade-In MB Vehicle Model)</relationshipLabel>
+        <relationshipName>Cases5</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Transport_Car_Model__c</fullName>
         <externalId>false</externalId>
         <label>Courtesy car model</label>
@@ -16360,7 +16444,7 @@ Modify Reason:
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Series</label>
-       <picklist>
+        <picklist>
             <controllingField>Vehicle_Brand__c</controllingField>
             <picklistValues>
                 <fullName>Test</fullName>
@@ -16871,8 +16955,8 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>SLC ROADSTER</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK ROADSTER</fullName>
@@ -20781,27 +20865,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>test_CAC_Surpervisor_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CRM_Approver_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
-    <!-- <recordTypes>
+    <recordTypes>
         <fullName>Chrysler_Complaint</fullName>
         <active>true</active>
         <businessProcess>Chrysler Complaint Process</businessProcess>
@@ -24304,8 +24370,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -35348,8 +35414,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>MBDA_Complaint</fullName>
         <active>true</active>
         <businessProcess>MBDA Complaint Process</businessProcess>
@@ -45119,8 +45185,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>MBDA_Inquiry</fullName>
         <active>true</active>
         <businessProcess>MBDA Inquiry Process</businessProcess>
@@ -54670,8 +54736,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>MBJ_Inquiry</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -63917,8 +63983,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>MB_Complaint</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -68801,8 +68867,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>Object_Connector</fullName>
         <active>true</active>
         <businessProcess>Object Connector Process</businessProcess>
@@ -72673,8 +72739,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>Retail_Campaign</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -82744,8 +82810,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>Roadside_Assistance</fullName>
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
@@ -93283,8 +93349,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
-    <!-- <recordTypes>
+    </recordTypes>
+    <recordTypes>
         <fullName>Touring_Support</fullName>
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
@@ -102530,7 +102596,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes> -->
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
@@ -102890,7 +102956,7 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
     <validationRules>
         <fullName>PR_cannt_modify_status</fullName>
         <active>false</active>
-        <errorConditionFormula>AND(CONTAINS($Profile.Name, 'PR'), ISCHANGED(Status))</errorConditionFormula> 
+        <errorConditionFormula>AND(CONTAINS($Profile.Name, 'PR'), ISCHANGED(Status))</errorConditionFormula>
         <errorDisplayField>Case_Status__c</errorDisplayField>
         <errorMessage>PR cann't modify current case status.</errorMessage>
     </validationRules>
@@ -103309,7 +103375,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-		<url>/a0u/e?retURL=%2Fa0u%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=OBJECT_LEAD_OBJECTID&amp;OBJECT_CASE_Assigned_Dealer={! Case.Case_Dealer__c }&amp;OBJECT_LEAD_ACCOUNT={!Case.Account}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa0u%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=OBJECT_LEAD_OBJECTID&amp;OBJECT_CASE_Assigned_Dealer={! Case.Case_Dealer__c }&amp;OBJECT_LEAD_ACCOUNT={!Case.Account}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
