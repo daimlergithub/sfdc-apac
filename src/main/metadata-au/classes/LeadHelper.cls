@@ -1522,6 +1522,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         map<string,Decimal> vechClassMap = utilVehicleClass.vehicleClassMap;
         map<id,Decimal> accvehlmap = new map<id,Decimal>();
         map<string,string> leadRequestMap = utilPriorityScore.natureOfRequestMap;
+        map<string,string> carMap = utilPriorityScore.leadCarsMap;
+        map<string,string> vanMap = utilPriorityScore.leadVanMap;
         map<string,Decimal> numberOfMbMap = utilPriorityScore.noOfMBsMap;
         Map<string, Decimal> highestClassMap = new Map<string, Decimal>();
         map<string,Decimal> prospectenquiryMap = utilPriorityScore.prospectenquiryTypeMap;
@@ -1567,7 +1569,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         for(Lead__c led : leadlist)
         {
             	            
-             if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)))
+             if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (carMap.containsKey(led.Business_Unit__c)))
              {
                 CustomLogUtil.CustomLoggingEntry('Lead Priority Score ' +leadlist.size() );
                  if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
@@ -1746,93 +1748,97 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         led.Lead_Priority__c = 'Cold';
                     }
                 }
-             }
-
-            else if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+         
+                 if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
                     !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
                     && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')  
-            {
-                Decimal enquirytype = 0;
-                Decimal purchasetime = 0;
-                Decimal priorityScore = 0;
-                Decimal mbVechInterestScore = 0;
-                Decimal prospectleadscore = 0;
-                string prospect = '';
-                Decimal maxvalue = 0;
-                String value;
-                string maxkey;
-                string vehicleInterest; 
-                List<string> vehicleInterestList = new List<string>();  
-                List<string> servicecontractlist = new List<string>();
-                List<string> insuranceContractList = new List<string>();
-                List<string> financecontractList = new List<string>();
-                
-                if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
-                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
-                    && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')
                 {
-                    prospect = 'Yes';
-                    prospectleadscore = prosleadMap.get(prospect);
-                }
-                system.debug('    prosleadMa    ' + prospectleadscore);
-                if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && prospectenquiryMap.containsKey(led.Nature_of_Request__c) 
-                   && prospectenquiryMap.get(led.Nature_of_Request__c) != null)
-                {
-                    enquirytype = prospectenquiryMap.get(led.Nature_of_Request__c);
-                }
-                
-                if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && prospectpurchaseMap.containsKey(led.Purchase_Time__c) 
-                   && prospectpurchaseMap.get(led.Purchase_Time__c) != null)
-                {
-                    purchasetime = prospectpurchaseMap.get(led.Purchase_Time__c);
-                }
-                
-                if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' && vechClassMap.containsKey(led.MB_Vehicle_Interest__c))
-                {
-                    vehicleInterest = led.MB_Vehicle_Interest__c;
-                    vehicleInterestList = vehicleInterest.split(';');
-                    for(integer i=0 ; i<vehicleInterestList.size() ;i++)
+                    Decimal enquirytype = 0;
+                    Decimal purchasetime = 0;
+                    Decimal priorityScore = 0;
+                    Decimal mbVechInterestScore = 0;
+                    Decimal prospectleadscore = 0;
+                    string prospect = '';
+                    Decimal maxvalue = 0;
+                    String value;
+                    string maxkey;
+                    string vehicleInterest; 
+                    List<string> vehicleInterestList = new List<string>();  
+                    List<string> servicecontractlist = new List<string>();
+                    List<string> insuranceContractList = new List<string>();
+                    List<string> financecontractList = new List<string>();
+                    
+                    if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                        !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
+                        && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')
                     {
-                        highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                        prospect = 'Yes';
+                        prospectleadscore = prosleadMap.get(prospect);
                     }
-                    maxkey= highestClassMap.keySet().iterator().next();
-                    maxvalue = highestClassMap.get(maxkey);
-                    for(string key : highestClassMap.keySet())
+                    system.debug('    prosleadMa    ' + prospectleadscore);
+                    if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && prospectenquiryMap.containsKey(led.Nature_of_Request__c) 
+                       && prospectenquiryMap.get(led.Nature_of_Request__c) != null)
                     {
-                        Decimal currValue = highestClassMap.get(key);
-                        if(maxvalue > currValue)
+                        enquirytype = prospectenquiryMap.get(led.Nature_of_Request__c);
+                    }
+                    
+                    if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && prospectpurchaseMap.containsKey(led.Purchase_Time__c) 
+                       && prospectpurchaseMap.get(led.Purchase_Time__c) != null)
+                    {
+                        purchasetime = prospectpurchaseMap.get(led.Purchase_Time__c);
+                    }
+                    
+                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' && vechClassMap.containsKey(led.MB_Vehicle_Interest__c))
+                    {
+                        vehicleInterest = led.MB_Vehicle_Interest__c;
+                        vehicleInterestList = vehicleInterest.split(';');
+                        for(integer i=0 ; i<vehicleInterestList.size() ;i++)
                         {
-                            highestClassMap.remove(key);
-                        } 
-                        else if(maxvalue < currValue) 
-                        {
-                            highestClassMap.remove(maxKey);
-                            maxvalue = highestClassMap.get(key);
-                            maxKey = key;
+                            highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
                         }
+                        maxkey= highestClassMap.keySet().iterator().next();
+                        maxvalue = highestClassMap.get(maxkey);
+                        for(string key : highestClassMap.keySet())
+                        {
+                            Decimal currValue = highestClassMap.get(key);
+                            if(maxvalue > currValue)
+                            {
+                                highestClassMap.remove(key);
+                            } 
+                            else if(maxvalue < currValue) 
+                            {
+                                highestClassMap.remove(maxKey);
+                                maxvalue = highestClassMap.get(key);
+                                maxKey = key;
+                            }
+                        }
+                        system.debug('maxKey>>' + maxKey);
+                        system.debug('maxvalue>>' + maxvalue);
+                        mbVechInterestScore = maxvalue ;
                     }
-                    system.debug('maxKey>>' + maxKey);
-                    system.debug('maxvalue>>' + maxvalue);
-                    mbVechInterestScore = maxvalue ;
-                }
-                CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime + 'prospectleadscore' + prospectleadscore);
-                priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
-                               
-                led.Priority_Score__c = priorityScore;
-                
-                if(Integer.valueOf(led.Priority_Score__c) > 38)
-                {
-                    led.Lead_Priority__c = 'Hot';
-                }
-                else if(Integer.valueOf(led.Priority_Score__c) >30 && Integer.valueOf(led.Priority_Score__c) < 38)
-                {
-                    led.Lead_Priority__c = 'Warm';
-                }
-                else if(Integer.valueOf(led.Priority_Score__c) < 30)
-                {
-                    led.Lead_Priority__c = 'Cold';
-                }
-            }                         
+                    CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime + 'prospectleadscore' + prospectleadscore);
+                    priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
+                                   
+                    led.Priority_Score__c = priorityScore;
+                    
+                    if(Integer.valueOf(led.Priority_Score__c) > 38)
+                    {
+                        led.Lead_Priority__c = 'Hot';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) >30 && Integer.valueOf(led.Priority_Score__c) < 38)
+                    {
+                        led.Lead_Priority__c = 'Warm';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) < 30)
+                    {
+                        led.Lead_Priority__c = 'Cold';
+                    }
+            	}
+             }
+            if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (vanMap.containsKey(led.Business_Unit__c)))
+            {
+                led.Lead_Priority__c = 'Hot';
+            }
         }
     }
 }
