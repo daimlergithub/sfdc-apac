@@ -15,17 +15,29 @@ public class utilPriorityScore
     public static Map<String,string> prospectnatureOfRequestMap = new Map<String,string>();
     public static Map<String,Decimal> prospectnoOfMBsMap = new Map<String,Decimal>();
     public static Map<String,Decimal> prospectLeadMap = new Map<String,Decimal>();
-    
+    public static Map<String,string> leadCarsMap = new Map<String,string>();
+    public static Map<String,string> leadVanMap = new Map<String,string>();
+        
     public static List<Lead_Priority_Score__mdt> ledpriscrelist = new List<Lead_Priority_Score__mdt>();
     
     public static void getEnquiryTypeScore()
     {
         ledpriscrelist = [select Customer_Type__c,Enquiry_type__c,Score__c,Behavioural_group__c,Nature_Of_Request__c,Contract_Record_Types__c,
-                          Customer_Contrats_to_Lead__c,Purchase_intent__c,Requested_a_test_drive__c,Number_OF_MBs__c,Prospect__c
+                          Customer_Contrats_to_Lead__c,Purchase_intent__c,Requested_a_test_drive__c,Number_OF_MBs__c,Prospect__c,Business_Unit__c
                           from Lead_Priority_Score__mdt];
         
         for(Lead_Priority_Score__mdt ledpriscre : ledpriscrelist)
         {
+            if(ledpriscre.Business_Unit__c != null && ledpriscre.Business_Unit__c != '' && ledpriscre.Business_Unit__c == 'Cars')
+            {
+                leadCarsMap.put(ledpriscre.Business_Unit__c, ledpriscre.Business_Unit__c);
+            }
+            
+            if(ledpriscre.Business_Unit__c != null && ledpriscre.Business_Unit__c != '' && ledpriscre.Business_Unit__c == 'Vans')
+            {
+                leadVanMap.put(ledpriscre.Business_Unit__c, ledpriscre.Business_Unit__c);
+            }
+            
             if(ledpriscre.Enquiry_type__c != null && ledpriscre.Enquiry_type__c != '' && ledpriscre.Customer_Type__c == 'Owner')
             {
                 enquiryTypeMap.put(ledpriscre.Enquiry_type__c , ledpriscre.Score__c);
