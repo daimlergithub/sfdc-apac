@@ -7124,23 +7124,11 @@
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
-                <fullName>Case</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lead</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8528,6 +8516,10 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Published</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Started</fullName>
