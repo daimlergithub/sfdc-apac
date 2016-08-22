@@ -211,19 +211,19 @@ public class CampaignHelper {
         }
         
         if(!cpLeadList.isEmpty()) {         
-            database.executeBatch(new UtilCampaignTaskGenerationByLeads(cpLeadList), 200);
+            //database.executeBatch(new UtilCampaignTaskGenerationByLeads(cpLeadList), 200);
             leadJob.Campaign_Set__c = cpLeadIds;
             if(leadJob!=Null){
              insert leadJob;       
             }  
         }
         if(!cpVehicleList.isEmpty()) {          
-            database.executeBatch(new UtilCampaignTaskGenerationByVehicle(cpVehicleList), 200); 
+            //database.executeBatch(new UtilCampaignTaskGenerationByVehicle(cpVehicleList), 200); 
             vehJob.Campaign_Set__c = cpVehicleIds;
             insert vehJob; 
         }
         if(!cpCaseList.isEmpty()) {          
-            database.executeBatch(new UtilCampaignTaskGenerationByCase(cpCaseList), 200); 
+            //database.executeBatch(new UtilCampaignTaskGenerationByCase(cpCaseList), 200); 
             caseJob.Campaign_Set__c = cpCaseIds;
             insert caseJob; 
         }
