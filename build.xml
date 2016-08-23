@@ -423,6 +423,7 @@
 			<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignTriggerHandlerJP"/>
+			<sf:include name="TriggerCampaignTriggerHandlerKR"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
