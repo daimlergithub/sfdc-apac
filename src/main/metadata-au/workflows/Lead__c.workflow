@@ -77,10 +77,6 @@
         <description>Lead Untouched for 4 days after creation</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -101,14 +97,6 @@
         <fullName>Send_an_email_to_lead_owner_when_the_created_lead_was_not_touched_for_7_day</fullName>
         <description>Send an email to lead owner when the created lead was not touched for 7 days</description>
         <protected>false</protected>
-        <recipients>
-            <recipient>Key_Account_Manager_users</recipient>
-            <type>group</type>
-        </recipients>
-        <recipients>
-            <recipient>SMDFM_users</recipient>
-            <type>group</type>
-        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
@@ -568,7 +556,7 @@ Proxy_Date_Time__c
     </rules>
         <rules>
         <fullName>Email Notification to Lead Owner</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -676,7 +664,7 @@ Proxy_Date_Time__c
     </rules>
      <rules>
         <fullName>Escalation%3A Lead not touched for 7 days</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
