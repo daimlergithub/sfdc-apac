@@ -11,6 +11,7 @@ TaskTriggerJP,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerJP,JP
 ToolKitTriggerJP,TRUE,TRUE,TRUE,ToolKitTrigger,TRUE,TRUE,TRUE,ToolKitTriggerHandler,JP
 TriggerAccountJP,TRUE,TRUE,TRUE,TriggerAccount,TRUE,TRUE,TRUE,TriggerAccountTriggerHandlerJP,JP
 TriggerBatchJobJP,TRUE,TRUE,TRUE,TriggerBatchJob,TRUE,TRUE,TRUE,TriggerBatchJobTriggerHandler,JP
+TriggerCampaignKR,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignTriggerHandlerKR,KR
 TriggerCampaignJP,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignTriggerHandlerJP,JP
 TriggerCampaignCityJP,TRUE,TRUE,TRUE,TriggerCampaignCity,TRUE,TRUE,TRUE,TriggerCampaignCityTriggerHandlerJP,JP
 TriggerCampaignLeadJP,TRUE,TRUE,TRUE,TriggerCampaignLead,TRUE,TRUE,TRUE,TriggerCampaignLeadTriggerHandlerJP,JP
