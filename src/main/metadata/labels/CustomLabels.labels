@@ -1127,6 +1127,13 @@
         <value>To provide accurate and complete information/solution</value>
     </labels>
     <labels>
+        <fullName>ConfidentialPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ConfidentialPDF</shortDescription>
+        <value>Confidential</value>
+    </labels>
+    <labels>
         <fullName>Confirmation_for_delete_address</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1212,7 +1219,7 @@
         <shortDescription>Customer・Assistance・Center</shortDescription>
         <value>Customer・Assistance・Center</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>CustomerAssistanceCenter2</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1596,6 +1603,13 @@
         <protected>false</protected>
         <shortDescription>Information sharing</shortDescription>
         <value>Information sharing to Dealer/ Internal related department</value>
+    </labels>
+    <labels>
+        <fullName>InsufficientAccessToCreate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InsufficientAccessToCreate</shortDescription>
+        <value>Insufficient privilege to create new vehicle.</value>
     </labels>
     <labels>
         <fullName>Insurance_Promotion</fullName>
@@ -2869,6 +2883,13 @@
         <value>Request Content(to Dealer)</value>
     </labels>
     <labels>
+        <fullName>RequestPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RequestPDF</shortDescription>
+        <value>Request</value>
+    </labels>
+    <labels>
         <fullName>Required_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3024,6 +3045,20 @@
         <value>Sales Contact Target</value>
     </labels>
     <labels>
+        <fullName>SalesMail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Mail</shortDescription>
+        <value>Sales Mail</value>
+    </labels>
+    <labels>
+        <fullName>SalesTEL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales TEL</shortDescription>
+        <value>Sales TEL</value>
+    </labels>
+    <labels>
         <fullName>Sales_Marketing</fullName>
         <categories>Yearly TA</categories>
         <language>en_US</language>
@@ -3037,7 +3072,7 @@
         <protected>false</protected>
         <shortDescription>Sama</shortDescription>
         <value>Sama</value>
-    </labels> 
+    </labels>
     <labels>
         <fullName>Same</fullName>
         <language>en_US</language>
@@ -3153,6 +3188,13 @@
         <value>Share</value>
     </labels>
     <labels>
+        <fullName>SlashPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SlashPDF</shortDescription>
+        <value>/</value>
+    </labels>
+    <labels>
         <fullName>Special_Filters</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3210,6 +3252,13 @@
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
+    </labels>
+    <labels>
+        <fullName>Task_Assigned_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Assigned User</shortDescription>
+        <value>aiyer</value>
     </labels>
     <labels>
         <fullName>Task_Phone</fullName>
@@ -4229,46 +4278,4 @@
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
-	<labels>
-        <fullName>InsufficientAccessToCreate</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>InsufficientAccessToCreate</shortDescription>
-        <value>Insufficient privilege to create new vehicle.</value>
-    </labels>
-	<labels>
-        <fullName>SalesTEL</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Sales TEL</shortDescription>
-        <value>Sales TEL</value>
-    </labels>
-	<labels>
-        <fullName>SalesMail</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Sales Mail</shortDescription>
-        <value>Sales Mail</value>
-    </labels>
-	<labels>
-        <fullName>ConfidentialPDF</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>ConfidentialPDF</shortDescription>
-        <value>Confidential</value>
-    </labels>
-	<labels>
-        <fullName>RequestPDF</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>RequestPDF</shortDescription>
-        <value>Request</value>
-    </labels>
-	<labels>
-        <fullName>SlashPDF</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>SlashPDF</shortDescription>
-        <value>/</value>
-    </labels> 
 </CustomLabels>

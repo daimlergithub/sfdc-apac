@@ -9,10 +9,39 @@
         <field>Name</field>
         <field>Owner</field>
     </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>userHierarchyField</type>
+            </approver>
+        </assignedApprover>
+        <label>Manager Approval</label>
+        <name>Manager_Approval</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>adhoc</type>
+            </approver>
+        </assignedApprover>
+        <label>Director Approval</label>
+        <name>Director_Approval</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <formula>AND(RecordType.DeveloperName =&quot;Central Marketing Campaign&quot;, ISPICKVAL(Status,&quot;Planned&quot;))</formula>
     </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Status_Change</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
     <finalApprovalRecordLock>true</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <label>Central Planning-Campaign</label>
