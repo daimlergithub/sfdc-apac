@@ -28,6 +28,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Status_Change</fullName>
+        <field>Status</field>
+        <literalValue>Approved</literalValue>
+        <name>Status Change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Ative_to_True</fullName>
         <field>IsActive</field>
         <literalValue>1</literalValue>
