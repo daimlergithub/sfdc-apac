@@ -14772,7 +14772,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Voluntary_Insurance_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>

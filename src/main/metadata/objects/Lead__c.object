@@ -66,7 +66,7 @@
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Additional_Services__c</fullName>
         <externalId>false</externalId>
         <label>Additional Service</label>
@@ -77,7 +77,23 @@
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-	<fields>
+    <fields>
+        <fullName>AfterSales_VIN__c</fullName>
+        <description>"Read-only field
+Process Builder would update this field with the value according to the rule below:
+If Current_Vehicle_1__r.RecordType = MB, Current_Vehicle_1__r.UsVIN__c.
+If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroVIN__c"</description>
+        <externalId>false</externalId>
+        <label>Aftersales VIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AfterSales_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -126,7 +142,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Appointment_DateTime__c</fullName>
         <description>Send to AL as book-in date.</description>
         <externalId>false</externalId>
@@ -2611,7 +2627,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Check_In_Date__c</fullName>
         <externalId>false</externalId>
         <label>Check In Date</label>
@@ -2911,7 +2927,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Customer_Information__c</fullName>
         <externalId>false</externalId>
         <label>Customer Information</label>
@@ -3023,7 +3039,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>DMS_Sent_Flag__c</fullName>
         <defaultValue>false</defaultValue>
         <description>The flag to identify if this is sent AL or not. No manual update</description>
@@ -3524,6 +3540,30 @@ Contact__r.Email__c
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Existing_Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>"DATEVALUE(Existing_Contract__r.EndDate__c)"</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Existing Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Existing_Contract_No__c</fullName>
+        <externalId>false</externalId>
+        <formula>Existing_Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Existing Contract No.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Existing_Contract__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3537,7 +3577,7 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Expected_Close_Date__c</fullName>
         <externalId>false</externalId>
         <label>Expected Close Date</label>
@@ -3642,7 +3682,7 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Finance_Closing_Option__c</fullName>
         <externalId>false</externalId>
         <label>Finance Closing Option</label>
@@ -3686,7 +3726,6 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	
     <fields>
         <fullName>Finance_Proposal_Date__c</fullName>
         <externalId>false</externalId>
@@ -3869,7 +3908,7 @@ Contact__r.Email__c
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Handover_Date__c</fullName>
         <externalId>false</externalId>
         <label>Handover Date</label>
@@ -3908,7 +3947,6 @@ Collectioner_Name__r.HomePhone
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	
     <fields>
         <fullName>Insurance_Details__c</fullName>
         <externalId>false</externalId>
@@ -6914,7 +6952,7 @@ Collectioner_Name__r.HomePhone
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Invoice_Amount_History__c</fullName>
         <description>Historical Invoice Amount with comma separated. No manual update</description>
         <externalId>false</externalId>
@@ -6960,6 +6998,19 @@ Collectioner_Name__r.HomePhone
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Invoice_Number__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Invoice Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Is_Active__c</fullName>
@@ -7155,7 +7206,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Job_Card_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -8475,7 +8526,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Lead_Lost_Date_Time__c</fullName>
         <description>Set this date when lead status is changed into Lost.</description>
         <externalId>false</externalId>
@@ -8485,6 +8536,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Possibility__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c  =  DATEVALUE( NOW()) ) , "T1",  IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c   &gt;   DATEVALUE( NOW()) ), "T2",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  =   DATEVALUE( NOW()) ), "HOT1",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  &gt;   DATEVALUE( NOW()) ), "HOT2",  IF(AND( Expected_Close_Date__c  &gt;DATEVALUE( NOW()) , Expected_Registration_Date__c  &gt;DATEVALUE( NOW()) ), "HOT3", null) ) ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Possibility</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lead_Possibility_text__c</fullName>
@@ -9780,7 +9843,7 @@ Modify Reason:
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -9981,7 +10044,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Needs_Check_Date__c</fullName>
         <externalId>false</externalId>
         <label>Needs Check Date</label>
@@ -10026,7 +10089,7 @@ Modify Reason:
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Next_Contact_Contents__c</fullName>
         <externalId>false</externalId>
         <label>Next Contact Contents</label>
@@ -10133,7 +10196,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Order_Confirmation_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -10176,7 +10239,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Order_Print_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -10303,7 +10366,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Photo_URL1__c</fullName>
         <externalId>false</externalId>
         <label>Photo URL1</label>
@@ -10862,7 +10925,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Quotation_Amount__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -11651,7 +11714,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Registration_Number__c</fullName>
         <externalId>false</externalId>
         <label>Registration No.</label>
@@ -11742,7 +11805,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Requested_Service_Hour__c</fullName>
         <externalId>false</externalId>
         <label>Service requested hour</label>
@@ -11791,7 +11854,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Retail_Company__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Does not need to show on UI, but need to link to Account_Link__c (Retail Copy) to send to AL.</description>
@@ -15160,7 +15223,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>ServiceProgram_Proposal_Date__c</fullName>
         <externalId>false</externalId>
         <label>Service Program Proposal Date</label>
@@ -15183,7 +15246,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Service_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Service_Program__c</fullName>
         <externalId>false</externalId>
         <label>Service Program</label>
@@ -15211,16 +15284,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Service_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Service Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Source_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -15246,7 +15309,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Special_Offer__c</fullName>
         <externalId>false</externalId>
         <label>Special Offer</label>
@@ -17857,7 +17920,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Trade_in_Date__c</fullName>
         <externalId>false</externalId>
         <label>Trade-in Date</label>
@@ -17916,7 +17979,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>UsVIN__c</fullName>
         <externalId>false</externalId>
         <label>UsVIN</label>
@@ -19992,7 +20055,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>WIP_Created_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -20508,6 +20571,24 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
