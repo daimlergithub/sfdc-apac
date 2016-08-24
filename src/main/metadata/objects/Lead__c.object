@@ -68168,14 +68168,14 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <fullName>Lead_assignment</fullName>
         <active>true</active>
         <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
-        <errorConditionFormula>AND(
- NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')),
- OR( 
-     NOT(ISBLANK(Assigned_Dealer__c)),
-     NOT(ISNULL(Assigned_Dealer__c)) 
-    ),
- $Profile.Name != 'IntegrationAPI',MD__c= 'JP'||MD__c='KR'
-)</errorConditionFormula>
+        <errorConditionFormula>
+		AND( 
+NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
+NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c= 'JP'||MD__c='KR' 
+)
+		</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>Lead status should be "Assigned" once dealer is assigned to the Lead</errorMessage>
     </validationRules>
