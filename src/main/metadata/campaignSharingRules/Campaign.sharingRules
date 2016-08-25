@@ -15,6 +15,17 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Published</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Allow Only to special users</name>
     </criteriaBasedRules>
