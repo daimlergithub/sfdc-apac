@@ -1666,28 +1666,34 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         vechClassScore = vechClassMap.get(led.Current_Vehicle__r.class__c);
                     }
                      
-                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' && vechClassMap.containsKey(led.MB_Vehicle_Interest__c))
+                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '')
                     {
                         vehicleInterest = led.MB_Vehicle_Interest__c;
                         vehicleInterestList = vehicleInterest.split(';');
                         for(integer i=0 ; i<vehicleInterestList.size() ;i++)
                         {
-                            highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            if(vechClassMap.containsKey(vehicleInterestList[i]))
+                            {
+                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            }
                         }
-                        maxkey= highestClassMap.keySet().iterator().next();
-                        maxvalue = highestClassMap.get(maxkey);
-                        for(string key : highestClassMap.keySet())
+                        if(highestClassMap.isEmpty() && highestClassMap != null)
                         {
-                            Decimal currValue = highestClassMap.get(key);
-                            if(maxvalue > currValue)
+                            maxkey= highestClassMap.keySet().iterator().next();
+                            maxvalue = highestClassMap.get(maxkey);
+                            for(string key : highestClassMap.keySet())
                             {
-                                highestClassMap.remove(key);
-                            } 
-                            else if(maxvalue < currValue) 
-                            {
-                                highestClassMap.remove(maxKey);
-                                maxvalue = highestClassMap.get(key);
-                                maxKey = key;
+                                Decimal currValue = highestClassMap.get(key);
+                                if(maxvalue > currValue)
+                                {
+                                    highestClassMap.remove(key);
+                                } 
+                                else if(maxvalue < currValue) 
+                                {
+                                    highestClassMap.remove(maxKey);
+                                    maxvalue = highestClassMap.get(key);
+                                    maxKey = key;
+                                }
                             }
                         }
                         //highestClassMap.put(vehicleInterestList.get(0), vechClassMap.get(vehicleInterestList.get(0)));
@@ -1788,28 +1794,34 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         purchasetime = prospectpurchaseMap.get(led.Purchase_Time__c);
                     }
                     
-                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' && vechClassMap.containsKey(led.MB_Vehicle_Interest__c))
+                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' )
                     {
                         vehicleInterest = led.MB_Vehicle_Interest__c;
                         vehicleInterestList = vehicleInterest.split(';');
                         for(integer i=0 ; i<vehicleInterestList.size() ;i++)
                         {
-                            highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            if(vechClassMap.containsKey(vehicleInterestList[i]))
+                            {
+                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            }
                         }
-                        maxkey= highestClassMap.keySet().iterator().next();
-                        maxvalue = highestClassMap.get(maxkey);
-                        for(string key : highestClassMap.keySet())
+                        if(!highestClassMap.isEmpty() && highestClassMap != null)
                         {
-                            Decimal currValue = highestClassMap.get(key);
-                            if(maxvalue > currValue)
+                            maxkey= highestClassMap.keySet().iterator().next();
+                            maxvalue = highestClassMap.get(maxkey);
+                            for(string key : highestClassMap.keySet())
                             {
-                                highestClassMap.remove(key);
-                            } 
-                            else if(maxvalue < currValue) 
-                            {
-                                highestClassMap.remove(maxKey);
-                                maxvalue = highestClassMap.get(key);
-                                maxKey = key;
+                                Decimal currValue = highestClassMap.get(key);
+                                if(maxvalue > currValue)
+                                {
+                                    highestClassMap.remove(key);
+                                } 
+                                else if(maxvalue < currValue) 
+                                {
+                                    highestClassMap.remove(maxKey);
+                                    maxvalue = highestClassMap.get(key);
+                                    maxKey = key;
+                                }
                             }
                         }
                         system.debug('maxKey>>' + maxKey);
@@ -1817,11 +1829,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         mbVechInterestScore = maxvalue ;
                     }
                     CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime + 'prospectleadscore' + prospectleadscore);
+                    system.debug('mbVechInterestScore>>' +mbVechInterestScore + 'enquirytype>><<' + enquirytype + 'purcha>>>>>setime' + purchasetime + 'prospectlea:?>?>?>>?dscore' + prospectleadscore);
                     priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
                                    
                     led.Priority_Score__c = priorityScore;
                     
-                    if(Integer.valueOf(led.Priority_Score__c) > 38)
+                    if(Integer.valueOf(led.Priority_Score__c) >= 38)
                     {
                         led.Lead_Priority__c = 'Hot';
                     }
