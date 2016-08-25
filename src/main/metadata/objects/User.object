@@ -101,6 +101,16 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Dealer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Flight_Ticket_Budget__c</fullName>
         <externalId>false</externalId>
         <label>Flight Ticket Budget</label>
@@ -109,6 +119,16 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MBJ_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>MBJ Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ManagerId</fullName>
@@ -137,6 +157,126 @@
                 <fullName>KR</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Account_Contact_Update__c</fullName>
+        <description>Pick-list to select the receiving settings for notification of Account's contact information update (All, Assigned, Not receive)</description>
+        <externalId>false</externalId>
+        <label>Notification Account Contact Update</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not receive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Account_Finance_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Pick-list to select the receiving settings for notification of update for the Finance Contract linked Account (Only available for Finance Call Center users)</description>
+        <externalId>false</externalId>
+        <label>Notification Account Finance Update</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Lead_Dealer_Assignment__c</fullName>
+        <description>Store the ND codes of the outlets, for which the user has selected to receive the lead assignment notification, as the comma separated values.</description>
+        <externalId>false</externalId>
+        <label>Notification Lead Dealer Assignment</label>
+        <length>2500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Notification_Lead_No_Update__c</fullName>
+        <description>Store the ND codes of the outlets, for which the user has selected to receive the lead not updated for 1 month notification, as the comma separated values.</description>
+        <externalId>false</externalId>
+        <label>Notification Lead No Update</label>
+        <length>2500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Notification_Lead_Not_Assigned__c</fullName>
+        <description>Store the ND codes of the outlets, for which the user has selected to receive the lead not assigned to the person notification, as the comma separated values.</description>
+        <externalId>false</externalId>
+        <label>Notification Lead Not Assigned</label>
+        <length>2500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Notification_Retail_Copy_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Pick-list to select the receiving settings for notification of retail copy being created for the dealer (except when dealer user created the retail copy, through the on-liine de-dup)</description>
+        <externalId>false</externalId>
+        <label>Notification Retail Copy Created</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_VR_Created__c</fullName>
+        <description>Pick-list to select the receiving settings for notification of Vechile Relationship Created (All, Assigned, Not receive) (Dealer user who sold the vehicle would not receive the notification regardless of the setting)</description>
+        <externalId>false</externalId>
+        <label>Notification VR Created</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not receive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notification_VR_Terminated__c</fullName>
+        <description>Pick-list to select the receiving settings for notification of Vechile Relationship Created (All, Assigned, Not receive) (Dealer user who sold the vehicle would not receive the notification regardless of the setting)</description>
+        <externalId>false</externalId>
+        <label>Notification VR Terminated</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not receive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
