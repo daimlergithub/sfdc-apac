@@ -184,23 +184,23 @@
         <label>Purchase intent</label>
         <picklist>
             <picklistValues>
-                <fullName>Now - 24 hours</fullName>
+                <fullName>24 Hours</fullName>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7 days</fullName>
+                <fullName>7 Days</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1-4 weeks</fullName>
+                <fullName>1-4 Weeks</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>2-6 months</fullName>
+                <fullName>2-6 Months</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>6 months +</fullName>
+                <fullName>6+ months</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
