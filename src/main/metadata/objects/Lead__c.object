@@ -3828,6 +3828,70 @@ Contact__r.Email__c
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Lead_Assignment_Notification_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Lead Assignment Notification Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Person_Assign_Notificaton_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Person Assign Notificaton Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Last_Nonassign_Notification_Date__c</fullName>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Last Nonassign Notification Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Task_Update_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Hidden from the page layout</description>
+        <externalId>false</externalId>
+        <label>Task Update Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Product_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
         <externalId>false</externalId>
@@ -20423,6 +20487,47 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>S_SL_SLC_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_DM20161</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -20571,6 +20676,24 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
@@ -46762,7 +46885,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
@@ -68168,14 +68291,12 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <fullName>Lead_assignment</fullName>
         <active>true</active>
         <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
-        <errorConditionFormula>
-		AND( 
+        <errorConditionFormula>AND( 
 NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
 NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')), 
 $Profile.Name != 'IntegrationAPI', 
 MD__c= 'JP'||MD__c='KR' 
-)
-		</errorConditionFormula>
+)</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>Lead status should be "Assigned" once dealer is assigned to the Lead</errorMessage>
     </validationRules>
