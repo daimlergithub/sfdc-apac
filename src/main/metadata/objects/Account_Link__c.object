@@ -828,6 +828,658 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Customer_ID__c</fullName>
+        <description>To Store the My Mercedes ID for My Car ID</description>
+        <externalId>false</externalId>
+        <label>Customer ID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_DMS_Customer_ID__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail DMS Customer ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Full_Name__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Full Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Full_Name_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Full Name Title</label>
+        <length>140</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Full_Name_Native__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Full Name Native</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Company_Name__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Company Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>Retail_Address_Reference__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Address Reference</label>
+        <referenceTo>Address__c</referenceTo>
+        <relationshipLabel>Account Link</relationshipLabel>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Retail_Address_Type__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Address Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Company_Other_Phone__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Company Other Phone</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Company_Name_Native1__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Company Name Native</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Company_Phone__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Company Phone</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Complaint_Amount__c</fullName>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Complaing Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Country__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_DMS_Customer_ID__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail DMS Customer ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Address_Line_1__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Address Line 1</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Address_Line_2__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Address Line 2</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Distinct__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Distinct</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Duplicate_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Readyonly</description>
+        <externalId>false</externalId>
+        <label>Retail Duplicate Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Fax__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Fax</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Commercial_Reg_No__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Commercial Reg No</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Email__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Email</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Foundation_Month__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Foundation Month</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Full_Name_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Full Name Title</label>
+        <length>140</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Full_Name__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Full Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Gender__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Gender</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Individual_Home_Phone__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Individual Home Phone</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Industry__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Industry</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Occupation__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Occupation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_PersonBirthdate__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail PersonBirthdate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Position__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Position</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Preferred_Contact_Method__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Preferred Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Preferred_Language__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Preferred Language</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Primary_Phone__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Primary Phone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Retail_City__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail City</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Province__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Province</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Related_Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Related Company</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Account Link</relationshipLabel>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Responsible__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Responsible</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Comments__c</fullName>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Comments</label>
+        <length>3200</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Retail_Sales_Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Sales Consultant</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Sales_Sanction_Comment__c</fullName>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Sales Sanction Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Sales_Sanction__c</fullName>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Sales Sanction</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Special_Care__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Special Care</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>Retail_Allow_Data_Sharing__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Allow Data Sharing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Special_Needs_Class__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Special Needs Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Vat_No__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Vat No</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_WebSite__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Web Site</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Work_Phone__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Work Phone</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Mobile__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Mobile</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_ZipCode__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail ZipCode</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Address_LastModifiedDate__c</fullName>
+        <description>Readyonly</description>
+        <externalId>false</externalId>
+        <label>Retail Address LastModifiedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Address_CreatedDate__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Address CreatedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>toRole__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
