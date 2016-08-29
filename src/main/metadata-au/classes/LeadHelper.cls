@@ -1434,7 +1434,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     //Email notification when Lead is created or updated with Buisness Unit Cars/Vans.
     public static void sendEmailNotificationsToAssignedDealer(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
     {        
-        map<id,string> accountidmailmap = new map<id,string>();
+        map<id,string> leadMailMap = new map<id,string>();
         List<string> toAddress = new List<string>();
         List<Account> acclist = new List<Account>();
         List<Contact> MonkContacts = new List<Contact>();
@@ -1442,37 +1442,19 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Messaging.Email> mailList = new List<Messaging.Email>();
         for(Lead__c lead :listNewLeads)
         {          
-            if(lead.RecordTypeId == leadVehicleRt && lead.Assigned_Dealer__c != null && 
+            if(lead.RecordTypeId == leadVehicleRt && lead.Email__c != null && lead.Email__c != '' &&
                (lead.Business_Unit__c == 'Cars' || lead.Business_Unit__c == 'Vans') && (isInsert || (isUpdate && lead.Business_Unit__c != leadOldMap.get(lead.Id).Business_Unit__c)))
             {         
-                accid.add(lead.Assigned_Dealer__c);
+                leadMailMap.put(lead.id,lead.Email__c);
             }		            
-        }
-        if(!accid.isEmpty() && accid != null)
-        {          
-			acclist = [select id,Dealer_Email__c from Account where ID IN :accid];
-        }
-        if(!acclist.isEmpty() && acclist != Null)
-        {
-            for(Account a : acclist)
-            {
-                for(Lead__c led : listNewLeads)
-                {
-                    if(a.Id == led.Assigned_Dealer__c)
-                    {
-                        accountidmailmap.put(a.Id,a.Dealer_Email__c);
-                    }
-                }
-            }
-            system.debug('accountidmailmap>>>>' + accountidmailmap);
         }
         
         EmailTemplate etassigneddealer = [SELECT Id,Body,Subject FROM EmailTemplate WHERE Name = 'Brochure Request/Test Drive Request Email CARS' limit 1];         
-        if(!accountidmailmap.isEmpty() && accountidmailmap != null)
+        if(!leadMailMap.isEmpty() && leadMailMap != null)
         {
             for(Lead__c leds : listNewLeads)
             {                
-                Contact MonkContact = MonkCotact(accountidmailmap.get(leds.Assigned_Dealer__c));                                          
+                Contact MonkContact = MonkCotact(leadMailMap.get(leds.Id));                                          
                 Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
                 //mail.setToAddresses(toAddress);
                 mail.setTargetObjectId(MonkContact.Id);
