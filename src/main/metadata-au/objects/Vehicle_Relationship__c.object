@@ -3999,26 +3999,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Warranty_Apply_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Warranty Apply Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Warranty_Expiry_Date__c</fullName>
         <externalId>false</externalId>
         <label>Warranty Expiry Date</label>
@@ -6709,17 +6689,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Web_Auto__c</picklist>
             <values>
                 <fullName>1</fullName>
@@ -9294,17 +9263,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Web_Auto__c</picklist>
             <values>
                 <fullName>1</fullName>
@@ -11851,17 +11809,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Web_Auto__c</picklist>
             <values>
                 <fullName>1</fullName>
@@ -12281,17 +12228,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Web_Auto__c</picklist>
             <values>
                 <fullName>1</fullName>
@@ -12635,17 +12571,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -13020,17 +12945,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
