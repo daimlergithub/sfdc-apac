@@ -516,17 +516,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Retail_Responsible__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Responsible</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Role2__c</fullName>
         <externalId>false</externalId>
         <label>Role2</label>
@@ -846,29 +835,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail DMS Customer ID</label>
         <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Full_Name__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail Full Name</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Retail_Full_Name_Title__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Full Name Title</label>
-        <length>140</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
