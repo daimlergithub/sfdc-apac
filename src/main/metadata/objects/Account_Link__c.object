@@ -995,18 +995,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_DMS_Customer_ID__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail DMS Customer ID</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Retail_Address_Line_1__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
