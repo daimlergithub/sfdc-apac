@@ -46,6 +46,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Purchased_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -70,6 +74,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lost_Dealer_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
             </layoutItems>
             <layoutItems>
@@ -91,6 +99,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Dealer_Audit_Result__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contact_Failed_For_3_Days_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -125,6 +137,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_To__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -177,6 +193,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Recommended_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Customer_Preferred_Rep__c</field>
             </layoutItems>
             <layoutItems>
@@ -192,6 +212,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>X24H_Untouched__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Visit_Dealer__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -259,6 +283,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_Placed_Date__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lodgment_Date__c</field>
@@ -365,10 +393,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Interested_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
