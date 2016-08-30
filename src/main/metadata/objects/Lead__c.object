@@ -68236,7 +68236,7 @@ ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
 $Profile.Name != 'IntegrationAPI', 
 ISNULL(Purchased_CAC_Date__c), 
 ISBLANK(Purchased_CAC_Date__c), 
-RecordType.Id == '012280000006I7q', MD__c = 'KR'
+RecordType.DeveloperName = 'Aftersales Leads', MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -68256,7 +68256,7 @@ Modify Reason:
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
 ISBLANK(Purchased_Vehicle__c), 
-RecordType.Id == '012280000006I7s',MD__c = 'KR'
+RecordType.DeveloperName = 'Sales Leads',MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Purchased Vehicle Model are required.</errorMessage>
@@ -68304,7 +68304,7 @@ OR (
 ISNULL(Purchased_Date__c), 
 ISBLANK(Purchased_Date__c) 
 ), 
-RecordType.Id == '012280000006I7q'
+RecordType.DeveloperName = 'Aftersales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -68320,7 +68320,7 @@ ISBLANK(Purchased_Date__c),
 TEXT(Bought_Vehicle_Brand__c) == NULL, 
 TEXT(Bought_Vehicle_Class__c) == NULL, 
 TEXT(Bought_Vehicle_Model__c) == NULL), 
-RecordType.Id == '012280000006I7s'
+RecordType.DeveloperName = 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
@@ -68421,7 +68421,7 @@ ISNULL(Lost_Dealer_Date__c)
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
-ISNULL(Order_Placed_Date__c),  RecordTypeId == '012280000006I7s'
+ISNULL(Order_Placed_Date__c),RecordType.DeveloperName = 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
@@ -68468,7 +68468,7 @@ Modify Reason:
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 INCLUDES(Lead_Desired_Service__c, "Trade-In"), 
 TEXT(Trade_In_Vehicle_Brand__c) == NULL , 
-RecordTypeId == '012280000006I7s' 
+RecordType.DeveloperName = 'Sales Leads' 
 )</errorConditionFormula>
         <errorDisplayField>Lead_Desired_Service__c</errorDisplayField>
         <errorMessage>If Lead Desired Service includes Trade-In, Trade-In Vehicle Brand, Trade-In Vehicle Class and Trade-In MB Vehicle Model are required.</errorMessage>
@@ -68479,7 +68479,7 @@ RecordTypeId == '012280000006I7s'
         <errorConditionFormula>AND(
 ISPICKVAL(Trade_In_Vehicle_Brand__c,'Other brands'),       
 ISBLANK(Trade_In_Other_Vehicle_Model__c),
-RecordTypeId == '012280000006I7s' 
+RecordType.DeveloperName = 'Sales Leads' 
 )</errorConditionFormula>
         <errorDisplayField>Trade_In_Vehicle_Brand__c</errorDisplayField>
         <errorMessage>If Trade-In Vehicle Brand equals to "Other brands" , Trade-In Other Vehicle Model is required.</errorMessage>
