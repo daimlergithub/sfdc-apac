@@ -22244,7 +22244,7 @@ Company_Account__r.Work_Phone__c  ,
             <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
-            </values
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
