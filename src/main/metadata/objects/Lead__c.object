@@ -2487,6 +2487,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Approved (Waiting)</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3827,6 +3831,70 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Lead_Assignment_Notification_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Lead Assignment Notification Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Person_Assign_Notificaton_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Person Assign Notificaton Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Last_Nonassign_Notification_Date__c</fullName>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Last Nonassign Notification Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Task_Update_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Hidden from the page layout</description>
+        <externalId>false</externalId>
+        <label>Task Update Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Product_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
@@ -7471,6 +7539,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>CCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Card</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -20423,6 +20495,47 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>S_SL_SLC_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_DM20161</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -20571,6 +20684,24 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>test_CAC_Surpervisor_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CAC Surpervisor</label>
+        <queue>test_CAC_Surpervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>test_CRM_Approver_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>test CRM Approver</label>
+        <queue>test_CRM_Approver</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
@@ -22091,25 +22222,29 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost%28CAC%29</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>Approved %28Waiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost%28CAC%29</fullName>
+                <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Qualified</fullName>
+                <fullName>New</fullName>
                 <default>true</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
-            </values>
+            </values
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -46798,7 +46933,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
@@ -46920,23 +47055,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost%28Dealer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>On-going</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46955,11 +47078,23 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lost_Reason__c</picklist>
             <values>
+                <fullName>Bought MB elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Double lead</fullName>
+                <fullName>Customer can not be reached</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer does not respond</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate for un-reported show-up</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46967,7 +47102,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Invalid customer data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No serious interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other reasons</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46976,6 +47123,22 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Price not accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation request from other dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The showroom is not convenient for me</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade in failed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49036,15 +49199,11 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
             <values>
-                <fullName>24 hours Touring Support</fullName>
+                <fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CCC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49056,63 +49215,39 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>English Customer Desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Letter</fullName>
+                <fullName>Friends recommend</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>MB Card</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MCare</fullName>
+                <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maybach call</fullName>
+                <fullName>MB website</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Call Catalogue</fullName>
+                <fullName>Media advertisement</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Magainze Survey</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Me Haneda</fullName>
+                <fullName>Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz Owner Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz School of Excelence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49120,19 +49255,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outbound Call</fullName>
+                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Recall desk</fullName>
+                <fullName>Searching engine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Response Sheet</fullName>
+                <fullName>Social media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Survey</fullName>
+                <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

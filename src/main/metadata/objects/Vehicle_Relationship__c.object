@@ -2010,9 +2010,9 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -5789,7 +5789,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>"End date is not null
 AND End reason is null"</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),UPPER(MD__c) = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
     </validationRules>
