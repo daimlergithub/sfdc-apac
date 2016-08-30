@@ -102698,10 +102698,6 @@ ISNULL( X2nd_FP_Position_Release_Date__c )
 "Please fill in Resolved Date before Close the</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Progress_Status__c,'Closed'),MD__c = 'KR',$Profile.Name != 'IntegrationAPI',
-OR ( $Profile.Name = 'Regional CRM Manager',
-     $Profile.Name = 'Regional CRM Manager', 
-     $Profile.Name = 'Central PL/WL Manager'
-   ),
  ISNULL(Resolved_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Resolved_Date__c</errorDisplayField>
@@ -102765,10 +102761,6 @@ ISBLANK(Suspended_Reason__c)
         <errorConditionFormula>AND(
 ISPICKVAL(Overdue__c, 'Y'),
 $Profile.Name != 'IntegrationAPI', MD__c = 'KR',
-OR ( $Profile.Name = 'Regional CRM Manager',
-     $Profile.Name = 'Regional CRM Manager',
-     $Profile.Name = 'Central PL/WL Manager'
-   ),
 ISPICKVAL(Overdue_Reason__c, '') 
 )</errorConditionFormula>
         <errorDisplayField>Overdue_Reason_old__c</errorDisplayField>
