@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Address</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Addresses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Address Code --></label>
+        <name>Address_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 1 --></label>
+        <name>Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 --></label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Type --></label>
+        <name>Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Business</masterLabel>
+            <translation><!-- Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company</masterLabel>
+            <translation><!-- Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mailing</masterLabel>
+            <translation><!-- Mailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal address</masterLabel>
+            <translation><!-- Postal address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prev Mailing</masterLabel>
+            <translation><!-- Prev Mailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 1 -Main Location Sales, Service &amp; Parts</masterLabel>
+            <translation><!-- Site 1 -Main Location Sales, Service &amp; Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 2 -Main Location Sales Only</masterLabel>
+            <translation><!-- Site 2 -Main Location Sales Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 3 -Main Location Service &amp; Parts</masterLabel>
+            <translation><!-- Site 3 -Main Location Service &amp; Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 4 -Additional Sales location not within Site 1</masterLabel>
+            <translation><!-- Site 4 -Additional Sales location not within Site 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 5 -Additional Sales location not within Site 1 or Site 4</masterLabel>
+            <translation><!-- Site 5 -Additional Sales location not within Site 1 or Site 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3</masterLabel>
+            <translation><!-- Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 7 -Service &amp; Parts ONLY Location</masterLabel>
+            <translation><!-- Site 7 -Service &amp; Parts ONLY Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 8 -Only Parts Location</masterLabel>
+            <translation><!-- Site 8 -Only Parts Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site 9 -Auto Body</masterLabel>
+            <translation><!-- Site 9 -Auto Body --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site address</masterLabel>
+            <translation><!-- Site address --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Block --></label>
+        <name>Block__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name Native --></label>
+        <name>Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Customer__c</name>
+        <relationshipLabel><!-- Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Delivery Point ID --></label>
+        <name>Delivery_Point_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suburb --></label>
+        <name>District__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Mail Last Modified By --></label>
+        <name>FS_Hardcopy_Last_Modified_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Mail Last Modified Date --></label>
+        <name>FS_Hardcopy_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Opt In Mail --></label>
+        <name>FS_Opt_In_Hardcopy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mail Last Modified By --></label>
+        <name>Hardcopy_Last_Modified_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mail Last Modified Date --></label>
+        <name>Hardcopy_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- HouseNumber --></label>
+        <name>HouseNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opt In Mail --></label>
+        <name>Opt_In_Hardcopy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred --></label>
+        <name>Preferred__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>Province__c</name>
+        <picklistValues>
+            <masterLabel>ACT</masterLabel>
+            <translation><!-- ACT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NSW</masterLabel>
+            <translation><!-- NSW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NT</masterLabel>
+            <translation><!-- NT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QLD</masterLabel>
+            <translation><!-- QLD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation><!-- SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TAS</masterLabel>
+            <translation><!-- TAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIC</masterLabel>
+            <translation><!-- VIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WA</masterLabel>
+            <translation><!-- WA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source System --></label>
+        <name>Source_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unnormalized Address --></label>
+        <name>Temp_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unnormalized Post Code --></label>
+        <name>Temp_ZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- TitleOfHonor --></label>
+        <name>TitleOfHonor__c</name>
+        <picklistValues>
+            <masterLabel>To Company</masterLabel>
+            <translation><!-- To Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Person</masterLabel>
+            <translation><!-- To Person --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Post Code --></label>
+        <name>ZipCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Opt-in/Opt-out --></label>
+            <section>Opt-in/Opt-out</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>individual Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Opt-in/Opt-out --></label>
+            <section>Opt-in/Opt-out</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Company --></label>
+        <name>Company</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dealer --></label>
+        <name>Dealer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual --></label>
+        <name>Individual</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- State is a mandatory fields when your Country is Australia. --></errorMessage>
+        <name>CheckedState</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only IntegrationAPI Profile user have permission to re-parent address records. --></errorMessage>
+        <name>Reparenting_is_allowed_IntegrationAPI</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Company_Address --></label>
+        <name>New_Company_Address</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_DealerAddress --></label>
+        <name>New_DealerAddress</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Individual_Address --></label>
+        <name>New_Individual_Address</name>
+    </webLinks>
+</CustomObjectTranslation>
