@@ -114,7 +114,7 @@ public with sharing class VehicleRelationshipHelperJP
           }
         }  
          updateVehicleAmount(ContactIds);        
-         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
+       //  createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
     
@@ -150,7 +150,7 @@ public with sharing class VehicleRelationshipHelperJP
             }  
         }                          
         updateVehicleAmount(ContactIds);
-        createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
+       // createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
     Public static void OnAfterDelete(List<Vehicle_Relationship__c> oldVehicleRelRecords){ 
@@ -219,12 +219,13 @@ public with sharing class VehicleRelationshipHelperJP
             update vehicleAmountToUpdate;         
     }     
     //Create Account Link   
+    /*
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
         Set<Id> ContactIds=new Set<Id>();        
         Map<Id,Vehicle_Relationship__c> mapOfContact=new Map<Id,Vehicle_Relationship__c>();
         IgnoredAccounts();      
-        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*/ AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];
-        for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*//* AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];*/
+    /*    for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
             if((vr.Vehicle_ID__c!=Null && vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
             }
@@ -271,4 +272,5 @@ public with sharing class VehicleRelationshipHelperJP
           if(!lstAccLink.isEmpty())
             insert lstAccLink;
     }
+    */
 }

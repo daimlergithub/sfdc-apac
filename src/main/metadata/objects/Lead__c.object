@@ -2487,6 +2487,14 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Approved (Waiting)</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3206,6 +3214,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Lost</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3827,6 +3839,70 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Lead_Assignment_Notification_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Lead Assignment Notification Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Person_Assign_Notificaton_Done__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Person Assign Notificaton Done</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Last_Nonassign_Notification_Date__c</fullName>
+        <description>Read-only on the page layout</description>
+        <externalId>false</externalId>
+        <label>Last Nonassign Notification Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Task_Update_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Hidden from the page layout</description>
+        <externalId>false</externalId>
+        <label>Task Update Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Product_Proposal_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Proposal Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>Contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
@@ -7471,6 +7547,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>CCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Card</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -20423,6 +20503,47 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>S_SL_SLC_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>S_SL_SLC_DM20161</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -22080,19 +22201,43 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+          <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Approving</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Qualified</fullName>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22120,8 +22265,12 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+          <picklistValues>
             <picklist>Customer_Type__c</picklist>
+            <values>
+                <fullName>Company Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Existing Customer</fullName>
                 <default>false</default>
@@ -22157,10 +22306,18 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+      <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22169,6 +22326,18 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46762,7 +46931,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
@@ -46788,6 +46957,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46872,11 +47045,15 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
-                <fullName>Lost</fullName>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost%28Dealer%29</fullName>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46887,12 +47064,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>On-going</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Order Placed</fullName>
+			<values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46903,11 +47084,23 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lost_Reason__c</picklist>
             <values>
+                <fullName>Bought MB elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Double lead</fullName>
+                <fullName>Customer can not be reached</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer does not respond</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate for un-reported show-up</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46915,7 +47108,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Invalid customer data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No serious interest</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other reasons</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46924,6 +47129,22 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Price not accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation request from other dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The showroom is not convenient for me</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade in failed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48984,15 +49205,11 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
             <values>
-                <fullName>24 hours Touring Support</fullName>
+                <fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CCC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49004,63 +49221,39 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>English Customer Desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Letter</fullName>
+                <fullName>Friends recommend</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
+                <fullName>MB Card</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MCare</fullName>
+                <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maybach call</fullName>
+                <fullName>MB website</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Call Catalogue</fullName>
+                <fullName>Media advertisement</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Magainze Survey</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes Me Haneda</fullName>
+                <fullName>Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz Owner Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz School of Excelence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49068,19 +49261,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outbound Call</fullName>
+                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Recall desk</fullName>
+                <fullName>Searching engine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Response Sheet</fullName>
+                <fullName>Social media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Survey</fullName>
+                <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -67997,7 +68190,7 @@ Company_Account__r.Work_Phone__c  ,
         <fullName>Dealer_Campaign_Share__c</fullName>
         <label>Dealer Campaign Share</label>
     </sharingReasons>
-    <validationRules>
+      <validationRules>
         <fullName>CAC_Lead_Status_Check_After_Assigned</fullName>
         <active>true</active>
         <description>/* 
@@ -68010,24 +68203,22 @@ Modify By:
 Modify Reason: 
 */</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',  MD__c = 'KR',
-NOT(ISNULL(Assigned_Date_Time__c)), 
+ISNULL(Assigned_Date_Time__c),
+ISBLANK(Assigned_Dealer__c),
 ISPICKVAL(CAC_Lead_Status__c, "Qualified")
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
-    <validationRules>
+   <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"), 
-OR ($Profile.Name != 'IntegrationAPI', 
+$Profile.Name != 'IntegrationAPI', 
 ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
-), 
-
-RecordType.Id == '01290000000rXmO', MD__c = 'KR', 
-NOT(CONTAINS($Profile.Name,'Dealer'))
+ISBLANK(Purchased_CAC_Date__c), 
+RecordType.DeveloperName = 'Aftersales Leads', MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -68046,26 +68237,18 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
-OR ( 
-TEXT(Bought_Vehicle_Brand__c) == NULL, 
-TEXT(Bought_Vehicle_Class__c) == NULL, 
-TEXT(Bought_Vehicle_Model__c) == NULL, 
-ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
-), 
-
-RecordType.Id == '01290000000rXmP',MD__c = 'KR', 
-NOT(CONTAINS($Profile.Name,'Dealer'))
+ISBLANK(Purchased_Vehicle__c), 
+RecordType.DeveloperName = 'Sales Leads',MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
+        <errorMessage>If CAC Lead Status is Purchased Vehicle Model are required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
         <active>true</active>
         <description>"Lead status changed to ""Approved(waition)"" or ""Allocated""
 AND User profile is Call center agent"</description>
-        <errorConditionFormula>AND($Profile.Name ='Japan Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
+        <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
 (UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
@@ -68099,15 +68282,11 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
         <active>true</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c, "Purchased(Only Non BDC)"), 
-
 OR ( 
 ISNULL(Purchased_Date__c), 
 ISBLANK(Purchased_Date__c) 
 ), 
-
-RecordType.Id == '01290000000rXmO', 
-
-CONTAINS($Profile.Name,'Dealer')
+RecordType.DeveloperName = 'Aftersales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -68117,15 +68296,13 @@ CONTAINS($Profile.Name,'Dealer')
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"), 
-OR( 
+OR(
 ISNULL(Purchased_Date__c), 
 ISBLANK(Purchased_Date__c), 
 TEXT(Bought_Vehicle_Brand__c) == NULL, 
 TEXT(Bought_Vehicle_Class__c) == NULL, 
-TEXT(Bought_Vehicle_Model__c) == NULL 
-), 
-RecordType.Id == '01290000000rXmP', 
-CONTAINS($Profile.Name,'Dealer')
+TEXT(Bought_Vehicle_Model__c) == NULL), 
+RecordType.DeveloperName = 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
@@ -68168,14 +68345,12 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <fullName>Lead_assignment</fullName>
         <active>true</active>
         <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
-        <errorConditionFormula>
-		AND( 
+        <errorConditionFormula>AND( 
 NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
-NOT(ISPICKVAL(CAC_Lead_Status__c,'Assigned')), 
+ISPICKVAL(CAC_Lead_Status__c,'Assigned'), 
 $Profile.Name != 'IntegrationAPI', 
 MD__c= 'JP'||MD__c='KR' 
-)
-		</errorConditionFormula>
+)</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>Lead status should be "Assigned" once dealer is assigned to the Lead</errorMessage>
     </validationRules>
@@ -68228,7 +68403,7 @@ ISNULL(Lost_Dealer_Date__c)
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
-ISNULL(Order_Placed_Date__c)
+ISNULL(Order_Placed_Date__c),RecordType.DeveloperName = 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
@@ -68260,7 +68435,7 @@ ISNULL(Test_Drive_Date__c)
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Test Drive, Test Drive Date is required.</errorMessage>
     </validationRules>
-    <validationRules>
+       <validationRules>
         <fullName>TradeIn_Fields_Required_Check_MB</fullName>
         <active>true</active>
         <description>/* 
@@ -68274,7 +68449,8 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 INCLUDES(Lead_Desired_Service__c, "Trade-In"), 
-TEXT(Trade_In_Vehicle_Brand__c) == NULL 
+TEXT(Trade_In_Vehicle_Brand__c) == NULL , 
+RecordType.DeveloperName = 'Sales Leads' 
 )</errorConditionFormula>
         <errorDisplayField>Lead_Desired_Service__c</errorDisplayField>
         <errorMessage>If Lead Desired Service includes Trade-In, Trade-In Vehicle Brand, Trade-In Vehicle Class and Trade-In MB Vehicle Model are required.</errorMessage>
@@ -68284,7 +68460,8 @@ TEXT(Trade_In_Vehicle_Brand__c) == NULL
         <active>true</active>
         <errorConditionFormula>AND(
 ISPICKVAL(Trade_In_Vehicle_Brand__c,'Other brands'),       
-ISBLANK(Trade_In_Other_Vehicle_Model__c)
+ISBLANK(Trade_In_Other_Vehicle_Model__c),
+RecordType.DeveloperName = 'Sales Leads' 
 )</errorConditionFormula>
         <errorDisplayField>Trade_In_Vehicle_Brand__c</errorDisplayField>
         <errorMessage>If Trade-In Vehicle Brand equals to "Other brands" , Trade-In Other Vehicle Model is required.</errorMessage>
@@ -68293,7 +68470,7 @@ ISBLANK(Trade_In_Other_Vehicle_Model__c)
         <fullName>Visited_Showroom_Required_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
-ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"), 
+ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>

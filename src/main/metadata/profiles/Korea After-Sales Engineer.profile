@@ -18231,7 +18231,7 @@
         <layout>Lead__c-Sales Leads Soft Deleted</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Soft Deleted</layout>
+        <layout>Lead__c-AfterSales Lead</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
