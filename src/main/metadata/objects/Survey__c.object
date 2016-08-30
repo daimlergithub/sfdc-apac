@@ -77,6 +77,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sales_Notification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Sales Notification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Service_Notification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Service Notification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Submit_Response__c</fullName>
         <description>Message to be displayed to the user when the Survey has been submitted</description>
         <externalId>false</externalId>
