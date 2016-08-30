@@ -2491,6 +2491,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Approved (Waiting)</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3208,6 +3212,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Lost</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -22245,6 +22253,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -22332,6 +22344,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46961,6 +46977,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -47060,6 +47080,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>On-going</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
