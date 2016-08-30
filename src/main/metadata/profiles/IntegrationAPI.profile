@@ -17556,6 +17556,11 @@
         <field>User.Dealer_Outlet_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Dealer_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Dealer_Title__c</field>
@@ -17564,6 +17569,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Flight_Ticket_Budget__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.MBJ_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17601,7 +17611,7 @@
         <field>User.Notification_Lead_Not_Assigned__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>User.Notification_Retail_Copy_Created__c</field>
         <readable>true</readable>
