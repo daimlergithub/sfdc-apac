@@ -75,7 +75,7 @@
 	</target>
 	<target name="deploy01">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			 <sf:typeset name="installedPackages"/> 
+			<!-- <sf:typeset name="installedPackages"/> -->
 		</deploy>
     </target>
 	<target name="deploy05">
@@ -250,6 +250,7 @@
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 			<sf:typeset name="tabs">
