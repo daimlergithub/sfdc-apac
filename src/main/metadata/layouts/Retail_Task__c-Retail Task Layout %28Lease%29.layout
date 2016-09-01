@@ -49,7 +49,7 @@
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
@@ -178,6 +178,10 @@
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Installment_Amount__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Monthly_Repayment_Tax__c</field>
@@ -192,7 +196,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Base_Interest_Rate__c</field>
+                <field>Supplement_normal_interest_rates__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -285,7 +289,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Bank_Account_Number__c</field>
+                <field>Bank_Account_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -307,7 +311,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Bank_Account_Type__c</field>
+                <field>Bank_Account_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
