@@ -68589,19 +68589,55 @@ else {
         <fullName>Submit_Survey</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Submit Survey</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>google.com</url>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+
+var SurveyName="Happy Call Survey"; 
+var SurveyQuestionsList; 
+var SurveyQuestionRecords; 
+var SQ1; 
+var SQ2; 
+var SQ3; 
+var SQ4; 
+var SQ5; 
+var url = '/flow/Happy_Call_Hour_Survey?LeadID='; 
+var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'"); 
+var SurveyRecords = SurveyList.getArray("records"); 
+var SurveyID=SurveyRecords[0].Id; 
+if(SurveyID == null || SurveyID == 'undefined') { 
+alert("Oops!! No Happy Call Survey"); 
+}else{ 
+SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
+SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
+
+for(var i=0;i&lt;SurveyQuestionRecords.length;i++){ 
+
+var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
+if(SurveyQuestionOrderNumber==1){ 
+SQ1=SurveyQuestionRecords[i].Id; 
+} 
+else if(SurveyQuestionOrderNumber==2){ 
+SQ2=SurveyQuestionRecords[i].Id; 
+} 
+else if(SurveyQuestionOrderNumber==3){ 
+SQ3=SurveyQuestionRecords[i].Id; 
+} 
+else if(SurveyQuestionOrderNumber==4){ 
+SQ4=SurveyQuestionRecords[i].Id; 
+} 
+else if(SurveyQuestionOrderNumber==5){ 
+SQ5=SurveyQuestionRecords[i].Id; 
+} 
+} 
+
+url += '{!Lead__c.Id}&amp;CurrentUser={!$User.Id}&amp;SurveyID='+SurveyID+'&amp;Q1_ID='+SQ1+'&amp;Q2_ID='+SQ2+'&amp;Q3_ID='+SQ3+'&amp;Q4_ID='+SQ4+'&amp;Q5_ID='+SQ5; 
+
+window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
+}</url>
     </webLinks>
 </CustomObject>
