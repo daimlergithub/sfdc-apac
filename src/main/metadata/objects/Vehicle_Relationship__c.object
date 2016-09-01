@@ -3974,7 +3974,7 @@ What factors were influential in your purchase decision?
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Used_Warranty_Apply_Status__c</fullName>
+        <fullName>UsedWarranty_Apply_Status__c</fullName>
         <externalId>false</externalId>
         <label>Used Warranty Apply Status</label>
         <picklist>
@@ -4778,13 +4778,13 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Used_Warranty_Apply_Status__c</picklist>
+            <picklist>UsedWarranty_Apply_Status__c</picklist>
             <values>
-                <fullName>To be Sent</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Sent</fullName>
+            <values>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5280,13 +5280,13 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Used_Warranty_Apply_Status__c</picklist>
+            <picklist>UsedWarranty_Apply_Status__c</picklist>
             <values>
-                <fullName>To be Sent</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Sent</fullName>
+            <values>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5775,13 +5775,13 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Used_Warranty_Apply_Status__c</picklist>
+            <picklist>UsedWarranty_Apply_Status__c</picklist>
             <values>
-                <fullName>To be Sent</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Sent</fullName>
+            <values>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

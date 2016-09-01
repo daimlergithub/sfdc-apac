@@ -75,7 +75,7 @@
 	</target>
 	<target name="deploy01">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="installedPackages"/>
+			<!-- <sf:typeset name="installedPackages"/> -->
 		</deploy>
     </target>
 	<target name="deploy05">
@@ -250,6 +250,7 @@
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 			<sf:typeset name="tabs">
@@ -335,6 +336,12 @@
 				<sf:include name="AccountSharingDataHandlerTest"/>
 				<sf:include name="AccountLinkHelper"/>
 				<sf:include name="AccountLinkHelperTest"/>
+				<sf:include name="TriggerAccountTriggerHandlerKR"/>
+				<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+				<sf:include name="AccountHelperKR"/>
+				<sf:include name="AccountHelperKRTest"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>				
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
