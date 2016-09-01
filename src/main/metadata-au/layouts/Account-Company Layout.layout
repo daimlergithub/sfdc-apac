@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Contacts_Relation</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -291,6 +292,7 @@
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Assigned_Dealer__c</fields>
+        <fields>Nature_of_Request__c</fields>
         <fields>CAC_Lead_Status__c</fields>
         <fields>Opportunity_Name__c</fields>
         <fields>CREATED_DATE</fields>
