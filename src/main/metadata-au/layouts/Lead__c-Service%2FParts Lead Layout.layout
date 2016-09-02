@@ -97,11 +97,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Pickup_Time__c</field>
+                <field>Preferred_Drop_off_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Parts_Required__c</field>
+                <field>Preferred_Pickup_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -111,11 +111,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Drop_off_Time__c</field>
+                <field>Service_Loan_Car__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Service_Loan_Car__c</field>
+                <field>Parts_Required__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

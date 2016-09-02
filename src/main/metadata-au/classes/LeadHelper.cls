@@ -1659,7 +1659,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
                             }
                         }
-                        if(highestClassMap.isEmpty() && highestClassMap != null)
+                        if(!highestClassMap.isEmpty() && highestClassMap != null)
                         {
                             maxkey= highestClassMap.keySet().iterator().next();
                             maxvalue = highestClassMap.get(maxkey);
