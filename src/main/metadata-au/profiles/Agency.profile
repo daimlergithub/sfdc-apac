@@ -17621,6 +17621,15 @@
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_Link__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Address__c</object>
         <viewAllRecords>false</viewAllRecords>
@@ -19070,8 +19079,7 @@
     <tabVisibilities>
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    
+    </tabVisibilities>    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
