@@ -1727,7 +1727,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         led.Lead_Priority__c = 'Hot';
                     }
-                    else if(Integer.valueOf(led.Priority_Score__c) >30 && Integer.valueOf(led.Priority_Score__c) < 38)
+                    else if(Integer.valueOf(led.Priority_Score__c) >=30 && Integer.valueOf(led.Priority_Score__c) < 38)
                     {
                         led.Lead_Priority__c = 'Warm';
                     }
@@ -1820,7 +1820,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         led.Lead_Priority__c = 'Hot';
                     }
-                    else if(Integer.valueOf(led.Priority_Score__c) >30 && Integer.valueOf(led.Priority_Score__c) < 38)
+                    else if(Integer.valueOf(led.Priority_Score__c) >=30 && Integer.valueOf(led.Priority_Score__c) < 38)
                     {
                         led.Lead_Priority__c = 'Warm';
                     }
