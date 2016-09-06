@@ -50,7 +50,7 @@
                 <field>Premium_Change__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
