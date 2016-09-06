@@ -41,7 +41,7 @@
                 <field>Sales_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
@@ -49,7 +49,7 @@
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
@@ -178,7 +178,7 @@
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>First_Installment_Amount__c</field>
             </layoutItems>
@@ -193,10 +193,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Bonus_Amount2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Supplement_normal_interest_rates__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
