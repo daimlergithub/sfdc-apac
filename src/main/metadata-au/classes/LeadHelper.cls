@@ -1508,12 +1508,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         map<string,string> vanMap = utilPriorityScore.leadVanMap;
         map<string,Decimal> numberOfMbMap = utilPriorityScore.noOfMBsMap;
         Map<string, Decimal> highestClassMap = new Map<string, Decimal>();
+        Map<string, Decimal> vehicleClassMap = new Map<string, Decimal>();
         map<string,Decimal> prospectenquiryMap = utilPriorityScore.prospectenquiryTypeMap;
         map<string,Decimal> prospectpurchaseMap = utilPriorityScore.prospectpurchaseIntentMap;
         map<string,Decimal> prosleadMap = utilPriorityScore.prospectLeadMap;
         map<id,string> accountPCStatusMap = new map<id,string>();
         map<id,string> accountCVStatusMap = new map<id,string>();
         map<id,string> accountVANStatusMap = new map<id,string>();
+        map<id,string> behaviourMap = new map<id,string>();
         set<id> rtids = new set<id>();
         
         
@@ -1530,9 +1532,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         if(!accids.isEmpty() && accids != null)
         {
-            vehrellist = [select id,Car_Relation__c,Contact__c from Vehicle_Relationship__c where Contact__c IN :accids];
+            vehrellist = [select id,Car_Relation__c,Contact__c,Status__c,Vehicle_ID__c,Vehicle_ID__r.Class__c from Vehicle_Relationship__c where Contact__c IN :accids];
             contractList = [select id,Account__c,RecordType.Developername from Retail_Task__c where Account__c IN :accids];
-            accountlist = [select id,PC_Status__c,CV_Status__c,VAN_Status__c from Account where ID IN :accids];
+            accountlist = [select id,PC_Status__c,CV_Status__c,VAN_Status__c,Behavioural_Group__c from Account where ID IN :accids];            
         }
         
         for(Lead__c le : leadlist)
@@ -1543,7 +1545,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 {                    
                     accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
                     accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
-                    accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);                        
+                    accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);
+                    behaviourMap.put(acc.Id, acc.Behavioural_Group__c);
                 }
             }
         }
@@ -1571,10 +1574,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     Decimal serviceScore = 0;
                     Decimal insuranceScore = 0;
                     Decimal maxvalue = 0;
+                    Decimal maxClassvalue = 0; 
+                    string vehicleclass; 
                     String value;
                     string maxkey;
-                    string vehicleInterest; 
-                    List<string> vehicleInterestList = new List<string>();  
+                    string vehicleInterest;
+                    string vehiclerelationClass;
+                    List<string> vehiclerelationClasslist = new List<string>();
+                    List<string> vehicleInterestList = new List<string>();
                     List<string> servicecontractlist = new List<string>();
                     List<string> insuranceContractList = new List<string>();
                     List<string> financecontractList = new List<string>();
@@ -1588,8 +1595,15 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                 Count++;
                                 accvehlmap.put(vrel.Contact__c, Count);
                             }
+                            if(vrel.Contact__c != null && ((led.Contact__c!= null && (led.Contact__c == vrel.Contact__c))
+                              || (led.Company_Account__c != null && (led.Company_Account__c == vrel.Contact__c))) && vrel.Car_Relation__c == 'Owner'
+                              && vrel.Status__c == 'Currently Owned')
+                            {
+                                vehiclerelationClasslist.add(vrel.Vehicle_ID__r.Class__c);
+                            }
                         }
                     }
+                     system.debug('vehiclerelationClasslist>>>>>' + vehiclerelationClasslist);
 					if(!contractList.isEmpty() && contractList != null)
                     {
                         for(Retail_Task__c rtask : contractList)
@@ -1637,15 +1651,50 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         purchasetime = purchaseMap.get(led.Purchase_Time__c);
                     }
-                    
-                    if(led.Behavioral_Group__c != null && led.Behavioral_Group__c != '' && behaviouralMap.containsKey(led.Behavioral_Group__c))
+                   	
+                    if(!behaviourMap.isEmpty() && behaviourMap != null)
                     {
-                        behavgroup = behaviouralMap.get(led.Behavioral_Group__c);
+                        if(led.Contact__c != null)
+                        {                            
+                            behavgroup = behaviouralMap.get(behaviourMap.get(led.Contact__c));
+                        }
+                        else if(led.Company_Account__c != null)
+                        {
+                            behavgroup = behaviouralMap.get(behaviourMap.get(led.Company_Account__c));
+                        }
                     }
                      
-                    if(led.Current_Vehicle__c != null && vechClassMap.containsKey(led.Current_Vehicle__r.class__c))
+                    if(vehiclerelationClasslist != null && !vehiclerelationClasslist.isEmpty())
                     {
-                        vechClassScore = vechClassMap.get(led.Current_Vehicle__r.class__c);
+                        vehiclerelationClasslist.sort();
+                        for(integer i=0 ; i<vehiclerelationClasslist.size() ; i++)
+                        {
+                            if(vechClassMap.containsKey(vehiclerelationClasslist[i]))
+                            {
+                                vehicleClassMap.put(vehiclerelationClasslist[i], vechClassMap.get(vehiclerelationClasslist[i]));
+                            }
+                        }
+                        if(!vehicleClassMap.isEmpty() && vehicleClassMap != null)
+                        {
+                            vehicleclass = vehicleClassMap.keySet().iterator().next();
+                            maxClassvalue = vehicleClassMap.get(vehicleclass);
+                            for(string vec : vehicleClassMap.keySet())
+                            {
+                                Decimal currscore = vehicleClassMap.get(vec);
+                                if(maxClassvalue > currscore)
+                                {
+                                    vehicleClassMap.remove(vec);
+                                }
+                                else if(maxvalue < currscore) 
+                                {
+                                    vehicleClassMap.remove(vehicleclass);
+                                    maxClassvalue = vehicleClassMap.get(vec);
+                                    vehicleclass = vec;
+                                }
+                            }                            
+                        }
+                        system.debug('maxClassvalue' + maxClassvalue);
+                        vechClassScore = maxClassvalue;
                     }
                      
                     if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '')
@@ -1678,8 +1727,6 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                 }
                             }
                         }
-                        //highestClassMap.put(vehicleInterestList.get(0), vechClassMap.get(vehicleInterestList.get(0)));
-                        system.debug('maxKey>>' + maxKey);
                         system.debug('maxvalue>>' + maxvalue);
                         mbVechInterestScore = maxvalue ;
                     }
@@ -1714,13 +1761,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         value =  'No';
                         insuranceScore = contractMap.get(value);                    
                     }
-                    CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime );
-                    CustomLogUtil.CustomLoggingEntry('behavgroup' +behavgroup + 'numberOfMBScore' + numberOfMBScore + 'contractScore' + contractScore );
-                    CustomLogUtil.CustomLoggingEntry('serviceScore' +serviceScore + 'insuranceScore' + insuranceScore );  
+                    system.debug('mbVechInterestScore>>>' +mbVechInterestScore + 'enquirytype>>' + enquirytype + 'purchasetime>>>' + purchasetime );
+                    system.debug('behavgroup>:>:>:>' +behavgroup + 'numberOfMBScore>>>>' + numberOfMBScore + 'contractScore>>>>' + contractScore );
+                    system.debug('serviceScore????' +serviceScore + 'insuranceScore??????' + insuranceScore + 'vechClassScore????' + vechClassScore );
                      priorityScore = enquirytype + purchasetime + behavgroup + numberOfMBScore + vechClassScore + contractScore + 
                                     mbVechInterestScore + serviceScore + insuranceScore;
                     
-               		CustomLogUtil.CustomLoggingEntry('Priority Score ' +priorityScore );
                     led.Priority_Score__c = priorityScore;
                         
                     if(Integer.valueOf(led.Priority_Score__c) > 38)

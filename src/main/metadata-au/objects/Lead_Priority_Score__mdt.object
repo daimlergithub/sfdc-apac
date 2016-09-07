@@ -6,19 +6,19 @@
         <label>Behavioural group</label>
         <picklist>
             <picklistValues>
-                <fullName>Revolvers</fullName>
+                <fullName>Revolver</fullName>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Keepers</fullName>
+                <fullName>Keeper</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>New to brand</fullName>
+                <fullName>New to the brand</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Attriters</fullName>
+                <fullName>Attriter</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
