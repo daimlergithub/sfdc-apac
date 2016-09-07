@@ -152,12 +152,5 @@
         <label><!-- Phone_TR9 --></label>
         <name>Phone_TR9__c</name>
     </fields>
-    <layouts>
-        <layout>MBKAreaCodeTranslation Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
