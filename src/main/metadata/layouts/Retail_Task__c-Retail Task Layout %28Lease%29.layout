@@ -206,7 +206,7 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Voluntary_Insurance_Company__c</field>
             </layoutItems>
         </layoutColumns>

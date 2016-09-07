@@ -81,6 +81,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>EndDate__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Payment_End_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -280,7 +284,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Bank_Account_Number__c</field>
+				<field>Bank_Account_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -302,7 +306,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-				<field>Bank_Account_Type__c</field>
+                <field>Bank_Account_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
