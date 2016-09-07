@@ -206,6 +206,15 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Notification_Lead_Merged__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Lead Merged</label>
+        <length>2500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Notification_Lead_No_Update__c</fullName>
         <description>Store the ND codes of the outlets, for which the user has selected to receive the lead not updated for 1 month notification, as the comma separated values.</description>
         <externalId>false</externalId>
