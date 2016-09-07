@@ -11205,7 +11205,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Vehicle_Registration_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
