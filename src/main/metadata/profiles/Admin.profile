@@ -17616,7 +17616,12 @@
         <field>User.Notification_Lead_Dealer_Assignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Notification_Lead_Merged__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>User.Notification_Lead_No_Update__c</field>
         <readable>true</readable>
