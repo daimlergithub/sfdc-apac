@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Vehicles__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Dealer_Service_Codes__c</field>
+    </columns>
+    <columns>
+        <field>Account$Personal_Abroad_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>Account$Personal_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>Account$Personal_Information_Third_Party_Release__c</field>
+    </columns>
+    <columns>
+        <field>Account.Vehicles__r.Vehicle_Relationships__r$Last_Service_Dealer__c</field>
+    </columns>
+    <description>Survey Report After Servicing Completed</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$CAC_Lead_Status__c</column>
+            <operator>equals</operator>
+            <value>Service Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$RecordType</column>
+            <operator>equals</operator>
+            <value>Lead__c.Aftersales_Leads</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Survey Report After Servicing Completed</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Happy_Calls_Report_for_aftersales_Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$Add_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
