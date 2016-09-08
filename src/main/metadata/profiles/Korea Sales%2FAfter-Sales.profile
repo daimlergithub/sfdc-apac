@@ -19824,10 +19824,6 @@
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Master Layout</layout>
-        <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
