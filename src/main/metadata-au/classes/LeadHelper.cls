@@ -1546,7 +1546,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
                     accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
                     accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);
-                    behaviourMap.put(acc.Id, acc.Behavioural_Group__c);
+                    if(acc.Behavioural_Group__c != null && acc.Behavioural_Group__c != '')
+                    {
+                        behaviourMap.put(acc.Id, acc.Behavioural_Group__c);
+                    }                    
                 }
             }
         }
