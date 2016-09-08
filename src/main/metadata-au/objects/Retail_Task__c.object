@@ -9396,9 +9396,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Warranty</fullName>
+        <fullName>Warranty_Issue</fullName>
         <active>true</active>
-        <label>Warranty</label>
+        <label>Warranty Issue</label>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>

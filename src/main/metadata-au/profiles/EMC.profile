@@ -18780,7 +18780,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Warranty Layout</layout>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -20252,7 +20252,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

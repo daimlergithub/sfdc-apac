@@ -9530,6 +9530,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead_Priority_Score__mdt.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead_Priority_Score__mdt.Contract_Record_Types__c</field>
         <readable>true</readable>
@@ -18787,7 +18792,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Warranty Layout</layout>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -20628,7 +20633,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

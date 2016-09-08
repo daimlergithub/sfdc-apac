@@ -8381,11 +8381,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Customer_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18598,14 +18593,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Finance Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Insurance Lead Layout</layout>
@@ -18792,7 +18780,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Warranty Layout</layout>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -20210,7 +20198,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
