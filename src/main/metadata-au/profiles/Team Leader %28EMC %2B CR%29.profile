@@ -9526,6 +9526,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead_Priority_Score__mdt.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead_Priority_Score__mdt.Contract_Record_Types__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10586,6 +10591,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Preferred_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Preferred_Drop_off_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -11193,6 +11203,11 @@
         <editable>false</editable>
         <field>Lead__c.Vehicle_Purchase_Date__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Vehicle_Registration_No__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18765,7 +18780,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Warranty Layout</layout>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -20174,7 +20189,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Retail_Task__c.Warranty</recordType>
+        <recordType>Retail_Task__c.Warranty_Issue</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
