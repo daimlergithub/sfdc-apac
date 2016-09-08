@@ -19819,6 +19819,10 @@
         <layout>Campaign-Campaign Execution Simple layout</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Campaign-Campaign Read Only Layout</layout>
+        <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Master Layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
