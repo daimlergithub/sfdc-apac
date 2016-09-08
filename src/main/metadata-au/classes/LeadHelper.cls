@@ -1555,8 +1555,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         
         for(Lead__c led : leadlist)
-        {
-            	            
+        {           		            
              if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (carMap.containsKey(led.Business_Unit__c)))
              {
                 CustomLogUtil.CustomLoggingEntry('Lead Priority Score ' +leadlist.size() );
@@ -1668,8 +1667,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     }
                      
                     if(vehiclerelationClasslist != null && !vehiclerelationClasslist.isEmpty())
-                    {
-                        vehiclerelationClasslist.sort();
+                    {                        
                         for(integer i=0 ; i<vehiclerelationClasslist.size() ; i++)
                         {
                             if(vechClassMap.containsKey(vehiclerelationClasslist[i]))
@@ -1684,7 +1682,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             for(string vec : vehicleClassMap.keySet())
                             {
                                 Decimal currscore = vehicleClassMap.get(vec);
-                                if(maxClassvalue > currscore)
+                                if(maxClassvalue >= currscore)
                                 {
                                     vehicleClassMap.remove(vec);
                                 }
@@ -1718,7 +1716,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             for(string key : highestClassMap.keySet())
                             {
                                 Decimal currValue = highestClassMap.get(key);
-                                if(maxvalue > currValue)
+                                if(maxvalue >= currValue)
                                 {
                                     highestClassMap.remove(key);
                                 } 
@@ -1843,7 +1841,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             for(string key : highestClassMap.keySet())
                             {
                                 Decimal currValue = highestClassMap.get(key);
-                                if(maxvalue > currValue)
+                                if(maxvalue >= currValue)
                                 {
                                     highestClassMap.remove(key);
                                 } 
