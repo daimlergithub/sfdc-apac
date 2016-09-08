@@ -4,6 +4,9 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
+        <field>Lead__c.WIP_Number__c</field>
+    </columns>
+    <columns>
         <field>Lead__c.CAC_Lead_Status__c</field>
     </columns>
     <description>Based on service date (after servicing is completed), report of customer list to be generated.</description>

@@ -18,6 +18,9 @@
         <field>Account.Vehicles__r$Related_Dealer__c</field>
     </columns>
     <columns>
+        <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$WIP_Number__c</field>
+    </columns>
+    <columns>
         <field>Account.Vehicles__r$Latest_Invoice_Date__c</field>
     </columns>
     <columns>
