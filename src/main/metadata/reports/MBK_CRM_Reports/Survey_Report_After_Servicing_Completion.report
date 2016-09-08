@@ -4,6 +4,9 @@
         <field>Account$Name</field>
     </columns>
     <columns>
+        <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$WIP_Number__c</field>
+    </columns>
+    <columns>
         <field>Account.Vehicles__r$Name</field>
     </columns>
     <columns>
