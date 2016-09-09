@@ -348,11 +348,13 @@ public with sharing class RetailTaskHelper
         set<id> accid = new set<id>();
         List<Account> acclist = new List<Account>();
         List<Account> updateacclist = new List<Account>();
+        map<id,Account> accountMap = new map<id,Account>();
         Id insurancerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Insurance').getRecordTypeId();
         for(Retail_task__c r : retasklist)
         {
             if(r.RecordTypeId == insurancerecordId)
                {
+                   if(!UtilConstant.Recursivefire)
                    accid.add(r.Account__c);
                }            
         }
@@ -368,7 +370,27 @@ public with sharing class RetailTaskHelper
                 updateacclist.add(a);
             }
         }
-        update updateacclist;
+        if(!updateacclist.isEmpty() && updateacclist != null)
+        {
+            for(Account acc:updateacclist)
+            {
+                accountMap.put(acc.Id, acc);
+            }            
+        }
+        if(accountMap.values()!=null && !accountMap.values().isEmpty() && System.IsBatch() == false && System.isFuture() == false)   
+          { 
+            UtilConstant.Recursivefire=true;
+            String JSONString = JSON.serialize(accountMap.values());
+            updateaccounts(JSONString);
+          }
+    }
+        
+    @future
+    public static void updateaccounts(String account)
+    {
+        system.debug('accountvalues>>>>>>'+account);
+        List<Account> futureAccountList=(List<Account>)JSON.deserialize(account,List<Account>.class);
+        UtilDB.updateSobjects(futureAccountList);
     }
     
     //Update PC,CV,Van Status of Account
