@@ -126,7 +126,7 @@
         <name>Bank_Name__c</name>
     </fields>
     <fields>
-        <label>MBFベース金利</label>
+        <label>補填通常金利</label>
         <name>Base_Interest_Rate__c</name>
     </fields>
     <fields>

@@ -2506,6 +2506,18 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>MBF_base_interest_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Compensation usually interest rates</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -2907,6 +2919,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Parent_Number__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>関連契約番号がある場合は、上記契約番号との合算が必要ですので注意してください。</inlineHelpText>
         <label>Dual Pair contract number</label>
         <length>20</length>
         <required>false</required>
@@ -3930,18 +3943,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Supplement_normal_interest_rates__c</fullName>
-        <externalId>false</externalId>
-        <label>Supplement normal interest rates</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Supporting_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4416,6 +4417,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <value>Retail_Task__c.Retail_Activity</value>
         </filters>
         <label>RetailActivity</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>RetailTaskALL</fullName>
+        <columns>NAME</columns>
+        <columns>ContractNumber__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>VIN__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL</label>
         <language>en_US</language>
     </listViews>
     <listViews>

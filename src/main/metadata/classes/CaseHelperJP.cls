@@ -10,7 +10,7 @@ public with sharing class CaseHelperJP {
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
         for (Case c : cases){
-            if (c.MD__c == 'JP'){
+            if (c.MD__c == 'JP' || c.MD__c == 'KR'){
                 Case caseRec = (Case)case_Map.get(c.Id);
                 if (c.AccountId != caseRec.AccountId){
                     List<Integer> count = acc_Count.get(caseRec.AccountId);
@@ -56,7 +56,7 @@ public with sharing class CaseHelperJP {
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
         for(Case c : cases){
-            if(c.MD__c == 'JP'){
+            if(c.MD__c == 'JP' || c.MD__c == 'KR'){
                 accounts.add (c.AccountId);
             } 
         }                       
@@ -151,7 +151,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Complaint'){
+            if (c.Case_Class__c == 'Complaint' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc6__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -169,7 +169,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Claim'){
+            if (c.Case_Class__c == 'Claim' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc11__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -187,7 +187,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Inquiry'){
+            if (c.Case_Class__c == 'Inquiry' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc16__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -205,7 +205,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Request'){
+            if (c.Case_Class__c == 'Request' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc21__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -223,7 +223,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Touring Support'){
+            if (c.Case_Class__c == 'Touring Support' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc26__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -241,7 +241,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Finance'){
+            if (c.Case_Class__c == 'Finance' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc31__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -259,6 +259,30 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-        }
+          if ((c.Priority == 'A' || c.Priority == 'Red >= 4') && c.MD__c == 'KR'){
+               c.DeadLine__c=System.Now() + 1;         
+            }
+          if ((c.Priority == 'B' || c.Priority == 'Yellow = 3') && c.MD__c == 'KR'){
+              c.DeadLine__c= System.Now() + 3;
+           }
+          if ((c.Priority == 'C' || c.Priority == 'Green <= 2') && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 10;          
+           }  
+        }        
     }
-}
+   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){     
+         for (Case c : cases){ 
+               Case caseRec = (Case)case_Map.get(c.Id);
+            if ((c.Priority == 'A' || c.Priority =='Red >= 4') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               
+                c.DeadLine__c=System.Now() + 1;         
+             }
+           if ((c.Priority == 'B' || c.Priority =='Yellow = 3') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 3;
+            }
+           if ((c.Priority == 'C' || c.Priority =='Green <= 2') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 10;          
+            } 
+          }      
+       }
+ }

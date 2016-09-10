@@ -19,7 +19,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     private static String mms ='MMS';
     private MisunderstoodTaskGeneration mis;
     public List<Campaign> cpUpdateList = new List<Campaign>(); 
-     public List<User> genericUserQueryList = new List<User>(); 
+    public List<User> genericUserQueryList = new List<User>(); 
     public List<GroupMember> obuserList = new List<GroupMember>();
     public Group CCCQueue;
     public User intUser;
@@ -39,7 +39,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     private String strSentActivityStatus = 'Sent';
     
     public List<DM_Request__c> dmRequestList = new List<DM_Request__c>();
-    // Batch Job Id
+   
     global Id jobId;
     
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
@@ -60,7 +60,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         // Initiate Mis
         mis = new MisunderstoodTaskGeneration(cpList, false);
 system.debug('&******************'+cpList);
-        // Batch Job ID
+        
         
     }
     
@@ -130,9 +130,6 @@ system.debug('&******************'+cpList);
     
     private List<Task> generateTask(CampaignMember cpm, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {
         List<Task> taskList = new List<Task>();        
-        //taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
-
-        // Combine Task.UniqueCampaignGenerateTask__c
         String uniqueTaskField = '';
         if (cpm.Campaign.Parent.Task_De_dup_Range__c == 'By Campaign Execution'
                 && cpm.Campaign.Previous_Campaign_Execution__c == null) {
@@ -226,12 +223,13 @@ system.debug('&******************'+cpList);
                 ActivityDate = date.today(),
                 UniqueCampaignGenerateTask__c = uniqueTaskField)
             );
-            if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
-                dmRequestList.add(new DM_Request__c(
-                    Campaign__c = cpm.CampaignId, 
-                    Customer_Name__c = cpm.Contact.AccountId,
-                    Expected_DM_Material1__c = cpm.Campaign.DM_Material__c)
-                );
+            //if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
+                //dmRequestList.add(new DM_Request__c(
+                   // Campaign__c = cpm.CampaignId, 
+                   // Customer_Name__c = cpm.Contact.AccountId,
+                   // Expected_DM_Material1__c = cpm.Campaign.DM_Material__c
+                   // )
+               // );
         } 
         return taskList;
     }

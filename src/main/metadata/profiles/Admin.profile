@@ -18443,6 +18443,11 @@
         <field>User.Notification_Lead_Dealer_Assignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.Notification_Lead_Merged__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Notification_Lead_No_Update__c</field>
@@ -19820,6 +19825,10 @@
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Read Only Layout</layout>
+        <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -19829,10 +19838,6 @@
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.CAS_Marketing_Campaign</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
-        <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
