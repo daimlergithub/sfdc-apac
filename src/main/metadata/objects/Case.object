@@ -21813,6 +21813,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBK_Managers_KR_Case_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBK Call Center Managers</label>
+        <queue>MBK_Managers_KR_Case</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>

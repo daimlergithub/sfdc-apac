@@ -9,9 +9,10 @@ public class CaseTriggerHandlerJP
         if (trigger.isBefore){  
             if (trigger.isInsert)
                 caseHelperJP.updateCaseDeadline(trigger.new);
-            if (trigger.isUpdate)
+            if (trigger.isUpdate){
                 caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
-            
+                caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);      
+                }      
         }else if (trigger.isAfter){
             if (trigger.isDelete){
                system.debug('Entered delete condition...');
