@@ -1977,6 +1977,14 @@
                 <fullName>Published</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -6954,6 +6962,10 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
