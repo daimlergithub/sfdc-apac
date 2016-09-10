@@ -233,7 +233,7 @@
                             
                              
                                     <apex:pageBlockSectionItem > 
-                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}" />
+                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}"  />
                                          <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>                            
                                     </apex:pageBlockSectionItem>
                                   
@@ -288,18 +288,19 @@
                
                  <span ng-switch-when="MB">
                     <apex:pageBlockSection title="{!$Label.Date_Information}">
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
-                        
+                        <apex:inputField value="{!vehicle.Purchase_Month__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.Purchase_Year__c}" required="true"/>
                     </apex:pageBlockSection>
                  </span>
                 
                  <span ng-switch-when="MB">
                     <apex:pageBlockSection title="{!$Label.Other_Information}">
                         <apex:inputField value="{!vehicle.Transmission__c}"/>
-                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}" required="true"/>
                         <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
                         <apex:inputField value="{!vehicle.VehicleStatus__c}"/>
                     </apex:pageBlockSection>
@@ -338,10 +339,12 @@
                 <span ng-switch-when="Competitor">
                     <apex:pageBlockSection title="{!$Label.Date_Information}" > 
                         <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
                         <apex:inputField value="{!vehicle.Related_From__c}"/>
                         <apex:inputField value="{!vehicle.Related_To__c}"/> 
-                        
+                         <apex:inputField value="{!vehicle.Purchase_Month__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.Purchase_Year__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}" required="true"/>
                     </apex:pageBlockSection>
                 </span>
                  
