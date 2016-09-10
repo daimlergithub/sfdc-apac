@@ -3,11 +3,10 @@
     <customButtons>CloneForIB</customButtons>
     <customButtons>Escalation</customButtons>
     <customButtons>Input_MPC_Note</customButtons>
-    <customButtons>Input_PR_Comment</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+    <customButtons>Repeated_Complaint</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>CloseCase</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -515,6 +514,10 @@
                 <behavior>Edit</behavior>
                 <field>On_Site_Manager_Confirmed__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DeadLine__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -751,7 +754,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000IeJU</masterLabel>
+        <masterLabel>00h28000003kTMn</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
