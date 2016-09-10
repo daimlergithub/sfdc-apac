@@ -98,11 +98,11 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -155,7 +155,7 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <approver>
@@ -216,15 +216,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
+            <approver>
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
-                <type>queue</type>
-            </approver>
-            <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -273,15 +273,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
-                <type>queue</type>
-            </approver>
-            <approver>
                 <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <approver>
                 <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -330,7 +330,7 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <approver>
