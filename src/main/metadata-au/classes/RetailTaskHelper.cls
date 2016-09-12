@@ -2,6 +2,7 @@ public with sharing class RetailTaskHelper
 {
     public static Set<ID> vehicleIds = new Set<ID>();
     public static Set<ID> customerIds = new Set<ID>();
+    public static Id servicerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT)].Id;
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
     {
@@ -54,37 +55,52 @@ public with sharing class RetailTaskHelper
     public static void updataWhenCreateCCR(Set<Id> vehicleId ,Set<Id> customerId, List<Retail_Task__c> cvrs){
         // Modified by Polaris Yu 2013-10-22, changed 'List<Account>' to 'Set<Account>'
         List<Account> accounts = new List<Account>();
-
+        set<id> rtaskId = new set<id>();
+        List<Retail_Task__c> retailTaskList = new List<Retail_Task__c>();
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerId);
         Map<id,Account> accountsForUpdate = new Map<id,Account>();
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleId);
-        for(Retail_Task__c curCcr: cvrs){
-            if(!String.isblank(curCcr.Account__c)){
-                Account acc = accs.get(curCcr.Account__c);
-                if(vehichles.get(curCcr.Related_Vehicle__c) != null){
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'PC' ){
-                        if(acc.PC_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.PC_Status__c = 'Customer';
+        for(Retail_Task__c r: cvrs)
+        {            
+        	if(r.RecordTypeId != servicerecordId)
+            {
+                rtaskId.add(r.Id);
+            }
+        }
+		
+        retailTaskList = [select id,Account__c,Related_Vehicle__c from Retail_Task__c where ID IN :rtaskId];
+
+        if(!retailTaskList.isEmpty() && retailTaskList != null)
+        {                    
+            for(Retail_Task__c curCcr: retailTaskList)
+            {
+                if(!String.isblank(curCcr.Account__c)){
+                    Account acc = accs.get(curCcr.Account__c);
+                    if(vehichles.get(curCcr.Related_Vehicle__c) != null){
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'PC' ){
+                            if(acc.PC_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.PC_Status__c = 'Customer';
+                            }
+                        }
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'CV'){
+                            if(acc.CV_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.CV_Status__c = 'Customer';
+                            }
+                        }
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'Van'){
+                            if(acc.VAN_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.VAN_Status__c = 'Customer';
+                            }
                         }
                     }
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'CV'){
-                        if(acc.CV_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.CV_Status__c = 'Customer';
-                        }
-                    }
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'Van'){
-                        if(acc.VAN_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.VAN_Status__c = 'Customer';
-                        }
-                    }
+                    accountsForUpdate.put(acc.Id, acc);
                 }
-                accountsForUpdate.put(acc.Id, acc);
             }
         }
         
@@ -402,12 +418,10 @@ public with sharing class RetailTaskHelper
         List<Vehicle__c> vechlist = new List<Vehicle__c>();
         List<Account> acclist = new List<Account>();
         List<Account> updateacclist = new List<Account>();
-        map<id,string> vehgroupmap = new map<id,string>();
-        Id servicerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
-        Id contractrecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
+        map<id,string> vehgroupmap = new map<id,string>();        
         for(Retail_task__c r : tasklist)
         {
-            if(r.RecordTypeId == servicerecordId || r.RecordTypeId == contractrecordId)
+            if(r.RecordTypeId == servicerecordId)
             {
                 accountid.add(r.Account__c);
                 vehicleid.add(r.Related_Vehicle__c);
