@@ -26540,7 +26540,7 @@ else {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Contracts</masterLabel>
+        <masterLabel>Contracts &amp; AfterSales</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
