@@ -2,11 +2,19 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Case_handing_level_email_to_Notification</fullName>
-        <description>Case handing level email Notification</description>
+        <description>Case handing level email Notification to Dealer</description>
         <protected>false</protected>
         <recipients>
-            <field>Previous_Owner__c</field>
-            <type>userLookup</type>
+            <field>Send_Email_Support_Dealer1_Keeper_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Send_Email_Support_Dealer2_Keeper_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Send_Email_Support_Dealer3_Keeper_Email__c</field>
+            <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Handling_level_Notification</template>
@@ -351,6 +359,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Creator_Department_to_Dealer</fullName>
@@ -463,12 +472,18 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Case Deadline Notification</fullName>
+        <fullName>Case Deadline Notification JP</fullName>
         <active>true</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners 15 mins before the deadline.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -511,6 +526,7 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -518,17 +534,23 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>BMBS Regional CRM Manager</value>
+            <operation>startsWith</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Case.Previous_Owner__c</field>
-            <operation>notEqual</operation>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
         </criteriaItems>
         <description>When RO change handling level to Dealer, send a email to Dealer.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -540,24 +562,41 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3 AND 4 AND (5 OR 6 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
             <value>Regional Office</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.ProfileId</field>
+            <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
-            <value>BMBS Service Technical Manager</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Previous_Owner__c</field>
-            <operation>notEqual</operation>
+            <value>Central Office</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.User_Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Dealer Community User</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Dealer Delegate Admin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
         </criteriaItems>
         <description>When RO change handling level to RO, send a email to RO.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -650,13 +689,13 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>BMBS Regional CRM Manager</value>
+            <operation>startsWith</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>BMBS Service Technical Manager</value>
+            <value>System Administrator</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.MD__c</field>
@@ -797,11 +836,6 @@
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.MD__c</field>

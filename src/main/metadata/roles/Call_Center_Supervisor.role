@@ -5,6 +5,6 @@
     <description>Call Center Supervisor</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Call Center Supervisor</name>
-    <opportunityAccessLevel>None</opportunityAccessLevel>
-    <parentRole>Assistant_Manager</parentRole>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Call_Center_Manager</parentRole>
 </Role>

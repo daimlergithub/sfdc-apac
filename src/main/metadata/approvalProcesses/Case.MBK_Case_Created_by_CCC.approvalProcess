@@ -6,8 +6,10 @@
         <type>owner</type>
     </allowedSubmitters>
     <approvalPageFields>
-        <field>Name</field>
         <field>Owner</field>
+        <field>CaseNumber</field>
+        <field>Subject</field>
+        <field>Description</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
@@ -16,37 +18,26 @@
                 <type>userHierarchyField</type>
             </approver>
         </assignedApprover>
-        <label>Manager Approval</label>
-        <name>Manager_Approval</name>
+        <label>Case Assignment Approval CCC Manager</label>
+        <name>Case_Assignment_Approval_CCC_Manager</name>
     </approvalStep>
-    <approvalStep>
-        <allowDelegate>false</allowDelegate>
-        <assignedApprover>
-            <approver>
-                <type>adhoc</type>
-            </approver>
-        </assignedApprover>
-        <label>Director Approval</label>
-        <name>Director_Approval</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
+    <description>Before forwarding the case to dealer get the approval from the manager.</description>
+    <emailTemplate>unfiled$public/Case_Assignment_Approval</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>AND(RecordType.DeveloperName=&quot;Central_Marketing_Campaign&quot;, ISPICKVAL(Status,&quot;Planned&quot;))</formula>
+        <formula>AND(CreatedBy.Profile.Name = &apos;Korea Call Center&apos;, 
+OR(
+ISPICKVAL(Handling_Level__c,&apos;Dealer&apos;),
+ISPICKVAL(Handling_Level__c,&apos;Central Office&apos;)
+), 
+ISPICKVAL(Status,&apos;Open&apos;), 
+MD__c=&apos;KR&apos;)</formula>
     </entryCriteria>
-    <finalApprovalActions>
-        <action>
-            <name>Status_Change</name>
-            <type>FieldUpdate</type>
-        </action>
-    </finalApprovalActions>
     <finalApprovalRecordLock>true</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
-    <label>Central Planning-Campaign</label>
+    <label>MBK Case Created by CCC</label>
     <nextAutomatedApprover>
-        <useApproverFieldOfRecordOwner>true</useApproverFieldOfRecordOwner>
+        <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
         <userHierarchyField>Manager</userHierarchyField>
     </nextAutomatedApprover>
     <recordEditability>AdminOnly</recordEditability>
