@@ -16940,6 +16940,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>C-Class CABRIO</fullName>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
