@@ -295,6 +295,8 @@
         <fields>CREATEDBY_USER</fields>
         <fields>Attachment_Flag__c</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
