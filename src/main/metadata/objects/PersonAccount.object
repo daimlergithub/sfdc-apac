@@ -2966,6 +2966,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -7651,6 +7655,10 @@
             </values>
             <values>
                 <fullName>C-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16979,6 +16987,10 @@
             </values>
             <values>
                 <fullName>C-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
             <values>
