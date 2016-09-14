@@ -17342,6 +17342,14 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>C 350 e Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C 350 e Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>C 63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17454,6 +17462,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17498,6 +17510,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLE 500 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GLE-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17531,6 +17547,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Rosa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S 500 e</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -43413,6 +43433,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>C 350 e Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C 350 e Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C 63 AMG</fullName>
                 <default>false</default>
             </values>
@@ -43525,6 +43553,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
@@ -43569,6 +43601,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLE 500 e</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLE Coupe</fullName>
                 <default>false</default>
             </values>
@@ -43602,6 +43638,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S 500 e</fullName>
                 <default>false</default>
             </values>
             <values>
