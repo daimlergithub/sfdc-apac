@@ -17350,10 +17350,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class Cabriolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C-Class Coupé</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17498,10 +17494,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLC Coupe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17515,10 +17507,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>GLE SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17554,19 +17542,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>S-Class Cabriolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class Saloon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -43437,10 +43417,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Cabriolet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>C-Class Coupé</fullName>
                 <default>false</default>
             </values>
@@ -43589,10 +43565,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLC-Class</fullName>
                 <default>false</default>
             </values>
@@ -43606,10 +43578,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>GLE-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43641,10 +43609,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Cabriolet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -43654,10 +43618,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>SL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
