@@ -20706,24 +20706,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MY_LEADS</fullName>
-        <columns>NAME</columns>
-        <filterScope>Mine</filterScope>
-        <label>MY LEADS</label>
-        <language>en_US</language>
-        <sharedTo>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerUser</portalRoleAndSubordinates>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>S_SL_SLC_DM2016</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>
@@ -20913,29 +20895,6 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
-    </listViews>
-    <listViews>
-        <fullName>iShowroom_Leads</fullName>
-        <columns>NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Lead_DataSource__c</field>
-            <operation>equals</operation>
-            <value>My Mercedes</value>
-        </filters>
-        <label>iShowroom Leads</label>
-        <language>en_US</language>
-        <sharedTo>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerUser</portalRoleAndSubordinates>
-        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
