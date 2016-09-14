@@ -17342,15 +17342,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>C 350 e Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C 350 e Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>C 63 AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Canter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17458,6 +17462,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17498,11 +17506,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLC Coupe</fullName>
+                <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GL-Class</fullName>
+                <fullName>GLE 500 e</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17515,10 +17523,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>GLE SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17546,6 +17550,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S 500 e</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>School Bus</fullName>
                 <default>false</default>
             </picklistValues>
@@ -17554,19 +17562,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>S-Class Cabriolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class Saloon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -43433,11 +43433,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>C 63 AMG</fullName>
+                <fullName>C 350 e Estate</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Cabriolet</fullName>
+                <fullName>C 350 e Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C 63 AMG</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43549,6 +43553,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
@@ -43589,11 +43597,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC Coupe</fullName>
+                <fullName>GLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC-Class</fullName>
+                <fullName>GLE 500 e</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43606,10 +43614,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>GLE-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLS-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43637,11 +43641,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class</fullName>
+                <fullName>S 500 e</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Cabriolet</fullName>
+                <fullName>S-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43654,10 +43658,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>SL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
