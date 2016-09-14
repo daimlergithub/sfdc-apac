@@ -635,7 +635,7 @@
                 if ($scope.leadVehicles.TradeIn == undefined || $scope.leadVehicles.TradeIn == null ){
                     return;
                 }
-            }else if (angular.equals(vehicle_type, 'Purchased')){
+            }else if (angular.equals(vehicle_type, 'Purchased') ){
                 if ($scope.leadVehicles.PurchasedVehicle == undefined || $scope.leadVehicles.PurchasedVehicle == null ){
                     return;
                 }
@@ -902,7 +902,12 @@
         </tr>
         <tr>
         <!----------- PURCHASED VEHICLE SECTION -------->
-        <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
+        <!-- <td style="vertical-align: top;">{!$Label.Vehicle_Picker_Purchased}&nbsp;</td><td> -->        
+        <!--<td style="vertical-align: top;">  {!if(Lead__c.Recordtype.Name='Sales Leads',"Purchased Vechicle","Serviced Vechicle")}</td>-->    
+        
+        <td style="vertical-align: top;">  <apex:outputLabel value="{!$Label.Vehicle_Picker_Purchased}" rendered="{!(Lead__c.Recordtype.Name='Sales Leads')}" />             
+        <apex:outputLabel value="{!$Label.Vehicle_Picker_Service}" rendered="{!(Lead__c.Recordtype.Name='Aftersales Leads')}" /></td>
+        <td>                        
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>

@@ -20,6 +20,9 @@ public class AddressHelperJPTest {
         
         account= new Account();
         account.Phone='09844650654';
+        account.FirstName = 'Test';
+        account.Mobile__c = '1234567890';
+        account.Data_Source__c  = 'Test4';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
         
         address=new Address__c();
@@ -31,7 +34,8 @@ public class AddressHelperJPTest {
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=account.id;
-        address.TitleOfHonor__c = 'To Person';
+        address.TitleOfHonor__c = 'To Person';  
+            
         insert address;
         
         addresslist.add(address);
