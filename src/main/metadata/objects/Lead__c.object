@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -207,6 +203,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -280,6 +277,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -320,6 +318,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -579,6 +578,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2313,6 +2313,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2389,6 +2390,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2493,6 +2495,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2526,6 +2529,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2567,6 +2571,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2795,6 +2800,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2963,6 +2969,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3018,6 +3025,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3038,6 +3046,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3109,6 +3118,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3222,6 +3232,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3344,6 +3355,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3391,6 +3403,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3644,6 +3657,7 @@ Contact__r.Email__c
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3707,6 +3721,7 @@ Contact__r.Email__c
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3807,6 +3822,7 @@ Contact__r.Email__c
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3897,6 +3913,7 @@ Contact__r.Email__c
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4065,6 +4082,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4123,6 +4141,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4177,6 +4196,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4201,6 +4221,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4473,6 +4494,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4801,6 +4823,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4864,6 +4887,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6563,6 +6587,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6599,6 +6624,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7019,6 +7045,7 @@ Collectioner_Name__r.HomePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7399,6 +7426,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7587,6 +7615,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8283,6 +8312,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8347,6 +8377,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8559,6 +8590,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8623,6 +8655,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8698,6 +8731,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8757,6 +8791,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8818,6 +8853,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8882,6 +8918,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8977,6 +9014,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9021,6 +9059,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9101,6 +9140,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9239,6 +9279,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9677,6 +9718,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10011,6 +10053,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10129,6 +10172,7 @@ Collectioner_Name__r.MobilePhone
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10492,6 +10536,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10516,6 +10561,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10666,6 +10712,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10695,6 +10742,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10739,6 +10787,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10759,6 +10808,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10863,6 +10913,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10949,6 +11000,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11032,6 +11084,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11895,6 +11948,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11978,6 +12032,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12105,6 +12160,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12341,6 +12397,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13839,6 +13896,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13883,6 +13941,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15380,6 +15439,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15465,6 +15525,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15630,6 +15691,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15682,6 +15744,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15798,6 +15861,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -17562,6 +17626,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -17632,6 +17697,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -18098,6 +18164,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -19033,6 +19100,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -19717,6 +19785,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -19809,6 +19878,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -19852,6 +19922,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20028,6 +20099,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20204,6 +20276,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20307,6 +20380,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20513,24 +20587,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>CAC_Surpervisor_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>CRM_Approver_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>DM_S_DM_2016</fullName>
         <columns>NAME</columns>
         <columns>Lead_Desired_Service__c</columns>
@@ -20647,24 +20703,6 @@ Company_Account__r.Work_Phone__c  ,
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MY_LEADS</fullName>
-        <columns>NAME</columns>
-        <filterScope>Mine</filterScope>
-        <label>MY LEADS</label>
-        <language>en_US</language>
-        <sharedTo>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerUser</portalRoleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20857,47 +20895,6 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
-    </listViews>
-    <listViews>
-        <fullName>iShowroom_Leads</fullName>
-        <columns>NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Lead_DataSource__c</field>
-            <operation>equals</operation>
-            <value>My Mercedes</value>
-        </filters>
-        <label>iShowroom Leads</label>
-        <language>en_US</language>
-        <sharedTo>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzBundangSeohyeonShowroomPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroServiceCenterPartnerUser</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerExecutive</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerManager</portalRoleAndSubordinates>
-            <portalRoleAndSubordinates>MercedesBenzGangnamdaeroShowroomPartnerUser</portalRoleAndSubordinates>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CAC_Surpervisor_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CAC Surpervisor</label>
-        <queue>test_CAC_Surpervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>test_CRM_Approver_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>test CRM Approver</label>
-        <queue>test_CRM_Approver</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
@@ -34949,7 +34946,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-going</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34970,6 +34979,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47248,11 +47261,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47264,7 +47285,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gave up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28CAC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47276,6 +47317,18 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan to Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -47284,7 +47337,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47376,7 +47441,27 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47385,6 +47470,26 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>On-going</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
             <values>

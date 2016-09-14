@@ -56,6 +56,10 @@
         <fullName>Escalated_after_24hrs</fullName>
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
+		<recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
