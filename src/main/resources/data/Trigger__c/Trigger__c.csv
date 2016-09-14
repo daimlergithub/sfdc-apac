@@ -26,3 +26,4 @@ TriggerAccountLinkJP,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAcc
 TriggerVehicleRelationshipJP,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerJP,JP
 TriggerAccountKR,TRUE,TRUE,TRUE,TriggerAccount,TRUE,TRUE,TRUE,TriggerAccountTriggerHandlerKR,KR
 TriggerVehicleRelationshipKR,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerKR,KR
+TriggerAddressKr,TRUE,TRUE,TRUE,TriggerAddress,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerKR,KR
