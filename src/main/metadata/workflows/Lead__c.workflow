@@ -2,7 +2,6 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
-        <ccEmails>sekahara.vanga@nttdata.com</ccEmails>
         <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
         <recipients>
@@ -45,7 +44,6 @@
     </alerts>
     <alerts>
         <fullName>Email_notification_when_purchase_time_have_changed</fullName>
-        <ccEmails>Sekhara.Vanga@nttdata.com</ccEmails>
         <description>Email notification when purchase time have changed</description>
         <protected>false</protected>
         <recipients>
@@ -56,7 +54,6 @@
     </alerts>
     <alerts>
         <fullName>Escalated_after_24hrs</fullName>
-        <ccEmails>sekhara.vanga@nttdata.com</ccEmails>
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
         <senderType>CurrentUser</senderType>
@@ -74,8 +71,6 @@
     </alerts>
     <alerts>
         <fullName>X24hrs_Lead_Escalation</fullName>
-        <ccEmails>kaushik.mahanty@nttdata.com</ccEmails>
-        <ccEmails>sekhara.vanga@nttdata.com</ccEmails>
         <description>24hrs Lead Escalation</description>
         <protected>false</protected>
         <recipients>
@@ -87,8 +82,6 @@
     </alerts>
     <alerts>
         <fullName>abcd</fullName>
-        <ccEmails>Kaushik.mahanty@nttdata.com</ccEmails>
-        <ccEmails>Vineet11.srivastava@nttdata.com</ccEmails>
         <description>24hrs Lead Escalation</description>
         <protected>false</protected>
         <recipients>
@@ -100,7 +93,6 @@
     </alerts>
     <alerts>
         <fullName>fgefg</fullName>
-        <ccEmails>kaushik.mahanty@nttdata.com</ccEmails>
         <description>fgefg</description>
         <protected>false</protected>
         <recipients>
