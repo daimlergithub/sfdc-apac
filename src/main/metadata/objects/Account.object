@@ -26081,14 +26081,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Cabriolet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>The franchise agreement was terminated by the franchisee%2E</fullName>
                 <default>false</default>
             </values>
