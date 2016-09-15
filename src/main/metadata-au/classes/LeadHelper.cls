@@ -1378,7 +1378,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {     
                      for(Lead__c lead :accountOwnerids)
                         {   
-             
+                         /*
                              // Send email notification to the new owner
                             //toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
                            // toAdresss.addAll(mapAccountIdAndEmail.get(lead.Assigned_Dealer__c));
@@ -1401,7 +1401,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                 }*/
                            
                            // mail.setWhatId(lead.Id);
-                            //mailList.add(mail);
+                            //mailList.add(mail); */
+							
                             toAdresss.clear();
                       }
         }      
