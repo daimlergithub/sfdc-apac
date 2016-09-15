@@ -4907,6 +4907,10 @@ Allows up to 240 characters --></help>
             <translation>Cクラス セダン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C-Class Cabriolet</masterLabel>
+            <translation>Cクラス カブリオレ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>C-Class Stationwagon</masterLabel>
             <translation>Cクラス ステーションワゴン</translation>
         </picklistValues>
