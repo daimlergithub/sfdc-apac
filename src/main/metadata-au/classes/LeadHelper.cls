@@ -1380,7 +1380,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         {   
              
                              // Send email notification to the new owner
-                            toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
+                            //toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
                            // toAdresss.addAll(mapAccountIdAndEmail.get(lead.Assigned_Dealer__c));
                             system.debug('lead.Assigned_Dealer__r.owner.Email'+lead.Assigned_Dealer__r.owner.Email);
                             String subject = etToOwner.subject.replace('{!Lead__c.Name}',lead.Name);
@@ -1401,7 +1401,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                 }*/
                            
                            // mail.setWhatId(lead.Id);
-                            mailList.add(mail);
+                            //mailList.add(mail);
                             toAdresss.clear();
                       }
         }      
