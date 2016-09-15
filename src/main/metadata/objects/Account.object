@@ -8303,6 +8303,10 @@ Modify Reason:
                 <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16185,6 +16189,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -16258,6 +16266,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26069,6 +26081,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>The franchise agreement was terminated by the franchisee%2E</fullName>
                 <default>false</default>
             </values>
@@ -26159,6 +26179,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chronos %28홀수%2C시계%29</fullName>
                 <default>false</default>
             </values>
@@ -26214,6 +26238,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Grazia</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Job__c</picklist>
             <values>
                 <fullName>Heren</fullName>
                 <default>false</default>

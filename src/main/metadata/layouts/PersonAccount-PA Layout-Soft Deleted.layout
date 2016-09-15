@@ -389,14 +389,14 @@
         <fields>UsVIN__c</fields>
         <fields>New_Used__c</fields>
         <fields>Car_Relation__c</fields>
-        <fields>Finance_Method__c</fields>
+        <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-        <sortField>End_Date__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortField>Start_Date__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -425,8 +425,8 @@
         <fields>NAME</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
-        <sortField>Related_To__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortField>Related_From__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
