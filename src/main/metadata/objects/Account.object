@@ -26171,10 +26171,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chronos %28홀수%2C시계%29</fullName>
                 <default>false</default>
             </values>
@@ -26230,9 +26226,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Grazia</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job__c</picklist>
             <values>
                 <fullName>Heren</fullName>
                 <default>false</default>
