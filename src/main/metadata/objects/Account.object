@@ -8303,6 +8303,10 @@ Modify Reason:
                 <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16185,6 +16189,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -16258,6 +16266,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
