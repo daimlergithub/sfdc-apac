@@ -27636,7 +27636,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP')</errorConditionFormula>
+ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP' || MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
@@ -28096,13 +28096,17 @@ MD__c = 'JP'
         <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
         <errorMessage>Home Phone should start with "0".</errorMessage>
     </validationRules>
-    <validationRules>
+        <validationRules>
         <fullName>Invalid_Email</fullName>
         <active>true</active>
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
-OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , ' '), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEmail , '%'), CONTAINS(PersonEmail , '$'), RIGHT(PersonEmail , 1)='.', BEGINS(PersonEmail , '.') , CONTAINS(PersonEmail , '@.'), CONTAINS(PersonEmail , '.@'), CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')), CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.'),
+OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEmail , '%'),
+ CONTAINS(PersonEmail , '$'), RIGHT(PersonEmail , 1)='.', BEGINS(PersonEmail , '.') , CONTAINS(PersonEmail , '@.'), CONTAINS(PersonEmail , '.@'),
+ CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')),
+ CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.',ISBLANK(PersonEmail)),
+ ISBLANK(Email__c),
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>

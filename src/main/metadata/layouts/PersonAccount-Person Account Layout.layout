@@ -68,6 +68,12 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
+            </layoutItems><layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction__c</field>
+            </layoutItems><layoutItems>
+                <behavior>Edit</behavior>
+                <field>Foundation_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -80,6 +86,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -159,6 +169,10 @@
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction_Comment__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
@@ -197,6 +211,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fuso_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Email__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -327,7 +345,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Do_Not_Call_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Postal_Opt_Out__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -377,6 +403,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PersonHasOptedOutOfEmail</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
