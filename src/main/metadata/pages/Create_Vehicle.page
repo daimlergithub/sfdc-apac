@@ -266,7 +266,7 @@
                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.BaumusterEx__c.Label}" />
                                         <select id="steeringItems" style="width:174px" ng-change="getSelectedRange(selectedSteering)" ng-model="selectedSteering" ng-options="Steering for Steering in Steerings track by Steering"/>                           
                                   </apex:pageBlockSectionItem>   
-                                  <apex:inputField value="{!vehicle.UsVIN__c}"/>
+                                  <apex:inputField value="{!vehicle.EuroVIN__c}"/>
                                                         
                             <apex:inputField value="{!vehicle.Model_Description__c}"/>
                         
