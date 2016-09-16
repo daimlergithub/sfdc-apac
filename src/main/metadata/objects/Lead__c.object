@@ -2493,6 +2493,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Approved (Waiting)</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3228,6 +3232,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Lost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -20706,6 +20714,14 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MY_LEADS</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>MY LEADS</label>
+        <language>en_US</language>
+        <sharedTo/>
+    </listViews>
+    <listViews>
         <fullName>S_SL_SLC_DM2016</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>
@@ -20895,6 +20911,19 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>iShowroom_Leads</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Lead_DataSource__c</field>
+            <operation>equals</operation>
+            <value>My Mercedes</value>
+        </filters>
+        <label>iShowroom Leads</label>
+        <language>en_US</language>
+        <sharedTo/>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
@@ -22407,6 +22436,14 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
@@ -22419,8 +22456,24 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost%28CAC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22495,7 +22548,15 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22503,7 +22564,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -68921,9 +68990,12 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',  MD__c = 'KR',
-NOT(ISNULL(Assigned_Date_Time__c)), 
-ISPICKVAL(CAC_Lead_Status__c, "Qualified")
+        <errorConditionFormula>AND( 
+NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
+NOT(ISNULL(Assigned_Date_Time__c)),
+ISPICKVAL(CAC_Lead_Status__c,'Qualified'), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c='KR' 
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
@@ -68931,15 +69003,12 @@ ISPICKVAL(CAC_Lead_Status__c, "Qualified")
     <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
-        <errorConditionFormula>AND ( 
-ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"), 
-OR ($Profile.Name != 'IntegrationAPI', 
-ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
-), 
-
-RecordType.Id == '01290000000rXmO', MD__c = 'KR', 
-NOT(CONTAINS($Profile.Name,'Dealer'))
+        <errorConditionFormula>AND(
+ISNULL(Requested_Service_DateTime1__c), 
+ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
+$Profile.Name != 'IntegrationAPI', 
+MD__c='KR',
+RecordType.DeveloperName = 'Aftersales_Leads'
 )</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
@@ -68965,10 +69034,7 @@ TEXT(Bought_Vehicle_Model__c) == NULL,
 ISNULL(Purchased_CAC_Date__c), 
 ISBLANK(Purchased_CAC_Date__c) 
 ), 
-
-RecordType.Id == '01290000000rXmP',MD__c = 'KR', 
-NOT(CONTAINS($Profile.Name,'Dealer'))
-)</errorConditionFormula>
+RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
     </validationRules>
@@ -68977,7 +69043,7 @@ NOT(CONTAINS($Profile.Name,'Dealer'))
         <active>true</active>
         <description>"Lead status changed to ""Approved(waition)"" or ""Allocated""
 AND User profile is Call center agent"</description>
-        <errorConditionFormula>AND($Profile.Name ='Japan Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
+        <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
 (UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
@@ -69078,7 +69144,7 @@ NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Lead_assignment</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If the the Lead is assigned to the dealer then  status to be set as "Assigned"</description>
         <errorConditionFormula>AND( 
 NOT(ISBLANK(Assigned_Dealer__c)), NOT(ISNULL(Assigned_Dealer__c)), 
@@ -69172,7 +69238,7 @@ ISNULL(Test_Drive_Date__c)
     </validationRules>
     <validationRules>
         <fullName>TradeIn_Fields_Required_Check_MB</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-016) 
@@ -69184,17 +69250,20 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 INCLUDES(Lead_Desired_Service__c, "Trade-In"), 
-TEXT(Trade_In_Vehicle_Brand__c) == NULL 
+TEXT(Trade_In_Vehicle_Brand__c) == NULL ,
+RecordType.DeveloperName = 'Sales_Leads' 
+
 )</errorConditionFormula>
         <errorDisplayField>Lead_Desired_Service__c</errorDisplayField>
         <errorMessage>If Lead Desired Service includes Trade-In, Trade-In Vehicle Brand, Trade-In Vehicle Class and Trade-In MB Vehicle Model are required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TradeIn_Fields_Required_Check_Others</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 ISPICKVAL(Trade_In_Vehicle_Brand__c,'Other brands'),       
-ISBLANK(Trade_In_Other_Vehicle_Model__c)
+ISBLANK(Trade_In_Other_Vehicle_Model__c),
+RecordType.DeveloperName = 'Sales_Leads'
 )</errorConditionFormula>
         <errorDisplayField>Trade_In_Vehicle_Brand__c</errorDisplayField>
         <errorMessage>If Trade-In Vehicle Brand equals to "Other brands" , Trade-In Other Vehicle Model is required.</errorMessage>
@@ -69313,7 +69382,7 @@ else {
 	alert("Only new or qualified lead can select prefer dealer.");
 }</url>
     </webLinks>
-     <webLinks>
+    <webLinks>
         <fullName>Submit_Survey</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
