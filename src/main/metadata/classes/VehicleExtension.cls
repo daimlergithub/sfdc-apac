@@ -41,9 +41,10 @@ public with sharing class VehicleExtension {
      public PageReference saveVal()
     {
         
-       if((recordType == UtilConstant.MB && brand == UtilConstant.Question)||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
-            nextPage = null;
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question || model == UtilConstant.Question))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question || compModel == UtilConstant.Question))){
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
+                return null;
+                nextPage = null;
          }
         else{
                // Check if the user has create access on the Vehilce__c.Name field
@@ -52,7 +53,16 @@ public with sharing class VehicleExtension {
                      return null;
                    }
                 else{
-                save(); 
+				try
+                {
+                save();
+                }
+                Catch(DmlException  e){
+                    string error=e.getDMLMessage(0);
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
+                    System.debug('Exception encountered in Save...' +error);  
+                    return null; 
+                }
                 nextPage = new PageReference('/' + vehicle.Id);
                 nextPage.setRedirect(true);
                 system.debug('redirecturl'+nextPage);
@@ -74,7 +84,7 @@ public with sharing class VehicleExtension {
     public PageReference saveAndNew()
     {
           
-        if((recordType == UtilConstant.MB && brand == UtilConstant.Question)||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question)){
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question || model == UtilConstant.Question))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question || compModel == UtilConstant.Question))){
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
                 nextPage = null;
          }
@@ -85,7 +95,16 @@ public with sharing class VehicleExtension {
                      return null;
                    }
                 else{
+                try
+                {
                 save();
+                }
+                Catch(DmlException  e){
+                    string error=e.getDMLMessage(0);
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
+                    System.debug('Exception encountered in Save...' +error);  
+                    return null; 
+                }
                 nextPage = new PageReference('/apex/Create_Vehicle');
                 nextPage.setRedirect(true);
                 system.debug('redirecturl'+nextPage);
@@ -162,13 +181,13 @@ public with sharing class VehicleExtension {
                 vehicle.BaumusterEx__c=steering;
                 vehicle.Competitor_Model__c=compModel;
                
-                try{  
+                //try{  
                     insert vehicle;                       
-                  }catch(DmlException  e){
-                    string error=e.getMessage();
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
-                    System.debug('Exception encountered...' +error);
-                }
+                 // }catch(DmlException  e){
+                 //   string error=e.getMessage();
+                 //   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
+                 //   System.debug('Exception encountered...' +error);
+                //}
         
         
     }
