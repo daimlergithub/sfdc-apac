@@ -3967,6 +3967,13 @@
         <value>Purchased Vehicle</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Picker_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker Serviced</shortDescription>
+        <value>Serviced Vehicle</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Picker_TradeIn</fullName>
         <language>en_US</language>
         <protected>false</protected>

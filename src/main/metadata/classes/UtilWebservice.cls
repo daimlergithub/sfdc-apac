@@ -7,7 +7,7 @@ Global class UtilWebservice
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         crmasiaDaimlerApacComValidateaddress.AddressValidationMessageFaultType faultCode = new  crmasiaDaimlerApacComValidateaddress.AddressValidationMessageFaultType(); 
         SendingAddress.ZipCode = address.ZipCode__c;
-        SendingAddress.MarketDiscriminator = 'JP';
+        SendingAddress.MarketDiscriminator = address.MD__c;
         SendingAddress.Address_Line_1 = address.Address_Line_1__c;
         SendingAddress.Address_Line_2 = address.Address_Line_2__c;
         SendingAddress.Block = address.Block__c;

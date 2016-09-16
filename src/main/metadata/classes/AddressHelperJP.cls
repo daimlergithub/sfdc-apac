@@ -28,7 +28,7 @@ public with sharing class AddressHelperJP {
                     for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
                         for(Address__c addType:triggerNew)
                         {
-                            if((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))
+                            if(((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))&&(addType.MD__c=='JP')||((addType.MD__c=='KR')&& (addType.Address_Type__c=='Home' ||addType.Address_Type__c=='Business') && ((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))))
                             {                  
                             addType.Address_Type__c.adderror(Label.AddressType_Validation);
                             }
@@ -50,7 +50,7 @@ public with sharing class AddressHelperJP {
                     for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
                         for(Address__c addType:triggerNew)
                         {
-                            if((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null ))
+                            if(((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))&&(addType.MD__c=='JP')||((addType.MD__c=='KR')&& (addType.Address_Type__c=='Home' ||addType.Address_Type__c=='Business') && ((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))))
                             {                  
                             addType.Address_Type__c.adderror(Label.AddressType_Validation);
                             }
