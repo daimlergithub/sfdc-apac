@@ -21516,11 +21516,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account_Link__c.Retail</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Account_Link__c.Retail_Company</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
