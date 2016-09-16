@@ -41,9 +41,10 @@ public with sharing class VehicleExtension {
      public PageReference saveVal()
     {
         
-       if((recordType == UtilConstant.MB && brand == UtilConstant.Question)||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
-            nextPage = null;
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question || model == UtilConstant.Question))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question || compModel == UtilConstant.Question))){
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
+                return null;
+                nextPage = null;
          }
         else{
                // Check if the user has create access on the Vehilce__c.Name field
