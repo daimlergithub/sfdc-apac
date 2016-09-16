@@ -69,6 +69,10 @@
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Amount__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
@@ -80,6 +84,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -165,6 +173,10 @@
                 <behavior>Edit</behavior>
                 <field>Opt_In_Work_Phone__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction_Comment__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
@@ -194,6 +206,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>Email__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>PersonEmail</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -305,6 +325,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SMS_MMS_IM_Status_2__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Do_Not_Call_Reason__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Opt_Out_Reason__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Postal_Opt_Out_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
