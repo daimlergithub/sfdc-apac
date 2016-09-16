@@ -10231,11 +10231,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Public__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.QC_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
