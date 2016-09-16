@@ -18268,6 +18268,11 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>C-Class CABRIO</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -20692,7 +20697,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>R172</fullName>
                 <default>false</default>
-                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
+                <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R199</fullName>
@@ -20783,6 +20788,16 @@ Modify Reason:
                 <fullName>R452</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart roadster ROADSTER</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A205</fullName>
+                <default>false</default>
+                <controllingFieldValues>C-Class CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A453</fullName>
+                <default>false</default>
+                <controllingFieldValues>smart fortwo CABRIO</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -35324,6 +35339,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class CABRIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class COUPE</fullName>
                 <default>false</default>
             </values>
@@ -35746,6 +35765,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>A205</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>A207</fullName>
                 <default>false</default>
             </values>
@@ -35767,6 +35790,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>A451</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A453</fullName>
                 <default>false</default>
             </values>
             <values>

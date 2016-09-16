@@ -11987,6 +11987,20 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Leads__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Leads</label>
+        <referenceTo>Lead__c</referenceTo>
+        <relationshipLabel>RelatedLeads</relationshipLabel>
+        <relationshipName>RelatedLeads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Related_Configuration_Codes__c</fullName>
         <externalId>false</externalId>
         <label>MB Online Code1</label>
