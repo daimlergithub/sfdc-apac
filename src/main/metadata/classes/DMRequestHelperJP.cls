@@ -181,7 +181,9 @@ public with sharing class  DMRequestHelperJP {
                      
                      for(DM_Request__c dmr:DMList){
                          if(dmr.Customer_Name__c==lstDMR.Customer_Name__c){
-                     
+                                If(Usr.Market__C=='KR'){
+                                   lstDMR.Status__c='Duplicate';
+                                }                     
                                  if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material3__c))){
                                      lstDMR.Status1__c='Duplicate';
                                      
@@ -211,6 +213,60 @@ public with sharing class  DMRequestHelperJP {
                      for(DM_Request__c dmr:DMList){
                          if(dmr.Customer_Name__c==lstDMR.Customer_Name__c){
                      
+                                 if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material3__c))){
+                                     lstDMR.Status1__c='Duplicate';
+                                     
+                                 }
+                                  if((lstDMR.Expected_DM_Material2__c!=null)&&((lstDMR.Expected_DM_Material2__c==dmr.Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==dmr.Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==dmr.Expected_DM_Material3__c))){
+                                    
+                                     lstDMR.Status2__c='Duplicate';
+                                     
+                                 }
+                                 if((lstDMR.Expected_DM_Material3__c!=null)&&((lstDMR.Expected_DM_Material3__c==dmr.Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==dmr.Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==dmr.Expected_DM_Material3__c))){
+                                     
+                                     lstDMR.Status3__c='Duplicate';
+                                 }
+                         }
+                     }
+                   
+               }
+                   
+           }
+                
+                
+                
+       }
+    
+    }
+    public static void updateStatus(List<DM_Request__c> triggerNew,boolean isInsert)
+      {
+            set<id> CustomerId = new set<id>(); 
+            list<DM_Request__c> DMList =new  list<DM_Request__c>();
+            User Usr = new User();
+            Usr = [SELECT Market__C,Id FROM User WHERE Id = : UserInfo.getUserId()];
+            
+            //get the accountIds 
+                for(DM_Request__c lstDMR:triggerNew){
+                    CustomerId.add(lstDMR.Customer_Name__c);
+                }  
+              
+        //query for DM_Request__c 
+               If(Usr.Market__C=='KR'){
+                    DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+                }          
+            for(DM_Request__c lstDMR:triggerNew)
+            {     
+                     
+                if(isInsert){
+             
+                   if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
+                     &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
+                     ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
+                        
+                 
+                     for(DM_Request__c dmr:DMList){
+                         if(dmr.Customer_Name__c==lstDMR.Customer_Name__c){
+                                    lstDMR.Status__c='Duplicate';
                                  if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==dmr.Expected_DM_Material3__c))){
                                      lstDMR.Status1__c='Duplicate';
                                      
