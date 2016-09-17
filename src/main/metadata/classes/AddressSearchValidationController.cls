@@ -21,6 +21,7 @@ public class AddressSearchValidationController
     public id recordTypeId;
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}
+    public String UserMarket{get;set;}
     
     
     // COnstructor 
@@ -426,6 +427,13 @@ If the user is Saving  same address which matches the fields returned by toleran
         }
         return null;
     }
+     /**  User Market Validation.
+When the user creates record , this method will help to get the current user market.
+**  Created By: Sneha
+**  Date: 2016-9-16
+**/   
+    public void ValidateCurrentuserMarket(){
+        UserMarket = [select Id, Market__c from User where Id=:UserInfo.getUserId() limit 1].Market__c;
     
-    
+    }
 }
