@@ -29334,7 +29334,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
     </sharingReasons>
     <validationRules>
         <fullName>CP_EURO_VIN_Lenght_Check</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: US-CP-004 
