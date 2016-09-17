@@ -29334,7 +29334,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
     </sharingReasons>
     <validationRules>
         <fullName>CP_EURO_VIN_Lenght_Check</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: US-CP-004 
@@ -29384,7 +29384,7 @@ NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Euro_VIN_Invalid_Syntax</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
         <errorConditionFormula>AND(	NOT(ISNULL( EuroVIN__c )),
 	NOT(ISBLANK( EuroVIN__c )),NOT(REGEX( EuroVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI',  RecordType.DeveloperName = 'MB')</errorConditionFormula>
