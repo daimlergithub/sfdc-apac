@@ -478,6 +478,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Age_Range__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Place_of_Birth__c</field>
             </layoutItems>
             <layoutItems>
