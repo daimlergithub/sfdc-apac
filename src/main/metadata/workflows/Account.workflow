@@ -76,7 +76,7 @@
             <name>Update_Preferred_Language_Field_JP</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Update “Preferred Language and Country field" based on Market Discriminator for JP</description>
         <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
@@ -91,7 +91,7 @@
             <name>Update_Preferred_Language_Field_KR</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Update “Preferred Language and Country field" based on Market Discriminator for KR</description>
         <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
