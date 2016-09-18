@@ -17910,11 +17910,6 @@
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>Survey__c.Submit_Response__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Survey__c.URL__c</field>
         <readable>true</readable>
     </fieldPermissions>
