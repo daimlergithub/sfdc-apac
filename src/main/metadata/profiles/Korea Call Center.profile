@@ -17857,11 +17857,6 @@
         <editable>true</editable>
         <field>Survey_Question__c.OrderNumber__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Question__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
