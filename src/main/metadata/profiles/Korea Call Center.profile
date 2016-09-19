@@ -5710,11 +5710,6 @@
     </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
-        <field>CampaignMember.MD__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>CampaignMember.Task_Generated__c</field>
         <readable>true</readable>
     </fieldPermissions>
