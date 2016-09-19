@@ -3407,6 +3407,19 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleREl_Replacem
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Retail_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Contact</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Vehicle Relationship</relationshipLabel>
+        <relationshipName>Vehicle_Relationship</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Retail_CreatedDate__c</fullName>
         <externalId>false</externalId>
         <label>Retail CreatedDate</label>

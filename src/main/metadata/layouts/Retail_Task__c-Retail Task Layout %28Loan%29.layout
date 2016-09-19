@@ -186,11 +186,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Total_Split_Payment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Supplement_normal_interest_rates__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Fine_Rate__c</field>
