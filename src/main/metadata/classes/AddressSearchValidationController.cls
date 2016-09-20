@@ -3,12 +3,12 @@
 ** OverRides Standard Account Creation "New" Button.
 ** Validates Address Details through webservice call to EP/Tolerant.
 ** Creates new Account with validated Address Record.
-** Created By: Narasimha 
+** Created By: Narasimha
 ** Date: 2016-1-20
-** Modified By : 
+** Modified By :
 ** Modified date :
 **/
-public class AddressSearchValidationController 
+public class AddressSearchValidationController
 {
     //variables used in the page.
     ApexPages.StandardController controller;
@@ -21,10 +21,27 @@ public class AddressSearchValidationController
     public id recordTypeId;
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}
-    public String UserMarket{get;set;}
+   
     
-    
-    // COnstructor 
+    // KOREA related parameters - Start
+    public String market{get;set;}
+    public String homePhoneAreaCode{get;set;}
+    public String homePhoneAreaCodePart2{get;set;}
+    public String homePhoneAreaCodePart3{get;set;}
+    public String workPhoneAreaCode{get;set;}
+    public String workPhoneAreaCodePart2{get;set;}
+    public String workPhoneAreaCodePart3{get;set;}
+    public String homePhone2AreaCode{get;set;}
+    public String homePhone2AreaCodePart2{get;set;}
+    public String homePhone2AreaCodePart3{get;set;}
+    public String phoneAreaCode{get;set;}
+    public String phoneAreaCodePart2{get;set;}
+    public String phoneAreaCodePart3{get;set;}
+    public AreaCodeTranslation__mdt areacodeKR ;
+    public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
+    // KOREA related parameters - End
+   
+    // COnstructor
     public AddressSearchValidationController(ApexPages.StandardController controller)
     {
         objAccount= new Account();
@@ -33,25 +50,29 @@ public class AddressSearchValidationController
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
         // refreshPage = false;
+        
+        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
     }
+   
     
-    /**  Save Account based on two scenarios 
+    /**  Save Account based on two scenarios
 * 1. With Validated Address information record.
 * 2.Without Address record.
-**  Created By: Narasimha  
-**  Date: 2016-1-19 
+**  Created By: Narasimha 
+**  Date: 2016-1-19
 **/
     public pagereference saveAccount()
     {
-        
+       
         // Save record without Address record if no value is Entered in Address section
-        if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c == null && AddressObj.Address_Line_2__c == null && 
+        if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
            AddressObj.Province__c == null)
         {
             try
             {
-                if( recordType == 'Company')
+                if( recordType == 'Company' && market == 'JP')
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
@@ -65,15 +86,15 @@ public class AddressSearchValidationController
                     {
                         refreshPage = true;
                         insert objAccount ;
-                        PageReference pageRef = new PageReference('/'+objAccount.Id); 
+                        PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
                     }
-                    
+                   
                 }
-                
-                if(recordType == 'Person Account')
+               
+                if(recordType == 'Person Account' && market == 'JP')
                 {
-                    
+                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
@@ -86,21 +107,225 @@ public class AddressSearchValidationController
                     {
                         refreshPage = true;
                         insert objPersonAccount ;
-                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id); 
+                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
                         return PageRef;
                     }
-                    
+                   
                 }
-                
-                
+               
+                //Korea specific modification - Start
+               
+                if( recordType == 'Company' && market == 'KR')
+                {
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    objAccount.RecordTypeId = recordTypeId;
+                    if( (homePhoneAreaCode.length()==1) && (workPhoneAreaCode.length()==1) && (homePhone2AreaCode.length() == 1) && (phoneAreaCode.length()== 1)
+                       && objAccount.Mobile__c == null && objAccount.Mobile2__c ==null && objAccount.Email__c == null && objAccount.Email2__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                    }
+                    else
+                    {
+  
+                        System.debug(' PHONE $$$$$$$$$$$$$$$$$$$$$ >>>>>>>>>>> '+objAccount.Individual_Home_Phone__c+' & '+objAccount.Home_Phone_2__c+' & '+objAccount.Work_Phone__c+' & '+objAccount.Phone);
+                      // Validating HomePhone Format
+                      if(homePhoneAreaCode.length()>1){
+                         // if(  ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() == 0))  || ((homePhoneAreaCodePart2.length() == 0) && (homePhoneAreaCodePart3.length() > 0 ))  || ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() > 0))  ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (homePhoneAreaCode.length() == 2) && !( homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4  )  )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (homePhoneAreaCode.length() == 3) && !( (homePhoneAreaCodePart2.length() == 3 && homePhoneAreaCodePart3.length() == 4) || (homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4)  ) )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                               }         
+                          // }
+                      }
+                      
+                      // Validating Work Phone Format
+                      if(workPhoneAreaCode.length() > 1){
+                          //if(  ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() == 0))  || ((workPhoneAreaCodePart2.length() == 0) && (workPhoneAreaCodePart3.length() > 0 ))  || ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() > 0))  ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (workPhoneAreaCode.length() == 2) && !( workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4  )  )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (workPhoneAreaCode.length() == 3) && !( (workPhoneAreaCodePart2.length() == 3 && workPhoneAreaCodePart3.length() == 4) || (workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4)  ) )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                               }         
+                           //}
+                       }
+                       
+                      // Validating HomePhone2 Format
+                      if(homePhone2AreaCode.length() > 1){
+                        //  if(  ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() == 0))  || ((homePhone2AreaCodePart2.length() == 0) && (homePhone2AreaCodePart3.length() > 0 ))  || ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() > 0)) ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (homePhone2AreaCode.length() == 2) && !( homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4  ) )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (homePhone2AreaCode.length() == 3) && !( (homePhone2AreaCodePart2.length() == 3 && homePhone2AreaCodePart3.length() == 4) || (homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4) )  )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objAccount.Home_Phone_2__c = homePhone2AreaCode+'-'+homePhone2AreaCodePart2+'-'+homePhone2AreaCodePart3;
+                               }         
+                         // }
+                       }   
+ 
+ 
+                  // Validating Phone Format
+                  if(phoneAreaCode.length() > 1){
+                      // if(  ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() == 0))  || ((phoneAreaCodePart2.length() == 0) && (phoneAreaCodePart3.length() > 0 ))  || ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() > 0))  ){
+                           System.debug(' ********** INSIDE MAIN IF *******');
+                           if(( (phoneAreaCode.length() == 2) && !( phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4  )  )){
+                           System.debug('*********** INSIDE CODE 2 *********');
+                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                  return null;          
+                           }
+                           else if( ( (phoneAreaCode.length() == 3) && !( (phoneAreaCodePart2.length() == 3 && phoneAreaCodePart3.length() == 4) || (phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4)  )  )){                        
+                            System.debug('*********** INSIDE CODE 3 *********');
+                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                  return null;  
+                           }else{
+                               objAccount.Phone = phoneAreaCode+'-'+phoneAreaCodePart2+'-'+phoneAreaCodePart3;
+                           }         
+                      // }
+                    }
+ 
+                        refreshPage = true;                      
+                        insert objAccount ;
+                        PageReference pageRef = new PageReference('/'+objAccount.Id);
+                        return PageRef;
+                    }
+                   
+                }
+               
+                if(recordType == 'Person Account' && market == 'KR')
+                {
+                    System.debug(' $$$$$$$$$$$$$$$  INSIDE PERSON ACCOUNT - KR');
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    objPersonAccount.RecordTypeId = recordTypeId;
+                    System.debug(' LENGTH '+homePhoneAreaCode.length()+' - '+homePhoneAreaCodePart2.length()+' - '+homePhoneAreaCodePart3.length() );
+                    if((homePhoneAreaCode.length()==1) && (workPhoneAreaCode.length()==1) && (homePhone2AreaCode.length()==1) && (phoneAreaCode.length()== 1) && objPersonAccount.Mobile__c == null && objPersonAccount.Mobile2__c == null && objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                    }
+                    else
+                    {
+                          
+                        System.debug(' PHONE $$$$$$$$$$$$$$$$$$$$$ >>>>>>>>>>> '+objPersonAccount.Individual_Home_Phone__c+' & '+objPersonAccount.Home_Phone_2__c+' & '+objPersonAccount.Work_Phone__c+' & '+objAccount.Phone);
+                        System.debug(' LENGTH '+homePhoneAreaCode.length()+' - '+homePhoneAreaCodePart2.length()+' - '+homePhoneAreaCodePart3.length() );
+                        System.debug('WORK PHONE LENGTH '+workPhoneAreaCode.length()+' - '+workPhoneAreaCodePart2.length()+' - '+workPhoneAreaCodePart3.length() );
+ 
+                      // Validating HomePhone Format
+                      if(homePhoneAreaCode.length()>1){
+                         // if(  ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() == 0))  || ((homePhoneAreaCodePart2.length() == 0) && (homePhoneAreaCodePart3.length() > 0 ))  || ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() > 0))  ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (homePhoneAreaCode.length() == 2) && !( homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4  )  )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (homePhoneAreaCode.length() == 3) && !( (homePhoneAreaCodePart2.length() == 3 && homePhoneAreaCodePart3.length() == 4) || (homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4)  ) )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                               }         
+                          // }
+                      }
+                       
+                      // Validating Work Phone Format
+                      if(workPhoneAreaCode.length() > 1){
+                          //if(  ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() == 0))  || ((workPhoneAreaCodePart2.length() == 0) && (workPhoneAreaCodePart3.length() > 0 ))  || ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() > 0))  ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (workPhoneAreaCode.length() == 2) && !( workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4  )  )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (workPhoneAreaCode.length() == 3) && !( (workPhoneAreaCodePart2.length() == 3 && workPhoneAreaCodePart3.length() == 4) || (workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4)  ) )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objPersonAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                               }         
+                           //}
+                       }
+                      
+                      // Validating HomePhone2 Format
+                      if(homePhone2AreaCode.length() > 1){
+                        //  if(  ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() == 0))  || ((homePhone2AreaCodePart2.length() == 0) && (homePhone2AreaCodePart3.length() > 0 ))  || ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() > 0)) ){
+                               System.debug(' ********** INSIDE MAIN IF *******');
+                               if(( (homePhone2AreaCode.length() == 2) && !( homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4  ) )){
+                               System.debug('*********** INSIDE CODE 2 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
+                                      return null;          
+                               }
+                               else if( ( (homePhone2AreaCode.length() == 3) && !( (homePhone2AreaCodePart2.length() == 3 && homePhone2AreaCodePart3.length() == 4) || (homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4) )  )){                        
+                                System.debug('*********** INSIDE CODE 3 *********');
+                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                      return null;  
+                               }else{
+                                   objPersonAccount.Home_Phone_2__c = homePhone2AreaCode+'-'+homePhone2AreaCodePart2+'-'+homePhone2AreaCodePart3;
+                               }         
+                         // }
+                       }   
+ 
+ 
+                  // Validating Phone Format
+                  if(phoneAreaCode.length() > 1){
+                      // if(  ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() == 0))  || ((phoneAreaCodePart2.length() == 0) && (phoneAreaCodePart3.length() > 0 ))  || ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() > 0))  ){
+                           System.debug(' ********** INSIDE MAIN IF *******');
+                           if(( (phoneAreaCode.length() == 2) && !( phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4  )  )){
+                           System.debug('*********** INSIDE CODE 2 *********');
+                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));  
+                                  return null;          
+                           }
+                           else if( ( (phoneAreaCode.length() == 3) && !( (phoneAreaCodePart2.length() == 3 && phoneAreaCodePart3.length() == 4) || (phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4)  )  )){                        
+                            System.debug('*********** INSIDE CODE 3 *********');
+                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
+                                  return null;  
+                           }else{
+                               objPersonAccount.Phone = phoneAreaCode+'-'+phoneAreaCodePart2+'-'+phoneAreaCodePart3;
+                           }         
+                      // }
+                    }                         
+                                               
+                            refreshPage = true;                      
+                            insert objPersonAccount ;
+                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
+                            return PageRef;                                                  
+                    }
+                      
+ 
+                 }
+                   
+                //Korea specific modifications - End
+               
                 
             }
             catch(DMLException e)
             {
                 refreshPage = false;
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));      
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));     
             }
-            
+           
             
             
         }
@@ -110,10 +335,10 @@ public class AddressSearchValidationController
             try{
                 if( recordType == 'Company')
                 {
-                    
+                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
-                    
+                   
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
@@ -121,7 +346,7 @@ public class AddressSearchValidationController
                     if(AddressObj.Address_Type__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
-                        
+                       
                     }
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {
@@ -130,10 +355,10 @@ public class AddressSearchValidationController
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
-                        PageReference pageRef = new PageReference('/'+objAccount.Id); 
+                        PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
                     }
-                    
+                   
                     
                 }
                 if(recordType == 'Person Account')
@@ -149,9 +374,9 @@ public class AddressSearchValidationController
                     if(AddressObj.Address_Type__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
-                        
+                       
                     }
-                    
+                   
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
@@ -159,10 +384,10 @@ public class AddressSearchValidationController
                         AddressObj.Customer__c = objPersonAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
-                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
+                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                         return PageRef;
                     }
-                    
+                   
                     
                     
                     
@@ -171,38 +396,40 @@ public class AddressSearchValidationController
             }
             catch(DMLException e){
                 refreshPage = false;
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));      
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));     
             }
         }
         return null;
     }
-    
+   
     
     // Cancel button
     public PageReference cancel(){
-        PageReference pageRef;  
+        PageReference pageRef; 
         pageRef = new PageReference('/001/o');
         return PageRef;
     }
-    
-    // Assign selected Recordtype value based on select list 
-    public void selectedRecordTypeValue() 
+   
+    // Assign selected Recordtype value based on select list
+    public void selectedRecordTypeValue()
     {
-        
+        resetPhoneAreacodes();
         selectedRecordType = recordType;
         system.debug('Selected type...' +selectedRecordType);
+      
+ 
     }
-    
+   
     
     /**  Address Search based on Zip code.
-Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
-**  Created By: Narasimha  
+Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
+**  Created By: Narasimha 
 **  Date: 2016-1-19
 **/
-    
+   
     public void AddressSearchbyZipCode()
     {
-        
+       
         if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
         {
             AddressObj.Address_Code__c = '';
@@ -212,67 +439,67 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
             AddressObj.City__c = '';
             AddressObj.District__c = '';
             AddressObj.Province__c = '';
-            
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+           
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
         }
-        
-        if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Block__c != null || AddressObj.City__c != null ||
+       
+        if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c !=null || AddressObj.Block__c != null || AddressObj.City__c != null ||
            AddressObj.District__c != null || AddressObj.Province__c != null )
         {
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null)); 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null));
             
         }
-        
+       
         
         else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {
-            
+           
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
             response =  UtilWebservice.validateAddressByZipCode(AddressObj);
-            
+           
             if(response != null && response.ValidationStatus == 'OK')
             {
                 //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
+               
                 
-                
-                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '')
+                if(response.Addresses[0].ValidFields != null && response.Addresses[0].ValidFields != '')
                 {
                     String ValidStr = response.Addresses[0].ValidFields;
                     system.debug('valid string ------'+ ValidStr );
-                    
+                   
                     if(ValidStr.contains('Address_Line_1__c'))
                     {
-                        
+                       
                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
-                        
+                       
                     }
                     if(ValidStr.contains('Address_Line_2__c'))
                     {
-                        
+                       
                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
                     }
                     if(ValidStr.contains('Block__c'))
                     {
-                        
+                       
                         AddressObj.Block__c = response.Addresses[0].Block;
                     }
                     if(ValidStr.contains('City__c'))
                     {
                         AddressObj.City__c = response.Addresses[0].City;
-                        
+                       
                     }
                     if(ValidStr.contains('District__c'))
                     {
                         AddressObj.District__c = response.Addresses[0].District;
-                        
+                       
                     }
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;
-                        
+                       
                     }
-                    
+                   
                 }
             }
             if(response != null && response.ValidationStatus == 'ERROR')
@@ -285,16 +512,16 @@ Sends zip code to EP/Tolerant and fetches the matched address details and popula
                 AddressObj.District__c = '';
                 AddressObj.Province__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
-                
+               
             }
         }
-        
+       
     }
-    
+   
     /**  Address Validation based on Zip code.
-After Address is searched using Address Search button and if user enters additional address information, It sends information to 
+After Address is searched using Address Search button and if user enters additional address information, It sends information to
 EP/Tolerant for Validation.
-**  Created By: Narasimha  
+**  Created By: Narasimha 
 **  Date: 2016-1-19
 **/
     public void validateAddressByZipCode()
@@ -308,24 +535,24 @@ EP/Tolerant for Validation.
             AddressObj.City__c = '';
             AddressObj.District__c = '';
             AddressObj.Province__c = '';
-            
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+           
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
         }
-        
+       
         if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {
-            crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+           crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
             response =  UtilWebservice.validateAddressByZipCode(AddressObj);
             if(response != null && response.ValidationStatus == 'OK')
             {
                 Address_Validated_Flag = true;
                 AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
                 //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
+               
                 
-                
-                if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid)
+                if(response.Addresses[0].ValidFields != null && response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid)
                 {
-                    
+                   
                     String ValidStr = response.Addresses[0].ValidFields;
                     if(ValidStr.contains('Address_Line_1__c'))
                     {
@@ -351,12 +578,12 @@ EP/Tolerant for Validation.
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;
                     }
-                    
+                   
                 }
-                
+               
                 else if(!response.Addresses[0].Valid)
                 {
-                    string province;   
+                    string province;  
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues('JP');
                     if(addtrmapUpdate.containsKey(AddressObj.Province__c))
@@ -366,11 +593,11 @@ EP/Tolerant for Validation.
                     AddressObj.Province__c =  province;
                     
                     AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
-                    
+                   
                     AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                         ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
                         ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
-                        
+                       
                     
                     
                     AddressObj.Address_Code__c = '';
@@ -380,9 +607,9 @@ EP/Tolerant for Validation.
                     AddressObj.City__c = '';
                     AddressObj.District__c = '';
                     AddressObj.Province__c = '';
-                    AddressObj.ZipCode__C = '';    
+                    AddressObj.ZipCode__C = '';   
                 }
-                
+               
             }
             if(response != null && response.ValidationStatus == 'ERROR')
             {
@@ -394,24 +621,24 @@ EP/Tolerant for Validation.
                 AddressObj.District__c = '';
                 AddressObj.Province__c = '';
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
-                
+               
             }
         }
-        
+       
         
     }
-    
+   
     
     /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
-**  Created By: Narasimha  
+**  Created By: Narasimha 
 **  Date: 2016-2-8
 **/
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(Address);
-        
+       
         if(response != null && response.ValidationStatus == 'OK')
         {
             if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
@@ -419,21 +646,62 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
                 return response.Addresses[0].Address_Code;
             }
-            
-            else 
+           
+            else
             {
                 return null;
             }
         }
         return null;
     }
-     /**  User Market Validation.
-When the user creates record , this method will help to get the current user market.
-**  Created By: Sneha
-**  Date: 2016-9-16
-**/   
-    public void ValidateCurrentuserMarket(){
-        UserMarket = [select Id, Market__c from User where Id=:UserInfo.getUserId() limit 1].Market__c;
+   
+        
+    public List<SelectOption> getAreacodeItems() {
+      areacodeKR = [SELECT Id,Phone_EN1__c,Phone_TR1__c,Phone_EN2__c,Phone_TR2__c,Phone_EN3__c,Phone_TR3__c ,Phone_EN4__c,Phone_TR4__c,Phone_EN5__c,Phone_TR5__c,Phone_EN6__c,Phone_TR6__c,Phone_EN7__c,Phone_TR7__c,
+           Phone_EN8__c,Phone_TR8__c,Phone_EN9__c,Phone_TR9__c,Phone_EN10__c,Phone_TR10__c,Phone_EN11__c,Phone_TR11__c,Phone_EN12__c,Phone_TR12__c,Phone_EN13__c,Phone_TR13__c,Phone_EN14__c,Phone_TR14__c,
+           Phone_EN15__c,Phone_TR15__c,Phone_EN16__c,Phone_TR16__c,Phone_EN17__c,Phone_TR17__c
+            FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1];
+           
+              phoneAreaCodeMapKR= new Map<String,String>();
+              phoneAreaCodeMapKR.put(System.label.None,'');
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN1__c+'       '+areacodeKR.Phone_TR1__c,areacodeKR.Phone_EN1__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN2__c+'        '+areacodeKR.Phone_TR2__c,areacodeKR.Phone_EN2__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c,areacodeKR.Phone_EN3__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN4__c+'        '+areacodeKR.Phone_TR4__c,areacodeKR.Phone_EN4__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN5__c+'       '+areacodeKR.Phone_TR5__c,areacodeKR.Phone_EN5__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN6__c+'        '+areacodeKR.Phone_TR6__c,areacodeKR.Phone_EN6__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN7__c+'       '+areacodeKR.Phone_TR7__c,areacodeKR.Phone_EN7__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN8__c+'        '+areacodeKR.Phone_TR8__c,areacodeKR.Phone_EN8__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN9__c+'       '+areacodeKR.Phone_TR9__c,areacodeKR.Phone_EN9__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN10__c+'        '+areacodeKR.Phone_TR10__c,areacodeKR.Phone_EN10__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN11__c+'       '+areacodeKR.Phone_TR11__c,areacodeKR.Phone_EN11__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN12__c+'        '+areacodeKR.Phone_TR12__c,areacodeKR.Phone_EN12__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN13__c+'       '+areacodeKR.Phone_TR13__c,areacodeKR.Phone_EN13__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN14__c+'        '+areacodeKR.Phone_TR14__c,areacodeKR.Phone_EN14__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN15__c+'       '+areacodeKR.Phone_TR15__c,areacodeKR.Phone_EN15__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN16__c+'        '+areacodeKR.Phone_TR16__c,areacodeKR.Phone_EN16__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN17__c+'       '+areacodeKR.Phone_TR17__c,areacodeKR.Phone_EN17__c);   
+               
+                List<SelectOption> options = new List<SelectOption>();
+                options.add(new SelectOption('0',System.label.None));
+                options.add(new SelectOption(  areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c+'       '+areacodeKR.Phone_TR2__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN4__c,areacodeKR.Phone_EN4__c+'       '+areacodeKR.Phone_TR4__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN5__c,areacodeKR.Phone_EN5__c+'       '+areacodeKR.Phone_TR5__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN6__c,areacodeKR.Phone_EN6__c+'       '+areacodeKR.Phone_TR6__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN7__c, areacodeKR.Phone_EN7__c+'        '+areacodeKR.Phone_TR7__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN8__c,areacodeKR.Phone_EN8__c+'       '+areacodeKR.Phone_TR8__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN9__c,areacodeKR.Phone_EN9__c+'        '+areacodeKR.Phone_TR9__c ));   
+                options.add(new SelectOption( areacodeKR.Phone_EN10__c,areacodeKR.Phone_EN10__c+'       '+areacodeKR.Phone_TR10__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN11__c,areacodeKR.Phone_EN11__c+'       '+areacodeKR.Phone_TR11__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN12__c,areacodeKR.Phone_EN12__c+'       '+areacodeKR.Phone_TR12__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN13__c,areacodeKR.Phone_EN13__c+'       '+areacodeKR.Phone_TR13__c)); 
+                options.add(new SelectOption( areacodeKR.Phone_EN14__c,areacodeKR.Phone_EN14__c+'       '+areacodeKR.Phone_TR14__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN15__c,areacodeKR.Phone_EN15__c+'       '+areacodeKR.Phone_TR15__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN16__c,areacodeKR.Phone_EN16__c+'       '+areacodeKR.Phone_TR16__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN17__c,areacodeKR.Phone_EN17__c+'       '+areacodeKR.Phone_TR17__c ));
+                return options;
+        }
+        
+    public void resetPhoneAreacodes(){
+        homePhoneAreaCode = homePhoneAreaCodePart2 = homePhoneAreaCodePart3 = workPhoneAreaCode = workPhoneAreaCodePart2 = workPhoneAreaCodePart3 = homePhone2AreaCode = homePhone2AreaCodePart2 = homePhone2AreaCodePart3 = phoneAreaCode = phoneAreaCodePart2 = phoneAreaCodePart3 = '';
+       
+    }      
     
-    }
+    
+    
+    
 }
