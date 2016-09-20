@@ -19,7 +19,7 @@ Version Settings
 
 
 <!-- Page: -->
-<apex:page standardController="Account" extensions="AddressSearchValidationControllerKR" >
+<apex:page standardController="Account" extensions="AddressSearchValidationController" >
    
     <apex:pageMessages id="msgs" escape="False" />
    

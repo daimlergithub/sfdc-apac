@@ -8,7 +8,7 @@
 ** Modified By :
 ** Modified date :
 **/
-public class AddressSearchValidationControllerKR
+public class AddressSearchValidationController
 {
     //variables used in the page.
     ApexPages.StandardController controller;
@@ -42,7 +42,7 @@ public class AddressSearchValidationControllerKR
     // KOREA related parameters - End
    
     // COnstructor
-    public AddressSearchValidationControllerKR(ApexPages.StandardController controller)
+    public AddressSearchValidationController(ApexPages.StandardController controller)
     {
         objAccount= new Account();
         objPersonAccount= new Account();
