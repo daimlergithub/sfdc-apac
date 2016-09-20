@@ -7,13 +7,15 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$Account.Age_Range__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
     </columns>
     <description>Age Group by Car Segments</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Account.Age_Range__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBK Reports - Age Group by Car Segments</name>
     <params>
         <name>co</name>
