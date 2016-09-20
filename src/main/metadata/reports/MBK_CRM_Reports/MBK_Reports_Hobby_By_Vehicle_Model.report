@@ -9,11 +9,13 @@
     <columns>
         <field>FK_$Account.Interested_Event__c</field>
     </columns>
-    <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
-    </columns>
     <description>Hobby Interested Event and Vehicle Model</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBK Reports - Hobby By Vehicle Model</name>
     <params>
         <name>co</name>
