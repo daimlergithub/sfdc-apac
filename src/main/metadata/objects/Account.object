@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -28691,25 +28691,6 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 		   window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");</url>
     </webLinks>
     <webLinks>
-        <fullName>Mergeexample</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Merge</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>{!Account.Id}</url>
-    </webLinks>
-    <webLinks>
         <fullName>New_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -28726,24 +28707,24 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openSubTab(result) { 
 if('{!Account.RecordType}' == '012280000000f0p')
 {	
-	sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&ent=Account&00N2800000A9Ck9={!Account.FirstName}&00N2800000A9Ckk={!Account.LastName}&00N2800000A9Ck8={!Account.FirstName_Native_1__c}&00N2800000A9Ckj={!Account.LastName_Native_1__c}&00N2800000A9CkD={!Account.Primary_Address_Display__c}&00N2800000A9ClV={!Account.Primary_Phone_Display__c}&00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&CF00N2800000A9CjO={!Account.Name}&CF00N2800000A9CjO_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+	sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordType}' == '012280000000f14')
 {
-	sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&ent=Account&00N2800000A9Ck9={!Account.FirstName}&00N2800000A9Ckk={!Account.LastName}&00N2800000A9Ck8={!Account.FirstName_Native_1__c}&00N2800000A9Ckj={!Account.LastName_Native_1__c}&00N2800000A9CkD={!Account.Primary_Address_Display__c}&00N2800000A9ClV={!Account.Primary_Phone_Display__c}&00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&CF00N2800000A9CjS={!Account.Name}&CF00N2800000A9CjS_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+	sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
 ) 
 }		
 else { 
-if('{!Account.RecordType}' == 012280000000f0p)
+if('{!Account.RecordType}' == '012280000000f0p')
 {		
-	window.open("/a13/e?RecordType=012280000006I7s&ent=Account&00N2800000A9Ck9={!Account.FirstName}&00N2800000A9Ckk={!Account.LastName}&00N2800000A9Ck8={!Account.FirstName_Native_1__c}&00N2800000A9Ckj={!Account.LastName_Native_1__c}&00N2800000A9CkD={!Account.Primary_Address_Display__c}&00N2800000A9ClV={!Account.Primary_Phone_Display__c}&00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&CF00N2800000A9CjO={!Account.Name}&CF00N2800000A9CjO_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+	window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 else if ('{!Account.RecordType}' == '012280000000f14')
 {
-	window.open("/a13/e?RecordType=012280000006I7s&ent=Account&00N2800000A9Ck9={!Account.FirstName}&00N2800000A9Ckk={!Account.LastName}&00N2800000A9Ck8={!Account.FirstName_Native_1__c}&00N2800000A9Ckj={!Account.LastName_Native_1__c}&00N2800000A9CkD={!Account.Primary_Address_Display__c}&00N2800000A9ClV={!Account.Primary_Phone_Display__c}&00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&CF00N2800000A9CjS={!Account.Name}&CF00N2800000A9CjS_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+	window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
     </webLinks>
@@ -28762,30 +28743,111 @@ else if ('{!Account.RecordType}' == '012280000000f14')
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openSubTab(result) { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
+if('{!Account.RecordType}' == '012280000000f0p')
 {	
-sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&ent=Account&OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+	sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordType}' == '012280000000f14')
 {
-sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&ent=Account&OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&OBJECT_LEAD_CONTACT_ID={!Account.Name}&OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+	sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
 ) 
-}	
+}		
 else { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
-{	
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&ent=Account&OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+if('{!Account.RecordType}' == '012280000000f0p')
+{		
+	window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordType}' == '012280000000f14	')
 {
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&ent=Account&OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&OBJECT_LEAD_CONTACT_ID={!Account.Name}&OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+	window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
     </webLinks>	
     <webLinks>
+        <fullName>Search_Accounts</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Search Accounts</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>{!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Search_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Search Dealers</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+if (sforce.console.isInConsole()) {
+     javascript:sforce.console.openPrimaryTab(null, '/apex/DealerSearch?Id={!Account.Id}', true, 'Dealer Search');
+}
+else {
+    window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Test</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Test</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+
+if (sforce.console.isInConsole()) {
+ javascript:
+   var showTabId = function showTabId(result) {
+       //alert("{!Account.Id}");
+       //window.open("{!Account.Id}", "", "width=800,height=600");
+       sforce.console.openSubtab(result.id, '/a0P9000000B0ht3?tabId='+result.id, 
+                                                          true, 'Test');
+   }
+   sforce.console.getEnclosingPrimaryTabId(showTabId); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Testing</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Testing</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+ 
+		// query the record
+		var qr = sforce.connection.query("SELECT Id,Dup_Reason__c FROM Account where Id='" + "{!Account.Id}" + "'");
+		var records = qr.getArray("records"); 
+		 
+		// display the field from the query
+		alert("Dup Reason: " +qr.records.Dup_Reason__c);
+
+		if(qr.records.Dup_Reason__c==null){
+		   alert('No record found to be merged');
+		}
+		else{
+		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");	
+		}</url>
+    </webLinks><webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
