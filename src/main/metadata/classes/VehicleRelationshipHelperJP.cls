@@ -1,6 +1,6 @@
 public with sharing class VehicleRelationshipHelperJP 
 {  
-    Public String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
+    Public static String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static String[] ignoredAccount = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static Set<Id> setIgnoredAccounts=new Set<Id>();     
         
@@ -9,12 +9,12 @@ public with sharing class VehicleRelationshipHelperJP
                 setIgnoredAccounts.add(acc.Id);
             } 
      }
-    Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){       
+    Public static void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){       
        Set<Id> accountIds = new Set<Id>();
        List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
        Set<date> setStartDate=new Set<date>();
        Set<date> setEndDate=new Set<date>();       
-       Set<Id> ignoredAcct=new Set<Id>();         
+       Set<Id> ignoredAcct=new Set<Id>();
           for(Account acc:[select id from Account Where Name Like :ignoredAccounts ]){
                 ignoredAcct.add(acc.Id);
             }
@@ -47,13 +47,12 @@ public with sharing class VehicleRelationshipHelperJP
             }
           }     
      }
-    Public void validateOverlappingVehicleRelationshiponUpdate(List<Vehicle_Relationship__c> newVehicleRel,Map<Id,Vehicle_Relationship__c> oldVehicleRel){ 
+    Public static void validateOverlappingVehicleRelationshiponUpdate(List<Vehicle_Relationship__c> newVehicleRel,Map<Id,Vehicle_Relationship__c> oldVehicleRel){ 
          Set<Id> accountIds = new Set<Id>();
          List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
          Set<date> setStartDate=new Set<date>();
          Set<date> setEndDate=new Set<date>();
          Set<Id> ignoredAcct=new Set<Id>();
-         
           for(Account acc:[select id from Account Where Name Like :ignoredAccounts ]){
                 ignoredAcct.add(acc.Id);
             }
