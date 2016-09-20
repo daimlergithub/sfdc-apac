@@ -1,23 +1,3 @@
-
-Visualforce Page
-AddressSearchValidationKR
-Help for this Page
-Page Detail
-EditDeleteCloneWhere is this used?Show Dependencies  Preview
-Label	AddressSearchValidationKR	Name	AddressSearchValidationKR
-Namespace Prefix		Available for Salesforce mobile apps and Lightning Pages	Not Checked
-Require CSRF protection on GET requests	Not Checked	Description	
- 	Created By	sneha chail,  9/17/2016 6:07 PM
-Last Modified By	sneha chail,  9/19/2016 6:40 PM	 	 
-	
-	
-Visualforce Markup
-
-	
-	
-Version Settings
-
-
 <!-- Page: -->
 <apex:page standardController="Account" extensions="AddressSearchValidationController" >
    
