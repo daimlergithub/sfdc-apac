@@ -25,9 +25,6 @@
         <field>FK_$Account.Gender__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Age_Range__c</field>
-    </columns>
-    <columns>
         <field>FK_PC_TITLE</field>
     </columns>
     <columns>
@@ -109,7 +106,12 @@
         <field>FK_$Account.Vehicle_Amount__c</field>
     </columns>
     <description>Raw Data Reports</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Account.Age_Range__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBK Report - Raw Data Report</name>
     <params>
         <name>co</name>

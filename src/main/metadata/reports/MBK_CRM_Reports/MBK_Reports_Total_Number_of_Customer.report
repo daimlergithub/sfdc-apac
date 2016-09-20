@@ -3,11 +3,13 @@
     <columns>
         <field>ACCOUNT.NAME</field>
     </columns>
-    <columns>
-        <field>Account.Occupation__c</field>
-    </columns>
     <description>Total Number of Customers</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Occupation__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBK Reports - Total Number of Customer</name>
     <params>
         <name>co</name>
