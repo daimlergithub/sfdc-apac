@@ -9,11 +9,13 @@
     <columns>
         <field>FK_$Account.Gender__c</field>
     </columns>
-    <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
-    </columns>
     <description>Gender by Vehicle Model</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBK Reports - Gender by Vehicle Model</name>
     <params>
         <name>co</name>

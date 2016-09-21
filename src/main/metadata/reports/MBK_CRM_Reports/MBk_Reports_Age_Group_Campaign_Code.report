@@ -9,11 +9,13 @@
     <columns>
         <field>Campaign.Campaign_Code__c</field>
     </columns>
-    <columns>
-        <field>Account.Age_Range__c</field>
-    </columns>
     <description>Age Group Campaign Code</description>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Age_Range__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <name>MBk Reports - Age Group Campaign Code</name>
     <params>
         <name>scopeid</name>
