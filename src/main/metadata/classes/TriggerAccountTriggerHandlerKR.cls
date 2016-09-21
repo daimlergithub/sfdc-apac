@@ -28,7 +28,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         
         if(isBefore && isUpdate){
             AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-          //  AccountHelperKR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
             AccountHelperKR.updateOnPostalOptout(Trigger.new);
@@ -69,10 +69,10 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         
         if(isBefore && isUpdate){
             AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-         //   AccountHelperKR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
-         //   AccountHelperKR.updateOnPostalOptout(Trigger.new);
+            AccountHelperKR.updateOnPostalOptout(Trigger.new);
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
         }

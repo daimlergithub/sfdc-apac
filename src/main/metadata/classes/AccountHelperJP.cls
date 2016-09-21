@@ -167,7 +167,7 @@ public class AccountHelperJP
             UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
-                if(a.MD__c == 'JP')
+                if(a.MD__c == 'JP'|| a.MD__c == 'KR')
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -178,7 +178,7 @@ public class AccountHelperJP
             }
             For(Account acc:listNewAccounts)
             {      
-                if(acc.MD__c == 'JP')
+                if(acc.MD__c == 'JP' || acc.MD__c == 'KR')
                 {   
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
                     {              
