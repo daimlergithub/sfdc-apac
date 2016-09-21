@@ -8433,6 +8433,67 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Lead_Latest_Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Latest Phase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoiced</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WIP Linkage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Lead_Possibility__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c  =  DATEVALUE( NOW()) ) , "T1",  IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c   &gt;   DATEVALUE( NOW()) ), "T2",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  =   DATEVALUE( NOW()) ), "HOT1",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  &gt;   DATEVALUE( NOW()) ), "HOT2",  IF(AND( Expected_Close_Date__c  &gt;DATEVALUE( NOW()) , Expected_Registration_Date__c  &gt;DATEVALUE( NOW()) ), "HOT3", null) ) ) ) )</formula>
