@@ -88,7 +88,8 @@
                 
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'KR') ),true,false)}">
-                           
+                    <apex:inputField value="{!objPersonAccount.Salutation__c}" />
+                    <apex:outputtext/>          
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
