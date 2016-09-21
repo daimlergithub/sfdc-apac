@@ -43,7 +43,7 @@
             <value>Null</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Case.CreatedBy</field>
+            <field>User.User_Role__c</field>
             <operation>equals</operation>
             <value>Assistant Manager</value>
         </criteriaItems>

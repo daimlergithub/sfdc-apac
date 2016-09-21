@@ -109404,7 +109404,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa0u%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=OBJECT_LEAD_OBJECTID&amp;OBJECT_CASE_Assigned_Dealer={! Case.Case_Dealer__c }&amp;OBJECT_LEAD_ACCOUNT={!Case.Account}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa0u%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
