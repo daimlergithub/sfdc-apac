@@ -425,11 +425,12 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
         
     }
-    
+   //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)
-    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+   
+    public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject)
     {
-        string sfdcMarketDiscriminator = 'JP';
+       string sfdcMarketDiscriminator = MarketDiscriminator;
         string orgId=UserInfo.getOrganizationId();
        
         string sfdcTypeName='Account';

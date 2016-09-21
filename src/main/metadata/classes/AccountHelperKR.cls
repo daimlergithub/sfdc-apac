@@ -86,6 +86,8 @@ public class AccountHelperKR{
                    if(acc.Opt_In_Home_Phone2__c){ acc.Opt_In_Home_Phone2__c = FALSE;}
                    if(acc.Opt_In_Work_Phone__c ){ acc.Opt_In_Work_Phone__c = FALSE;}
                    if(acc.Opt_In_Work_Phone2__c){ acc.Opt_In_Work_Phone2__c = FALSE;}
+                   if(acc.Preferred_Mobile_1__c){ acc.Preferred_Mobile_1__c = FALSE;}
+                   if(acc.Preferred_Mobile_2__c){ acc.Preferred_Mobile_2__c = FALSE;}
                }
            } 
         }
@@ -95,11 +97,39 @@ public class AccountHelperKR{
     * Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
     *   via Addresses (Ex: Home Address, Office Address, etc.).
     */
-/*    public static void updateOnPostalOptout(list<Account> listNewAccounts){
+     public static void updateOnPostalOptout(list<Account> listNewAccounts){
+      system.debug('@@@@@@ listNewAccounts'+listNewAccounts);
+    List<Address__c> addressupdatelst = new list<Address__c>();
+    List<Address__c> addressList = new list<Address__c>();
+  Set<Id> Accid=new Set<Id>();
+  Set<Id> Addd=new Set<Id>();
+        for(Account acc: listNewAccounts){
+        Accid.add(acc.id);
+        Addd.add(acc.Primary_Address_Reference__c);
+             
     
     // NEED INPUTS FOR IMPLEMENTATION
     }
- */  
+    system.debug('@@@@@@ Addd'+Addd);
+    addressList =[select id,Opt_In_Hardcopy__c from Address__c where id=:Addd];
+    for(Account acc: listNewAccounts)
+    {
+    for(Address__c add: addressList)
+    if(acc.MD__c == 'KR'){
+               if(acc.Postal_Opt_Out__c){
+                   if(add.Opt_In_Hardcopy__c== true){ 
+                        add.Opt_In_Hardcopy__c = false;
+                        addressupdatelst.add(add);
+                    }
+                } 
+                } 
+                }
+    
+    update addressupdatelst;
+    system.debug('@@@@@@ addressupdatelst'+addressupdatelst);
+    }
+    
+   
     /**
     * Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
     */
