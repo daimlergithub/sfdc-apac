@@ -11849,7 +11849,7 @@ Modify Reason:
     <fields>
         <fullName>EU_VIN__c</fullName>
         <externalId>false</externalId>
-        <label>EU FIN</label>
+        <label>EU VIN</label>
         <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
