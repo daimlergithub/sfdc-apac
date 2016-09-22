@@ -11233,6 +11233,17 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Re_visit__c</fullName>
+        <description>This field is used for reporting purpose to track the customer re-visit</description>
+        <externalId>false</externalId>
+        <label>Re-visit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Quotation_Print_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -15839,6 +15850,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Test_Drive_Detail__c</fullName>

@@ -17,7 +17,9 @@
 */
 
 public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
-
+    list<Account> ListAccOld = (list<Account>)trigger.old;
+    list<Account> ListAccNew = (list<Account>)trigger.new;
+    string serializedObject;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
     
         if(isBefore && isInsert){
@@ -26,14 +28,36 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         
         if(isBefore && isUpdate){
             AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-          //  AccountHelperKR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
-          //  AccountHelperKR.updateOnPostalOptout(Trigger.new);
+            AccountHelperKR.updateOnPostalOptout(Trigger.new);
+            system.debug('@@@@@@ listNewAccounts update trigger');
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
         }
+        //New Code Block Added on 9/21/2016
+        if(isAfter && isInsert && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccNew);
+            AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+        } 
+        if(isAfter && isUpdate && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccNew);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+        }
         
+        if(isAfter && isDelete && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccOld);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+        }
+        //End of the New code Block 9/21/2016
         
     }
     
@@ -45,12 +69,33 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         
         if(isBefore && isUpdate){
             AccountHelperKR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-         //   AccountHelperKR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
             AccounthelperKR.updateOnDoNotCall(Trigger.new);
-         //   AccountHelperKR.updateOnPostalOptout(Trigger.new);
+            AccountHelperKR.updateOnPostalOptout(Trigger.new);
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
+        }
+        
+        // Copied from JP
+        if(isAfter && isInsert && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccNew);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+        } 
+        if(isAfter && isUpdate && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccNew);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+        }
+        
+        if(isAfter && isDelete && !System.isFuture())
+        {
+            serializedObject=json.serialize(ListAccOld);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
         
     }
