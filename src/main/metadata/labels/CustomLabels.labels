@@ -174,6 +174,13 @@
         <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
+        <fullName>Alert_Handling_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alert Handling Level</shortDescription>
+        <value>Handling level is not Dealer</value>
+    </labels>
+    <labels>
         <fullName>And_Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
