@@ -5,6 +5,7 @@
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
+    <customButtons>New_Survey</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -631,6 +632,14 @@
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form_text__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Event__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -695,6 +704,21 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -838,7 +862,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-		<customButtons>New_MB_Complaint</customButtons>
+        <customButtons>New_MB_Complaint</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
