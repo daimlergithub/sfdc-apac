@@ -61,6 +61,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Requires_Dealer_Contact__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Perferred_Contact_Email__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
