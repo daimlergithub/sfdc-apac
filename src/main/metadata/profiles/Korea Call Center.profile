@@ -1429,9 +1429,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Allow_Data_Sharing__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16511,11 +16511,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Sub_Product__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.Supplement_normal_interest_rates__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
