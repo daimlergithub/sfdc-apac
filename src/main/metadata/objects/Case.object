@@ -109201,8 +109201,7 @@ sforce.console.getFocusedPrimaryTabId(showTabId);
 else { 
 window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
-    </webLinks>
-    <webLinks>
+    </webLinks><webLinks>
         <fullName>Escalation</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -109210,7 +109209,14 @@ window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id
         <masterLabel>Escalation</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>location.replace('_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;template_id=00Xp0000000QWYW')</url>
+        <url>if('{!Case.Handling_Level__c}' == 'Dealer')
+			 {
+			   window.location.href = '_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;p2_lkid={!Account.Dealer_Complaint_Manager__c}&amp;p2={!Account.Dealer_Complaint_Manager__c}' ;
+			}
+			else
+			{
+			alert('{!$Label.Alert_Handling_Level}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Follow_Up_Inquiry</fullName>
