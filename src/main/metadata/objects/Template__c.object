@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -269,6 +265,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -378,6 +375,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1143,7 +1141,10 @@
     <validationRules>
         <fullName>SMS_No_more_than_235</fullName>
         <active>true</active>
-        <errorConditionFormula>OR(AND(CONTAINS(RecordType.Name,"SMS"),(LEN( Closure_SMS__c)&gt;235 )),AND(CONTAINS(RecordType.Name,"SMS"),LEN(Message_Detail__c)&gt;235),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(LEN(Closure_SMS__c)&gt;235, 
+LEN(Message_Detail__c )&gt;235), 
+RecordType.DeveloperName == 'SMS', 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Sorry, the SMS content is too long. Please make it shorter</errorMessage>
     </validationRules>
 </CustomObject>
