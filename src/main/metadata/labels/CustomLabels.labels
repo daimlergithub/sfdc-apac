@@ -2506,6 +2506,13 @@
         <value>There were no target catalogues to be printed.</value>
     </labels>
     <labels>
+        <fullName>None</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>None</shortDescription>
+        <value>--None--</value>
+    </labels>
+    <labels>
         <fullName>NotAccepted</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4464,12 +4471,5 @@
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>
-	<labels>
-        <fullName>None</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>None</shortDescription>
-        <value>--None--</value>
     </labels>
 </CustomLabels>
