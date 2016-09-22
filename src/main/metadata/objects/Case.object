@@ -167,7 +167,7 @@
         </values>
         <values>
             <fullName>Waiting for final approval</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Final approval done</fullName>
