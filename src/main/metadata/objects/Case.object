@@ -159,11 +159,11 @@
         </values>
         <values>
             <fullName>Open</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>Waiting for Response approval</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>Waiting for final approval</fullName>
