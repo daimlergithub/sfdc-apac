@@ -22143,7 +22143,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>ManageTranslations</name>
+        <name>ManageTranslation</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
