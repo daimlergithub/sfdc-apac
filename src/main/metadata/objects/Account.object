@@ -29048,7 +29048,6 @@ javascript:
 var showTabId = function showTabId(result) { 
 sforce.console.openSubtab(result.id,url,true,'{!$Label.SurveyID}'); 
 }; 
-
 } 
 else { 
 window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=800,width=600,height=400");
