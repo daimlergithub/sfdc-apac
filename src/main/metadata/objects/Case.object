@@ -102,6 +102,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Escalation Raised %26 Confirmed</fullName>
             <default>false</default>
         </values>
@@ -155,7 +159,23 @@
         </values>
         <values>
             <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Response approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for final approval</fullName>
             <default>true</default>
+        </values>
+        <values>
+            <fullName>Final approval done</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Final approval rejected</fullName>
+            <default>false</default>
         </values>
     </businessProcesses>
     <businessProcesses>
@@ -108894,8 +108914,7 @@ $Profile.Name = 'System Administrator'
         <errorConditionFormula>AND(
   NOT( ISNULL(EU_VIN__c) ),
   NOT(ISBLANK( EU_VIN__c)),
-  NOT(REGEX( EU_VIN__c,
-  "^[A-Za-z0-9]+$")),$Profile.Name != 'IntegrationAPI',
+  NOT(ISNUMBER( EU_VIN__c)),$Profile.Name != 'IntegrationAPI',
   (MD__c = 'KR') 
 )</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
@@ -108906,7 +108925,7 @@ $Profile.Name = 'System Administrator'
         <active>true</active>
         <description>US VIN is enterd with double byte or symbols (or null)</description>
         <errorConditionFormula>AND(NOT(ISNULL(  US_VIN__c )),
-NOT(ISBLANK(  US_VIN__c )),NOT(REGEX(  US_VIN__c  , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+NOT(ISBLANK(  US_VIN__c )),NOT(ISNUMBER(  US_VIN__c )), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
         <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
@@ -109201,8 +109220,7 @@ sforce.console.getFocusedPrimaryTabId(showTabId);
 else { 
 window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
-    </webLinks>
-    <webLinks>
+    </webLinks><webLinks>
         <fullName>Escalation</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -109210,7 +109228,14 @@ window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id
         <masterLabel>Escalation</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>location.replace('_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;template_id=00Xp0000000QWYW')</url>
+        <url>if('{!Case.Handling_Level__c}' == 'Dealer')
+			 {
+			   window.location.href = '_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;p2_lkid={!Account.Dealer_Complaint_Manager__c}&amp;p2={!Account.Dealer_Complaint_Manager__c}' ;
+			}
+			else
+			{
+			alert('{!$Label.Alert_Handling_Level}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Follow_Up_Inquiry</fullName>
