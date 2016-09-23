@@ -12243,11 +12243,8 @@ Record Type =  CAS/Central Marketing campaign</description>
         <fullName>Locked_for_Central_when_Published</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-OR(
- RecordType.Name == 'S&amp;M Event Central Campaign',
- RecordType.Name == 'S&amp;M Media Central Campaign',
- RecordType.Name == 'AS Central Campaign'
-), 
+ RecordType.Name =='Central Marketing Campaign',
+  
  OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
  OR(  ISCHANGED( Campaign_Code__c ),
       ISCHANGED( Name ),
