@@ -787,7 +787,7 @@ Modify Reason:
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>contains</operation>
-            <value>Retail Sales Leads,Sales Leads</value>
+            <value>Retail Sales Leads,Sales Leads,Aftersales Leads</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

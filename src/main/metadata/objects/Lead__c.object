@@ -69041,14 +69041,14 @@ MD__c='KR'
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-ISNULL(Requested_Service_DateTime1__c), 
+ISNULL(Service_Date__c), 
 ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
 $Profile.Name != 'IntegrationAPI', 
 MD__c='KR',
 RecordType.DeveloperName = 'Aftersales_Leads'
 )</errorConditionFormula>
-        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
+        <errorDisplayField>Service_Date__c</errorDisplayField>
+        <errorMessage>If CAC Lead Status is Service Completed, Service Date is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
