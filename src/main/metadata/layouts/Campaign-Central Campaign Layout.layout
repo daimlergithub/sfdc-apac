@@ -64,7 +64,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>IsActive</field>
             </layoutItems>
             <layoutItems>
