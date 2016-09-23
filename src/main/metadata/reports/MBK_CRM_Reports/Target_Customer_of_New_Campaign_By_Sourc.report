@@ -4,19 +4,21 @@
         <field>CAMPAIGN_NAME</field>
     </columns>
     <columns>
-        <field>ACCOUNT.NAME</field>
+        <field>MEMBER_ID</field>
     </columns>
     <columns>
-        <field>Campaign.Campaign_Code__c</field>
+        <field>ACTIVE</field>
     </columns>
-    <description>Age Group Campaign Code</description>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Age_Range__c</field>
+        <field>Campaign.Resource_Channels__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>MBk Reports - Age Group Campaign Code</name>
+    <name>Target Customer of New Campaign By Sourc</name>
     <params>
         <name>scopeid</name>
         <value></value>
@@ -25,7 +27,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CampaignContact</reportType>
-    <scope>orgAll</scope>
+    <reportType>CampaignWithCampaignMembers</reportType>
+    <scope>userActive</scope>
     <showDetails>true</showDetails>
 </Report>

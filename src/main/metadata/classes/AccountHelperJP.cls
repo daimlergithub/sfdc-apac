@@ -167,7 +167,7 @@ public class AccountHelperJP
             UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
-                if(a.MD__c == 'JP')
+                if(a.MD__c == 'JP'|| a.MD__c == 'KR')
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -178,7 +178,7 @@ public class AccountHelperJP
             }
             For(Account acc:listNewAccounts)
             {      
-                if(acc.MD__c == 'JP')
+                if(acc.MD__c == 'JP' || acc.MD__c == 'KR')
                 {   
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
                     {              
@@ -425,11 +425,12 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
         
     }
-    
+   //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)
-    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+   
+    public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject)
     {
-        string sfdcMarketDiscriminator = 'JP';
+       string sfdcMarketDiscriminator = MarketDiscriminator;
         string orgId=UserInfo.getOrganizationId();
        
         string sfdcTypeName='Account';

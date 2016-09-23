@@ -11424,6 +11424,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Re_visit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Print_Date__c</field>
         <readable>true</readable>
@@ -11846,6 +11851,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Test_Drive_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Team__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
