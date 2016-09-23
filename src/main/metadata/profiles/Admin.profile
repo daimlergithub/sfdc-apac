@@ -6058,6 +6058,16 @@
         <field>Car_Model__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Trim__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Colour__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Description__c</field>
