@@ -5936,6 +5936,16 @@
         <field>Car_Model__c.Vehicle_SubSubGroup__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Trim__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Colour__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Accident_Location_Details__c</field>
@@ -18486,7 +18496,7 @@
         <field>Vehicle__c.Car_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	    <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Category_Code__c</field>
         <readable>true</readable>
