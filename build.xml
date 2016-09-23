@@ -315,6 +315,7 @@
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
+				<sf:include name="TaskTriggerHandlerKR"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
 				<sf:include name="TestTriggerHandler"/>
