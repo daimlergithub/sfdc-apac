@@ -102,10 +102,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Open</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Escalation Raised %26 Confirmed</fullName>
             <default>false</default>
         </values>
@@ -159,23 +155,7 @@
         </values>
         <values>
             <fullName>Open</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting for Response approval</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting for final approval</fullName>
             <default>true</default>
-        </values>
-        <values>
-            <fullName>Final approval done</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Final approval rejected</fullName>
-            <default>false</default>
         </values>
     </businessProcesses>
     <businessProcesses>
