@@ -28361,7 +28361,7 @@ OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEma
  CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')),
  CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.',ISBLANK(PersonEmail)),
  ISBLANK(Email__c),
-$Profile.Name != 'IntegrationAPI'
+$Profile.Name != 'IntegrationAPI',MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>
         <errorMessage>Invalid Email Address</errorMessage>
@@ -29044,13 +29044,14 @@ else if ('{!Account.RecordTypeId}' == '012280000000f14')
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 var url = '/flow/New_Survey?AccountID={!Account.Id}'; 
 if (sforce.console.isInConsole()) { 
-javascript: 
-var showTabId = function showTabId(result) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openSubTab(result) { 
 sforce.console.openSubtab(result.id,url,true,'{!$Label.SurveyID}'); 
-}; 
+} 
+) 
 } 
 else { 
-window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=800,width=600,height=400");
+window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=800,width=600,height=400"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -29228,3 +29229,5 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
+
+
