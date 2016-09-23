@@ -28361,7 +28361,7 @@ OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEma
  CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')),
  CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.',ISBLANK(PersonEmail)),
  ISBLANK(Email__c),
-$Profile.Name != 'IntegrationAPI'
+$Profile.Name != 'IntegrationAPI',MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>
         <errorMessage>Invalid Email Address</errorMessage>
