@@ -69052,7 +69052,7 @@ RecordType.DeveloperName = 'Aftersales_Leads'
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-016) 
@@ -69078,7 +69078,7 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
         <active>true</active>
-        <description>"Lead status changed to ""Approved(waition)"" or ""Allocated""
+        <description>"Lead status changed to ""Approved(waiting)"" or ""Allocated""
 AND User profile is Call center agent"</description>
         <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
 (UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
@@ -69259,7 +69259,7 @@ Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Re
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(CAC_Lead_Status__c ,"Service Completed"),
-NOT(ISNULL(Service_Date__c)))</errorConditionFormula>
+ISNULL(Service_Date__c))</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>Service Date Field is Mandatory</errorMessage>
     </validationRules>
