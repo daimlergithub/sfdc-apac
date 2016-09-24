@@ -275,6 +275,7 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="TaskHelperKr"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
@@ -315,7 +316,7 @@
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
-				<sf:include name="TaskTriggerHandlerKR"/>
+				<sf:include name="TaskTriggerHandlerKr"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
 				<sf:include name="TestTriggerHandler"/>
