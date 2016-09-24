@@ -491,6 +491,7 @@
 		<sf:typeset name="classes">
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
+			<sf:include name="TaskHelperKr"/>
 			<sf:include name="TaskTriggerHandler"/>
 			<sf:include name="TaskTriggerHandlerTest"/>
 			<sf:include name="AvatoHelper"/>
