@@ -23,3 +23,4 @@ public class TaskTriggerHandlerKR implements TriggerHandlerIf {
         // Implementation to be added as required in market.
     }
 }
+
