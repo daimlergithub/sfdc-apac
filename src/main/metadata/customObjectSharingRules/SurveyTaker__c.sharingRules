@@ -14,4 +14,18 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketSurvey Taken_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
+	 <criteriaBasedRules>
+        <fullName>MBK_MarketSurvey_Taken_Readable_to_MBK_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Survey Taken object with MD__c = &apos;KR&apos; for all Roles used in Korea</description>
+        <name>MBK MarketSurvey Taken Readable to MBK Users</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

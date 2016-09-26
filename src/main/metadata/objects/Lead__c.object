@@ -11219,6 +11219,20 @@ Modify Reason:
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
+	<fields>
+        <fullName>Quotation_Model__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quotation Model</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads_Quotation_Model</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Quotation_Number__c</fullName>
         <description>Update from AL, no manual update</description>
@@ -69052,7 +69066,7 @@ RecordType.DeveloperName = 'Aftersales_Leads'
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-016) 
@@ -69064,14 +69078,13 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
-ISNULL(Purchased_Vehicle__c),
 OR (  
-ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
+ISNULL(Purchased_CAC_Date_Time__c), 
+ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
 RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
+        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Purchased vehicle information are required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
@@ -69209,6 +69222,15 @@ ISNULL(Lost_Dealer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
         <errorMessage>“Lost To” field is mandatory when the lead has been lost</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lost_To_Whom_CAC</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+OR(ISBLANK(Lost_To__c), ISNULL(Lost_To__c)), 
+ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__c='KR')</errorConditionFormula>
+        <errorDisplayField>Lost_To__c</errorDisplayField>
+        <errorMessage>“Lost To” field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>

@@ -4,17 +4,17 @@ public class TaskTriggerHandlerKR implements TriggerHandlerIf {
         {
             if (TriggerUtil.isTriggerEnabled('TriggerTask'))
             TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelperKr.updateAccountMobile(trigger.new);
+            TaskHelperKR.updateAccountMobile(trigger.new);
         }
          if(trigger.isBefore && trigger.isInsert)
         {
-            TaskHelperKr.updateAccountMobile(trigger.new); 
-            TaskHelperKr.CustomerConsenment(trigger.new);
+            TaskHelperKR.updateAccountMobile(trigger.new); 
+            TaskHelperKR.CustomerConsenment(trigger.new);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
-            TaskHelperKr.updateAccountMobile(trigger.new); 
-            //TaskHelperKr.CustomerConsenment(trigger.new);  
+            TaskHelperKR.updateAccountMobile(trigger.new); 
+            //TaskHelperKR.CustomerConsenment(trigger.new);  
         }
     }
     
@@ -23,4 +23,3 @@ public class TaskTriggerHandlerKR implements TriggerHandlerIf {
         // Implementation to be added as required in market.
     }
 }
-
