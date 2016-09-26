@@ -69064,10 +69064,8 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
-OR ( 
-TEXT(Bought_Vehicle_Brand__c) == NULL, 
-TEXT(Bought_Vehicle_Class__c) == NULL, 
-TEXT(Bought_Vehicle_Model__c) == NULL, 
+ISNULL(Purchased_Vehicle__c),
+OR (  
 ISNULL(Purchased_CAC_Date__c), 
 ISBLANK(Purchased_CAC_Date__c) 
 ), 

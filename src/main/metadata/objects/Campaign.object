@@ -6968,23 +6968,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
                 <default>false</default>
             </values>
             <values>

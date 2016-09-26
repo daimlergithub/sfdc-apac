@@ -108845,13 +108845,10 @@ RecordType.DeveloperName = 'MB Complaint')</errorConditionFormula>
         <fullName>Dealer_feedback_field_Mandatory</fullName>
         <active>true</active>
         <description>This validation rule is to enforce the the dealers to enter the dealer feedback before closing the case</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'),
-OR(RecordType.Name = 'MB Complaint',RecordType.Name = 'Inquiry'),
-$Profile.Name != 'IntegrationAPI', MD__c = 'KR',ISBLANK(Dealer_Feedback__c),OR( 
-$Profile.Name = 'Dealer Community User', 
-$Profile.Name = 'Dealer Delegate Admin', 
-$Profile.Name = 'System Administrator' 
-))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'), ISPICKVAL(Handling_Level__c , 'Dealer'), 
+OR(RecordType.Name = 'MB Complaint',RecordType.Name = 'Inquiry'), 
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR',ISBLANK(Dealer_Feedback__c),Case_Dealer__c != Null, 
+$Profile.Name = 'System Administrator')</errorConditionFormula>
         <errorDisplayField>Dealer_Feedback__c</errorDisplayField>
         <errorMessage>Dealer Feedback is Mandatory</errorMessage>
     </validationRules>
@@ -108891,12 +108888,8 @@ $Profile.Name = 'System Administrator'
         <fullName>Invalid_EU_VIN</fullName>
         <active>true</active>
         <description>EU VIN can't include the character(s) which is not alphanumeric.</description>
-        <errorConditionFormula>AND(
-  NOT( ISNULL(EU_VIN__c) ),
-  NOT(ISBLANK( EU_VIN__c)),
-  NOT(ISNUMBER( EU_VIN__c)),$Profile.Name != 'IntegrationAPI',
-  (MD__c = 'KR') 
-)</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( US_VIN__c )), 
+NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
         <errorMessage>EU VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
@@ -108904,8 +108897,8 @@ $Profile.Name = 'System Administrator'
         <fullName>Invalid_US_VIN</fullName>
         <active>true</active>
         <description>US VIN is enterd with double byte or symbols (or null)</description>
-        <errorConditionFormula>AND(NOT(ISNULL(  US_VIN__c )),
-NOT(ISBLANK(  US_VIN__c )),NOT(ISNUMBER(  US_VIN__c )), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( EU_VIN__c)), 
+NOT(ISBLANK( EU_VIN__c)),NOT(REGEX( EU_VIN__c, "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
         <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
