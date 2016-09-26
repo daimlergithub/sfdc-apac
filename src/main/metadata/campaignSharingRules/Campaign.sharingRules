@@ -29,6 +29,20 @@
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Allow Only to special users</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBK_Campaign_Record_Permission_to_All_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>			
+        </criteriaItems>       
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+		<description>View all records of Campaign object with MD__c = 'KR' for all Roles used in Korea</description>        
+        <name>MBK Campaign Record Permission to All Users</name>       
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>CAC_CRM_Campaign_Share_with_CAC</fullName>
         <sharedTo>
@@ -284,14 +298,14 @@
     <criteriaBasedRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <campaignAccessLevel>All</campaignAccessLevel>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign With Roles and Subordinates</name>
     </criteriaBasedRules>
     <criteriaBasedRules>

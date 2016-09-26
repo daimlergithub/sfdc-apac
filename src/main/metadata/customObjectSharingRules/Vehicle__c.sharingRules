@@ -19,6 +19,20 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketVehicle_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBK_Vehicle_Record_Permission_to_All_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>			
+        </criteriaItems>       
+         <accessLevel>Edit</accessLevel>
+		<description>View all records of Vehicle object with MD__c = 'KR' for all Roles used in Korea</description>        
+        <name>MBK Vehicle Record Permission to All Users</name>       
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>READ_WRITE_for_Vehicle_to_CAC</fullName>
         <sharedTo>
@@ -44,7 +58,7 @@
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to Central</name>
-    </criteriaBasedRules>
+    </criteriaBasedRules>	
     <criteriaBasedRules>
         <fullName>SoftDelete_Vehicles_Only_for_IT</fullName>
         <sharedTo>
