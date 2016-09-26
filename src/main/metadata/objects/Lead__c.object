@@ -11226,7 +11226,7 @@ Modify Reason:
         <label>Quotation Model</label>
         <referenceTo>Car_Model__c</referenceTo>
         <relationshipLabel>Leads</relationshipLabel>
-        <relationshipName>Leads</relationshipName>
+        <relationshipName>Leads_Quotation_Model</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
