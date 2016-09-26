@@ -69066,12 +69066,12 @@ Modify Reason:
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
 ISNULL(Purchased_Vehicle__c),
 OR (  
-ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
+ISNULL(Purchased_CAC_Date_Time__c), 
+ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
 RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
+        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Purchased vehicle information are required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
