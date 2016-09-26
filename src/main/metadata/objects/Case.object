@@ -108888,8 +108888,8 @@ $Profile.Name = 'System Administrator')</errorConditionFormula>
         <fullName>Invalid_EU_VIN</fullName>
         <active>true</active>
         <description>EU VIN can't include the character(s) which is not alphanumeric.</description>
-        <errorConditionFormula>AND(NOT(ISNULL( US_VIN__c )), 
-NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( EU_VIN__c)), 
+NOT(ISBLANK( EU_VIN__c)),NOT(REGEX( EU_VIN__c, "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
         <errorMessage>EU VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
@@ -108897,8 +108897,8 @@ NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Na
         <fullName>Invalid_US_VIN</fullName>
         <active>true</active>
         <description>US VIN is enterd with double byte or symbols (or null)</description>
-        <errorConditionFormula>AND(NOT(ISNULL( EU_VIN__c)), 
-NOT(ISBLANK( EU_VIN__c)),NOT(REGEX( EU_VIN__c, "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( US_VIN__c )), 
+NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
         <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
