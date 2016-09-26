@@ -174,6 +174,13 @@
         <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
+        <fullName>Alert_Handling_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alert Handling Level</shortDescription>
+        <value>Handling level is not Dealer</value>
+    </labels>
+    <labels>
         <fullName>And_Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1248,6 +1255,13 @@
         <value>As below, customer related information is shared.</value>
     </labels>
     <labels>
+        <fullName>DMRequestTabId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DMRequestTabId</shortDescription>
+        <value>a12</value>
+    </labels>
+    <labels>
         <fullName>DMRequest_validation_error</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1295,6 +1309,13 @@
         <protected>false</protected>
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
+    </labels>
+    <labels>
+        <fullName>Dedup_callout_failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dedup callout failure</shortDescription>
+        <value>Webservice Callout failed: Please contact system Administrator</value>
     </labels>
     <labels>
         <fullName>Delete</fullName>
@@ -2112,6 +2133,13 @@
         <value>Last Modified Date</value>
     </labels>
     <labels>
+        <fullName>LeadId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadTabId</shortDescription>
+        <value>a13</value>
+    </labels>
+    <labels>
         <fullName>LimitQueries</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2504,6 +2532,13 @@
         <protected>false</protected>
         <shortDescription>No target Records</shortDescription>
         <value>There were no target catalogues to be printed.</value>
+    </labels>
+    <labels>
+        <fullName>None</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>None</shortDescription>
+        <value>--None--</value>
     </labels>
     <labels>
         <fullName>NotAccepted</fullName>
@@ -3195,6 +3230,14 @@
         <value>Search Customer</value>
     </labels>
     <labels>
+        <fullName>Search_Duplicates</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Duplicates</shortDescription>
+        <value>Check Dedup</value>
+    </labels>
+    <labels>
         <fullName>Select_All</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3410,6 +3453,13 @@
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
+    </labels>
+    <labels>
+        <fullName>TaskTriggerErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TaskTriggerErrorMsg</shortDescription>
+        <value>You can not work on the campaign tasks as customer consent is not present.</value>
     </labels>
     <labels>
         <fullName>Task_Assigned_User</fullName>

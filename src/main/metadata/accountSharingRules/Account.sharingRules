@@ -22,7 +22,7 @@
         <name>Dealer_Account_Edit_Only_for_CRM</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM_Non_Approver</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_non_Approver</role>
@@ -110,7 +110,7 @@
         <name>Dealer_Account_Read_Only_for_Supervisor_Operator</name>
         <opportunityAccessLevel>Read</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Read_Only_for_Supervisor_Operator_Supervisor_Team_B</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Supervisor_Team_B</roleAndSubordinatesInternal>
@@ -433,22 +433,6 @@
         <name>Share read with all central</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
-	    <criteriaBasedRules>
-        <fullName>Test</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>Test</name>
-        <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>SoftDelete_PersonAccount_Edit_Only_for_IT</fullName>
         <sharedTo>
@@ -470,6 +454,38 @@
         <description>Account with record-type = &apos;Person Account Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
         <name>SoftDelete_PersonAccount_Edit_Only_for_IT</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Test</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Test</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+	 <criteriaBasedRules>
+        <fullName>MBK_Account_Record_Permission_to_All_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>			
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>MBK Account Record Permission to All Users</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>

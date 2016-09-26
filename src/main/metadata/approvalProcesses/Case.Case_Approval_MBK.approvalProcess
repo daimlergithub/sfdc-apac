@@ -29,10 +29,10 @@
         <criteriaItems>
             <field>Case.Status</field>
             <operation>equals</operation>
-            <value>Open</value>
+            <value>Waiting for Response approval</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Case.CreatedBy</field>
+            <field>User.User_Role__c</field>
             <operation>equals</operation>
             <value>Call Center Supervisor,Call Center Operator</value>
         </criteriaItems>

@@ -205,6 +205,8 @@ system.debug('&******************'+cpList);
                 Campaign_eDM_Template_ID__c = cpm.Campaign.Template__r.Template_ID__c,                                 
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                 WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
+				Campaign_Member_ID__c = String.valueOf(cpm.Id), 
+                Campaign_Name__c = cpm.Campaign.Name,
                 UniqueCampaignEmail__c = cpm.CampaignId + '-' + cpm.Contact.Email,
                 Email_Address__c = cpm.Contact.Email,
                 Activity_Status__c = strSentActivityStatus,
@@ -220,6 +222,8 @@ system.debug('&******************'+cpList);
                 Status = strOpenStatus,
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                 WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
+				Campaign_Member_ID__c = String.valueOf(cpm.Id), 
+                Campaign_Name__c = cpm.Campaign.Name,
                 ActivityDate = date.today(),
                 UniqueCampaignGenerateTask__c = uniqueTaskField)
             );

@@ -11247,6 +11247,17 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Re_visit__c</fullName>
+        <description>This field is used for reporting purpose to track the customer re-visit</description>
+        <externalId>false</externalId>
+        <label>Re-visit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Quotation_Print_Date__c</fullName>
         <description>Update from AL, no manual update</description>
         <externalId>false</externalId>
@@ -15853,6 +15864,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Test_Drive_Detail__c</fullName>
@@ -69032,14 +69055,14 @@ MD__c='KR'
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-ISNULL(Requested_Service_DateTime1__c), 
+ISNULL(Service_Date__c), 
 ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
 $Profile.Name != 'IntegrationAPI', 
 MD__c='KR',
 RecordType.DeveloperName = 'Aftersales_Leads'
 )</errorConditionFormula>
-        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
+        <errorDisplayField>Service_Date__c</errorDisplayField>
+        <errorMessage>If CAC Lead Status is Service Completed, Service Date is required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
@@ -69055,21 +69078,18 @@ Modify Reason:
 */</description>
         <errorConditionFormula>AND ( 
 ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),
-OR ( 
-TEXT(Bought_Vehicle_Brand__c) == NULL, 
-TEXT(Bought_Vehicle_Class__c) == NULL, 
-TEXT(Bought_Vehicle_Model__c) == NULL, 
-ISNULL(Purchased_CAC_Date__c), 
-ISBLANK(Purchased_CAC_Date__c) 
+OR (  
+ISNULL(Purchased_CAC_Date_Time__c), 
+ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
 RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
+        <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Purchased vehicle information are required.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
         <active>true</active>
-        <description>"Lead status changed to ""Approved(waition)"" or ""Allocated""
+        <description>"Lead status changed to ""Approved(waiting)"" or ""Allocated""
 AND User profile is Call center agent"</description>
         <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
 (UPPER( MD__c ) = 'JP' || UPPER( MD__c ) = 'KR') &amp;&amp; 
@@ -69250,7 +69270,7 @@ Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Re
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(CAC_Lead_Status__c ,"Service Completed"),
-NOT(ISNULL(Service_Date__c)))</errorConditionFormula>
+ISNULL(Service_Date__c))</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>Service Date Field is Mandatory</errorMessage>
     </validationRules>

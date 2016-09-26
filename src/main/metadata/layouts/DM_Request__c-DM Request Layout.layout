@@ -148,7 +148,20 @@
                 <behavior>Edit</behavior>
                 <field>Campaign__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Department__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>AfterSales_Department__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Marketing_Department__c</field>
+            </layoutItems>
         </layoutColumns>
+		
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
