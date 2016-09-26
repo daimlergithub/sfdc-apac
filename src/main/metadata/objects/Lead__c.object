@@ -69224,6 +69224,15 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>“Lost To” field is mandatory when the lead has been lost</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lost_To_Whom_CAC</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+OR(ISBLANK(Lost_To__c), ISNULL(Lost_To__c)), 
+ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__c='KR')</errorConditionFormula>
+        <errorDisplayField>Lost_To__c</errorDisplayField>
+        <errorMessage>“Lost To” field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
