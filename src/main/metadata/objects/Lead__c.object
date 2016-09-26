@@ -11232,6 +11232,20 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Quotation_Model__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quotation Model</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Quotation_Print_Date__c</fullName>
         <description>Update from AL, no manual update</description>
