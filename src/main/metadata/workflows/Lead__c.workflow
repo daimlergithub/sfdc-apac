@@ -817,7 +817,7 @@ Modify Reason:
             <name>Update_Purchased_CAC_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
