@@ -1383,7 +1383,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         {   
              
                              // Send email notification to the new owner
-                            toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
+                            //toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
                            // toAdresss.addAll(mapAccountIdAndEmail.get(lead.Assigned_Dealer__c));
                             system.debug('lead.Assigned_Dealer__r.owner.Email'+lead.Assigned_Dealer__r.owner.Email);
                             String subject = etToOwner.subject.replace('{!Lead__c.Name}',lead.Name);
@@ -1391,20 +1391,20 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             String body = etToOwner.body.replace('{!Lead__c.Name}',lead.Name);
                             system.debug('body'+body);
                             Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
-                            mail.setToAddresses(toAdresss);
+                            //mail.setToAddresses(toAdresss);
                             mail.setSaveAsActivity(false);
                             //system.debug('lead.Assigned_Dealer__r.ownerid'+lead.Assigned_Dealer__r.ownerid);    
                            // mail.setTargetObjectId(lead.Assigned_Dealer__r.ownerid);
                            // mail.setTemplateId(etToOwner.Id);
-                            mail.setSubject(subject);
-                            mail.setPlainTextBody(body);
+                            //mail.setSubject(subject);
+                            //mail.setPlainTextBody(body);
                          /*  if (!Test.isRunningTest())
                                {
                                  mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
                                 }*/
                            
                            // mail.setWhatId(lead.Id);
-                            mailList.add(mail);
+                            //mailList.add(mail);
                             toAdresss.clear();
                       }
         }      
