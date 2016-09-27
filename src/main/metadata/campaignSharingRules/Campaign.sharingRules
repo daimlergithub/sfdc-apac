@@ -298,14 +298,14 @@
     <criteriaBasedRules>
         <fullName>Share_Campaign_With_Roles_and_Subordinates</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <campaignAccessLevel>All</campaignAccessLevel>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign With Roles and Subordinates</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
