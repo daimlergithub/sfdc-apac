@@ -355,6 +355,7 @@
            
              List<User> customerServiceUserList = new List<User>();
              List<Task> tasks = new List<Task>();
+			 List<Task> ownerUpdate = new List<Task>();
              List<User> customerRetentionUserList = new List<User>();
              List<User> remarketingTeamUserList = new List<User>();
              set<id> recordTypeIdSet = new set<id>{WelcomeCallRT,AnnualCallRT,EOCCallRT};
@@ -380,6 +381,7 @@
                     if(t.RecordTypeId==WelcomeCallRT){
                         system.debug('WelcomeCallRT'+WelcomeCallRT);
                         t.ownerId = customerServiceUserList[i].id;
+						ownerUpdate.add(t);
                         i++;
                         if(i >= customerServiceUserList.size()) {
                             i = 0;
@@ -395,6 +397,7 @@
                 if(customerRetentionUserList != null && customerRetentionUserList.size() > 0) {
     
                         t.ownerId = customerRetentionUserList[i].id;
+						ownerUpdate.add(t);
                         i++;
                         if(i >= customerRetentionUserList.size()) {
                             i = 0;
@@ -404,6 +407,7 @@
                 else if(remarketingTeamUserList != null && remarketingTeamUserList.size() > 0  && t.PersonHomePhone__c == null && t.OfficePhone__c == null && t.HomeMobilePhone__c == null){
                     
                         t.ownerId = remarketingTeamUserList[i].id;
+						ownerUpdate.add(t);
                         i++;
                         if(i >= remarketingTeamUserList.size()) {
                             i = 0;
@@ -412,8 +416,8 @@
                   }
                }
             }
-            if(tasks.size() > 0) {
-                UserUpdate(tasks);
+            if(ownerUpdate.size() > 0) {
+                UserUpdate(ownerUpdate);
                 system.debug('UserUpdate'+tasks);
             }
                 
