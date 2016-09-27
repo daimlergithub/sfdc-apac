@@ -815,6 +815,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TaskHelperKr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -832,6 +836,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TaskTriggerHandlerKR</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -904,11 +912,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountTriggerHandlerKR</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerAccountTriggerHandlerKRTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerAddressTriggerHandlerJP</apexClass>
@@ -976,7 +984,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignTriggerHandlerKR</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCaseTriggerHandlerJP</apexClass>
@@ -1052,11 +1060,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerKR</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelTriggerHandlerKRTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
@@ -1240,7 +1248,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilwebserviceTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
@@ -5389,9 +5397,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.ParentId</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11824,9 +11832,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Qualified_Date_Time__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
