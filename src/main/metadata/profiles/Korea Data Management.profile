@@ -815,7 +815,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperKr</apexClass>
+        <apexClass>TaskHelperKR</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
