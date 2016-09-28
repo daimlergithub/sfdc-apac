@@ -11122,14 +11122,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.FirstName_Native_1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.FirstName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11147,9 +11147,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Full_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11362,14 +11362,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.LastName_Native_1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.LastName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11849,6 +11849,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Quotation_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Quotation_Model__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18507,6 +18512,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Template__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Template__c.MasterTemplate__c</field>
         <readable>false</readable>
@@ -19184,6 +19194,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.End_Setting_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Euro_Vin__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22572,6 +22587,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ShowCompanyNameAsUserBadge</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
