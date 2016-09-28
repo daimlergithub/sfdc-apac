@@ -815,7 +815,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperKr</apexClass>
+        <apexClass>TaskHelperKR</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -22413,10 +22413,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ShareInternalArticles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ShowCompanyNameAsUserBadge</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
