@@ -181,6 +181,22 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBK_Account_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>MBK Account Sharing Rule</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Dealer_To_Regional_Office</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
@@ -470,22 +486,6 @@
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>Test</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    </criteriaBasedRules>
-	 <criteriaBasedRules>
-        <fullName>MBK_Account_Record_Permission_to_All_Users</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>			
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>MBK Account Record Permission to All Users</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>

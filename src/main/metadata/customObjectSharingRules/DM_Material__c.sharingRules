@@ -14,6 +14,19 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarkeDM Material_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_DM_Material_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MBK DM Material Sharing Rule</name>
+    </criteriaBasedRules>
     <ownerRules>
         <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
         <sharedTo>

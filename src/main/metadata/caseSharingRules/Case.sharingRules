@@ -186,20 +186,6 @@
         <description>View all records of all Japan object with MD__c = 'JP' for all Roles used in Japan</description>
         <name>JP_MarketCase_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
-	<criteriaBasedRules>
-        <fullName>MBK_Case_Record_Permission_to_All_Users</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>			
-        </criteriaItems>       
-        <caseAccessLevel>Edit</caseAccessLevel>
-		<description>View all records of Case object with MD__c = 'KR' for all Roles used in Korea</description>        
-        <name>MBK Case Record Permission to All Users</name>       
-    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MBDA_CASE</fullName>
         <sharedTo>
@@ -212,6 +198,19 @@
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>MBDA CASE</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_Case_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>MBK Case Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Central_East_Case_to_Regional</fullName>
