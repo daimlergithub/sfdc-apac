@@ -4718,11 +4718,6 @@
         <field>AreaCodeTranslation__mdt.Phone_EN7__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-         <editable>true</editable>
-         <field>Lead__c.Quotation_Model__c</field>
-         <readable>true</readable>
-     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>AreaCodeTranslation__mdt.Phone_EN8__c</field>
