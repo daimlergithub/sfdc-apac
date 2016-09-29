@@ -815,7 +815,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperKr</apexClass>
+        <apexClass>TaskHelperKR</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -11853,6 +11853,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Quotation_Model__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Quotation_Number_History__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18507,6 +18512,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Template__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Template__c.MasterTemplate__c</field>
         <readable>false</readable>
@@ -19184,6 +19194,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.End_Setting_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Euro_Vin__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

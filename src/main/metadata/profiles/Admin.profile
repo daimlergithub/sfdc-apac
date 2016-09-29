@@ -7028,6 +7028,11 @@
         <field>Case.Knowledge_Complete_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
+         <field>Lead__c.Quotation_Model__c</field>
+         <readable>true</readable>
+     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Last_Known_Mileage__c</field>
@@ -11451,11 +11456,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Quotation_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
