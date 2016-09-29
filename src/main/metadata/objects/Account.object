@@ -28281,6 +28281,78 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>HomePhone2_Format_KR</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Home_Phone_2__c)), 
+NOT( 
+OR( 
+REGEX(Home_Phone_2__c, "[02]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}") 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Home Phone2 must be in any of the following formats : 
+1.	xx-xxxx-xxxx 
+2.	xxx-xxx-xxxx 
+3.	xxx-xxxx-xxxx</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HomePhone_Format_KR</fullName>
+        <active>true</active>
+        <description>Korea landline phone must be in any of the following format :
+1.	xx-xxxx-xxxx
+2.	xxx-xxx-xxxx
+3.	xxx-xxxx-xxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Individual_Home_Phone__c)),
+NOT(
+OR(
+REGEX(Individual_Home_Phone__c, "[02]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats :
+1.	xx-xxxx-xxxx
+2.	xxx-xxx-xxxx
+3.	xxx-xxxx-xxxx</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Home_Phone_2__c),ISNEW()), 
@@ -28365,6 +28437,21 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'KR'
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>
         <errorMessage>Invalid Email Address</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_Email_Address</fullName>
+        <active>true</active>
+        <description>Email Validation on customer record .</description>
+        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
+AND(
+OR( CONTAINS(Email__c, '?'), CONTAINS(Email__c, '^'), CONTAINS(Email__c, '%'),
+CONTAINS(Email__c, '$'), RIGHT(Email__c, 1)='.', BEGINS(Email__c, '.') , CONTAINS(Email__c, '@.'), CONTAINS(Email__c, '.@'),
+CONTAINS(Email__c, '..'), NOT(CONTAINS(Email__c, '.')), NOT(CONTAINS(Email__c, '@')),
+CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND('@', Email__c)), '@') , LEFT( RIGHT( Email__c, 2), 1)='.',ISBLANK(Email__c)),
+ISBLANK(Email__c),
+$Profile.Name != 'IntegrationAPI',MD__c = 'KR' 
+)</errorConditionFormula>
+        <errorMessage>Invalid Email Address.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_ZipCode</fullName>
@@ -28507,7 +28594,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>
-    </validationRules>
+    </validationRules>   
     <validationRules>
         <fullName>Phone_Mobile_Workphone_or_HomePhone</fullName>
         <active>false</active>
@@ -28672,6 +28759,44 @@ ISPICKVAL(  Gender__c , 'Male'))
         <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>WorkPhone_Format_KR</fullName>
+        <active>true</active>
+        <description>Work Phone must be in any of the following formats : 
+1.	xx-xxxx-xxxx 
+2.	xxx-xxx-xxxx 
+3.	xxx-xxxx-xxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Work_Phone__c)),
+NOT(
+OR(
+REGEX(Work_Phone__c, "[02]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1.	xx-xxxx-xxxx 
+2.	xxx-xxx-xxxx 
+3.	xxx-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -29229,5 +29354,3 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
-
-
