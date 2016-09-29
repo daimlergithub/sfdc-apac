@@ -115,20 +115,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-         <fullName>Quotation_Model__c</fullName>
-         <deleteConstraint>SetNull</deleteConstraint>
-         <externalId>false</externalId>
-         <label>Quotation Model</label>
-         <referenceTo>Car_Model__c</referenceTo>
-         <relationshipLabel>Leads (Car Model)</relationshipLabel>
-         <relationshipName>Leads_Quotation_Model</relationshipName>
-         <required>false</required>
-         <trackFeedHistory>false</trackFeedHistory>
-         <trackHistory>false</trackHistory>
-         <trackTrending>false</trackTrending>
-         <type>Lookup</type>
-     </fields>
     <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
@@ -11223,6 +11209,20 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Quotation_Model__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quotation Model</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Leads (Car Model)</relationshipLabel>
+        <relationshipName>Leads_Quotation_Model</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Quotation_Number_History__c</fullName>
         <externalId>false</externalId>
         <label>Quotation No Histry</label>
@@ -11245,17 +11245,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Re_visit__c</fullName>
-        <description>This field is used for reporting purpose to track the customer re-visit</description>
-        <externalId>false</externalId>
-        <label>Re-visit</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Quotation_Print_Date__c</fullName>
@@ -11888,6 +11877,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Re_visit__c</fullName>
+        <description>This field is used for reporting purpose to track the customer re-visit</description>
+        <externalId>false</externalId>
+        <label>Re-visit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Received_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Received Date Time</label>
@@ -12012,6 +12012,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Configuration_Codes__c</fullName>
+        <externalId>false</externalId>
+        <label>MB Online Code1</label>
+        <length>500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
         <fullName>Related_Leads__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -12024,17 +12035,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Related_Configuration_Codes__c</fullName>
-        <externalId>false</externalId>
-        <label>MB Online Code1</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>2</visibleLines>
     </fields>
     <fields>
         <fullName>Relation_With_The_Leads__c</fullName>
@@ -15832,6 +15832,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Team</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Term_Month__c</fullName>
         <externalId>false</externalId>
         <formula>Existing_Contract__r.Duration__c</formula>
@@ -15864,18 +15876,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Team__c</fullName>
-        <externalId>false</externalId>
-        <label>Team</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Test_Drive_Detail__c</fullName>
@@ -20669,6 +20669,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016_承認中</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM_S_DM_20161</fullName>
@@ -20689,6 +20692,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>自動車誕生130周年記念キャンペーン2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM_S_DM_20162</fullName>
@@ -20714,6 +20720,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016_展開済</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_ALL</fullName>
@@ -20736,32 +20745,38 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>未展開リード</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20789,6 +20804,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>S_SL_SLC_DM20161</fullName>
@@ -20812,32 +20830,38 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_A_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_B_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_B</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20857,6 +20881,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>001_本日のリード</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>View1</fullName>
@@ -20874,6 +20901,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>メルセデス ミー 東京羽田のリード</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>View2</fullName>
@@ -20892,6 +20922,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>002_過去7日間のリード</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
@@ -20917,6 +20950,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>001_本日のリード(My Mercedes)</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X0011</fullName>
@@ -20942,6 +20978,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016_新規</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X130_2016</fullName>
@@ -20962,6 +21001,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>iShowroom_Leads</fullName>
