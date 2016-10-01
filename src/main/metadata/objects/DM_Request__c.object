@@ -1336,7 +1336,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_Reject</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Rejected')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
@@ -1344,7 +1344,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Approving')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -1352,7 +1352,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Be_Sent</fullName>
         <active>true</active>
         <description>You cannot manually select "to be sent".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>
@@ -1360,7 +1360,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Not_Send</fullName>
         <active>true</active>
         <description>You cannot manually select "Not send".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Not send')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>

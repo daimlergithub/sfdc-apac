@@ -58,6 +58,10 @@
                 <behavior>Edit</behavior>
                 <field>Preliminary_Flag__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Threshold__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Label_Printing_Name__c</field>
