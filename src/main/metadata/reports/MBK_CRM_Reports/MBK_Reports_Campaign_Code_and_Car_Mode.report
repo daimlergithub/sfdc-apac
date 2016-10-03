@@ -13,7 +13,7 @@
         <field>Campaign.Campaign_Code__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>MBK Reports - Campaign Code and Car Mode</name>
+    <name>MBK Reports - Campaign Code and CarModel</name>
     <params>
         <name>scopeid</name>
         <value></value>
