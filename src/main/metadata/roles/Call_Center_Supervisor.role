@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Call Center Supervisor</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Assistant_Manager</parentRole>
+    <parentRole>Manager</parentRole>
 </Role>
