@@ -144,18 +144,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Customer_Information__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Information</label>
-        <length>3000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
+    </fields>	
 	<fields>
         <fullName>Dealer_DMS_Comments__c</fullName>
         <externalId>false</externalId>
@@ -178,65 +167,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Finance_Quotation_Date__c</fullName>
-        <description>Latest Finance Quote Date from JPOS, No manual update</description>
-        <externalId>false</externalId>
-        <label>Finance Quotation Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>Finance_Quotation_No_History__c</fullName>
-        <description>Historical Quotation No. and CA no. with comma separated. No manual update</description>
-        <externalId>false</externalId>
-        <label>Finance Quotation No History</label>
-        <length>3000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Insurance_Details__c</fullName>
-        <externalId>false</externalId>
-        <label>Insurance Details</label>
-        <length>1000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Invoice_Amount_History__c</fullName>
-        <description>Historical Invoice Amount with comma separated. No manual update</description>
-        <externalId>false</externalId>
-        <label>Invoice Amount History</label>
-        <length>3000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Invoice_Number_History__c</fullName>
-        <description>Historical Invoice No. with comma separated. No manual update</description>
-        <externalId>false</externalId>
-        <label>Invoice Number History</label>
-        <length>3000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
+    </fields>		
 	<fields>
         <fullName>Job_Card_Number__c</fullName>
         <description>Update from AL, no manual update</description>
@@ -7463,19 +7394,6 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Job_Card_Number__c</fullName>
-        <description>Update from AL, no manual update</description>
-        <externalId>false</externalId>
-        <label>Job Card No.</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>LastName_Native_1__c</fullName>
         <externalId>false</externalId>
         <label>Last Name Native</label>
@@ -11189,18 +11107,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Quotation_Number_History__c</fullName>
-        <description>Update from AL, no manual update</description>
-        <externalId>false</externalId>
-        <label>Quotation No Histry</label>
-        <length>3000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Quotation_Number__c</fullName>
@@ -15490,19 +15396,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Service_Advisor__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Assigned Service Adviser</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Leads</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Service_Loan_Car__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -15564,17 +15457,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Special_Offer__c</fullName>
-        <externalId>false</externalId>
-        <label>Special Offer</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Status_Category__c</fullName>
@@ -20304,19 +20186,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>WIP_Number__c</fullName>
-        <description>Update from AL, no manual update</description>
-        <externalId>false</externalId>
-        <label>WIP No.</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Waived_Reason__c</fullName>
