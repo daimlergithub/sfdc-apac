@@ -6,5 +6,4 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Deputy Director</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
-    <parentRole>Director</parentRole>
 </Role>
