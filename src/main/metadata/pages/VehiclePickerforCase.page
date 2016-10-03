@@ -36,9 +36,8 @@
        $scope.CurrentVehicle1Details = "";
        $scope.CurrentVehicle2Details = "";
        $scope.tradeInVehicleDetails = "";
-       $scope.purchasedVehicleDetails = "";
-       
-       $scope.lead_Type = '{!leadType}';
+       $scope.purchasedVehicleDetails = "";       
+      
        
        $scope.leadVehicles = {!serialized_vehicleTypeMap};
        $scope.selectedBrand = "";
@@ -675,7 +674,7 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<!--<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/> -->
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
         <div ng-if="vehicleDetail" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -903,6 +902,7 @@
         <tr>
         <!----------- PURCHASED VEHICLE SECTION -------->
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
+        
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
