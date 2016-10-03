@@ -28247,7 +28247,7 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>FirstName_Mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>First Name is mandatory while creating person account.</description>
         <errorConditionFormula>AND(MD__c ='KR',ISBLANK(FirstName),RecordType.DeveloperName = 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
