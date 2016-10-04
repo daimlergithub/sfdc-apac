@@ -1697,7 +1697,7 @@
         <protected>true</protected>
         <shortDescription>Anonymous</shortDescription>
         <value>Anonymous</value>
-    </labels>
+    </labels>	
     <labels>
         <fullName>LABS_SF_Answer_as</fullName>
         <language>en_US</language>

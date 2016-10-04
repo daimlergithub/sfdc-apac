@@ -29295,21 +29295,12 @@ if (sforce.console.isInConsole()) {
     </webLinks>
     <webLinks>
         <fullName>View_Hierarchy</fullName>
-        <availability>online</availability>
+		<availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>View Hierarchy</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <linkType>javascript</linkType>
+        <masterLabel>Escalation</masterLabel>
+        <openType>onClickJavaScript</openType>        
+        <protected>false</protected>      
         <url>if('{!Account.MD__c}' == 'JP') 
 			 {
 			   window.location.href = '/apex/ViewHierarchy?id={!Account.Id}' ;
