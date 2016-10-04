@@ -826,13 +826,14 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Set Case to Overdue</fullName>
         <actions>
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -841,6 +842,16 @@
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

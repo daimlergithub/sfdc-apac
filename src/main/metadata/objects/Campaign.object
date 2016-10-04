@@ -25,10 +25,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -66,6 +62,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -159,6 +156,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -257,6 +255,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -288,6 +287,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -365,6 +365,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -392,6 +393,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -414,6 +416,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -453,6 +456,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -507,6 +511,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -542,6 +547,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -588,6 +594,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -656,6 +663,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -908,6 +916,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -1025,6 +1034,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
@@ -1116,6 +1126,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1179,6 +1190,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1222,6 +1234,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1448,6 +1461,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1566,6 +1580,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1638,6 +1653,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1735,6 +1751,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1784,6 +1801,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1826,6 +1844,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -1918,6 +1937,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2025,6 +2045,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2047,6 +2068,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2070,6 +2092,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2210,6 +2233,10 @@
             <value>11/1/2013</value>
         </filters>
         <label>All Active CAC CRM Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCACCampaigns</fullName>
@@ -2233,9 +2260,9 @@
             <value>1</value>
         </filters>
         <label>All Active CAC Campaigns</label>
+        <language>en_US</language>
         <sharedTo>
-            <role>Data_Service_Specialist</role>
-            <role>IT_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2274,6 +2301,9 @@
         </filters>
         <label>すべての有効キャンペーン</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCentralCampaigns</fullName>
@@ -2344,6 +2374,9 @@
         </filters>
         <label>After sale Joint Market activities</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CentralASCampaignRecords</fullName>
@@ -2365,6 +2398,10 @@
             <value>Closed</value>
         </filters>
         <label>Central AS Campaign Records</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CentralSMCampaignRecord</fullName>
@@ -2386,6 +2423,10 @@
             <value>Closed</value>
         </filters>
         <label>Central SM Campaign Records</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CentralSMCampaignRecords</fullName>
@@ -2407,6 +2448,10 @@
             <value>Closed</value>
         </filters>
         <label>Central SM Campaign Records</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MB_Best_Practice</fullName>
@@ -2425,6 +2470,10 @@
             <value>Campaign.MB_Best_Practice</value>
         </filters>
         <label>MB Best Practices</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MB_Best_Practices</fullName>
@@ -2443,6 +2492,10 @@
             <value>Campaign.MB_Best_Practice</value>
         </filters>
         <label>MB Best Practices</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
@@ -2472,6 +2525,9 @@
         </filters>
         <label>smart Best Activities</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>smart_Best_Practices</fullName>
@@ -2490,6 +2546,10 @@
             <value>Campaign.smart_Best_Practice</value>
         </filters>
         <label>smart Best Practices</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
@@ -6945,23 +7005,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>OB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12189,7 +12233,7 @@
     <validationRules>
         <fullName>CAS_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAS Marketing Campaign' &amp;&amp; ISNEW() &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -12198,7 +12242,7 @@
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
-        <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
+        <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
  OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
@@ -12220,11 +12264,8 @@ Record Type =  CAS/Central Marketing campaign</description>
         <fullName>Locked_for_Central_when_Published</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-OR(
- RecordType.Name == 'S&amp;M Event Central Campaign',
- RecordType.Name == 'S&amp;M Media Central Campaign',
- RecordType.Name == 'AS Central Campaign'
-), 
+ RecordType.Name =='Central Marketing Campaign',
+  
  OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
  OR(  ISCHANGED( Campaign_Code__c ),
       ISCHANGED( Name ),
@@ -12313,7 +12354,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Only_Started_Campaign_can_be_activated</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
