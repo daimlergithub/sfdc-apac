@@ -219,10 +219,6 @@
                 <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UCID_Sequence__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Email__c</field>
             </layoutItems>
