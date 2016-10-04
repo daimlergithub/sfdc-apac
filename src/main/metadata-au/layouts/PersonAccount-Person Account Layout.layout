@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -32,6 +31,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>VAN_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Insurance_Status__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -217,6 +220,9 @@
             <layoutItems>
                 <customLink>GoogleMaps</customLink>
             </layoutItems>
+            <layoutItems>
+                <customLink>Contracts</customLink>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -239,13 +245,6 @@
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
     </quickActionList>
-    <relatedContent>
-        <relatedContentItems>
-            <layoutItem>
-                <component>sfa:socialPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-    </relatedContent>
     <relatedLists>
         <customButtons>New_Individual_Address</customButtons>
         <excludeButtons>New</excludeButtons>
@@ -360,6 +359,8 @@
         <fields>Nature_of_Request__c</fields>
         <fields>Business_Unit__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>

@@ -36,12 +36,12 @@
                 <behavior>Edit</behavior>
                 <field>Credit_Limit_Request__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Attachment_Flag__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Finance_Send_Email_Before_150_Days__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -106,10 +106,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Financial_Product__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Finance_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
