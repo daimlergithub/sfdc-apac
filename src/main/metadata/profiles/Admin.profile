@@ -18528,11 +18528,41 @@
         <field>User.Cost_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+         <editable>true</editable>
++        <field>User.DMS_User_ID__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Daily_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
++        <editable>false</editable>
++        <field>User.Dealer_Company_Name__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
++    <fieldPermissions>
++        <editable>false</editable>
++        <field>User.Dealer_DMS_Retailer_ID__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
++    <fieldPermissions>
++        <editable>false</editable>
++        <field>User.Dealer_GC_Code__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
++    <fieldPermissions>
++        <editable>false</editable>
++        <field>User.Dealer_ND_Code__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
++    <fieldPermissions>
++        <editable>false</editable>
++        <field>User.Dealer_Outlet_Name__c</field>
++        <readable>true</readable>
++    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Dealer_Title__c</field>
