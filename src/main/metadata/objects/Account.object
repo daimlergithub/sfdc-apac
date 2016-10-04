@@ -29310,7 +29310,14 @@ if (sforce.console.isInConsole()) {
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/apex/ViewHierarchy?id={!Account.Id}</url>
+        <url>if('{!Account.MD__c}' == 'JP') 
+			 {
+			   window.location.href = '/apex/ViewHierarchy?id={!Account.Id}' ;
+			}
+			else
+			{
+			alert('{!$Label.Insufficient_privilege}');
+        }</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
