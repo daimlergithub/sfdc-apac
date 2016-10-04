@@ -558,6 +558,7 @@
 			<sf:include name="Leads_Assignment_to_Dealer_Gate_Keepers"/>
 			<sf:include name="Leads_Immediate_Notice"/>
 			<sf:include name="Email_notification_when_Assigned_Dealer_is_changed"/>
+			<sf:include name="Brochure_Test_Drive_Request_Email_CARS"/>
 		</sf:typeset>
 		<sf:typeset name="components">
 			<sf:include name="eoc_links"/>			
