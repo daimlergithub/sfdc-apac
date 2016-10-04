@@ -28247,7 +28247,7 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>FirstName_Mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>First Name is mandatory while creating person account.</description>
         <errorConditionFormula>AND(MD__c ='KR',ISBLANK(FirstName),RecordType.DeveloperName = 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
@@ -29295,22 +29295,20 @@ if (sforce.console.isInConsole()) {
     </webLinks>
     <webLinks>
         <fullName>View_Hierarchy</fullName>
-        <availability>online</availability>
+		<availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>View Hierarchy</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/apex/ViewHierarchy?id={!Account.Id}</url>
+        <linkType>javascript</linkType>
+        <masterLabel>Escalation</masterLabel>
+        <openType>onClickJavaScript</openType>        
+        <protected>false</protected>      
+        <url>if('{!Account.MD__c}' == 'JP') 
+			 {
+			   window.location.href = '/apex/ViewHierarchy?id={!Account.Id}' ;
+			}
+			else
+			{
+			alert('{!$Label.Insufficient_privilege}');
+        }</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
