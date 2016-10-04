@@ -1606,6 +1606,11 @@
         <field>Account.CompanyAssistantPhone__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Company_Name_Native_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CompanyOtherPhone__c</field>

@@ -1111,7 +1111,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
     <fields>
         <fullName>Commercial_Reg_No__c</fullName>
         <externalId>false</externalId>
-        <label>Commercial Reg No</label>
+        <label>Commercial Register Number</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1272,7 +1272,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
     <fields>
         <fullName>Company_Legal_Form_text__c</fullName>
         <externalId>false</externalId>
-        <label>Company Legal Form text</label>
+        <label>Company Legal Form</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1284,6 +1284,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <fullName>Company_Name_Native_1__c</fullName>
         <externalId>false</externalId>
         <label>Company Name Native</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Name_Native_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Native2</label>
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1387,7 +1398,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Citizenship</label>
         <picklist>
             <picklistValues>
                 <fullName>China</fullName>
@@ -2467,7 +2478,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
         <description>Active Flag for this dealer
 Attribute in Data Dictionary object Dealer is "Dealer_ActiveFlag"</description>
         <externalId>false</externalId>
-        <label>Dealer Active</label>
+        <label>Dealer Active Flag</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Checkbox</type>
@@ -6165,7 +6176,7 @@ Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</descri
     <fields>
         <fullName>Household_Children__c</fullName>
         <externalId>false</externalId>
-        <label>Children_Amount</label>
+        <label>Household Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -7609,7 +7620,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
-        <label>Main Dealer</label>
+        <label>My Shop</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -7712,7 +7723,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
     <fields>
         <fullName>Mobile2__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile 2</label>
+        <label>WorkMobile</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7951,7 +7962,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Email2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In Email 2</label>
+        <label>Email Opt Out Dealer</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -7978,7 +7989,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Home_Phone2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In Home Phone 2</label>
+        <label>Other Phone1 OptIn</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -7987,7 +7998,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Home_Phone__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In Home Phone</label>
+        <label>HomePhone OptIn</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8005,7 +8016,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_SMS__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In SMS/MMS/IM</label>
+        <label>Mobile OptIn</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8014,7 +8025,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Work_Phone2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In Work Phone 2</label>
+        <label>OtherPhone2 OptIn</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8023,7 +8034,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Work_Phone__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Opt In Work Phone</label>
+        <label>WorkPhone OptIn</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8647,7 +8658,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description>
         <externalId>false</externalId>
-        <label>Postal Opt Out</label>
+        <label>DM Opt Out</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -9803,7 +9814,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified By 2</label>
+        <label>WorkMobile Last Modified By</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9814,7 +9825,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified By</label>
+        <label>Mobile Last Modified By</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9825,7 +9836,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_Date2__c</fullName>
         <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified Date 2</label>
+        <label>WorkMobile Last Modified Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9834,7 +9845,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified Date</label>
+        <label>Mobile Last Modified DateTime</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10081,7 +10092,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
     <fields>
         <fullName>Special_Mark_on_Account__c</fullName>
         <externalId>false</externalId>
-        <label>Special Mark on Account</label>
+        <label>Specific Account</label>
         <picklist>
             <picklistValues>
                 <fullName>Media</fullName>
@@ -10961,7 +10972,7 @@ Invisible on UI."</description>
     <fields>
         <fullName>Work_Phone_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
-        <label>Work Phone Last Modified By 2</label>
+        <label>OtherPhone2 Last ModifiedBy</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10972,7 +10983,7 @@ Invisible on UI."</description>
     <fields>
         <fullName>Work_Phone_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
-        <label>Work Phone Last Modified By</label>
+        <label>Otherphone1 Last ModifiedBy</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10983,7 +10994,7 @@ Invisible on UI."</description>
     <fields>
         <fullName>Work_Phone_Last_Modified_Date2__c</fullName>
         <externalId>false</externalId>
-        <label>Work Phone Last Modified Date 2</label>
+        <label>Otherphone2 Last ModifiedDate</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10992,7 +11003,7 @@ Invisible on UI."</description>
     <fields>
         <fullName>Work_Phone_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Work Phone Last Modified Date</label>
+        <label>Otherphone2 Last ModifiedDate</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
