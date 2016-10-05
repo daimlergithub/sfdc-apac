@@ -9198,7 +9198,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields
+    </fields>
 	<fields>
         <fullName>Lost_CAC_Date_Time__c</fullName>
         <externalId>false</externalId>
