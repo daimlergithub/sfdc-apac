@@ -294,7 +294,7 @@
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>        
                    </tr> 
                    <tr>        
-                       <th style="text-align: Right;">{!$Label.Business_Email}</th>        
+                       <th style="text-align: Right;">{!$Label.Business_Email2}</th>        
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
                        </td>                           
