@@ -295,6 +295,13 @@
         <shortDescription>Business Email</shortDescription>
         <value>Business Email</value>
     </labels>
+	<labels>
+        <fullName>Business_Email2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Email2</shortDescription>
+        <value>Business Email2</value>
+    </labels>
     <labels>
         <fullName>Button_Approve</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
