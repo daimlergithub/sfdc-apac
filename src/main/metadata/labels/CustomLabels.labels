@@ -1640,6 +1640,13 @@
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
     </labels>
+	 <labels>
+        <fullName>Insufficient_privilege</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient privilege</shortDescription>
+        <value>Insufficient privilege to view the Account Hierarchy.</value>
+    </labels>
     <labels>
         <fullName>Insurance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -1690,7 +1697,7 @@
         <protected>true</protected>
         <shortDescription>Anonymous</shortDescription>
         <value>Anonymous</value>
-    </labels>
+    </labels>	
     <labels>
         <fullName>LABS_SF_Answer_as</fullName>
         <language>en_US</language>
