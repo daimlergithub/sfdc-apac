@@ -3275,9 +3275,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
+    </fields>	
     <fields>
-        <fullName>Related_Contact_2__c</fullName>
+        <fullName>Related_Contact2__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Related Contact 2</label>
@@ -3290,7 +3290,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Related_Contact_3__c</fullName>
+        <fullName>Related_Contact3__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Related Contact 3</label>
