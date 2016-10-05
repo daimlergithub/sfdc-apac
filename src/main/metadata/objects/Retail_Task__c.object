@@ -3283,7 +3283,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Related Contact 2</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Retail Tasks (Related Contact 2)</relationshipLabel>
-        <relationshipName>Retail_Tasks7</relationshipName>
+        <relationshipName>Retail_Tasks9</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3296,7 +3296,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Related Contact 3</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Retail Tasks (Related Contact 3)</relationshipLabel>
-        <relationshipName>Retail_Tasks8</relationshipName>
+        <relationshipName>Retail_Tasks10</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
