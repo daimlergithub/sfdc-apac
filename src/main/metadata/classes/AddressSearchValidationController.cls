@@ -127,11 +127,8 @@ public class AddressSearchValidationController
 **/
     public pagereference saveAccount()
     {    system.debug('addresspicklist 2: '+addresspicklist);
-        
-        AddressObj.Address_Type__c = addresspicklist;
-        AddressObj.Province__c = provincepicklist;
-
-       
+         AddressObj.Address_Type__c = addresspicklist;
+         AddressObj.Province__c = provincepicklist;
         // Save record without Address record if no value is Entered in Address section
         if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
@@ -593,17 +590,45 @@ EP/Tolerant for Validation.
 **/
     public void validateAddressByZipCode()
     {
-        if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
-        {
-            AddressObj.Address_Code__c = '';
-            AddressObj.Address_Line_1__c = '';
-            AddressObj.Address_Line_2__c = '';
-            AddressObj.Block__c = '';
-            AddressObj.City__c = '';
-            AddressObj.District__c = '';
-            AddressObj.Province__c = '';
-           
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
+        if(Market =='KR'){
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
+            }
+            if(addressobj.ZipCode__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+            }
+            if(addressobj.Address_Line_1__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+            }
+            if(addressobj.Province__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+            }
+        }
+        if(Market !='KR'){
+            if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+            }
         }
        
         if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
