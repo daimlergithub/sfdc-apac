@@ -18278,18 +18278,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>UCID__c</fullName>
-        <externalId>false</externalId>
-        <label>UCID</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Units_for_Prospect__c</fullName>
         <externalId>false</externalId>
         <label>Units for Prospect</label>
