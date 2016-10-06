@@ -13051,8 +13051,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All Customer Accounts</label>
         <language>en_US</language>
         <sharedTo>
-            <role>WholeSale_CallCenter</role>
-        </sharedTo>
+          <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+		</sharedTo>
     </listViews>
     <listViews>
         <fullName>AllDealerAccounts</fullName>
@@ -13083,6 +13083,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>All dealers</label>
         <language>en_US</language>
+		<sharedTo>
+          <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+		</sharedTo>
     </listViews>
     <listViews>
         <fullName>All_3rd_Party_Data</fullName>
