@@ -176,7 +176,10 @@
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Type__c}"/>
+                            <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
+                                <apex:selectOptions value="{!AddressOptions}"/>
+                            </apex:selectList>
+                        <!-- <apex:inputField value="{!AddressObj.Address_Type__c}"/> --> 
                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
@@ -186,7 +189,10 @@
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Province__c}"/>
+                            <apex:selectList value="{!provincepicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
+                                <apex:selectOptions value="{!ProvinceOptions}"/>
+                            </apex:selectList>
+                        <!-- <apex:inputField value="{!AddressObj.Province__c}" style="width:35%; white-space:none;"/> -->
                     </apex:pageBlockSectionItem>            
                     
                     <apex:pageBlockSectionItem >
@@ -199,13 +205,21 @@
                         <apex:inputField value="{!AddressObj.District__c}"/>
                     </apex:pageBlockSectionItem>
                    
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Block__c}"/>           
+                    </apex:pageBlockSectionItem>
+                    <!--
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Block__c}"/>
-                       
-                        
+                        <apex:inputField value="{!AddressObj.Block__c}"/>           
                     </apex:pageBlockSectionItem>
-                   
+                   -->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>

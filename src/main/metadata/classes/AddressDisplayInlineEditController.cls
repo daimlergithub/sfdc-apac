@@ -15,8 +15,9 @@ public class AddressDisplayInlineEditController {
     public string editaddressId {get;set;}  
     public String aid;
     public boolean Address_Validated_Flag {get;set;}
-    
-    
+    public String addresspicklist{get;set;}
+    public String market{get;set;}
+    public String provincepicklist{get;set;}
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -31,7 +32,68 @@ public class AddressDisplayInlineEditController {
         
         /*Intitializing address object*/
         addressobj = new Address__c();
+        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
     } 
+    public List<SelectOption> getAddressOptions() {
+        List<SelectOption> AddressOptions = new List<SelectOption>();
+        if(market=='KR'){           
+           AddressOptions.add(new SelectOption('Home','Home'));
+           AddressOptions.add(new SelectOption('Business','Business'));           
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    AddressOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+                //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+            }
+            system.debug('addresspicklist 1: '+addresspicklist);
+            return AddressOptions;      
+        
+    }
+        public List<SelectOption> getProvinceOptions() {
+        List<SelectOption> ProvinceOptions = new List<SelectOption>();
+        if(market=='KR'){           
+           ProvinceOptions.add(new SelectOption('Hokkaido','Hokkaido'));
+           ProvinceOptions.add(new SelectOption('Aomori','Aomori')); 
+           ProvinceOptions.add(new SelectOption('Iwate','Iwate'));
+           ProvinceOptions.add(new SelectOption('Miyagi','Miyagi'));
+           ProvinceOptions.add(new SelectOption('Akita','Akita'));
+           ProvinceOptions.add(new SelectOption('Yamagata','Yamagata'));
+           ProvinceOptions.add(new SelectOption('Fukushima','Fukushima'));
+           ProvinceOptions.add(new SelectOption('Ibaraki','Ibaraki'));
+           ProvinceOptions.add(new SelectOption('Tochigi','Tochigi'));
+           ProvinceOptions.add(new SelectOption('Gunma','Gunma'));
+           ProvinceOptions.add(new SelectOption('Saitama','Saitama'));
+           ProvinceOptions.add(new SelectOption('Chiba','Chiba'));
+           ProvinceOptions.add(new SelectOption('Tokyo','Tokyo'));
+           ProvinceOptions.add(new SelectOption('Kanagawa','Kanagawa'));
+           ProvinceOptions.add(new SelectOption('Niigata','Niigata'));
+           ProvinceOptions.add(new SelectOption('Toyama','Toyama'));
+           ProvinceOptions.add(new SelectOption('Ishikawa','Ishikawa'));
+           ProvinceOptions.add(new SelectOption('Fukui','Fukui'));
+           ProvinceOptions.add(new SelectOption('Yamanashi','Yamanashi'));          
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Province__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    ProvinceOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+        }
+        //return AddressOptions;
+        system.debug('addresspicklist 2: '+addresspicklist);
+        return ProvinceOptions;
+    }
     
     
     /**    
@@ -163,12 +225,15 @@ public class AddressDisplayInlineEditController {
 **/  
     
     public void saveAddress(){
-        
+        system.debug('addresspicklist 3: '+addresspicklist);
         system.debug('addressobj>>>>>'+addressobj);
         system.debug('@Account Id :' +ApexPages.currentPage().getParameters().get('id'));
         
         if(addressobj != null ){
-            Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
+            Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+            AddressObj.Address_Type__c = addresspicklist;
+            AddressObj.Province__c = provincepicklist;
+            
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
             {
@@ -298,7 +363,7 @@ EP/Tolerant for Validation.
 **  Date: 2016-1-19
 **/
     public void ValidateAddressSearch()
-    {
+    {   system.debug('addresspicklist 4 :'+addresspicklist);
         if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
         {
             addressobj.Address_Code__c = '';
