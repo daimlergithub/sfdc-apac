@@ -183,8 +183,8 @@ public with sharing class  DMRequestHelperJP {
                     
                          if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
-                                   lstDMR.Status__c='Duplicate';
-                                }                     
+                                     lstDMR.Status__c='Duplicate';
+                                   }                     
                                  if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
                                      lstDMR.Status1__c='Duplicate';
                                      
@@ -209,7 +209,9 @@ public with sharing class  DMRequestHelperJP {
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
                     
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                     
+                                If(Usr.Market__C=='KR'){
+                                     lstDMR.Status__c='Duplicate';
+                                   }                      
                                  if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
                                      lstDMR.Status1__c='Duplicate';                                    
                                  }
