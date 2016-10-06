@@ -20814,7 +20814,7 @@ Company_Account__r.Work_Phone__c  ,
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
+    </fields
     <label>Leads</label>
     <listViews>
         <fullName>All_MBAFC_Lead</fullName>

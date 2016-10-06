@@ -4404,6 +4404,56 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+<fields>
+        <fullName>Service_Damage_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Damage Code</label>
+        <length>7</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Damage_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Damage Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Repair_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Repair Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Problem_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Actual</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NoClaimBonus__c</fullName>
+        <externalId>false</externalId>
+        <label>No Claim Bonus</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
     <label>Retail Task</label>
     <listViews>
         <fullName>ALL</fullName>
