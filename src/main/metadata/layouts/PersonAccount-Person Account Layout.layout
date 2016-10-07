@@ -161,14 +161,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Fleet__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fleet_Sub_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
             <layoutItems>
@@ -295,10 +287,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Corporate_Program__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fleet_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -696,10 +684,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UpsellOpportunity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Commercial_Reg_No__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
