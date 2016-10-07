@@ -1422,7 +1422,7 @@
     <fields>
         <fullName>Communication_date__c</fullName>
         <externalId>false</externalId>
-        <label>Communication date</label>
+        <label>Comm Date</label>
         <required>false</required>
         <type>Date</type>
     </fields>
