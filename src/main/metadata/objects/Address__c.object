@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -178,6 +174,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -267,6 +264,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -629,8 +627,77 @@
                 <fullName>Okinawa</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeongsangnam-do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daegu Metropolitan City</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daejeon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sejong City</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ulsan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incheon Metropolitan City</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeollanam-do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeollabuk do</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jeju Special Self-Governing Province</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chungcheongnam</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chung-cheong bukdo</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -669,6 +736,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -710,6 +778,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -801,7 +870,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chung-cheong bukdo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -821,11 +910,31 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -845,11 +954,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju Special Self-Governing Province</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -929,6 +1054,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -958,6 +1091,10 @@
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1058,7 +1195,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chung-cheong bukdo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1078,11 +1235,31 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1102,11 +1279,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju Special Self-Governing Province</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1186,6 +1379,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -1215,6 +1416,10 @@
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1315,7 +1520,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Busan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chung-cheong bukdo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chungcheongnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daegu Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daejeon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1335,11 +1560,31 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Gangwon-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gifu</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gwangju</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeonggi-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangbuk-do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gyeongsangnam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1359,11 +1604,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Incheon Metropolitan City</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ishikawa</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeju Special Self-Governing Province</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollabuk do</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jeollanam-do</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1443,6 +1704,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sejong City</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seoul</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Shiga</fullName>
                 <default>false</default>
             </values>
@@ -1472,6 +1741,10 @@
             </values>
             <values>
                 <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ulsan</fullName>
                 <default>false</default>
             </values>
             <values>

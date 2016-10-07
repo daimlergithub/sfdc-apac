@@ -39,8 +39,12 @@ public class AddressSearchValidationController
     public String phoneAreaCodePart3{get;set;}
     public AreaCodeTranslation__mdt areacodeKR ;
     public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
+    public string selectedValue { get;set; }
+    public List<SelectOption> statusOptions { get;set; }
+    public String addresspicklist{get;set;}
+    public String provincepicklist{get;set;}
     // KOREA related parameters - End
-   
+    
     // COnstructor
     public AddressSearchValidationController(ApexPages.StandardController controller)
     {
@@ -53,8 +57,67 @@ public class AddressSearchValidationController
         
         User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
+        
     }
-   
+    public List<SelectOption> getAddressOptions() {
+        List<SelectOption> AddressOptions = new List<SelectOption>();
+        if(market=='KR'){           
+           AddressOptions.add(new SelectOption('Home','Home'));
+           AddressOptions.add(new SelectOption('Business','Business'));           
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    AddressOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+        }
+            //return AddressOptions;
+        system.debug('addresspicklist : '+addresspicklist);
+        return AddressOptions;
+    }
+    public List<SelectOption> getProvinceOptions() {
+        List<SelectOption> ProvinceOptions = new List<SelectOption>();
+        if(market=='KR'){           
+           ProvinceOptions.add(new SelectOption('Hokkaido','Hokkaido'));
+           ProvinceOptions.add(new SelectOption('Aomori','Aomori')); 
+           ProvinceOptions.add(new SelectOption('Iwate','Iwate'));
+           ProvinceOptions.add(new SelectOption('Miyagi','Miyagi'));
+           ProvinceOptions.add(new SelectOption('Akita','Akita'));
+           ProvinceOptions.add(new SelectOption('Yamagata','Yamagata'));
+           ProvinceOptions.add(new SelectOption('Fukushima','Fukushima'));
+           ProvinceOptions.add(new SelectOption('Ibaraki','Ibaraki'));
+           ProvinceOptions.add(new SelectOption('Tochigi','Tochigi'));
+           ProvinceOptions.add(new SelectOption('Gunma','Gunma'));
+           ProvinceOptions.add(new SelectOption('Saitama','Saitama'));
+           ProvinceOptions.add(new SelectOption('Chiba','Chiba'));
+           ProvinceOptions.add(new SelectOption('Tokyo','Tokyo'));
+           ProvinceOptions.add(new SelectOption('Kanagawa','Kanagawa'));
+           ProvinceOptions.add(new SelectOption('Niigata','Niigata'));
+           ProvinceOptions.add(new SelectOption('Toyama','Toyama'));
+           ProvinceOptions.add(new SelectOption('Ishikawa','Ishikawa'));
+           ProvinceOptions.add(new SelectOption('Fukui','Fukui'));
+           ProvinceOptions.add(new SelectOption('Yamanashi','Yamanashi'));          
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Province__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    ProvinceOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+        }
+        system.debug('addresspicklist : '+addresspicklist);
+            //return AddressOptions;
+        return ProvinceOptions;
+    }
     
     /**  Save Account based on two scenarios
 * 1. With Validated Address information record.
@@ -63,8 +126,9 @@ public class AddressSearchValidationController
 **  Date: 2016-1-19
 **/
     public pagereference saveAccount()
-    {
-       
+    {    system.debug('addresspicklist 2: '+addresspicklist);
+         AddressObj.Address_Type__c = addresspicklist;
+         AddressObj.Province__c = provincepicklist;
         // Save record without Address record if no value is Entered in Address section
         if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
@@ -416,7 +480,7 @@ public class AddressSearchValidationController
         resetPhoneAreacodes();
         selectedRecordType = recordType;
         system.debug('Selected type...' +selectedRecordType);
-      
+        
  
     }
    
@@ -526,17 +590,45 @@ EP/Tolerant for Validation.
 **/
     public void validateAddressByZipCode()
     {
-        if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
-        {
-            AddressObj.Address_Code__c = '';
-            AddressObj.Address_Line_1__c = '';
-            AddressObj.Address_Line_2__c = '';
-            AddressObj.Block__c = '';
-            AddressObj.City__c = '';
-            AddressObj.District__c = '';
-            AddressObj.Province__c = '';
-           
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
+        if(Market =='KR'){
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
+            }
+            if(addressobj.ZipCode__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+            }
+            if(addressobj.Address_Line_1__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+            }
+            if(addressobj.Province__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+            }
+        }
+        if(Market !='KR'){
+            if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+            }
         }
        
         if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
