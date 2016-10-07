@@ -29301,7 +29301,7 @@ if (sforce.console.isInConsole()) {
 		<availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Escalation</masterLabel>
+        <masterLabel>View Hierarchy</masterLabel>
         <openType>onClickJavaScript</openType>        
         <protected>false</protected>      
         <url>if('{!Account.MD__c}' == 'JP') 
