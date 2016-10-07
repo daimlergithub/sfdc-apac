@@ -13081,6 +13081,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>0</value>
         </filters>
+		<filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
         <label>All dealers</label>
         <language>en_US</language>
 		<sharedTo>
