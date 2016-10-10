@@ -108,10 +108,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
-            </layoutItems>			
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -143,6 +139,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
+            </layoutItems>						
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
