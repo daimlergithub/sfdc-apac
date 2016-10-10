@@ -304,6 +304,7 @@
 				<sf:include name="SharingWrapperService"/>
 				<sf:include name="SharingWrapper"/>
 				<sf:include name="SharingWrapperTest"/>
+				<sf:include name="LeadHelperAccountLinkCreateJP"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="LeadHelperTest"/>
 				<sf:include name="ReservationMessageTemplate"/>
