@@ -232,32 +232,12 @@
         <label><!-- Retail Contact Method --></label>
         <name>Retail_Contact_Method__c</name>
         <picklistValues>
-            <masterLabel>Direct Mail</masterLabel>
-            <translation><!-- Direct Mail --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fax</masterLabel>
-            <translation><!-- Fax --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Letters to home address</masterLabel>
             <translation><!-- Letters to home address --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No correspondence</masterLabel>
             <translation><!-- No correspondence --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Phone</masterLabel>
-            <translation><!-- Phone --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SMS</masterLabel>
-            <translation><!-- SMS --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Telephone</masterLabel>
