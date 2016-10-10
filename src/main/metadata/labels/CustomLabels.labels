@@ -2196,6 +2196,19 @@
         <protected>false</protected>
         <shortDescription>Marketing survey</shortDescription>
         <value>Marketing survey</value>
+    </labels><labels>
+        <fullName>MarketJP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketJP</shortDescription>
+        <value>JP</value>
+    </labels>
+    <labels>
+        <fullName>MarketKR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketKR</shortDescription>
+        <value>KR</value>
     </labels>
     <labels>
         <fullName>Mass_Assign_Recall_Tasks_Apply_Filters</fullName>
