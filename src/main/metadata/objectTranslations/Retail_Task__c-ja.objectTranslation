@@ -2275,7 +2275,7 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contract Status --></label>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>
@@ -2303,7 +2303,7 @@
             <section>Payment Conditions</section>
         </sections>
         <sections>
-            <label><!-- Remaining Balance Information --></label>
+            <label>残高情報</label>
             <section>Remaining Balance Information</section>
         </sections>
         <sections>
@@ -2322,7 +2322,8 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contract Status --></label>
+        <sections>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>
@@ -2350,7 +2351,7 @@
             <section>Payment Conditions</section>
         </sections>
         <sections>
-            <label><!-- Remaining Balance Information --></label>
+            <label>残高情報</label>
             <section>Remaining Balance Information</section>
         </sections>
         <sections>
