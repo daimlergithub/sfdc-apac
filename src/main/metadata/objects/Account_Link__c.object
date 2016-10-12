@@ -2938,28 +2938,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Preferred_Language__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-        <picklistValues>
-            <picklist>Portal_Type__c</picklist>
-            <values>
-                <fullName>M-Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal %28M-Care%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
 		<picklistValues>
             <picklist>Retail_Allow_Data_Sharing__c</picklist>
             <values>
