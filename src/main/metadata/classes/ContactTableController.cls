@@ -20,6 +20,9 @@ public class ContactTableController
     public String workPhoneAreaCodePart1{get;set;}
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
+    public String mobilePhoneAreaCodePart1{get;set;}
+    public String mobilePhoneAreaCodePart2{get;set;}
+    public String mobilePhoneAreaCodePart3{get;set;}
     public AreaCodeTranslation__mdt areacodeKR ;
     public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
@@ -68,6 +71,12 @@ public class ContactTableController
             workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
             workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
           } 
+        if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
+            String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
+            mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+            mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+            mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+          } 
    }
     public void EditAccount()    
       {
@@ -102,13 +111,18 @@ public class ContactTableController
         else{ 
              ParAcc.Work_Phone__c='';
         }
-       system.debug(+ParAcc.Work_Phone__c);
+      if(!(String.isBlank(mobilePhoneAreaCodePart1)) && !(String.isBlank(mobilePhoneAreaCodePart2)) && !(String.isBlank(mobilePhoneAreaCodePart3))){
+               ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
+          }
+        else{ 
+             ParAcc.Mobile__c='';
+        }
+      
         try
         {
             if(ParAcc != null)
                 refreshPage = true;
-                update ParAcc;
-            
+                update ParAcc;            
         }
         
         catch(DMLException de)
@@ -164,6 +178,26 @@ public class ContactTableController
                 options.add(new SelectOption( areacodeKR.Phone_EN17__c,areacodeKR.Phone_EN17__c+'       '+areacodeKR.Phone_TR17__c ));
                 return options;
         } 
+      /**
+  *@Description : This method gets the Mobile code.
+  *@Date : 26/10/2015
+  *@param: None
+  *@return:This mehtod does return Mobile Codes.
+  */     
+     public List<SelectOption> getMobileAreacodeItems() {
+         AreaCodeTranslation__mdt  mobileAreaCodeKR = [SELECT Id,Mobile_Code1__c,Mobile_Code2__c,Mobile_Code3__c,Mobile_Code4__c,Mobile_Code5__c,Mobile_Code6__c,Mobile_Code7__c FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1]; 
+         system.debug('mobileAreaCodeKR >>>>>>'+mobileAreaCodeKR);
+         List<selectOption> options = new List<selectOption>();
+           options.add(new SelectOption('0',System.label.None));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code1__c,mobileAreaCodeKR.Mobile_Code1__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code2__c,mobileAreaCodeKR.Mobile_Code2__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code3__c,mobileAreaCodeKR.Mobile_Code3__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code4__c,mobileAreaCodeKR.Mobile_Code4__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code5__c,mobileAreaCodeKR.Mobile_Code5__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code6__c,mobileAreaCodeKR.Mobile_Code6__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code7__c,mobileAreaCodeKR.Mobile_Code7__c));           
+           return options;
+     }
     /**
   *@Description : This method Makes Edit mode false.
   *@Date : 26/10/2015
