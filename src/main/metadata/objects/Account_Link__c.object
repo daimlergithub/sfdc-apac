@@ -3505,29 +3505,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
-            <picklist>Retail_Special_Needs_Class__c</picklist>
-            <values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
@@ -3665,7 +3642,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-			<picklistValues>
+		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Advertising %2F Marketing</fullName>
