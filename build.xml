@@ -296,6 +296,7 @@
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
+				<sf:include name="TriggerLeadTriggerHandlerKR"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandler"/>
 				<sf:include name="LeadSharingTest"/>
