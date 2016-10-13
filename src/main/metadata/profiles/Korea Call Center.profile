@@ -58,7 +58,7 @@
     <applicationVisibilities>
         <application>MBJ_Reports_and_Dashboards</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Call_Center</application>
@@ -11847,9 +11847,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Quotation_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12364,11 +12364,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Trade_in_Vehicle_Text2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.UCID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22247,6 +22242,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditTask</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

@@ -135,6 +135,7 @@
 				<sf:include name="Retail_Task__c"/>
 				<sf:include name="Account_Link__c"/>
 				<sf:include name="SSI__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
@@ -296,6 +297,7 @@
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
+				<sf:include name="TriggerLeadTriggerHandlerKR"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandler"/>
 				<sf:include name="LeadSharingTest"/>
