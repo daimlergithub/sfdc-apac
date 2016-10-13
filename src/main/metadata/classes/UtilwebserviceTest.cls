@@ -38,6 +38,7 @@ public class UtilwebserviceTest
         addressobj.Address_Type__c = 'Home';
         addressobj.Address_Line_1__c = 'line 1';
         addressobj.Address_Line_2__c = 'line 2';
+        addressobj.Province__c='Province1';
         addressobj.Block__c = 'Block';
         addressobj.Customer__c = objAccount.id;
         addressobj.ZipCode__c = '1040041';

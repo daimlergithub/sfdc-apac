@@ -78,12 +78,22 @@
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_ACCOUNT_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_ACCOUNT_LKID</token>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_LKID</token>
 	</changetext>
     <changetext>
 		<filename>objects\Case.object</filename>
@@ -590,3 +600,4 @@
 		</permissions>
 	</defaultpermissions>
 </transformations>
+	

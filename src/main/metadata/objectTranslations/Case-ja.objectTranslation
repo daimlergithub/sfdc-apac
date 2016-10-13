@@ -11174,6 +11174,10 @@
             <translation>Cクラス ハッチバック</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C-Class CABRIO</masterLabel>
+            <translation>Cクラス カブリオレ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>C-Class SEDAN</masterLabel>
             <translation>Cクラス セダン</translation>
         </picklistValues>

@@ -263,7 +263,7 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-  <fields>
+    <fields>
         <fullName>Balance_Update_Date__c</fullName>
         <externalId>false</externalId>
         <label>Update date</label>
@@ -271,8 +271,8 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>    
-	<fields>
+    </fields>
+    <fields>
         <fullName>Balloon_RV_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Balloon / RV Amount (excluding tax)</label>
@@ -611,6 +611,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Cancellation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Cancellation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contract_Category__c</fullName>
@@ -2497,6 +2506,18 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>MBF_base_interest_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Compensation usually interest rates</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -2517,6 +2538,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <length>180</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Owner_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Name Native</label>
+        <length>90</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2544,6 +2576,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MOT_User_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Name Native</label>
+        <length>180</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MOT_User_Name__c</fullName>
         <externalId>false</externalId>
         <label>MOT User Name</label>
@@ -2555,9 +2598,40 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MOT_User_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Phone</label>
+        <length>180</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Postal__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Postal</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Maximum_lease_extention_Date__c</fullName>
         <externalId>false</externalId>
         <label>Maximum lease extention Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Membership_Accept_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Membership Accept Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2664,6 +2738,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>NoClaimBonus__c</fullName>
+        <externalId>false</externalId>
+        <label>No Claim Bonus</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Non_MB_Insurance__c</fullName>
@@ -3015,6 +3100,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Problem_Actual__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Actual</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Problem_Detail__c</fullName>
         <externalId>false</externalId>
         <label>Problem Detail</label>
@@ -3218,6 +3314,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Related_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Lead</label>
+        <referenceTo>Lead__c</referenceTo>
+        <relationshipLabel>Retail Tasks</relationshipLabel>
+        <relationshipName>Retail_Tasks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Related_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3229,6 +3338,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Repair_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Repair Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Residual__c</fullName>
@@ -3463,6 +3583,39 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Currency</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Damage_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Damage Code</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Damage_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Damage Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Date_In__c</fullName>
         <externalId>false</externalId>
         <label>Service Date In</label>
@@ -3525,6 +3678,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Labour_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Labour Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Mileage__c</fullName>
         <externalId>false</externalId>
         <label>Current Mileage</label>
@@ -3548,6 +3713,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Parts_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Parts Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Position__c</fullName>
         <externalId>false</externalId>
         <label>Service Position</label>
@@ -3558,6 +3735,31 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Total_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Retail Tasks (Service Vehicle)</relationshipLabel>
+        <relationshipName>Retail_Tasks1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Settlement_Officer__c</fullName>
@@ -4178,6 +4380,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     </fields>
     <label>Retail Task</label>
     <listViews>
+        <fullName>ALL</fullName>
+        <columns>NAME</columns>
+        <columns>ContractNumber__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>VIN__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>RetailActivity</fullName>
         <columns>NAME</columns>
         <columns>Related_Dealer__c</columns>
@@ -4201,6 +4417,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <value>Retail_Task__c.Retail_Activity</value>
         </filters>
         <label>RetailActivity</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>RetailTaskALL</fullName>
+        <columns>NAME</columns>
+        <columns>ContractNumber__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>VIN__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>ALL</label>
         <language>en_US</language>
     </listViews>
     <listViews>

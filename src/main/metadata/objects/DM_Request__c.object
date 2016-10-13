@@ -118,6 +118,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>AfterSales_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this 'AfterSales' checkbox.</description>
+        <externalId>false</externalId>
+        <label>AfterSales Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Attention__c</fullName>
         <externalId>false</externalId>
         <label>Attention</label>
@@ -431,6 +441,15 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Delivery_Type__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Type</label>
@@ -557,7 +576,8 @@ Modify Reason:
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -566,6 +586,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Marketing_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this 'Marketing' checkbox.</description>
+        <externalId>false</externalId>
+        <label>Marketing Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Mobile__c</fullName>
@@ -610,6 +640,27 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receipient_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Receipient Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this 'Sales' checkbox.</description>
+        <externalId>false</externalId>
+        <label>Sales Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Second_Mobile__c</fullName>
@@ -916,6 +967,15 @@ Modify Reason:
     </fields>
     <label>DM Request</label>
     <listViews>
+        <fullName>AfterSales_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>AfterSales Department</label>
+        <queue>AfterSales_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Customer_Name__c</columns>
@@ -927,7 +987,25 @@ Modify Reason:
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
-	</listViews>
+    </listViews>
+    <listViews>
+        <fullName>All_temp</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Created_By_EP_Transaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_By_EP_Transaction__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All_temp</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
         <columns>NAME</columns>
@@ -946,6 +1024,24 @@ Modify Reason:
         </filters>
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Marketing_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Marketing Department</label>
+        <queue>Marketing_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -990,6 +1086,15 @@ Modify Reason:
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>Sales_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Sales Department</label>
+        <queue>Sales_Department</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Sent_DM_Requests</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
@@ -1015,6 +1120,81 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_A_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_Team_B_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team B</label>
+        <queue>Supervisor_Team_B</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View1</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Additional_Address__c</columns>
+        <columns>Address__c</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>リクエスト日今日</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>View5</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Attention__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <filters>
+            <field>Delivery_Type__c</field>
+            <operation>notEqual</operation>
+            <value>4</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Sent</value>
+        </filters>
+        <label>リクエスト日昨日カタログ名</label>
+        <language>ja</language>
+    </listViews>   
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
@@ -1062,7 +1242,7 @@ Modify Reason:
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -1071,7 +1251,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <errorConditionFormula>AND(LEN(Address__c)&gt;92, 
 $Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Address__c</errorDisplayField>
         <errorMessage>Address should be less than or equal to 92 letters.</errorMessage>
     </validationRules>
@@ -1089,7 +1269,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  MD__c = 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1098,7 +1278,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp;  ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp;  MD__c = 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1107,22 +1287,22 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp;  ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp;  MD__c = 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Insufficient_Stock</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>US-DM-003:
 7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; 
-(
- Actual_DM_Material1__r.Threshold__c &gt;  Actual_DM_Material1__r.Stock__c 
-||
- Actual_DM_Material2__r.Threshold__c &gt;  Actual_DM_Material2__r.Stock__c 
-||
- Actual_DM_Material3__r.Threshold__c &gt;  Actual_DM_Material3__r.Stock__c 
+        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; MD__c = 'KR' &amp;&amp; 
+( 
+Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
+|| 
+Actual_DM_Material2__r.Threshold__c &gt; Actual_DM_Material2__r.Stock__c 
+|| 
+Actual_DM_Material3__r.Threshold__c &gt; Actual_DM_Material3__r.Stock__c 
 )</errorConditionFormula>
         <errorMessage>Insufficient Stock</errorMessage>
     </validationRules>
@@ -1140,7 +1320,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_Reject</fullName>
         <active>true</active>
         <description>You cannot manually select "Rejected".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Rejected')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Rejected'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Rejected')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Rejected".</errorMessage>
     </validationRules>
@@ -1148,7 +1328,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approving".</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Approving')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c,'Approving'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Approving')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approving".</errorMessage>
     </validationRules>
@@ -1156,7 +1336,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Be_Sent</fullName>
         <active>true</active>
         <description>You cannot manually select "to be sent".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>
@@ -1164,7 +1344,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Not_Send</fullName>
         <active>true</active>
         <description>You cannot manually select "Not send".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Not send')),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'Not send'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'Not send')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Not send".</errorMessage>
     </validationRules>
@@ -1179,9 +1359,9 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '')  &amp;&amp;  MD__c = 'JP'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'KR'</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>

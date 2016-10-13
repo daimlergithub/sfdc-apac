@@ -18,7 +18,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</template>
+        <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <alerts>
         <fullName>Email_notification_when_no_status_is_updated_more_than_10_days</fullName>
@@ -53,6 +53,17 @@
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
+        <fullName>Escalated_after_24hrs</fullName>
+        <description>Escalated after 24hrs</description>
+        <protected>false</protected>
+		<recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
+    </alerts>
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -61,6 +72,39 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
+    </alerts>
+    <alerts>
+        <fullName>X24hrs_Lead_Escalation</fullName>
+        <description>24hrs Lead Escalation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
+    </alerts>
+    <alerts>
+        <fullName>abcd</fullName>
+        <description>24hrs Lead Escalation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
+    </alerts>
+    <alerts>
+        <fullName>fgefg</fullName>
+        <description>fgefg</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
@@ -302,11 +346,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_First_Contact</fullName>
-        <field>Proxy_Date_Time__c</field>
+        <field>First_Contact_Customer_Date_Time__c</field>
         <formula>IF ( 
-ISBLANK(Proxy_Date_Time__c), 
+ISBLANK(First_Contact_Customer_Date_Time__c), 
 NOW(), 
-Proxy_Date_Time__c 
+First_Contact_Customer_Date_Time__c 
 )</formula>
         <name>Update Proxy Date Time to First Contact</name>
         <notifyAssignee>false</notifyAssignee>
@@ -315,11 +359,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Lost_Dealer</fullName>
-        <field>Proxy_Date_Time__c</field>
+        <field>Lost_Dealer_Date_Time__c</field>
         <formula>IF ( 
-ISBLANK(Proxy_Date_Time__c), 
+ISBLANK(Lost_Dealer_Date_Time__c), 
 NOW(), 
-Proxy_Date_Time__c 
+Lost_Dealer_Date_Time__c 
 )</formula>
         <name>Update Proxy Date Time to Lost(Dealer)</name>
         <notifyAssignee>false</notifyAssignee>
@@ -328,11 +372,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Order_Placed</fullName>
-        <field>Proxy_Date_Time__c</field>
+        <field>Order_Placed_Date_Time__c</field>
         <formula>IF ( 
-ISBLANK(Proxy_Date_Time__c), 
+ISBLANK(Order_Placed_Date_Time__c), 
 NOW(), 
-Proxy_Date_Time__c 
+Order_Placed_Date_Time__c 
 )</formula>
         <name>Update Proxy Date Time to Order Placed</name>
         <notifyAssignee>false</notifyAssignee>
@@ -444,7 +488,8 @@ Proxy_Date_Time__c
             <name>Email_notification_when_customer_doesn_t_allow_dealer_contact</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>(1 AND 2 AND 3 AND 4) AND (5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Assigned_Date_Time__c</field>
             <operation>notEqual</operation>
@@ -462,7 +507,17 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Sales Leads</value>
+            <value>Aftersales Leads,Retail Sales Leads,Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -472,14 +527,14 @@ Proxy_Date_Time__c
             <name>Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', RecordType.Name = 'Sales Leads', OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
+        <active>true</active>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', MD__c = 'KR',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 10 days</fullName>
-        <active>false</active>
-        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
+        <active>true</active>
+        <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR'  )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -493,8 +548,8 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 5 days</fullName>
-        <active>false</active>
-        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
+        <active>true</active>
+        <formula>AND ( ISBLANK(Proxy_Date_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  MD__c = 'KR' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -512,9 +567,28 @@ Proxy_Date_Time__c
             <name>Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'Salesforce' )</formula>
+        <active>true</active>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  Dealer_LMS__c = 'Salesforce', MD__c = 'KR' )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads,Retail Sales Leads,Sales Leads,Sales Leads Soft Deleted</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Escalated_after_24hrs</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.CreatedDate</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Leads fields update</fullName>
@@ -540,16 +614,21 @@ Proxy_Date_Time__c
             <name>Update_Lead_Recieved_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.LastModifiedById</field>
-            <operation>equals</operation>
+            <operation>notEqual</operation>
             <value>Liam Huang</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>notEqual</operation>
             <value>Accepted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -559,11 +638,22 @@ Proxy_Date_Time__c
             <name>Set_Successful_Call_Number_is_0</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>notEqual</operation>
             <value>OB Call,IB Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Retail Sales Leads,Sales Leads</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -573,11 +663,21 @@ Proxy_Date_Time__c
             <name>Set_Successful_Call_Number_is_1</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>equals</operation>
             <value>OB Call,IB Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Retail Sales Leads,Sales Leads</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -610,8 +710,8 @@ Proxy_Date_Time__c
             <name>Update_Proxy_Date_Time_to_Contact_Failed</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -638,8 +738,8 @@ Proxy_Date_Time__c
             <name>Update_Proxy_Date_Time_to_First_Contact</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -648,7 +748,7 @@ Proxy_Date_Time__c
             <name>Update_Qualified_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-18) 
@@ -660,7 +760,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>ISPICKVAL(CAC_Lead_Status__c , "Qualified")</formula>
+        <formula>AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -673,11 +773,21 @@ Modify Reason:
             <name>Update_Lost_CAC_Date_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Lost(CAC)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Retail Sales Leads,Sales Leads</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -687,8 +797,8 @@ Modify Reason:
             <name>Update_Proxy_Date_Time_to_Lost_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -697,8 +807,8 @@ Modify Reason:
             <name>Update_Proxy_Date_Time_to_Order_Placed</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Order Placed")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -747,7 +857,7 @@ Modify Reason:
             <name>Send_Assigned_Dealer_to_EP</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-15) 
@@ -758,7 +868,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>AND( RecordTypeId == "01290000000rXmP",  Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL,  Dealer_LMS__c == "LMS",  ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
+        <formula>AND( Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -783,11 +893,11 @@ Modify Reason:
             <name>Update_Lead_Recieved_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL,ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
+        <formula>OR(  AND(Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -796,8 +906,8 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <name>Update_Proxy_Date_Time_to_Test_Drive</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Test Drive")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -810,8 +920,8 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <name>Update_Visited_Showroom_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom")</formula>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

@@ -75,7 +75,7 @@
 	</target>
 	<target name="deploy01">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="installedPackages"/>
+			<!-- <sf:typeset name="installedPackages"/> -->
 		</deploy>
     </target>
 	<target name="deploy05">
@@ -113,7 +113,6 @@
 	<target name="deploy09">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<sf:include name="User"/>
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
@@ -128,6 +127,7 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="Account"/>
+				<sf:include name="User"/>				
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Address__c"/>
 				<sf:include name="Vehicle__c"/>
@@ -215,6 +215,7 @@
 	
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="queues"/>
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -231,7 +232,7 @@
 				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
 			</sf:typeset>
-			<sf:typeset name="queues"/>
+			
 			
 		</deploy>
     </target>	
@@ -249,6 +250,7 @@
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 			<sf:typeset name="tabs">
@@ -334,6 +336,12 @@
 				<sf:include name="AccountSharingDataHandlerTest"/>
 				<sf:include name="AccountLinkHelper"/>
 				<sf:include name="AccountLinkHelperTest"/>
+				<sf:include name="TriggerAccountTriggerHandlerKR"/>
+				<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+				<sf:include name="AccountHelperKR"/>
+				<sf:include name="AccountHelperKRTest"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>				
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -422,6 +430,7 @@
 			<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignTriggerHandlerJP"/>
+			<sf:include name="TriggerCampaignTriggerHandlerKR"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>

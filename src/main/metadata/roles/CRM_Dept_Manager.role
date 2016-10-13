@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>CRM Dept-Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>CRM Dept-Manager</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>CRM_Dept_Director</parentRole>
+</Role>

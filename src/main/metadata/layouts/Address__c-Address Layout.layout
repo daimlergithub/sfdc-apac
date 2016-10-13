@@ -38,6 +38,18 @@
                 <behavior>Edit</behavior>
                 <field>Temp_ZipCode__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Created_By_EP_Transaction__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opt_In_Hardcopy__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -71,6 +83,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Temp_Address__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HouseNumber__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
