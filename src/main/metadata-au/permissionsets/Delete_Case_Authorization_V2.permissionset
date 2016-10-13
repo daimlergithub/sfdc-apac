@@ -17308,7 +17308,7 @@ yujing.he@daimler.com</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Retail_Task__c.Insurance</recordType>
+        <recordType>Retail_Task__c.Insurance_Contract</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

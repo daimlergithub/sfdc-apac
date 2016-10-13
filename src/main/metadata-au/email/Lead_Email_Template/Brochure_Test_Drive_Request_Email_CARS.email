@@ -1,0 +1,44 @@
+<messaging:emailTemplate subject="Thank you for your enquiry" recipientType="Contact" relatedToType="Lead__c" >
+<messaging:htmlEmailBody >
+<style>
+p {
+    background-color: black;
+}
+body {
+    background-color: black;
+}
+</style>
+<apex:image value="https://c.cs21.content.force.com/servlet/servlet.FileDownload?file=015q0000000Aim3" height="40%" width="100%"/>
+    <font face ="Corporate A Condensed" size ="26px" color ="white">
+    <h1> We’ll be in touch shortly. </h1></font>
+        <body>
+        <font face ="Arial regular" size ="12px" color ="white">        
+        <h1> Dear {!relatedTo.Contact__r.Name} {!relatedTo.Company_Account__r.Name} </h1>
+        
+         Thank you for expressing your interest in the Mercedes-Benz {!relatedTo.MB_Vehicle_Interest__c}. <br/><br/>       
+         A member of our Enquiry Management Centre will be in contact with you shortly to discuss your request.<br/><br/>         
+         In the meantime, you can access brochures, specifications and wallpapers in the Download Centre, by following the link below.<br/><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Cars'}" value="{!$Label.Download_Cars}">Download Centre </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Cars'}" value="{!$Label.Driveaway_Pricing_Calculator_Cars}">Driveaway Pricing Calculator </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Vans'}" value="{!$Label.Download_Vans}">Download Centre </apex:outputLink><br/>
+     <apex:outputLink rendered="{!relatedTo.Business_Unit__c == 'Vans'}" value="{!$Label.Driveaway_Pricing_Calculator_Vans}">Driveaway Pricing Calculator </apex:outputLink><br/> 
+        <br/>
+        Kind Regards,<br/>
+        Mercedes-Benz Cars Australia.
+        </font>
+        </body>
+        <br/><br/>
+        <p>
+        <font color = "White">
+        @Mercedes-Benz Australia/Pacific Pty Ltd|
+        <a href="http://www.mercedes-benz.com.au/content/australia/mpc/mpc_australia__website/en/home_mpc/cookies.html?dm_i=2C7U,RXGT,236T5A,1YD33,1">Cookie</a>|
+        <a href ="http://www.mercedes-benz.com.au/content/australia/mpc/mpc_australia__website/en/home_mpc/privacy_statement.html?dm_i=2C7U,RXGT,236T5A,1YD33,1">Privacy Policy</a>|
+        <a href ="http://www.mercedes-benz.com.au/content/australia/mpc/mpc_australia__website/en/home_mpc/legal_notice.html?dm_i=2C7U,RXGT,236T5A,1YD33,1"> Legal Notice </a>
+        <br/><br/>
+        If you no longer wish to receive email communications from Mercedes-Benz Australia/Pacific Pty Ltd 
+        <a href = "https://www.owners.mercedes-benz.com.au/unsubscribe.aspx?email=sarah.johnson%40daimler.com&cid=90000004&dm_i=2C7U,RXGT,236T5A,1YD34,1">click here to notify us</a>. 
+        This email was sent by Mercedes-Benz Australia/Pacific Pty Ltd, 44 Lexia Place, Mulgrave, Victoria, 3170.
+        </font> 
+        </p>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

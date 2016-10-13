@@ -24,6 +24,10 @@ public class LeadHelper
     private static final String leadFleetRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Finance Lead').getRecordTypeId();
     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId();
+    private static final String vanLeadRT = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Vans').getRecordTypeId();
+    private static final String serviceContractRT = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
+    private static final String insuranceContractRT = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance').getRecordTypeId();
+    private static final String contractRT = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS)].Id;
     private static final String EmcOrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_EMC)].Id;
@@ -628,7 +632,6 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
         }
-        
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             //sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -1378,7 +1381,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {     
                      for(Lead__c lead :accountOwnerids)
                         {   
-                         /*
+                        
                              // Send email notification to the new owner
                             //toAdresss.add(lead.Assigned_Dealer__r.owner.Email);
                            // toAdresss.addAll(mapAccountIdAndEmail.get(lead.Assigned_Dealer__c));
@@ -1388,21 +1391,20 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             String body = etToOwner.body.replace('{!Lead__c.Name}',lead.Name);
                             system.debug('body'+body);
                             Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
-                            mail.setToAddresses(toAdresss);
+                            //mail.setToAddresses(toAdresss);
                             mail.setSaveAsActivity(false);
                             //system.debug('lead.Assigned_Dealer__r.ownerid'+lead.Assigned_Dealer__r.ownerid);    
                            // mail.setTargetObjectId(lead.Assigned_Dealer__r.ownerid);
                            // mail.setTemplateId(etToOwner.Id);
-                            mail.setSubject(subject);
-                            mail.setPlainTextBody(body);
+                            //mail.setSubject(subject);
+                            //mail.setPlainTextBody(body);
                          /*  if (!Test.isRunningTest())
                                {
                                  mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
                                 }*/
                            
                            // mail.setWhatId(lead.Id);
-                            //mailList.add(mail); */
-							
+                            //mailList.add(mail);
                             toAdresss.clear();
                       }
         }      
@@ -1426,5 +1428,459 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     }  
                      
     //Existing Au functionality ends here
+    }
+    
+    
+    //Email notification when Lead is created or updated with Buisness Unit Cars/Vans.
+    public static void sendEmailNotificationsToAssignedDealer(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
+    {        
+        map<id,string> leadMailMap = new map<id,string>();
+        List<string> toAddress = new List<string>();
+        List<Account> acclist = new List<Account>();
+        List<Contact> MonkContacts = new List<Contact>();
+        set<id> accid = new set<id>();
+        List<Messaging.Email> mailList = new List<Messaging.Email>();
+        for(Lead__c lead :listNewLeads)
+        {          
+            if(lead.RecordTypeId == leadVehicleRt && lead.Email__c != null && lead.Email__c != '' &&
+               (lead.Business_Unit__c == 'Cars' || lead.Business_Unit__c == 'Vans') && (isInsert || (isUpdate && lead.Business_Unit__c != leadOldMap.get(lead.Id).Business_Unit__c)))
+            {         
+                leadMailMap.put(lead.id,lead.Email__c);
+            }		            
+        }
+        
+        EmailTemplate etassigneddealer = [SELECT Id,Body,Subject FROM EmailTemplate WHERE Name = 'Brochure Request/Test Drive Request Email CARS' limit 1];         
+        if(!leadMailMap.isEmpty() && leadMailMap != null)
+        {
+            for(Lead__c leds : listNewLeads)
+            {                
+                Contact MonkContact = MonkCotact(leadMailMap.get(leds.Id));                                          
+                Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
+                //mail.setToAddresses(toAddress);
+                mail.setTargetObjectId(MonkContact.Id);
+                mail.setSaveAsActivity(false);
+                mail.setWhatId(leds.Id);
+                mail.setTemplateId(etassigneddealer.Id);
+                mailList.add(mail);
+                MonkContacts.add(MonkContact);                    
+                                                
+            }
+            system.debug('mailList>>>>>>' + mailList);
+            try
+            {                  
+                Messaging.SendEmailResult[] results = Messaging.sendEmail(mailList);
+                if (results[0].success) 
+                {
+                    
+                    System.debug('The email was sent successfully.');
+                }   
+            }		
+            catch(Exception e)
+            {
+                system.debug('Email notification when Assigned Dealer is changed Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+            }
+            finally
+            {
+                if(!MonkContacts.isEmpty())
+                {
+                    delete MonkContacts;
+                }
+            }
+        }
+    }
+    public static void leadPriorityScore(List<Lead__c> leadlist)
+    {
+        utilPriorityScore.getEnquiryTypeScore();        
+        utilVehicleClass.getVehicleclass();
+        set<id> accids = new set<id>();
+        List<Account> accountlist = new List<Account>();
+        List<Vehicle_Relationship__c> vehrellist = new List<Vehicle_Relationship__c>();
+        List<Retail_Task__c> contractList = new List<Retail_Task__c>();
+        map<string,Decimal> enquiryMap = utilPriorityScore.enquiryTypeMap;
+        map<string,Decimal> purchaseMap = utilPriorityScore.purchaseIntentMap;
+        map<string,Decimal> behaviouralMap = utilPriorityScore.behaviouralGroupMap;
+        map<string,Decimal> contractMap = utilPriorityScore.contractRecordTypeMap;
+        map<string,Decimal> testDriveMap = utilPriorityScore.requestTestDriveMap;
+        map<string,Decimal> vechClassMap = utilVehicleClass.vehicleClassMap;
+        map<id,Decimal> accvehlmap = new map<id,Decimal>();
+        map<string,string> leadRequestMap = utilPriorityScore.natureOfRequestMap;
+        map<string,string> carMap = utilPriorityScore.leadCarsMap;
+        map<string,string> vanMap = utilPriorityScore.leadVanMap;
+        map<string,Decimal> numberOfMbMap = utilPriorityScore.noOfMBsMap;
+        Map<string, Decimal> highestClassMap = new Map<string, Decimal>();
+        Map<string, Decimal> vehicleClassMap = new Map<string, Decimal>();
+        map<string,Decimal> prospectenquiryMap = utilPriorityScore.prospectenquiryTypeMap;
+        map<string,Decimal> prospectpurchaseMap = utilPriorityScore.prospectpurchaseIntentMap;
+        map<string,Decimal> prosleadMap = utilPriorityScore.prospectLeadMap;
+        map<id,string> accountPCStatusMap = new map<id,string>();
+        map<id,string> accountCVStatusMap = new map<id,string>();
+        map<id,string> accountVANStatusMap = new map<id,string>();
+        map<id,string> behaviourMap = new map<id,string>();
+        set<id> rtids = new set<id>();
+        
+        
+        for(Lead__c led : leadlist)
+        {                        
+            if(led.Contact__c != null)
+            {
+                accids.add(led.Contact__c);
+            }
+            else if(led.Company_Account__c != null)
+            {
+                accids.add(led.Company_Account__c);
+            }
+        }
+        if(!accids.isEmpty() && accids != null)
+        {
+            vehrellist = [select id,Car_Relation__c,Contact__c,Status__c,Vehicle_ID__c,Vehicle_ID__r.Class__c from Vehicle_Relationship__c where Contact__c IN :accids];
+            contractList = [select id,Account__c,RecordType.Developername from Retail_Task__c where Account__c IN :accids];
+            accountlist = [select id,PC_Status__c,CV_Status__c,VAN_Status__c,Behavioural_Group__c from Account where ID IN :accids];            
+        }
+        
+        for(Lead__c le : leadlist)
+        {
+            for(Account acc: accountlist)
+            {
+                if((le.Contact__c != null && le.Contact__c == acc.id) || (le.Company_Account__c != null && le.Company_Account__c == acc.id))
+                {                    
+                    accountPCStatusMap.put(acc.Id, acc.PC_Status__c);
+                    accountCVStatusMap.put(acc.Id, acc.CV_Status__c);
+                    accountVANStatusMap.put(acc.Id, acc.VAN_Status__c);
+                    if(acc.Behavioural_Group__c != null && acc.Behavioural_Group__c != '')
+                    {
+                        behaviourMap.put(acc.Id, acc.Behavioural_Group__c);
+                    }                    
+                }
+            }
+        }
+        
+        for(Lead__c led : leadlist)
+        {           		            
+             if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (carMap.containsKey(led.Business_Unit__c)))
+             {
+                CustomLogUtil.CustomLoggingEntry('Lead Priority Score ' +leadlist.size() );
+                 if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && (accountPCStatusMap.get(led.Contact__c) == 'Customer' 
+                    || accountCVStatusMap.get(led.Contact__c) == 'Customer' || accountVANStatusMap.get(led.Contact__c) == 'Customer'))                
+                 {
+                    Decimal Count = 0 ;
+                    Decimal numberOfMBs = 0;
+                    Decimal enquirytype = 0;
+                    Decimal purchasetime = 0;
+                    Decimal behavgroup = 0;
+                    Decimal priorityScore = 0;
+                    Decimal vechClassScore = 0;
+                    Decimal contractScore = 0;
+                    Decimal numberOfMBScore =0;
+                    Decimal mbVechInterestScore = 0;
+                    Decimal serviceScore = 0;
+                    Decimal insuranceScore = 0;
+                    Decimal maxvalue = 0;
+                    Decimal maxClassvalue = 0; 
+                    string vehicleclass; 
+                    String value;
+                    string maxkey;
+                    string vehicleInterest;
+                    string vehiclerelationClass;
+                    List<string> vehiclerelationClasslist = new List<string>();
+                    List<string> vehicleInterestList = new List<string>();
+                    List<string> servicecontractlist = new List<string>();
+                    List<string> insuranceContractList = new List<string>();
+                    List<string> financecontractList = new List<string>();
+                    if(!vehrellist.isEmpty() && vehrellist != null)
+                    {
+                        for(Vehicle_Relationship__c vrel : vehrellist)
+                        {
+                            if(vrel.Contact__c != null && ((led.Contact__c!= null && (led.Contact__c == vrel.Contact__c))
+                              || (led.Company_Account__c != null && (led.Company_Account__c == vrel.Contact__c))) && vrel.Car_Relation__c == 'Owner')
+                            {
+                                Count++;
+                                accvehlmap.put(vrel.Contact__c, Count);
+                            }
+                            if(vrel.Contact__c != null && ((led.Contact__c!= null && (led.Contact__c == vrel.Contact__c))
+                              || (led.Company_Account__c != null && (led.Company_Account__c == vrel.Contact__c))) && vrel.Car_Relation__c == 'Owner'
+                              && vrel.Status__c == 'Currently Owned')
+                            {
+                                vehiclerelationClasslist.add(vrel.Vehicle_ID__r.Class__c);
+                            }
+                        }
+                    }
+                     system.debug('vehiclerelationClasslist>>>>>' + vehiclerelationClasslist);
+					if(!contractList.isEmpty() && contractList != null)
+                    {
+                        for(Retail_Task__c rtask : contractList)
+                        {
+                            if(rtask.Account__c != null && ((led.Contact__c != null && led.Contact__c == rtask.Account__c)
+                                || (led.Company_Account__c != null && led.Company_Account__c == rtask.Account__c)))
+                            {
+                                if(rtask.RecordTypeId == serviceContractRT)
+                                {
+                                    servicecontractlist.add(rtask.RecordType.DeveloperName);
+                                }
+                                else if(rtask.RecordTypeId == insuranceContractRT)
+                                {
+                                    insuranceContractList.add(rtask.RecordType.DeveloperName);
+                                }
+                                else if(rtask.RecordTypeId == contractRT)
+                                {
+                                    financecontractList.add(rtask.RecordType.DeveloperName);
+                                }
+                            }
+                        }
+                    }
+                    if(led.Contact__c != null)
+                    {
+                        numberOfMBs = accvehlmap.get(led.Contact__c);                
+                    }
+                    else if(led.Company_Account__c != null)
+                    {
+                        numberOfMBs = accvehlmap.get(led.Company_Account__c);                    
+                    }
+                    if(numberOfMbMap != null && numberOfMbMap.containsKey(string.valueOf(numberOfMBs)))
+                    {
+                        numberOfMBScore = numberOfMbMap.get(string.valueOf(numberOfMBs));
+                    }
+                    else if(numberOfMBs > 3)
+                    {
+                        numberOfMBScore = 4;
+                    }
+                    if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && enquiryMap.containsKey(led.Nature_of_Request__c))
+                    {
+                        enquirytype = enquiryMap.get(led.Nature_of_Request__c);
+                    }
+                    
+                    if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && purchaseMap.containsKey(led.Purchase_Time__c))
+                    {
+                        purchasetime = purchaseMap.get(led.Purchase_Time__c);
+                    }
+                   	
+                    if(!behaviourMap.isEmpty() && behaviourMap != null)
+                    {
+                        if(led.Contact__c != null)
+                        {                            
+                            behavgroup = behaviouralMap.get(behaviourMap.get(led.Contact__c));
+                        }
+                        else if(led.Company_Account__c != null)
+                        {
+                            behavgroup = behaviouralMap.get(behaviourMap.get(led.Company_Account__c));
+                        }
+                    }
+                     
+                    if(vehiclerelationClasslist != null && !vehiclerelationClasslist.isEmpty())
+                    {                        
+                        for(integer i=0 ; i<vehiclerelationClasslist.size() ; i++)
+                        {
+                            if(vechClassMap.containsKey(vehiclerelationClasslist[i]))
+                            {
+                                vehicleClassMap.put(vehiclerelationClasslist[i], vechClassMap.get(vehiclerelationClasslist[i]));
+                            }
+                        }
+                        if(!vehicleClassMap.isEmpty() && vehicleClassMap != null)
+                        {
+                            vehicleclass = vehicleClassMap.keySet().iterator().next();
+                            maxClassvalue = vehicleClassMap.get(vehicleclass);
+                            for(string vec : vehicleClassMap.keySet())
+                            {
+                                Decimal currscore = vehicleClassMap.get(vec);
+                                if(maxClassvalue >= currscore)
+                                {
+                                    vehicleClassMap.remove(vec);
+                                }
+                                else if(maxvalue < currscore) 
+                                {
+                                    vehicleClassMap.remove(vehicleclass);
+                                    maxClassvalue = vehicleClassMap.get(vec);
+                                    vehicleclass = vec;
+                                }
+                            }                            
+                        }
+                        system.debug('maxClassvalue' + maxClassvalue);
+                        vechClassScore = maxClassvalue;
+                    }
+                     
+                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '')
+                    {
+                        vehicleInterest = led.MB_Vehicle_Interest__c;
+                        vehicleInterestList = vehicleInterest.split(';');
+                        for(integer i=0 ; i<vehicleInterestList.size() ;i++)
+                        {
+                            if(vechClassMap.containsKey(vehicleInterestList[i]))
+                            {
+                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            }
+                        }
+                        if(!highestClassMap.isEmpty() && highestClassMap != null)
+                        {
+                            maxkey= highestClassMap.keySet().iterator().next();
+                            maxvalue = highestClassMap.get(maxkey);
+                            for(string key : highestClassMap.keySet())
+                            {
+                                Decimal currValue = highestClassMap.get(key);
+                                if(maxvalue >= currValue)
+                                {
+                                    highestClassMap.remove(key);
+                                } 
+                                else if(maxvalue < currValue) 
+                                {
+                                    highestClassMap.remove(maxKey);
+                                    maxvalue = highestClassMap.get(key);
+                                    maxKey = key;
+                                }
+                            }
+                        }
+                        system.debug('maxvalue>>' + maxvalue);
+                        mbVechInterestScore = maxvalue ;
+                    }
+                    
+                    if(!servicecontractlist.isEmpty() && servicecontractlist != null && servicecontractlist.size() > 0)
+                    {
+                        value =  'Yes';
+                        serviceScore = contractMap.get(value);
+                    }
+                    else
+                    {
+                        value =  'No';
+                        serviceScore = contractMap.get(value);                    
+                    }
+                     if(!insuranceContractList.isEmpty() && insuranceContractList != null && insuranceContractList.size() > 0)
+                    {
+                        value =  'Yes';
+                        contractScore = contractMap.get(value);
+                    }
+                    else
+                    {
+                        value =  'No';
+                        contractScore = contractMap.get(value);                    
+                    }
+                     if(!financecontractList.isEmpty() && financecontractList != null && financecontractList.size() > 0)
+                    {
+                        value =  'Yes';
+                        insuranceScore = contractMap.get(value);
+                    }
+                    else
+                    {
+                        value =  'No';
+                        insuranceScore = contractMap.get(value);                    
+                    }
+                    system.debug('mbVechInterestScore>>>' +mbVechInterestScore + 'enquirytype>>' + enquirytype + 'purchasetime>>>' + purchasetime );
+                    system.debug('behavgroup>:>:>:>' +behavgroup + 'numberOfMBScore>>>>' + numberOfMBScore + 'contractScore>>>>' + contractScore );
+                    system.debug('serviceScore????' +serviceScore + 'insuranceScore??????' + insuranceScore + 'vechClassScore????' + vechClassScore );
+                     priorityScore = enquirytype + purchasetime + behavgroup + numberOfMBScore + vechClassScore + contractScore + 
+                                    mbVechInterestScore + serviceScore + insuranceScore;
+                    
+                    led.Priority_Score__c = priorityScore;
+                        
+                    if(Integer.valueOf(led.Priority_Score__c) > 38)
+                    {
+                        led.Lead_Priority__c = 'Hot';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) >=30 && Integer.valueOf(led.Priority_Score__c) < 38)
+                    {
+                        led.Lead_Priority__c = 'Warm';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) < 30)
+                    {
+                        led.Lead_Priority__c = 'Cold';
+                    }
+                }
+         
+                 if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                    !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
+                    && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')  
+                {
+                    Decimal enquirytype = 0;
+                    Decimal purchasetime = 0;
+                    Decimal priorityScore = 0;
+                    Decimal mbVechInterestScore = 0;
+                    Decimal prospectleadscore = 0;
+                    string prospect = '';
+                    Decimal maxvalue = 0;
+                    String value;
+                    string maxkey;
+                    string vehicleInterest; 
+                    List<string> vehicleInterestList = new List<string>();  
+                    List<string> servicecontractlist = new List<string>();
+                    List<string> insuranceContractList = new List<string>();
+                    List<string> financecontractList = new List<string>();
+                    
+                    if(!accountPCStatusMap.isEmpty() && accountPCStatusMap != null && !accountCVStatusMap.isEmpty() && accountCVStatusMap != null &&
+                        !accountVANStatusMap.isEmpty() && accountVANStatusMap != null && accountPCStatusMap.get(led.Contact__c) == 'Prospect' 
+                        && accountCVStatusMap.get(led.Contact__c) == 'Prospect' && accountVANStatusMap.get(led.Contact__c) == 'Prospect')
+                    {
+                        prospect = 'Yes';
+                        prospectleadscore = prosleadMap.get(prospect);
+                    }
+                    system.debug('    prosleadMa    ' + prospectleadscore);
+                    if(led.Nature_of_Request__c != null && led.Nature_of_Request__c != '' && prospectenquiryMap.containsKey(led.Nature_of_Request__c) 
+                       && prospectenquiryMap.get(led.Nature_of_Request__c) != null)
+                    {
+                        enquirytype = prospectenquiryMap.get(led.Nature_of_Request__c);
+                    }
+                    
+                    if(led.Purchase_Time__c != null && led.Purchase_Time__c != '' && prospectpurchaseMap.containsKey(led.Purchase_Time__c) 
+                       && prospectpurchaseMap.get(led.Purchase_Time__c) != null)
+                    {
+                        purchasetime = prospectpurchaseMap.get(led.Purchase_Time__c);
+                    }
+                    
+                    if(led.MB_Vehicle_Interest__c != Null && led.MB_Vehicle_Interest__c != '' )
+                    {
+                        vehicleInterest = led.MB_Vehicle_Interest__c;
+                        vehicleInterestList = vehicleInterest.split(';');
+                        for(integer i=0 ; i<vehicleInterestList.size() ;i++)
+                        {
+                            if(vechClassMap.containsKey(vehicleInterestList[i]))
+                            {
+                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                            }
+                        }
+                        if(!highestClassMap.isEmpty() && highestClassMap != null)
+                        {
+                            maxkey= highestClassMap.keySet().iterator().next();
+                            maxvalue = highestClassMap.get(maxkey);
+                            for(string key : highestClassMap.keySet())
+                            {
+                                Decimal currValue = highestClassMap.get(key);
+                                if(maxvalue >= currValue)
+                                {
+                                    highestClassMap.remove(key);
+                                } 
+                                else if(maxvalue < currValue) 
+                                {
+                                    highestClassMap.remove(maxKey);
+                                    maxvalue = highestClassMap.get(key);
+                                    maxKey = key;
+                                }
+                            }
+                        }
+                        system.debug('maxKey>>' + maxKey);
+                        system.debug('maxvalue>>' + maxvalue);
+                        mbVechInterestScore = maxvalue ;
+                    }
+                    CustomLogUtil.CustomLoggingEntry('mbVechInterestScore' +mbVechInterestScore + 'enquirytype' + enquirytype + 'purchasetime' + purchasetime + 'prospectleadscore' + prospectleadscore);
+                    system.debug('mbVechInterestScore>>' +mbVechInterestScore + 'enquirytype>><<' + enquirytype + 'purcha>>>>>setime' + purchasetime + 'prospectlea:?>?>?>>?dscore' + prospectleadscore);
+                    priorityScore = enquirytype + purchasetime + mbVechInterestScore + prospectleadscore;
+                                   
+                    led.Priority_Score__c = priorityScore;
+                    
+                    if(Integer.valueOf(led.Priority_Score__c) >= 38)
+                    {
+                        led.Lead_Priority__c = 'Hot';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) >=30 && Integer.valueOf(led.Priority_Score__c) < 38)
+                    {
+                        led.Lead_Priority__c = 'Warm';
+                    }
+                    else if(Integer.valueOf(led.Priority_Score__c) < 30)
+                    {
+                        led.Lead_Priority__c = 'Cold';
+                    }
+            	}
+             }
+            if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (vanMap.containsKey(led.Business_Unit__c)))
+            {
+                led.Lead_Priority__c = 'Hot';
+            }
+        }
     }
 }

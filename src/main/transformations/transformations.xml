@@ -489,6 +489,11 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Contacts_Relation']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Contracts']/url/text()</xpath>
+		<token tokenonly="true">REPORT_WEBLINK_CONTRACT_WITH_ACCOUNT_REPORT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -513,7 +518,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -523,7 +528,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -579,8 +584,6 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID_VANS</token>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_VEHICLERELATIONSHIP_NO_ID</token> 
 	</changetext>
 	<changetext>
 		<filename>objects\Dealer_Locator__c.object</filename>
@@ -676,6 +679,11 @@
 		<filename>objects\Address__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Address']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Contracts']/url/text()</xpath>
+		<token tokenonly="true">REPORT_WEBLINK_CONTRACT_WITH_VEHICLE_REPORT_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Vehicle_Relationship__c.object</filename>

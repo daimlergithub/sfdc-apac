@@ -1,6 +1,8 @@
-public with sharing class RetailTaskHelper {
+public with sharing class RetailTaskHelper 
+{
     public static Set<ID> vehicleIds = new Set<ID>();
     public static Set<ID> customerIds = new Set<ID>();
+    public static Id servicerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT)].Id;
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
     {
@@ -53,37 +55,52 @@ public with sharing class RetailTaskHelper {
     public static void updataWhenCreateCCR(Set<Id> vehicleId ,Set<Id> customerId, List<Retail_Task__c> cvrs){
         // Modified by Polaris Yu 2013-10-22, changed 'List<Account>' to 'Set<Account>'
         List<Account> accounts = new List<Account>();
-
+        set<id> rtaskId = new set<id>();
+        List<Retail_Task__c> retailTaskList = new List<Retail_Task__c>();
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerId);
         Map<id,Account> accountsForUpdate = new Map<id,Account>();
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleId);
-        for(Retail_Task__c curCcr: cvrs){
-            if(!String.isblank(curCcr.Account__c)){
-                Account acc = accs.get(curCcr.Account__c);
-                if(vehichles.get(curCcr.Related_Vehicle__c) != null){
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'PC' ){
-                        if(acc.PC_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.PC_Status__c = 'Customer';
+        for(Retail_Task__c r: cvrs)
+        {            
+        	if(r.RecordTypeId != servicerecordId)
+            {
+                rtaskId.add(r.Id);
+            }
+        }
+		
+        retailTaskList = [select id,Account__c,Related_Vehicle__c from Retail_Task__c where ID IN :rtaskId];
+
+        if(!retailTaskList.isEmpty() && retailTaskList != null)
+        {                    
+            for(Retail_Task__c curCcr: retailTaskList)
+            {
+                if(!String.isblank(curCcr.Account__c)){
+                    Account acc = accs.get(curCcr.Account__c);
+                    if(vehichles.get(curCcr.Related_Vehicle__c) != null){
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'PC' ){
+                            if(acc.PC_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.PC_Status__c = 'Customer';
+                            }
+                        }
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'CV'){
+                            if(acc.CV_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.CV_Status__c = 'Customer';
+                            }
+                        }
+                        if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'Van'){
+                            if(acc.VAN_Status__c == 'Customer'){
+                               continue;
+                            }else{
+                               acc.VAN_Status__c = 'Customer';
+                            }
                         }
                     }
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'CV'){
-                        if(acc.CV_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.CV_Status__c = 'Customer';
-                        }
-                    }
-                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'Van'){
-                        if(acc.VAN_Status__c == 'Customer'){
-                           continue;
-                        }else{
-                           acc.VAN_Status__c = 'Customer';
-                        }
-                    }
+                    accountsForUpdate.put(acc.Id, acc);
                 }
-                accountsForUpdate.put(acc.Id, acc);
             }
         }
         
@@ -244,11 +261,12 @@ public with sharing class RetailTaskHelper {
                 
                 for(Account accountObj : [Select Id,(Select Id,Email FROM Contacts where Job_Title__c ='Management - F&I Business Manager') FROM Account where Id IN:dealerIds]){
                     for(Contact contactObj : accountObj.Contacts)
-					{
-						if(contactObj.Email != null)
-						{
+                    {
+                        if(contactObj.Email != null)
+                        {
                             businessUserEmailAddress.add(contactObj.Email);
-						}
+                            businessUserEmailAddress.add(contactObj.Email);
+                        }
                     }
                  }
                  
@@ -272,6 +290,7 @@ public with sharing class RetailTaskHelper {
                                 plainBody = emailTemplateObjForRegular.Body ;
                             }
    //                         system.debug();
+
                             if(subject != null && subject != '' && plainBody != null && plainBody!= '' && !businessUserEmailAddress.isEmpty()){
                                 mail.setToAddresses(businessUserEmailAddress);
                                 if(acclst !=null && !acclst.isempty() && acclst.containsKey(retailTaskObj.Related_Dealer__c))
@@ -333,10 +352,120 @@ public with sharing class RetailTaskHelper {
                     }
                      
                       
-                      Messaging.sendEmail(mails);
+                     // Messaging.sendEmail(mails);
                 }
     
     // End of added part, Polaris Yu 2013-8-23
             }
         }
+    //Update Finance and Insurance Status of Account
+    public static void upadteAccountFinancstatusafterInsertUpadte(List<Retail_task__c> retasklist)
+    {
+        set<id> accid = new set<id>();
+        List<Account> acclist = new List<Account>();
+        List<Account> updateacclist = new List<Account>();
+        map<id,Account> accountMap = new map<id,Account>();
+        Id insurancerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Insurance').getRecordTypeId();
+        for(Retail_task__c r : retasklist)
+        {
+            if(r.RecordTypeId == insurancerecordId)
+               {
+                   if(!UtilConstant.Recursivefire)
+                   accid.add(r.Account__c);
+               }            
+        }
+        if(!accid.isEmpty())
+        {
+            acclist = [select id,Insurance_Status__c from Account where ID IN: accid];
+        }
+        if(!acclist.isEmpty())
+        {
+            for(Account a : acclist)
+            {
+                a.Insurance_Status__c = 'Customer';
+                updateacclist.add(a);
+            }
+        }
+        if(!updateacclist.isEmpty() && updateacclist != null)
+        {
+            for(Account acc:updateacclist)
+            {
+                accountMap.put(acc.Id, acc);
+            }            
+        }
+        if(accountMap.values()!=null && !accountMap.values().isEmpty() && System.IsBatch() == false && System.isFuture() == false)   
+          { 
+            UtilConstant.Recursivefire=true;
+            String JSONString = JSON.serialize(accountMap.values());
+            updateaccounts(JSONString);
+          }
     }
+        
+    @future
+    public static void updateaccounts(String account)
+    {
+        system.debug('accountvalues>>>>>>'+account);
+        List<Account> futureAccountList=(List<Account>)JSON.deserialize(account,List<Account>.class);
+        UtilDB.updateSobjects(futureAccountList);
+    }
+    
+    //Update PC,CV,Van Status of Account
+    public static void upadteAccountafterInsertUpadte(List<Retail_task__c> tasklist)
+    {
+        set<id> accountid = new set<id>();
+        set<id> vehicleid = new set<id>();
+        string vehiclegroup;
+        List<Vehicle__c> vechlist = new List<Vehicle__c>();
+        List<Account> acclist = new List<Account>();
+        List<Account> updateacclist = new List<Account>();
+        map<id,string> vehgroupmap = new map<id,string>();        
+        for(Retail_task__c r : tasklist)
+        {
+            if(r.RecordTypeId == servicerecordId)
+            {
+                accountid.add(r.Account__c);
+                vehicleid.add(r.Related_Vehicle__c);
+            }
+        }
+        if(!vehicleid.isEmpty())
+        {
+            vechlist = [select id,Vehicle_group__c from vehicle__c where ID IN : vehicleid];
+        }
+        if(!accountid.isEmpty())
+        {
+            acclist = [select id, PC_Status__c, VAN_Status__c, CV_Status__c from Account where ID IN :accountid];
+        }
+        if(!vechlist.isEmpty())
+        {
+            for(vehicle__c v :vechlist)
+            {
+                vehgroupmap.put(v.Id ,v.Vehicle_Group__c);
+            }
+        }
+        for(Account acc : acclist)
+        {
+            for(Retail_Task__c re : tasklist)
+            {
+                if(re.Account__c == acc.Id)
+                {
+                    vehiclegroup = vehgroupmap.get(re.Related_Vehicle__c);
+                    if(vehiclegroup == 'PC' && acc.PC_Status__c != 'Customer')
+                    {
+                        acc.PC_Status__c = 'Service Only';
+                    }
+                    else if(vehiclegroup == 'CV' && acc.CV_Status__c != 'Customer')
+                    {
+                        acc.CV_Status__c = 'Service Only';
+                    }
+                    else if(vehiclegroup == 'Van' && acc.VAN_Status__c != 'Customer')
+                    {
+                        acc.VAN_Status__c = 'Service Only';
+                    }
+                    updateacclist.add(acc);
+                }
+            }
+        }
+        update updateacclist;
+    }
+
+}

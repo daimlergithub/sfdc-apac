@@ -89,6 +89,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -154,6 +155,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -164,321 +166,322 @@
             <controllingField>Activity_DataSource__c</controllingField>
             <picklistValues>
                 <fullName>Air China</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Jingdong mall</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Taobao station</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cooperation media</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>China telecom / 189 mailbox</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dunhill</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>D&amp;G</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>HUGO BOSS</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bank of communications</fullName>
-                <controllingFieldValues>Partners</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TNT</fullName>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Axciom</fullName>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G2</fullName>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Show</fullName>
-                <controllingFieldValues>Event</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Event</fullName>
-                <controllingFieldValues>Event</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes - Benz interactive community</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML web special</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B web special</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sina Blog</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMART official website</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bitauto</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E web special</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Pcauto</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Baidu</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK web special</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interaction through</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SoHu</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SNS</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes - Benz website _ pre-sale</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart_ contact us _ product manual and price list</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart_ contact us _ pre-sale</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart_ contact us _ test drive</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C web special</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Xcar</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Autohome</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>QQ</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>NetEase</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart interactive community</fullName>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Site information</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto show information</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Telephone</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Energy source</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Voice mail</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-mail</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB Call</fullName>
-                <controllingFieldValues>OB Call</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>OB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>BBAC switching</fullName>
-                <controllingFieldValues>IB Call</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Road rescue switching</fullName>
-                <controllingFieldValues>IB Call</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>IB Call</fullName>
-                <controllingFieldValues>IB Call</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Financial</fullName>
-                <controllingFieldValues>IB Call</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>IB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealers nomination</fullName>
-                <controllingFieldValues>Dealers</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Dealers</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Magazine Response Card</fullName>
-                <controllingFieldValues>MB Magazine</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Magazine</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SSI</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DMS</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle administration office</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Used car</fullName>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
-                <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Short message</fullName>
-                <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VVIP</fullName>
-                <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz E-newsletter</fullName>
-                <controllingFieldValues>E-mail</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <controllingFieldValues>E-mail</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
-                <controllingFieldValues>E-mail</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -550,6 +553,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -611,6 +615,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -622,245 +627,246 @@
             <controllingField>Activity_OutboundCallSource__c</controllingField>
             <picklistValues>
                 <fullName>Air China</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Partners</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Artron</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Partners</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Third Party (Partner) Mail_Minsheng Bank</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Partners</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Third Party (Partner) Mail _Bank of Communication</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Partners</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Show</fullName>
-                <controllingFieldValues>Activity</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Event</fullName>
-                <controllingFieldValues>Activity</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB official website</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML web special</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>B web special</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Sina Blog</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart official website</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Chinese radio network</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mobile Phone Web</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Web, Community, Blog</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Website</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG Website</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart community</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>China Telecom/189 email</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
                 <controllingFieldValues>Radio</controllingFieldValues>
                 <controllingFieldValues>TV Advertising</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Advertising</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
                 <controllingFieldValues>Outdoor Advertising</controllingFieldValues>
                 <controllingFieldValues>Radio</controllingFieldValues>
                 <controllingFieldValues>TV Advertising</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz E-newsletter</fullName>
-                <controllingFieldValues>Activity</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz E-brochure and price list</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Email</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Telephone Contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Email</controllingFieldValues>
                 <controllingFieldValues>Telephone Contact</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer telephone contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Telephone Contact</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Third Party Telephone Contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Telephone Contact</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Products range cards</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Mail</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Brochure &amp; Price List</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Mail</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Mail</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Mail</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer message contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Mail</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Third Party Message Contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Message</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Message Contact</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Message</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Show Room</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Message</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Friend Recommendation</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Dealer Exhibition Hall</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Telephone Query Service</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>User Guide</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart Official Website (incl. smart community)</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other websites, community, blog</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Sina Microblog</fullName>
+                <default>false</default>
                 <controllingFieldValues>Activity</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -915,6 +921,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -948,6 +955,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1241,6 +1249,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1376,6 +1385,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1417,6 +1427,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1567,6 +1578,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1596,6 +1608,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1682,6 +1695,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             <controllingField>Result__c</controllingField>
             <picklistValues>
                 <fullName>no answer</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1690,10 +1704,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>busy</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1702,10 +1716,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>reject</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1714,10 +1728,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>wrong number</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1726,10 +1740,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>no such person</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1738,10 +1752,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>invalid data</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1750,10 +1764,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>reservation</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1762,10 +1776,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>successful</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -1774,7 +1788,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Repeat</fullName>
@@ -1786,6 +1799,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1902,6 +1916,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1991,6 +2006,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2057,11 +2073,12 @@ noted by Lio on 10.28.2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2118,6 +2135,7 @@ noted by Lio on 10.28.2013</description>
             <controllingField>Result__c</controllingField>
             <picklistValues>
                 <fullName>Successful</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2126,10 +2144,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Number Does Not Exist</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2138,10 +2156,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unanswered</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2150,10 +2168,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2162,10 +2180,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Engaged</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2174,10 +2192,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Phone Shut Down</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2186,10 +2204,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Insufficient Fund</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2198,10 +2216,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Number Expired</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2210,10 +2228,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Service</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2222,10 +2240,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Voice Mail</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2234,10 +2252,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Call Limitation</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2246,10 +2264,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2258,10 +2276,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unauthorized Dealer</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2270,10 +2288,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unable to Contact Qualified Interviewee</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2282,10 +2300,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interviewed</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2294,10 +2312,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Language Obstacle</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2306,10 +2324,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Status</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2318,10 +2336,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Expired</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2330,10 +2348,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interview Reservation</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2342,10 +2360,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejection During the Probing Question Phase</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2354,10 +2372,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejection During the Main Part of the Interview</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2366,10 +2384,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle Sold</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2378,10 +2396,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Politely Decline</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2390,10 +2408,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2402,10 +2420,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Inconsistent Car Model</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2414,10 +2432,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Not the Car Purchase Decision Maker</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2426,10 +2444,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Inconsistent Car Pick Up Time</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2438,10 +2456,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No Purchase</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2450,10 +2468,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Status (Transfer to dealer)</fullName>
+                <default>false</default>
                 <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
@@ -2462,10 +2480,10 @@ noted by Lio on 10.28.2013</description>
                 <controllingFieldValues>No Answer</controllingFieldValues>
                 <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
                 <controllingFieldValues>Test Drive Booked</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2477,7 +2495,6 @@ noted by Lio on 10.28.2013</description>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
         <label>Source ID</label>
         <length>40</length>
@@ -2523,6 +2540,7 @@ noted by Lio on 10.28.2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2645,6 +2663,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
