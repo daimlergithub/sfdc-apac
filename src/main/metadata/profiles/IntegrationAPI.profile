@@ -10283,11 +10283,6 @@
         <field>Lead__c.Wholesale_Comment__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Purchased_VIN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Additional_Services__c</field>
