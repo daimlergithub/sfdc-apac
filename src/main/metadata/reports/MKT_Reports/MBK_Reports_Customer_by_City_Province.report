@@ -7,6 +7,14 @@
         <field>Account.City__c</field>
     </columns>
     <description>Customer by City Province</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

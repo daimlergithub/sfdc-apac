@@ -258,14 +258,9 @@
     <description>Customer Information Report</description>
     <filter>
         <criteriaItems>
-            <column>Vehicle__c.FirstRegistrationDate__c</column>
+            <column>FK_PC_$Contact.MD__c</column>
             <operator>equals</operator>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Vehicle__c.Purchase_Month__c</column>
-            <operator>notEqual</operator>
-            <value>0</value>
+            <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>

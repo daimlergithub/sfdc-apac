@@ -7,6 +7,14 @@
         <field>FK_$Account.Age_Range__c</field>
     </columns>
     <description>Age Range by Vehicle Model</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_PC_$Contact.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
