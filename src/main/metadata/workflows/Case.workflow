@@ -850,7 +850,7 @@
         </criteriaItems>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
-            <operation>greaterOrEqual</operation>
+            <operation>lessthan</operation>
             <value>TODAY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
