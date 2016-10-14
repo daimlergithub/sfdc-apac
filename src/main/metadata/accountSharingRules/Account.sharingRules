@@ -22,7 +22,7 @@
         <name>Dealer_Account_Edit_Only_for_CRM</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Edit_Only_for_CRM_Non_Approver</fullName>
         <sharedTo>
             <role>MBJ_CRM_Department_non_Approver</role>
@@ -110,7 +110,7 @@
         <name>Dealer_Account_Read_Only_for_Supervisor_Operator</name>
         <opportunityAccessLevel>Read</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Read_Only_for_Supervisor_Operator_Supervisor_Team_B</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Supervisor_Team_B</roleAndSubordinatesInternal>
@@ -179,6 +179,22 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketAccount_Readable_to_MBJ_IT_Dept</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_Account_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>MBK Account Sharing Rule</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Dealer_To_Regional_Office</fullName>
@@ -433,22 +449,6 @@
         <name>Share read with all central</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
-	    <criteriaBasedRules>
-        <fullName>Test</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>Test</name>
-        <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>SoftDelete_PersonAccount_Edit_Only_for_IT</fullName>
         <sharedTo>
@@ -469,6 +469,22 @@
         <contactAccessLevel>Edit</contactAccessLevel>
         <description>Account with record-type = &apos;Person Account Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
         <name>SoftDelete_PersonAccount_Edit_Only_for_IT</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Test</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Test</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>

@@ -174,6 +174,13 @@
         <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
+        <fullName>Alert_Handling_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alert Handling Level</shortDescription>
+        <value>Handling level is not Dealer</value>
+    </labels>
+    <labels>
         <fullName>And_Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -287,6 +294,13 @@
         <protected>false</protected>
         <shortDescription>Business Email</shortDescription>
         <value>Business Email</value>
+    </labels>
+	<labels>
+        <fullName>Business_Email2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Email2</shortDescription>
+        <value>Business Email2</value>
     </labels>
     <labels>
         <fullName>Button_Approve</fullName>
@@ -1248,6 +1262,13 @@
         <value>As below, customer related information is shared.</value>
     </labels>
     <labels>
+        <fullName>DMRequestTabId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DMRequestTabId</shortDescription>
+        <value>a12</value>
+    </labels>
+    <labels>
         <fullName>DMRequest_validation_error</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1295,6 +1316,13 @@
         <protected>false</protected>
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
+    </labels>
+    <labels>
+        <fullName>Dedup_callout_failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dedup callout failure</shortDescription>
+        <value>Webservice Callout failed: Please contact system Administrator</value>
     </labels>
     <labels>
         <fullName>Delete</fullName>
@@ -1619,6 +1647,13 @@
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
     </labels>
+	 <labels>
+        <fullName>Insufficient_privilege</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient privilege</shortDescription>
+        <value>Insufficient privilege to view the Account Hierarchy.</value>
+    </labels>
     <labels>
         <fullName>Insurance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -1669,7 +1704,7 @@
         <protected>true</protected>
         <shortDescription>Anonymous</shortDescription>
         <value>Anonymous</value>
-    </labels>
+    </labels>	
     <labels>
         <fullName>LABS_SF_Answer_as</fullName>
         <language>en_US</language>
@@ -2112,6 +2147,13 @@
         <value>Last Modified Date</value>
     </labels>
     <labels>
+        <fullName>LeadId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadTabId</shortDescription>
+        <value>a13</value>
+    </labels>
+    <labels>
         <fullName>LimitQueries</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2154,6 +2196,19 @@
         <protected>false</protected>
         <shortDescription>Marketing survey</shortDescription>
         <value>Marketing survey</value>
+    </labels><labels>
+        <fullName>MarketJP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketJP</shortDescription>
+        <value>JP</value>
+    </labels>
+    <labels>
+        <fullName>MarketKR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketKR</shortDescription>
+        <value>KR</value>
     </labels>
     <labels>
         <fullName>Mass_Assign_Recall_Tasks_Apply_Filters</fullName>
@@ -3202,6 +3257,14 @@
         <value>Search Customer</value>
     </labels>
     <labels>
+        <fullName>Search_Duplicates</fullName>
+        <categories>AccountCreationPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Duplicates</shortDescription>
+        <value>Check Dedup</value>
+    </labels>
+    <labels>
         <fullName>Select_All</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3417,6 +3480,13 @@
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
+    </labels>
+    <labels>
+        <fullName>TaskTriggerErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TaskTriggerErrorMsg</shortDescription>
+        <value>You can not work on the campaign tasks as customer consent is not present.</value>
     </labels>
     <labels>
         <fullName>Task_Assigned_User</fullName>

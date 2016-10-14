@@ -324,6 +324,70 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Mobile_Code1__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code1</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Mobile_Code2__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code2</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+		<fields>
+        <fullName>Mobile_Code3__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code3</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Mobile_Code4__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code4</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Mobile_Code5__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code5</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Mobile_Code6__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code6</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	
+	<fields>
+        <fullName>Mobile_Code7__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Code7</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>AreaCodeTranslation</label>
     <pluralLabel>AreaCodeTranslations</pluralLabel>
 </CustomObject>

@@ -34,13 +34,17 @@ public class AddressSearchValidationController
     public String homePhone2AreaCode{get;set;}
     public String homePhone2AreaCodePart2{get;set;}
     public String homePhone2AreaCodePart3{get;set;}
-    public String phoneAreaCode{get;set;}
-    public String phoneAreaCodePart2{get;set;}
-    public String phoneAreaCodePart3{get;set;}
-    public AreaCodeTranslation__mdt areacodeKR ;
+    public String mobileAreaCode{get;set;}
+    public String mobileAreaCodePart2{get;set;}
+    public String mobileAreaCodePart3{get;set;}
+     
     public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
+    public string selectedValue { get;set; }
+    public List<SelectOption> statusOptions { get;set; }
+    public String addresspicklist{get;set;}
+    public String provincepicklist{get;set;}
     // KOREA related parameters - End
-   
+    
     // COnstructor
     public AddressSearchValidationController(ApexPages.StandardController controller)
     {
@@ -49,12 +53,70 @@ public class AddressSearchValidationController
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
-        // refreshPage = false;
-        
+        // refreshPage = false;        
         User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
+        
     }
-   
+    public List<SelectOption> getAddressOptions() {
+        List<SelectOption> AddressOptions = new List<SelectOption>();
+      /*  if(market=='KR'){           
+           AddressOptions.add(new SelectOption('Home','Home'));
+           AddressOptions.add(new SelectOption('Business','Business'));           
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    AddressOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+        }
+            //return AddressOptions;
+        system.debug('addresspicklist : '+addresspicklist);
+      */  return AddressOptions;
+    }
+    public List<SelectOption> getProvinceOptions() {
+        List<SelectOption> ProvinceOptions = new List<SelectOption>();
+        if(market=='KR'){           
+           ProvinceOptions.add(new SelectOption('Hokkaido','Hokkaido'));
+           ProvinceOptions.add(new SelectOption('Aomori','Aomori')); 
+           ProvinceOptions.add(new SelectOption('Iwate','Iwate'));
+           ProvinceOptions.add(new SelectOption('Miyagi','Miyagi'));
+           ProvinceOptions.add(new SelectOption('Akita','Akita'));
+           ProvinceOptions.add(new SelectOption('Yamagata','Yamagata'));
+           ProvinceOptions.add(new SelectOption('Fukushima','Fukushima'));
+           ProvinceOptions.add(new SelectOption('Ibaraki','Ibaraki'));
+           ProvinceOptions.add(new SelectOption('Tochigi','Tochigi'));
+           ProvinceOptions.add(new SelectOption('Gunma','Gunma'));
+           ProvinceOptions.add(new SelectOption('Saitama','Saitama'));
+           ProvinceOptions.add(new SelectOption('Chiba','Chiba'));
+           ProvinceOptions.add(new SelectOption('Tokyo','Tokyo'));
+           ProvinceOptions.add(new SelectOption('Kanagawa','Kanagawa'));
+           ProvinceOptions.add(new SelectOption('Niigata','Niigata'));
+           ProvinceOptions.add(new SelectOption('Toyama','Toyama'));
+           ProvinceOptions.add(new SelectOption('Ishikawa','Ishikawa'));
+           ProvinceOptions.add(new SelectOption('Fukui','Fukui'));
+           ProvinceOptions.add(new SelectOption('Yamanashi','Yamanashi'));          
+        }
+        else{
+            try{
+                Schema.DescribeFieldResult countryFieldDescription = Address__c.Province__c.getDescribe();
+                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
+                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                    ProvinceOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                }
+            }
+            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+            catch(Exception e){}
+        }
+        system.debug('addresspicklist : '+addresspicklist);
+            //return AddressOptions;
+        return ProvinceOptions;
+    }
     
     /**  Save Account based on two scenarios
 * 1. With Validated Address information record.
@@ -63,16 +125,17 @@ public class AddressSearchValidationController
 **  Date: 2016-1-19
 **/
     public pagereference saveAccount()
-    {
-       
+    {    system.debug('addresspicklist 2: '+addresspicklist);
+         AddressObj.Address_Type__c = addresspicklist;
+         AddressObj.Province__c = provincepicklist;
         // Save record without Address record if no value is Entered in Address section
         if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
-           AddressObj.Province__c == null)
+           AddressObj.Province__c == null && market == 'JP')
         {
             try
             {
-                if( recordType == 'Company' && market == 'JP')
+                if(recordType == 'Company' && market == 'JP')
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
@@ -112,223 +175,61 @@ public class AddressSearchValidationController
                     }
                    
                 }
-               
-                //Korea specific modification - Start
-               
-                if( recordType == 'Company' && market == 'KR')
-                {
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-                    objAccount.RecordTypeId = recordTypeId;
-                    if( (homePhoneAreaCode.length()==1) && (workPhoneAreaCode.length()==1) && (homePhone2AreaCode.length() == 1) && (phoneAreaCode.length()== 1)
-                       && objAccount.Mobile__c == null && objAccount.Mobile2__c ==null && objAccount.Email__c == null && objAccount.Email2__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
-                    }
-                    else
-                    {
-  
-                        System.debug(' PHONE $$$$$$$$$$$$$$$$$$$$$ >>>>>>>>>>> '+objAccount.Individual_Home_Phone__c+' & '+objAccount.Home_Phone_2__c+' & '+objAccount.Work_Phone__c+' & '+objAccount.Phone);
-                      // Validating HomePhone Format
-                      if(homePhoneAreaCode.length()>1){
-                         // if(  ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() == 0))  || ((homePhoneAreaCodePart2.length() == 0) && (homePhoneAreaCodePart3.length() > 0 ))  || ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() > 0))  ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (homePhoneAreaCode.length() == 2) && !( homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4  )  )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (homePhoneAreaCode.length() == 3) && !( (homePhoneAreaCodePart2.length() == 3 && homePhoneAreaCodePart3.length() == 4) || (homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4)  ) )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                               }         
-                          // }
-                      }
-                      
-                      // Validating Work Phone Format
-                      if(workPhoneAreaCode.length() > 1){
-                          //if(  ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() == 0))  || ((workPhoneAreaCodePart2.length() == 0) && (workPhoneAreaCodePart3.length() > 0 ))  || ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() > 0))  ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (workPhoneAreaCode.length() == 2) && !( workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4  )  )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (workPhoneAreaCode.length() == 3) && !( (workPhoneAreaCodePart2.length() == 3 && workPhoneAreaCodePart3.length() == 4) || (workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4)  ) )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                               }         
-                           //}
-                       }
-                       
-                      // Validating HomePhone2 Format
-                      if(homePhone2AreaCode.length() > 1){
-                        //  if(  ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() == 0))  || ((homePhone2AreaCodePart2.length() == 0) && (homePhone2AreaCodePart3.length() > 0 ))  || ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() > 0)) ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (homePhone2AreaCode.length() == 2) && !( homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4  ) )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (homePhone2AreaCode.length() == 3) && !( (homePhone2AreaCodePart2.length() == 3 && homePhone2AreaCodePart3.length() == 4) || (homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4) )  )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objAccount.Home_Phone_2__c = homePhone2AreaCode+'-'+homePhone2AreaCodePart2+'-'+homePhone2AreaCodePart3;
-                               }         
-                         // }
-                       }   
- 
- 
-                  // Validating Phone Format
-                  if(phoneAreaCode.length() > 1){
-                      // if(  ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() == 0))  || ((phoneAreaCodePart2.length() == 0) && (phoneAreaCodePart3.length() > 0 ))  || ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() > 0))  ){
-                           System.debug(' ********** INSIDE MAIN IF *******');
-                           if(( (phoneAreaCode.length() == 2) && !( phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4  )  )){
-                           System.debug('*********** INSIDE CODE 2 *********');
-                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                  return null;          
-                           }
-                           else if( ( (phoneAreaCode.length() == 3) && !( (phoneAreaCodePart2.length() == 3 && phoneAreaCodePart3.length() == 4) || (phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4)  )  )){                        
-                            System.debug('*********** INSIDE CODE 3 *********');
-                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                  return null;  
-                           }else{
-                               objAccount.Phone = phoneAreaCode+'-'+phoneAreaCodePart2+'-'+phoneAreaCodePart3;
-                           }         
-                      // }
-                    }
- 
-                        refreshPage = true;                      
-                        insert objAccount ;
-                        PageReference pageRef = new PageReference('/'+objAccount.Id);
-                        return PageRef;
-                    }
-                   
-                }
-               
-                if(recordType == 'Person Account' && market == 'KR')
-                {
-                    System.debug(' $$$$$$$$$$$$$$$  INSIDE PERSON ACCOUNT - KR');
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-                    objPersonAccount.RecordTypeId = recordTypeId;
-                    System.debug(' LENGTH '+homePhoneAreaCode.length()+' - '+homePhoneAreaCodePart2.length()+' - '+homePhoneAreaCodePart3.length() );
-                    if((homePhoneAreaCode.length()==1) && (workPhoneAreaCode.length()==1) && (homePhone2AreaCode.length()==1) && (phoneAreaCode.length()== 1) && objPersonAccount.Mobile__c == null && objPersonAccount.Mobile2__c == null && objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
-                    }
-                    else
-                    {
-                          
-                        System.debug(' PHONE $$$$$$$$$$$$$$$$$$$$$ >>>>>>>>>>> '+objPersonAccount.Individual_Home_Phone__c+' & '+objPersonAccount.Home_Phone_2__c+' & '+objPersonAccount.Work_Phone__c+' & '+objAccount.Phone);
-                        System.debug(' LENGTH '+homePhoneAreaCode.length()+' - '+homePhoneAreaCodePart2.length()+' - '+homePhoneAreaCodePart3.length() );
-                        System.debug('WORK PHONE LENGTH '+workPhoneAreaCode.length()+' - '+workPhoneAreaCodePart2.length()+' - '+workPhoneAreaCodePart3.length() );
- 
-                      // Validating HomePhone Format
-                      if(homePhoneAreaCode.length()>1){
-                         // if(  ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() == 0))  || ((homePhoneAreaCodePart2.length() == 0) && (homePhoneAreaCodePart3.length() > 0 ))  || ((homePhoneAreaCodePart2.length() > 0) && (homePhoneAreaCodePart3.length() > 0))  ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (homePhoneAreaCode.length() == 2) && !( homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4  )  )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (homePhoneAreaCode.length() == 3) && !( (homePhoneAreaCodePart2.length() == 3 && homePhoneAreaCodePart3.length() == 4) || (homePhoneAreaCodePart2.length() == 4 && homePhoneAreaCodePart3.length() == 4)  ) )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                               }         
-                          // }
-                      }
-                       
-                      // Validating Work Phone Format
-                      if(workPhoneAreaCode.length() > 1){
-                          //if(  ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() == 0))  || ((workPhoneAreaCodePart2.length() == 0) && (workPhoneAreaCodePart3.length() > 0 ))  || ((workPhoneAreaCodePart2.length() > 0) && (workPhoneAreaCodePart3.length() > 0))  ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (workPhoneAreaCode.length() == 2) && !( workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4  )  )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (workPhoneAreaCode.length() == 3) && !( (workPhoneAreaCodePart2.length() == 3 && workPhoneAreaCodePart3.length() == 4) || (workPhoneAreaCodePart2.length() == 4 && workPhoneAreaCodePart3.length() == 4)  ) )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Work Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objPersonAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                               }         
-                           //}
-                       }
-                      
-                      // Validating HomePhone2 Format
-                      if(homePhone2AreaCode.length() > 1){
-                        //  if(  ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() == 0))  || ((homePhone2AreaCodePart2.length() == 0) && (homePhone2AreaCodePart3.length() > 0 ))  || ((homePhone2AreaCodePart2.length() > 0) && (homePhone2AreaCodePart3.length() > 0)) ){
-                               System.debug(' ********** INSIDE MAIN IF *******');
-                               if(( (homePhone2AreaCode.length() == 2) && !( homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4  ) )){
-                               System.debug('*********** INSIDE CODE 2 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx')); 
-                                      return null;          
-                               }
-                               else if( ( (homePhone2AreaCode.length() == 3) && !( (homePhone2AreaCodePart2.length() == 3 && homePhone2AreaCodePart3.length() == 4) || (homePhone2AreaCodePart2.length() == 4 && homePhone2AreaCodePart3.length() == 4) )  )){                        
-                                System.debug('*********** INSIDE CODE 3 *********');
-                                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Home Phone2 must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                      return null;  
-                               }else{
-                                   objPersonAccount.Home_Phone_2__c = homePhone2AreaCode+'-'+homePhone2AreaCodePart2+'-'+homePhone2AreaCodePart3;
-                               }         
-                         // }
-                       }   
- 
- 
-                  // Validating Phone Format
-                  if(phoneAreaCode.length() > 1){
-                      // if(  ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() == 0))  || ((phoneAreaCodePart2.length() == 0) && (phoneAreaCodePart3.length() > 0 ))  || ((phoneAreaCodePart2.length() > 0) && (phoneAreaCodePart3.length() > 0))  ){
-                           System.debug(' ********** INSIDE MAIN IF *******');
-                           if(( (phoneAreaCode.length() == 2) && !( phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4  )  )){
-                           System.debug('*********** INSIDE CODE 2 *********');
-                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));  
-                                  return null;          
-                           }
-                           else if( ( (phoneAreaCode.length() == 3) && !( (phoneAreaCodePart2.length() == 3 && phoneAreaCodePart3.length() == 4) || (phoneAreaCodePart2.length() == 4 && phoneAreaCodePart3.length() == 4)  )  )){                        
-                            System.debug('*********** INSIDE CODE 3 *********');
-                                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Phone must be in any of the following formats : 1)  xx-xxxx-xxxx 2)  xxx-xxx-xxxx 3)  xxx-xxxx-xxxx'));
-                                  return null;  
-                           }else{
-                               objPersonAccount.Phone = phoneAreaCode+'-'+phoneAreaCodePart2+'-'+phoneAreaCodePart3;
-                           }         
-                      // }
-                    }                         
-                                               
-                            refreshPage = true;                      
-                            insert objPersonAccount ;
-                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
-                            return PageRef;                                                  
-                    }
-                      
- 
-                 }
-                   
-                //Korea specific modifications - End
-               
-                
-            }
+                        
+            }   
+            
             catch(DMLException e)
             {
                 refreshPage = false;
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));     
             }
-           
-            
-            
         }
+        if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null && AddressObj.ZipCode__c == null){
+        try{        
+            if(recordType == 'Company' && market == 'KR')
+               {
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    objAccount.RecordTypeId = recordTypeId;
+                                      
+                    if(!homePhoneAreaCode.equals('0')){                      
+                       objAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                       }
+                    if(!workPhoneAreaCode.equals('0')){
+                         system.debug('>>>>homePhoneAreaCode<<<<<'+homePhoneAreaCode);
+                         objAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                      }
+                    if(!mobileAreaCode.equals('0')){                        
+                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                    }
+                    if(objAccount.Individual_Home_Phone__c == null && objAccount.Mobile__c == null && objAccount.Work_Phone__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                    }
+                    else{
+                        refreshPage = true;                      
+                        insert objAccount ;
+                        PageReference pageRef = new PageReference('/'+objAccount.Id);
+                        return PageRef; 
+                    } 
+               }
+            if(recordType == 'Person Account' && market == 'KR')
+                {       
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    objPersonAccount.RecordTypeId = recordTypeId;
+                    objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3; 
+                    refreshPage = true;                      
+                    insert objPersonAccount;
+                    PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
+                    return PageRef;               
+                }
+               
+            }
+        catch(DMLException e)
+            {
+                refreshPage = false;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));     
+            }   
+        }       
         // Save record with Address record validating it through EP/Tolerant
         else
         {
@@ -387,11 +288,6 @@ public class AddressSearchValidationController
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                         return PageRef;
                     }
-                   
-                    
-                    
-                    
-                    
                 }
             }
             catch(DMLException e){
@@ -401,8 +297,6 @@ public class AddressSearchValidationController
         }
         return null;
     }
-   
-    
     // Cancel button
     public PageReference cancel(){
         PageReference pageRef; 
@@ -416,17 +310,12 @@ public class AddressSearchValidationController
         resetPhoneAreacodes();
         selectedRecordType = recordType;
         system.debug('Selected type...' +selectedRecordType);
-      
- 
     }
-   
-    
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
 **  Created By: Narasimha 
 **  Date: 2016-1-19
 **/
-   
     public void AddressSearchbyZipCode()
     {
        
@@ -526,17 +415,45 @@ EP/Tolerant for Validation.
 **/
     public void validateAddressByZipCode()
     {
-        if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
-        {
-            AddressObj.Address_Code__c = '';
-            AddressObj.Address_Line_1__c = '';
-            AddressObj.Address_Line_2__c = '';
-            AddressObj.Block__c = '';
-            AddressObj.City__c = '';
-            AddressObj.District__c = '';
-            AddressObj.Province__c = '';
-           
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
+        if(Market =='KR'){
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
+            }
+            if(addressobj.ZipCode__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+            }
+            if(addressobj.Address_Line_1__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+            }
+            if(addressobj.Province__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+            }
+        }
+        if(Market !='KR'){
+            if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+            {
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
+            }
         }
        
         if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
@@ -657,10 +574,10 @@ If the user is Saving  same address which matches the fields returned by toleran
    
         
     public List<SelectOption> getAreacodeItems() {
-      areacodeKR = [SELECT Id,Phone_EN1__c,Phone_TR1__c,Phone_EN2__c,Phone_TR2__c,Phone_EN3__c,Phone_TR3__c ,Phone_EN4__c,Phone_TR4__c,Phone_EN5__c,Phone_TR5__c,Phone_EN6__c,Phone_TR6__c,Phone_EN7__c,Phone_TR7__c,
-           Phone_EN8__c,Phone_TR8__c,Phone_EN9__c,Phone_TR9__c,Phone_EN10__c,Phone_TR10__c,Phone_EN11__c,Phone_TR11__c,Phone_EN12__c,Phone_TR12__c,Phone_EN13__c,Phone_TR13__c,Phone_EN14__c,Phone_TR14__c,
-           Phone_EN15__c,Phone_TR15__c,Phone_EN16__c,Phone_TR16__c,Phone_EN17__c,Phone_TR17__c
-            FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1];
+         AreaCodeTranslation__mdt  areacodeKR = [SELECT Id,Phone_EN1__c,Phone_TR1__c,Phone_EN2__c,Phone_TR2__c,Phone_EN3__c,Phone_TR3__c ,Phone_EN4__c,Phone_TR4__c,Phone_EN5__c,Phone_TR5__c,Phone_EN6__c,Phone_TR6__c,Phone_EN7__c,Phone_TR7__c,
+             Phone_EN8__c,Phone_TR8__c,Phone_EN9__c,Phone_TR9__c,Phone_EN10__c,Phone_TR10__c,Phone_EN11__c,Phone_TR11__c,Phone_EN12__c,Phone_TR12__c,Phone_EN13__c,Phone_TR13__c,Phone_EN14__c,Phone_TR14__c,
+             Phone_EN15__c,Phone_TR15__c,Phone_EN16__c,Phone_TR16__c,Phone_EN17__c,Phone_TR17__c
+             FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1];
            
               phoneAreaCodeMapKR= new Map<String,String>();
               phoneAreaCodeMapKR.put(System.label.None,'');
@@ -676,7 +593,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                
                 List<SelectOption> options = new List<SelectOption>();
                 options.add(new SelectOption('0',System.label.None));
-                options.add(new SelectOption(  areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c+'       '+areacodeKR.Phone_TR2__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN4__c,areacodeKR.Phone_EN4__c+'       '+areacodeKR.Phone_TR4__c));
@@ -697,11 +614,22 @@ If the user is Saving  same address which matches the fields returned by toleran
         }
         
     public void resetPhoneAreacodes(){
-        homePhoneAreaCode = homePhoneAreaCodePart2 = homePhoneAreaCodePart3 = workPhoneAreaCode = workPhoneAreaCodePart2 = workPhoneAreaCodePart3 = homePhone2AreaCode = homePhone2AreaCodePart2 = homePhone2AreaCodePart3 = phoneAreaCode = phoneAreaCodePart2 = phoneAreaCodePart3 = '';
+        homePhoneAreaCode = homePhoneAreaCodePart2 = homePhoneAreaCodePart3 = workPhoneAreaCode = workPhoneAreaCodePart2 = workPhoneAreaCodePart3 = homePhone2AreaCode = homePhone2AreaCodePart2 = homePhone2AreaCodePart3 = mobileAreaCode= mobileAreaCodePart2 = mobileAreaCodePart3 = '';
        
     }      
     
-    
-    
-    
+     public List<SelectOption> getMobileAreacodeItems() {
+         AreaCodeTranslation__mdt  mobileAreaCodeKR = [SELECT Id,Mobile_Code1__c,Mobile_Code2__c,Mobile_Code3__c,Mobile_Code4__c,Mobile_Code5__c,Mobile_Code6__c,Mobile_Code7__c FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1]; 
+         system.debug('mobileAreaCodeKR >>>>>>'+mobileAreaCodeKR);
+         List<selectOption> options = new List<selectOption>();
+           options.add(new SelectOption('0',System.label.None));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code1__c,mobileAreaCodeKR.Mobile_Code1__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code2__c,mobileAreaCodeKR.Mobile_Code2__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code3__c,mobileAreaCodeKR.Mobile_Code3__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code4__c,mobileAreaCodeKR.Mobile_Code4__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code5__c,mobileAreaCodeKR.Mobile_Code5__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code6__c,mobileAreaCodeKR.Mobile_Code6__c));
+           options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code7__c,mobileAreaCodeKR.Mobile_Code7__c));           
+           return options;
+     }
 }

@@ -33,10 +33,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -332,6 +328,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -348,6 +345,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -566,6 +564,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -617,6 +616,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -656,6 +656,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -697,6 +698,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -798,6 +800,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -838,6 +841,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -878,6 +882,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1196,6 +1201,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1515,6 +1521,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1833,6 +1840,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3575,6 +3583,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5315,6 +5324,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7065,6 +7075,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7651,6 +7662,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7728,6 +7740,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7778,6 +7791,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7846,6 +7860,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7977,6 +7992,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8064,6 +8080,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8098,6 +8115,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8132,6 +8150,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8176,6 +8195,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8196,6 +8216,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8284,6 +8305,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8616,6 +8638,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9481,6 +9504,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9814,6 +9838,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9887,6 +9912,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9942,6 +9968,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10017,6 +10044,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10332,6 +10360,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10362,6 +10391,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10402,6 +10432,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10587,6 +10618,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10733,6 +10765,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10840,6 +10873,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -10958,6 +10992,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11104,6 +11139,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11167,6 +11203,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11201,6 +11238,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11242,6 +11280,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11298,6 +11337,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11606,6 +11646,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11702,6 +11743,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11765,6 +11807,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11816,6 +11859,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11841,6 +11885,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11895,6 +11940,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12059,6 +12105,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12129,6 +12176,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12304,6 +12352,7 @@ Modify Reason: Chane Field Name&amp; Label
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12468,6 +12517,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12560,6 +12610,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12610,6 +12661,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12663,6 +12715,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12736,6 +12789,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12757,6 +12811,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12833,6 +12888,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -12857,6 +12913,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13219,6 +13276,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13284,6 +13342,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13500,6 +13559,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13804,6 +13864,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -13927,6 +13988,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14023,6 +14085,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14218,6 +14281,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14250,6 +14314,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14296,6 +14361,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14435,6 +14501,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14479,6 +14546,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14519,6 +14587,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14554,6 +14623,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14609,6 +14679,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14641,6 +14712,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14662,6 +14734,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14893,6 +14966,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14929,6 +15003,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14977,6 +15052,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15009,6 +15085,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15057,6 +15134,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15123,6 +15201,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15392,6 +15471,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15418,6 +15498,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15500,6 +15581,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15549,6 +15631,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15599,6 +15682,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15619,6 +15703,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15644,6 +15729,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15669,6 +15755,7 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15734,6 +15821,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -15783,6 +15871,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16157,6 +16246,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16174,6 +16264,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16254,6 +16345,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16309,6 +16401,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16435,6 +16528,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16536,6 +16630,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16572,6 +16667,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16600,6 +16696,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16651,6 +16748,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -16715,6 +16813,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -17442,6 +17541,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -17498,6 +17598,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -17670,6 +17771,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -18275,6 +18377,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -18307,6 +18410,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20801,6 +20905,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20867,6 +20972,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -20891,6 +20997,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -21203,6 +21310,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -21235,6 +21343,7 @@ Modify Reason:
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -21287,6 +21396,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -21355,6 +21465,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -21431,7 +21542,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>All Central Office Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21471,130 +21582,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>All_Region_East_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>East</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region East Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_North_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>North</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region North Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_South_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>South</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region South Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_West_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>West</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region West Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>All_Shared_CAC_Inquiries</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -21625,18 +21612,20 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-ER team</label>
+        <language>en_US</language>
         <queue>Central_Office_ER_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_NR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-NR team</label>
+        <language>en_US</language>
         <queue>Central_Office_NR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21652,43 +21641,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
-            <role>PL_WL_Team</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_PL_WL_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
+        <language>en_US</language>
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office Queue</label>
+        <language>en_US</language>
         <queue>Central_Office_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_SR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-SR team</label>
+        <language>en_US</language>
         <queue>Central_Office_SR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_WR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-WR team</label>
+        <language>en_US</language>
         <queue>Central_Office_WR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21795,45 +21788,40 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>MBJ_CRM_Department_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MBK_Managers_KR_Case</fullName>
+        <fullName>MBK_Call_Center_Managers_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBK Call Center Managers</label>
+        <language>en_US</language>
         <queue>MBK_Call_Center_Managers</queue>
         <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_Managers_KR_Case_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBK Call Center Managers</label>
-        <queue>MBK_Managers_KR_Case</queue>
-        <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21982,26 +21970,27 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_East_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office East Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_North_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office North Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22017,8 +22006,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22034,17 +22022,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_South_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office South Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22060,17 +22048,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_West_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office West Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22092,27 +22080,30 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_A_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_B_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_B</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22149,62 +22140,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <value>Trial</value>
         </filters>
         <label>Trial Activities</label>
-    </listViews>
-    <listViews>
-        <fullName>View</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>equals</operation>
-            <value>Closed,Closed</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <filters>
-            <field>Case_Dealer__c</field>
-            <operation>equals</operation>
-            <value>Beijing Olympic star car service co</value>
-        </filters>
-        <label>All closed cases_Beijing Olympic star</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>View5</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Chrysler_Complaint</value>
-        </filters>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>equals</operation>
-            <value>Requires Manager Review,Waiting for Reply</value>
-        </filters>
-        <filters>
-            <field>CASES.CREATED_DATE</field>
-            <operation>greaterOrEqual</operation>
-            <value>9/1/2013 12:00 AM</value>
-        </filters>
-        <label>Not reply Chrysler complaint</label>
-        <language>en_US</language>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
@@ -108845,13 +108780,10 @@ RecordType.DeveloperName = 'MB Complaint')</errorConditionFormula>
         <fullName>Dealer_feedback_field_Mandatory</fullName>
         <active>true</active>
         <description>This validation rule is to enforce the the dealers to enter the dealer feedback before closing the case</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'),
-OR(RecordType.Name = 'MB Complaint',RecordType.Name = 'Inquiry'),
-$Profile.Name != 'IntegrationAPI', MD__c = 'KR',ISBLANK(Dealer_Feedback__c),OR( 
-$Profile.Name = 'Dealer Community User', 
-$Profile.Name = 'Dealer Delegate Admin', 
-$Profile.Name = 'System Administrator' 
-))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Status,'Closed'), ISPICKVAL(Handling_Level__c , 'Dealer'), 
+OR(RecordType.Name = 'MB Complaint',RecordType.Name = 'Inquiry'), 
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR',ISBLANK(Dealer_Feedback__c),Case_Dealer__c != Null, 
+$Profile.Name = 'System Administrator')</errorConditionFormula>
         <errorDisplayField>Dealer_Feedback__c</errorDisplayField>
         <errorMessage>Dealer Feedback is Mandatory</errorMessage>
     </validationRules>
@@ -108891,13 +108823,8 @@ $Profile.Name = 'System Administrator'
         <fullName>Invalid_EU_VIN</fullName>
         <active>true</active>
         <description>EU VIN can't include the character(s) which is not alphanumeric.</description>
-        <errorConditionFormula>AND(
-  NOT( ISNULL(EU_VIN__c) ),
-  NOT(ISBLANK( EU_VIN__c)),
-  NOT(REGEX( EU_VIN__c,
-  "^[A-Za-z0-9]+$")),$Profile.Name != 'IntegrationAPI',
-  (MD__c = 'KR') 
-)</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( EU_VIN__c)), 
+NOT(ISBLANK( EU_VIN__c)),NOT(REGEX( EU_VIN__c, "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
         <errorMessage>EU VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
@@ -108905,8 +108832,8 @@ $Profile.Name = 'System Administrator'
         <fullName>Invalid_US_VIN</fullName>
         <active>true</active>
         <description>US VIN is enterd with double byte or symbols (or null)</description>
-        <errorConditionFormula>AND(NOT(ISNULL(  US_VIN__c )),
-NOT(ISBLANK(  US_VIN__c )),NOT(REGEX(  US_VIN__c  , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(NOT(ISNULL( US_VIN__c )), 
+NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
         <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
@@ -109210,7 +109137,14 @@ window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id
         <masterLabel>Escalation</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>location.replace('_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;template_id=00Xp0000000QWYW')</url>
+        <url>if('{!Case.Handling_Level__c}' == 'Dealer')
+			 {
+			   window.location.href = '_ui/core/email/author/EmailAuthor?={!Case.Customer_Care_Owner__c}&amp;p3_lkid={!Case.Id}&amp;rtype=003&amp;p24={!Case.Perferred_Contact_Email__c}&amp;retURL=/{!Case.Id}&amp;p2_lkid={!Account.Dealer_Complaint_Manager__c}&amp;p2={!Account.Dealer_Complaint_Manager__c}' ;
+			}
+			else
+			{
+			alert('{!$Label.Alert_Handling_Level}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Follow_Up_Inquiry</fullName>

@@ -14,4 +14,17 @@
         <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
         <name>JP_MarketCarModel_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_Car_Model_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>MBK Car Model Sharing Rule</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

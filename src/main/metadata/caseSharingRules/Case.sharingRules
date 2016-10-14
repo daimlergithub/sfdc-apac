@@ -200,6 +200,19 @@
         <name>MBDA CASE</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBK_Case_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>MBK Case Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Central_East_Case_to_Regional</fullName>
         <sharedTo>
             <role>Regional_CRM_Mgr_E</role>

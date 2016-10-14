@@ -5,6 +5,7 @@
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>Merge</customButtons>
+    <customButtons>New_Survey</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -32,7 +33,8 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -189,18 +191,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Work_Phone_Status_2__c</field>
-            </layoutItems>
+            </layoutItems>           
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Job__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Occupation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Marital_Status__c</field>
+                <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -211,10 +205,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UCID_Sequence__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -267,10 +257,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Sub_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Deceased__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -347,6 +333,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Postal_Opt_Out_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Event__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -446,10 +448,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Hobby__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Fleet__c</field>
             </layoutItems>
             <layoutItems>
@@ -524,15 +522,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Education__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Gender__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Household_Children__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -733,6 +723,9 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Sales_Lead</customButtons>
+        <customButtons>New_AfterSales_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>
@@ -764,7 +757,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-		<customButtons>New_MB_Complaint</customButtons>
+        <customButtons>New_MB_Complaint</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>

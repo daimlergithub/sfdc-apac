@@ -879,14 +879,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Retail_Address_Type__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
         <label>Retail Address Type</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 3</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1084,7 +1100,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Gender</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1112,7 +1136,195 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Industry</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crafts and other manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertising / Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity production and supply</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1128,7 +1340,103 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Occupation</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professionals &amp; Technical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housekeeping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1166,7 +1474,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Preferred Contact Method</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1183,6 +1507,70 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1226,7 +1614,191 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Province</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aomori</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Akita</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chiba</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamanashi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aichi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tottori</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokushima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ehime</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Okinawa</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1322,14 +1894,22 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Retail_Allow_Data_Sharing__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
         <label>Retail Allow Data Sharing</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Choice Yet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1345,7 +1925,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Special Needs Class</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2319,18 +2915,41 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Type__c</picklist>
+		<picklistValues>
+            <picklist>Retail_Address_Type__c</picklist>
             <values>
-                <fullName>M-Care</fullName>
+                <fullName>Business</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Normal</fullName>
+                <fullName>Home</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Normal %28M-Care%29</fullName>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Allow_Data_Sharing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Choice Yet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2380,6 +2999,509 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Industry__c</picklist>
+            <values>
+                <fullName>Advertising %2F Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crafts and other manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity production and supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Preferred_Contact_Method__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Preferred_Language__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Province__c</picklist>
+            <values>
+                <fullName>Aichi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Akita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aomori</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ehime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okinawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tottori</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamanashi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Special_Needs_Class__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2467,6 +3589,669 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Allow_Data_Sharing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Choice Yet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Gender__c</picklist>
+            <values>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Industry__c</picklist>
+            <values>
+                <fullName>Advertising %2F Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crafts and other manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity production and supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housekeeping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pensioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Preferred_Contact_Method__c</picklist>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Preferred_Language__c</picklist>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Province__c</picklist>
+            <values>
+                <fullName>Aichi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Akita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aomori</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chiba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ehime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okinawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tottori</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </values>
+
+            <values>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamanashi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Retail_Special_Needs_Class__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Type__c</picklist>
             <values>
@@ -2532,6 +4317,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+			
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>

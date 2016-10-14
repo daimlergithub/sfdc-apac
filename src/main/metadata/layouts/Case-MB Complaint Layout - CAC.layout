@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Repeated_Complaint</customButtons>
-	<customButtons>Input_MPC_Note</customButtons>
+    <customButtons>Input_MPC_Note</customButtons>
     <customButtons>New_Lead</customButtons>
-    <customButtons>Follow_Up_Inquiry</customButtons>
-    <customButtons>SMS</customButtons>
-	<customButtons>Escalation</customButtons>
-	<customButtons>Generate_Pdf</customButtons>
+    <customButtons>Escalation</customButtons>
+    <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -35,6 +33,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -69,6 +71,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Perferred_Contact_Email__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -85,6 +91,26 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Subsource__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Progress_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Resolved_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Complaint_Creator_Department__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue_Reason__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -106,6 +132,9 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DescriptionOne__c</field>
+            </layoutItems><layoutItems>
+                <behavior>Edit</behavior>
+                <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -307,10 +336,6 @@
         <editHeading>true</editHeading>
         <label>System Info</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Case_Class__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
