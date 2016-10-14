@@ -4,6 +4,14 @@
         <field>ACCOUNT.NAME</field>
     </columns>
     <description>Total Number of Customers</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

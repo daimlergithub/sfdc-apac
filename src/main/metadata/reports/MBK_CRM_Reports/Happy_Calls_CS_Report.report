@@ -44,14 +44,9 @@
     <description>Based on inquiries feedback this report would give information of agreed and disagreed customer.</description>
     <filter>
         <criteriaItems>
-            <column>Account.Vehicles__r$Id</column>
-            <operator>notEqual</operator>
-            <value>Null</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Account.Vehicles__r$Name</column>
-            <operator>notEqual</operator>
-            <value>Null</value>
+            <column>Account$MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>

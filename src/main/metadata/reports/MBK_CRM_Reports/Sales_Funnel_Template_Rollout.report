@@ -34,9 +34,6 @@
         <field>Lead__c.Email__c</field>
     </columns>
     <columns>
-        <field>Lead__c.Re_visit__c</field>
-    </columns>
-    <columns>
         <field>Lead__c.Test_Drive_Date__c</field>
     </columns>
     <columns>
@@ -69,6 +66,11 @@
             <column>CUST_RECORDTYPE</column>
             <operator>equals</operator>
             <value>Lead__c.Retail_Sales_Leads,Lead__c.Sales_Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_PC_$Contact.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
