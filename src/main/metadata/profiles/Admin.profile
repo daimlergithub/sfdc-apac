@@ -4003,6 +4003,11 @@
         <field>Account_Link__c.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.ContractId__c</field>
@@ -7033,6 +7038,7 @@
          <field>Lead__c.Quotation_Model__c</field>
          <readable>true</readable>
      </fieldPermissions>
+	 
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Last_Known_Mileage__c</field>
@@ -10236,6 +10242,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Accepted_Date_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Vehicle_Registration_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
