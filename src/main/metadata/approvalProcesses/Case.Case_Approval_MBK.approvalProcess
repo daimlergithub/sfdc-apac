@@ -29,7 +29,7 @@
         <criteriaItems>
             <field>Case.Status</field>
             <operation>equals</operation>
-            <value>Open</value>
+            <value>Waiting for Response approval</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.User_Role__c</field>

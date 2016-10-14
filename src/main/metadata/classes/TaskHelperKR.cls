@@ -8,7 +8,7 @@
 
 **/
 
-public class TaskHelperKr {	
+public class TaskHelperKR {	
     private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
     private static string leadTabId = System.Label.LeadId;

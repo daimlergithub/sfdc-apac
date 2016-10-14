@@ -64,6 +64,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Perferred_Contact_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Handling_Level__c</field>
             </layoutItems>
             <layoutItems>
@@ -155,6 +159,14 @@
                 <behavior>Edit</behavior>
                 <field>Resolved_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue_Reason__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -245,6 +257,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Satisfaction__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
