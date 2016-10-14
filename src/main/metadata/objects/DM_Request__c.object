@@ -124,6 +124,19 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Assigned_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>DM Request (Assigned Dealer)</relationshipLabel>
+        <relationshipName>DM_Request1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Attention__c</fullName>
         <externalId>false</externalId>
         <label>Attention</label>
@@ -198,7 +211,7 @@ Modify Reason:
         <fullName>Case_Number__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Case Number</label>
+        <label>Related Case</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
@@ -375,7 +388,7 @@ Modify Reason:
         <fullName>Customer_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Customer Name</label>
+        <label>Customer</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select the proper account.</errorMessage>
@@ -550,7 +563,7 @@ Modify Reason:
         <fullName>Lead__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Lead</label>
+        <label>Related Lead</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
@@ -930,7 +943,7 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <label>Title</label>
+        <label>TitleOfHonor</label>
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
@@ -1212,10 +1225,9 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <nameField>
-        <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>DM Request</pluralLabel>
     <searchLayouts>
