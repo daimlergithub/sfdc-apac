@@ -787,7 +787,7 @@ Modify Reason:
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>contains</operation>
-            <value>Retail Sales Leads,Sales Leads</value>
+            <value>Retail Sales Leads,Sales Leads,Aftersales Leads</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -822,6 +822,11 @@ Modify Reason:
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Purchased(Only Non BDC)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

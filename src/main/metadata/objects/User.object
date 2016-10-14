@@ -90,6 +90,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
+	<fields>
+        <fullName>DMS_User_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>DMS User ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Daily_Rate__c</fullName>
         <externalId>false</externalId>
@@ -99,6 +109,56 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Company_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Company Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_DMS_Retailer_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.Account.DMS_Retailer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer DMS Retailer ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_GC_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Dealer_GC_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer GC Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Dealer_ND_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer ND Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Outlet_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Outlet Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_Title__c</fullName>

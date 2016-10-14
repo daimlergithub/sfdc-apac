@@ -244,7 +244,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
-            <value>AS BMBS Campaign,S&amp;M Event BMBS Campaign,S&amp;M Media BMBS Campaign</value>
+            <value>Central Marketing Campaign</value>
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.Status</field>
