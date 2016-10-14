@@ -3973,6 +3973,11 @@
         <field>Account_Link__c.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.ContractId__c</field>
@@ -11011,6 +11016,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_Possibility__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Vehicle_Registration_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
