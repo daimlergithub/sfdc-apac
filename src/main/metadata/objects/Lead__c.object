@@ -11262,19 +11262,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
-        <fullName>Quotation_Number__c</fullName>
-        <description>Update from AL, no manual update</description>
-        <externalId>false</externalId>
-        <label>Quotation No</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
 	<fields>
         <fullName>Quotation_Model__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -11288,6 +11275,19 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quotation_Number__c</fullName>
+        <description>Update from AL, no manual update</description>
+        <externalId>false</externalId>
+        <label>Quotation No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Re_visit__c</fullName>

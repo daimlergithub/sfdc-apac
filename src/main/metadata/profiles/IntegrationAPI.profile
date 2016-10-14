@@ -19038,11 +19038,6 @@
         <field>Vehicle_Relationship__c.Main_Usage__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>User.DMS_User_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>User.Dealer_Company_Name__c</field>
