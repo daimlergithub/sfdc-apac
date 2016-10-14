@@ -1411,6 +1411,11 @@
         <field>Account.AccountSource</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Activation_Date__c</field>
@@ -3984,6 +3989,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11194,6 +11204,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.R_Count_Converted_Leads__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Purchased_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19026,6 +19046,7 @@
         <field>Account_Link__c.OwnerId__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.IsDeleted__c</field>
