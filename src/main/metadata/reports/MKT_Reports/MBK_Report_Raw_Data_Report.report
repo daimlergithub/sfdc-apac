@@ -106,6 +106,14 @@
         <field>FK_$Account.Vehicle_Amount__c</field>
     </columns>
     <description>Raw Data Reports</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_PC_$Contact.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
