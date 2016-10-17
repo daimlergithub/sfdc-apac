@@ -7511,14 +7511,6 @@ Allows up to 240 characters --></help>
         <name>Vol_NAF_Bonus3__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Status --></label>
-        <name>Warranty_Apply_Status__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Western Star Offered Service --></label>
         <name>Western_Star_Offered_Service__c</name>
         <picklistValues>
