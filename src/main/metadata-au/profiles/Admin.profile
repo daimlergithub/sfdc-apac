@@ -26,6 +26,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Dealer_Community</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>FOS_Complaints_Console</application>
         <default>false</default>
         <visible>true</visible>
@@ -4266,6 +4271,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Link__c.Retail_UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Link__c.Role2__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5676,6 +5686,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Car_Model__c.Colour__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Car_Model__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5767,6 +5782,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.System__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Trim__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
