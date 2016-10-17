@@ -7514,8 +7514,8 @@ Allows up to 240 characters --></help>
         <label><!-- Warranty Apply Status --></label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
         </picklistValues>
     </fields>
     <fields>
