@@ -3160,6 +3160,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Dealer_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Comment</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
     <fields>
         <fullName>Dealer_Comments__c</fullName>
         <externalId>false</externalId>
@@ -3768,6 +3779,66 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Finance_RV_Ballon__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance RV Ballon</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Total_V_Price_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price Tax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Total_V_Price_NoTax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price NoTax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Interest_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Interest Rate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Monthly_Payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Monthly Payment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Contract_Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Contract Term</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Finance_Product_Name__c</fullName>

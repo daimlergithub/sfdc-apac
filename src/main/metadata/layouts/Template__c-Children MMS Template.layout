@@ -12,7 +12,7 @@
                 <field>Name</field>
             </layoutItems>
 			<layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Required</behavior>
                 <field>Template_ID__c</field>
             </layoutItems>
             <layoutItems>

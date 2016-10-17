@@ -11,7 +11,7 @@
                 <field>Name</field>
             </layoutItems>
 			<layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Required</behavior>
                 <field>Template_ID__c</field>
             </layoutItems>
             <layoutItems>
@@ -19,7 +19,7 @@
                 <field>Active__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Message_Detail__c</field>
             </layoutItems>
         </layoutColumns>
