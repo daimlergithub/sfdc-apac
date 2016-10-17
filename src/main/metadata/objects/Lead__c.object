@@ -11196,18 +11196,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
 	<fields>
-        <fullName>Purchased_VIN__c</fullName>
-        <externalId>false</externalId>
-        <label>Purchased VIN</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
