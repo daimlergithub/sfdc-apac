@@ -614,7 +614,7 @@ Proxy_Date_Time__c
             <name>Update_Lead_Recieved_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.LastModifiedById</field>
             <operation>notEqual</operation>
