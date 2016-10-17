@@ -10,9 +10,9 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Template_ID__c</field>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TemplateID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -92,7 +92,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Template_ID__c</fields>
+        <fields>TemplateID__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>Subject__c</fields>
         <relatedList>Template__c.MasterTemplate__c</relatedList>

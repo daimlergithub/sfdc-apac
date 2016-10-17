@@ -12,6 +12,10 @@
                 <field>Name</field>
             </layoutItems>
         </layoutColumns>
+		<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TemplateID__c</field>
+            </layoutItems>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
