@@ -43,6 +43,14 @@
         <field>Account$Agreement_to_commit_info_processing__c</field>
     </columns>
     <description>NCBS (PPS) Reports</description>
+    <filter>
+        <criteriaItems>
+            <column>Account$MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Tabular</format>
     <name>NCBS (PPS) Reports</name>
     <params>

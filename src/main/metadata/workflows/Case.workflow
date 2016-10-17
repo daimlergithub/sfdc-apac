@@ -1300,7 +1300,7 @@
         </criteriaItems>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
-            <operation>greaterOrEqual</operation>
+            <operation>lessThan</operation>
             <value>TODAY</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
