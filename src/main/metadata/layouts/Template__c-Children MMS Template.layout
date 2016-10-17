@@ -11,7 +11,7 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Required</behavior>
                 <field>Template_ID__c</field>
             </layoutItems>
