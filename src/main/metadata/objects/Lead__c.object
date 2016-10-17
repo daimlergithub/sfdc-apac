@@ -69202,7 +69202,8 @@ MD__c='KR'
         <active>true</active>
         <errorConditionFormula>AND(
 ISNULL(Service_Date__c), 
-ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
+OR(ISPICKVAL(CAC_Lead_Status__c, 'Service Completed'),
+ISPICKVAL(Dealer_Lead_Status__c, 'Service Completed')),
 $Profile.Name != 'IntegrationAPI', 
 MD__c='KR',
 RecordType.DeveloperName = 'Aftersales_Leads'
