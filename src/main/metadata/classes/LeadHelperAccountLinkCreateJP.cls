@@ -37,10 +37,11 @@ public class LeadHelperAccountLinkCreateJP {
                                  Contact__r.Special_Needs_Class__c, Contact__r.Allow_Data_Sharing2__c, Contact__r.Primary_Address_Reference__r.Address_Type__c, 
                                  Contact__r.Primary_Address_Reference__r.Province__c, Contact__r.Preferred_Contact_Method__c,MD__c,
                                  Contact__r.UCID__c, Contact__r.RecordtypeId, Contact__r.Name, Contact__r.Company_Name_Native_1__c,Contact__r.Foundation_Date__c,
-                                 Contact__r.Website                                                     
+                                 Contact__r.Website                                                   
                                  from Lead__c WHERE id IN : contactId
                                 ];
-         List<Account_Link__c> accLst = new List<Account_Link__c>();    
+         List<Account_Link__c> accLst = new List<Account_Link__c>();
+         //List<Lead__c> leadListupdate = new List<Lead__c>();    
          Map<String,Id> recordTypes = new Map<String,Id>();
          for(RecordType rt : [select id,DeveloperName from RecordType WHERE DeveloperName IN ( 'ContactSector' ,'Retail_Company' ) ] ){
              recordTypes.put(rt.DeveloperName,rt.Id) ;
@@ -62,7 +63,7 @@ public class LeadHelperAccountLinkCreateJP {
                                                                         Retail_Preferred_Language__c = led.Contact__r.Preferred_Language__c,
                                                                         Retail_Preferred_Contact_Method__c = led.contact__r.Preferred_Contact_Method__c,
                                                                         Retail_Special_Needs_Class__c = led.Contact__r.Special_Needs_Class__c, Retail_Allow_Data_Sharing__c = led.contact__r.Allow_Data_Sharing2__c,
-                                                                        Retail_Full_Name_Native__c = (led.Contact__r.LastName_Native_1__c != null ? led.Contact__r.LastName_Native_1__c: '' + ' ' + (led.Contact__r.FirstName_Native_1__c != null ?led.Contact__r.FirstName_Native_1__c :'' )).left(50)
+                                                                        Retail_Full_Name_Native__c = ((led.Contact__r.LastName_Native_1__c != null ? led.Contact__r.LastName_Native_1__c: '') + (led.Contact__r.FirstName_Native_1__c != null ?led.Contact__r.FirstName_Native_1__c :'' )).left(50)
                                                                         //Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c                                                                
                                                                         //Retail_Country__c = 'Japan'
                                                                         );
@@ -101,11 +102,16 @@ public class LeadHelperAccountLinkCreateJP {
                      //acclnk.
                    }    
                    accLst.add(acclnk);
+            
+                    //Lead__c ledrecupdate = new Lead__c(id = led.id, IsRetailrecordCreated__c = true);
+                    //leadListupdate.add(ledrecupdate);
             }
          }  
          if(!accLst.isEmpty()){
             insert accLst;
          } 
-    
+         //if(!leadListupdate.isEmpty()){
+             //update leadListupdate;
+         //}
     }   
 }
