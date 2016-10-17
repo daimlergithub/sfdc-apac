@@ -28445,7 +28445,7 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Invalid_Email</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
@@ -28454,7 +28454,7 @@ OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEma
  CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')),
  CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.',ISBLANK(PersonEmail)),
  ISBLANK(Email__c),
-$Profile.Name != 'IntegrationAPI',MD__c = 'KR',!ISNEW()
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP',!ISNEW()
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>
         <errorMessage>Invalid Email Address</errorMessage>
