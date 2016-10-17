@@ -11,11 +11,11 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-        </layoutColumns>
-		<layoutItems>
+			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>TemplateID__c</field>
             </layoutItems>
+        </layoutColumns>		
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
