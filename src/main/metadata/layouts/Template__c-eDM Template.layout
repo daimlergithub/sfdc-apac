@@ -10,16 +10,20 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>Template_ID__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Active__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Subject__c</field>
             </layoutItems>
         </layoutColumns>
@@ -31,10 +35,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Series__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Template_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
