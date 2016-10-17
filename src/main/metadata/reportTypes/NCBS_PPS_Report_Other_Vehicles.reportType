@@ -5,15 +5,15 @@
     <deployed>false</deployed>
     <description>NCBS (PPS) Reports</description>
     <join>
-        <join>		
+        <join>
             <join>
                 <outerJoin>true</outerJoin>
                 <relationship>Leads__r</relationship>
             </join>
-            <outerJoin>true</outerJoin>
+            <outerJoin>false</outerJoin>
             <relationship>Vehicle_Relationships__r</relationship>
         </join>
-        <outerJoin>true</outerJoin>
+        <outerJoin>false</outerJoin>
         <relationship>Vehicles__r</relationship>
     </join>
     <label>NCBS (PPS) Report Other Vehicles</label>
