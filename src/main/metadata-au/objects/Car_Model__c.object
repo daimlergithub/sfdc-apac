@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -71,6 +67,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -123,6 +120,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -141,6 +139,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -755,6 +754,7 @@
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -787,6 +787,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Colour__c</fullName>
+        <externalId>false</externalId>
+        <label>Colour</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -823,6 +832,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1847,6 +1857,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2153,6 +2164,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2175,6 +2187,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2197,6 +2210,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trim__c</fullName>
+        <externalId>false</externalId>
+        <label>Trim</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
@@ -2227,6 +2249,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2249,6 +2272,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
