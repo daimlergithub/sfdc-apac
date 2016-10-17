@@ -9022,6 +9022,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>	
+	<fields>
+        <fullName>Purchased_VIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchased VIN</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Lost_CAC_Date__c</fullName>
         <externalId>false</externalId>

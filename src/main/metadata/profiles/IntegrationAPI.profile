@@ -1711,6 +1711,11 @@
         <field>Account.Customer_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DD_Bonus_Condition__c</field>
@@ -4009,6 +4014,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Dealer_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11179,6 +11189,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.R_Check_registration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Purchased_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18378,6 +18398,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle_Relationship__c.UsedWarranty_Apply_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.UsVIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18434,6 +18459,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Warranty_Apply_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Warranty_Apply_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
