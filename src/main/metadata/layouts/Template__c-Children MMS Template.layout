@@ -11,9 +11,9 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Template_ID__c</field>
+                <field>TemplateID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -32,6 +32,14 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Subject__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Message_Detail__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -93,7 +101,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000J6g1</masterLabel>
+        <masterLabel>00h28000003kSBU</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
