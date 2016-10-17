@@ -295,7 +295,7 @@
         <shortDescription>Business Email</shortDescription>
         <value>Business Email</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Business_Email2</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1647,7 +1647,7 @@
         <shortDescription>InsufficientAccessToCreate</shortDescription>
         <value>Insufficient privilege to create new vehicle.</value>
     </labels>
-	 <labels>
+    <labels>
         <fullName>Insufficient_privilege</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1704,7 +1704,7 @@
         <protected>true</protected>
         <shortDescription>Anonymous</shortDescription>
         <value>Anonymous</value>
-    </labels>	
+    </labels>
     <labels>
         <fullName>LABS_SF_Answer_as</fullName>
         <language>en_US</language>
@@ -2190,13 +2190,6 @@
         <value>Manager</value>
     </labels>
     <labels>
-        <fullName>Marketing_survey</fullName>
-        <categories>Retail Campaign Calendar</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Marketing survey</shortDescription>
-        <value>Marketing survey</value>
-    </labels><labels>
         <fullName>MarketJP</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2209,6 +2202,14 @@
         <protected>false</protected>
         <shortDescription>MarketKR</shortDescription>
         <value>KR</value>
+    </labels>
+    <labels>
+        <fullName>Marketing_survey</fullName>
+        <categories>Retail Campaign Calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Marketing survey</shortDescription>
+        <value>Marketing survey</value>
     </labels>
     <labels>
         <fullName>Mass_Assign_Recall_Tasks_Apply_Filters</fullName>
@@ -3803,6 +3804,14 @@
         <value>Total Amount Spend On Car Service is Greater Than</value>
     </labels>
     <labels>
+        <fullName>Trade_In_related_information</fullName>
+        <categories>VehiclePicker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Trade-In related information</shortDescription>
+        <value>Please enter trade-in related information as the lead desired service is selected as Trade-In</value>
+    </labels>
+    <labels>
         <fullName>Trim</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4370,6 +4379,14 @@
         <protected>false</protected>
         <shortDescription>master</shortDescription>
         <value>master</value>
+    </labels>
+    <labels>
+        <fullName>purchased_vehicle_related_information</fullName>
+        <categories>VehiclePicker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>purchased vehicle related information</shortDescription>
+        <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased (Only Non BDC)</value>
     </labels>
     <labels>
         <fullName>rcc_Auto_Show</fullName>
