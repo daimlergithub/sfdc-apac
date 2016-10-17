@@ -12,14 +12,14 @@ public class TriggerLeadTriggerHandlerKR
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         System.debug('Handletrigger----->');
              
-        if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI'){
+        if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            
+            LeadUtil.isCreated = false;
         }
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI'){
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             system.debug('Isafter is working');
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            
+            LeadUtil.isCreated = false;
         }
         
            }

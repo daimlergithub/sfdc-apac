@@ -18529,6 +18529,11 @@
         <field>User.Cost_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.DMS_UserID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Daily_Rate__c</field>
