@@ -49,8 +49,18 @@ global with sharing class VehiclePickerController {
         try{
         
             /***************** QUERY THE VEHICLES ASSOCIATED WITH THE LEAD : START *******************/
-            lead_Vehicles = [Select Lead_Type__c, Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c, Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Lead__c Where Id =: currentRecordId];
+            lead_Vehicles = [Select Lead_Type__c, Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c, CAC_Lead_Status__c ,Dealer_Lead_Status__c ,Lead_Desired_Service__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Lead__c Where Id =: currentRecordId];
             leadType = lead_Vehicles.Lead_Type__c;
+            system.debug('lead_Vehicles1:' +lead_Vehicles.Lead_Desired_Service__c);  
+             if((lead_Vehicles.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' || lead_Vehicles.Dealer_Lead_Status__c == 'Purchased(Only Non BDC)') && lead_Vehicles.Purchased_Vehicle__c == null){
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.purchased_vehicle_related_information+ '</font>'));               
+               
+             }     
+             if(lead_Vehicles.Lead_Desired_Service__c!= Null && lead_Vehicles.Lead_Desired_Service__c.contains('Trade-In') && lead_Vehicles.Trade_In_Vehicle__c == null){
+              system.debug('lead_Vehicles2:' +lead_Vehicles.Lead_Desired_Service__c);
+                ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.Trade_In_related_information+ '</font>'));          
+            
+             } 
             
             system.debug('@ Intial Lead vehicle record values :' +lead_Vehicles);                                              
             lead_VehicleIds = new Set<Id>{  lead_Vehicles.Interested_Vehicle__c, lead_Vehicles.Interested_Competitor_Vehicle__c,
