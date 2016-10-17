@@ -10,6 +10,14 @@
         <field>Campaign.Campaign_Code__c</field>
     </columns>
     <description>Age Group Campaign Code</description>
+    <filter>
+        <criteriaItems>
+            <column>Campaign.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

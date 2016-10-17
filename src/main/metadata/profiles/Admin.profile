@@ -2288,6 +2288,11 @@
         <field>Account.Dealer_Trucks_Dlr_Class_Sales__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Trucks_OES_Survey_Targets_Yearly__c</field>
@@ -7088,6 +7093,7 @@
          <field>Lead__c.Quotation_Model__c</field>
          <readable>true</readable>
      </fieldPermissions>
+	 
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Last_Known_Mileage__c</field>
@@ -10351,6 +10357,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Aftersales_Vehicle_Brand__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Purchased_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
