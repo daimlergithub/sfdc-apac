@@ -6,11 +6,175 @@ Global class UtilWebservice
         crmasiaDaimlerApacComValidateaddress.Address SendingAddress = new crmasiaDaimlerApacComValidateaddress.Address();
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         crmasiaDaimlerApacComValidateaddress.AddressValidationMessageFaultType faultCode = new  crmasiaDaimlerApacComValidateaddress.AddressValidationMessageFaultType(); 
+        
+        List<ProvinceTranslation__mdt> ProvinceCodeKR = [select id,MD__c,Object__c,Picklist_Name__c,Province_EN1__c,Province_EN10__c,Province_EN11__c,Province_EN12__c,Province_EN13__c,  
+                Province_EN14__c,Province_EN15__c,Province_EN16__c,Province_EN17__c,Province_EN18__c,Province_EN19__c,Province_EN2__c,Province_EN20__c, 
+                Province_EN21__c,Province_EN22__c,Province_EN23__c,Province_EN24__c,Province_EN25__c,Province_EN26__c,Province_EN27__c,Province_EN28__c,    
+                Province_EN29__c,Province_EN3__c,Province_EN30__c,Province_EN31__c,Province_EN32__c,Province_EN33__c,Province_EN34__c,Province_EN35__c, 
+                Province_EN36__c,Province_EN37__c,Province_EN38__c,Province_EN39__c,Province_EN4__c,Province_EN40__c,Province_EN41__c,Province_EN42__c, 
+                Province_EN43__c,Province_EN44__c,Province_EN45__c,Province_EN46__c,Province_EN47__c,Province_EN5__c,Province_EN6__c,Province_EN7__c,   
+                Province_EN8__c,Province_EN9__c,Province_TR1__c,Province_TR10__c,Province_TR11__c,Province_TR12__c,Province_TR13__c,Province_TR14__c,   
+                Province_TR15__c,Province_TR16__c,Province_TR17__c,Province_TR18__c,Province_TR19__c,Province_TR2__c,Province_TR20__c,Province_TR21__c, 
+                Province_TR22__c,Province_TR23__c,Province_TR24__c,Province_TR25__c,Province_TR26__c,Province_TR27__c,Province_TR28__c,Province_TR29__c ,
+                Province_TR3__c,Province_TR30__c,Province_TR31__c,Province_TR32__c,Province_TR33__c,Province_TR34__c,Province_TR35__c,Province_TR36__c, 
+                Province_TR37__c,Province_TR38__c,Province_TR39__c,Province_TR4__c,Province_TR40__c,Province_TR41__c,Province_TR42__c,Province_TR43__c, 
+                Province_TR44__c,Province_TR45__c,Province_TR46__c,Province_TR47__c,Province_TR5__c,Province_TR6__c,Province_TR7__c,Province_TR8__c,Province_TR9__c from ProvinceTranslation__mdt where MD__c='KR' LIMIT 1]; 
+        system.debug('mobileAreaCodeKR >>>>>>'+ProvinceCodeKR);
+        for(ProvinceTranslation__mdt provinceCode : ProvinceCodeKR){
+            if(address.Province__c == provinceCode.Province_EN1__c){
+                SendingAddress.Province = provinceCode.Province_TR1__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN2__c){
+                SendingAddress.Province = provinceCode.Province_TR2__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN3__c){
+                SendingAddress.Province = provinceCode.Province_TR3__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN4__c){
+                SendingAddress.Province = provinceCode.Province_TR4__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN5__c){
+                SendingAddress.Province = provinceCode.Province_TR5__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN6__c){
+                SendingAddress.Province = provinceCode.Province_TR6__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN7__c){
+                SendingAddress.Province = provinceCode.Province_TR7__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN8__c){
+                SendingAddress.Province = provinceCode.Province_TR8__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN9__c){
+                SendingAddress.Province = provinceCode.Province_TR9__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN10__c){
+                SendingAddress.Province = provinceCode.Province_TR10__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN11__c){
+                SendingAddress.Province = provinceCode.Province_TR11__c;
+            }
+            
+            if(address.Province__c == provinceCode.Province_EN12__c){
+                SendingAddress.Province = provinceCode.Province_TR12__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN13__c){
+                SendingAddress.Province = provinceCode.Province_TR13__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN14__c){
+                SendingAddress.Province = provinceCode.Province_TR14__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN15__c){
+                SendingAddress.Province = provinceCode.Province_TR15__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN16__c){
+                SendingAddress.Province = provinceCode.Province_TR16__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN17__c){
+                SendingAddress.Province = provinceCode.Province_TR17__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN18__c){
+                SendingAddress.Province = provinceCode.Province_TR18__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN19__c){
+                SendingAddress.Province = provinceCode.Province_TR19__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN20__c){
+                SendingAddress.Province = provinceCode.Province_TR20__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN21__c){
+                SendingAddress.Province = provinceCode.Province_TR21__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN22__c){
+                SendingAddress.Province = provinceCode.Province_TR22__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN23__c){
+                SendingAddress.Province = provinceCode.Province_TR23__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN24__c){
+                SendingAddress.Province = provinceCode.Province_TR24__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN25__c){
+                SendingAddress.Province = provinceCode.Province_TR25__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN26__c){
+                SendingAddress.Province = provinceCode.Province_TR26__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN27__c){
+                SendingAddress.Province = provinceCode.Province_TR27__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN28__c){
+                SendingAddress.Province = provinceCode.Province_TR28__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN29__c){
+                SendingAddress.Province = provinceCode.Province_TR29__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN30__c){
+                SendingAddress.Province = provinceCode.Province_TR30__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN31__c){
+                SendingAddress.Province = provinceCode.Province_TR31__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN32__c){
+                SendingAddress.Province = provinceCode.Province_TR32__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN33__c){
+                SendingAddress.Province = provinceCode.Province_TR33__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN34__c){
+                SendingAddress.Province = provinceCode.Province_TR34__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN35__c){
+                SendingAddress.Province = provinceCode.Province_TR35__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN36__c){
+                SendingAddress.Province = provinceCode.Province_TR36__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN37__c){
+                SendingAddress.Province = provinceCode.Province_TR37__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN38__c){
+                SendingAddress.Province = provinceCode.Province_TR38__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN39__c){
+                SendingAddress.Province = provinceCode.Province_TR39__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN40__c){
+                SendingAddress.Province = provinceCode.Province_TR40__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN41__c){
+                SendingAddress.Province = provinceCode.Province_TR41__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN42__c){
+                SendingAddress.Province = provinceCode.Province_TR42__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN43__c){
+                SendingAddress.Province = provinceCode.Province_TR43__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN44__c){
+                SendingAddress.Province = provinceCode.Province_TR44__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN45__c){
+                SendingAddress.Province = provinceCode.Province_TR45__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN46__c){
+                SendingAddress.Province = provinceCode.Province_TR46__c;
+            }
+            if(address.Province__c == provinceCode.Province_EN47__c){
+                SendingAddress.Province = provinceCode.Province_TR47__c;
+            }           
+        }
+        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         SendingAddress.ZipCode = address.ZipCode__c;
         SendingAddress.MarketDiscriminator = address.MD__c;
         SendingAddress.Address_Line_1 = address.Address_Line_1__c;
         SendingAddress.Address_Line_2 = address.Address_Line_2__c;
-        SendingAddress.Block = address.Block__c;
+        if(u.Market__c =='KR'){
+            SendingAddress.Block = address.HouseNumber__c;
+        }
+        if(u.Market__c =='JP'){
+            SendingAddress.Block = address.Block__c;
+        }
         SendingAddress.City = address.City__c;
         SendingAddress.District = address.District__c;
         SendingAddress.Province = address.Province__c;
@@ -72,5 +236,27 @@ Global class UtilWebservice
         }
     }
     
+    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
+        crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType faultCode = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType();
+        sendingCustomerDetails.FirstName = accountDetails.FirstName; 
+        sendingCustomerDetails.LastName = accountDetails.LastName;
+        //sendingCustomerDetails.
+          
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
+        request.OrganizationId = UserInfo.getOrganizationId();
+        request.Customer = sendingCustomerDetails;
+        try{
+            response = stub.IdentifyCustomer(request);
+        }
+        catch(CalloutException excpObj){
+            system.debug('Error *** :'+excpObj.getMessage());
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressValidation_callout_failure));
+        }
+        system.debug('response : '+response);
+        return response;
+    }    
     
 }
