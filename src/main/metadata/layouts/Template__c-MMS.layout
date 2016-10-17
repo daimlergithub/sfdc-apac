@@ -12,7 +12,7 @@
             </layoutItems>
 			<layoutItems>
                 <behavior>Readonly</behavior>
-                <field>TemplateID__c</field>
+                <field>Template_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -92,7 +92,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>TemplateID__c</fields>
+        <fields>Template_ID__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>Subject__c</fields>
         <relatedList>Template__c.MasterTemplate__c</relatedList>
