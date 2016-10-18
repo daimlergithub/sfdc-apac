@@ -2,7 +2,7 @@
 public without sharing class VehiclePickerForCaseControllerTest{
     
     
-	private static Case testCase;
+    private static Case testCase;
     private static Vehicle__c testVehicleMB;
     private static Vehicle__c testVehicle_VehicleProduct;
     private static List<Car_Model__c> carModels;
@@ -411,7 +411,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
         
         //Creating associated data for search test.
         Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-        testCase.Contact__c = testAccount.Id;
+        testCase.Car_Owner__c = testAccount.Id;
         update testCase;
         
         String Vin = '87465345982346578';
