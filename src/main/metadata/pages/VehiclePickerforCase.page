@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Case" extensions="VehiclePickerController">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Case" extensions="VehiclePickerForCaseController">
 <apex:form >
     <apex:includeScript value="{!$Resource.jQuery}" />
     <apex:includeScript value="{!$Resource.Angular}"/>
@@ -22,7 +22,7 @@
     <body>
        <script type="text/javascript">
        var app = angular.module('VehiclePickerApp', ['ui.bootstrap']);      
-       app.controller('VehiclePickerController', ['$scope', '$filter', function($scope, $filter) {
+       app.controller('VehiclePickerForCaseController', ['$scope', '$filter', function($scope, $filter) {
        var orderBy = $filter('orderBy');
        $scope.vehicleDetailText = "New";
        $scope.vehicleDetailCompetitorText = "New";
@@ -39,7 +39,7 @@
        $scope.purchasedVehicleDetails = "";       
       
        
-       $scope.leadVehicles = {!serialized_vehicleTypeMap};
+       $scope.caseVehicles = {!serialized_vehicleTypeMap};
        $scope.selectedBrand = "";
        $scope.selectedClass = "";
        $scope.selectedModel = ""; 
@@ -54,70 +54,70 @@
        $scope.models = []; 
        
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
-       if($scope.leadVehicles.InterestedVehicle != undefined){
+       if($scope.caseVehicles.InterestedVehicle != undefined){
            $scope.vehicleDetailText = "Edit";
-           $scope.interestedVehicleDetails = $scope.leadVehicles.InterestedVehicle.Brand +' ' +$scope.leadVehicles.InterestedVehicle.Class + ' ' + $scope.leadVehicles.InterestedVehicle.Model;
+           $scope.interestedVehicleDetails = $scope.caseVehicles.InterestedVehicle.Brand +' ' +$scope.caseVehicles.InterestedVehicle.Class + ' ' + $scope.caseVehicles.InterestedVehicle.Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
            $scope.vehicleDetailCompetitor = false;
            $scope.vehicleLookup = false;
-           if($scope.leadVehicles.InterestedVehicle.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.InterestedVehicle.Brand;
+           if($scope.caseVehicles.InterestedVehicle.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.InterestedVehicle.Brand;
              $scope.selectedBrand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.InterestedVehicle.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.InterestedVehicle.Class;
+           if($scope.caseVehicles.InterestedVehicle.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.InterestedVehicle.Class;
              $scope.selectedClasses = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.InterestedVehicle.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.InterestedVehicle.Model;
+           if($scope.caseVehicles.InterestedVehicle.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.InterestedVehicle.Model;
              $scope.selectedModel = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.InterestedVehicle.Colour)
-             $scope.interested_colourValue = $scope.leadVehicles.InterestedVehicle.Colour;
-           if($scope.leadVehicles.InterestedVehicle.Trim != "")
-             $scope.interested_trimValue = $scope.leadVehicles.InterestedVehicle.Trim;
-           if($scope.leadVehicles.InterestedVehicle.Mileage != "")
-             $scope.vehicleMilage = $scope.leadVehicles.InterestedVehicle.Mileage;
-           if($scope.leadVehicles.InterestedVehicle.RecordType != "")
-             $scope.interestedRecType = $scope.leadVehicles.InterestedVehicle.RecordType;
+           if($scope.caseVehicles.InterestedVehicle.Colour)
+             $scope.interested_colourValue = $scope.caseVehicles.InterestedVehicle.Colour;
+           if($scope.caseVehicles.InterestedVehicle.Trim != "")
+             $scope.interested_trimValue = $scope.caseVehicles.InterestedVehicle.Trim;
+           if($scope.caseVehicles.InterestedVehicle.Mileage != "")
+             $scope.vehicleMilage = $scope.caseVehicles.InterestedVehicle.Mileage;
+           if($scope.caseVehicles.InterestedVehicle.RecordType != "")
+             $scope.interestedRecType = $scope.caseVehicles.InterestedVehicle.RecordType;
        }
        
        /*COMPETITOR VEHICLE : Vehicle Intitialization details*/
-       if($scope.leadVehicles.CompetitorVehicle != undefined){
+       if($scope.caseVehicles.CompetitorVehicle != undefined){
            $scope.vehicleDetailCompetitorText = "Edit";
-           $scope.competitorVehicleDetails = $scope.leadVehicles.CompetitorVehicle.Brand +' ' +$scope.leadVehicles.CompetitorVehicle.Class + ' ' + $scope.leadVehicles.CompetitorVehicle.Model;
+           $scope.competitorVehicleDetails = $scope.caseVehicles.CompetitorVehicle.Brand +' ' +$scope.caseVehicles.CompetitorVehicle.Class + ' ' + $scope.caseVehicles.CompetitorVehicle.Model;
            $scope.checkedVehicleId;
            $scope.vehicleDetail = false;
            $scope.vehicleDetailCompetitor = false;
            $scope.vehicleLookup = false;
-           if($scope.leadVehicles.CompetitorVehicle.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.CompetitorVehicle.Brand;
+           if($scope.caseVehicles.CompetitorVehicle.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.CompetitorVehicle.Brand;
              $scope.selectedCompetitorBrand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.CompetitorVehicle.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.CompetitorVehicle.Class;
+           if($scope.caseVehicles.CompetitorVehicle.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.CompetitorVehicle.Class;
              $scope.selectedCompetitorClasses = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.CompetitorVehicle.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.CompetitorVehicle.Model;
+           if($scope.caseVehicles.CompetitorVehicle.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.CompetitorVehicle.Model;
              $scope.selectedCompetitorModel = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.CompetitorVehicle.Colour)
-             $scope.competitor_colourValue = $scope.leadVehicles.CompetitorVehicle.Colour;
-           if($scope.leadVehicles.CompetitorVehicle.Trim != "")
-             $scope.competitor_trimValue = $scope.leadVehicles.CompetitorVehicle.Trim;
-           if($scope.leadVehicles.CompetitorVehicle.Mileage != "")
-             $scope.c_vehicleMilage = $scope.leadVehicles.CompetitorVehicle.Mileage;
-           if($scope.leadVehicles.CompetitorVehicle.RecordType != "")
-             $scope.competitorRecType = $scope.leadVehicles.CompetitorVehicle.RecordType;
+           if($scope.caseVehicles.CompetitorVehicle.Colour)
+             $scope.competitor_colourValue = $scope.caseVehicles.CompetitorVehicle.Colour;
+           if($scope.caseVehicles.CompetitorVehicle.Trim != "")
+             $scope.competitor_trimValue = $scope.caseVehicles.CompetitorVehicle.Trim;
+           if($scope.caseVehicles.CompetitorVehicle.Mileage != "")
+             $scope.c_vehicleMilage = $scope.caseVehicles.CompetitorVehicle.Mileage;
+           if($scope.caseVehicles.CompetitorVehicle.RecordType != "")
+             $scope.competitorRecType = $scope.caseVehicles.CompetitorVehicle.RecordType;
        }
        
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
-       if($scope.leadVehicles.CurrentVehicle1 != undefined){
+       if($scope.caseVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-           $scope.CurrentVehicle1Details = $scope.leadVehicles.CurrentVehicle1.Brand +' ' +$scope.leadVehicles.CurrentVehicle1.Class + ' ' + $scope.leadVehicles.CurrentVehicle1.Model;
+           $scope.CurrentVehicle1Details = $scope.caseVehicles.CurrentVehicle1.Brand +' ' +$scope.caseVehicles.CurrentVehicle1.Class + ' ' + $scope.caseVehicles.CurrentVehicle1.Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -125,32 +125,32 @@
            $scope.vehicleLookup = false;
            $scope.LookupCurrentVehicle1 = false;
            
-           if($scope.leadVehicles.CurrentVehicle1.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.CurrentVehicle1.Brand;
+           if($scope.caseVehicles.CurrentVehicle1.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.CurrentVehicle1.Brand;
              $scope.selectedCurrent1Brand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.CurrentVehicle1.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.CurrentVehicle1.Class;
+           if($scope.caseVehicles.CurrentVehicle1.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.CurrentVehicle1.Class;
              $scope.selectedCurrent1Classes = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.CurrentVehicle1.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.CurrentVehicle1.Model;
+           if($scope.caseVehicles.CurrentVehicle1.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.CurrentVehicle1.Model;
              $scope.selectedCurrent1Model = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.CurrentVehicle1.Colour)
-             $scope.current1_colourValue = $scope.leadVehicles.CurrentVehicle1.Colour;
-           if($scope.leadVehicles.CurrentVehicle1.Trim != "")
-             $scope.current1_trimValue = $scope.leadVehicles.CurrentVehicle1.Trim;
-           if($scope.leadVehicles.CurrentVehicle1.Mileage != "")
-             $scope.c1_vehicleMilage = $scope.leadVehicles.CurrentVehicle1.Mileage;
-           if($scope.leadVehicles.CurrentVehicle1.RecordType != "")
-             $scope.c1_RecType = $scope.leadVehicles.CurrentVehicle1.RecordType;
+           if($scope.caseVehicles.CurrentVehicle1.Colour)
+             $scope.current1_colourValue = $scope.caseVehicles.CurrentVehicle1.Colour;
+           if($scope.caseVehicles.CurrentVehicle1.Trim != "")
+             $scope.current1_trimValue = $scope.caseVehicles.CurrentVehicle1.Trim;
+           if($scope.caseVehicles.CurrentVehicle1.Mileage != "")
+             $scope.c1_vehicleMilage = $scope.caseVehicles.CurrentVehicle1.Mileage;
+           if($scope.caseVehicles.CurrentVehicle1.RecordType != "")
+             $scope.c1_RecType = $scope.caseVehicles.CurrentVehicle1.RecordType;
        }
        
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
-       if($scope.leadVehicles.CurrentVehicle2 != undefined){
+       if($scope.caseVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-           $scope.CurrentVehicle2Details = $scope.leadVehicles.CurrentVehicle2.Brand +' ' +$scope.leadVehicles.CurrentVehicle2.Class + ' ' + $scope.leadVehicles.CurrentVehicle2.Model;
+           $scope.CurrentVehicle2Details = $scope.caseVehicles.CurrentVehicle2.Brand +' ' +$scope.caseVehicles.CurrentVehicle2.Class + ' ' + $scope.caseVehicles.CurrentVehicle2.Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -158,32 +158,32 @@
            $scope.vehicleLookup = false;
            $scope.LookupCurrentVehicle1 = false;
            
-           if($scope.leadVehicles.CurrentVehicle2.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.CurrentVehicle2.Brand;
+           if($scope.caseVehicles.CurrentVehicle2.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.CurrentVehicle2.Brand;
              $scope.selectedCurrent2Brand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.CurrentVehicle2.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.CurrentVehicle2.Class;
+           if($scope.caseVehicles.CurrentVehicle2.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.CurrentVehicle2.Class;
              $scope.selectedCurrent2Classes = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.CurrentVehicle2.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.CurrentVehicle2.Model;
+           if($scope.caseVehicles.CurrentVehicle2.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.CurrentVehicle2.Model;
              $scope.selectedCurrent2Model = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.CurrentVehicle2.Colour)
-             $scope.current2_vehicleColour = $scope.leadVehicles.CurrentVehicle2.Colour;
-           if($scope.leadVehicles.CurrentVehicle2.Trim != "")
-             $scope.TradeIn_vehicleColour = $scope.leadVehicles.CurrentVehicle2.Trim;
-           if($scope.leadVehicles.CurrentVehicle2.Mileage != "")
-             $scope.c2_vehicleMilage = $scope.leadVehicles.CurrentVehicle2.Mileage;
-           if($scope.leadVehicles.CurrentVehicle2.RecordType != "")
-             $scope.c2_RecType = $scope.leadVehicles.CurrentVehicle2.RecordType;
+           if($scope.caseVehicles.CurrentVehicle2.Colour)
+             $scope.current2_vehicleColour = $scope.caseVehicles.CurrentVehicle2.Colour;
+           if($scope.caseVehicles.CurrentVehicle2.Trim != "")
+             $scope.TradeIn_vehicleColour = $scope.caseVehicles.CurrentVehicle2.Trim;
+           if($scope.caseVehicles.CurrentVehicle2.Mileage != "")
+             $scope.c2_vehicleMilage = $scope.caseVehicles.CurrentVehicle2.Mileage;
+           if($scope.caseVehicles.CurrentVehicle2.RecordType != "")
+             $scope.c2_RecType = $scope.caseVehicles.CurrentVehicle2.RecordType;
        }
        
        /*TradeIn Vehicle : Vehicle Intitialization details*/
-       if($scope.leadVehicles.TradeIn != undefined){
+       if($scope.caseVehicles.TradeIn != undefined){
            $scope.tradeInVehicleDetailText = "Edit";
-           $scope.tradeInVehicleDetails = $scope.leadVehicles.TradeIn.Brand +' ' +$scope.leadVehicles.TradeIn.Class + ' ' + $scope.leadVehicles.TradeIn.Model;
+           $scope.tradeInVehicleDetails = $scope.caseVehicles.TradeIn.Brand +' ' +$scope.caseVehicles.TradeIn.Class + ' ' + $scope.caseVehicles.TradeIn.Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -191,32 +191,32 @@
            $scope.vehicleLookup = false;
            $scope.LookupCurrentVehicle1 = false;
            
-           if($scope.leadVehicles.TradeIn.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.TradeIn.Brand;
+           if($scope.caseVehicles.TradeIn.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.TradeIn.Brand;
              $scope.selectedTradeInBrand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.TradeIn.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.TradeIn.Class;
+           if($scope.caseVehicles.TradeIn.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.TradeIn.Class;
              $scope.selectedTradeInClasses = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.TradeIn.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.TradeIn.Model;
+           if($scope.caseVehicles.TradeIn.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.TradeIn.Model;
              $scope.selectedTradeInModel = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.TradeIn.Colour)
-             $scope.TradeIn_vehicleColour = $scope.leadVehicles.TradeIn.Colour;
-           if($scope.leadVehicles.TradeIn.Trim != "")
-              $scope.TradeIn_vehicleTrim = $scope.leadVehicles.TradeIn.Trim;             
-           if($scope.leadVehicles.TradeIn.Mileage != "")
-             $scope.TradeIn_vehicleMilage = $scope.leadVehicles.TradeIn.Mileage;
-           if($scope.leadVehicles.TradeIn.RecordType != "")
-             $scope.TradeIn_RecType = $scope.leadVehicles.TradeIn.RecordType;
+           if($scope.caseVehicles.TradeIn.Colour)
+             $scope.TradeIn_vehicleColour = $scope.caseVehicles.TradeIn.Colour;
+           if($scope.caseVehicles.TradeIn.Trim != "")
+              $scope.TradeIn_vehicleTrim = $scope.caseVehicles.TradeIn.Trim;             
+           if($scope.caseVehicles.TradeIn.Mileage != "")
+             $scope.TradeIn_vehicleMilage = $scope.caseVehicles.TradeIn.Mileage;
+           if($scope.caseVehicles.TradeIn.RecordType != "")
+             $scope.TradeIn_RecType = $scope.caseVehicles.TradeIn.RecordType;
        }
        
        /*Purchased Vehicle : Vehicle Intitialization details*/
-       if($scope.leadVehicles.PurchasedVehicle != undefined){
+       if($scope.caseVehicles.PurchasedVehicle != undefined){
            $scope.purchasedVehicleDetailText = "Edit";
-           $scope.purchasedVehicleDetails = $scope.leadVehicles.PurchasedVehicle.Brand +' ' +$scope.leadVehicles.PurchasedVehicle.Class + ' ' + $scope.leadVehicles.PurchasedVehicle.Model;
+           $scope.purchasedVehicleDetails = $scope.caseVehicles.PurchasedVehicle.Brand +' ' +$scope.caseVehicles.PurchasedVehicle.Class + ' ' + $scope.caseVehicles.PurchasedVehicle.Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -224,36 +224,36 @@
            $scope.vehicleLookup = false;
            $scope.LookupCurrentVehicle1 = false;
            
-           if($scope.leadVehicles.PurchasedVehicle.Brand != ""){
-             $scope.vehicleBrand = $scope.leadVehicles.PurchasedVehicle.Brand;
+           if($scope.caseVehicles.PurchasedVehicle.Brand != ""){
+             $scope.vehicleBrand = $scope.caseVehicles.PurchasedVehicle.Brand;
              $scope.selectedPurchasedBrand = $scope.vehicleBrand;
            }
-           if($scope.leadVehicles.PurchasedVehicle.Class != ""){
-             $scope.vehicleClass = $scope.leadVehicles.PurchasedVehicle.Class;
+           if($scope.caseVehicles.PurchasedVehicle.Class != ""){
+             $scope.vehicleClass = $scope.caseVehicles.PurchasedVehicle.Class;
              $scope.selectedPurchasedClasses = $scope.vehicleClass;
            }
-           if($scope.leadVehicles.PurchasedVehicle.Model != ""){
-             $scope.vehicleModel = $scope.leadVehicles.PurchasedVehicle.Model;
+           if($scope.caseVehicles.PurchasedVehicle.Model != ""){
+             $scope.vehicleModel = $scope.caseVehicles.PurchasedVehicle.Model;
              $scope.selectedPurchasedModel = $scope.vehicleModel;
            }
-           if($scope.leadVehicles.PurchasedVehicle.Colour)
-              $scope.Purchased_vehicleColour = $scope.leadVehicles.PurchasedVehicle.Colour; 
-           if($scope.leadVehicles.PurchasedVehicle.Trim != "")
-              $scope.Purchased_vehicleTrim = $scope.leadVehicles.PurchasedVehicle.Trim;
-           if($scope.leadVehicles.PurchasedVehicle.Mileage != "")
-             $scope.Purchased_vehicleMilage = $scope.leadVehicles.PurchasedVehicle.Mileage;
-           if($scope.leadVehicles.PurchasedVehicle.RecordType != "")
-             $scope.Purchased_RecType = $scope.leadVehicles.PurchasedVehicle.RecordType;
+           if($scope.caseVehicles.PurchasedVehicle.Colour)
+              $scope.Purchased_vehicleColour = $scope.caseVehicles.PurchasedVehicle.Colour; 
+           if($scope.caseVehicles.PurchasedVehicle.Trim != "")
+              $scope.Purchased_vehicleTrim = $scope.caseVehicles.PurchasedVehicle.Trim;
+           if($scope.caseVehicles.PurchasedVehicle.Mileage != "")
+             $scope.Purchased_vehicleMilage = $scope.caseVehicles.PurchasedVehicle.Mileage;
+           if($scope.caseVehicles.PurchasedVehicle.RecordType != "")
+             $scope.Purchased_RecType = $scope.caseVehicles.PurchasedVehicle.RecordType;
        }
        
         /*Method gets the Car Model values based on the Vehicle Type*/
-        $scope.getCarModelsForLeadVehicle = function(status_type, selected_Brand, selected_Class){
+        $scope.getCarModelsForCaseVehicle = function(status_type, selected_Brand, selected_Class){
             $scope.brands = [];
             $scope.relatedClasses = [];
             $scope.models = [];
             /*VF Remoting to fetch car models based on status type*/
             Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerController.getCarModels}',status_type,
+                 '{!$RemoteAction.VehiclePickerForCaseController.getCarModels}',status_type,
                    function(result, event) {
                         $scope.brand_class_modelWrap = result;
                         $scope.brandsClasses = $scope.brand_class_modelWrap[0];
@@ -304,7 +304,7 @@
          $scope.lookupSearchDetails = [{VIN:$vinNumber, VehicleType:vehicle_type, RecordId:'{!currentRecordId}'}];
             /*Remoting method here to search vehicle records*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerController.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseController.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
                    function(result, event) {
                         $scope.refreshLookupData(result);
                         $scope.$apply();
@@ -412,7 +412,7 @@
                 $scope.TradeInLookup = false;
             }
                 /*Fetch the car models based on status types here*/
-                $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
+                $scope.getCarModelsForCaseVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
           }  
           
           $scope.selectBrandAction = function () {
@@ -425,7 +425,7 @@
               $scope.relatedClasses.sort();
               $scope.models.sort();
               $scope.vehicleDetail = false;
-              $scope.leadVehicletype = vehicleType; 
+              $scope.caseVehicleType = vehicleType; 
               $scope.recordId = '{!currentRecordId}';             
               $scope.brandVal = document.getElementById("brandItems").value;
               $scope.classVal = document.getElementById("classItems").value;
@@ -436,13 +436,13 @@
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
                                              Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
-                                             Trim:$scope.trimVal,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
+                                             Trim:$scope.trimVal,Mileage:$scope.mileage, caseVehicleType:$scope.caseVehicleType,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
                                          ];
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
@@ -462,13 +462,13 @@
               });
           };
        
-          /*Assign the Lookup vehicle to Lead*/
+          /*Assign the Lookup vehicle to Case*/
           $scope.saveItem = function (vehicleType) { 
               $scope.recordId = '{!currentRecordId}'; 
               $scope.vehicleAttributes = [{Id:$scope.checkedVehicleId, VehicleType:vehicleType, Lookup:"true", CurrentRecordId:$scope.recordId}];
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
@@ -615,34 +615,34 @@
             $scope.vehicleAttributes = [{VehicleType:vehicle_type, CurrentRecordId:$scope.recordId}];
             
             if(angular.equals(vehicle_type, 'Interested Vehicle')){
-                if ($scope.leadVehicles.InterestedVehicle == undefined || $scope.leadVehicles.InterestedVehicle == null ){
+                if ($scope.caseVehicles.InterestedVehicle == undefined || $scope.caseVehicles.InterestedVehicle == null ){
                     return;
                 }
             }else if (angular.equals(vehicle_type, 'Competitor Vehicle')){
-                if ($scope.leadVehicles.CompetitorVehicle == undefined || $scope.leadVehicles.CompetitorVehicle == null ){
+                if ($scope.caseVehicles.CompetitorVehicle == undefined || $scope.caseVehicles.CompetitorVehicle == null ){
                     return;
                 }
             }else if (angular.equals(vehicle_type, 'CurrentVehicle1')){
-                if ($scope.leadVehicles.CurrentVehicle1 == undefined || $scope.leadVehicles.CurrentVehicle1 == null ){
+                if ($scope.caseVehicles.CurrentVehicle1 == undefined || $scope.caseVehicles.CurrentVehicle1 == null ){
                     return;
                 }
             }else if (angular.equals(vehicle_type, 'CurrentVehicle2')){
-                if ($scope.leadVehicles.CurrentVehicle2 == undefined || $scope.leadVehicles.CurrentVehicle2 == null ){
+                if ($scope.caseVehicles.CurrentVehicle2 == undefined || $scope.caseVehicles.CurrentVehicle2 == null ){
                     return;
                 }
             }else if (angular.equals(vehicle_type, 'TradeIn')){
-                if ($scope.leadVehicles.TradeIn == undefined || $scope.leadVehicles.TradeIn == null ){
+                if ($scope.caseVehicles.TradeIn == undefined || $scope.caseVehicles.TradeIn == null ){
                     return;
                 }
             }else if (angular.equals(vehicle_type, 'Purchased')){
-                if ($scope.leadVehicles.PurchasedVehicle == undefined || $scope.leadVehicles.PurchasedVehicle == null ){
+                if ($scope.caseVehicles.PurchasedVehicle == undefined || $scope.caseVehicles.PurchasedVehicle == null ){
                     return;
                 }
             }
                 
-            /*Remoting to Clear the vehicle associated with lead*/
+            /*Remoting to Clear the vehicle associated with case*/
             Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerController.clearVehicleFromLead}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseController.clearVehicleFromCase}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.$apply();
                        if (sforce.console.isInConsole()){
@@ -663,7 +663,7 @@
           
     }]);        
     </script>
-    <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerController">
+    <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerForCaseController">
     <table>
     <tr>
     

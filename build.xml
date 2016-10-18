@@ -412,6 +412,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
+				<sf:include name="VehiclePickerForCase"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
@@ -429,6 +430,8 @@
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
 			<sf:include name="VehiclePickerController"/>
 			<sf:include name="VehiclePickerControllerTests"/>
+			<sf:include name="VehiclePickerForCaseController"/>
+			<sf:include name="VehiclePickerForCaseControllerTest"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
