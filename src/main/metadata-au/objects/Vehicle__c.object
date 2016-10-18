@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -121,6 +117,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BaumusterEx"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -268,6 +265,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -884,6 +882,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -914,6 +913,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1249,6 +1249,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2103,6 +2104,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2303,6 +2305,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CommissionNumber"</descr
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2489,6 +2492,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FinanceExpiryDate“</
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Finance_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>FirstRegistrationDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2523,6 +2543,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2601,6 +2622,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2828,6 +2850,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2860,6 +2883,18 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LastServiceMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>LastServiceMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
@@ -2940,6 +2975,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Expired_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Expired Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>ModelYear__c</fullName>
@@ -3127,6 +3171,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5205,6 +5250,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5239,6 +5285,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5253,6 +5300,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>New Used</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>NextEmissionsCheckDate__c</fullName>
@@ -5470,6 +5534,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicles (Related Dealer)</relationshipLabel>
+        <relationshipName>Vehicles1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Related_From__c</fullName>
         <externalId>false</externalId>
         <label>Start Date</label>
@@ -5588,6 +5665,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_SalesType“</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5644,6 +5722,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_SalesType“</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5678,6 +5757,7 @@ Attribute in Data Dictionary object Vehicle is Vehicle_Source</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -5786,6 +5866,7 @@ Attribute in Data Dictionary object Vehicle is”Vehicle_Transmission“</descri
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6452,6 +6533,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6521,6 +6603,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6568,6 +6651,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6591,6 +6675,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -6617,6 +6702,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -8185,6 +8271,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -8615,6 +8708,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11354,6 +11454,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -13440,6 +13547,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16183,6 +16297,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
@@ -17697,6 +17818,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
