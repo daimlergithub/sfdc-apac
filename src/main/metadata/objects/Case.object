@@ -13848,8 +13848,20 @@ Modify Reason:
     <fields>
         <fullName>Narrative_of_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Narrative of Type</label>
+        <label>Narrative of Type</label>		   
         <picklist>
+		 <picklistValues>
+              <fullName>Action</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concern</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolution</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Marketing Opt Out</fullName>
                 <default>false</default>
@@ -24313,6 +24325,30 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>Action</fullName>
                 <default>false</default>
             </values>
+			<picklistValues>
+                <fullName>Marketing Opt Out</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Magazine Opt Out</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Magazine Number Change</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Marketing Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Magazine Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Recall Address Chage</fullName>
+                <default>false</default>
+            </picklistValues>
         </picklistValues>
         <picklistValues>
             <picklist>Number_of_Contracts__c</picklist>
