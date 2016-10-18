@@ -1,8 +1,8 @@
 global with sharing class VehiclePickerForCaseController {
-	public String currentRecordId {get;set;}
+    public String currentRecordId {get;set;}
     public Case case_Vehicles {get; set;}
-	public List<Vehicle_Relationship__c> caseOwnerVehiclesRelationships;
-	public List<Vehicle__c> caseOwnerVehicles;	
+    public List<Vehicle_Relationship__c> caseOwnerVehiclesRelationships;
+    public List<Vehicle__c> caseOwnerVehicles;  
     public String serialized_vehicleTypeMap {set;get;}
     public String lookup_Vehicles {set;get;}
     public String leadType {get;set;}
@@ -10,7 +10,7 @@ global with sharing class VehiclePickerForCaseController {
     Map<String, Set<String>> brandClassMap {get;set;}
     Map<String, Set<String>> classModelMap {get;set;}
     
-  	public List<Vehicle_Relationship__c> caseVehicleRelationships;
+    public List<Vehicle_Relationship__c> caseVehicleRelationships;
 
     /**
     *@Description : This method fetches all the vehicles that are associated with the cse to pre-populate the values.
@@ -46,7 +46,7 @@ global with sharing class VehiclePickerForCaseController {
                                             case_Vehicles.Current_Vehicle_1__c, case_Vehicles.Current_Vehicle_2__c,case_Vehicles.Trade_In_Vehicle__c,
                                             case_Vehicles.Purchased_Vehicle__c
                                          };
-            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Car_Owner__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId)];           
+            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId)];           
             System.debug('Case Vehicle Relationships...' +caseOwnerVehiclesRelationships.size());
             for (Integer i=0; i < caseOwnerVehiclesRelationships.size(); i++){
                 System.debug('In the For :' +caseOwnerVehiclesRelationships[i]);
@@ -249,7 +249,7 @@ global with sharing class VehiclePickerForCaseController {
         System.debug('Vehicle Type...' +vehicleAttributes.get('VehicleType'));
 
         
-		Case cse;
+        Case cse;
         Vehicle__c vehicleId;
         Id vehicleRec_Id;
         String case_Vehicle_Type = vehicleAttributes.get('VehicleType');
@@ -334,7 +334,7 @@ global with sharing class VehiclePickerForCaseController {
         else{
             Case caseAcc = [Select Car_Owner__c from Case where Id =: searchAttributes.get('RecordId')];
             system.debug('Case Contact...' +caseAcc);
-            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Car_Owner__c =:caseAcc.Car_Owner__c ORDER BY CreatedDate ASC];
+            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.Car_Owner__c ORDER BY CreatedDate ASC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
             
             if (!caseVehicleRelationships.isEmpty()){
@@ -382,7 +382,7 @@ global with sharing class VehiclePickerForCaseController {
     @RemoteAction
     global static void updateVehicleDetails(String vehicleDetails) {
         UtilConstant utilConst = new UtilConstant();         
-		Vehicle__c caseVehicle = new Vehicle__c();
+        Vehicle__c caseVehicle = new Vehicle__c();
         List<Car_Model__c> carModel;    
         System.debug('I am in my remote method...' +vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
@@ -409,7 +409,7 @@ global with sharing class VehiclePickerForCaseController {
                 insert caseVehicle;
                 
                 
-				Case cse = [Select Id from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+                Case cse = [Select Id from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      cse.Interested_Vehicle__c = caseVehicle.Id;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
