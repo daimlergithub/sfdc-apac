@@ -13851,15 +13851,27 @@ Modify Reason:
         <label>Narrative of Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Action</fullName>
+                <fullName>Marketing Opt Out</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Concern</fullName>
+                <fullName>Magazine Opt Out</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Resolution</fullName>
+                <fullName>Magazine Number Change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall Address Chage</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -17603,6 +17615,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Settlement_Amount__c</fullName>
