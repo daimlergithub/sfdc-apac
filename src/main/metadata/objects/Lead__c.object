@@ -69275,7 +69275,7 @@ OR (
 ISNULL(Service_Date__c), 
 ISBLANK(Service_Date__c) 
 ), 
-RecordType.Name == 'Aftersales Leads')
+RecordType.Name == 'Aftersales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Service Completed, Service Date is required.</errorMessage>
@@ -69289,7 +69289,7 @@ OR(
 ISNULL(Purchased_CAC_Date_Time__c), 
 ISBLANK(Purchased_CAC_Date_Time__c) 
 ), 
-RecordType.Name == 'Sales Leads')
+RecordType.Name == 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
