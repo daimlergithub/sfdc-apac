@@ -4559,4 +4559,18 @@
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
+	<labels>
+        <fullName>Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company</shortDescription>
+        <value>Company</value>
+    </labels>
+	<labels>
+        <fullName>PersonAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount</shortDescription>
+        <value>Person Account</value>
+    </labels>
 </CustomLabels>
