@@ -125,7 +125,7 @@ public class AddressSearchValidationController
 **  Date: 2016-1-19
 **/
     public pagereference saveAccount()
-    {    system.debug('addresspicklist 2: '+addresspicklist);
+    {    
          AddressObj.Address_Type__c = addresspicklist;
          AddressObj.Province__c = provincepicklist;
         // Save record without Address record if no value is Entered in Address section
@@ -186,21 +186,21 @@ public class AddressSearchValidationController
         }
         if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null && AddressObj.ZipCode__c == null){
         try{        
-            if(recordType == 'Company' && market == 'KR')
+            if(recordType == System.Label.Company && market == System.Label.KR)
                {
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
                                       
                     if(!homePhoneAreaCode.equals('0')){                      
                        objAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
                        }
-                    if(!workPhoneAreaCode.equals('0')){
-                         system.debug('>>>>homePhoneAreaCode<<<<<'+homePhoneAreaCode);
+                    if(!workPhoneAreaCode.equals('0')){                        
                          objAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
                       }
                     if(!mobileAreaCode.equals('0')){                        
                          objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
                     }
+                    
                     if(objAccount.Individual_Home_Phone__c == null && objAccount.Mobile__c == null && objAccount.Work_Phone__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
@@ -212,11 +212,19 @@ public class AddressSearchValidationController
                         return PageRef; 
                     } 
                }
-            if(recordType == 'Person Account' && market == 'KR')
+            if(recordType == System.Label.PersonAccount && market == System.Label.KR)
                 {       
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.PersonAccount).getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
-                    objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3; 
+                     if(!homePhoneAreaCode.equals('0')){                      
+                       objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCode+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                       }
+                    if(!workPhoneAreaCode.equals('0')){                         
+                         objPersonAccount.Work_Phone__c = workPhoneAreaCode+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                      }                     
+                    if(!mobileAreaCode.equals('0')){              
+                         objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                     }   
                     refreshPage = true;                      
                     insert objPersonAccount;
                     PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
@@ -234,10 +242,10 @@ public class AddressSearchValidationController
         else
         {
             try{
-                if( recordType == 'Company')
+                if( recordType == System.Label.Company)
                 {
                    
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
                    
                     if(Address_Validated_Flag == false)
@@ -262,9 +270,9 @@ public class AddressSearchValidationController
                    
                     
                 }
-                if(recordType == 'Person Account')
+                if(recordType == System.Label.PersonAccount)
                 {
-                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.PersonAccount).getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     
                     
@@ -308,8 +316,7 @@ public class AddressSearchValidationController
     public void selectedRecordTypeValue()
     {
         resetPhoneAreacodes();
-        selectedRecordType = recordType;
-        system.debug('Selected type...' +selectedRecordType);
+        selectedRecordType = recordType;        
     }
     /**  Address Search based on Zip code.
 Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen.
