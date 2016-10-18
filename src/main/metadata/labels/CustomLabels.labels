@@ -4567,6 +4567,13 @@
         <value>Company</value>
     </labels>
 	<labels>
+        <fullName>KR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR</shortDescription>
+        <value>KR</value>
+    </labels>
+	<labels>
         <fullName>PersonAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
