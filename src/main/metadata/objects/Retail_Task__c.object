@@ -4026,8 +4026,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Forced Termination</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Change of Owner</fullName>
+             <picklistValues>
+                <fullName>Change Owner</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
