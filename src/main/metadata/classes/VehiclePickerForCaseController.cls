@@ -46,7 +46,7 @@ global with sharing class VehiclePickerForCaseController {
                                             case_Vehicles.Current_Vehicle_1__c, case_Vehicles.Current_Vehicle_2__c,case_Vehicles.Trade_In_Vehicle__c,
                                             case_Vehicles.Purchased_Vehicle__c
                                          };
-            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId)];           
+            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Car_Owner__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId)];           
             System.debug('Case Vehicle Relationships...' +caseOwnerVehiclesRelationships.size());
             for (Integer i=0; i < caseOwnerVehiclesRelationships.size(); i++){
                 System.debug('In the For :' +caseOwnerVehiclesRelationships[i]);
@@ -334,7 +334,7 @@ global with sharing class VehiclePickerForCaseController {
         else{
             Case caseAcc = [Select Car_Owner__c from Case where Id =: searchAttributes.get('RecordId')];
             system.debug('Case Contact...' +caseAcc);
-            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.Car_Owner__c ORDER BY CreatedDate ASC];
+            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Car_Owner__c =:caseAcc.Car_Owner__c ORDER BY CreatedDate ASC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
             
             if (!caseVehicleRelationships.isEmpty()){
@@ -347,7 +347,7 @@ global with sharing class VehiclePickerForCaseController {
             //Search for Self Registered:
             Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
             system.debug('Self Registered Rec Id :' +selfRegisteredRec_TypeId);
-            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.Contact__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.Car_Owner__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
             
             if (!selfRegisteredVehicles.isEmpty()){
