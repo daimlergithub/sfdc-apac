@@ -23,10 +23,6 @@
         <name>CurrentMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Customer ID --></label>
-        <name>Customer_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- Dealer No. --></label>
         <name>Dealer_No__c</name>
     </fields>
