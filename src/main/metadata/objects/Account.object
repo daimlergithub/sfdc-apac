@@ -2090,6 +2090,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Company_Legal_Form_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Legal Form Native</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Company_Legal_Form__c</fullName>
         <externalId>false</externalId>
@@ -2157,6 +2174,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Company_Legal_Form_text_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Legal Form text Native</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Company_Legal_Form_text__c</fullName>
@@ -5190,7 +5218,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-    <fields>
+	<fields>
         <fullName>Dealer_Rollout_Status__c</fullName>
         <description>To manage status of Rollout. Value should be "Not Yet", "In_Progress", "Done"</description>
         <externalId>false</externalId>
@@ -5198,6 +5226,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Yet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Done</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In_Progress</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -6581,6 +6621,23 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Blacklisted</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>FinanceLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>FinanceLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8895,6 +8952,15 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
+	<fields>
+        <fullName>MB_Customer_Info_Remove__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>MB Customer Info Remove</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
@@ -9547,6 +9613,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Online_Dedup_Hidden__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Online Dedup Hidden</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Opt_In_Contact_Reason_Details__c</fullName>
@@ -10267,7 +10342,16 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Portal_Apply_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Apply Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+	<fields>
         <fullName>Portal_Apply_Status__c</fullName>
         <description>The info to identify the Account to register MyM Accont.</description>
         <externalId>false</externalId>
@@ -10275,6 +10359,18 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for confirmation</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -12792,7 +12888,16 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Warranty_Apply_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Warranty Apply Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+	<fields>
         <fullName>Warranty_Apply_Status__c</fullName>
         <description>"The info to identify the Account to share SPO
 ""To be sent"", ""Sent""
@@ -12804,6 +12909,14 @@ Invisible on UI."</description>
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -12811,6 +12924,18 @@ Invisible on UI."</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Warranty_Apply_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Warranty Apply User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Accounts4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Website</fullName>
@@ -13599,6 +13724,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Company_Legal_Form_Native__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15087,6 +15219,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+		<picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>Done</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In_Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
@@ -15415,6 +15562,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18603,6 +18757,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Company_Legal_Form_Native__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Company_Legal_Form__c</picklist>
             <values>
@@ -20528,6 +20689,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23921,6 +24089,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Company_Legal_Form_Native__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Company_Legal_Form__c</picklist>
             <values>
@@ -25094,6 +25269,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>Done</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In_Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
@@ -25450,6 +25640,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
