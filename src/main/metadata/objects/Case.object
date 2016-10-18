@@ -24333,6 +24333,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>Magazine Opt Out</fullName>
                 <default>false</default>
             </picklistValues>
+			</values>
 			<values>
                 <fullName>Magazine Number Change</fullName>
                 <default>false</default>
