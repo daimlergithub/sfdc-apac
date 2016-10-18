@@ -24325,30 +24325,30 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>Action</fullName>
                 <default>false</default>
             </values>
-			<picklistValues>
+			<values>
                 <fullName>Marketing Opt Out</fullName>
                 <default>false</default>
-            </picklistValues>
-			<picklistValues>
+            </values>
+			<values>
                 <fullName>Magazine Opt Out</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+			<values>
                 <fullName>Magazine Number Change</fullName>
                 <default>false</default>
-            </picklistValues>
-			<picklistValues>
+            </values>
+			<values>
                 <fullName>Marketing Opt In</fullName>
                 <default>false</default>
-            </picklistValues>
-			<picklistValues>
+            </values>
+			<values>
                 <fullName>Magazine Opt In</fullName>
                 <default>false</default>
-            </picklistValues>
-			<picklistValues>
+            </values>
+			<values>
                 <fullName>Recall Address Chage</fullName>
                 <default>false</default>
-            </picklistValues>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Number_of_Contracts__c</picklist>
