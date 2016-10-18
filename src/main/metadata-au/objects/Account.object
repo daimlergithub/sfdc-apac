@@ -27,10 +27,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -344,6 +340,23 @@
         <label>SuspectAccountFields</label>
     </fieldSets>
     <fields>
+        <fullName>ASLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>ASLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -421,6 +434,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -511,6 +525,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -546,6 +561,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -582,6 +598,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -598,6 +615,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -632,6 +650,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -666,6 +685,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -794,6 +814,7 @@ LEN( Phone ) &lt;&gt; 0
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -867,6 +888,7 @@ LEN( Phone ) &lt;&gt; 0
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -939,6 +961,7 @@ LEN( Phone ) &lt;&gt; 0
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -1035,6 +1058,7 @@ Service Only - does have at least one After Sales Record</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1074,6 +1098,7 @@ Service Only - does have at least one After Sales Record</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -1102,6 +1127,7 @@ Service Only - does have at least one After Sales Record</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1137,6 +1163,7 @@ Service Only - does have at least one After Sales Record</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -1271,6 +1298,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1286,6 +1314,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1305,6 +1334,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <fullName>Company_Name_Native_1__c</fullName>
         <externalId>false</externalId>
         <label>Company Name Native</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Name_Native_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Native2</label>
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1335,6 +1375,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1420,6 +1461,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1467,6 +1509,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1490,9 +1533,19 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Customer_LastUpdatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Attributes UpdatedDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Customer_Lifecycle_Phase__c</fullName>
@@ -1521,6 +1574,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1578,6 +1632,18 @@ Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <externalId>false</externalId>
         <label>DMS Customer ID</label>
         <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DMS_Retailer_ID__c</fullName>
+        <description>To keep Autoline Retailer ID for IF</description>
+        <externalId>false</externalId>
+        <label>DMS Retailer ID</label>
+        <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1704,6 +1770,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -2406,6 +2473,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -2620,6 +2688,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_AddressEN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -2773,6 +2842,7 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -2796,6 +2866,7 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -2819,6 +2890,7 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -3119,6 +3191,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -3331,6 +3404,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -3372,6 +3446,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -3484,6 +3559,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_EmergencyNumber"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -3669,6 +3745,7 @@ Textbox field with : Name (Chinese + English), Phone and Email</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -3823,6 +3900,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
@@ -3932,6 +4010,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4021,6 +4100,7 @@ Feb-18-2012: Added by Rob and Falk</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4077,6 +4157,7 @@ Feb-18-2012: Added by Rob and Falk</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -4156,6 +4237,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4194,6 +4276,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4207,6 +4290,24 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dealer_Rollout_Status__c</fullName>
+        <description>To manage status of Rollout. Value should be "Not Yet", "In_Progress", "Done"</description>
+        <externalId>false</externalId>
+        <label>Dealer Rollout Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_SAP_MB_Trucks_Freightliner__c</fullName>
@@ -4333,6 +4434,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_SalesType"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -4386,6 +4488,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -4450,6 +4553,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4497,6 +4601,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4520,6 +4625,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4561,6 +4667,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4608,6 +4715,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4631,6 +4739,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4678,6 +4787,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -4762,6 +4872,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -4964,6 +5075,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5059,6 +5171,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5074,6 +5187,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5090,6 +5204,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5117,6 +5232,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5439,6 +5555,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5477,9 +5594,19 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Contract__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Finance Contract</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Finance_Sanction_Comment__c</fullName>
@@ -5647,6 +5774,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5710,6 +5838,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -5793,6 +5922,7 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -5910,6 +6040,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -5975,6 +6106,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6081,6 +6213,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6106,6 +6239,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6345,6 +6479,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6582,6 +6717,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6601,6 +6737,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6616,6 +6753,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -6675,6 +6813,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6698,6 +6837,16 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Modified_User_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(LastModifiedBy.User_Type__c)</formula>
+        <label>Last Modified User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Last_OB_Task_Create_Date__c</fullName>
@@ -6855,6 +7004,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -6910,6 +7060,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -6963,6 +7114,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7007,6 +7159,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -7114,6 +7267,7 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7175,6 +7329,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7357,6 +7512,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7383,6 +7539,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -7499,6 +7656,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7615,6 +7773,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -7856,6 +8015,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8002,6 +8162,38 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Portal_Apply_Status__c</fullName>
+        <description>"The info to identify the Account to register MyM Accont.
+""To be sent"", ""Sent"""</description>
+        <externalId>false</externalId>
+        <label>Portal Apply Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Apply_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The info to identify the user who registered this Account to MyM.</description>
+        <externalId>false</externalId>
+        <label>Portal Apply User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Accounts3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
         <label>Portal Mail Address</label>
@@ -8012,6 +8204,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8047,6 +8240,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -8090,6 +8284,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8193,6 +8388,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8260,6 +8456,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8330,6 +8527,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8370,6 +8568,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8400,6 +8599,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8446,6 +8646,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8477,6 +8678,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -8513,6 +8715,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
@@ -9075,6 +9278,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9176,6 +9380,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9231,6 +9436,23 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SalesLead_Notification_Timing__c</fullName>
+        <externalId>false</externalId>
+        <label>SalesLead Notification Timing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9288,6 +9510,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9323,6 +9546,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -9379,6 +9603,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -9461,6 +9686,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9476,6 +9702,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9520,6 +9747,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -9585,6 +9813,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9621,6 +9850,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9657,6 +9887,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9672,6 +9903,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9709,6 +9941,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9959,6 +10192,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -10016,6 +10250,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -10140,6 +10375,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -10177,6 +10413,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -10212,6 +10449,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -10268,6 +10506,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -10361,6 +10600,26 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Warranty_Apply_Status__c</fullName>
+        <description>"The info to identify the Account to share SPO
+""To be sent"", ""Sent""
+Invisible on UI."</description>
+        <externalId>false</externalId>
+        <label>Warranty Apply Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10396,6 +10655,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
@@ -10483,6 +10743,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -10499,6 +10760,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -10692,6 +10954,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Company</fullName>
         <active>true</active>
         <label>Company</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -12422,6 +12691,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -13841,6 +14117,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -14138,6 +14421,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14673,6 +14963,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Western_Star_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -14719,6 +15016,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>A dedicated user to work on soft deleted customer records is necessary because in phase 1 there's no way back to LDCL and due to merge of customer merge back to LDCL there might be the situation that in salesforce on the softdeleted records (duplicates) t</description>
         <label>Company Soft Deleted</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -16461,6 +16765,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -17704,6 +18015,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -18001,6 +18319,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18340,6 +18665,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Western_Star_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -18386,6 +18718,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -19908,6 +20247,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -21315,6 +21661,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -21608,6 +21961,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22143,6 +22503,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Western_Star_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -22188,6 +22555,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Dealer_Group</fullName>
         <active>true</active>
         <label>Dealer Group</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -23974,6 +24348,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -25385,6 +25766,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -25682,6 +26070,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26213,6 +26608,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
