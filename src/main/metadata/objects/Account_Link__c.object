@@ -176,13 +176,13 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Last_Service_Dealer__c</fullName>
+        <fullName>Service_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Last Service Dealer</label>
+        <label>Service Dealer</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Last Service Dealer)</relationshipLabel>
-        <relationshipName>Account_Link1</relationshipName>
+        <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
+        <relationshipName>Account_Link3</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
