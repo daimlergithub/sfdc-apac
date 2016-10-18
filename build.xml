@@ -109,6 +109,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
+				<sf:include name="User"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
 				<sf:include name="Campaign"/>
