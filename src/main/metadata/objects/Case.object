@@ -13874,18 +13874,6 @@ Modify Reason:
                 <fullName>Recall Address Chage</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Action</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Concern</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Resolution</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -17628,7 +17616,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -21576,7 +21564,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>All Central Office Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21616,130 +21604,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>All_Region_East_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>East</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region East Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_North_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>North</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region North Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_South_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>South</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region South Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Region_West_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Progress_Status__c</columns>
-        <columns>Handling_Level__c</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>Escalate_Date_to_RO__c</columns>
-        <columns>Escalate_Date_to_CO__c</columns>
-        <columns>Case_Source__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Ref_No_Central__c</columns>
-        <columns>Ref_No_Regional__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Region__c</field>
-            <operation>equals</operation>
-            <value>West</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <label>All Region West Cases</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>Regional_CRM_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>All_Shared_CAC_Inquiries</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -21770,18 +21634,20 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-ER team</label>
+        <language>en_US</language>
         <queue>Central_Office_ER_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_NR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-NR team</label>
+        <language>en_US</language>
         <queue>Central_Office_NR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21797,43 +21663,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
-            <role>PL_WL_Team</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_PL_WL_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
+        <language>en_US</language>
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office Queue</label>
+        <language>en_US</language>
         <queue>Central_Office_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_SR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-SR team</label>
+        <language>en_US</language>
         <queue>Central_Office_SR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_WR_team_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office-WR team</label>
+        <language>en_US</language>
         <queue>Central_Office_WR_team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21940,54 +21810,40 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>MBJ_CRM_Department_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBK_Call_Center_Managers_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>MBK Call Center Managers</label>
+        <language>en_US</language>
         <queue>MBK_Call_Center_Managers</queue>
         <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_Managers_KR_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBK Call Center Managers</label>
-        <queue>MBK_Call_Center_Managers</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_Managers_KR_Case_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBK Call Center Managers</label>
-        <queue>MBK_Managers_KR_Case</queue>
-        <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22136,26 +21992,27 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_East_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office East Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_North_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office North Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22171,8 +22028,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22188,17 +22044,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_South_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office South Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22214,17 +22070,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <language>en_US</language>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <role>AS_Service_Technical_Director</role>
-            <role>Regional_CRM_Manager</role>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_West_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office West Queue</label>
+        <language>en_US</language>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22246,27 +22102,30 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <fullName>Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_A_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_B_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team B</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_B</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22303,62 +22162,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <value>Trial</value>
         </filters>
         <label>Trial Activities</label>
-    </listViews>
-    <listViews>
-        <fullName>View</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>equals</operation>
-            <value>Closed,Closed</value>
-        </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint</value>
-        </filters>
-        <filters>
-            <field>Case_Dealer__c</field>
-            <operation>equals</operation>
-            <value>Beijing Olympic star car service co</value>
-        </filters>
-        <label>All closed cases_Beijing Olympic star</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>View5</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Chrysler_Complaint</value>
-        </filters>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>equals</operation>
-            <value>Requires Manager Review,Waiting for Reply</value>
-        </filters>
-        <filters>
-            <field>CASES.CREATED_DATE</field>
-            <operation>greaterOrEqual</operation>
-            <value>9/1/2013 12:00 AM</value>
-        </filters>
-        <label>Not reply Chrysler complaint</label>
-        <language>en_US</language>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
@@ -24507,7 +24310,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -34275,27 +34078,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Magazine Number Change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Magazine Opt In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Magazine Opt Out</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Opt In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Opt Out</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recall Address Chage</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45262,7 +45045,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55281,7 +55064,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -65212,7 +64995,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -70868,7 +70651,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -75644,7 +75427,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -85227,7 +85010,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -95854,15 +95637,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Magazine Number Change</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Magazine Opt Out</fullName>
+                <fullName>Concern</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Resolution</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -106165,7 +105948,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
-                <fullName>Marketing Opt Out</fullName>
+                <fullName>Action</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -109555,17 +109338,17 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, '500?def_account_id={!Account.Id}&amp;amp;RecordType=012p00000008UIC&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
+sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl("500?def_account_id={!Account.Id}&amp;amp;RecordType=012p00000008UIC&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
+window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
 } 
 
 } 
 else { 
-window.open("500?def_account_id={!Account.Id}&amp;amp;RecordType=012p00000008UIC&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
+window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
 }</url>
     </webLinks>
     <webLinks>
@@ -109577,7 +109360,18 @@ window.open("500?def_account_id={!Account.Id}&amp;amp;RecordType=012p00000008UIC
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>a0t?retURL=%2Fa0u%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_AfterSales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New AfterSales Lead</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
