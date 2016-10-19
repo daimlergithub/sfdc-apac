@@ -12924,14 +12924,6 @@ Invisible on UI."</description>
                 <fullName>Sent</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>To be Sent</fullName>
-                <default>false</default>
-            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>

@@ -3527,6 +3527,10 @@ What factors were influential in your purchase decision?
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
+			<picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>D</fullName>
                 <default>false</default>
@@ -4859,50 +4863,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <Values>
-                <fullName>D</fullName>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
-            </Values>
-            <Values>
-                <fullName>L</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>T</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>U</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>X</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Y</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Z</fullName>
-                <default>false</default>
-            </Values>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
@@ -5401,50 +5365,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <Values>
-                <fullName>D</fullName>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
-            </Values>
-            <Values>
-                <fullName>L</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>T</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>U</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>X</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Y</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Z</fullName>
-                <default>false</default>
-            </Values>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
@@ -5936,50 +5860,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <Values>
-                <fullName>D</fullName>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
-            </Values>
-            <Values>
-                <fullName>L</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>T</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>U</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>X</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Y</fullName>
-                <default>false</default>
-            </Values>
-            <Values>
-                <fullName>Z</fullName>
-                <default>false</default>
-            </Values>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
