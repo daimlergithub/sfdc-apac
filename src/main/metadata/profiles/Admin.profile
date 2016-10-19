@@ -10366,11 +10366,6 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Purchased_VIN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
