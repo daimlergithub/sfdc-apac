@@ -5236,10 +5236,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <label>Dealer Rollout Status</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10368,10 +10364,6 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Portal Apply Status</label>
         <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Sent</fullName>
                 <default>false</default>
