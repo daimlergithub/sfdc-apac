@@ -21176,9 +21176,6 @@
         <layout>UserAlt-User Profile Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>UserProvisioningRequest-User Provisioning Request Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>VIN_Mapping__c-VIN Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
