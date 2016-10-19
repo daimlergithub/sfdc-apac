@@ -3522,13 +3522,57 @@ What factors were influential in your purchase decision?
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>SalesType__c</fullName>
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
-            <picklistValues>
+			<picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>L</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>T</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>U</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Z</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -3550,7 +3594,7 @@ What factors were influential in your purchase decision?
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>Sales_Person__c</fullName>
         <externalId>false</externalId>

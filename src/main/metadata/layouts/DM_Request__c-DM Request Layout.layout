@@ -7,8 +7,8 @@
         <editHeading>true</editHeading>
         <label>Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
+            <layoutItems>                
+                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -235,3 +235,4 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+

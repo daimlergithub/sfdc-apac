@@ -3,6 +3,7 @@
     <customButtons>Repeated_Complaint</customButtons>
     <customButtons>Input_MPC_Note</customButtons>
     <customButtons>New_Lead</customButtons>
+	<customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Escalation</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
@@ -57,6 +58,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Care_Owner__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DeadLine__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
