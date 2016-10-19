@@ -4267,10 +4267,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <label>Dealer Rollout Status</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8700,10 +8696,6 @@ Modify Reason:
         <label>Portal Apply Status</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Sent</fullName>
                 <default>false</default>
             </picklistValues>
@@ -11002,10 +10994,6 @@ Invisible on UI."</description>
         <externalId>false</externalId>
         <label>Warranty Apply Status</label>
         <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Sent</fullName>
                 <default>false</default>
@@ -14768,10 +14756,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Sent</fullName>
                 <default>false</default>
@@ -15520,10 +15504,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
        <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Sent</fullName>
                 <default>false</default>
@@ -17213,10 +17193,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Done</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
-            </values>
+            </values>			
             <values>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
@@ -18654,10 +18634,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Sent</fullName>
                 <default>false</default>
@@ -19402,10 +19378,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Sent</fullName>
                 <default>false</default>
