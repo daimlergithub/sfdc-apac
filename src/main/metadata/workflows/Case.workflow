@@ -213,6 +213,294 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Final_Approval</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_1</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_10</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_11</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_12</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_13</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_14</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 14</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_15</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 15</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_16</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 16</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_2</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_3</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_4</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_5</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_6</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_7</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_8</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_9</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 9</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_10</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_11</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_12</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_13</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_16</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 16</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_17</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 17</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_2</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_3</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_4</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_5</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_6</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_7</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_8</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_9</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 9</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>0</literalValue>
@@ -407,6 +695,150 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Waiting_For_Response</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Waiting For Response</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Ap</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Ap</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_App</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final App</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_1</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_10</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_11</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_12</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_13</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_2</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_3</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_4</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_5</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_6</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_7</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_8</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_9</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 9</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>update_workflow_order</fullName>
         <field>Workflow_Order__c</field>
         <literalValue>0</literalValue>
@@ -468,6 +900,24 @@
                 <type>FieldUpdate</type>
             </actions>
             <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_need_to_be_handle_before_deadline</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.X15_Minutes_Before_Deadline__c</offsetFromField>
+            <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -833,6 +1283,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -842,6 +1293,16 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>lessThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

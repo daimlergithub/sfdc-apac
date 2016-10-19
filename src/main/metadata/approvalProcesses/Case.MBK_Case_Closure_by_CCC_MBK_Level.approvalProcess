@@ -33,8 +33,26 @@ ISPICKVAL(Handling_Level__c,&apos;Central Office&apos;),
 NOT(ISPICKVAL(Status,&apos;Closed&apos;)),
 MD__c=&apos;KR&apos;)</formula>
     </entryCriteria>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalActions>
+        <action>
+            <name>Final_Approval_10</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Final_Rejected_10</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Waiting_for_Final_Approval_9</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
     <label>MBK Case Closure by CCC MBK Level</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>

@@ -31,8 +31,26 @@ ISPICKVAL(Handling_Level__c,&apos;Central Office&apos;),
 NOT(ISPICKVAL(Status,&apos;Closed&apos;)),
 ISPICKVAL(Overdue__c,&apos;Y&apos;),MD__c=&apos;KR&apos;)</formula>
     </entryCriteria>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalActions>
+        <action>
+            <name>Final_Approval_13</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Final_Rejected_13</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Waiting_for_Final_Approval_12</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
     <label>MBK Case Created by  Dealers - Escalatio</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>

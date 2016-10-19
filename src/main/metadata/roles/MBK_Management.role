@@ -5,5 +5,5 @@
     <description>MBK Management</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>MBK Management</name>
-    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
 </Role>

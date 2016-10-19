@@ -16,8 +16,8 @@ public class TriggerDMRequestTriggerHandlerJP
     {
         if(Trigger.isBefore && Trigger.isInsert)
         {
-            DMRequestHelperJP.InsertDMRequest(trigger.new,isInsert);
-            DMRequestHelperJP.updateStatus(trigger.new,true);
+            DMRequestHelperJP.InsertDMRequest(trigger.new,isInsert);         
+            DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
         }
         
         if (Trigger.isBefore && Trigger.isUpdate)
