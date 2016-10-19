@@ -18,7 +18,7 @@
     <description>Hobby Interested Event and Vehicle Model</description>
     <filter>
         <criteriaItems>
-            <column>FK_PC_$Contact.MD__c</column>
+            <column>Vehicle_Relationship__c.MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>
