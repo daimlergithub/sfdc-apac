@@ -3522,13 +3522,53 @@ What factors were influential in your purchase decision?
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>SalesType__c</fullName>
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>L</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>T</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>U</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Z</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -3550,7 +3590,7 @@ What factors were influential in your purchase decision?
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>Sales_Person__c</fullName>
         <externalId>false</externalId>
@@ -4819,10 +4859,50 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <values>
-                <fullName>None</fullName>
+            <Values>
+                <fullName>D</fullName>
                 <default>false</default>
-            </values>
+            </Values>
+            <Values>
+                <fullName>L</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>T</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>U</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </Values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
@@ -5321,10 +5401,50 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <values>
-                <fullName>None</fullName>
+            <Values>
+                <fullName>D</fullName>
                 <default>false</default>
-            </values>
+            </Values>
+            <Values>
+                <fullName>L</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>T</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>U</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </Values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
@@ -5816,10 +5936,50 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>SalesType__c</picklist>
-            <values>
-                <fullName>None</fullName>
+            <Values>
+                <fullName>D</fullName>
                 <default>false</default>
-            </values>
+            </Values>
+            <Values>
+                <fullName>L</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>T</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>U</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </Values>
+            <Values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </Values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>

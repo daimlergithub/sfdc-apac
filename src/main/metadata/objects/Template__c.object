@@ -345,7 +345,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
     </fields>
     <fields>
         <fullName>TemplateID__c</fullName>
-        <displayFormat>A-{000000}</displayFormat>
+        <displayFormat>TA-{YYYY}-{000000}</displayFormat>
         <externalId>false</externalId>
         <label>TemplateID</label>
         <trackHistory>false</trackHistory>
