@@ -12380,11 +12380,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Service_Loan_Car__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Service_Program__c</field>
         <readable>false</readable>
     </fieldPermissions>
