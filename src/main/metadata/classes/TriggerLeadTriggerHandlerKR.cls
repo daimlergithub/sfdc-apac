@@ -10,8 +10,14 @@ public class TriggerLeadTriggerHandlerKR
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
-        System.debug('Handletrigger----->');
-             
+        System.debug('Handletrigger----->1');
+        if(isBefore && isUpdate){
+            set<id> dealerIds = new set<id>();
+            for(Lead__C leds : (List<Lead__c>)trigger.new){
+                dealerIds.add(Leds.Assigned_Dealer__c);
+            }            
+            LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new);
+        }       
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;

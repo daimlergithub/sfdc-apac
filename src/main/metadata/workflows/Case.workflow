@@ -1282,7 +1282,7 @@
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1300,9 +1300,14 @@
         </criteriaItems>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
-            <operation>lessThan</operation>
+            <operation>greaterOrEqual</operation>
             <value>TODAY</value>
         </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>
