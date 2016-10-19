@@ -45,6 +45,16 @@
     <description>NCBS (PPS) Reports</description>
     <filter>
         <criteriaItems>
+            <column>Account.Vehicles__r.Vehicle_Relationships__r$Registration_Date__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Vehicles__r$Model__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
             <column>Account$MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
