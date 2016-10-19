@@ -4597,11 +4597,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Customer_ID__c</field>
-            <table>Account.Retail_Tasks4__r.Account_Link__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Retail_Address_CreatedDate__c</field>
             <table>Account.Retail_Tasks4__r.Account_Link__r</table>
         </columns>
