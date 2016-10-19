@@ -3590,8 +3590,7 @@ What factors were influential in your purchase decision?
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-	
+    </fields>	
     <fields>
         <fullName>Sales_Person__c</fullName>
         <externalId>false</externalId>
