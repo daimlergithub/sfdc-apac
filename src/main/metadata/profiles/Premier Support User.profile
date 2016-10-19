@@ -22763,7 +22763,6 @@
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Premier Support</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
