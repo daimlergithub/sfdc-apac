@@ -214,6 +214,9 @@
         <field>Vehicle__c.Latest_Invoice_Date__c</field>
     </columns>
     <columns>
+        <field>Vehicle__c.Latest_Sales_Person__c</field>
+    </columns>
+    <columns>
         <field>Vehicle__c.Recall__c</field>
     </columns>
     <columns>
@@ -249,17 +252,15 @@
     <columns>
         <field>Vehicle__c.Valid__c</field>
     </columns>
+    <columns>
+        <field>Vehicle__c.LastServiceDate__c</field>
+    </columns>
     <description>Customer Information Report</description>
     <filter>
         <criteriaItems>
-            <column>Vehicle__c.FirstRegistrationDate__c</column>
+            <column>FK_PC_$Contact.MD__c</column>
             <operator>equals</operator>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Vehicle__c.Purchase_Month__c</column>
-            <operator>notEqual</operator>
-            <value>0</value>
+            <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
@@ -272,6 +273,8 @@
     <reportType>CustomEntity$Vehicle__c@Vehicle__c.Related_contact__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Vehicle__c.ProductionDate__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>CUST_CREATED_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

@@ -88,8 +88,8 @@
                 
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'KR') ),true,false)}">
-                    <apex:inputField value="{!objPersonAccount.Salutation__c}" />
-                    <apex:outputtext />          
+                   <!-- <apex:inputField value="{!objPersonAccount.Salutation__c}" />
+                    <apex:outputtext />   -->       
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
@@ -111,9 +111,18 @@
                             <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
                             <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>                   
-                    <apex:inputField value="{!objPersonAccount.Mobile__c}" />                  
-                    <apex:pageBlockSectionItem >
+                    </apex:pageBlockSectionItem>   
+                   <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
+                        <apex:outputPanel >
+                            <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
+                                <apex:selectOptions value="{!MobileAreacodeItems}"/>
+                            </apex:selectList>                       
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3" style="width:60px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>          
+                 <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCode}" size="1" style="width:80px">
@@ -124,10 +133,10 @@
                         </apex:outputPanel>                  
                     </apex:pageBlockSectionItem> 
                    
-                    <apex:inputField value="{!objPersonAccount.Email__c}" />                    
-                    <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>  
-                    <apex:inputField value="{!objPersonAccount.Data_Source__c}"/>
-                </apex:pageBlockSection>
+                  <apex:inputField value="{!objPersonAccount.Email__c}" />                    
+                  <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/> 
+                  <apex:inputField value="{!objPersonAccount.Data_Source__c}"/>
+               </apex:pageBlockSection>
                
         <!--  KOREA MARKET Person Account - End -->
        
@@ -142,8 +151,7 @@
                     </apex:pageBlockSectionItem>
                   
                     <apex:inputField value="{!objAccount.Company_Name__c}" />              
-                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />              
-           
+                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
@@ -154,8 +162,16 @@
                             <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>                 
-                    <apex:inputField value="{!objAccount.Mobile__c}" />
-                  <!--  <apex:inputField value="{!objAccount.Work_Phone__c}" /> -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
+                        <apex:outputPanel >
+                            <apex:selectList value="{!mobileAreaCode}" size="1" style="width:80px">
+                                <apex:selectOptions value="{!MobileAreacodeItems}"/>
+                            </apex:selectList>                       
+                            <apex:inputText value="{!mobileAreaCodePart2}" id="mobileAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
+                            <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3" style="width:60px"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                        <apex:outputPanel >
@@ -167,8 +183,9 @@
                         </apex:outputPanel>                  
                     </apex:pageBlockSectionItem>                  
                                   
-                    <apex:inputField value="{!objAccount.Email__c}" />           
-                    <apex:inputField value="{!objPersonAccount.Data_Source__c}"/>
+                   <apex:inputField value="{!objAccount.Email__c}" />           
+                   <apex:inputField value="{!objPersonAccount.Data_Source__c}"/>
+                   <apex:inputField value="{!objAccount.Fax}" /> 
                 </apex:pageBlockSection>       
                 
          <!--  KOREA MARKET Company Account - End -->
@@ -176,7 +193,10 @@
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Type__c}"/>
+                            <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
+                                <apex:selectOptions value="{!AddressOptions}"/>
+                            </apex:selectList>
+                        <!-- <apex:inputField value="{!AddressObj.Address_Type__c}"/> --> 
                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
@@ -186,7 +206,10 @@
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Province__c}"/>
+                            <apex:selectList value="{!provincepicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
+                                <apex:selectOptions value="{!ProvinceOptions}"/>
+                            </apex:selectList>
+                        <!-- <apex:inputField value="{!AddressObj.Province__c}" style="width:35%; white-space:none;"/> -->
                     </apex:pageBlockSectionItem>            
                     
                     <apex:pageBlockSectionItem >
@@ -199,38 +222,38 @@
                         <apex:inputField value="{!AddressObj.District__c}"/>
                     </apex:pageBlockSectionItem>
                    
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Block__c}"/>           
+                    </apex:pageBlockSectionItem>
+                    <!--
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Block__c}"/>
-                       
-                        
+                        <apex:inputField value="{!AddressObj.Block__c}"/>           
                     </apex:pageBlockSectionItem>
-                   
+                   -->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
-                       
-                        
                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Line_2__c}"/>
-                       
-                        
+                        <apex:inputField value="{!AddressObj.Address_Line_2__c}"/> 
                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_ZipCode__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Temp_ZipCode__c}"/>
-                       
-                        
+                        <apex:inputField value="{!AddressObj.Temp_ZipCode__c}"/>  
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Temp_Address__c}"/>
-                        
-                        
+                        <apex:inputField value="{!AddressObj.Temp_Address__c}"/>                        
                     </apex:pageBlockSectionItem>
                    
                 </apex:pageBlockSection>
@@ -241,44 +264,26 @@
                     <apex:outputPanel id="redirectPanel">                  
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">
-                           
                             function testGetFocusedSubtabId()
                             {
                                 sforce.console.getFocusedPrimaryTabId(showTabId);
-                               
                             }
-                           
                             var showTabId = function showTabId(result) {
                                 // Display the tab ID
-                               
                                 var subtabId = result.id;
-                               
-                                
                                 sforce.console.refreshPrimaryTabById(subtabId, true);
                                  sforce.console.focusPrimaryTabById(subtabId);
-                               
- 
                             };
-                            
-                            
                             testGetFocusedSubtabId();
-                           
-                                                        
-                            //Korea related functions - Start
- 
-                            //Korea related functions - End
-                           
-                            </script>                    
-                        </apex:outputText>
-                    </apex:outputPanel>
-                    <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}"/>
-                   
+                          </script>                    
+                       </apex:outputText>
+                   </apex:outputPanel>
+             <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}"/>                   
             <apex:actionStatus id="actStatusId" style="align:center;">
                 <apex:facet name="start" >
                   <img src="/img/loading.gif" />                   
                 </apex:facet>
-            </apex:actionStatus> 
-                              
+            </apex:actionStatus>                               
                 </apex:pageBlockButtons>
             </apex:pageBlock>
         </div>

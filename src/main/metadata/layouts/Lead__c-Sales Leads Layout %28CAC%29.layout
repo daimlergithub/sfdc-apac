@@ -262,10 +262,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Account__c</field>
             </layoutItems>
@@ -276,6 +272,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

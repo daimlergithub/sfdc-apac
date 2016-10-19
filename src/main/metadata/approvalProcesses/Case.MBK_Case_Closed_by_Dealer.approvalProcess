@@ -29,8 +29,26 @@
         <formula>AND(CreatedBy.Profile.Name = &apos;Dealer Community User&apos;,
 ISPICKVAL(Handling_Level__c,&apos;Dealer&apos;),MD__c=&apos;KR&apos;)</formula>
     </entryCriteria>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalActions>
+        <action>
+            <name>Final_Approval_8</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Final_Rejected_8</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Waiting_for_Final_Approval_7</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
     <label>MBK Case Closed by Dealer</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
