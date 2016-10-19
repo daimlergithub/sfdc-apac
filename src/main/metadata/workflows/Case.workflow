@@ -1300,9 +1300,14 @@
         </criteriaItems>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
-            <operation>lessThan</operation>
+            <operation>greaterOrEqual</operation>
             <value>TODAY</value>
         </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>
