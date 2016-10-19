@@ -3527,10 +3527,6 @@ What factors were influential in your purchase decision?
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
-			<picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
