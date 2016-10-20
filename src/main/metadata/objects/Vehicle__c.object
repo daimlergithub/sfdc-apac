@@ -3482,6 +3482,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>2016</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9188,6 +9196,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Model__c</picklist>
@@ -12016,6 +12032,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17113,6 +17137,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22272,6 +22304,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Model__c</picklist>
@@ -27416,6 +27456,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
