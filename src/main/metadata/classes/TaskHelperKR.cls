@@ -8,6 +8,7 @@
 
 **/
 
+
 public class TaskHelperKR {	
     private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
@@ -49,8 +50,8 @@ public class TaskHelperKR {
         Map<Id , String> mapEMailCampaign = new Map<Id , String>();
         
         for(Task tsk : lstTask){            
-                if( tsk.whoid != null && String.valueOf( tsk.whoid ).startsWith( '003' )){
-                    accId.add(tsk.whoid); 	    
+                if( tsk.whatId != null && String.valueOf( tsk.whatId ).startsWith( '001' )){
+                    accId.add(tsk.whatId); 	    
                 }
                 if(tsk.WhatId != null && tsk.WhoId == Null){
                     if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
@@ -103,6 +104,9 @@ public class TaskHelperKR {
                 if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
                     t.Phone__c = mapTask.get(t.WhoId);   
                 }
+                if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
+                     t.Phone__c = mapTask.get(t.WhatId); 
+                }
                 if(t.WhatId != Null){                    
                     if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
                     	t.Phone__c = mapLead.get(t.WhatId);    
@@ -114,7 +118,10 @@ public class TaskHelperKR {
             if(t.RecordTypeId == eDMTaskRecordTypeId){
                 if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
                     t.Email_Address__c = mapEMailTask.get(t.WhoId);                    
-                }                
+                } 
+                if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
+                    t.Email_Address__c = mapEMailTask.get(t.WhatId);
+                }
                 if(t.WhatId != Null){
                     if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
                     	t.Email_Address__c = mapEMailLead.get(t.WhatId); 
@@ -163,20 +170,18 @@ public class TaskHelperKR {
                 account = Accounts.get(t.WhatId);            	
                 if(t.RecordTypeId == OBCAllTaskRecordTypeId){                
                     if(account != null &&                     
-                        account.FS_Opt_In_Home_Phone__c != True &&
-                        account.FS_Opt_In_Home_Phone2__c != True && 					
-                        account.FS_Opt_In_Work_Phone__c != True &&
-                        account.FS_Opt_In_Work_Phone2__c != True){                     
-                        
+                        account.Opt_In_Work_Phone__c != True &&
+                        account.Opt_In_Home_Phone__c != True &&
+                      	account.Opt_In_SMS__c != True){                     
+                        t.addError(errMsg);
                     }
-                    t.addError(errMsg);
+                    
                 }else if(t.RecordTypeId == eDMTaskRecordTypeId){                
                         if(account != null && 
-                            account.FS_Opt_In_Email__c != True && 
-                            account.FS_Opt_In_Email2__c != True && 
-                            account.FS_Opt_In_Email3__c != True){
-                           }  
-                        t.addError(errMsg);
+                            account.Opt_In_Email__c != True){
+                           	t.addError(errMsg);
+                            }  
+                        
                        }
             }
     	}
