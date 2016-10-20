@@ -4103,18 +4103,6 @@ What factors were influential in your purchase decision?
         <type>Date</type>
     </fields>
 	<fields>
-        <fullName>UsedWarranty_Apply_User__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>UsedWarranty Apply User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Vehicle_Relationship3</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-	<fields>
         <fullName>UsedWarranty_Apply_NDCode__c</fullName>
         <externalId>false</externalId>
         <label>UsedWarranty Apply NDCode</label>
@@ -4323,18 +4311,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Warranty_Apply_User__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Warranty Apply User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Vehicle_Relationship4</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
 	<fields>
         <fullName>Warranty_Apply_NDCode__c</fullName>
