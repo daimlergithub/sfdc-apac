@@ -1431,6 +1431,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Communication_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Comm Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Company__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2488,12 +2495,13 @@ noted by Lio on 10.28.2013</description>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <externalId>false</externalId>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
         <label>Source ID</label>
         <length>40</length>
         <required>false</required>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Source_System__c</fullName>
