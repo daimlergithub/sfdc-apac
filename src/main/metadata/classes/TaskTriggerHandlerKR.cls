@@ -4,7 +4,12 @@ public class TaskTriggerHandlerKR implements TriggerHandlerIf {
         {
             if (TriggerUtil.isTriggerEnabled('TriggerTask'))
             TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelperKR.updateAccountMobile(trigger.new);
+            //TaskHelperKR.updateAccountMobile(trigger.new);
+        }
+		 if(trigger.isAfter && trigger.isUpdate)
+        {
+            TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            System.debug('##################################-->trigger.isAfter && trigger.isUpdate');
         }
          if(trigger.isBefore && trigger.isInsert)
         {
