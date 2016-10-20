@@ -13,6 +13,9 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
+        <field>FK_$Account.R_Check_Age__c</field>
+    </columns>
+    <columns>
         <field>FK_PC_FIRST_NAME</field>
     </columns>
     <columns>
@@ -34,7 +37,13 @@
         <field>FK_PC_PHONE4</field>
     </columns>
     <columns>
+        <field>Vehicle_Relationship__c.Vehicle_Brand__c</field>
+    </columns>
+    <columns>
         <field>FK_$Account.Work_Phone__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Branch_name_ENG__c</field>
     </columns>
     <columns>
         <field>FK_$Account.Mobile__c</field>
@@ -70,9 +79,6 @@
         <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c.Registration_Number__c</field>
     </columns>
     <columns>
@@ -89,6 +95,9 @@
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Ownership__c</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_RECORDTYPE</field>
     </columns>
     <columns>
         <field>FK_$Account.Dealer_GC_Code__c</field>
@@ -108,7 +117,7 @@
     <description>Raw Data Reports</description>
     <filter>
         <criteriaItems>
-            <column>FK_PC_$Contact.MD__c</column>
+            <column>Vehicle_Relationship__c.MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>

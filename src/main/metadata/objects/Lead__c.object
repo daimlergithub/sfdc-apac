@@ -69467,11 +69467,11 @@ RecordType.DeveloperName = 'Sales_Leads'
         <fullName>Visited_Showroom_Required_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
-ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"), 
+ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
-        <errorMessage>If Dealer Lead Status is Visited Showroom(Only Non BDC), Visited Showroom Date is required.</errorMessage>
+        <errorMessage>If Dealer Lead Status is Visited Showroom, Visited Showroom Date is required.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Find_Duplicates</fullName>
