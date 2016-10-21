@@ -69405,7 +69405,7 @@ ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__
         <fullName>Manual_Status_Change_To_Approved_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approved".</description>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI', NOT(ISPICKVAL(PRIORVALUE(CAC_Lead_Status__c),'Approved')))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approved".</errorMessage>
     </validationRules>
