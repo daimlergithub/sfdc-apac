@@ -7,7 +7,7 @@
         <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$Phone__c</field>
     </columns>
     <columns>
-        <field>Account$Primary_Address_Display__c</field>
+        <field>Account$Primary_Address__c</field>
     </columns>
     <columns>
         <field>Account.Vehicles__r.Vehicle_Relationships__r$Registration_Date__c</field>
@@ -16,7 +16,7 @@
         <field>Account.Vehicles__r$Model__c</field>
     </columns>
     <columns>
-        <field>Account.Vehicles__r$Car_Model__c</field>
+        <field>Account.Vehicles__r$Model_Description__c</field>
     </columns>
     <columns>
         <field>Account.Vehicles__r$Trim__c</field>
@@ -28,17 +28,26 @@
         <field>Account.Vehicles__r.Vehicle_Relationships__r$Selling_Dealer__c</field>
     </columns>
     <columns>
-        <field>Account$Customer_Consent__c</field>
+        <field>Account.Vehicles__r$Related_Dealer__c</field>
     </columns>
     <columns>
-        <field>Account.Vehicles__r$Related_Dealer__c</field>
+        <field>Account$Personal_Abroad_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>Account$Personal_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>Account$Personal_Information_Third_Party_Release__c</field>
+    </columns>
+    <columns>
+        <field>Account$Agreement_to_commit_info_processing__c</field>
     </columns>
     <description>NCBS (PPS) Reports</description>
     <filter>
         <criteriaItems>
             <column>Account.Vehicles__r.Vehicle_Relationships__r$Registration_Date__c</column>
-            <operator>equals</operator>
-            <value>THIS_MONTH</value>
+            <operator>notEqual</operator>
+            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Account.Vehicles__r$Model__c</column>
@@ -62,7 +71,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>Account.Vehicles__r.Vehicle_Relationships__r$Registration_Date__c</dateColumn>
+        <dateColumn>Account$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
