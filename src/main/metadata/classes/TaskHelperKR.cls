@@ -156,9 +156,8 @@ public class TaskHelperKR {
         }
         if(!accId.isEmpty() && accId != null)
         {
-            lstAccount = [Select Id,FS_Opt_In_Home_Phone__c,FS_Opt_In_Home_Phone2__c,FS_Opt_In_Work_Phone__c,
-                                    FS_Opt_In_Work_Phone2__c,FS_Opt_In_Email__c,
-                                    FS_Opt_In_Email2__c,FS_Opt_In_Email3__c from Account where Id =:accId];
+            lstAccount = [Select Id,Opt_In_Work_Phone__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,
+                                    Opt_In_Email__c from Account where Id =:accId];
         }
         
         for(Account acc : lstAccount){
