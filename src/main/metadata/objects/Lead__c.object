@@ -138,28 +138,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>To_Be_Deleted__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>To Be Deleted</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Purchased_VIN__c</fullName>
-        <externalId>false</externalId>
-        <label>Purchased VIN</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <fields>
         <fullName>Appointment_DateTime__c</fullName>
         <description>Send to AL as book-in date.</description>
@@ -3160,7 +3138,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Comment__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Comment</label>
@@ -3780,37 +3758,17 @@ Contact__r.Email__c
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Finance_RV_Ballon__c</fullName>
+    <fields>
+        <fullName>Finance_Contract_Term__c</fullName>
         <externalId>false</externalId>
-        <label>Finance RV Ballon</label>
+        <label>Finance Contract Term</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
-        <fullName>Finance_Total_V_Price_Tax__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Total V Price Tax</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-	<fields>
-        <fullName>Finance_Total_V_Price_NoTax__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Total V Price NoTax</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-	<fields>
+    <fields>
         <fullName>Finance_Interest_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Finance Interest Rate</label>
@@ -3824,16 +3782,6 @@ Contact__r.Email__c
         <fullName>Finance_Monthly_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Finance Monthly Payment</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-	<fields>
-        <fullName>Finance_Contract_Term__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Contract Term</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3974,6 +3922,36 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finance_RV_Ballon__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance RV Ballon</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Total_V_Price_NoTax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price NoTax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Total_V_Price_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price Tax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Financial_Product2__c</fullName>
@@ -10434,6 +10412,16 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Next_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('resource/1422335657000/Dealer_Reminder','Dealer Not Assigned'))</formula>
@@ -11230,6 +11218,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Purchased_VIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchased VIN</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Purchased_Vehicle_Text__c</fullName>
@@ -16047,6 +16047,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Trade_In_MB_Vehicle_Model__c</fullName>
         <externalId>false</externalId>
         <label>Trade-In MB Vehicle Model</label>
@@ -18370,7 +18380,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>UCID__c</fullName>
         <externalId>false</externalId>
         <formula>Contact__r.UCID__c</formula>
@@ -20046,6 +20056,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Vehicle_Registration_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Registration No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Rel_Selling_Dealer__c</fullName>
         <externalId>false</externalId>
         <formula>VehicleRel_No__r.Owner_Dealer__c</formula>
@@ -20464,18 +20486,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
-	 <fields>
-        <fullName>Vehicle_Registration_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Registration No</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Visited_Showroom_Date__c</fullName>
@@ -69295,6 +69305,13 @@ RecordType.Name == 'Sales Leads'
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Finance_Quotation_No_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_No_History__c))),ISCHANGED(Finance_Quotation_No_History__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Quotation_No_History__c</errorDisplayField>
+        <errorMessage>Finance Quotation No History cannot be changed manually</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR', 
@@ -69352,6 +69369,12 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lost_Reason_Mandatory</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(ISPICKVAL(Dealer_Lead_Status__c,'Lost') &amp;&amp; ($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'), AND((ISPICKVAL(Dealer_Lost_Reason__c,'')),(ISPICKVAL(Lost_Situation__c,''))),null)</errorConditionFormula>
+        <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lost_To_Whom</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -69382,7 +69405,7 @@ ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__
         <fullName>Manual_Status_Change_To_Approved_Check</fullName>
         <active>true</active>
         <description>You cannot manually select "Approved".</description>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c , 'Approved'),OR(MD__c ='JP',MD__c ='KR'),$Profile.Name != 'IntegrationAPI', NOT(ISPICKVAL(PRIORVALUE(CAC_Lead_Status__c),'Approved')))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "Approved".</errorMessage>
     </validationRules>
@@ -69403,6 +69426,26 @@ ISNULL(Order_Placed_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Purchase_Leads_NoChange_Los</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost'))) &amp;&amp; (RecordType.DeveloperName = 'sales_Leads')&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),AND(NOT(ISBLANK(PRIORVALUE(Dealer_Lead_Status__c))),ISCHANGED(Dealer_Lead_Status__c)),null)</errorConditionFormula>
+        <errorMessage>Dealer Lead Status cannot be changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Purchase_Leads_NoChange_Lost</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost')))&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP')&amp;&amp;(RecordType.DeveloperName='Sales_Leads'),AND(NOT(ISBLANK(PRIORVALUE(Lead_Latest_Phase__c))),ISCHANGED(Lead_Latest_Phase__c)),null)</errorConditionFormula>
+        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
+        <errorMessage>Lead Latest Phase cannot be changed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Purchased_Leads_NoChange_Lost</fullName>
+        <active>false</active>
+        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost'))) &amp;&amp;  (RecordType.DeveloperName = 'Aftersales_Leads')&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),AND(NOT(ISBLANK(PRIORVALUE(AfterSales_Vehicle__c))),ISCHANGED(AfterSales_Vehicle__c)),null)</errorConditionFormula>
+        <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
+        <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RecommendedDealerMandatory</fullName>
@@ -69467,11 +69510,11 @@ RecordType.DeveloperName = 'Sales_Leads'
         <fullName>Visited_Showroom_Required_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
-ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"), 
+ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
-        <errorMessage>If Dealer Lead Status is Visited Showroom(Only Non BDC), Visited Showroom Date is required.</errorMessage>
+        <errorMessage>If Dealer Lead Status is Visited Showroom, Visited Showroom Date is required.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Find_Duplicates</fullName>
@@ -69511,7 +69554,7 @@ ISNULL(Visited_Showroom_Date__c)
         <showsStatus>false</showsStatus>
         <url>{!Lead__c.Name}</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -69700,4 +69743,3 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
-
