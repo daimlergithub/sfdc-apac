@@ -17468,6 +17468,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting for confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
@@ -18268,6 +18283,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27226,6 +27252,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting for confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
@@ -27990,6 +28031,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
