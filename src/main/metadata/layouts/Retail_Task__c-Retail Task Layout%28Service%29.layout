@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Service_Code__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Vehicle__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Date__c</field>
@@ -51,6 +55,10 @@
                 <behavior>Edit</behavior>
                 <field>Service_Invoice_Number__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Lead__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Amount__c</field>
@@ -65,9 +73,17 @@
                 <behavior>Edit</behavior>
                 <field>Related_Dealer__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Contact2__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_CreatedDate__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Contact3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
