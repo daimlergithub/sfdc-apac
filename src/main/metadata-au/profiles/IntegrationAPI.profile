@@ -111,6 +111,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>true</visible>
@@ -168,6 +173,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -189,6 +198,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountRecordTypeToSoftDelete</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountRecordTypeToSoftDeleteTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -500,6 +517,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DealerSharingHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>EmailServiceStatusUpdate</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -621,6 +642,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningForgotPasswordController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningForgotPasswordControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningLoginFormController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningLoginFormControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningSelfRegisterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningSelfRegisterControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -797,6 +842,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailTaskHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RetailTaskHelper1</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1540,6 +1589,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VehicleRelationshipHelper2</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2002,6 +2055,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Data_Sub_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.DealerSegment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2916,6 +2974,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Finance_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Finance_Contract_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Finance_Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3441,6 +3509,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Payment_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Personal_Abroad_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3482,6 +3555,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Postal_Opt_Out__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.PreferredName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3547,6 +3625,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Preferred_Newspaper__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Preferred_Partner_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4096,6 +4179,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Update_systems_contact_account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4488,6 +4576,11 @@
         <editable>true</editable>
         <field>Account_Link__c.Retail_Company_Phone__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Retail_Complaing_Amount__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8155,6 +8248,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Claim__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Collaboration_Team__c.Access_Type__c</field>
         <readable>true</readable>
@@ -9232,6 +9335,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_System__c.Customer_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_System__c.Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_System__c.System_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10341,6 +10459,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Assignment_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Attachment_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10487,6 +10610,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Company_Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Consultant_Due_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10651,6 +10779,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Dealer_Due_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Dealer_LMS__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10701,7 +10834,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Due_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Escalation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11131,6 +11274,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Lead_Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Lead_Overdue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Lead_Possibility_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11357,6 +11510,26 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Orig_Fee__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Overdue_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Overdue_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Override_Escalation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Override_Overdue__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11806,6 +11979,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Reassignment_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Received_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12222,6 +12400,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Vehicle_Rel_Selling_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Vehicle_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12731,7 +12914,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PreOrder__c.Comm_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PreOrder__c.Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.DFE_Order_Number_VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Estimated_Delivery_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Lost_to__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Order_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12742,6 +12950,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.VehicleInterested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Vehicle_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18881,6 +19094,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle_Relationship__c.ToBeActioned__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.TradeIn_Make__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19824,6 +20042,9 @@
         <layout>Dealer_Offering__c-Dealer Offering Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Dealer_System__c-Dealer System Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20189,6 +20410,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
+        <recordType>Task.Change_Owner</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Master Layout</layout>
         <recordType>Task.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20218,6 +20443,10 @@
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
         <recordType>Task.Quote</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Master Layout</layout>
+        <recordType>Task.Remove_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Welcome Call Task</layout>
@@ -20612,6 +20841,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Dealer_Offering__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Dealer_System__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -21953,6 +22191,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Task.Change_Owner</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Task.Customer_Contact</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -22014,6 +22257,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.Quote</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Remove_Account</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -22170,6 +22418,10 @@
     <tabVisibilities>
         <tab>DM_Stock_Flow__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Dealer_System__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
@@ -22635,6 +22887,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
