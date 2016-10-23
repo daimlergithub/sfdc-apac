@@ -2733,7 +2733,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
-                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+                <value>Company</value>
             </filterItems>
             <infoMessage>Search and select accounts.</infoMessage>
             <isOptional>false</isOptional>
@@ -2821,7 +2821,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
-                <value>Company, Person Account, Person Account Manual Merge, Person Account Soft Deleted</value>
+                <value>Person Account</value>
             </filterItems>
             <infoMessage>Search and select accounts.</infoMessage>
             <isOptional>false</isOptional>
