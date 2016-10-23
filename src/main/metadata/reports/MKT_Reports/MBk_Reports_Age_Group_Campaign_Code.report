@@ -4,9 +4,6 @@
         <field>CAMPAIGN_NAME</field>
     </columns>
     <columns>
-        <field>ACCOUNT.NAME</field>
-    </columns>
-    <columns>
         <field>Campaign.Campaign_Code__c</field>
     </columns>
     <description>Age Group Campaign Code</description>

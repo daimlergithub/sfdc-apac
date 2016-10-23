@@ -13848,10 +13848,10 @@ Modify Reason:
     <fields>
         <fullName>Narrative_of_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Narrative of Type</label>
+        <label>Narrative of Type</label>		   
         <picklist>
-            <picklistValues>
-                <fullName>Action</fullName>
+		 <picklistValues>
+              <fullName>Action</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -13860,6 +13860,30 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Resolution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Opt Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine Opt Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine Number Change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine Opt In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall Address Chage</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -17603,6 +17627,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Settlement_Amount__c</fullName>
@@ -24289,6 +24323,30 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Marketing Opt Out</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Magazine Opt Out</fullName>
+                <default>false</default>            
+			</values>
+			<values>
+                <fullName>Magazine Number Change</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Marketing Opt In</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Magazine Opt In</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Recall Address Chage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -109338,7 +109396,18 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa0u%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_AfterSales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New AfterSales Lead</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>

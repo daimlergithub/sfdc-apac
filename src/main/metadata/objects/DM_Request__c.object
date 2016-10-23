@@ -960,6 +960,15 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
@@ -970,6 +979,15 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>View_By_All__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>View By All</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Zip_Code__c</fullName>

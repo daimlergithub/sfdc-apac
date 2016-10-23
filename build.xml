@@ -294,6 +294,7 @@
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
+				<sf:include name="TriggerCaseTriggerHandlerKR"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
@@ -347,13 +348,18 @@
 				<sf:include name="AccountHelperKR"/>
 				<sf:include name="AccountHelperKRTest"/>
 				<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
-				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>				
+				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>
+				<sf:include name="RetailTaskTriggerHandlerJP"/>
+				<sf:include name="RetailTaskTriggerHandlerKR"/>
+				<sf:include name="RetailTaskHelperJP"/>						
+				<sf:include name="RetailTaskHelperJPTest"/>				
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
 				<sf:include name="CaseTrigger"/>
 				<sf:include name="TriggerDMRequest"/>
 				<sf:include name="TriggerLead"/>
+				<sf:include name="RetailTaskTrigger"/>				
 			</sf:typeset>
 		</deploy>
     </target>
@@ -412,6 +418,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
+				<sf:include name="VehiclePickerForCase"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
@@ -429,6 +436,8 @@
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
 			<sf:include name="VehiclePickerController"/>
 			<sf:include name="VehiclePickerControllerTests"/>
+			<sf:include name="VehiclePickerForCaseController"/>
+			<sf:include name="VehiclePickerForCaseControllerTest"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
@@ -519,7 +528,7 @@
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccountLink"/>
-			<sf:include name="TaskTrigger"/>
+			<sf:include name="TaskTrigger"/>			
 		</sf:typeset>	
 		</deploy>				
     </target>

@@ -113,6 +113,10 @@
                 <behavior>Edit</behavior>
                 <field>Team__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -232,6 +236,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>X72H_Untouched__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
             </layoutItems>
         </layoutColumns>
@@ -272,7 +280,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
@@ -479,21 +487,21 @@
         <label>Date Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>First_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>First_Contact_Customer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Visited_Showroom_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Test_Drive_Date__c</field>
             </layoutItems>
             <layoutItems>

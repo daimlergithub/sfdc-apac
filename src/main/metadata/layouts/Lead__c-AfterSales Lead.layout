@@ -44,6 +44,10 @@
                 <behavior>Edit</behavior>
                 <field>Team__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -109,6 +113,14 @@
                 <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>X24H_Untouched__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>X72H_Untouched__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -139,7 +151,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
-            </layoutItems>						
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
@@ -300,6 +312,58 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CreatedDate</fields>
+        <fields>StepStatus</fields>
+        <fields>OriginalActor</fields>
+        <fields>Actor</fields>
+        <fields>Comments</fields>
+        <relatedList>RelatedProcessHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Contact__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>Sent_Date__c</fields>
+        <relatedList>DM_Request__c.Lead__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Survey_Taking_Status__c</fields>
+        <fields>Account__c</fields>
+        <fields>Case__c</fields>
+        <fields>Campaign__c</fields>
+        <relatedList>SurveyTaker__c.Lead__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
