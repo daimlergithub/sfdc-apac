@@ -6,6 +6,7 @@
     <description>NCBS (PPS) Reports</description>
     <join>
         <join>
+		
             <join>
                 <outerJoin>true</outerJoin>
                 <relationship>Leads__r</relationship>

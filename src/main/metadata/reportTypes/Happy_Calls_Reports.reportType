@@ -40,6 +40,7 @@
             <field>Survey_Question__c.Question__c</field>
             <table>SurveyTaker__c.Survey_Question_Answers__r</table>
         </columns>
+		
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Survey_Question__c.Id</field>
