@@ -69574,6 +69574,24 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Cannnot_Change_Invoice_Number</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Invoice_Number__c ))),ISCHANGED(  Invoice_Number__c  ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change Invoice Number</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Cannnot_Change_Lead_Contact</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(DMS_Sent_Flag__c, ISCHANGED( Contact__c ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You cannot change the Contact if DMS Sent Flag is selected</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Cannnot_Change_Lead_Quotation_Amount</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Quotation_Amount__c ) )),ISCHANGED( Quotation_Amount__c ),  MD__c = 'JP',  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change Quotation Amount</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
         <active>true</active>
@@ -69584,6 +69602,12 @@ AND User profile is Call center agent"</description>
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You can't change lead status to "Approval(waiting)" or "Allocated"</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Cannnot_Change_Quotation_No</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK( PRIORVALUE(Quotation_Number__c) )),ISCHANGED( Quotation_Number__c ), MD__c  =  'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change the  Quotation No</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Account_Required</fullName>
@@ -69778,6 +69802,12 @@ ISNULL(Order_Placed_Date__c)
         <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost'))) &amp;&amp;  (RecordType.DeveloperName = 'Aftersales_Leads')&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),AND(NOT(ISBLANK(PRIORVALUE(AfterSales_Vehicle__c))),ISCHANGED(AfterSales_Vehicle__c)),null)</errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Quotation_No_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE( Quotation_Number_History__c ))),ISCHANGED(Quotation_Number_History__c ), MD__c = 'JP' ,  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>You can't change  Quotation No History</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RecommendedDealerMandatory</fullName>
