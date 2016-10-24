@@ -851,10 +851,6 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <actions>
-            <name>Update_Dealer_Lead_Status_to_Assigned</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
@@ -879,19 +875,7 @@ Modify Reason:
     <rules>
         <fullName>Update Status and Date time of Non-BDC Dealer</fullName>
         <actions>
-            <name>Update_CAC_Lead_Status_to_Accepted</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Dealer_Lead_Status_to_Accepted</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
             <name>Update_Lead_Accepted_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
         <actions>
@@ -902,7 +886,7 @@ Modify Reason:
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
+        <formula>OR(  AND(Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") ),  AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

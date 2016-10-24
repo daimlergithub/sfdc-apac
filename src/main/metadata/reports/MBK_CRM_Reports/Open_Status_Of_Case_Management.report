@@ -11,7 +11,7 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>Contact.MD__c</column>
+            <column>Case.MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>

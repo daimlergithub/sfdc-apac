@@ -4119,7 +4119,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.VIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11695,9 +11695,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Re_visit__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16342,6 +16342,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Service_Total_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Service_Vehicle_VIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
