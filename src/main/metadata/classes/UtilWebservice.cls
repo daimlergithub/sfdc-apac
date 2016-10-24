@@ -236,11 +236,11 @@ Global class UtilWebservice
         }
     }
     
-    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+    /*public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType faultCode = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType();
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationFaultType faultCode = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationFaultType();
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
         //sendingCustomerDetails.
@@ -257,6 +257,6 @@ Global class UtilWebservice
         }
         system.debug('response : '+response);
         return response;
-    }    
+    }  */  
     
 }
