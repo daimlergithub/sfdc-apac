@@ -11266,16 +11266,6 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>To_Be_Deleted__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>To Be Deleted</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>Purchased_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -20158,18 +20148,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Registration_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Registration No</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Vehicle_Registration_No__c</fullName>
