@@ -869,7 +869,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>AND( Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
+        <formula>AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
