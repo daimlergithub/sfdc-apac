@@ -196,6 +196,10 @@
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
