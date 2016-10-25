@@ -4,8 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>View_Hierarchy</customButtons>
-    <customButtons>New_Survey</customButtons>
+    <customButtons>View_Hierarchy</customButtons>   
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -178,6 +177,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_Work_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
