@@ -58,7 +58,7 @@
         <protected>false</protected>
 		<recipients>
             <recipient>MBK_Managers_KR</recipient>
-            <type>role</type>
+            <type>queue</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
