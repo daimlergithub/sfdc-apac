@@ -144,7 +144,7 @@ Used By:
     </rules>
     <rules>
         <fullName>Contract Auto Check %27150 Days Before EOC%27New</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/*
 Created By Polaris Yu 2013-8-22
 Function: Auto check the &apos;150 Days Before EOC&apos; field on Contract at 150 days before the end date of the contract
@@ -202,7 +202,7 @@ Used By:
     </rules>
     <rules>
         <fullName>First Year Annual Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),  livetime__c &gt;= 36) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -240,7 +240,7 @@ Used By:
     </rules>
     <rules>
         <fullName>Second Year Annual Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 48) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -259,7 +259,7 @@ Used By:
     </rules>
     <rules>
         <fullName>Third Year Annual Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 60) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>

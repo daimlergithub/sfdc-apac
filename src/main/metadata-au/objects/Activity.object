@@ -1431,6 +1431,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Communication_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Comm Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Company__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
