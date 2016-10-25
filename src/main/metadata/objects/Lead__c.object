@@ -3027,6 +3027,14 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Government</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>New Customer(Used Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22718,11 +22726,31 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Existing Customer</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22755,6 +22783,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -22771,6 +22803,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-going</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
@@ -22780,6 +22828,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26862,14 +26914,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EFT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26878,6 +26926,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26981,7 +27033,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Price_Range__c</picklist>
+            <picklist>Price_Range__c</picklist>			
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -26992,6 +27044,30 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47665,7 +47741,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
                 <fullName>Authority</fullName>
@@ -47680,11 +47756,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Government</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47718,10 +47802,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51744,6 +51824,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
