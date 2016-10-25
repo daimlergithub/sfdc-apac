@@ -26,7 +26,7 @@ public class AddressDisplayInlineEditController {
         if(ApexPages.currentPage().getParameters().get('id')!=Null){
             
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                    Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Customer__c =: aid ];        
+                    Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Customer__c =: aid ];        
             system.debug('@Account Information :' +adds);
         }             
         
