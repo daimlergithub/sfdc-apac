@@ -15,6 +15,9 @@ public class LeadHelper
     private static List<QueueSobject> LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType =: UtilConstant.LEAD and Queue.Name =: UtilConstant.DEALER_LEAD_GATE_KEEPER_QUEUE limit 1];
     private static final String SMSTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
     private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();    
+    private static final String DealerSalesleadsReadOnlyRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.DEALER_SALES_LEADS_READONLY).getRecordTypeId();
+    private static final String DealerafterSalesReadOnlyRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.DEALER_AFTERSALES_LEADS_READONLY).getRecordTypeId();
+    
        /**      
      * @Description Leads sharing record are created nad inserted for both smart and star elite account owner.
      * @author  
@@ -185,21 +188,34 @@ public class LeadHelper
         for(Lead__c lead : leadsForUpdate) {
             if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if(lead.RecordTypeId == salesRecordTypeId)
                 {
                     lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                    lead.RecordTypeId = DealerSalesleadsReadOnlyRecordTypeId;
                     leadForUpdate.add(lead);
-                }
-                if(lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId)
+                } 
+                if(lead.RecordTypeId == afterSalesRecordTypeId)
                 {
+                    lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                    lead.RecordTypeId = DealerafterSalesReadOnlyRecordTypeId;
+                    leadForUpdate.add(lead);
+                }               
+            }
+            else{  
+                if(lead.RecordTypeId == salesRecordTypeId)
+                {
+                    if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                    lead.OwnerId = LeadGateKeeperQ[0].QueueId;
+                    lead.RecordTypeId = DealerSalesleadsReadOnlyRecordTypeId;
                     leadForUpdate.add(lead);
                 }
-            }
-            else  if((lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
-            {
-                if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
-                lead.OwnerId = LeadGateKeeperQ[0].QueueId;
-                leadForUpdate.add(lead);
+                if(lead.RecordTypeId == afterSalesRecordTypeId)
+                {
+                    if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                    lead.OwnerId = LeadGateKeeperQ[0].QueueId;
+                    lead.RecordTypeId = DealerafterSalesReadOnlyRecordTypeId;
+                    leadForUpdate.add(lead);
+                }
             }
         }       
     }

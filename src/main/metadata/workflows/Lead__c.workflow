@@ -57,7 +57,7 @@
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
 		<recipients>
-            <recipient>Call_Center_Supervisor</recipient>
+            <recipient>Manager</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -434,7 +434,7 @@ Proxy_Date_Time__c
     <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
         <field>Purchased_Date_Time__c</field>
-        <formula>NOW()</formula>
+        <formula>Now()</formula>
         <name>Update Purchased Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -817,14 +817,9 @@ Modify Reason:
             <name>Update_Purchased_CAC_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Purchased(Only Non BDC)</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Purchased(Only Non BDC)</value>
         </criteriaItems>
@@ -845,7 +840,7 @@ Modify Reason:
             <name>Update_Purchased_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -891,7 +886,7 @@ Modify Reason:
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") ),  AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") )  )</formula>
+        <formula>AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted"))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
