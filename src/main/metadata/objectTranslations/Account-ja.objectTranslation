@@ -377,49 +377,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <name>AccountSource</name>
-        <picklistValues>
-            <masterLabel>After-Sales Event</masterLabel>
-            <translation><!-- After-Sales Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Autoshow</masterLabel>
-            <translation><!-- Autoshow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Data marketing</masterLabel>
-            <translation><!-- Data marketing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>IB</masterLabel>
-            <translation><!-- IB --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB Magazine</masterLabel>
-            <translation><!-- MB Magazine --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Online Registration</masterLabel>
-            <translation><!-- Online Registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partnership Event</masterLabel>
-            <translation><!-- Partnership Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SMS</masterLabel>
-            <translation><!-- SMS --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- MB Activation Date --></label>
         <name>Activation_Date__c</name>
     </fields>
@@ -916,6 +873,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Company Legal Form Native --></label>
+        <name>Company_Legal_Form_Native__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>法人格（リスト）</label>
         <name>Company_Legal_Form__c</name>
         <picklistValues>
@@ -976,12 +941,20 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Company Legal Form text Native --></label>
+        <name>Company_Legal_Form_text_Native__c</name>
+    </fields>
+    <fields>
         <label>法人格（Text）</label>
         <name>Company_Legal_Form_text__c</name>
     </fields>
     <fields>
         <label>法人名（カナ）</label>
         <name>Company_Name_Native_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name Native2 --></label>
+        <name>Company_Name_Native_2__c</name>
     </fields>
     <fields>
         <label>法人格除く法人名</label>
@@ -2904,6 +2877,18 @@ Allows up to 240 characters --></help>
         <label><!-- Dealer Rollout Status --></label>
         <name>Dealer_Rollout_Status__c</name>
         <picklistValues>
+            <masterLabel>Done</masterLabel>
+            <translation><!-- Done --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In_Progress</masterLabel>
+            <translation><!-- In_Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Yet</masterLabel>
+            <translation><!-- Not Yet --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
         </picklistValues>
@@ -3606,6 +3591,14 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation>有効</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- FinanceLead Notification Timing --></label>
+        <name>FinanceLead_Notification_Timing__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4449,201 +4442,6 @@ Allows up to 240 characters --></help>
         <name>Individual_Home_Phone__c</name>
     </fields>
     <fields>
-        <name>Industry</name>
-        <picklistValues>
-            <masterLabel>Advertising / Marketing</masterLabel>
-            <translation>出版・広告</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Agriculture</masterLabel>
-            <translation>農業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Air transport</masterLabel>
-            <translation>空運</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Banking</masterLabel>
-            <translation>銀行</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Business Services</masterLabel>
-            <translation>サービス</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chemical fiber manufacturing</masterLabel>
-            <translation>繊維</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chemical materials manufacturing</masterLabel>
-            <translation>化学工業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Coal mining and washing</masterLabel>
-            <translation>鉱業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Construction and installation industry</masterLabel>
-            <translation>建設</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Crafts and other manufacturing</masterLabel>
-            <translation>窒業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Distribution</masterLabel>
-            <translation>商業・流通業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Education</masterLabel>
-            <translation>教育</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Electrical equipment manufacturing</masterLabel>
-            <translation>電気機器</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Electricity production and supply</masterLabel>
-            <translation>電力</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ferrous metal mining industry</masterLabel>
-            <translation>鉄鋼業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fisheries</masterLabel>
-            <translation>水産・農業・鉱業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Food Manufacturing</masterLabel>
-            <translation>食品</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Forestry</masterLabel>
-            <translation>林業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gas Production and Supply</masterLabel>
-            <translation>ガス</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>General equipment manufacturing</masterLabel>
-            <translation>製造業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Health</masterLabel>
-            <translation>医療</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Insurance</masterLabel>
-            <translation>保険</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mass and religious organizations</masterLabel>
-            <translation>宗教法人</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Media</masterLabel>
-            <translation>放送・通信</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Nonferrous Metals</masterLabel>
-            <translation>非鉄金属・金属製品</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation>その他</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other Services</masterLabel>
-            <translation>自由業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other equipment manufacturing</masterLabel>
-            <translation>その他製造業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other financial activities</masterLabel>
-            <translation>金融業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Paper and paper products industry</masterLabel>
-            <translation>パルプ・紙</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Parts</masterLabel>
-            <translation>自動車・自動車部品</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Petroleum processing industry</masterLabel>
-            <translation>石油</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pharmaceutical Manufacturing</masterLabel>
-            <translation>医薬品</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Real Estate</masterLabel>
-            <translation>不動産</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Retail</masterLabel>
-            <translation>小売業</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Road transport</masterLabel>
-            <translation>陸運</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rubber</masterLabel>
-            <translation>ゴム</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Securities Industry</masterLabel>
-            <translation>証券</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ship building</masterLabel>
-            <translation>造船</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special equipment manufacturing</masterLabel>
-            <translation>精密機器</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>State institutions</masterLabel>
-            <translation>官公庁</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Telecommunications Services</masterLabel>
-            <translation>IT</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Trade</masterLabel>
-            <translation>商者</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Transportation Equipment Manufacturing</masterLabel>
-            <translation>その他運送機器</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation>不明</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Urban public transport sector</masterLabel>
-            <translation>鉄道・バス・タクシー</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Warehousing</masterLabel>
-            <translation>交通・運輸</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Water Transportation</masterLabel>
-            <translation>海運</translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Info Source --></label>
         <name>Info_Source__c</name>
         <picklistValues>
@@ -4899,16 +4697,16 @@ Allows up to 240 characters --></help>
             <translation>新型GLC</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>C-Class Cabriolet</masterLabel>
+            <translation>Cクラス カブリオレ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>C-Class Coupe</masterLabel>
             <translation>Cクラス クーペ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Sedan</masterLabel>
             <translation>Cクラス セダン</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>C-Class Cabriolet</masterLabel>
-            <translation>Cクラス カブリオレ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class Stationwagon</masterLabel>
@@ -5320,6 +5118,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>ヤナセディーラーコード</label>
         <name>MBJ_Yanase_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- MB Customer Info Remove --></label>
+        <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
         <label><!-- MB Replacement Date --></label>
@@ -5758,6 +5560,10 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Online Dedup Hidden --></label>
+        <name>Online_Dedup_Hidden__c</name>
+    </fields>
+    <fields>
         <label>除外理由</label>
         <name>Opt_In_Contact_Reason_Details__c</name>
     </fields>
@@ -5888,25 +5694,6 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- Other Hobby --></label>
         <name>Other_Hobby__c</name>
-    </fields>
-    <fields>
-        <name>Ownership</name>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Public</masterLabel>
-            <translation><!-- Public --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special</masterLabel>
-            <translation><!-- Special --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Subsidiaries</masterLabel>
-            <translation><!-- Subsidiaries --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label>PCステータス</label>
@@ -6141,8 +5928,24 @@ Allows up to 240 characters --></help>
         <name>Place_of_Birth__c</name>
     </fields>
     <fields>
+        <label><!-- Portal Apply Date --></label>
+        <name>Portal_Apply_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Portal Apply Status --></label>
         <name>Portal_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for confirmation</masterLabel>
+            <translation><!-- Waiting for confirmation --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
@@ -6604,21 +6407,6 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- Remark --></label>
         <name>R_remark__c</name>
-    </fields>
-    <fields>
-        <name>Rating</name>
-        <picklistValues>
-            <masterLabel>Cold</masterLabel>
-            <translation><!-- Cold --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hot</masterLabel>
-            <translation><!-- Hot --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Warm</masterLabel>
-            <translation><!-- Warm --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Recall --></label>
@@ -7251,8 +7039,16 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- Total Flex --></label>
         <name>Total_Flex__c</name>
+    </fields>
+    <fields>
+        <label><!-- Touch Point --></label>
+        <name>Touch_Point__c</name>
     </fields>
     <fields>
         <label><!-- TransTest --></label>
@@ -7284,69 +7080,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Service</masterLabel>
             <translation><!-- Service --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <name>Type</name>
-        <picklistValues>
-            <masterLabel>Army</masterLabel>
-            <translation><!-- Army --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Benz Employees</masterLabel>
-            <translation><!-- Benz Employees --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Benz employee&apos;s lineal relative</masterLabel>
-            <translation><!-- Benz employee&apos;s lineal relative --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>China Mobile specific customer</masterLabel>
-            <translation><!-- China Mobile specific customer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer Employees</masterLabel>
-            <translation><!-- Dealer Employees --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fengshun driving acedemy VIP customer</masterLabel>
-            <translation><!-- Fengshun driving acedemy VIP customer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Government Agencies</masterLabel>
-            <translation><!-- Government Agencies --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Media</masterLabel>
-            <translation><!-- Media --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>PR</masterLabel>
-            <translation><!-- PR --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Personal</masterLabel>
-            <translation><!-- Personal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Secondary Agent</masterLabel>
-            <translation><!-- Secondary Agent --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Weibo fans</masterLabel>
-            <translation><!-- Weibo fans --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7495,6 +7228,10 @@ Allows up to 240 characters --></help>
         <name>Vendor_Code__c</name>
     </fields>
     <fields>
+        <label><!-- Vin --></label>
+        <name>Vin__c</name>
+    </fields>
+    <fields>
         <label>訪問拒否</label>
         <name>Visit_Opt_Out__c</name>
     </fields>
@@ -7509,6 +7246,31 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- Vol NAF Bonus --></label>
         <name>Vol_NAF_Bonus3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Warranty Apply Date --></label>
+        <name>Warranty_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Warranty Apply Status --></label>
+        <name>Warranty_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Warranty Apply User --></label>
+        <name>Warranty_Apply_User__c</name>
+        <relationshipLabel><!-- Accounts (Warranty Apply User) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Western Star Offered Service --></label>
@@ -7619,26 +7381,26 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-   <!-- <layouts>
+    <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label> Custom Links </label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>Fields </label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>Other information </label>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label> Retail Information </label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
-    </layouts> -->
+    </layouts>
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7703,8 +7465,12 @@ Allows up to 240 characters --></help>
             <section>GSSN Address Information</section>
         </sections>
         <sections>
-            <label><!-- GSSN Information --></label>
+            <label>法人アカウントの詳細</label>
             <section>GSSN Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Section</section>
         </sections>
     </layouts>
     <layouts>
@@ -7737,6 +7503,10 @@ Allows up to 240 characters --></help>
             <section>Business Account Detail</section>
         </sections>
         <sections>
+            <label>会社情報</label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
             <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
@@ -7745,60 +7515,55 @@ Allows up to 240 characters --></help>
             <section>Dealer Portal Information</section>
         </sections>
         <sections>
-            <label>GSSN住所情報</label>
-            <section>GSSN Address Information</section>
-        </sections>
-        <sections>
-            <label><!-- GSSN Information --></label>
-            <section>GSSN Information</section>
+            <label>詳細情報</label>
+            <section>Description Information</section>
         </sections>
     </layouts>
-	<!--
     <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label> Additional Information </label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label>Address Information </label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label> Contact Info Status </label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>Contact Information </label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label> Dealer Information </label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label> Duplication Information </label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label> Other Information </label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label> Person Account Basic Information </label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label> Retail Information </label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label> Telematics Related Information </label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label> Whole activities </label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7806,23 +7571,43 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>Custom Links </label>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label> Fields </label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label> Other information </label>
+            <label>主要コンタクト・コンセント</label>
+            <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label>その他</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>Retail Information </label>
+            <label>プロフィール情報</label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label>保証/契約</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label> Whole activities </label>
+            <label>サービス履歴情報</label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7830,47 +7615,47 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>Additional Information </label>
+            <label><!-- Additional Information --></label>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label> Address Information </label>
+            <label><!-- Address Information --></label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label> Contact Info Status </label>
+            <label><!-- Contact Info Status --></label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label> Contact Information </label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label> Dealer Information </label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label>Duplication Information </label>
+            <label><!-- Duplication Information --></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label> Other Information </label>
+            <label>その他</label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label> Person Account Basic Information </label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label> Retail Information </label>
+            <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label> Telematics Related Information </label>
+            <label><!-- Telematics Related Information --></label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label> Whole activities </label>
+            <label><!-- Whole activities --></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7878,19 +7663,19 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>Contact Information </label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label> Main Contact and Consent </label>
+            <label>コンタクト情報</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label> Person Account Basic Information </label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label> Profile Information </label>
+            <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
@@ -7906,15 +7691,22 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label> New Section </label>
+            <label><!-- New Section --></label>
             <section>New Section</section>
         </sections>
         <sections>
             <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
+        <sections>
+            <label><!-- Retail Copy Information --></label>
+            <section>Retail Copy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service History Information --></label>
+            <section>Service History Information</section>
+        </sections>
     </layouts>
-	-->
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
@@ -7970,6 +7762,10 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage>ステージを「Discard」以外に手動で変更することはできません。</errorMessage>
         <name>Customer_Lifecycle_Phase_Discard</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If customer has no vehicle relationship, Status must not be ‘Customer’. --></errorMessage>
+        <name>Customer_Status_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Please enter Data Source. --></errorMessage>
@@ -8110,6 +7906,10 @@ Allows up to 240 characters --></help>
         <name>Invalid_Email</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Invalid Email Address. --></errorMessage>
+        <name>Invalid_Email_Address</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>郵便番号は7ケタの番号で入力して下さい。</errorMessage>
         <name>Invalid_ZipCode</name>
     </validationRules>
@@ -8138,6 +7938,13 @@ Allows up to 240 characters --></help>
         <name>Mobile2_StartsWith0</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Mobile must be in any of the following formats : 
+1.	xxx-xxx-xxxx 
+2.	xxx-xxxx-xxxx
+3.	xxxx-xxxx-xxx --></errorMessage>
+        <name>Mobile_Format_KR</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>携帯電話には「-」、「+」を入力しないで下さい。</errorMessage>
         <name>Mobile_NoChar</name>
     </validationRules>
@@ -8164,13 +7971,6 @@ Allows up to 240 characters --></help>
     <validationRules>
         <errorMessage><!-- Phone number must contain digits only. --></errorMessage>
         <name>Phone</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Phone must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx --></errorMessage>
-        <name>Phone_Format_KR</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- At least ONE Phone Number is mandatory for Account Creation. --></errorMessage>
@@ -8245,6 +8045,10 @@ Allows up to 240 characters --></help>
         <name>AltavistaNews</name>
     </webLinks>
     <webLinks>
+        <label><!-- BLND_FormFactoryAccountLink --></label>
+        <name>BLND_FormFactoryAccountLink</name>
+    </webLinks>
+    <webLinks>
         <label><!-- Billing --></label>
         <name>Billing</name>
     </webLinks>
@@ -8293,8 +8097,20 @@ Allows up to 240 characters --></help>
         <name>Mergeexample</name>
     </webLinks>
     <webLinks>
+        <label><!-- New_AfterSales_Leads --></label>
+        <name>New_AfterSales_Leads</name>
+    </webLinks>
+    <webLinks>
         <label>新規リード</label>
         <name>New_Leads</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Survey --></label>
+        <name>New_Survey</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Export_To_Excel --></label>
+        <name>RKExportToExcel__Export_To_Excel</name>
     </webLinks>
     <webLinks>
         <label><!-- SMS --></label>
@@ -8327,5 +8143,21 @@ Allows up to 240 characters --></help>
     <webLinks>
         <label><!-- eDM --></label>
         <name>eDM</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
     </webLinks>
 </CustomObjectTranslation>
