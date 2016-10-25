@@ -17098,33 +17098,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>MBFS_Truck_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues><picklistValues>
+		<picklistValues>
             <picklist>MBFS_Truck_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
