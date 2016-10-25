@@ -424,9 +424,7 @@
         <fields>Role2__c</fields>
         <fields>Portal_Email__c</fields>
         <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
-        <fields>LastModifiedById__c</fields>
-        <relatedList>Account_Link__c.fromRole__c</relatedList>
+        <fields>Portal_Message_Opt_Out__c</fields>       
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -438,8 +436,6 @@
         <fields>Portal_Email__c</fields>
         <fields>Portal_Mail_Opt_Out__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
-        <fields>LastModifiedById__c</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
