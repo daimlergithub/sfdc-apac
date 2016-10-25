@@ -57,8 +57,8 @@
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
 		<recipients>
-            <recipient>MBK_Managers_KR</recipient>
-            <type>queue</type>
+            <recipient>Manager</recipient>
+            <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
@@ -573,7 +573,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
