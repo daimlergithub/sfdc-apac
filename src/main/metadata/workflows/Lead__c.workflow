@@ -434,7 +434,7 @@ Proxy_Date_Time__c
     <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
         <field>Purchased_Date_Time__c</field>
-        <formula>TODAY()</formula>
+        <formula>Now()</formula>
         <name>Update Purchased Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
