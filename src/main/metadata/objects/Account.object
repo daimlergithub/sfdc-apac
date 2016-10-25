@@ -28132,6 +28132,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_STREET</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_CITY</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_STATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_ZIP</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Phone_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Address_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
