@@ -126,7 +126,7 @@
         <name>Bank_Name__c</name>
     </fields>
     <fields>
-        <label>MBFベース金利</label>
+        <label>補填通常金利</label>
         <name>Base_Interest_Rate__c</name>
     </fields>
     <fields>
@@ -1422,6 +1422,7 @@
         <name>Parent_Flag__c</name>
     </fields>
     <fields>
+		<help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help>
         <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
@@ -2275,7 +2276,7 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contract Status --></label>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>
@@ -2303,7 +2304,7 @@
             <section>Payment Conditions</section>
         </sections>
         <sections>
-            <label><!-- Remaining Balance Information --></label>
+            <label>残高情報</label>
             <section>Remaining Balance Information</section>
         </sections>
         <sections>
@@ -2322,7 +2323,7 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label><!-- Contract Status --></label>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>
@@ -2350,7 +2351,7 @@
             <section>Payment Conditions</section>
         </sections>
         <sections>
-            <label><!-- Remaining Balance Information --></label>
+            <label>残高情報</label>
             <section>Remaining Balance Information</section>
         </sections>
         <sections>
