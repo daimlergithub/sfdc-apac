@@ -4,8 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <customButtons>Merge</customButtons>
-    <customButtons>New_Survey</customButtons>
+    <customButtons>Merge</customButtons>  
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
