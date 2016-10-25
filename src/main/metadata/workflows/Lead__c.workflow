@@ -57,7 +57,7 @@
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
 		<recipients>
-            <recipient>Call_Center_Supervisor</recipient>
+            <recipient>Manager</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -243,8 +243,8 @@
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Contact_Failed_Date_Time_to_Now</fullName>
-        <field>Contact_Failed_For_3_Days_Date_Time__c</field>
-        <formula>NOW()</formula>
+        <field>Contact_Failed_For_3_Days_Date__c</field>
+        <formula>TODAY()</formula>
         <name>Update Contact Failed Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -346,11 +346,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_First_Contact</fullName>
-        <field>First_Contact_Customer_Date_Time__c</field>
+        <field>Contact_Failed_For_3_Days_Date__c</field>
         <formula>IF ( 
-ISBLANK(First_Contact_Customer_Date_Time__c), 
-NOW(), 
-First_Contact_Customer_Date_Time__c 
+ISBLANK(Contact_Failed_For_3_Days_Date__c), 
+TODAY(), 
+Contact_Failed_For_3_Days_Date__c 
 )</formula>
         <name>Update Proxy Date Time to First Contact</name>
         <notifyAssignee>false</notifyAssignee>
@@ -359,11 +359,11 @@ First_Contact_Customer_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Lost_Dealer</fullName>
-        <field>Lost_Dealer_Date_Time__c</field>
+        <field>Lost_Dealer_Date__c</field>
         <formula>IF ( 
-ISBLANK(Lost_Dealer_Date_Time__c), 
-NOW(), 
-Lost_Dealer_Date_Time__c 
+ISBLANK(Lost_Dealer_Date__c), 
+TODAY(), 
+Lost_Dealer_Date__c 
 )</formula>
         <name>Update Proxy Date Time to Lost(Dealer)</name>
         <notifyAssignee>false</notifyAssignee>
@@ -372,11 +372,11 @@ Lost_Dealer_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Order_Placed</fullName>
-        <field>Order_Placed_Date_Time__c</field>
+        <field>Order_Placed_Date__c</field>
         <formula>IF ( 
-ISBLANK(Order_Placed_Date_Time__c), 
-NOW(), 
-Order_Placed_Date_Time__c 
+ISBLANK(Order_Placed_Date__c), 
+TODAY(), 
+Order_Placed_Date__c 
 )</formula>
         <name>Update Proxy Date Time to Order Placed</name>
         <notifyAssignee>false</notifyAssignee>
@@ -398,11 +398,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Test_Drive</fullName>
-        <field>Proxy_Date_Time__c</field>
+        <field>Test_Drive_Date__c</field>
         <formula>IF ( 
-ISBLANK(Proxy_Date_Time__c), 
-NOW(), 
-Proxy_Date_Time__c 
+ISBLANK(Test_Drive_Date__c), 
+TODAY(), 
+Test_Drive_Date__c 
 )</formula>
         <name>Update Proxy Date Time to Test Drive</name>
         <notifyAssignee>false</notifyAssignee>
@@ -434,7 +434,7 @@ Proxy_Date_Time__c
     <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
         <field>Purchased_Date_Time__c</field>
-        <formula>NOW()</formula>
+        <formula>Now()</formula>
         <name>Update Purchased Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -451,8 +451,8 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Visited_Showroom_Date_Time_to_Now</fullName>
-        <field>Visited_Showroom_Date_Time__c</field>
-        <formula>NOW()</formula>
+        <field>Visited_Showroom_Date__c</field>
+        <formula>TODAY()</formula>
         <name>Update Visited Showroom Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -711,7 +711,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -739,7 +739,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -798,7 +798,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -817,7 +817,7 @@ Modify Reason:
             <name>Update_Purchased_CAC_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -840,7 +840,7 @@ Modify Reason:
             <name>Update_Purchased_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -886,7 +886,7 @@ Modify Reason:
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") ),  AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted") )  )</formula>
+        <formula>AND(Assigned_Dealer__c &lt;&gt; NULL, MD__c = 'KR', ISPICKVAL(Dealer_Lead_Status__c,"Accepted"))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
