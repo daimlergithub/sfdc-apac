@@ -57,7 +57,7 @@
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
 		<recipients>
-            <recipient>Call_Center_Supervisor</recipient>
+            <recipient>MBK_Managers_KR</recipient>
             <type>role</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -573,7 +573,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
