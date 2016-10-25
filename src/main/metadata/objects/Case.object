@@ -7990,6 +7990,14 @@ Modify Reason:
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ND</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -31680,7 +31688,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Coporate office</fullName>
@@ -31692,6 +31700,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND</fullName>
                 <default>false</default>
             </values>
             <values>
