@@ -168,10 +168,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountLinkEmailTemplate</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
