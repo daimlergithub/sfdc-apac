@@ -9351,21 +9351,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Due_Date_Overdue__mdt.Business_Hour_End_time__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Due_Date_Overdue__mdt.Business_Hour_start_time__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Due_Date_Overdue__mdt.Lead_Priority__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>true</readable>
@@ -20066,9 +20051,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dealer_System__c-Dealer System Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Due_Date_Overdue__mdt-Due Date Overdue Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
