@@ -244,18 +244,18 @@
         <unique>false</unique>
     </fields>
 	 <fields>
-        <fullName>Phone_TR18__c</fullName>
+        <fullName>Phone_EN18__c</fullName>
         <externalId>false</externalId>
-        <label>Phone_TR18</label>
+        <label>Phone_EN18</label>
         <length>20</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>
 	 <fields>
-        <fullName>Phone_TR19__c</fullName>
+        <fullName>Phone_EN19__c</fullName>
         <externalId>false</externalId>
-        <label>Phone_TR19</label>
+        <label>Phone_EN19</label>
         <length>20</length>
         <required>false</required>
         <type>Text</type>
