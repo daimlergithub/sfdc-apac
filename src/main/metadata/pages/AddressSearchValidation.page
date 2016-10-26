@@ -105,7 +105,7 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
                             <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
@@ -125,7 +125,7 @@
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                            </apex:selectList>                                          
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
@@ -163,7 +163,7 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
                             <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
@@ -183,7 +183,7 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                        <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                          
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
@@ -197,9 +197,8 @@
                   </apex:pageBlockSectionItem>
                   <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">                     
                       <apex:inputField value="{!objPersonAccount.Data_Source__c}"/>           
-                  </apex:pageBlockSectionItem>        
-                  <!-- <apex:inputField value="{!objPersonAccount.Data_Source__c}"/> -->
-                   <apex:inputField value="{!objAccount.Fax}" /> 
+                  </apex:pageBlockSectionItem> 
+                  <apex:inputField value="{!objAccount.Fax}" /> 
                 </apex:pageBlockSection>       
                 
          <!--  KOREA MARKET Company Account - End -->
@@ -222,15 +221,7 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Province__c}" style="width:35%; white-space:none;"/>
                     </apex:pageBlockSectionItem>
-                    <!--
-                    <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
-                            <apex:selectList value="{!provincepicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
-                                <apex:selectOptions value="{!ProvinceOptions}"/>
-                            </apex:selectList>
-                        
-                    </apex:pageBlockSectionItem>            
-                    -->
+                
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.City__c.Label}"/>
                         <apex:inputField value="{!AddressObj.City__c}"/>
