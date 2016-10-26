@@ -12952,11 +12952,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>PreOrder__c.Vehicle_Model_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>PreOrder__c.Vehicle_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
