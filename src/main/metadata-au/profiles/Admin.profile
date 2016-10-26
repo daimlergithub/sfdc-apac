@@ -624,10 +624,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadStatusAgeUpdate</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Lead_AddmultiBrandController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
