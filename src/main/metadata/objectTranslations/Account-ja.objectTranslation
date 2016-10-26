@@ -7047,10 +7047,6 @@ Allows up to 240 characters --></help>
         <name>Total_Flex__c</name>
     </fields>
     <fields>
-        <label><!-- Touch Point --></label>
-        <name>Touch_Point__c</name>
-    </fields>
-    <fields>
         <label><!-- TransTest --></label>
         <name>TransTest__c</name>
     </fields>
@@ -7527,19 +7523,19 @@ Allows up to 240 characters --></help>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label><!-- Address Information --></label>
+            <label>コンタクト情報</label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label><!-- Contact Info Status --></label>
+            <label>販売店情報</label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label>その他</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -7547,7 +7543,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -7559,7 +7555,7 @@ Allows up to 240 characters --></help>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label><!-- Telematics Related Information --></label>
+            <label>コンタクト情報</label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
@@ -7571,39 +7567,39 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>主要コンタクト・コンセント</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>その他</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>プロフィール情報</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>保証/契約</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>サービス履歴情報</label>
             <section>Profile Information</section>
         </sections>
         <sections>
-            <label>保証/契約</label>
+            <label>システム情報</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label>サービス履歴情報</label>
+            <label><!-- Service History Information --></label>
             <section>Service History Information</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -7619,19 +7615,19 @@ Allows up to 240 characters --></help>
             <section>Additional Information</section>
         </sections>
         <sections>
-            <label><!-- Address Information --></label>
+            <label>コンタクト情報</label>
             <section>Address Information</section>
         </sections>
         <sections>
-            <label><!-- Contact Info Status --></label>
+            <label>販売店情報</label>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label>その他</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -7639,7 +7635,7 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label><!-- Other Information --></label>
             <section>Other Information</section>
         </sections>
         <sections>
@@ -7651,11 +7647,11 @@ Allows up to 240 characters --></help>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label><!-- Telematics Related Information --></label>
+            <label>コンタクト情報</label>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label><!-- Whole activities --></label>
+            <label>コンタクト情報</label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7663,19 +7659,19 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label>プロフィール情報</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label>コンタクト情報</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
@@ -7683,11 +7679,11 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Contact Information --></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>プロフィール情報</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
@@ -7695,7 +7691,7 @@ Allows up to 240 characters --></help>
             <section>New Section</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label><!-- Profile Information --></label>
             <section>Profile Information</section>
         </sections>
         <sections>
