@@ -22896,7 +22896,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased(Only Non BDC)</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Qualified</fullName>
