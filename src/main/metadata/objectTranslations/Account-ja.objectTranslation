@@ -2915,10 +2915,6 @@ Allows up to 240 characters --></help>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
         </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- SAP MB Trucks/Freightliner --></label>
@@ -6166,10 +6162,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
