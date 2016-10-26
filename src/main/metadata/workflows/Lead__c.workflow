@@ -346,11 +346,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_First_Contact</fullName>
-        <field>Contact_Failed_For_3_Days_Date__c</field>
+        <field>First_Contact_Customer_Date__c</field>
         <formula>IF ( 
-ISBLANK(Contact_Failed_For_3_Days_Date__c), 
+ISBLANK(First_Contact_Customer_Date__c), 
 TODAY(), 
-Contact_Failed_For_3_Days_Date__c 
+First_Contact_Customer_Date__c 
 )</formula>
         <name>Update Proxy Date Time to First Contact</name>
         <notifyAssignee>false</notifyAssignee>
@@ -711,7 +711,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -739,7 +739,7 @@ Proxy_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -808,7 +808,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
