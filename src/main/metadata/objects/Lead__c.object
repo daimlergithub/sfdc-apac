@@ -144,7 +144,78 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Finance_Total_V_Price_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price Tax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	 <fields>
+        <fullName>Finance_Total_V_Price_NoTax__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Total V Price NoTax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_RV_Ballon__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance RV Ballon</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Interest_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Interest Rate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Finance_Monthly_Payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Monthly Payment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Finance_Contract_Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Contract Term</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>	
+	<fields>
+        <fullName>Dealer_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Comment</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
 	<fields>
         <fullName>Dealer_DMS_Comments__c</fullName>
         <externalId>false</externalId>
@@ -20174,6 +20245,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+	 <fields>
+        <fullName>Vehicle_Registration_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Registration No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Visited_Showroom_Date__c</fullName>

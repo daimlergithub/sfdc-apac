@@ -178,6 +178,18 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Car_Model__c</fullName>
+        <externalId>false</externalId>
+        <formula>Vehicle_ID__r.Car_Model__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Car Model</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Car_Relation__c</fullName>
         <description>/* 
@@ -3407,6 +3419,18 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleREl_Replacem
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>SAP_Dealer_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner_Dealer__r.New_No_SAP_Vehicle_Cars__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SAP Dealer Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SSI__c</fullName>
