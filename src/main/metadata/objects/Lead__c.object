@@ -69582,7 +69582,7 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c, "Service Completed"), 
 OR ( 
