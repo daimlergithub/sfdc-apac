@@ -26406,7 +26406,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-       <picklistValues>
+        <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
                 <fullName>A %28Highest priority%29</fullName>
