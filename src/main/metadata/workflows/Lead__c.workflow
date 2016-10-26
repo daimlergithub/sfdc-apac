@@ -434,7 +434,7 @@ Proxy_Date_Time__c
     <fieldUpdates>
         <fullName>Update_Service_Completed_Date_To_Today</fullName>
         <field>Service_Date__c</field>
-        <formula>TODAY()</formula>
+        <formula>NOW()</formula>
         <name>Update Service Date to Today</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
