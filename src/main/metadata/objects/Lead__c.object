@@ -93250,7 +93250,7 @@ ISBLANK( Company_Account__c )&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Contact_Failed_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), 
 ISNULL(Contact_Failed_For_3_Days_Date__c)
@@ -93295,7 +93295,7 @@ RecordType.Name == 'Sales Leads'
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
 ISNULL(First_Contact_Customer_Date__c)
@@ -93401,7 +93401,7 @@ ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__
     </validationRules>
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c)
@@ -93448,7 +93448,7 @@ ISNULL(Service_Date__c))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
@@ -93490,7 +93490,7 @@ RecordType.DeveloperName = 'Sales_Leads'
     </validationRules>
     <validationRules>
         <fullName>Visited_Showroom_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)
