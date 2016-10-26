@@ -346,11 +346,11 @@ Proxy_Date_Time__c
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_First_Contact</fullName>
-        <field>Contact_Failed_For_3_Days_Date__c</field>
+        <field>First_Contact_Customer_Date__c</field>
         <formula>IF ( 
-ISBLANK(Contact_Failed_For_3_Days_Date__c), 
+ISBLANK(First_Contact_Customer_Date__c), 
 TODAY(), 
-Contact_Failed_For_3_Days_Date__c 
+First_Contact_Customer_Date__c 
 )</formula>
         <name>Update Proxy Date Time to First Contact</name>
         <notifyAssignee>false</notifyAssignee>
