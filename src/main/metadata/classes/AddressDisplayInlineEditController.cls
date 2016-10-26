@@ -124,7 +124,7 @@ public class AddressDisplayInlineEditController {
 **/  
     @TestVisible private void loadData() {
         system.debug('@Loading Addresses...' +aid);
-        adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+        adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                 Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c =: aid];
     }
     
@@ -171,7 +171,7 @@ public class AddressDisplayInlineEditController {
     public void addEditOptions()
     {    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];
         if(adds.size()>=5)
         {
@@ -193,7 +193,7 @@ public class AddressDisplayInlineEditController {
         Address__c editadds;
         if (editaddressId != null) 
         {
-            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                         Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Id =: editaddressId];
             // if for any reason we are missing the reference 
             
