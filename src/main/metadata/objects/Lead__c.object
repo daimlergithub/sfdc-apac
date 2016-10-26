@@ -20064,18 +20064,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Vehicle_Registration_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Registration No</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Vehicle_Rel_Selling_Dealer__c</fullName>
         <externalId>false</externalId>
         <formula>VehicleRel_No__r.Owner_Dealer__c</formula>
@@ -20086,28 +20074,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Use__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Use</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Business</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Vehicle_Year_Current__c</fullName>
