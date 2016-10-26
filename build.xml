@@ -485,6 +485,8 @@
 			<sf:include name="ScheduledUpdateCommunityUsersTest"/>
 			<sf:include name="SelectAssignedDealerController"/>
 			<sf:include name="SelectAssignedDealerControllerTest"/>
+			<sf:include name="AccountRecordTypeToSoftDelete"/>
+			<sf:include name="AccountRecordTypeToSoftDeleteTest"/>			
 			<sf:include name="UtilCustomSettings"/>
 			<sf:include name="UtilCustomSettingsTest"/>
 			<sf:include name="ContactHelper"/>
