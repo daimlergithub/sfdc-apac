@@ -39,9 +39,9 @@ public class TriggerRetailCampaignTest {
         insert dealerContact;
         
         Profile portalProfile = [SELECT Id FROM Profile WHERE Name = 'System Administrator' Limit 1];
-        dealerUser = new User(Username = 'test.daimler.user@test.com', ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
+        dealerUser = new User(Username = 'test12345test.daimler.user@test.com', ProfileId = portalProfile.Id, Alias = 'test123', Email = 'testdaimler12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'AKumar', CommunityNickname = 'test12345daimler', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
         insert dealerUser;
-        
+		        
         //start test
         test.startTest();
         Retail_Campaign__c cp1 = new Retail_Campaign__c(

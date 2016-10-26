@@ -8888,6 +8888,11 @@
         <field>Event.Communication_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Communication_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Company__c</field>
@@ -14856,6 +14861,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Communication_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Communication_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
