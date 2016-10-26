@@ -2900,9 +2900,21 @@ Allows up to 240 characters --></help>
         <label>拠点長</label>
         <name>Dealer_Representative__c</name>
     </fields>
-    <fields>
+	<fields>
         <label><!-- Dealer Rollout Status --></label>
         <name>Dealer_Rollout_Status__c</name>
+        <picklistValues>
+            <masterLabel>Done</masterLabel>
+            <translation><!-- Done --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In_Progress</masterLabel>
+            <translation><!-- In_Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Yet</masterLabel>
+            <translation><!-- Not Yet --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
@@ -6143,6 +6155,18 @@ Allows up to 240 characters --></help>
     <fields>
         <label><!-- Portal Apply Status --></label>
         <name>Portal_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation><!-- To be Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for confirmation</masterLabel>
+            <translation><!-- Waiting for confirmation --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
