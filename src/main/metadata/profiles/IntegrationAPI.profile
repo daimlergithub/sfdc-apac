@@ -1742,7 +1742,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Customer_Consent__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3041,6 +3041,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.MBK_Data_Source__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.MBK_Occupation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.MB_Customer_Info_Remove__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3294,6 +3304,11 @@
         <field>Account.Personal_Information_Third_Party_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Agreement_to_commit_info_processing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Phone</field>
@@ -20645,10 +20660,6 @@
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Execution Simple layout</layout>
-        <recordType>Campaign.Campaign_Execution</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-Campaign Read Only Layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
     </layoutAssignments>
@@ -20889,6 +20900,14 @@
     <layoutAssignments>
         <layout>Lead__c-AfterSales Lead</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Dealer AfterSales Lead ReadOnly</layout>
+        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</layout>
+        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
@@ -22616,6 +22635,16 @@
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

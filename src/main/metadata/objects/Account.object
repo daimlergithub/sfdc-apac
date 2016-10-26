@@ -9099,8 +9099,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
+    </fields><fields>
         <fullName>MBK_Occupation__c</fullName>
         <externalId>false</externalId>
         <label>MBK Occupation</label>
@@ -9231,6 +9230,70 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Artist/Painter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer/IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freelancers</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -17098,33 +17161,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>MBFS_Truck_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues><picklistValues>
+		<picklistValues>
             <picklist>MBFS_Truck_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -17261,9 +17298,72 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues><picklistValues>
             <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Government employees</fullName>
                 <default>false</default>

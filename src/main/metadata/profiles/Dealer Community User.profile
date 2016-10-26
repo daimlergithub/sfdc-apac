@@ -1742,7 +1742,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Customer_Consent__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3041,6 +3041,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.MBK_Data_Source__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.MBK_Occupation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.MB_Customer_Info_Remove__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3282,7 +3292,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Personal_Abroad_Agreement__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3294,6 +3304,11 @@
         <field>Account.Personal_Information_Third_Party_Release__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Agreement_to_commit_info_processing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Phone</field>
@@ -11745,9 +11760,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Lost_To__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12045,9 +12060,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Purchased_CAC_Date_Time__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12470,9 +12485,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Service_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20884,6 +20899,14 @@
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Dealer AfterSales Lead ReadOnly</layout>
+        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</layout>
+        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Leads Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -22005,6 +22028,16 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -22336,6 +22369,10 @@
     <tabVisibilities>
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Lead__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Recall__c</tab>
