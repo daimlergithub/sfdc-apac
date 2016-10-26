@@ -637,6 +637,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LeadStatusAgeUpdate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Lead_AddmultiBrandController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -750,6 +754,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>NiceWebServices</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OverDueDate_Class</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -9353,6 +9361,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Due_Date_Overdue__mdt.Business_Hour_End_time__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Due_Date_Overdue__mdt.Business_Hour_start_time__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Due_Date_Overdue__mdt.Lead_Priority__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>true</readable>
@@ -11308,6 +11331,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Lead_Status_Age__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_Sub_Type__c</field>
         <readable>true</readable>
@@ -12950,6 +12978,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.VehicleInterested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Vehicle_Model_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20045,6 +20078,9 @@
         <layout>Dealer_System__c-Dealer System Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Due_Date_Overdue__mdt-Due Date Overdue Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -23091,10 +23127,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
