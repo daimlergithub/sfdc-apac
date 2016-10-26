@@ -716,10 +716,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>OverDueDate_Class</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
