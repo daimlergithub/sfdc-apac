@@ -8780,10 +8780,6 @@ Modify Reason:
         <label>Lead Latest Phase</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8829,6 +8825,46 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Check Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade-in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CA Submission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Estimation</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -26299,7 +26335,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
                 <fullName>Check Out</fullName>
@@ -26310,11 +26346,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26331,6 +26379,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26354,7 +26406,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+       <picklistValues>
             <picklist>Lead_Priority__c</picklist>
             <values>
                 <fullName>A %28Highest priority%29</fullName>
@@ -39089,11 +39141,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39110,6 +39170,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51180,6 +51244,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
+                <fullName>CA Submission</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Check Out</fullName>
                 <default>false</default>
             </values>
@@ -51188,11 +51256,31 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51208,7 +51296,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51217,6 +51313,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-in</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62407,6 +62507,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
+                <fullName>CA Submission</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Check Out</fullName>
                 <default>false</default>
             </values>
@@ -62415,11 +62519,31 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62435,7 +62559,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62444,6 +62576,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-in</fullName>
                 <default>false</default>
             </values>
             <values>

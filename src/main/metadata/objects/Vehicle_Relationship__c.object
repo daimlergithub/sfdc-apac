@@ -225,6 +225,18 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Driver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5174,7 +5186,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+     <recordTypes>
         <fullName>Vehicle_Relationship_Retail</fullName>
         <active>true</active>
         <label>Vehicle Relationship Retail</label>
@@ -5744,7 +5756,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Vehicle_Relationship_Soft_Deleted</fullName>
         <active>true</active>
         <description>Soft deleted vehicle relationship</description>
@@ -5766,6 +5778,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Aftersales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
@@ -5778,7 +5794,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Driver</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6307,7 +6331,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
+     <searchLayouts>
         <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>New_Used__c</customTabListAdditionalFields>
