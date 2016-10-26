@@ -424,18 +424,9 @@
         <fields>Role2__c</fields>
         <fields>Portal_Email__c</fields>
         <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>       
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>fromRole__c</fields>
-        <fields>System__c</fields>
-        <fields>Role__c</fields>
-        <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
-        <fields>Portal_Mail_Opt_Out__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>LastModifiedById__c</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
