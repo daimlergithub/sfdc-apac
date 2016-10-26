@@ -808,10 +808,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RetailTaskHelper1</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RetailTaskHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1549,10 +1545,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleRelationshipHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>VehicleRelationshipHelper2</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
