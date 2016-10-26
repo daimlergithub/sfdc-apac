@@ -508,10 +508,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DealerSharingHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>EmailServiceStatusUpdate</apexClass>
         <enabled>true</enabled>
     </classAccesses>
