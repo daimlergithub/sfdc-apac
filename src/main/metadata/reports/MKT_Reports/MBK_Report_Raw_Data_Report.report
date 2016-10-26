@@ -16,6 +16,9 @@
         <field>FK_$Account.R_Check_Age__c</field>
     </columns>
     <columns>
+        <field>FK_$Account.Age__c</field>
+    </columns>
+    <columns>
         <field>FK_PC_FIRST_NAME</field>
     </columns>
     <columns>
