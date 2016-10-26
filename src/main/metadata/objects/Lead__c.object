@@ -26374,10 +26374,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Order Confirmed</fullName>
                 <default>false</default>
             </values>
