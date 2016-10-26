@@ -7224,10 +7224,6 @@ Allows up to 240 characters --></help>
         <name>Vendor_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Vin --></label>
-        <name>Vin__c</name>
-    </fields>
-    <fields>
         <label>訪問拒否</label>
         <name>Visit_Opt_Out__c</name>
     </fields>
