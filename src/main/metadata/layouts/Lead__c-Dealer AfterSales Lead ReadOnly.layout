@@ -13,11 +13,11 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Lost_Dealer_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -41,7 +41,7 @@
                 <field>Re_visit__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Team__c</field>
             </layoutItems>
             <layoutItems>
