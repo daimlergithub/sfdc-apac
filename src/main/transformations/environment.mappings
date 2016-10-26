@@ -22,6 +22,7 @@ dev_sb_au_dev2=sukumar.rajashekaran.ntt@au.daimler-apac.com.dev2
 dev_sb_au_dev3=raghuprasad.halakere.ntt@au.daimler-apac.com.dev3,shrinivas.desai.ntt@au.daimler-apac.com.dev3
 dev_sb_au_dev4=rakeshbabugoud.balagani.ntt@au.daimler-apac.com.dev4
 dev_sb_au_dev5=sudhirkumar.acharya@nttdata.com.au.dev5
+dev_sb_au_dev6=deployment.user.ntt@au.daimler-apac.com.dev6,snehal.pradhan@nttdata.com.au.dev6
 dev_sb_au_mrdev=sukumar.rajashekaran.ntt@au.daimler-apac.com.mrdev,deployment.user.ntt@au.daimler-apac.com.mrdev
 dev_sb_au_mr=arun.iyer.ntt@au.daimler-apac.com.mr,sukumar.rajashekaran.ntt@au.daimler-apac.com.mr
 test_sb_au_test=nazeer.ahamed.ntt@au.daimler-apac.com.test

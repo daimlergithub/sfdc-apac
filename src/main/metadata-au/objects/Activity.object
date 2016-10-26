@@ -2711,20 +2711,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <label>All Activities</label>
     </listViews>
     <listViews>
-        <fullName>All_Change_Owner_Activities</fullName>
-        <columns>TASK.SUBJECT</columns>
-        <columns>TASK.WHAT_NAME</columns>
-        <columns>CORE.USERS.FULL_NAME</columns>
-        <columns>TASK.STATUS</columns>
-        <columns>TASK.RECORDTYPE</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Change Owner Activities</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>Change_Owner</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>All_Un_assinged_OB_Task</fullName>
         <columns>TASK.SUBJECT</columns>
         <columns>TASK.WHO_NAME</columns>
