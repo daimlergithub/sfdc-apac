@@ -3323,34 +3323,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Remove_Account</fullName>
-        <columns>TASK.SUBJECT</columns>
-        <columns>TASK.WHO_NAME</columns>
-        <columns>TASK.WHAT_NAME</columns>
-        <columns>TASK.DUE_DATE</columns>
-        <columns>TASK.STATUS</columns>
-        <columns>TASK.PRIORITY</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>TASK.STATUS</field>
-            <operation>notEqual</operation>
-            <value>Complete</value>
-        </filters>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.Remove_Account</value>
-        </filters>
-        <label>Remove Account</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>System_Admin_Business</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Today_Inbound</fullName>
         <columns>TASK.SUBJECT</columns>
         <columns>TASK.WHO_NAME</columns>
