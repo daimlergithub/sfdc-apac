@@ -51256,10 +51256,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Checkout</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Confirmation</fullName>
                 <default>false</default>
             </values>
@@ -62528,10 +62524,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
                 <fullName>CA Submission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Checkout</fullName>
                 <default>false</default>
             </values>
             <values>
