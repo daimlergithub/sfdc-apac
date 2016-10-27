@@ -2430,11 +2430,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Auto IT (Units)</masterLabel>
             <translation><!-- Auto IT (Units) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Auto IT Â PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT Â PMDS Viaduct 2000 --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
             <translation><!-- Auto Mac --></translation>
@@ -2454,11 +2450,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Easy Mate (Global Soultions)</masterLabel>
             <translation><!-- Easy Mate (Global Soultions) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gateway Solutions â€“ Voyager</masterLabel>
-            <translation><!-- Gateway Solutions â€“ Voyager --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Global Dealer Systems</masterLabel>
             <translation><!-- Global Dealer Systems --></translation>
@@ -2887,11 +2879,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
     <fields>
         <label><!-- SAP MB Trucks/Freightliner --></label>
@@ -5149,19 +5137,11 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Autocar</masterLabel>
             <translation><!-- Autocar --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Avenue L (ë¡¯ë°)</masterLabel>
-            <translation><!-- Avenue L (ë¡¯ë°) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Bazzar</masterLabel>
             <translation><!-- Bazzar --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Beyond (ëŒ€í•œ_êµ­ì œì„ )</masterLabel>
-            <translation><!-- Beyond (ëŒ€í•œ_êµ­ì œì„ ) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Car Life</masterLabel>
             <translation><!-- Car Life --></translation>
@@ -5169,19 +5149,11 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Casa Living</masterLabel>
             <translation><!-- Casa Living --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chronos (í™€ìˆ˜,ì‹œê³„)</masterLabel>
-            <translation><!-- Chronos (í™€ìˆ˜,ì‹œê³„) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Cosmopolitan</masterLabel>
             <translation><!-- Cosmopolitan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignHouse (í–‰ê°€ì§‘)</masterLabel>
-            <translation><!-- DesignHouse (í–‰ê°€ì§‘) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Elle</masterLabel>
             <translation><!-- Elle --></translation>
@@ -5205,11 +5177,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>GQ</masterLabel>
             <translation><!-- GQ --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Galleria (ê²”ëŸ¬ë¦¬ì•„)</masterLabel>
-            <translation><!-- Galleria (ê²”ëŸ¬ë¦¬ì•„) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Golf Digest</masterLabel>
             <translation><!-- Golf Digest --></translation>
@@ -5229,11 +5197,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Heren</masterLabel>
             <translation><!-- Heren --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>JJ Magazine (í•˜ì–íŠ¸)</masterLabel>
-            <translation><!-- JJ Magazine (í•˜ì–íŠ¸) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Lemon Tree</masterLabel>
             <translation><!-- Lemon Tree --></translation>
@@ -5261,11 +5225,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Mens Health</masterLabel>
             <translation><!-- Mens Health --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</masterLabel>
-            <translation><!-- Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ ) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Motor Trend</masterLabel>
             <translation><!-- Motor Trend --></translation>
@@ -5281,27 +5241,11 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Noblesse</masterLabel>
             <translation><!-- Noblesse --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Noblian (ì‹ ë¼)</masterLabel>
-            <translation><!-- Noblian (ì‹ ë¼) --></translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Outdoor</masterLabel>
             <translation><!-- Outdoor --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>PreVillage (ë¡¯ë°)</masterLabel>
-            <translation><!-- PreVillage (ë¡¯ë°) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Style H (í˜„ëŒ€)</masterLabel>
-            <translation><!-- Style H (í˜„ëŒ€) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</masterLabel>
-            <translation><!-- The Lotte (ë¡¯ë°_ë©´ì„¸ì ) --></translation>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <masterLabel>Top Gear</masterLabel>
             <translation><!-- Top Gear --></translation>
@@ -5945,11 +5889,7 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
     <fields>
         <label><!-- Portal Apply User --></label>
