@@ -8758,7 +8758,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-    <fields>
+       <fields>
         <fullName>Lead_Latest_Phase__c</fullName>
         <description>Keep details activities status</description>
         <externalId>false</externalId>
@@ -8816,6 +8816,42 @@ Modify Reason:
                 <fullName>Check Out</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade-in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CA Submission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8824,7 +8860,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Lead_Lost_Date_Time__c</fullName>
         <description>Set this date when lead status is changed into Lost.</description>
         <externalId>false</externalId>
@@ -26272,11 +26308,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26293,6 +26337,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
