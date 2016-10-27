@@ -12,13 +12,8 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Phone__c</field>
-            <table>Vehicle_Relationship__c.Leads__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Selling_Dealer__c</field>
-            <table>Vehicle_Relationship__c.Leads__r</table>
+            <field>Contact__c.Individual_Home_Phone__c</field>
+            <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -42,12 +37,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Vehicle_ID__c.Trim__c</field>
+            <field>Vehicle_ID__c.Car_Model__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Vehicle_ID__c.Car_Model__c</field>
+            <field>Vehicle_ID__c.Trim__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
@@ -57,12 +52,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MD__c</field>
-            <table>Vehicle_Relationship__c</table>
+            <field>Selling_Dealer__c</field>
+            <table>Vehicle_Relationship__c.Leads__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Customer_Consent__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>MD__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <masterLabel>NCBS Report</masterLabel>
