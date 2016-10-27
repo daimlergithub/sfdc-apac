@@ -1742,7 +1742,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Customer_Consent__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3292,7 +3292,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Personal_Abroad_Agreement__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3304,11 +3304,6 @@
         <field>Account.Personal_Information_Third_Party_Release__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Agreement_to_commit_info_processing__c</field>
-        <readable>true</readable>
-    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Phone</field>
@@ -12065,9 +12060,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Purchased_CAC_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

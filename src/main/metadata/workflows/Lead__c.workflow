@@ -432,8 +432,17 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Service_Completed_Date_To_Today</fullName>
+        <field>Service_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Service Date to Today</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
-        <field>Purchased_Date_Time__c</field>
+        <field>Purchased_CAC_Date_Time__c</field>
         <formula>Now()</formula>
         <name>Update Purchased Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
@@ -798,7 +807,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'KR')</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -831,11 +840,26 @@ Modify Reason:
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
+        <fullName>Update Service Completed Date</fullName>
         <actions>
-            <name>Update_Proxy_Date_Time_to_Purchased</name>
+            <name>Update_Service_Completed_Date_To_Today</name>
             <type>FieldUpdate</type>
         </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Service Completed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
         <actions>
             <name>Update_Purchased_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
