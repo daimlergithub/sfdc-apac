@@ -8,11 +8,16 @@
         <outerJoin>false</outerJoin>
         <relationship>Survey_Question_Answers__r</relationship>
     </join>
-    <label>Happy Calls Reports</label>
+    <label>Happy Calls Report</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SurveyTakenByVehicle__c.Last_Service_Dealer__c</field>
+            <field>Lead__c.VehicleRel_No__c.Last_Service_Dealer__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead__c.VehicleRel_No__c.Vehicle_ID__c.Latest_Invoice_Date__c</field>
             <table>SurveyTaker__c</table>
         </columns>
         <columns>
@@ -22,49 +27,28 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SurveyTakenByVehicle__c.Vehicle_ID__c.Latest_Invoice_Date__c</field>
+            <field>Lead__c.Contact__c</field>
             <table>SurveyTaker__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>SurveyTakenByVehicle__c.Vehicle_ID__c.Related_contact__c</field>
+            <field>Lead__c.Existing_Contract__c.Service_Code__c</field>
             <table>SurveyTaker__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Customer_Consent__c</field>
+            <field>Lead__c.Contact__c.Customer_Consent_Happy_Calls__c</field>
             <table>SurveyTaker__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Question__c</field>
-            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
-        </columns>
-		
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Id</field>
-            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Survey__c</field>
-            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Survey_Question__c.Name</field>
-            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
+            <field>Survey__c</field>
+            <table>SurveyTaker__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Response__c</field>
             <table>SurveyTaker__c.Survey_Question_Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>SurveyTaker__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -73,9 +57,19 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Dealer_Service_Codes__c</field>
+            <field>SurveyTaker__c</field>
+            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead__c.CAC_Lead_Status__c</field>
             <table>SurveyTaker__c</table>
         </columns>
-        <masterLabel>Happy Call Survey</masterLabel>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Survey_Question__c.Question__c</field>
+            <table>SurveyTaker__c.Survey_Question_Answers__r</table>
+        </columns>
+        <masterLabel>Surveys Taken</masterLabel>
     </sections>
 </ReportType>
