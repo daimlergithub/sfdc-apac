@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>CUST_NAME</field>
+        <field>FK_$Account.Age_Range__c</field>
     </columns>
     <columns>
-        <field>FK_NAME</field>
+        <field>Vehicle_Relationship__c.Status__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Gender__c</field>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
     </columns>
-    <description>Gender by Vehicle Model</description>
+    <description>Ownership Report</description>
     <filter>
-        <criteriaItems>
-            <column>FK_PC_$Contact.MD__c</column>
-            <operator>equals</operator>
-            <value>KR</value>
-        </criteriaItems>
         <criteriaItems>
             <column>Vehicle_Relationship__c.MD__c</column>
             <operator>equals</operator>
@@ -24,12 +19,7 @@
         <language>en_US</language>
     </filter>
     <format>Summary</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <name>MBK Reports - Gender by Vehicle Model</name>
+    <name>MBK Reports - Ownership Report</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -38,7 +28,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>CUST_CREATED_DATE</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <dateColumn>Vehicle_Relationship__c.Add_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
