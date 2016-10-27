@@ -104,8 +104,8 @@
                     </apex:pageBlockSectionItem>                                                
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
-                        <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCode}" size="1" style="width:80px">
+                        <apex:outputPanel>
+                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
                             <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
@@ -122,15 +122,15 @@
                             <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
-                 <apex:pageBlockSectionItem >
+                 <apex:pageBlockSectionItem>
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                            </apex:selectList>                                          
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
-                        </apex:outputPanel>                  
+                        </apex:outputPanel>                     
                     </apex:pageBlockSectionItem> 
                    
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
@@ -157,7 +157,7 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                            <apex:selectList value="{!homePhoneAreaCode}" size="1" style="width:80px">
+                            <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
                             <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" onkeyup="validateCode(this.id)" style="width:60px"/>
@@ -176,13 +176,14 @@
                     </apex:pageBlockSectionItem>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
-                       <apex:outputPanel >
-                            <apex:selectList value="{!workPhoneAreaCode}" size="1" style="width:80px">
+                          <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
+                          <apex:outputPanel >
+                            <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
-                            </apex:selectList>                                          
+                           </apex:selectList>                                          
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
-                        </apex:outputPanel>                  
+                        </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>                  
                                   
                    <apex:inputField value="{!objAccount.Email__c}" />  
