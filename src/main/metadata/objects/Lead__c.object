@@ -8871,6 +8871,18 @@ Modify Reason:
                 <fullName>Estimation</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -26342,10 +26354,6 @@ Company_Account__r.Work_Phone__c  ,
          <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
-                <fullName>Check Out</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -26369,7 +26377,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -39137,10 +39145,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
-                <fullName>Checkout</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -51247,12 +51251,16 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
-			 <values>
+            <values>
                 <fullName>CA Submission</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Checkout</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51284,6 +51292,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -51305,6 +51317,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62519,6 +62535,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -62547,6 +62567,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -62568,6 +62592,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
