@@ -2432,10 +2432,6 @@ Allows up to 240 characters --></help>
             <translation><!-- Auto IT (Units) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Auto IT  PMDS Viaduct 2000</masterLabel>
-            <translation><!-- Auto IT  PMDS Viaduct 2000 --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Auto Mac</masterLabel>
             <translation><!-- Auto Mac --></translation>
         </picklistValues>
@@ -2887,10 +2883,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5945,10 +5937,6 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
