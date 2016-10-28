@@ -29737,9 +29737,11 @@ REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
         <fullName>HomePhone_Format_KR</fullName>
         <active>true</active>
         <description>Korea landline phone must be in any of the following format :
-1.	xx-xxxx-xxxx
-2.	xxx-xxx-xxxx
-3.	xxx-xxxx-xxxx</description>
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -29762,14 +29764,21 @@ REGEX(Individual_Home_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats :
-1.	xx-xxxx-xxxx
-2.	xxx-xxx-xxxx
-3.	xxx-xxxx-xxxx</errorMessage>
+		1.	0x-xxx-xxxx
+		2.  0x-xxxx-xxxx
+		2.	0xx-xxx-xxxx
+		3.	0xx-xxxx-xxxx
+		4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -30211,9 +30220,11 @@ ISPICKVAL(  Gender__c , 'Male'))
         <fullName>WorkPhone_Format_KR</fullName>
         <active>true</active>
         <description>Work Phone must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</description>
+	1.	0x-xxx-xxxx
+	2.  0x-xxxx-xxxx
+	2.	0xx-xxx-xxxx
+	3.	0xx-xxxx-xxxx
+	4.  blank-xxxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -30236,14 +30247,21 @@ REGEX(Work_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
-REGEX(Work_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+REGEX(Work_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
         <errorMessage>Work Phone must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</errorMessage>
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
