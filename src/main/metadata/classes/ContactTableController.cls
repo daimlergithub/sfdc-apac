@@ -58,38 +58,32 @@ public class ContactTableController
    public void PhoneNumberFormat(){
       
          if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && ParAcc.MD__c=='KR'){
-              if(!ParAcc.Individual_Home_Phone__c.contains('-')){                  
+              if(ParAcc.Individual_Home_Phone__c.contains('-')){
                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
               }
-              else{
-                  String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-'); 
-                  homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
-                  homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
-                  homePhoneAreaCodePart3=resultshomePhoneAreaCode[2];    
-              }           
+              String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-'); 
+              homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
+              homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
+              homePhoneAreaCodePart3=resultshomePhoneAreaCode[2];               
           }
   
          if(!(String.isBlank(ParAcc.Work_Phone__c)) && ParAcc.MD__c=='KR'){ 
-            if(!ParAcc.Work_Phone__c.contains('-')){                 
+            if(ParAcc.Work_Phone__c.contains('-')){
                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
               }
-            else{
-                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-');  
-                workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-                workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-                workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
-            }
+            String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-');  
+            workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+            workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+            workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
           } 
-        if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){                       
-             if(!(ParAcc.Mobile__c.contains('-'))){
-                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));                     
-                }
-            else{
-                String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
-                mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-                mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-                mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
-            }
+        if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
+             if(ParAcc.Mobile__c.contains('-')){
+                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
+              }
+            String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
+            mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+            mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+            mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
           } 
    }
     public void EditAccount()    
@@ -208,10 +202,10 @@ public class ContactTableController
                 options.add(new SelectOption( areacodeKR.Mobile_Code2__c,areacodeKR.Mobile_Code2__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN18__c,areacodeKR.Phone_EN18__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN19__c,areacodeKR.Phone_EN19__c));                
-                if(!(String.isBlank(homePhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(homePhoneAreaCodePart1)){
+                if(!(String.isBlank(homePhoneAreaCodePart1)) && homePhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(homePhoneAreaCodePart1)){
                   options.add(new SelectOption( homePhoneAreaCodePart1,homePhoneAreaCodePart1));
                 }
-                if(!(String.isBlank(workPhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
+                if(!(String.isBlank(workPhoneAreaCodePart1)) && workPhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
                   options.add(new SelectOption( workPhoneAreaCodePart1,workPhoneAreaCodePart1));
                 }  
                 return options; 
