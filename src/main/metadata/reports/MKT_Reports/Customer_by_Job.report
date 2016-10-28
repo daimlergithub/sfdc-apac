@@ -12,6 +12,9 @@
     <columns>
         <field>Account.Age__c</field>
     </columns>
+	<columns>
+        <field>Account.MBK_Occupation__c</field>
+    </columns>
     <description>Customer by Job</description>
     <filter>
         <criteriaItems>
