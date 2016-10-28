@@ -7242,10 +7242,6 @@ Allows up to 240 characters --></help>
             <masterLabel>To be Sent</masterLabel>
             <translation><!-- To be Sent --></translation>
         </picklistValues>
-        <picklistValues>
-            <masterLabel>none</masterLabel>
-            <translation><!-- none --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Warranty Apply User --></label>
