@@ -1749,6 +1749,11 @@
         <field>Account.Customer_Consent_Happy_Calls__c</field>
         <readable>true</readable>
     </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.All_channel_opt_out__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Customer_LastUpdatedDate__c</field>
