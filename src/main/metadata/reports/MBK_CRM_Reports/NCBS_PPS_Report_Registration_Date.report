@@ -16,7 +16,7 @@
         <field>Vehicle_Relationship__c$Vehicle_ID__c.Model__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Vehicle_ID__c.Car_Model__c</field>
+        <field>Vehicle_Relationship__c$Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.Trim__c</field>

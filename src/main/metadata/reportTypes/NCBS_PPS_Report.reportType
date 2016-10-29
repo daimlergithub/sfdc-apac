@@ -65,6 +65,11 @@
             <field>MD__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
         <masterLabel>NCBS Report</masterLabel>
     </sections>
 </ReportType>
