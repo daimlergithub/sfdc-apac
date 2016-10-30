@@ -8852,6 +8852,18 @@ Modify Reason:
                 <fullName>Handover</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8860,7 +8872,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Lead_Lost_Date_Time__c</fullName>
         <description>Set this date when lead status is changed into Lost.</description>
         <externalId>false</externalId>
@@ -51222,6 +51234,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -51231,6 +51247,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51247,6 +51267,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62452,6 +62476,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Check Out</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -62462,6 +62490,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62478,6 +62510,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>

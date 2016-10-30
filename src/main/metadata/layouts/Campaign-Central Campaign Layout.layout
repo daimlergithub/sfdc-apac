@@ -319,15 +319,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
-        <fields>FIRST_NAME</fields>
-        <fields>LAST_NAME</fields>
-        <fields>TITLE</fields>
-        <fields>COMPANY</fields>
-        <relatedList>RelatedCampaignMemberList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.TOTAL_NUM_LEADS</fields>
         <fields>CAMPAIGN.TOT_CONVERTED_LEADS</fields>
