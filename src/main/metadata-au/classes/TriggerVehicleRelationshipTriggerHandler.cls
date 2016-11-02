@@ -39,6 +39,8 @@ public class TriggerVehicleRelationshipTriggerHandler
             //ISSUE-0757
          
             //Existing au functionality
+          //  VehicleRelationshipHelper.shareAccountToDealers(Trigger.new);
+            VehicleRelationshipHelper.shareOwnerandFinanceDealers(Trigger.new);
             VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
         }
        // if(trigger.isbefore  && trigger.isInsert)
@@ -52,6 +54,7 @@ public class TriggerVehicleRelationshipTriggerHandler
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
             UtilVehicleRelationship.updateVehicle(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);*/
             //Existing au functionality
+            VehicleRelationshipHelper.shareOwnerandFinanceDealers(Trigger.new);
             VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
         }
         if(trigger.isAfter && trigger.isdelete)
