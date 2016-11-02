@@ -1111,6 +1111,13 @@
         <value>Common Filter Name</value>
     </labels>
     <labels>
+        <fullName>Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
         <fullName>Company_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -1675,6 +1682,13 @@
         <protected>false</protected>
         <shortDescription>Interest Filter</shortDescription>
         <value>Interest Filter</value>
+    </labels>
+    <labels>
+        <fullName>KR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR</shortDescription>
+        <value>KR</value>
     </labels>
     <labels>
         <fullName>Kana</fullName>
@@ -2566,7 +2580,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>None</shortDescription>
-        <value>--None--</value>
+        <value>--Blank--</value>
     </labels>
     <labels>
         <fullName>NotAccepted</fullName>
@@ -2700,6 +2714,13 @@
         <protected>false</protected>
         <shortDescription>Parts Cross Promotion</shortDescription>
         <value>Parts Cross Promotion</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount</shortDescription>
+        <value>Person Account</value>
     </labels>
     <labels>
         <fullName>Person_Account_Information</fullName>
@@ -4558,26 +4579,5 @@
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>
-	<labels>
-        <fullName>Company</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Company</shortDescription>
-        <value>Company</value>
-    </labels>
-	<labels>
-        <fullName>KR</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>KR</shortDescription>
-        <value>KR</value>
-    </labels>
-	<labels>
-        <fullName>PersonAccount</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>PersonAccount</shortDescription>
-        <value>Person Account</value>
     </labels>
 </CustomLabels>
