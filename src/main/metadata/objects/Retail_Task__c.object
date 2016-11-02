@@ -3670,6 +3670,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>First MOT</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Not selected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blank</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10699,6 +10707,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Service_Code__c</picklist>
             <values>
+                <fullName>Blank</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Body Jobs</fullName>
                 <default>false</default>
             </values>
@@ -10712,6 +10724,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not selected</fullName>
                 <default>false</default>
             </values>
             <values>
