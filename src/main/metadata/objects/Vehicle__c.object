@@ -2875,6 +2875,10 @@ Attribute in Data Dictionary object Vehicle is ‚ÄùVehicle_FirstRegistrationDate‚
                 <fullName>D</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8812,6 +8816,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>U</fullName>
                 <default>false</default>
             </values>
@@ -11647,6 +11655,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16752,6 +16764,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21920,6 +21936,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>U</fullName>
                 <default>false</default>
             </values>
@@ -27071,6 +27091,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
                 <default>false</default>
             </values>
             <values>
