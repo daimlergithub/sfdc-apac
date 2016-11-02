@@ -52,7 +52,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Selling_Dealer__c</field>
+            <field>Assigned_Dealer__c</field>
             <table>Vehicle_Relationship__c.Leads__r</table>
         </columns>
         <columns>
