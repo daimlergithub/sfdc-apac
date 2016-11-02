@@ -107,6 +107,15 @@
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Accepted_Date_Time_Update</fullName>
+        <field>Accepted_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Accepted Date Time_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
         <field>CAC_Lead_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -192,6 +201,15 @@
         <field>CAC_Lead_Status__c</field>
         <literalValue>New</literalValue>
         <name>Change status to new</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Dealer_Lead_Status_update</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>On-going</literalValue>
+        <name>Dealer Lead Status_update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -708,6 +726,20 @@ Proxy_Date_Time__c
             <value>Weibo,WeChat</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Accepted Date Time</fullName>
+        <actions>
+            <name>Accepted_Date_Time_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Dealer_Lead_Status_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED( Service_Advisor__c ),NOT(ISNULL(Service_Advisor__c)),  MD__c = 'JP')</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>

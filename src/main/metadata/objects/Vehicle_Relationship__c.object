@@ -5198,7 +5198,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+     <recordTypes>
         <fullName>Vehicle_Relationship_Retail</fullName>
         <active>true</active>
         <label>Vehicle Relationship Retail</label>
@@ -5768,7 +5768,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Vehicle_Relationship_Soft_Deleted</fullName>
         <active>true</active>
         <description>Soft deleted vehicle relationship</description>
@@ -6343,7 +6343,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
+     <searchLayouts>
         <customTabListAdditionalFields>Vehicle_Model__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>New_Used__c</customTabListAdditionalFields>
