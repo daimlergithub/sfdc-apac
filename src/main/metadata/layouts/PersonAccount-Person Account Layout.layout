@@ -4,8 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>View_Hierarchy</customButtons>
-    <customButtons>New_Survey</customButtons>
+    <customButtons>View_Hierarchy</customButtons>   
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -91,6 +90,10 @@
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Data_Source__c</field>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
@@ -179,6 +182,10 @@
                 <behavior>Edit</behavior>
                 <field>Opt_In_Work_Phone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -241,7 +248,7 @@
                 <field>Fuso_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Email__c</field>
             </layoutItems>
             <layoutItems>
@@ -551,6 +558,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Occupation__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Occupation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -699,6 +710,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Customer_Consent__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

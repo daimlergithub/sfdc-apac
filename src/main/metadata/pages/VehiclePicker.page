@@ -665,6 +665,14 @@
           
     }]);        
     </script>
+     <script type="text/javascript">
+        function Disablebuttons(){
+            var obj= document.getElementById('cmdSave')
+            var obj2= document.getElementById('cmdSave2')
+            obj.style.visibility = 'hidden';
+            obj2.style.visibility = 'hidden';
+        }
+</script>
     <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerController">
     <table>
     <tr>
@@ -673,10 +681,12 @@
     <td style="vertical-align: top;">{!$label.Vehicle_Picker_Interested}&nbsp;</td>
     <td>
         <input type="text" ng-model="interestedVehicleDetails"  disabled="disabled" style="width:300px" /> 
-        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
+        <apex:outputPanel rendered="{!disableButtons}">
+        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses);" onclick="KillSaveButton();" class="btn" value="{!$label.New_Button}" id="cmdSave"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
-        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
+        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/>
         &nbsp;<!--<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>-->
+        </apex:outputPanel>
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
         <div ng-if="vehicleDetail" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -721,10 +731,13 @@
         <tr>
         <!------------ COMPETITOR VEHICLE SECTION --------->
         <td style="vertical-align: top;">
-        {!$label.Vehicle_Picker_Competitor}&nbsp;</td><td><input type="text" ng-model="competitorVehicleDetails"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Competitor}&nbsp;</td>
+        <td><input type="text" ng-model="competitorVehicleDetails"  disabled="disabled" style="width:300px" />
+        <apex:outputPanel rendered="{!disableButtons}"> 
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailCompetitorText == 'Edit'}}" ng-click="showDetail('Competitor Vehicle',selectedCompetitorBrand,selectedCompetitorClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailCompetitorText == 'New' || competitorRecType != 'Vehicle Product'}}" ng-click="showDetail('Competitor Vehicle',selectedCompetitorBrand,selectedCompetitorClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Competitor Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
+        </apex:outputPanel>
         <!------------ COMPETITOR VEHICLE DETAILS SECTION --------->
         <div ng-if="vehicleDetailCompetitor" style="background-color:#efefef;width:500px">
             <br/>
@@ -757,11 +770,14 @@
         <tr>
         <!----------- CURRENT VEHICLE1 SECTION -------->
         <td style="vertical-align: top;padding=20px">
-        {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Current1}&nbsp;</td>
+        <td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
+        <apex:outputPanel rendered="{!disableButtons}"> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
+        </apex:outputPanel>
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent1" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -806,11 +822,14 @@
         <tr>
         <!----------- CURRENT VEHICLE2 SECTION -------->
         <td style="vertical-align: top;">
-        {!$label.Vehicle_Picker_Current2}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
+        {!$label.Vehicle_Picker_Current2}&nbsp;</td>
+        <td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
+        <apex:outputPanel rendered="{!disableButtons}">
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
+        </apex:outputPanel>
         <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent2" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -856,10 +875,12 @@
         <!----------- TRADE-IN SECTION -------->
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_TradeIn}&nbsp;</td><td>
         <input type="text" ng-model="tradeInVehicleDetails"  disabled="disabled" style="width:300px" /> 
+        <apex:outputPanel rendered="{!disableButtons}">
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'Edit'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetailText == 'New' || TradeIn_RecType != 'Vehicle Product'}}" ng-click="showDetail('TradeIn',selectedTradeInBrand,selectedTradeInClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('TradeIn')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{tradeInVehicleDetails != ''}}" ng-click="showList('TradeIn')" class="btn" value="{!$label.Lookup_Button}"/>
+        </apex:outputPanel>
         <!----------- TRADE-IN DETAILS SECTION -------->
         <div ng-if="vehicleDetailTradeIn" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -910,10 +931,12 @@
         <apex:outputLabel value="{!$Label.Vehicle_Picker_Service}" rendered="{!(Lead__c.Recordtype.Name='Aftersales Leads')}" /></td>
         <td>                        
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
+        <apex:outputPanel rendered="{!disableButtons}">
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
+        </apex:outputPanel>
         <!----------- PURCHASED VEHICLE DETAILS SECTION -------->
         <div ng-if="vehicleDetailPurchased" style="background-color:#efefef;width:500px"> 
             <br/>

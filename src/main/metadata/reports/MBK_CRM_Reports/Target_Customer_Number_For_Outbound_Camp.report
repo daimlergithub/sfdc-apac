@@ -29,6 +29,9 @@
     <columns>
         <field>CAMPAIGN_NAME</field>
     </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

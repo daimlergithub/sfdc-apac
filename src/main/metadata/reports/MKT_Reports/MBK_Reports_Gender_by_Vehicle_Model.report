@@ -16,6 +16,11 @@
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>

@@ -4,8 +4,7 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <customButtons>Merge</customButtons>
-    <customButtons>New_Survey</customButtons>
+    <customButtons>Merge</customButtons>  
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -196,6 +195,10 @@
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -207,7 +210,7 @@
                 <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Email__c</field>
             </layoutItems>
             <layoutItems>
@@ -225,6 +228,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -343,8 +350,8 @@
                 <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Personal_Abroad_Agreement__c</field>
+                <behavior>Readonly</behavior>
+                <field>Customer_Consent__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

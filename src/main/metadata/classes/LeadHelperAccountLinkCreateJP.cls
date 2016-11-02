@@ -10,13 +10,18 @@ public class LeadHelperAccountLinkCreateJP {
         set<String> contactId = new set<String>();
         
         for(Lead__c le : leadlst){
-            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved' && (le.MD__c == Label.MarketKR || le.MD__c == label.MarketJP)){
+            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
+                if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
+                    System.debug('Is Insert OR Update called -----:::::');
+                    contactId.add(le.id);
+                }
+            } else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR){
                 if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
                 }
             }
-                
+            
         }
         
         if(! contactId.isEmpty() ){
@@ -52,6 +57,7 @@ public class LeadHelperAccountLinkCreateJP {
             dealerId.add(dealerLead.Assigned_Dealer__c);
          }
          Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         system.debug('########'+dealercount);
          for(Lead__c led : leadlst){            
             if(led.Assigned_Dealer__c != null && dealercount == 0){
                  Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), Name = led.Contact__r.UCID__c, fromRole__c = led.Contact__c, toRole__c = led.Assigned_Dealer__c);

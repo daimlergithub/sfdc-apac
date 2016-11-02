@@ -1293,6 +1293,17 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+     <fields>
+       <fullName>Age__c</fullName>
+       <externalId>false</externalId>
+       <label>Age</label>
+       <length>20</length>
+       <required>false</required>
+       <trackFeedHistory>false</trackFeedHistory>
+       <trackHistory>false</trackHistory>
+       <type>Text</type>
+       <unique>false</unique>
+   </fields>
     <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <defaultValue>false</defaultValue>
@@ -2090,7 +2101,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Company_Legal_Form_Native__c</fullName>
         <externalId>false</externalId>
         <label>Company Legal Form Native</label>
@@ -2535,6 +2546,38 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Consent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),
+AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Agreement_to_commit_info_processing__c),
+AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c)),true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	  <fields>
+        <fullName>Customer_Consent_Happy_Calls__c</fullName>
+        <externalId>false</externalId>        <formula>IF(OR(AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Agreement__c,Agreement_to_commit_info_processing__c),AND(Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c))
+		,true,false)
+		</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>All_channel_opt_out__c</fullName>
+        <externalId>false</externalId> 
+		<formula>
+		IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)
+		</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All channel opt-out</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>		
     </fields>
     <fields>
         <fullName>Customer_LastUpdatedDate__c</fullName>
@@ -5228,7 +5271,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Rollout_Status__c</fullName>
         <description>To manage status of Rollout. Value should be "Not Yet", "In_Progress", "Done"</description>
         <externalId>false</externalId>
@@ -5244,6 +5287,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -6057,6 +6104,10 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
                 <fullName>Doctor's Degree-Foreign</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Graduate Above</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -6634,7 +6685,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>FinanceLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>FinanceLead Notification Timing</label>
@@ -8958,15 +9009,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-	<fields>
-        <fullName>MB_Customer_Info_Remove__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>MB Customer Info Remove</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
@@ -8977,6 +9019,340 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MBK_Data_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Data Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields><fields>
+        <fullName>MBK_Occupation__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Occupation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Producer/Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professionals &amp; Technical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stock/Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Artist/Painter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer/IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MB_Customer_Info_Remove__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>MB Customer Info Remove</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>MB_Replacement_Date__c</fullName>
@@ -9211,7 +9587,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
-        <label>My Shop</label>
+        <label>Main Dealer</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select the proper dealer account.</errorMessage>
@@ -9620,7 +9996,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Online_Dedup_Hidden__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -10348,7 +10724,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Portal_Apply_Date__c</fullName>
         <externalId>false</externalId>
         <label>Portal Apply Date</label>
@@ -10357,7 +10733,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Portal_Apply_Status__c</fullName>
         <description>The info to identify the Account to register MyM Accont.</description>
         <externalId>false</externalId>
@@ -10373,6 +10749,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Waiting for confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -12461,6 +12841,15 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Total_Flex__c</fullName>
         <externalId>false</externalId>
         <label>Total Flex</label>
@@ -12890,7 +13279,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Warranty_Apply_Date__c</fullName>
         <externalId>false</externalId>
         <label>Warranty Apply Date</label>
@@ -12899,7 +13288,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Warranty_Apply_Status__c</fullName>
         <description>"The info to identify the Account to share SPO
 ""To be sent"", ""Sent""
@@ -12915,6 +13304,10 @@ Invisible on UI."</description>
                 <fullName>Sent</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -12923,7 +13316,7 @@ Invisible on UI."</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Warranty_Apply_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -13725,7 +14118,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Company_Legal_Form_Native__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -15217,8 +15610,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
-		<picklist>Dealer_Rollout_Status__c</picklist>
+        <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
             <values>
                 <fullName>Done</fullName>
                 <default>false</default>
@@ -15563,7 +15956,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -16809,7 +17202,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>MBFS_Truck_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -16833,6 +17226,311 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues><picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17478,7 +18176,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -18307,7 +19005,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -18792,7 +19490,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Company_Legal_Form_Native__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -20727,7 +21425,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -22117,6 +22815,248 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24124,7 +25064,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Company_Legal_Form_Native__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -25304,7 +26244,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Dealer_Rollout_Status__c</picklist>
             <values>
                 <fullName>Done</fullName>
@@ -25678,7 +26618,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -26632,6 +27572,248 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
                 <fullName>AB Road</fullName>
@@ -27273,7 +28455,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -28055,7 +29237,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -28130,11 +29312,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Primary_Phone_Display__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Primary_Address_Display__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>		
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
+		<lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
         <lookupFilterFields>Primary_Address_Display__c</lookupFilterFields>
@@ -28330,9 +29512,9 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
-        <description>Data_Source__c is mandatory while creating person account.</description>
-        <errorConditionFormula>AND( OR(ISPICKVAL(Data_Source__c,''),!ISNEW()),MD__c='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(Data_Source__c, ""))</errorConditionFormula>
-        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <description>MBK Data_Source__c is mandatory while creating person account.</description>
+        <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,''),!ISNEW()),MD__c='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(MBK_Data_Source__c, ""))</errorConditionFormula>
+        <errorDisplayField>MBK_Data_Source__c</errorDisplayField>
         <errorMessage>Please enter Data Source.</errorMessage>
     </validationRules>
     <validationRules>
@@ -28597,9 +29779,11 @@ REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
         <fullName>HomePhone_Format_KR</fullName>
         <active>true</active>
         <description>Korea landline phone must be in any of the following format :
-1.	xx-xxxx-xxxx
-2.	xxx-xxx-xxxx
-3.	xxx-xxxx-xxxx</description>
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -28622,14 +29806,21 @@ REGEX(Individual_Home_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Individual_Home_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
         <errorMessage>Home Phone must be in any of the following formats :
-1.	xx-xxxx-xxxx
-2.	xxx-xxx-xxxx
-3.	xxx-xxxx-xxxx</errorMessage>
+		1.	0x-xxx-xxxx
+		2.  0x-xxxx-xxxx
+		2.	0xx-xxx-xxxx
+		3.	0xx-xxxx-xxxx
+		4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -28719,7 +29910,7 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP',!ISNEW()
     </validationRules>
     <validationRules>
         <fullName>Invalid_Email_Address</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
 AND(
@@ -29071,9 +30262,11 @@ ISPICKVAL(  Gender__c , 'Male'))
         <fullName>WorkPhone_Format_KR</fullName>
         <active>true</active>
         <description>Work Phone must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</description>
+	1.	0x-xxx-xxxx
+	2.  0x-xxxx-xxxx
+	2.	0xx-xxx-xxxx
+	3.	0xx-xxxx-xxxx
+	4.  blank-xxxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -29096,14 +30289,21 @@ REGEX(Work_Phone__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Work_Phone__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
-REGEX(Work_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
+REGEX(Work_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
         <errorMessage>Work Phone must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</errorMessage>
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
@@ -29440,26 +30640,26 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openSubTab(result) { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
 ) 
 }	
 else { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
     </webLinks>
