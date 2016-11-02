@@ -2581,7 +2581,7 @@
         <protected>false</protected>
         <shortDescription>None</shortDescription>
         <value>--Blank--</value>
-    </labels>
+    </labels>	
     <labels>
         <fullName>NotAccepted</fullName>
         <language>en_US</language>
