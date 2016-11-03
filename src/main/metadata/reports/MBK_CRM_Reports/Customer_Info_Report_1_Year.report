@@ -267,8 +267,13 @@
         </criteriaItems>
         <criteriaItems>
             <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
-            <operator>equals</operator>
-            <value>N_MONTHS_AGO:11</value>
+            <operator>lessOrEqual</operator>
+            <value>N_WEEKS_AGO:48</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>N_WEEKS_AGO:52</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
