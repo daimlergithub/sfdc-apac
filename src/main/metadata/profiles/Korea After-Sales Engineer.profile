@@ -22840,6 +22840,10 @@
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReports</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
