@@ -261,8 +261,7 @@ Global class UtilWebservice
         sendingCustomerDetails.Email_xc = accountDetails.Email__c;
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
-        sendingCustomerDetails.Salutation = accountDetails.Salutation ;
-        sendingCustomerDetails.VIN_xc= accountDetails.VIN__c;
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
         sendingCustomerDetails.RecordType = 'PersonAccount';     
