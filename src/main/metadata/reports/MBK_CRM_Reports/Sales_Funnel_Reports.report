@@ -49,6 +49,9 @@
         <field>Lead__c$Existing_Contract_End_Date__c</field>
     </columns>
     <columns>
+        <field>Lead__c$Lead_Priority__c</field>
+    </columns>
+    <columns>
         <field>Lead__c$VehicleRel_No__c.Delivery_Date__c</field>
     </columns>
     <columns>
