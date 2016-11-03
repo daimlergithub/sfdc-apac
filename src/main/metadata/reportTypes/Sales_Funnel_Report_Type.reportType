@@ -58,6 +58,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Lead_Priority__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Email__c</field>
             <table>Lead__c</table>
         </columns>
