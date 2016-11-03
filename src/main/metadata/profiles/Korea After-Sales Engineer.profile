@@ -22816,6 +22816,10 @@
         <enabled>true</enabled>
         <name>EditTask</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReport</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ImportCustomObjects</name>
@@ -22840,7 +22844,7 @@
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
-    <userPermissions>
+	<userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
     </userPermissions>
