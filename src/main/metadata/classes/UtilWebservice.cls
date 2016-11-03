@@ -236,27 +236,59 @@ Global class UtilWebservice
         }
     }
     
-    /*public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+   
+        User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
+        System.debug('@@@@@@ ## User'+Usr);
+        String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationFaultType faultCode = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationFaultType();
+        sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
-        //sendingCustomerDetails.
+        sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
+        sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
+        sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
+        sendingCustomerDetails.LoyaltyCardNo = accountDetails.Loyalty_Card_No__c;
+        sendingCustomerDetails.Individual_Home_Phone_xc = accountDetails.Individual_Home_Phone__c;
+        sendingCustomerDetails.Home_Phone_2_xc = accountDetails.Home_Phone_2__c;
+        sendingCustomerDetails.Work_Phone_xc = accountDetails.Work_Phone__c;
+        sendingCustomerDetails.Phone = accountDetails.Phone;
+        sendingCustomerDetails.Mobile_xc = accountDetails.Mobile__c;
+        sendingCustomerDetails.Mobile2_xc = accountDetails.Mobile2__c ;
+        sendingCustomerDetails.Email_xc = accountDetails.Email__c;
+        sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
+        sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
+        {
+        sendingCustomerDetails.RecordType = 'PersonAccount';     
+        }
+        if(accountDetails.RecordTypeId == companyRecordTypeId)
+        {
+        sendingCustomerDetails.RecordType = 'Company';     
+        }    
+        
           
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
-        request.OrganizationId = UserInfo.getOrganizationId();
+          request.OrganizationId = UserInfo.getOrganizationId();
+          request.MarketDiscriminator= Usr.Market__c;
+        System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
         request.Customer = sendingCustomerDetails;
+         system.debug('request request: '+request);
         try{
+        system.debug('try request request: '+request);
             response = stub.IdentifyCustomer(request);
+             system.debug('try response response : '+response);
         }
         catch(CalloutException excpObj){
             system.debug('Error *** :'+excpObj.getMessage());
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressValidation_callout_failure));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Online_Dedup_callout_failure));
         }
         system.debug('response : '+response);
         return response;
-    }  */  
+    }
     
 }
