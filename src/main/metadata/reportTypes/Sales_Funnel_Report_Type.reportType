@@ -13,7 +13,7 @@
         </columns>
 		 <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Branch_name_Native__c</field>
+            <field>Assigned_Dealer__c.Branch_name_Native__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
