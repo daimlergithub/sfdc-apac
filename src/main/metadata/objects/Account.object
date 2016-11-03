@@ -13126,6 +13126,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>VIN__c</fullName>
+        <externalId>false</externalId>
+        <label>VIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>VIP__c</fullName>
         <defaultValue>false</defaultValue>
