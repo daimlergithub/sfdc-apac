@@ -34,7 +34,7 @@
         <field>Lead__c$Email__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Contact__c.Primary_Address_Display__c</field>
+        <field>Lead__c$Contact__c.Primary_Address__c</field>
     </columns>
     <columns>
         <field>Lead__c$Re_visit__c</field>
