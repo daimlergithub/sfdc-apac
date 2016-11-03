@@ -1169,6 +1169,13 @@
         <value>Confirmed</value>
     </labels>
     <labels>
+        <fullName>Confirmed_Match</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmed Match</shortDescription>
+        <value>Confirmed Match</value>
+    </labels>
+    <labels>
         <fullName>Contact_Admin</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2581,7 +2588,7 @@
         <protected>false</protected>
         <shortDescription>None</shortDescription>
         <value>--Blank--</value>
-    </labels>	
+    </labels>
     <labels>
         <fullName>NotAccepted</fullName>
         <language>en_US</language>
@@ -2604,11 +2611,25 @@
         <value>Occupation</value>
     </labels>
     <labels>
+        <fullName>OnLine_Deduplication</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OnLine Deduplication</shortDescription>
+        <value>OnLine Deduplication</value>
+    </labels>
+    <labels>
         <fullName>Onchu</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Onchu</shortDescription>
         <value>Onchu</value>
+    </labels>
+    <labels>
+        <fullName>Online_Dedup_callout_failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Online Dedup callout failure</shortDescription>
+        <value>Webservice Callout failed: Please contact system Administrator</value>
     </labels>
     <labels>
         <fullName>Operation</fullName>
