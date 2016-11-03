@@ -6,16 +6,21 @@
     <description>Sales Funnel Report Type</description>
     <label>Sales Funnel Report Type</label>
     <sections>
+		<columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assigned_Dealer__c</field>
+            <table>Lead__c</table>
+        </columns>
+		 <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact__c.Branch_name_Native__c</field>
+            <table>Lead__c</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Name</field>
             <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>VehicleRel_No__c.Selling_Dealer__c</field>
-            <table>Lead__c</table>
-        </columns>
+        </columns>        
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Team__c</field>
@@ -68,7 +73,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Primary_Address__c</field>
+            <field>Contact__c.Primary_Address_Reference__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
