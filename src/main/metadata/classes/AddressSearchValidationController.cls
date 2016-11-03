@@ -709,7 +709,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(response != null)
             
             {
-            
+            if(response.CustomerIdentificationResponseMessage!=null)
+            {
             if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
             {
             objAccountDeDup.Lastname=response.CustomerIdentificationResponseMessage[0].Customer.Lastname;
@@ -722,9 +723,12 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
             objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
             }
-             
+             }
            show = true;
-           
+           if(response.CustomerIdentificationResponseMessage ==null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'No Match Found'));
+            }
                 lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
                  
             cResult = lstAcc;  
