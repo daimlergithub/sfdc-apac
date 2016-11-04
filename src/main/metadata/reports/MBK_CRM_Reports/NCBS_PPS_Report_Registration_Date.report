@@ -24,8 +24,8 @@
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.EngineNumber__c</field>
     </columns>
-    <columns>
-        <field>Vehicle_Relationship__c.Leads__r$Selling_Dealer__c</field>
+		 <columns>
+        <field>Vehicle_Relationship__c$Selling_Dealer__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Contact__c.Customer_Consent__c</field>
