@@ -3946,6 +3946,11 @@
         <field>Account.VIP__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Vans_Offered_Service__c</field>
@@ -19200,11 +19205,25 @@
         <editable>true</editable>
         <field>Account_Link__c.OwnerId__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-	
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.IsDeleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Personal_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Personal_Information_Third_Party_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
