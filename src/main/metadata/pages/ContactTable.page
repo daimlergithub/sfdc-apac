@@ -17,11 +17,12 @@
 <!--  ==================================================== -->
 
 <apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false"  >
-    <apex:form id="form1">
-        <apex:pageMessages id="showmsg"></apex:pageMessages>
-         <apex:includeScript value="/support/console/25.0/integration.js"/>
-         <apex:includeScript value="/support/api/28.0/interaction.js"/>
-       <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
+    <apex:form id="form1">         
+         <apex:pageMessages/>
+        <apex:pageMessages id="showmsg"></apex:pageMessages>       
+        <apex:includeScript value="/support/console/25.0/integration.js"/>
+        <apex:includeScript value="/support/api/28.0/interaction.js"/>
+        <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
         <apex:pageBlock id="Block">
            <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c='JP',true,false)}">
