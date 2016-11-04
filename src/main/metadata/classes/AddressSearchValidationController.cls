@@ -19,6 +19,9 @@ public class AddressSearchValidationController
     public string accountOwner{get;set;}
     public string recordType{get;set;}
     public id recordTypeId;
+    public Boolean show {get;set;}
+    public Account objAccountDeDup{get;set;}
+    public List<Account> cResult{get;set;} 
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}
    
@@ -677,4 +680,65 @@ If the user is Saving  same address which matches the fields returned by toleran
            options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code7__c,mobileAreaCodeKR.Mobile_Code7__c));           
            return options;
      }
+     
+       public void onLineDeduplication()
+    {  
+    objAccountDeDup= new Account();
+      List<Account>   lstAcc = New List<Account>();    
+         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
+        
+        if(objPersonAccount.LastName !=null ) 
+        {
+            crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+           System.debug('@@@@@@@ response '+response );
+           
+             String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            if(recordType !=null && recordType=='Company')
+            {
+            objPersonAccount.Recordtypeid=companyRecordTypeId;
+            }
+            system.debug('recordType------------:'+recordType);
+             if(recordType !=null && recordType== 'Person Account')
+            {             
+            objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+            }
+             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
+            response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
+            System.debug('@@@@@@@@@@ response '+response);
+            if(response != null)
+            
+            {
+            if(response.CustomerIdentificationResponseMessage!=null)
+            {
+            if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
+            {
+            objAccountDeDup.Lastname=response.CustomerIdentificationResponseMessage[0].Customer.Lastname;
+            }
+            if(response.CustomerIdentificationResponseMessage[0].Customer.Firstname !=null)
+            {
+            objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
+            }
+            if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+            {
+            objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+            }
+             }
+           show = true;
+           if(response.CustomerIdentificationResponseMessage ==null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'No Match Found'));
+            }
+                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
+                 
+            cResult = lstAcc;  
+                System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
+                 System.debug('@@@@@@@    lstAcc   cResult '+cResult );
+            }
+            if(response == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'No Result Found'));
+            }
+        }   
+    }    
 }

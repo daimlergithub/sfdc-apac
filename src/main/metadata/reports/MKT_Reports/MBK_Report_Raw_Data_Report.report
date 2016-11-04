@@ -10,6 +10,12 @@
         <field>Vehicle_Relationship__c.Owner_Relation__c</field>
     </columns>
     <columns>
+        <field>FK_$Account.Branch_name_Native__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Branch_name__c</field>
+    </columns>
+    <columns>
         <field>FK_NAME</field>
     </columns>
     <columns>
@@ -26,6 +32,9 @@
     </columns>
     <columns>
         <field>FK_PC_BIRTHDATE</field>
+    </columns>
+    <columns>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
     </columns>
     <columns>
         <field>FK_$Account.Gender__c</field>
@@ -67,7 +76,37 @@
         <field>FK_$Account.Interested_Event__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Occupation__c</field>
+        <field>FK_$Account.MBK_Occupation__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Email__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Email2__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Email3__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Home_Phone__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Home_Phone2__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_SMS__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_SMS2__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Work_Phone__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_In_Work_Phone2__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Opt_Out_Portal_Reason__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Previous_Make__c</field>
@@ -126,12 +165,7 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Summary</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>FK_$Account.Age_Range__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
+    <format>Tabular</format>
     <name>MBK Report - Raw Data Report</name>
     <params>
         <name>co</name>
@@ -142,6 +176,6 @@
     <showDetails>true</showDetails>
     <timeFrameFilter>
         <dateColumn>CUST_CREATED_DATE</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
