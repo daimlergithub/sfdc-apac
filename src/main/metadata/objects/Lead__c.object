@@ -3991,7 +3991,7 @@ Contact__r.Email__c
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>DateTime</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Finance_Quotation_No_History__c</fullName>
