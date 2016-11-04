@@ -104,7 +104,7 @@
                     </apex:pageBlockSectionItem>                                                
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
-                        <apex:outputPanel>
+                        <apex:outputPanel >
                             <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                             </apex:selectList>                                 
@@ -122,7 +122,7 @@
                             <apex:inputText value="{!mobileAreaCodePart3}" id="mobileAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
-                 <apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
@@ -176,7 +176,7 @@
                     </apex:pageBlockSectionItem>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
-                          <apex:outputPanel>
+                          <apex:outputPanel >
                             <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px">
                                 <apex:selectOptions value="{!areacodeItems}"/>
                            </apex:selectList>                                          
@@ -268,6 +268,7 @@
                 </apex:pageBlockSection>
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
+                    <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}"/>
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <apex:outputPanel id="redirectPanel">                  
@@ -295,6 +296,30 @@
             </apex:actionStatus>                               
                 </apex:pageBlockButtons>
             </apex:pageBlock>
+        </div>
+        <div>
+            <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}" >
+                <apex:PageBlockTable Columns="5" value="{!objAccountDeDup}" var="cr">
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">  
+                    <apex:outputLink value="/{!cr.Id}">{!cr.firstName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">                    
+                        <apex:outputField value="{!cr.LastName}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
+                        <apex:outputField value="{!cr.Phone}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     
+                </apex:PageBlockTable>
+                
+                
+            </apex:PageBlock>
         </div>
     </apex:form>
 </apex:page>

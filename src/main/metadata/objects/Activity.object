@@ -1457,6 +1457,13 @@
         </picklist>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Communication_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>

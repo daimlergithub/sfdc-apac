@@ -21622,6 +21622,129 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <sharedTo>
             <role>PL_WL_Team</role>
         </sharedTo>
+    </listViews><listViews>
+        <fullName>All_Region_East_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>East</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region East Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_North_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region North Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_South_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region South Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_West_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>West</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region West Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Shared_CAC_Inquiries</fullName>
@@ -21982,7 +22105,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Major cases handled by</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
+	<listViews>
         <fullName>R23552</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -21998,6 +22121,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>R2355</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_East_Queue</fullName>

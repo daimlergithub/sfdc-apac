@@ -13136,6 +13136,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>VIN__c</fullName>
+        <externalId>false</externalId>
+        <label>VIN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>VIP__c</fullName>
         <defaultValue>false</defaultValue>
@@ -29561,7 +29572,7 @@ NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
         <fullName>Do_Not_Call_Reason_Mandatory</fullName>
         <active>true</active>
         <description>If PersonDoNotCall is Checked , "Do Not Call Reason" is mandatory.</description>
-        <errorConditionFormula>AND(OR(MD__c ='JP',MD__c ='KR'),PersonDoNotCall = true,$Profile.Name != 'IntegrationAPI',
+        <errorConditionFormula>AND(MD__c ='KR',PersonDoNotCall = true,$Profile.Name != 'IntegrationAPI',
 OR(Do_Not_Call_Reason__c=null,Do_Not_Call_Reason__c=""))</errorConditionFormula>
         <errorDisplayField>Do_Not_Call_Reason__c</errorDisplayField>
         <errorMessage>If PersonDoNotCall is Checked, "Do Not Call Reason" is mandatory.</errorMessage>
