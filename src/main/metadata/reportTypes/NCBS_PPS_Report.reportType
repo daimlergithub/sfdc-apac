@@ -30,6 +30,11 @@
             <field>Registration_Date__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
+		  <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Selling_Dealer__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Vehicle_ID__c.Model__c</field>
