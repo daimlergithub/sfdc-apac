@@ -26388,18 +26388,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Estimation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
@@ -51322,10 +51310,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -62593,10 +62577,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -62629,10 +62609,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -62657,10 +62633,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registration</fullName>
                 <default>false</default>
             </values>
