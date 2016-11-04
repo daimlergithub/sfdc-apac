@@ -1000,7 +1000,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
