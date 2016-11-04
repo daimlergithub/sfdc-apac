@@ -468,7 +468,9 @@ public with sharing class RetailTaskHelper
         update updateacclist;
     }
     
-    public static void shareServiceDealers(list<Retail_Task__c> retailtaskList)
+    /* To Share Account and Related Objects with Service Dealers*/
+    
+    public static void sharewithServiceDealers(list<Retail_Task__c> retailtaskList)
     {
         set<id> rtaskid = new set<id>();
         set<string> groupid = new set<string>();
@@ -624,6 +626,64 @@ public with sharing class RetailTaskHelper
         if(!shareList.isEmpty() && shareList != null)
         {
             insert shareList;
+        }
+    }
+    
+    /* To Share Account and Related Objects with Related Dealers*/
+    
+    public static void sharewithRelatedDealers(list<Retail_Task__c> relatedRTList)
+    {
+        set<id> rtIds = new set<id>();
+        map<id,id> acccnrtMap = new map<id,id>();
+        map<id,id> vechcnrtMap = new map<id,id>();
+        set<string> relateddlrgroup = new set<string>();
+        List<group> relgroupList = new List<group>();
+        map<string,id> relgroupMap = new map<string,id>();
+        List<Retail_Task__c> delaerRtList = new List<Retail_Task__c>();
+        List<sobject> relshareList = new List<sobject>();
+        for(Retail_Task__c rtsks : relatedRTList)
+        {
+            if(rtsks.Account__c != null && rtsks.Related_Dealer__c != null && rtsks.RecordTypeId != servicerecordId)
+            {
+                rtIds.add(rtsks.Id);
+            }
+        }
+        
+        if(!rtIds.isEmpty() && rtIds != null)
+        {
+            delaerRtList = [select id, Account__c, Related_Dealer__c, Related_Dealer__r.Name from Retail_Task__c where Id =:rtIds];
+        }
+        for(Retail_Task__c rt : delaerRtList)
+        {
+            acccnrtMap.put(rt.id, rt.Account__c);
+            vechcnrtMap.put(rt.Id, rt.Related_Vehicle__c);
+            relateddlrgroup.add(rt.Related_Dealer__r.Name);
+        }
+        
+        relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
+        for(Group grp : relgroupList)
+        {
+            relgroupMap.put(grp.Name, grp.Id);
+        }
+        for(Retail_Task__c shrrt : delaerRtList)
+        {
+            AccountShare relaccShare = new AccountShare();
+            relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
+            relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+            relaccShare.AccountAccessLevel = 'Read';
+            relaccShare.OpportunityAccessLevel = 'None';
+            relaccShare.CaseAccessLevel = 'None';
+            relshareList.add(relaccShare);
+            
+            Vehicle__Share relVehicle = new Vehicle__Share();
+            relVehicle.ParentId = shrrt.Related_Vehicle__c;
+            relVehicle.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+            relVehicle.AccessLevel = 'Read';
+            relshareList.add(relVehicle);
+        }
+        if(!relshareList.isEmpty() && relshareList != null)
+        {
+            insert relshareList;
         }
     }
 }
