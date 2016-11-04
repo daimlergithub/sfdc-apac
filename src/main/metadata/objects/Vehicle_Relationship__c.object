@@ -176,7 +176,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>
+   <fields>
         <fullName>Car_Relation__c</fullName>
         <description>/* 
 Created by: Amy Liang 
@@ -4649,6 +4649,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Aftersales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
@@ -4657,7 +4661,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Driver</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>

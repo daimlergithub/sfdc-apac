@@ -3050,6 +3050,14 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Government</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>New Customer(Used Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8773,7 +8781,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-    <fields>
+       <fields>
         <fullName>Lead_Latest_Phase__c</fullName>
         <description>Keep details activities status</description>
         <externalId>false</externalId>
@@ -8832,6 +8840,10 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Product Proposal</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8841,10 +8853,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Needs Check</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8868,15 +8876,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Estimation</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Confirmation</fullName>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Registration</fullName>
+                <fullName>Confirmation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -20226,28 +20230,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Vehicle_Use__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Use</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Business</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Vehicle_Year_Current__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Year - Current</label>
@@ -23033,6 +23015,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
+                <fullName>Purchased(Only Non BDC)</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
@@ -23080,11 +23066,31 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Existing Customer</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23117,6 +23123,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -23133,6 +23143,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-going</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
@@ -23142,6 +23168,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26358,14 +26388,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Estimation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
@@ -27236,14 +27258,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
                 <fullName>Credit Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EFT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27252,6 +27270,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27355,7 +27377,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Price_Range__c</picklist>
+            <picklist>Price_Range__c</picklist>			
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -27366,6 +27388,30 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48047,7 +48093,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
                 <fullName>Authority</fullName>
@@ -48062,11 +48108,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Government</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48100,10 +48154,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51292,10 +51342,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Needs Check</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -51317,10 +51363,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52170,6 +52212,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62530,7 +62576,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Confirmation</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -62558,7 +62604,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </values>
-            <values>
+			 <values>
                 <fullName>Lost</fullName>
                 <default>false</default>
             </values>
@@ -62586,7 +62632,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Registration</fullName>
                 <default>false</default>
             </values>
@@ -69762,7 +69808,7 @@ ISBLANK( Company_Account__c )&amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Contact_Failed_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), 
 ISNULL(Contact_Failed_For_3_Days_Date__c)
@@ -69772,7 +69818,7 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c, "Service Completed"), 
 OR ( 
@@ -69786,7 +69832,7 @@ RecordType.Name == 'Aftersales Leads'
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Sales_Lead</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"), 
 OR( 
@@ -69807,7 +69853,7 @@ RecordType.Name == 'Sales Leads'
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"),
 ISNULL(First_Contact_Customer_Date__c)
@@ -69854,7 +69900,7 @@ MD__c= 'JP'||MD__c='KR'
     </validationRules>
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"), 
 ISNULL(Lost_Dealer_Date__c)
@@ -69913,7 +69959,7 @@ ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__
     </validationRules>
     <validationRules>
         <fullName>Order_Placed_Required_Check_Dealer</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"), 
 ISNULL(Order_Placed_Date__c)
@@ -69966,7 +70012,7 @@ ISNULL(Service_Date__c))</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
 ISNULL(Test_Drive_Date__c)
@@ -70008,7 +70054,7 @@ RecordType.DeveloperName = 'Sales_Leads'
     </validationRules>
     <validationRules>
         <fullName>Visited_Showroom_Required_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
 ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), 
 ISNULL(Visited_Showroom_Date__c)

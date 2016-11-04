@@ -153,6 +153,8 @@
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
 			   <sf:include name="AddressSearchValidationController"/>
+			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
+			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
@@ -746,6 +748,7 @@
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
 		<sf:typeset name="workflows"/>
+		<sf:typeset name="flows"/>
 		</deploy>					
     </target>
 	
@@ -907,7 +910,7 @@
 	<property name="typesets.circle">
 		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,
 
-		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow
 	</property>
 	
 	<property name="typesets.not-ready">

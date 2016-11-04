@@ -353,7 +353,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <name>Update_Campiagn_record_as_read_only</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>

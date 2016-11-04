@@ -22,6 +22,10 @@
                 <field>StartDate__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Payment_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ApplicationDate__c</field>
             </layoutItems>
@@ -82,6 +86,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Duration__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Payment_End_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

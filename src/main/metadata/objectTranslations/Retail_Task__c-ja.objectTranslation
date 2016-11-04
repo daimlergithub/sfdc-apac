@@ -1434,6 +1434,7 @@
         <name>Parent_Flag__c</name>
     </fields>
     <fields>
+		<help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help>
         <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
@@ -2358,7 +2359,7 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label> 契約ステータス </label>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
+    </columns>
+    <columns>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Age__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c.Vehicle_Class__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c.MD__c</column>
+            <operator>equals</operator>
+            <value>KR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Age Group (Point of Purchase) Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Vehicle_Relationship__c@Vehicle_Relationship__c.Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Vehicle_Relationship__c.Add_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

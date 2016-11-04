@@ -1111,6 +1111,13 @@
         <value>Common Filter Name</value>
     </labels>
     <labels>
+        <fullName>Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
         <fullName>Company_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -1160,6 +1167,13 @@
         <protected>false</protected>
         <shortDescription>Confirmed</shortDescription>
         <value>Confirmed</value>
+    </labels>
+    <labels>
+        <fullName>Confirmed_Match</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmed Match</shortDescription>
+        <value>Confirmed Match</value>
     </labels>
     <labels>
         <fullName>Contact_Admin</fullName>
@@ -1675,6 +1689,13 @@
         <protected>false</protected>
         <shortDescription>Interest Filter</shortDescription>
         <value>Interest Filter</value>
+    </labels>
+    <labels>
+        <fullName>KR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR</shortDescription>
+        <value>KR</value>
     </labels>
     <labels>
         <fullName>Kana</fullName>
@@ -2566,7 +2587,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>None</shortDescription>
-        <value>--None--</value>
+        <value>--Blank--</value>
     </labels>
     <labels>
         <fullName>NotAccepted</fullName>
@@ -2590,11 +2611,25 @@
         <value>Occupation</value>
     </labels>
     <labels>
+        <fullName>OnLine_Deduplication</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OnLine Deduplication</shortDescription>
+        <value>OnLine Deduplication</value>
+    </labels>
+    <labels>
         <fullName>Onchu</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Onchu</shortDescription>
         <value>Onchu</value>
+    </labels>
+    <labels>
+        <fullName>Online_Dedup_callout_failure</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Online Dedup callout failure</shortDescription>
+        <value>Webservice Callout failed: Please contact system Administrator</value>
     </labels>
     <labels>
         <fullName>Operation</fullName>
@@ -2700,6 +2735,13 @@
         <protected>false</protected>
         <shortDescription>Parts Cross Promotion</shortDescription>
         <value>Parts Cross Promotion</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount</shortDescription>
+        <value>Person Account</value>
     </labels>
     <labels>
         <fullName>Person_Account_Information</fullName>
@@ -4558,26 +4600,5 @@
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>
-	<labels>
-        <fullName>Company</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Company</shortDescription>
-        <value>Company</value>
-    </labels>
-	<labels>
-        <fullName>KR</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>KR</shortDescription>
-        <value>KR</value>
-    </labels>
-	<labels>
-        <fullName>PersonAccount</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>PersonAccount</shortDescription>
-        <value>Person Account</value>
     </labels>
 </CustomLabels>
