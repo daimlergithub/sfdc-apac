@@ -56,7 +56,8 @@ public class TriggerLeadTriggerHandler
         UtilLead.beforeInsert_updateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.leadPriorityScore(trigger.new);        
+        LeadHelper.leadPriorityScore(trigger.new);
+		LeadHelper.leaddeDuplication(trigger.new);        
         //AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isUpdate)
