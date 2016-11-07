@@ -583,10 +583,15 @@
 			<sf:include name="UtilDealerOffering"/>
 			<sf:include name="UtilDealerOffferingTest"/>
 			<sf:include name="TriggerPackageItemTriggerHandler"/>
-			<sf:include name="TriggerPackageItem_TestClass"/>	
+			<sf:include name="TriggerPackageItem_TestClass"/>
+			<sf:include name="TriggerAccountLinkTriggerHandler"/>
+			<sf:include name="DealerSystemHelper"/>
+			<sf:include name="TriggerDealerSystemTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerPackageItem"/>
+			<sf:include name="TriggerAccountLink"/>
+			<sf:include name="TriggerDealerSystem"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="YearlyTAAchievementTracingReport"/>

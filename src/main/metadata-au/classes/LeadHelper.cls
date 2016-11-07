@@ -1488,6 +1488,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
         }
     }
+    
+    /* Calcuation of Lead Priority Score. */
+    
     public static void leadPriorityScore(List<Lead__c> leadlist)
     {
         utilPriorityScore.getEnquiryTypeScore();        
@@ -1880,6 +1883,75 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (vanMap.containsKey(led.Business_Unit__c)))
             {
                 led.Lead_Priority__c = 'Hot';
+            }
+        }
+    }
+    /* To Prevent Dealers to create duplicate Leads */
+    
+    public static void leaddeDuplication(List<Lead__c> deDupleadList)
+    {
+        set<id> newLedaccId = new set<id>();
+        List<Lead__c> olddeDupleadList = new List<Lead__c>();
+        for(Lead__c dedupLeads : deDupleadList)
+        {
+            if((dedupLeads.Contact__c != null || dedupLeads.Company_Account__c != null) && dedupLeads.Assigned_Dealer__c != null)
+            {
+                newLedaccId.add(dedupLeads.Contact__c);
+            }            
+        }
+        olddeDupleadList = [select id, name, business_unit__c, Nature_of_Request__c, Purchase_Time__c, MB_Vehicle_Interest__c,
+                            Test_Drive_Date__c, Assigned_Dealer__c, Contact__c,Company_Account__c,Preferred_Drop_off_Time__c,
+                            Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId];
+        
+        for(Lead__c olddedupLeads : olddeDupleadList)
+        {
+            for(Lead__c newleds : deDupleadList)
+            {
+                if((newleds.Contact__c != null || newleds.Company_Account__c != null) && 
+                   (olddedupLeads.Contact__c == newleds.Contact__c || olddedupLeads.Company_Account__c == newleds.Company_Account__c)
+                  && newleds.Assigned_Dealer__c == olddedupLeads.Assigned_Dealer__c)
+                {
+                    if(newleds.Nature_of_Request__c == 'Brochure Request' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c &&
+                      newleds.Purchase_Time__c == olddedupLeads.Purchase_Time__c && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c &&
+                      newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)
+                        
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Test Drive Request' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c &&
+                           newleds.Test_Drive_Date__c == olddedupLeads.Test_Drive_Date__c && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c
+                           && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)                          
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Parts Enquiry' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                           && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c
+                           && newleds.VIN__c == olddedupLeads.VIN__c)
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);                
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Service Booking' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                           && newleds.Vehicle_Registration_No__c == olddedupLeads.Vehicle_Registration_No__c && newleds.Preferred_Drop_off_Time__c == olddedupLeads.Preferred_Drop_off_Time__c)
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Request a Quote' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                           && newleds.Purchase_Time__c == olddedupLeads.Purchase_Time__c && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c 
+                            && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Corporate Programme' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                           && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                    else if(newleds.Nature_of_Request__c == 'Fleet Programme' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                           && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)
+                    {
+                        newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
+                    }
+                }
             }
         }
     }

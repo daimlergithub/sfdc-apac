@@ -97,6 +97,8 @@ public with sharing class VehicleRelationshipHelper {
         }
     }
     
+    
+      
     public static Set<ID> getRoleSubordinateUsers(Id userId) {
         
         // get requested user's role
@@ -339,6 +341,7 @@ public with sharing class VehicleRelationshipHelper {
     
     public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,map<id,Vehicle_Relationship__c> oldMap,boolean isInsert,boolean isupdate,boolean isdelete)
     {
+        system.debug('Enter after trigger');
         Set<Id> vehicleIds = new Set<Id>();
         Set<Id> customerIds = new Set<Id>();
         List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>();
@@ -395,6 +398,7 @@ public with sharing class VehicleRelationshipHelper {
                     if(isupdate)
                     isdeleteValue=false; 
                 }
+            
             }
         } 
         
@@ -402,7 +406,10 @@ public with sharing class VehicleRelationshipHelper {
         if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty() && insertCvrs!=null && !insertCvrs.isEmpty() ){
             updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,isInsert,isupdate,isdeleteValue,brandValue,tenureValue);
         }
-        
+            if (isInsert || isdelete ) {
+                   //share owner and finance dealer
+                 shareOwnerandFinanceDealers(listVRNew);
+                }
         
     }
     public static void auBefore_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew)
@@ -412,5 +419,169 @@ public with sharing class VehicleRelationshipHelper {
             objVR.VIN_Search__c=objVR.UsVIN__c;
         }
     }     
+ 
+    
+    /* To share Account and related object to Owner Dealer and Finance Dealer
+    */
+
+    public static void shareOwnerandFinanceDealers(List<Vehicle_Relationship__c> vrList)
+    {
+        List<AccountShare> accshareList = new List<AccountShare>();
+        set<id> vrId = new set<id>();
+        set<id> conid = new set<id>();
+        map<id,id> acLinkMap = new map<id,id>();
+        map<id,id> accountmap = new map<id,id>();          
+        map<id,id> vehMap = new map<id,id>(); 
+        List<Group> ownergroupList = new List<Group>();
+        List<Group> financegroupList = new List<Group>();
+        map<string,id> ownerGroupMap = new map<string,id>();
+        map<string,id> financeGroupMap = new map<string,id>();
+        map<id,map<id,id>> accvechmMap = new map<id,map<id,id>>();
+        set<string> ownerGroup = new set<string>();
+        set<string> financeGroup = new set<string>();
+        List<Vehicle_Relationship__c> shareVrList = new List<Vehicle_Relationship__c>();
+        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
+        List<sobject> shareList = new List<sobject>();
+        for (Vehicle_Relationship__c vr:vrList )
+        {
+            if(vr.Owner_Dealer__c != null && vr.Contact__c != null)
+            {
+                vrId.add(vr.Id);
+                conid.add(vr.Contact__c);
+            }
+            if(vr.Finance_Dealer__c != null && vr.Contact__c != null)
+            {
+                vrId.add(vr.Id);
+                conid.add(vr.Contact__c);
+            }           
+        }
+        system.debug('conid>>>' + conid);
+        if(!vrId.isEmpty() && vrId != null)
+        {
+            shareVrList = [select id , contact__c ,Owner_Dealer__c, Owner_Dealer__r.Name ,Finance_Dealer__c, 
+                           Finance_Dealer__r.Name,vehicle_ID__c from Vehicle_Relationship__c where ID =:vrId];        
+        }
+        
+        if(!conid.isEmpty() && conid != null)
+        {
+            acclinkList = [select id , torole__c from Account_Link__c where torole__c =:conid];
+        }
+        if(!acclinkList.isEmpty() && acclinkList != null)
+        {
+            for(Account_Link__c aclnk : acclinkList)
+            {
+                system.debug('role>>>>' + aclnk.toRole__c);
+                system.debug('role>>' + aclnk.id);
+                acLinkMap.put(aclnk.toRole__c, aclnk.id);
+            }
+        }
+        system.debug('aclink>>>>' + acLinkMap);
+        system.debug('acclinkList>>>..' + acclinkList);
+        if(!shareVrList.isEmpty() && shareVrList != null)
+        {
+            for(Vehicle_Relationship__c shrVr : shareVrList)
+            {
+                ownerGroup.add(shrVr.Owner_Dealer__r.name);
+                financeGroup.add(shrVr.Finance_Dealer__r.name);
+                accountmap.put(shrVr.id , shrVr.Contact__c);
+                vehMap.put(shrVr.id , shrVr.Vehicle_ID__c);
+                accvechmMap.put(shrVr.Contact__c, vehMap);
+            }
+        }
+        if(!ownerGroup.isEmpty() && ownerGroup!= null)
+        {
+            ownergroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:ownerGroup];
+        }
+        if(!financeGroup.isEmpty() && financeGroup != null)
+        {
+            financegroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:financeGroup];
+        }
+        for(Group gr : ownergroupList)
+        {
+            ownerGroupMap.put(gr.Name, gr.id);
+        }
+        for(Group grp : financegroupList)
+        {
+            financeGroupMap.put(grp.Name , grp.id);
+        }
+        if(!shareVrList.isEmpty() && shareVrList != null)
+        {
+            for(Vehicle_Relationship__c sVr : shareVrList)
+            {
+                if(sVr.Owner_Dealer__c != null)
+                {
+                    AccountShare accsha = new AccountShare();
+                    accsha.AccountId = accountmap.get(sVr.id);
+                    accSha.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                    accSha.AccountAccessLevel = 'Edit';
+                    accSha.OpportunityAccessLevel = 'None';
+                    accSha.CaseAccessLevel = 'None';
+                    shareList.add(accsha);
+                    
+                    if(!acclinkList.isEmpty() && acclinkList != null && acLinkMap.get(sVr.Contact__c) != null)
+                    {                       
+                        Account_Link__Share alinkShare = new Account_Link__Share();
+                        alinkShare.ParentId = acLinkMap.get(sVr.Contact__c);
+                        alinkShare.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                        alinkShare.AccessLevel = 'Edit';
+                        shareList.add(alinkShare);
+                    }
+                    if(!shareVrList.isEmpty() && shareVrList !=null)
+                    {
+                        Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
+                        vrShare.ParentId = sVr.Id;
+                        vrShare.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                        vrShare.AccessLevel = 'Edit';
+                        shareList.add(vrShare);
+                        
+                        Vehicle__Share shrVehicle = new Vehicle__Share();
+                        shrVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
+                        shrVehicle.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                        shrVehicle.AccessLevel = 'Edit';
+                        shareList.add(shrVehicle);
+                    }
+                }
+                if(sVr.Finance_Dealer__c != null && (sVr.Owner_Dealer__c != sVr.Finance_Dealer__c))
+                {
+                    AccountShare accfinsha = new AccountShare();
+                    accfinsha.AccountId = accountmap.get(sVr.id);
+                    accfinsha.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                    accfinsha.AccountAccessLevel = 'Edit';
+                    accfinsha.OpportunityAccessLevel = 'None';
+                    accfinsha.CaseAccessLevel = 'None';
+                    shareList.add(accfinsha);
+                    
+                    if(!acclinkList.isEmpty() && acclinkList != null)
+                    {
+                        Account_Link__Share alinkfinShare = new Account_Link__Share();
+                        alinkfinShare.ParentId = acLinkMap.get(sVr.Contact__c);
+                        alinkfinShare.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                        alinkfinShare.AccessLevel = 'Edit';
+                        shareList.add(alinkfinShare);
+                    }
+                    if(!shareVrList.isEmpty() && shareVrList != null)
+                    {
+                        Vehicle_Relationship__Share vrfinShare = new Vehicle_Relationship__Share();
+                        vrfinShare.ParentId = sVr.Id;
+                        vrfinShare.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                        vrfinShare.AccessLevel = 'Edit';
+                        shareList.add(vrfinShare);
+                        
+                        Vehicle__Share shrfinVehicle = new Vehicle__Share();
+                        shrfinVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
+                        shrfinVehicle.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                        shrfinVehicle.AccessLevel = 'Edit';
+                        shareList.add(shrfinVehicle);
+                    }
+                }
+            }
+        }
+        system.debug('shareList>>>>>' + shareList);
+        if(!shareList.isEmpty() && shareList != null)
+        {
+            insert shareList;
+        }  
+    }
+          
     //Existing Au functionality ends here    
 }

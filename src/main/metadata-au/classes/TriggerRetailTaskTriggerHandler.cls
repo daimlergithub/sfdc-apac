@@ -24,11 +24,15 @@ public class TriggerRetailTaskTriggerHandler
             RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert,Trigger.isUpdate);
             RetailTaskHelper.upadteAccountafterInsertUpadte(trigger.new);
             RetailTaskHelper.upadteAccountFinancstatusafterInsertUpadte(trigger.new);
+            RetailTaskHelper.sharewithServiceDealers(trigger.new);
+            RetailTaskHelper.sharewithRelatedDealers(trigger.new);
         }
         //existing au functionality
         if(Trigger.isUpdate && Trigger.isAfter){
             RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert,Trigger.isUpdate);
             RetailTaskHelper.sentEmailAfterStatusToCurrent(trigger.new,oldmap,newmap,Trigger.isInsert,Trigger.isUpdate);
+            RetailTaskHelper.sharewithServiceDealers(trigger.new);
+            RetailTaskHelper.sharewithRelatedDealers(trigger.new);
         }
     }
 }
