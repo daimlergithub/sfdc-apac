@@ -14343,11 +14343,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Activity_Info__c</field>
-        <readable>false</readable>
-    </fieldPermissions> 
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Activity_OutboundCallSource__c</field>
         <readable>false</readable>
     </fieldPermissions>
