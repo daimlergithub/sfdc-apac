@@ -18,7 +18,6 @@
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <field>Add_User__c</field>
             <table>Vehicle__c</table>
         </columns>
         <columns>
@@ -76,7 +75,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Add_User__c</field>
             <field>Class__c</field>
             <table>Vehicle__c</table>
         </columns>
@@ -626,7 +624,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>RecordType</field>
-            <field>Add_User__c</field>
             <table>Vehicle__c.Vehicle_Relationships__r</table>
         </columns>
         <columns>
@@ -667,7 +664,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Add_User__c</field>
             <field>Considered_Model_1__c</field>
             <table>Vehicle__c.Vehicle_Relationships__r</table>
         </columns>
