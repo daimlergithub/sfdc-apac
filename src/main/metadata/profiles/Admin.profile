@@ -10626,11 +10626,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.UniqueCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
