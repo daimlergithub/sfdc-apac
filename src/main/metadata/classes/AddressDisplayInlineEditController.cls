@@ -375,7 +375,8 @@ EP/Tolerant for Validation.
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = '';                
+                addressobj.Province__c = ''; 
+				addressobj.MD__c = Market;					
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
                 
             }
@@ -403,7 +404,8 @@ EP/Tolerant for Validation.
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = '';                
+                addressobj.Province__c = '';  
+				addressobj.MD__c = Market;				
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
                               
             }
