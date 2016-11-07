@@ -28,13 +28,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>RecordType</field>
-            <field>Baumuster__c</field>
             <table>Vehicle__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <field>BaumusterEx__c</field>
             <table>Vehicle__c</table>
         </columns>
         <columns>
@@ -80,13 +78,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>BaumusterEx__c</field>
             <field>CO2Emission__c</field>
             <table>Vehicle__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Baumuster__c</field>
             <field>Colour__c</field>
             <table>Vehicle__c</table>
         </columns>
