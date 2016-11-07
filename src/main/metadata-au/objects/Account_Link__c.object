@@ -1494,6 +1494,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Service_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
+        <relationshipName>Account_Link3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>SocialMediaAccount_ID__c</fullName>
         <externalId>false</externalId>
         <label>SocialMediaAccount ID</label>
@@ -1587,6 +1600,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
         <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIN</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
