@@ -19,7 +19,7 @@ Global class UtilWebservice
                 Province_TR3__c,Province_TR30__c,Province_TR31__c,Province_TR32__c,Province_TR33__c,Province_TR34__c,Province_TR35__c,Province_TR36__c, 
                 Province_TR37__c,Province_TR38__c,Province_TR39__c,Province_TR4__c,Province_TR40__c,Province_TR41__c,Province_TR42__c,Province_TR43__c, 
                 Province_TR44__c,Province_TR45__c,Province_TR46__c,Province_TR47__c,Province_TR5__c,Province_TR6__c,Province_TR7__c,Province_TR8__c,Province_TR9__c from ProvinceTranslation__mdt where MD__c=: address.MD__c LIMIT 1]; 
-        system.debug('mobileAreaCodeKR >>>>>>'+ProvinceCodeKR);
+        system.debug(address.MD__c + '   mobileAreaCodeKR >>>>>>'+ProvinceCodeKR);
         for(ProvinceTranslation__mdt provinceCode : ProvinceCodeKR){
             if(address.Province__c == provinceCode.Province_EN1__c){
                 SendingAddress.Province = provinceCode.Province_TR1__c;
