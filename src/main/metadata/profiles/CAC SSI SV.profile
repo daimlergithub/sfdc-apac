@@ -14355,12 +14355,7 @@
         <editable>true</editable>
         <field>Task.Activity_Status__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Adhoc_eDM_Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Called__c</field>
