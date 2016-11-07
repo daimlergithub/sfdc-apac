@@ -76,6 +76,26 @@
         <type>Date</type>
     </fields>
 	<fields>
+        <fullName>Retail_Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Retail_UCID__c</fullName>
         <externalId>false</externalId>
         <label>Retail UCID</label>
@@ -1092,6 +1112,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Retail_Consent_Form_Serial_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Consent From Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Retail_Country__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
@@ -1204,6 +1235,26 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail Foundation Month</label>
         <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_First_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail First Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail First Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
