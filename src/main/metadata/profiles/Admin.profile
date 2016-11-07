@@ -2368,6 +2368,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Dealer_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Dealer_UsedCarCorner__c</field>
         <readable>true</readable>
     </fieldPermissions>
