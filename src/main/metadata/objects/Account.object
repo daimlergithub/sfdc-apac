@@ -8121,6 +8121,17 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>All_channel_opt_out__c</fullName>
+        <externalId>false</externalId> 
+		<formula>
+		IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)
+		</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All channel opt-out</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>		
+    </fields>
     <fields>
         <fullName>Opt_Out_Portal_Reason__c</fullName>
         <externalId>false</externalId>
@@ -8154,7 +8165,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>Opt_in_All_Channels__c</fullName>
         <externalId>false</externalId>
