@@ -17970,11 +17970,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.UniqueCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
