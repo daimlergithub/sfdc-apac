@@ -8937,7 +8937,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.AES_SFConnector__CallReference__c</field>
+        <field></field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
