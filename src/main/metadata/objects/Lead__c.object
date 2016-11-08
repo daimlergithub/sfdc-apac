@@ -2804,18 +2804,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CommissionNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Commission No.</label>
-        <length>127</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Company_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2939,20 +2927,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>Correlation_ID__c</fullName>
-        <description>System Field for EP.</description>
-        <externalId>false</externalId>
-        <label>Correlation ID</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <externalId>false</externalId>
@@ -3067,29 +3042,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Finance_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Comment</label>
-        <length>4000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Dealer_DMS_Comments__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer DMS Comments</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Customer_Intention__c</fullName>
@@ -16064,22 +16016,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>CA_Applicant__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Latest CA Application Number. No manual update</description>
-        <externalId>false</externalId>
-        <label>CA Applicant</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Leads (CA Applicant)</relationshipLabel>
-        <relationshipName>Leads1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
+    </fields>  
 	<fields>
         <fullName>CommissionNumber__c</fullName>
         <externalId>false</externalId>
@@ -16212,18 +16149,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Wholesale_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Wholesale Comment</label>
-        <length>4000</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Status_Category__c</fullName>
         <externalId>false</externalId>
