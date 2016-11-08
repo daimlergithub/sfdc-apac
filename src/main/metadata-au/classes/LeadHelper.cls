@@ -1894,14 +1894,24 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Lead__c> olddeDupleadList = new List<Lead__c>();
         for(Lead__c dedupLeads : deDupleadList)
         {
-            if((dedupLeads.Contact__c != null || dedupLeads.Company_Account__c != null) && dedupLeads.Assigned_Dealer__c != null)
+            if(dedupLeads.Assigned_Dealer__c != null && dedupLeads.CAC_Lead_Status__c != 'Closed Won' && dedupLeads.CAC_Lead_Status__c != 'Closed Lost')
             {
-                newLedaccId.add(dedupLeads.Contact__c);
+                if(dedupLeads.Contact__c != null)
+                {
+                	newLedaccId.add(dedupLeads.Contact__c);
+                }
+                else if(dedupLeads.Company_Account__c != null)
+                {
+                	newLedaccId.add(dedupLeads.Company_Account__c);
+                }
             }            
         }
-        olddeDupleadList = [select id, name, business_unit__c, Nature_of_Request__c, Purchase_Time__c, MB_Vehicle_Interest__c,
-                            Test_Drive_Date__c, Assigned_Dealer__c, Contact__c,Company_Account__c,Preferred_Drop_off_Time__c,
-                            Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId];
+        if(!newLedaccId.isEmpty() && newLedaccId !=null)
+        {
+            olddeDupleadList = [select id, name, business_unit__c, Nature_of_Request__c, Purchase_Time__c, MB_Vehicle_Interest__c,
+                                Test_Drive_Date__c, Assigned_Dealer__c, Contact__c,Company_Account__c,Preferred_Drop_off_Time__c,
+                            	Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId OR Company_Account__c =:newLedaccId];
+        }
         
         for(Lead__c olddedupLeads : olddeDupleadList)
         {
