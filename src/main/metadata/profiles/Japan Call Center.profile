@@ -9435,11 +9435,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.AES_SFConnector__CallReference__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.AES_SFConnector__Called__c</field>
         <readable>true</readable>
     </fieldPermissions>
