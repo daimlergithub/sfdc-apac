@@ -4233,12 +4233,7 @@
         <editable>true</editable>
         <field>Account_Link__c.Origin__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Personal_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Personal_Information_Third_Party_Release__c</field>
