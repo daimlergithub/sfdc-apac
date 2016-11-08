@@ -755,6 +755,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Contractor_Company_Esatblished_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Established Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Contractor_Company_Established_Date__c</fullName>
         <externalId>false</externalId>
@@ -3336,6 +3345,32 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Related_Contact2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 2</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Related Contact 2)</relationshipLabel>
+        <relationshipName>Retail_Tasks9</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Contact3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 3</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Related Contact 3)</relationshipLabel>
+        <relationshipName>Retail_Tasks10</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Related_Contact__c</fullName>
