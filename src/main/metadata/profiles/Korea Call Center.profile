@@ -10111,11 +10111,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.AES_SFConnector__CallReference__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.AES_SFConnector__Called__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12038,11 +12033,6 @@
         <editable>true</editable>
         <field>Lead__c.Purchased_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Purchased_VIN__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
