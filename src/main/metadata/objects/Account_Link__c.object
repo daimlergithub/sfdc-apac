@@ -475,16 +475,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Retail_Fax_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Fax OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
+    </fields> 
 	<fields>
         <fullName>Personal_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
@@ -511,16 +502,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-	<fields>
-        <fullName>Retail_Delete_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Delete Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
+    </fields> 
 	<fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
         <defaultValue>false</defaultValue>
@@ -529,18 +511,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>CorrelationID__c</fullName>
-        <externalId>false</externalId>
-        <label>Correlation ID</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
@@ -885,18 +856,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Retail_UCID__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail UCID</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
 	<fields>
         <fullName>Retail_Visit_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1082,32 +1042,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Responsible_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Responsible Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Responsible Dealer)</relationshipLabel>
-        <relationshipName>Account_Link2</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>LastModifiedById__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Account_Link5</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>LastModifiedDate__c</fullName>
         <externalId>false</externalId>
@@ -1381,16 +1316,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Email_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Email OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Retail_Fax__c</fullName>
         <description>Readonly</description>
