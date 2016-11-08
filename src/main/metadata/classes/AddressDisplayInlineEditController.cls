@@ -234,7 +234,7 @@ public class AddressDisplayInlineEditController {
         system.debug('@Account Id :' +ApexPages.currentPage().getParameters().get('id'));
         
         if(addressobj != null ){
-            Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
+            Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             AddressObj.Address_Type__c = addresspicklist;
             AddressObj.Province__c = provincepicklist;
             system.debug('ACCid>>>>>'+acc); 
@@ -375,7 +375,8 @@ EP/Tolerant for Validation.
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = '';                
+                addressobj.Province__c = ''; 
+				addressobj.MD__c = Market;					
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
                 
             }
@@ -403,7 +404,8 @@ EP/Tolerant for Validation.
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = '';                
+                addressobj.Province__c = '';  
+				addressobj.MD__c = Market;				
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
                               
             }
@@ -415,6 +417,7 @@ EP/Tolerant for Validation.
     public void ValidateAddressSearchCallout(Address__c addressobj){   
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj);
+        system.debug('*$*$*$*$ response   ' + response + '   *$*$*$*   response.ValidationStatus   ' + response.ValidationStatus + '   *$*$*response.Addresses   ' + response.Addresses);
         if(response != null && response.ValidationStatus == 'OK'){
             Address_Validated_Flag = true;
             AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
@@ -422,6 +425,12 @@ EP/Tolerant for Validation.
             if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid ){
                 String ValidStr = response.Addresses[0].ValidFields;
                 system.debug('valid string ------'+ ValidStr );
+                string province;   
+                Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                UtilAddressTranslation.gettranslatedvalues(Market);
+                if(addtrmapUpdate.containsKey(AddressObj.Province__c)){
+                    province = addtrmapUpdate.get(AddressObj.Province__c);
+                }
                 if(ValidStr.contains('Address_Line_1__c')){
                     AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
                 }
@@ -444,7 +453,7 @@ EP/Tolerant for Validation.
             else if(!response.Addresses[0].Valid){
                 string province;   
                 Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-                UtilAddressTranslation.gettranslatedvalues('JP');
+                UtilAddressTranslation.gettranslatedvalues(Market);
                 if(addtrmapUpdate.containsKey(AddressObj.Province__c)){
                     province = addtrmapUpdate.get(AddressObj.Province__c);
                 }
@@ -470,6 +479,11 @@ EP/Tolerant for Validation.
             addressobj.City__c = '';
             addressobj.District__c = '';
             addressobj.Province__c = '';
+            AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+            AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
+                    ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
+                    ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
+                
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
         }                
     }
