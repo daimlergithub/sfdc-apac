@@ -19414,6 +19414,7 @@
         <default>false</default>
         <recordType>Campaign.smart_Best_Practice</recordType>
         <visible>false</visible>
+	</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
