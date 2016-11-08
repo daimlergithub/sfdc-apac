@@ -10111,11 +10111,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field></field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.AES_SFConnector__Called__c</field>
         <readable>false</readable>
     </fieldPermissions>
