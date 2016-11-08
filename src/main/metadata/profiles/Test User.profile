@@ -10385,11 +10385,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Company__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Created_By_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
