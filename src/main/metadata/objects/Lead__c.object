@@ -11524,13 +11524,13 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+      <fields>
         <fullName>Purchased_VIN__c</fullName>
         <externalId>false</externalId>
+        <formula>Purchased_Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Purchased VIN</label>
-        <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
