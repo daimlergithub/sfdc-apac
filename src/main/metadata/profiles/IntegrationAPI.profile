@@ -14416,6 +14416,16 @@
         <field>Retail_Task__c.Contractor_ZipCode3__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Contact2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Contact3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Created_By_EP_Transaction__c</field>
