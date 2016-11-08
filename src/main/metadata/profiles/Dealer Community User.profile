@@ -11996,11 +11996,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Purchased_VIN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Purchased_Vehicle_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
