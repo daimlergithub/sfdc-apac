@@ -9007,11 +9007,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.BlacklistSensitiveWord__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Called__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16633,11 +16628,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Assignment_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.BlacklistSensitiveWord__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
