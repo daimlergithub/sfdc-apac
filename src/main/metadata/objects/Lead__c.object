@@ -2553,6 +2553,21 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>CA_Applicant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Latest CA Application Number. No manual update</description>
+        <externalId>false</externalId>
+        <label>CA Applicant</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Leads (CA Applicant)</relationshipLabel>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>CA_Application_Number__c</fullName>
         <externalId>false</externalId>
         <label>CA Application Number</label>
@@ -2600,6 +2615,72 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active Prospecting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event/Sâ€™Ship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Print</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-In Dealership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral-External</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Car_License__c</fullName>
@@ -2717,6 +2798,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combine Interested Vehicle Brand</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CommissionNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Commission No.</label>
+        <length>127</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -2846,6 +2939,19 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Correlation_ID__c</fullName>
+        <description>System Field for EP.</description>
+        <externalId>false</externalId>
+        <label>Correlation ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -3179,6 +3285,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_DMS_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer DMS Comments</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_LMS__c</fullName>
@@ -3765,6 +3883,17 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finance_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Comment</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Finance_Contract_Term__c</fullName>
@@ -10503,6 +10632,16 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Nurture_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Nurture Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Nurture_Start_Date__c</fullName>
         <externalId>false</externalId>
         <label>Nurture Date</label>
@@ -10935,6 +11074,104 @@ Modify Reason:
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Preferred_Pickup_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Pickup Time</label>
+        <picklist>
+            <picklistValues>
+                <fullName>8:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -15709,6 +15946,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Service_Loan_Car__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Service Loan Car</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Service_Program__c</fullName>
@@ -20580,6 +20827,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Wholesale_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Wholesale Comment</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Work_Phone__c</fullName>
@@ -27283,6 +27541,180 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Dropoff_Time__c</picklist>
+            <values>
+                <fullName>1%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A30 am</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Drop_off_Time__c</picklist>
+            <values>
+                <fullName>1%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%3A30 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%3A00 pm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8%3A30 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A00 am</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%3A30 am</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
