@@ -8591,6 +8591,18 @@ Modify Reason:
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Service Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -15964,6 +15976,26 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Touring Support Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance Plus Lite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -26317,6 +26349,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Broucher</fullName>
                 <default>false</default>
             </values>
@@ -26326,6 +26362,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26342,6 +26382,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30693,10 +30737,30 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Service_Program__c</picklist>
             <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus Lite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+            <values>
+                <fullName>Touring Support Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>        
         <picklistValues>
             <picklist>Sub_BusinessUnit__c</picklist>
             <values>
@@ -62672,6 +62736,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -62680,7 +62748,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62692,6 +62768,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
+        
         <picklistValues>
             <picklist>Lead_InfoSourceSub__c</picklist>
             <values>
@@ -66794,7 +66871,27 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Service_Program__c</picklist>
             <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus Lite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Touring Support Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty Plus</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
