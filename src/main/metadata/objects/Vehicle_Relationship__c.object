@@ -4194,17 +4194,6 @@ What factors were influential in your purchase decision?
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>VIN_Search__c</fullName>
-        <externalId>false</externalId>
-        <label>VIN</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Validity_Date__c</fullName>
         <externalId>false</externalId>
         <label>Validity Date</label>
