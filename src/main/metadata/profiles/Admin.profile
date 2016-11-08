@@ -3294,6 +3294,11 @@
         <field>Account.Partner_Title__c</field>
         <readable>true</readable>
     </fieldPermissions> 
+	 <fieldPermissions>
+       <editable>true</editable>
+        <field>Account.Personal_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Personal_Agreement__c</field>
@@ -4223,12 +4228,7 @@
         <editable>true</editable>
         <field>Account_Link__c.Origin__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Personal_Abroad_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Personal_Agreement__c</field>
