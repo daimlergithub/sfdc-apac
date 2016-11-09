@@ -82,7 +82,7 @@
         <name>Assist_End_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Update date --></label>
+        <label>æ›´æ–°æ—¥</label>
         <name>Balance_Update_Date__c</name>
     </fields>
     <fields>
@@ -224,6 +224,10 @@
     <fields>
         <label>契約番号</label>
         <name>ContractNumber__c</name>
+    </fields>
+	<fields>
+        <label>è§£ç´„æ—¥</label>
+        <name>Contract_Cancellation_Date__c</name>
     </fields>
     <fields>
         <label>契約区分</label>
@@ -1253,6 +1257,10 @@
         <label>MBFコメント</label>
         <name>MBF_Comments__c</name>
     </fields>
+	<fields>
+        <label>MBFベース金利</label>
+        <name>MBF_base_interest_rate__c</name>
+    </fields>
     <fields>
         <label><!-- MD --></label>
         <name>MD__c</name>
@@ -1276,6 +1284,10 @@
     <fields>
         <label>リース契約可能年月</label>
         <name>Maximum_lease_extention_Date__c</name>
+    </fields>
+	<fields>
+        <label>ä¼šå“¡è¨¼å—é ˜æ—¥</label>
+        <name>Membership_Accept_Date__c</name>
     </fields>
     <fields>
         <label>最大走行距離</label>
@@ -1422,6 +1434,7 @@
         <name>Parent_Flag__c</name>
     </fields>
     <fields>
+		<help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help>
         <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
@@ -1622,7 +1635,17 @@
         <name>Re_lease_Prohibit_flag__c</name>
     </fields>
     <fields>
-        <label><!-- Related Contact --></label>
+        <label>é–¢é€£é¡§å®¢</label>
+        <name>Related_Contact2__c</name>
+        <relationshipLabel><!-- Retail Tasks (Related Contact 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>é–¢é€£é¡§å®¢</label>
+        <name>Related_Contact3__c</name>
+        <relationshipLabel><!-- Retail Tasks (Related Contact 3) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>é¡§å®¢å</label>
         <name>Related_Contact__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Contact) --></relationshipLabel>
     </fields>
@@ -1634,6 +1657,11 @@
         </lookupFilter>
         <name>Related_Dealer__c</name>
         <relationshipLabel>保証/契約</relationshipLabel>
+    </fields>
+	<fields>
+        <label>é–¢é€£ãƒªãƒ¼ãƒ‰</label>
+        <name>Related_Lead__c</name>
+        <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
     <fields>
         <label>関連車両</label>
@@ -1723,7 +1751,7 @@
         <name>Service_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Service Code --></label>
+        <label>ã‚µãƒ¼ãƒ“ã‚¹åŒºåˆ†</label>
         <name>Service_Code__c</name>
         <picklistValues>
             <masterLabel>Body Jobs</masterLabel>
@@ -1791,15 +1819,15 @@
         <name>Service_Contact_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date In --></label>
+        <label>å…¥åº«æ—¥</label>
         <name>Service_Date_In__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date Out --></label>
+        <label>å‡ºåº«æ—¥</label>
         <name>Service_Date_Out__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date --></label>
+        <label>ã‚µãƒ¼ãƒ“ã‚¹æ—¥</label>
         <name>Service_Date__c</name>
     </fields>
     <fields>
@@ -1808,11 +1836,11 @@
         <relationshipLabel><!-- Retail Tasks (Service Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Service Details --></label>
+        <label>ã‚µãƒ¼ãƒ“ã‚¹è©³ç´°</label>
         <name>Service_Details__c</name>
     </fields>
     <fields>
-        <label><!-- Service Invoice Number --></label>
+        <label>è«‹æ±‚ç•ªå·</label>
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
@@ -1820,12 +1848,21 @@
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
-        <label><!-- Service Number --></label>
+        <label>ã‚µãƒ¼ãƒ“ã‚¹ç•ªå·</label>
         <name>Service_Number__c</name>
     </fields>
     <fields>
         <label><!-- Service Position --></label>
         <name>Service_Position__c</name>
+    </fields>
+	<fields>
+        <label>è»Šå°ç•ªå·</label>
+        <name>Service_Vehicle_VIN__c</name>
+    </fields>
+	<fields>
+        <label>ã‚µãƒ¼ãƒ“ã‚¹å¯¾è±¡è»Šä¸¡</label>
+        <name>Service_Vehicle__c</name>
+        <relationshipLabel><!-- Retail Tasks (Service Vehicle) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Settlement Officer --></label>
@@ -2322,7 +2359,7 @@
             <section>Comments</section>
         </sections>
         <sections>
-            <label> 契約ステータス </label>
+            <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
         <sections>
@@ -2367,6 +2404,10 @@
         <sections>
             <label>車検情報</label>
             <section>MOT Information</section>
+        </sections>
+		 <sections>
+            <label>æ–°ã—ã„é …ç›®</label>
+            <section>New</section>
         </sections>
     </layouts>
     <layouts>

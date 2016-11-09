@@ -12,6 +12,14 @@
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
     </fields>
+	<fields>
+        <label>営業担当者通知</label>
+        <name>Sales_Notification__c</name>
+    </fields>
+    <fields>
+        <label>サービス担当者通知</label>
+        <name>Service_Notification__c</name>
+    </fields>
     <fields>
         <help><!-- Message to be displayed to the user when the Survey has been submitted --></help>
         <label>提出確認メッセージ</label>

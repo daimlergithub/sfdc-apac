@@ -755,6 +755,15 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>Contractor_Company_Esatblished_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Established Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Contractor_Company_Established_Date__c</fullName>
         <externalId>false</externalId>
@@ -2919,7 +2928,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Parent_Number__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>関連契約番号がある場合は、上記契約番号との合算が必要ですので注意してください。</inlineHelpText>
+		<inlineHelpText>関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。</inlineHelpText>
         <label>Dual Pair contract number</label>
         <length>20</length>
         <required>false</required>
@@ -3349,7 +3358,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
+    </fields>  
     <fields>
         <fullName>Related_Contact3__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -3694,6 +3703,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>First MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not selected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blank</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4101,6 +4118,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Split_Payment__c</fullName>
@@ -10716,6 +10742,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Service_Code__c</picklist>
             <values>
+                <fullName>Blank</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Body Jobs</fullName>
                 <default>false</default>
             </values>
@@ -10729,6 +10759,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not selected</fullName>
                 <default>false</default>
             </values>
             <values>

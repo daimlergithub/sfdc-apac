@@ -24,7 +24,7 @@ public class ContactTableController
     public String mobilePhoneAreaCodePart2{get;set;}
     public String mobilePhoneAreaCodePart3{get;set;}
     public AreaCodeTranslation__mdt areacodeKR ;
-    public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
+  
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
   *@Description : Constructor.
@@ -56,26 +56,40 @@ public class ContactTableController
 
   */ 
    public void PhoneNumberFormat(){
-      system.debug('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'+ParAcc.Individual_Home_Phone__c);
-       
+      
          if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && ParAcc.MD__c=='KR'){
-              String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-'); 
-              homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
-              homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
-              homePhoneAreaCodePart3=resultshomePhoneAreaCode[2]; 
+              if(!ParAcc.Individual_Home_Phone__c.contains('-')){
+                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
+              }
+              else{
+                  String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-'); 
+                  homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
+                  homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
+                  homePhoneAreaCodePart3=resultshomePhoneAreaCode[2]; 
+              }              
           }
   
          if(!(String.isBlank(ParAcc.Work_Phone__c)) && ParAcc.MD__c=='KR'){ 
-            String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-');  
-            workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-            workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-            workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+            if(!ParAcc.Work_Phone__c.contains('-')){
+                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
+              }
+            else{
+                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-');  
+                workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+                workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+                workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+            }
           } 
         if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
-            String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
-            mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-            mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-            mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+             if(!ParAcc.Mobile__c.contains('-')){
+                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
+              }
+            else{
+                String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
+                mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+                mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+                mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+            }
           } 
    }
     public void EditAccount()    
@@ -142,24 +156,38 @@ public class ContactTableController
     public List<SelectOption> getAreacodeItems() {
       areacodeKR = [SELECT Id,Phone_EN1__c,Phone_TR1__c,Phone_EN2__c,Phone_TR2__c,Phone_EN3__c,Phone_TR3__c ,Phone_EN4__c,Phone_TR4__c,Phone_EN5__c,Phone_TR5__c,Phone_EN6__c,Phone_TR6__c,Phone_EN7__c,Phone_TR7__c,
            Phone_EN8__c,Phone_TR8__c,Phone_EN9__c,Phone_TR9__c,Phone_EN10__c,Phone_TR10__c,Phone_EN11__c,Phone_TR11__c,Phone_EN12__c,Phone_TR12__c,Phone_EN13__c,Phone_TR13__c,Phone_EN14__c,Phone_TR14__c,
-           Phone_EN15__c,Phone_TR15__c,Phone_EN16__c,Phone_TR16__c,Phone_EN17__c,Phone_TR17__c
+           Phone_EN15__c,Phone_TR15__c,Phone_EN16__c,Phone_TR16__c,Phone_EN17__c,Phone_TR17__c,Phone_EN18__c,Phone_EN19__c,Mobile_Code1__c,Mobile_Code2__c
             FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1];
-           
-              phoneAreaCodeMapKR= new Map<String,String>();
+            
+                        
+              Map<String,String> phoneAreaCodeMapKR = new Map<String,String>();
               phoneAreaCodeMapKR.put(System.label.None,'');
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN1__c+'       '+areacodeKR.Phone_TR1__c,areacodeKR.Phone_EN1__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN2__c+'        '+areacodeKR.Phone_TR2__c,areacodeKR.Phone_EN2__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c,areacodeKR.Phone_EN3__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN4__c+'        '+areacodeKR.Phone_TR4__c,areacodeKR.Phone_EN4__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN5__c+'       '+areacodeKR.Phone_TR5__c,areacodeKR.Phone_EN5__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN6__c+'        '+areacodeKR.Phone_TR6__c,areacodeKR.Phone_EN6__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN7__c+'       '+areacodeKR.Phone_TR7__c,areacodeKR.Phone_EN7__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN8__c+'        '+areacodeKR.Phone_TR8__c,areacodeKR.Phone_EN8__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN9__c+'       '+areacodeKR.Phone_TR9__c,areacodeKR.Phone_EN9__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN10__c+'        '+areacodeKR.Phone_TR10__c,areacodeKR.Phone_EN10__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN11__c+'       '+areacodeKR.Phone_TR11__c,areacodeKR.Phone_EN11__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN12__c+'        '+areacodeKR.Phone_TR12__c,areacodeKR.Phone_EN12__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN13__c+'       '+areacodeKR.Phone_TR13__c,areacodeKR.Phone_EN13__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN14__c+'        '+areacodeKR.Phone_TR14__c,areacodeKR.Phone_EN14__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN15__c+'       '+areacodeKR.Phone_TR15__c,areacodeKR.Phone_EN15__c);phoneAreaCodeMapKR.put(areacodeKR.Phone_EN16__c+'        '+areacodeKR.Phone_TR16__c,areacodeKR.Phone_EN16__c);
-              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN17__c+'       '+areacodeKR.Phone_TR17__c,areacodeKR.Phone_EN17__c);   
-               
-                List<SelectOption> options = new List<SelectOption>();
-                options.add(new SelectOption('0',System.label.None));
-                options.add(new SelectOption(  areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN4__c,areacodeKR.Phone_EN4__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN5__c,areacodeKR.Phone_EN5__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN6__c,areacodeKR.Phone_EN6__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN7__c,areacodeKR.Phone_EN7__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN8__c,areacodeKR.Phone_EN8__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN9__c,areacodeKR.Phone_EN9__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN10__c,areacodeKR.Phone_EN10__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN11__c,areacodeKR.Phone_EN11__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN12__c,areacodeKR.Phone_EN12__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN13__c,areacodeKR.Phone_EN13__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN14__c,areacodeKR.Phone_EN14__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN15__c,areacodeKR.Phone_EN15__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN16__c,areacodeKR.Phone_EN16__c);
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN17__c,areacodeKR.Phone_EN17__c); 
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN18__c,areacodeKR.Phone_EN18__c); 
+              phoneAreaCodeMapKR.put(areacodeKR.Phone_EN19__c,areacodeKR.Phone_EN19__c); 
+              phoneAreaCodeMapKR.put(areacodeKR.Mobile_Code1__c,areacodeKR.Mobile_Code1__c); 
+              phoneAreaCodeMapKR.put(areacodeKR.Mobile_Code2__c,areacodeKR.Mobile_Code2__c); 
+              
+                          
+              List<SelectOption> options = new List<SelectOption>();
+                options.add(new SelectOption('0',System.label.None));              
+                options.add(new SelectOption( areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c+'       '+areacodeKR.Phone_TR2__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN4__c,areacodeKR.Phone_EN4__c+'       '+areacodeKR.Phone_TR4__c));
@@ -176,7 +204,17 @@ public class ContactTableController
                 options.add(new SelectOption( areacodeKR.Phone_EN15__c,areacodeKR.Phone_EN15__c+'       '+areacodeKR.Phone_TR15__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN16__c,areacodeKR.Phone_EN16__c+'       '+areacodeKR.Phone_TR16__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN17__c,areacodeKR.Phone_EN17__c+'       '+areacodeKR.Phone_TR17__c ));
-                return options;
+                options.add(new SelectOption( areacodeKR.Mobile_Code1__c,areacodeKR.Mobile_Code1__c));
+                options.add(new SelectOption( areacodeKR.Mobile_Code2__c,areacodeKR.Mobile_Code2__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN18__c,areacodeKR.Phone_EN18__c));
+                options.add(new SelectOption( areacodeKR.Phone_EN19__c,areacodeKR.Phone_EN19__c));                
+                if(!(String.isBlank(homePhoneAreaCodePart1)) && homePhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(homePhoneAreaCodePart1)){
+                  options.add(new SelectOption( homePhoneAreaCodePart1,homePhoneAreaCodePart1));
+                }
+                if(!(String.isBlank(workPhoneAreaCodePart1)) && workPhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
+                  options.add(new SelectOption( workPhoneAreaCodePart1,workPhoneAreaCodePart1));
+                }  
+                return options; 
         } 
       /**
   *@Description : This method gets the Mobile code.
@@ -186,7 +224,7 @@ public class ContactTableController
   */     
      public List<SelectOption> getMobileAreacodeItems() {
          AreaCodeTranslation__mdt  mobileAreaCodeKR = [SELECT Id,Mobile_Code1__c,Mobile_Code2__c,Mobile_Code3__c,Mobile_Code4__c,Mobile_Code5__c,Mobile_Code6__c,Mobile_Code7__c FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1]; 
-         system.debug('mobileAreaCodeKR >>>>>>'+mobileAreaCodeKR);
+        
          List<selectOption> options = new List<selectOption>();
            options.add(new SelectOption('0',System.label.None));
            options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code1__c,mobileAreaCodeKR.Mobile_Code1__c));

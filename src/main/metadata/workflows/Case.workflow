@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_24_Hour</fullName>
+        <description>Case Deadline Dealer Manager Notification KR after 24 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityAccountPartnerExecutive</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <recipients>
+            <recipient>CommunityAccountPartnerManager</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</fullName>
+        <description>Case Deadline : Dealer Manager Notification KR after 72 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityAccountPartnerExecutive</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <recipients>
+            <recipient>CommunityAccountPartnerManager</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_168_Hours_Before_Case_DeadLine</fullName>
+        <description>168 Hours Before Case: DeadLine</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_17_Hours_Before_Case_DeadLine</fullName>
+        <description>17 Hours Before Case: DeadLine</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_240_Hours</fullName>
+        <description>Case Deadline Notification KR after 240 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_24_Hour</fullName>
+        <description>Case Deadline Notification KR after 24 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_72_Hour</fullName>
+        <description>Case Deadline Notification KR after 72 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
         <fullName>Case_handing_level_email_to_Notification</fullName>
         <description>Case handing level email Notification to Dealer</description>
         <protected>false</protected>
@@ -118,6 +201,21 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</fullName>
+        <description>ase Deadline : Dealer Manager Notification KR after 240 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityAccountPartnerExecutive</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <recipients>
+            <recipient>CommunityAccountPartnerManager</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <fieldUpdates>
         <fullName>ChangeStatus</fullName>
@@ -904,6 +1002,38 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline %3ADealer Notification KR after 24 Hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Dealer_Manager_Notification_KR_after_24_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case Deadline Notification</fullName>
         <active>true</active>
         <criteriaItems>
@@ -947,7 +1077,8 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR</fullName>
-        <active>true</active>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -957,7 +1088,22 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 24 hours before the deadline</description>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>B</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Yellow = 3</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours before the deadline,If the case Priority is B and Yellow = 3.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -965,7 +1111,151 @@
                 <type>Alert</type>
             </actions>
             <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>-24</timeLength>
+            <timeLength>-50</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR After 240 hours</fullName>
+        <active>false</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_240_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>240</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR after 24 Hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_24_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR after 72 Hour</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_72_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR before 168 hours</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>C</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Green &lt;= 2</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 168 hours before the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_168_Hours_Before_Case_DeadLine</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-168</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR before 17 hours</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Red &gt;= 4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 17 hours before the deadline,If the Priority is Red &gt;= 4.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_17_Hours_Before_Case_DeadLine</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-17</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>240</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -1154,6 +1444,17 @@
         </criteriaItems>
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case-Set overdue as Yes</fullName>
+        <actions>
+            <name>Update_Overdue_to_Yes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the Overdue as Yes When the Case deadline has missed out</description>
+        <formula>IF(DeadLine__c&lt;Now(), true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Complaint Update Notification</fullName>

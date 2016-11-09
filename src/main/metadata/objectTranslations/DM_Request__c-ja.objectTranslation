@@ -27,6 +27,15 @@
         <label>住所（TEXT）</label>
         <name>Address__c</name>
     </fields>
+	 <fields>
+        <label><!-- AfterSales Department --></label>
+        <name>AfterSales_Department__c</name>
+    </fields>
+    <fields>
+        <label>販売店</label>
+        <name>Assigned_Dealer__c</name>
+        <relationshipLabel><!-- DM Request (Assigned Dealer) --></relationshipLabel>
+    </fields>
     <fields>
         <label>宛名会社・部署・役職名</label>
         <name>Attention__c</name>

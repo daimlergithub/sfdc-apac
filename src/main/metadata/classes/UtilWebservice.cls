@@ -18,8 +18,8 @@ Global class UtilWebservice
                 Province_TR22__c,Province_TR23__c,Province_TR24__c,Province_TR25__c,Province_TR26__c,Province_TR27__c,Province_TR28__c,Province_TR29__c ,
                 Province_TR3__c,Province_TR30__c,Province_TR31__c,Province_TR32__c,Province_TR33__c,Province_TR34__c,Province_TR35__c,Province_TR36__c, 
                 Province_TR37__c,Province_TR38__c,Province_TR39__c,Province_TR4__c,Province_TR40__c,Province_TR41__c,Province_TR42__c,Province_TR43__c, 
-                Province_TR44__c,Province_TR45__c,Province_TR46__c,Province_TR47__c,Province_TR5__c,Province_TR6__c,Province_TR7__c,Province_TR8__c,Province_TR9__c from ProvinceTranslation__mdt where MD__c='KR' LIMIT 1]; 
-        system.debug('mobileAreaCodeKR >>>>>>'+ProvinceCodeKR);
+                Province_TR44__c,Province_TR45__c,Province_TR46__c,Province_TR47__c,Province_TR5__c,Province_TR6__c,Province_TR7__c,Province_TR8__c,Province_TR9__c from ProvinceTranslation__mdt where MD__c=: address.MD__c LIMIT 1]; 
+        system.debug(address.MD__c + '   mobileAreaCodeKR >>>>>>'+ProvinceCodeKR);
         for(ProvinceTranslation__mdt provinceCode : ProvinceCodeKR){
             if(address.Province__c == provinceCode.Province_EN1__c){
                 SendingAddress.Province = provinceCode.Province_TR1__c;
@@ -236,27 +236,59 @@ Global class UtilWebservice
         }
     }
     
-    /*public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+   
+        User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
+        System.debug('@@@@@@ ## User'+Usr);
+        String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType faultCode = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationMessageFaultType();
+        sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
-        //sendingCustomerDetails.
+        sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
+        sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
+        sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
+        sendingCustomerDetails.LoyaltyCardNo = accountDetails.Loyalty_Card_No__c;
+        sendingCustomerDetails.Individual_Home_Phone_xc = accountDetails.Individual_Home_Phone__c;
+        sendingCustomerDetails.Home_Phone_2_xc = accountDetails.Home_Phone_2__c;
+        sendingCustomerDetails.Work_Phone_xc = accountDetails.Work_Phone__c;
+        sendingCustomerDetails.Phone = accountDetails.Phone;
+        sendingCustomerDetails.Mobile_xc = accountDetails.Mobile__c;
+        sendingCustomerDetails.Mobile2_xc = accountDetails.Mobile2__c ;
+        sendingCustomerDetails.Email_xc = accountDetails.Email__c;
+        sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
+        sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
+        {
+        sendingCustomerDetails.RecordType = 'PersonAccount';     
+        }
+        if(accountDetails.RecordTypeId == companyRecordTypeId)
+        {
+        sendingCustomerDetails.RecordType = 'Company';     
+        }    
+        
           
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
-        request.OrganizationId = UserInfo.getOrganizationId();
+          request.OrganizationId = UserInfo.getOrganizationId();
+          request.MarketDiscriminator= Usr.Market__c;
+        System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
         request.Customer = sendingCustomerDetails;
+         system.debug('request request: '+request);
         try{
+        system.debug('try request request: '+request);
             response = stub.IdentifyCustomer(request);
+             system.debug('try response response : '+response);
         }
         catch(CalloutException excpObj){
             system.debug('Error *** :'+excpObj.getMessage());
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressValidation_callout_failure));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Online_Dedup_callout_failure));
         }
         system.debug('response : '+response);
         return response;
-    }*/    
+    }
     
 }

@@ -14,7 +14,61 @@ public class LeadHelper
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static List<QueueSobject> LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType =: UtilConstant.LEAD and Queue.Name =: UtilConstant.DEALER_LEAD_GATE_KEEPER_QUEUE limit 1];
     private static final String SMSTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
-    private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();    
+    private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId(); 
+   
+        /**      
+      * @Description Leads sharing record are created nad inserted for both smart and star elite account owner.
+      * @author  
+@@ -170,56 +167,6 @@ public class LeadHelper
+         }
+     }
+     /**      
+    * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist.
+    * @author  
+    * @Date 10/19/2016(mm/dd/yy)
+               * @param  Set of dealerIds
+               * @param  List of sObject Lead__c for update
+               * @return 
+                * @see   UpdateLeadOwner
+               */ 
+   public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate){
+       List<Lead__c> leadForUpdate = new List<Lead__c>();        
+       Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();       
+       for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
+       {
+           dealerIdGateKeeperIds.put(u.AccountId, u.Id);
+       }        
+       for(Lead__c lead : leadsForUpdate) {
+           if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
+           {
+               if(lead.RecordTypeId == salesRecordTypeId)
+               {
+                   lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                   leadForUpdate.add(lead);
+               } 
+               if(lead.RecordTypeId == afterSalesRecordTypeId)
+               {
+                   lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
+                   leadForUpdate.add(lead);
+               }               
+           }
+           else{  
+               if(lead.RecordTypeId == salesRecordTypeId)
+               {
+                   if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                   lead.OwnerId = LeadGateKeeperQ[0].QueueId;
+                   leadForUpdate.add(lead);
+               }
+               if(lead.RecordTypeId == afterSalesRecordTypeId)
+               {
+                   if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                   lead.OwnerId = LeadGateKeeperQ[0].QueueId;
+                   leadForUpdate.add(lead);
+               }
+           }
+       }       
+   }
+   /** 	
        /**      
      * @Description Leads sharing record are created nad inserted for both smart and star elite account owner.
      * @author  
@@ -165,43 +219,6 @@ public class LeadHelper
         if(leadForUpdate!=null && !leadForUpdate.isEmpty()) { 
             UtilSobject.updateSobjects(leadForUpdate);
         }
-    }
-    /**      
-     * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist.
-     * @author  
-     * @Date 10/19/2016(mm/dd/yy)
-                * @param  Set of dealerIds
-                * @param  List of sObject Lead__c for update
-                * @return 
-                 * @see   UpdateLeadOwner
-                */ 
-    public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate){
-        List<Lead__c> leadForUpdate = new List<Lead__c>();        
-        Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();       
-        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
-        {
-            dealerIdGateKeeperIds.put(u.AccountId, u.Id);
-        }        
-        for(Lead__c lead : leadsForUpdate) {
-            if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
-            {
-                if((lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
-                {
-                    lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
-                    leadForUpdate.add(lead);
-                }
-                if(lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId)
-                {
-                    leadForUpdate.add(lead);
-                }
-            }
-            else  if((lead.Need_Assign_To_Dealer__c == 'Not Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
-            {
-                if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
-                lead.OwnerId = LeadGateKeeperQ[0].QueueId;
-                leadForUpdate.add(lead);
-            }
-        }       
     }
     /**      
      * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist and shared to gatekeeper.

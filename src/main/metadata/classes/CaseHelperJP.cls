@@ -1,6 +1,7 @@
 public with sharing class CaseHelperJP {
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+    public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
@@ -27,8 +28,12 @@ public with sharing class CaseHelperJP {
         System.debug('Count of the Accounts changed...' +acc_Count);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id 
-                                      AND Case_Class__c = 'Complaint'];           
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];    
+        
+        
+                   
         for(Case c : case_acc){
             tmpCaseIds = accountCaseMap.get(c.AccountId);
             if (tmpCaseIds == null){
@@ -63,8 +68,9 @@ public with sharing class CaseHelperJP {
         system.debug('Accounts...' +accounts);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                          Where AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id 
-                                          AND Case_Class__c = 'Complaint'];                                  
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')]; 
         
         system.debug('Case_acc...' +case_acc);
         if (case_acc != null && !case_acc.isEmpty()){                                         

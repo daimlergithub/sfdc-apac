@@ -10,13 +10,18 @@ public class LeadHelperAccountLinkCreateJP {
         set<String> contactId = new set<String>();
         
         for(Lead__c le : leadlst){
-            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved' && (le.MD__c == Label.MarketKR || le.MD__c == label.MarketJP)){
+            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
+                if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
+                    System.debug('Is Insert OR Update called -----:::::');
+                    contactId.add(le.id);
+                }
+            } else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR){
                 if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
                 }
             }
-                
+            
         }
         
         if(! contactId.isEmpty() ){
@@ -27,6 +32,8 @@ public class LeadHelperAccountLinkCreateJP {
     
     public static void createAccountLinkRecord(set<String> contactId){
         set<String> dealerId = new set<String>();
+        set<String> AcclinkContactId = new set<String>();
+        set<String> CompanyId = new set<String>();
         List<Lead__c> leadLst = [select Id, Company_Account__c,Contact__c, Assigned_Dealer__c, Contact__r.LastName, Contact__r.FirstName,Contact__r.LastName_Native_1__c, 
                                  Contact__r.FirstName_Native_1__c, Contact__r.PersonBirthdate, Contact__r.Special_Care__c, Contact__r.Individual_Home_Phone__c, Contact__r.Work_Phone__c,
                                  Contact__r.Mobile__c, Contact__r.Fax, Contact__r.Email__c, Contact__r.Primary_Address_Reference__r.City__c, Contact__r.Primary_Address_Reference__r.District__c,
@@ -40,8 +47,7 @@ public class LeadHelperAccountLinkCreateJP {
                                  Contact__r.Website,Contact__r.Vat_No__c                                                 
                                  from Lead__c WHERE id IN : contactId
                                 ];
-         List<Account_Link__c> accLst = new List<Account_Link__c>();
-         //List<Lead__c> leadListupdate = new List<Lead__c>();    
+         List<Account_Link__c> accLst = new List<Account_Link__c>();    
          Map<String,Id> recordTypes = new Map<String,Id>();
          for(RecordType rt : [select id,DeveloperName from RecordType WHERE DeveloperName IN ( 'ContactSector' ,'Retail_Company', 'Retail_Person' ) ] ){
              recordTypes.put(rt.DeveloperName,rt.Id) ;
@@ -49,9 +55,15 @@ public class LeadHelperAccountLinkCreateJP {
          Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
          Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
          for(Lead__c dealerLead : leadLst){
-            dealerId.add(dealerLead.Assigned_Dealer__c);
+			if(dealerLead.Assigned_Dealer__c != null)
+				dealerId.add(dealerLead.Assigned_Dealer__c);
+			if(dealerLead.Contact__c != null)
+				AcclinkContactId.add(dealerLead.Contact__c);
+			if(dealerLead.Company_Account__c != null)
+				CompanyId.add(dealerLead.Company_Account__c);
          }
-         Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (fromRole__c IN : AcclinkContactId OR fromRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         system.debug('########'+dealercount);
          for(Lead__c led : leadlst){            
             if(led.Assigned_Dealer__c != null && dealercount == 0){
                  Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), Name = led.Contact__r.UCID__c, fromRole__c = led.Contact__c, toRole__c = led.Assigned_Dealer__c);
@@ -82,8 +94,6 @@ public class LeadHelperAccountLinkCreateJP {
                        if(led.Contact__r.Foundation_Date__c != null){
                            acclnk.Retail_Foundation_Month__c = String.ValueOf(led.Contact__r.Foundation_Date__c.month())+String.valueOf(led.Contact__r.Foundation_Date__c.year());
                        }
-                      //Date foundationDate = led.Contact__r.Foundation_Date__c;
-                      
                   }
                   acclnk.Retail_Fax__c = led.Contact__r.Fax;
                   acclnk.Retail_Industry__c = led.contact__r.Industry;
@@ -106,19 +116,12 @@ public class LeadHelperAccountLinkCreateJP {
                      acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
                      acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.City__c.left(17);
                      acclnk.Retail_Distinct__c = ((led.Contact__r.Primary_Address_Reference__r.District__c != null ? led.Contact__r.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Contact__r.Primary_Address_Reference__r.Block__c != null ? led.Contact__r.Primary_Address_Reference__r.Block__c : '' )).left(17);
-                     //acclnk.
                    }    
                    accLst.add(acclnk);
-            
-                    //Lead__c ledrecupdate = new Lead__c(id = led.id, IsRetailrecordCreated__c = true);
-                    //leadListupdate.add(ledrecupdate);
             }
          }  
          if(!accLst.isEmpty()){
             insert accLst;
-         } 
-         //if(!leadListupdate.isEmpty()){
-             //update leadListupdate;
-         //}
+         }
     }   
 }
