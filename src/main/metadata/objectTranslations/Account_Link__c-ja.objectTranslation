@@ -22,6 +22,10 @@
         <label><!-- Dealer No. --></label>
         <name>Dealer_No__c</name>
     </fields>
+	 <fields>
+        <label>最終更新者ユーザ種別</label>
+        <name>Last_Modified_User_Type__c</name>
+    </fields>
     <fields>
         <label>終了日</label>
         <name>End_Date__c</name>
@@ -141,6 +145,10 @@
     <fields>
         <label><!-- Retail LastModifiedDate --></label>
         <name>Retail_LastModifiedDate__c</name>
+    </fields>
+	<fields>
+        <label>法人コード(GSSN)</label>
+        <name>Retail_Dealer_CompanyCode__c</name>
     </fields>
     <fields>
         <label><!-- Retail Responsible --></label>
