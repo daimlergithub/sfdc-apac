@@ -537,7 +537,10 @@ public with sharing class RetailTaskHelper
                 shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);
                 for(Account_Link__c alink : acclinkList)
             	{
-                    acclinkmap.put(alink.toRole__c , alink.id);
+                    if(rts.Service_Dealer__c == alink.fromRole__c)
+                    {
+                    	acclinkmap.put(alink.toRole__c , alink.id);
+                    }
             	}
             }
         }
