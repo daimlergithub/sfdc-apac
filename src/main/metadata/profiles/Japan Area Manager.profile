@@ -21960,11 +21960,7 @@
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CreateContactSector</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
         <enabled>true</enabled>
@@ -22042,20 +22038,12 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>Merge</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>RelatedDealerViewforLease</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCampaignSegmentation</apexPage>
