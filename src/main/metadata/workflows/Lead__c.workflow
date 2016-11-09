@@ -115,6 +115,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Assigned_Date_Time_to_Current_Time</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Assigned Date Time to Current Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -212,6 +221,15 @@
         <name>Dealer Lead Status_update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>PopulateAssignedDateTimetoCurrent_Date</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>PopulateAssignedDateTimetoCurrent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
@@ -313,20 +331,20 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_Lead_Status_to</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Order Placed</literalValue>
+        <name>Update Dealer Lead Status to OrderPlaced</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Dealer_Lead_Status_to_Accepted</fullName>
         <field>Dealer_Lead_Status__c</field>
         <literalValue>Accepted</literalValue>
         <name>Update Dealer Lead Status to Accepted</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Update_Dealer_Lead_Status_to_Assigned</fullName>
-        <field>Dealer_Lead_Status__c</field>
-        <literalValue>Assigned</literalValue>
-        <name>Update Dealer Lead Status to Assigned</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
