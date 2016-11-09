@@ -2313,6 +2313,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Consent_Form_Serial_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Complaint_Priority__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -6744,6 +6755,15 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Fleet_Category__c</fullName>
@@ -13051,6 +13071,37 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <inlineHelpText>The integration layer (EP) needs this field for defect handling and debugging:</inlineHelpText>
         <label>Updated By EP Transactions</label>
         <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
