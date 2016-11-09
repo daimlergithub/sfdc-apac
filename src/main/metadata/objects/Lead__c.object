@@ -9114,18 +9114,6 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>	
 	<fields>
-        <fullName>Purchased_VIN__c</fullName>
-        <externalId>false</externalId>
-        <label>Purchased VIN</label>
-        <length>30</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Lost_CAC_Date__c</fullName>
         <externalId>false</externalId>
         <label>Lost(CAC) Date</label>
