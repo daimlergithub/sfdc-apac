@@ -21891,11 +21891,7 @@
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CreateContactSector</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses> 
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
         <enabled>false</enabled>
