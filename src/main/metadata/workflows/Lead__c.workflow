@@ -214,6 +214,42 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Populate_Assigned_Date_Time</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Populate Assigned Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Populate_CAC_Lead_Status</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Populate CAC Lead Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Populate_Dealer_Lead_Status</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Purchased(Only Non BDC)</literalValue>
+        <name>Populate Dealer Lead Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Populate_Dealer_Lead_Status_to</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>On-going</literalValue>
+        <name>Populate Dealer Lead Status to Ongoing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
         <field>Successful_Call_Number__c</field>
@@ -286,6 +322,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_Lead_Status_to_Assigned</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Assigned</literalValue>
+        <name>Update Dealer Lead Status to Assigned</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Dealer_Lead_Status_to_Assigned</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -309,6 +354,15 @@
         <field>Accepted_Date_Time__c</field>
         <formula>NOW()</formula>
         <name>Update Lead Accepted Date Time to Now</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Lead_Lost_Date_Time</fullName>
+        <field>Lead_Lost_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Update Lead Lost Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -627,6 +681,24 @@ Proxy_Date_Time__c
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	<rules>
+        <fullName>Populate Assigned Date Time Dealer</fullName>
+        <actions>
+            <name>Populate_Assigned_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_CAC_Lead_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Dealer_Lead_Status_to</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISNEW(),  CONTAINS($Profile.Name , 'Partner Community'),  MD__c = 'JP' )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Reassigned lead to Non-BDC</fullName>
         <actions>
@@ -773,6 +845,38 @@ Proxy_Date_Time__c
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	<rules>
+        <fullName>Update Dealer Lead Status</fullName>
+        <actions>
+            <name>Populate_Dealer_Lead_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISNEW()), MD__c = 'JP',
+   OR(AND(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),  RecordType.Name = 'Sales Leads')
+   ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') )
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Lead Lost Date Time</fullName>
+        <actions>
+            <name>Update_Lead_Lost_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost(Dealer)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>Update First Contact Customer Date Time</fullName>
         <actions>
@@ -803,6 +907,16 @@ Modify Reason:
 */</description>
         <formula>AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Lead Status to Order Placed</fullName>
+        <actions>
+            <name>Update_Dealer_Lead_Status_to</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),  RecordType.Name = 'Sales Leads')</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Lost%28CAC%29 Date Time</fullName>

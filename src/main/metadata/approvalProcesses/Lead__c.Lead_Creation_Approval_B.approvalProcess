@@ -67,6 +67,10 @@
             <name>CAC_Lead_Status_to_Approved</name>
             <type>FieldUpdate</type>
         </action>
+        <action>
+            <name>PopulateAssignedDateTimetoCurrent_Date</name>
+            <type>FieldUpdate</type>
+        </action>
     </finalApprovalActions>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionActions>
