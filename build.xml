@@ -313,6 +313,7 @@
 				<sf:include name="LeadHelperAccountLinkCreateJP"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="LeadHelperTest"/>
+				<sf:include name="LeadLatestPhaseUpdateJP"/>
 				<sf:include name="ReservationMessageTemplate"/>
 				<sf:include name="ReservationMessageTemplateTest"/>
 				<sf:include name="TriggerRecallTriggerHandlerJP"/>
