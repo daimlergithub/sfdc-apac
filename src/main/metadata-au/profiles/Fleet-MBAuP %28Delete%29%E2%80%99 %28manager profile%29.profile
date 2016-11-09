@@ -14720,11 +14720,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Adhoc_eDM_Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Assignment_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
