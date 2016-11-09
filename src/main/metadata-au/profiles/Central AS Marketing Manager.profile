@@ -8809,11 +8809,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.BlacklistSensitiveWord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Event.Called__c</field>
         <readable>true</readable>
@@ -8981,11 +8976,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.MTH_Penetration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.More_Than_2_OB_Times__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14734,11 +14724,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.BlacklistSensitiveWord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Task.Called__c</field>
         <readable>true</readable>
@@ -14896,11 +14881,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.MTH_Penetration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.More_Than_2_OB_Times__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -8805,17 +8805,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Adhoc_eDM_Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Assignment_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.BlacklistSensitiveWord__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8986,11 +8976,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.MTH_Penetration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.More_Than_2_OB_Times__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14735,17 +14720,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Adhoc_eDM_Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Assignment_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.BlacklistSensitiveWord__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14906,11 +14881,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.MTH_Penetration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.More_Than_2_OB_Times__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

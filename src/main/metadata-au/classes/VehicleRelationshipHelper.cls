@@ -430,6 +430,7 @@ public with sharing class VehicleRelationshipHelper {
         set<id> vrId = new set<id>();
         set<id> conid = new set<id>();
         map<id,id> acLinkMap = new map<id,id>();
+        map<id,id> finacLinkMap = new map<id,id>();
         map<id,id> accountmap = new map<id,id>();          
         map<id,id> vehMap = new map<id,id>(); 
         List<Group> ownergroupList = new List<Group>();
@@ -486,6 +487,22 @@ public with sharing class VehicleRelationshipHelper {
                 accountmap.put(shrVr.id , shrVr.Contact__c);
                 vehMap.put(shrVr.id , shrVr.Vehicle_ID__c);
                 accvechmMap.put(shrVr.Contact__c, vehMap);
+                if(!acclinkList.isEmpty() && acclinkList != null)
+        		{
+                    for(Account_Link__c aclnk : acclinkList)
+                    {
+                        system.debug('role>>>>' + aclnk.toRole__c);
+                        system.debug('role>>' + aclnk.id);
+                        if(shrVr.Owner_Dealer__c == aclnk.fromRole__c)
+                        {
+                        	acLinkMap.put(aclnk.toRole__c, aclnk.id);
+                        }
+                        if(shrVr.Finance_Dealer__c == aclnk.fromRole__c)
+                        {
+                        	finacLinkMap.put(aclnk.toRole__c, aclnk.id);
+                        }                        
+                    }
+                }
             }
         }
         if(!ownerGroup.isEmpty() && ownerGroup!= null)
@@ -554,7 +571,7 @@ public with sharing class VehicleRelationshipHelper {
                     if(!acclinkList.isEmpty() && acclinkList != null)
                     {
                         Account_Link__Share alinkfinShare = new Account_Link__Share();
-                        alinkfinShare.ParentId = acLinkMap.get(sVr.Contact__c);
+                        alinkfinShare.ParentId = finacLinkMap.get(sVr.Contact__c);
                         alinkfinShare.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
                         alinkfinShare.AccessLevel = 'Edit';
                         shareList.add(alinkfinShare);

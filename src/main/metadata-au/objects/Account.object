@@ -4693,6 +4693,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Dealer_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Dealer_UsedCarCorner__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -13183,6 +13204,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -17415,6 +17447,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -21051,6 +21094,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25310,6 +25364,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>NTHN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

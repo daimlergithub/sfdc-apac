@@ -9181,11 +9181,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Resource_Required__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Result__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16377,11 +16372,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Related_Task_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Resource_Required__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
