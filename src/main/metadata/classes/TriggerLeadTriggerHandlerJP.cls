@@ -10,10 +10,15 @@ public class TriggerLeadTriggerHandlerJP
     {
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
         System.debug('Handletrigger----->');
-        if(isBefore && isUpdate)
+        
+        if(isBefore && isInsert && usr.Profile.Name != 'IntegrationAPI')
+        {           
+            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);            
+        }
+        if(isBefore && isUpdate && usr.Profile.Name != 'IntegrationAPI')
         {
             LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
-            
+            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);            
         }
         system.debug('LeadUtil.isCreated-->'+LeadUtil.isCreated);
         system.debug('insert-->'+isInsert);

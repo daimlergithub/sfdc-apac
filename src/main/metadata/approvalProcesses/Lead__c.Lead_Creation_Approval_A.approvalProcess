@@ -56,6 +56,10 @@
     </entryCriteria>
     <finalApprovalActions>
         <action>
+            <name>Assigned_Date_Time_to_Current_Time</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
             <name>CAC_Lead_Status_to_Approved</name>
             <type>FieldUpdate</type>
         </action>
