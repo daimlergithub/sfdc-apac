@@ -22047,10 +22047,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>RelatedDealerViewforLease</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>RetailCampaignSegmentation</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
