@@ -1276,7 +1276,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Retail_Consent_Form_Serial_No__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Consent From Serial No</label>
+        <label>Retail Consent Form Serial No</label>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
