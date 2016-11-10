@@ -25,13 +25,8 @@
         <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <field>User.Profile</field>
-            <operation>equals</operation>
-            <value>Korea Call Center</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.UserRole</field>
-            <operation>equals</operation>
-            <value>Call Center Operator</value>
+            <operation>contains</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
             <field>Template__c.MD__c</field>
