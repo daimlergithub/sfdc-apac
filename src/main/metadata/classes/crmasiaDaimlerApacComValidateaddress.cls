@@ -23,6 +23,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         public String Address_Code;
         public String Address_Line_1;
         public String Address_Line_2;
+        public String HouseNumber;
         public String Block;
         public String City;
         public String District;
@@ -34,6 +35,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] Address_Code_type_info = new String[]{'Address_Code','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_1_type_info = new String[]{'Address_Line_1','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_2_type_info = new String[]{'Address_Line_2','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] HouseNumber_type_info = new String[]{'HouseNumber','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Block_type_info = new String[]{'Block','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] City_type_info = new String[]{'City','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] District_type_info = new String[]{'District','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
@@ -43,7 +45,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] ValidFields_type_info = new String[]{'ValidFields','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] Valid_type_info = new String[]{'Valid','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
-        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_2','Block','City','District','Province','ZipCode','MarketDiscriminator','ValidFields','Valid'};
+        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_2','HouseNumber','Block','City','District','Province','ZipCode','MarketDiscriminator','ValidFields','Valid'};
     }
     public class AddressValidationResponseMessageType {
         public String ValidationStatus;
@@ -66,7 +68,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] field_order_type_info = new String[]{'AddressValidationResponseMessage'};
     }
     public class AddressValidationPort {
-        public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlAddressValidation');
+        public String endpoint_x = 'http://localhost:9080/webservices/AddressValidation';
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
