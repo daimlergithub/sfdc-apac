@@ -48347,8 +48347,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Under Credit Assessment</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        
+        </picklistValues>        
         <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
