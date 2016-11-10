@@ -4,22 +4,6 @@
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Select Assigne Dealer</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>26</height>
-                <page>LeadButtonContainerSalesLeads</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>Assigned Dealer Reminder</label>
