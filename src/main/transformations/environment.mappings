@@ -28,7 +28,7 @@ dev_sb_kernel_dev5=shivashankar.nalluri.ntt@kernel.daimler-apac.com.dev5,mohanar
 dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
-dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev11
+dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev1
 
 #kernel PROD org
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
@@ -39,7 +39,7 @@ dev_sb_asia_dev1=sukumar.rajashekaran.ntt@mbj.daimler-apac.com.asiadev1
 dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2,sekhara.vanga.ntt@asia.daimler-apac.com.asiadev2
 dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
 dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4,rakeshbabugoud.balagani@nttdata.com.asiadev4
-dev_sb_asia_dev5=chethan.annayappa.ntt@asia.daimler-apac.com.asiadev5
+dev_sb_asia_dev5=arun.iyer.ntt@asia.daimler-apac.com.asiadev5
 dev_sb_asia_dev6=sriram.kalluri.ntt@asia.daimler-apac.com.asiadev6,sudhirkumar.acharya.ntt@mbj.daimler-apac.com.asiadev6
 dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7,vineet.srivastava.ntt@mbj.daimler-apac.com.asiadev7
 dev_sb_asia_dev8=sreeram.kantamani.ntt@asia.daimler-apac.com.asiadev8
