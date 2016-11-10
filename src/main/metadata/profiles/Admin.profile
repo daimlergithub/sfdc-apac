@@ -1403,11 +1403,6 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Dealer_Comment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Finance_RV_Ballon__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11038,11 +11033,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Preferred_Dropoff_Time__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Preferred_Negotiation_DateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18557,7 +18547,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Relationship__c.Portal_Invisiblity__c</field>
+        <field>Vehicle_Relationship__c.Portal_Invisibility__c</field>
         <readable>true</readable>
     </fieldPermissions>	
 	<fieldPermissions>

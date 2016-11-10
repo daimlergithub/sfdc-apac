@@ -2494,7 +2494,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Portal_Invisiblity__c</fullName>
+        <fullName>Portal_Invisibility__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Portal Invisibility flag</label>
