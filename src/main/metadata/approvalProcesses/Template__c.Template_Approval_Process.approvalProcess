@@ -25,7 +25,7 @@
         <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <field>User.Profile</field>
-            <operation>contains</operation>
+            <operation>contain</operation>
             <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
