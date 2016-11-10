@@ -53,8 +53,7 @@ Global class UtilWebservice
             }
             if(address.Province__c == provinceCode.Province_EN11__c){
                 SendingAddress.Province = provinceCode.Province_TR11__c;
-            }
-            
+            }            
             if(address.Province__c == provinceCode.Province_EN12__c){
                 SendingAddress.Province = provinceCode.Province_TR12__c;
             }
@@ -164,17 +163,13 @@ Global class UtilWebservice
                 SendingAddress.Province = provinceCode.Province_TR47__c;
             }           
         }
-        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        //User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         SendingAddress.ZipCode = address.ZipCode__c;
         SendingAddress.MarketDiscriminator = address.MD__c;
         SendingAddress.Address_Line_1 = address.Address_Line_1__c;
         SendingAddress.Address_Line_2 = address.Address_Line_2__c;
-        if(u.Market__c =='KR'){
-            SendingAddress.Block = address.HouseNumber__c;
-        }
-        if(u.Market__c =='JP'){
-            SendingAddress.Block = address.Block__c;
-        }
+        SendingAddress.HouseNumber = address.HouseNumber__c;
+        SendingAddress.Block = address.Block__c;
         SendingAddress.City = address.City__c;
         SendingAddress.District = address.District__c;
         SendingAddress.Province = address.Province__c;
@@ -183,18 +178,13 @@ Global class UtilWebservice
         request.Address = SendingAddress;
         try
         {
-            response = stub.ValidateAddress(request);
-            
+            response = stub.ValidateAddress(request);            
         }
         catch(CalloutException excpObj)
         {
-            system.debug('!!!!!!!!!'+excpObj.getMessage());
-            
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressValidation_callout_failure));
-            
+            system.debug('!!!!!!!!!'+excpObj.getMessage());            
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressValidation_callout_failure));            
         }
-        
-        
         return response;
     } 
     
@@ -264,20 +254,22 @@ Global class UtilWebservice
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
-        sendingCustomerDetails.RecordType = 'PersonAccount';     
+            sendingCustomerDetails.RecordType = 'PersonAccount';     
         }
         if(accountDetails.RecordTypeId == companyRecordTypeId)
         {
-        sendingCustomerDetails.RecordType = 'Company';     
-        }    
-        
-          
+            sendingCustomerDetails.RecordType = 'Company';     
+        }       
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
-          request.OrganizationId = UserInfo.getOrganizationId();
-          request.MarketDiscriminator= Usr.Market__c;
-        System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
-        request.Customer = sendingCustomerDetails;
-         system.debug('request request: '+request);
+          //request.OrganizationId = UserInfo.getOrganizationId();
+          //request.MarketDiscriminator= Usr.Market__c;
+          request.OrganizationId = '00Dp00000000eeVEAQ';
+          request.MarketDiscriminator= 'JP';
+          
+
+          System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
+          request.Customer = sendingCustomerDetails;
+          system.debug('request request: '+request);
         try{
         system.debug('try request request: '+request);
             response = stub.IdentifyCustomer(request);
