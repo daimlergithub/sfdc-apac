@@ -508,10 +508,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DealerSharingHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DealerSystemHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
