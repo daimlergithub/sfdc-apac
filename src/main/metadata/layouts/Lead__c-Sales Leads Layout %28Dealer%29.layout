@@ -227,10 +227,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comments__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Feedback_To_MB_Call_Center__c</field>
             </layoutItems>
         </layoutColumns>

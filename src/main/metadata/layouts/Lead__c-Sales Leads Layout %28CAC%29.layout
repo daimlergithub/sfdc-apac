@@ -587,10 +587,6 @@
                 <behavior>Readonly</behavior>
                 <field>Feedback_To_MB_Call_Center__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Dealer_Comments__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
