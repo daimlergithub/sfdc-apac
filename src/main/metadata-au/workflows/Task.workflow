@@ -94,6 +94,10 @@
     </rules>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
+		<actions>
+            <name>Update_Notification_Email_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
