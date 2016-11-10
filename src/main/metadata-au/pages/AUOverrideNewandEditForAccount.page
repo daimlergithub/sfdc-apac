@@ -80,7 +80,9 @@
             <apex:inputField value="{!objPersonAccount.Corporate_Program__c}" taborderhint="16"/>
             <apex:inputField value="{!objPersonAccount.Partner_First_Name__c}" taborderhint="17"/>
             <apex:inputField value="{!objPersonAccount.Partner_Surname__c}" taborderhint="18"/>
-            <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="19"/>
+            <apex:inputField value="{!objPersonAccount.PreferredName__c}" taborderhint="19"/>
+            <apex:inputField value="{!objPersonAccount.Preferred_Partner_Name__c}" taborderhint="20"/>
+            <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="21"/>            
         </apex:pageBlockSection>
         
         <apex:pageBlockSection columns="2" id="pbsContactInfoId1" title="Contact Informations" collapsible="false">
