@@ -23251,7 +23251,7 @@
         <name>ViewMyTeamsDashboards</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
