@@ -1,0 +1,38 @@
+<messaging:emailTemplate subject="{!relatedTo.Lead_Priority__c}-Lead,  {!relatedTo.Contact__r.FirstName},{!relatedTo.name},{!relatedTo.Business_Unit__c} ,{!relatedTo.Nature_of_Request__c} , {!relatedTo.CreatedDate} " recipientType="User" relatedToType="Lead__c">
+<messaging:HTMLEmailBody >
+    {!relatedTo.Name} , {!relatedTo.Business_Unit__c} , {!relatedTo.CreatedDate}
+    <br/><br/>
+    Please review and initiate contact or allocate your new lead, {!relatedTo.Contact__r.Salutation}{!relatedTo.LastName__c} <br/>
+    Title : {!relatedTo.Contact__r.Salutation}<br/>
+    Customer First Name :{!relatedTo.Contact__r.FirstName}<br/>
+    Customer Surname : {!relatedTo.Contact__r.LastName}<br/>
+    <apex:outputPanel rendered="{!NOT(ISNULL(relatedTo.Contact__r.Company__c))}">
+    Company : {!relatedTo.Contact__r.Company__r.name}<br/>
+    </apex:outputPanel>
+    
+    Business unit: {!relatedTo.Business_Unit__c}<br/>
+    Nature of request: {!relatedTo.Nature_of_Request__c}<br/>
+    Home Phone: {!relatedTo.Contact__r.Individual_Home_Phone__c}<br/>
+    Work Phone: {!relatedTo.Contact__r.Work_Phone__c}<br/>
+    Mobile: {!relatedTo.Contact__r.Mobile__c}<br/>
+    Email:  {!relatedTo.Contact__r.Email__c}<br/>
+    Vehicle Interested in: {!relatedTo.MB_Vehicle_Interest__c}<br/>
+    Preferred test drive date: {!relatedTo.Test_Drive_Date__c}<br/>
+    Preferred time: {!relatedTo.Preferred_Test_Drive_Time__c}<br/>
+    Intent to purchase: {!relatedTo.Purchase_Time__c}<br/>
+    Notes regarding lead: {!relatedTo.Description__c}<br/>
+    Customer Status: {!relatedTo.Contact__r.PC_Status__c}, {!relatedTo.Contact__r.VAN_Status__c}<br/>
+    Salesforce Customer Number: {!relatedTo.Contact__r.Customer_Number__c}<br/>
+    MB Online Customer Number : <c:AccountLinkComponent accLink="{!relatedTo.Contact__r.id}"/><br/>
+    
+    Lead Link : <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">
+    {!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
+    </apex:outputLink><br/><br/>
+    
+    Please action your leads within the timelines as advised by Mercedes-Benz. Our goal is to create the Best Customer Experience possible.
+    <br/><br/>
+    Thank you,<br/> 
+    Mercedes-Benz Cars<br/>
+    
+</messaging:HTMLEmailBody>
+</messaging:emailTemplate>
