@@ -2496,6 +2496,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             <picklistValues>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -3373,6 +3377,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -23226,6 +23234,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -23356,6 +23368,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
