@@ -10241,11 +10241,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.AES_SFConnector__AgentType__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.AES_SFConnector__CallReference__c</field>
         <readable>false</readable>
     </fieldPermissions>
