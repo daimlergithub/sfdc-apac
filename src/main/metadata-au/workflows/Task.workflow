@@ -81,7 +81,7 @@
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
+        <!--workflowTimeTriggers>
             <actions>
                 <name>Update_Notification_Email_Flag</name>
                 <type>FieldUpdate</type>
@@ -89,7 +89,7 @@
             <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
+        </workflowTimeTriggers-->
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
