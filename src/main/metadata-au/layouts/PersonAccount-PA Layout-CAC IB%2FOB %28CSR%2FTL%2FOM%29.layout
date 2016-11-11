@@ -784,8 +784,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>
@@ -816,7 +814,8 @@
         <customButtons>New_Vehicle_Relationship</customButtons>
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
-        <fields>UsVIN__c</fields>
+        <fields>Status__c</fields>
+        <fields>VIN_Search__c</fields>
         <fields>Validity__c</fields>
         <fields>Vehicle_ID__c</fields>
         <fields>Vehicle_Brand__c</fields>

@@ -29,12 +29,16 @@
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Escalation_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -47,6 +51,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Close_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Consultant_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consultant_Overdue_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -91,8 +107,20 @@
                 <field>Lead_Priority__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Assignment_Date__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Priority_Score__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Dealer_Overdue_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -282,9 +310,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
@@ -305,7 +330,6 @@
         <fields>Contact__c</fields>
         <fields>Company_Account__c</fields>
         <fields>Lead_Source__c</fields>
-        <fields>Sub_Source__c</fields>
         <fields>Nature_of_Request__c</fields>
         <fields>Business_Unit__c</fields>
         <fields>Sub_BusinessUnit__c</fields>
@@ -316,8 +340,8 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
+        <fields>Status__c</fields>
+        <fields>Priority__c</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>Reason__c</fields>
         <fields>Result__c</fields>

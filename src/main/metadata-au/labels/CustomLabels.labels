@@ -771,6 +771,13 @@
         <value>Case Type</value>
     </labels>
     <labels>
+        <fullName>Change_Owner_Record_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Change Owner Record type</shortDescription>
+        <value>0123B00000009Gm</value>
+    </labels>
+    <labels>
         <fullName>City</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>

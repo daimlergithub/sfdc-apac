@@ -505,8 +505,7 @@ public with sharing class RetailTaskHelper
         }
         if(!relatedvechId.isEmpty() && relatedvechId != null)
         {
-            sharedVrlist = [select id , Contact__c , Vehicle_ID__c from Vehicle_Relationship__c where Vehicle_ID__c =:relatedvechId ORDER BY CreatedDate DESC];            
-            acclinkList = [select id , toRole__c from Account_Link__c where ContractId__c =:rtaskid];
+            sharedVrlist = [select id , Contact__c , Vehicle_ID__c from Vehicle_Relationship__c where Vehicle_ID__c =:relatedvechId ORDER BY CreatedDate DESC];                        
         }
         system.debug('sharedVrlist>>>>>' + sharedVrlist);
         
@@ -522,30 +521,37 @@ public with sharing class RetailTaskHelper
         }
         system.debug('VehiclerelationList Size>>>>>' + vrelList.size());
         system.debug('VehiclerelationList>>>>>' + vrelList);
-        if(!acclinkList.isEmpty() && acclinkList != null)
-        {
-            for(Account_Link__c alink : acclinkList)
-            {
-                acclinkmap.put(alink.toRole__c , alink.id);
-            }
-        }
+        
         if(!rtasklist.isEmpty() && rtasklist != null)
         {
             for(Retail_Task__c rts : rtasklist)
             {
                 groupid.add(rts.Service_Dealer__r.Name);
-                shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);
-                for(Account_Link__c alink : acclinkList)
-            	{
-                    if(rts.Service_Dealer__c == alink.fromRole__c)
-                    {
-                    	acclinkmap.put(alink.toRole__c , alink.id);
-                    }
-            	}
+                shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);                
             }
         }
-
-        duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];
+		if(!shraccid.isEmpty() && shraccid != null)
+        {
+            duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];
+            acclinkList = [select id , toRole__c,fromRole__c from Account_Link__c where toRole__c =:shraccid];
+        }
+        
+        if(!rtasklist.isEmpty() && rtasklist != null)
+        {
+            for(Retail_Task__c acrts : rtasklist)
+            {
+                if(!acclinkList.isEmpty() && acclinkList != null)
+                {
+                    for(Account_Link__c alink : acclinkList)
+                    {
+                        if(acrts.Service_Dealer__c == alink.fromRole__c)
+                        {
+                            acclinkmap.put(alink.toRole__c , alink.id);
+                        }
+                    }
+                }
+            }
+        }
         system.debug('duplisharedList>>>' + duplisharedList);
         if(!duplisharedList.isEmpty() && duplisharedList != null)
         {
@@ -571,7 +577,7 @@ public with sharing class RetailTaskHelper
         system.debug('groupMap>>>>' + groupMap);
         for(Retail_Task__c rtk : rtasklist)
         {
-            if(!groupMap.isEmpty() && groupMap != null)
+            if(!groupMap.isEmpty() && groupMap != null && groupMap.get(rtk.Service_Dealer__r.Name) != null)
                {
                    system.debug('chkduplicateShareMap>>>>' + chkduplicateShareMap.get(rtk.Account__c));
                    system.debug('groupMap>>>>' + groupMap.get(rtk.Service_Dealer__r.Name));
@@ -603,29 +609,26 @@ public with sharing class RetailTaskHelper
                            }
                                                   
                            system.debug('RelatedVehicleAccount>>>>>>' + vrMap.get(rtk.Related_Vehicle__c).get(0).Contact__c);
-                           
-                           for(Vehicle_Relationship__c shreVrs : sharedVrlist)
+
+                           if(!vrMap.isEmpty() && vrMap.get(rtk.Related_Vehicle__c) != null)
                            {
-                               if(!vrMap.isEmpty() && vrMap.get(rtk.Related_Vehicle__c) != null)
-                               {
-                                   Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
-                                   vrShare.ParentId = vrMap.get(rtk.Related_Vehicle__c).get(0).id;
-                                   vrShare.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
-                                   vrShare.AccessLevel = 'Edit';
-                                   shareList.add(vrShare);
-                                   
-                                   Vehicle__Share shrVehicle = new Vehicle__Share();
-                                   shrVehicle.ParentId = rtk.Related_Vehicle__c;
-                                   shrVehicle.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
-                                   shrVehicle.AccessLevel = 'Edit';
-                                   shareList.add(shrVehicle);
-                               }
-                           }                           
+                               Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
+                               vrShare.ParentId = vrMap.get(rtk.Related_Vehicle__c).get(0).id;
+                               vrShare.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
+                               vrShare.AccessLevel = 'Edit';
+                               shareList.add(vrShare);
+                               
+                               Vehicle__Share shrVehicle = new Vehicle__Share();
+                               shrVehicle.ParentId = rtk.Related_Vehicle__c;
+                               shrVehicle.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
+                               shrVehicle.AccessLevel = 'Edit';
+                               shareList.add(shrVehicle);
+                           }                         
                        }
                    }
                }
         }        
-        
+        system.debug('shareList>>>>>' + shareList.size());
         if(!shareList.isEmpty() && shareList != null)
         {
             insert shareList;
@@ -654,35 +657,43 @@ public with sharing class RetailTaskHelper
         
         if(!rtIds.isEmpty() && rtIds != null)
         {
-            delaerRtList = [select id, Account__c, Related_Dealer__c, Related_Dealer__r.Name from Retail_Task__c where Id =:rtIds];
+            delaerRtList = [select id, Account__c, Related_Dealer__c,Related_Vehicle__c, Related_Dealer__r.Name from Retail_Task__c where Id =:rtIds];
         }
-        for(Retail_Task__c rt : delaerRtList)
+        if(delaerRtList.isEmpty() && delaerRtList != null)
         {
-            acccnrtMap.put(rt.id, rt.Account__c);
-            vechcnrtMap.put(rt.Id, rt.Related_Vehicle__c);
-            relateddlrgroup.add(rt.Related_Dealer__r.Name);
+            for(Retail_Task__c rt : delaerRtList)
+            {
+                acccnrtMap.put(rt.id, rt.Account__c);
+                vechcnrtMap.put(rt.Id, rt.Related_Vehicle__c);
+                relateddlrgroup.add(rt.Related_Dealer__r.Name);
+            }
         }
-        
         relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
         for(Group grp : relgroupList)
         {
             relgroupMap.put(grp.Name, grp.Id);
         }
-        for(Retail_Task__c shrrt : delaerRtList)
-        {
-            AccountShare relaccShare = new AccountShare();
-            relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
-            relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
-            relaccShare.AccountAccessLevel = 'Read';
-            relaccShare.OpportunityAccessLevel = 'None';
-            relaccShare.CaseAccessLevel = 'None';
-            relshareList.add(relaccShare);
-            
-            Vehicle__Share relVehicle = new Vehicle__Share();
-            relVehicle.ParentId = shrrt.Related_Vehicle__c;
-            relVehicle.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
-            relVehicle.AccessLevel = 'Read';
-            relshareList.add(relVehicle);
+        if(delaerRtList.isEmpty() && delaerRtList != null)
+        {       
+            for(Retail_Task__c shrrt : delaerRtList)
+            {
+                if(!relgroupMap.isEmpty() && relgroupMap.get(shrrt.Related_Dealer__r.Name) != null)
+                {
+                    AccountShare relaccShare = new AccountShare();
+                    relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
+                    relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+                    relaccShare.AccountAccessLevel = 'Read';
+                    relaccShare.OpportunityAccessLevel = 'None';
+                    relaccShare.CaseAccessLevel = 'None';
+                    relshareList.add(relaccShare);
+                    
+                    Vehicle__Share relVehicle = new Vehicle__Share();
+                    relVehicle.ParentId = shrrt.Related_Vehicle__c;
+                    relVehicle.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+                    relVehicle.AccessLevel = 'Read';
+                    relshareList.add(relVehicle);
+                }
+            }
         }
         if(!relshareList.isEmpty() && relshareList != null)
         {

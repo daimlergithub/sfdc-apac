@@ -465,7 +465,7 @@ public with sharing class VehicleRelationshipHelper {
         
         if(!conid.isEmpty() && conid != null)
         {
-            acclinkList = [select id , torole__c from Account_Link__c where torole__c =:conid];
+            acclinkList = [select id , torole__c, fromRole__c from Account_Link__c where torole__c =:conid];
         }
         if(!acclinkList.isEmpty() && acclinkList != null)
         {
@@ -525,7 +525,7 @@ public with sharing class VehicleRelationshipHelper {
         {
             for(Vehicle_Relationship__c sVr : shareVrList)
             {
-                if(sVr.Owner_Dealer__c != null)
+                if(sVr.Owner_Dealer__c != null && ownerGroupMap.get(sVr.Owner_Dealer__r.Name) != null)
                 {
                     AccountShare accsha = new AccountShare();
                     accsha.AccountId = accountmap.get(sVr.id);
@@ -558,7 +558,7 @@ public with sharing class VehicleRelationshipHelper {
                         shareList.add(shrVehicle);
                     }
                 }
-                if(sVr.Finance_Dealer__c != null && (sVr.Owner_Dealer__c != sVr.Finance_Dealer__c))
+                if(sVr.Finance_Dealer__c != null && (sVr.Owner_Dealer__c != sVr.Finance_Dealer__c) && financeGroupMap.get(sVr.Finance_Dealer__r.Name) != null)
                 {
                     AccountShare accfinsha = new AccountShare();
                     accfinsha.AccountId = accountmap.get(sVr.id);
