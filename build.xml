@@ -446,7 +446,8 @@
 			<sf:include name="ShareCampaignByCollaborationTest"/>
 			<sf:include name="TrialCustomerPortalHomePageController"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
-			<sf:include name="BrochureLinkController"/>	
+			<sf:include name="BrochureLinkController"/>
+			<sf:include name="AccountLinkEmailTemplate"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
