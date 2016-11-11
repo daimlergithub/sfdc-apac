@@ -812,10 +812,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RetailTaskHelper1</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RetailTaskHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
