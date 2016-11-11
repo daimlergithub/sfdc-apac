@@ -2502,6 +2502,15 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	 <fields>
+        <fullName>Portal_Visiblity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Portal Visiblity flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Pre_Owned_Warranty_Expiry__c</fullName>
         <externalId>false</externalId>
