@@ -756,15 +756,6 @@
         <type>Date</type>
     </fields>
 	<fields>
-        <fullName>Contractor_Company_Esatblished_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Established Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Contractor_Company_Established_Date__c</fullName>
         <externalId>false</externalId>
         <label>Established Date</label>
