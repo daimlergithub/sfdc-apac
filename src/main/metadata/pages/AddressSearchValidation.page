@@ -268,7 +268,7 @@
                 </apex:pageBlockSection>
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
-                    <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}"/>
+                    <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(RecordType == 'Person Account' ,true,false)}"/>
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <apex:outputPanel id="redirectPanel">                  
@@ -314,6 +314,9 @@
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+					 <apex:Column headerValue="{!$ObjectType.Account.fields.Vin__c.Label}">                    
+                        <apex:outputField value="{!cr.Vin__c}"/>
                     </apex:Column>
                      
                 </apex:PageBlockTable>

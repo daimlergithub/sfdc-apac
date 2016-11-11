@@ -697,6 +697,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
+					 if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+					{
+					objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+					}
                 }
                 show = true;
                 if(response.CustomerIdentificationResponseMessage ==null)
