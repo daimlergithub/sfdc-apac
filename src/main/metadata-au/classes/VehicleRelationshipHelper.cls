@@ -465,7 +465,7 @@ public with sharing class VehicleRelationshipHelper {
         
         if(!conid.isEmpty() && conid != null)
         {
-            acclinkList = [select id , torole__c from Account_Link__c where torole__c =:conid];
+            acclinkList = [select id , torole__c, fromRole__c from Account_Link__c where torole__c =:conid];
         }
         if(!acclinkList.isEmpty() && acclinkList != null)
         {
