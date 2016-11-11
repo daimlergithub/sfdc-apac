@@ -470,6 +470,7 @@
 				<sf:include name="SiteHeader"/>
 				<sf:include name="SiteFooter"/>
 				<sf:include name="Brochure_component"/>
+				<sf:include name="AccountLinkComponent"/>
 		</sf:typeset>
 		</deploy>				
     </target>
