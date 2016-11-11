@@ -871,7 +871,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
-        <formula>AND( ISCHANGED( Assigned_Dealer__c ),        NOT( ISNULL( Assignment_Date__c  ) ),          ISPICKVAL( CAC_Lead_Status__c ,'Qualified')      )</formula>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ),        NOT( ISNULL( Dealer_Assignment_Date__c  ) ),          ISPICKVAL( CAC_Lead_Status__c ,'Qualified')      )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
