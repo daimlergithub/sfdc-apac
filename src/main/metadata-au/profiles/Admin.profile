@@ -636,10 +636,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LightningForgotPasswordController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LightningForgotPasswordControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
