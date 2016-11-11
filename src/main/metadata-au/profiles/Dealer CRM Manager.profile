@@ -964,10 +964,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ScheduleLeadLastActivityDate</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ScheduledCreationTaskToDealers</apexClass>
         <enabled>false</enabled>
     </classAccesses>
