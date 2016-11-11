@@ -192,6 +192,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Offer_Others__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ToBeActioned__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -256,6 +260,16 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Company_Account__c</fields>
         <fields>Contact__c</fields>
@@ -274,7 +288,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jm6O</masterLabel>
+        <masterLabel>00h1a000000d6eT</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

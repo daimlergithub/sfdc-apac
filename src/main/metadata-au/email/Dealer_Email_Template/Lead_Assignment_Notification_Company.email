@@ -1,0 +1,36 @@
+<messaging:emailTemplate subject="{!relatedTo.Lead_Priority__c}-Lead,  {!relatedTo.Contact__r.FirstName},{!relatedTo.name},{!relatedTo.Business_Unit__c} ,{!relatedTo.Nature_of_Request__c} , {!relatedTo.CreatedDate} " recipientType="User" relatedToType="Lead__c">
+<messaging:HTMLEmailBody >
+    {!relatedTo.Name} , {!relatedTo.Business_Unit__c} , {!relatedTo.CreatedDate}
+    <br/><br/>
+    You have been assigned a new lead.  Please review and initiate contact with your new lead from {!relatedTo.Contact__r.Salutation}{!relatedTo.LastName__c} <br/>
+    Company : {!relatedTo.Company_Account__r.name}<br/>
+    <apex:outputPanel rendered="{!NOT(ISNULL(relatedTo.Contact__r.Company__c))}">
+    Account Company : {!relatedTo.Contact__r.Company__r.name}<br/>
+    </apex:outputPanel>
+    Business unit: {!relatedTo.Business_Unit__c}<br/>
+    Nature of request: {!relatedTo.Nature_of_Request__c}<br/>
+    Home Phone: {!relatedTo.Company_Account__r.Individual_Home_Phone__c}<br/>
+    Work Phone: {!relatedTo.Company_Account__r.Work_Phone__c}<br/>
+    Mobile: {!relatedTo.Company_Account__r.Mobile__c}<br/>
+    Email:  {!relatedTo.Company_Account__r.Email__c}<br/>
+    Vehicle Interested in: {!relatedTo.MB_Vehicle_Interest__c}<br/>
+    Preferred test drive date: {!relatedTo.Test_Drive_Date__c}<br/>
+    Preferred time: {!relatedTo.Preferred_Test_Drive_Time__c}<br/>
+    Intent to purchase: {!relatedTo.Purchase_Time__c}<br/>
+    Notes regarding lead: {!relatedTo.Description__c}<br/>
+    Customer Status: {!relatedTo.Company_Account__r.PC_Status__c}, {!relatedTo.Company_Account__r.VAN_Status__c}<br/>
+    Salesforce Customer Number: {!relatedTo.Company_Account__r.Customer_Number__c}<br/>
+    MB Online Customer Number : <c:AccountLinkComponent accLink="{!relatedTo.Company_account__r.id}"/><br/>
+    
+    <c:LedStatusContactAttemptMade leadId="{!relatedTo.id}" leadName="{!relatedTo.Name}"/><br/>
+
+    Lead Link : <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">
+    {!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
+    </apex:outputLink><br/><br/>
+    Please action your leads within the timelines as advised by Mercedes-Benz. Our goal is to create the Best Customer Experience possible.
+    <br/><br/>
+    Thank you,<br/> 
+    Mercedes-Benz Cars<br/>
+    
+</messaging:HTMLEmailBody>
+</messaging:emailTemplate>

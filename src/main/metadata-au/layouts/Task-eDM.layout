@@ -63,10 +63,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Adhoc_eDM_Template_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Vehicle_Case_ID__c</field>
             </layoutItems>
         </layoutColumns>

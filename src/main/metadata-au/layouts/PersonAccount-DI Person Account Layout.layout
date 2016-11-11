@@ -246,7 +246,8 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
-        <fields>UsVIN__c</fields>
+        <fields>Status__c</fields>
+        <fields>VIN_Search__c</fields>
         <fields>Validity__c</fields>
         <fields>Vehicle_ID__c</fields>
         <fields>Vehicle_Brand__c</fields>
@@ -273,23 +274,23 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
         <fields>toRole__c</fields>
         <fields>Sector__c</fields>
         <fields>Role__c</fields>
+        <fields>CREATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
         <fields>fromRole__c</fields>
         <fields>Sector__c</fields>
         <fields>Role__c</fields>
+        <fields>CREATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -317,8 +318,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>
@@ -335,13 +334,11 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>
+        <fields>Vehicle_Model_Code__c</fields>
         <fields>Status__c</fields>
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
-        <fields>OWNER.ALIAS</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
     <relatedLists>
