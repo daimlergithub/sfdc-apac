@@ -23,6 +23,10 @@
                 <behavior>Readonly</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Model_Description__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -70,6 +74,16 @@
                 <behavior>Readonly</behavior>
                 <field>EngineNumber__c</field>
             </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -84,24 +98,17 @@
                 <behavior>Readonly</behavior>
                 <field>Sector__c</field>
             </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Vehicle Other  Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>BodyBuilderInformation__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>System_Data_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -111,22 +118,8 @@
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>System Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedById</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>LastModifiedById</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>System_Data_Source__c</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -151,28 +144,21 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>RECORDTYPE</fields>
         <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Car_Relation__c</fields>
         <fields>Contact__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
         <fields>Purchase_Date__c</fields>
         <fields>Registration_Number__c</fields>
         <fields>Status__c</fields>
         <fields>Corporate_Sale__c</fields>
         <fields>TradeIn__c</fields>
         <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Vehicle_Inspection__c.Vehicle__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

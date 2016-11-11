@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -63,7 +67,7 @@
     <fields>
         <fullName>ClosedReason__c</fullName>
         <externalId>false</externalId>
-        <label>Closed Reason</label>
+        <label>Cancelled Reason</label>
         <picklist>
             <picklistValues>
                 <fullName>Vehicle purchased</fullName>
@@ -219,6 +223,14 @@
                 <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Delivered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Lost</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -238,6 +250,139 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Model_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Model Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>W176</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W246</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C117</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X117</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C204</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R172</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W212</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W213</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S212</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C207</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A207</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C218</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X218</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V222</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X222</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R231</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C190</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C217</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X156</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X253</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W166</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C292</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X166</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W461 Professional Series</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W461</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W463</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>447</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Vehicle_Type__c</fullName>

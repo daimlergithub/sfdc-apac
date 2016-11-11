@@ -124,10 +124,28 @@
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <fieldUpdates>
+        <fullName>CAStatusChangeDate</fullName>
+        <field>CA_status_change_date__c</field>
+        <formula>TODAY()</formula>
+        <name>CAStatusChangeDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Close_Date_Update</fullName>
         <field>Close_Date__c</field>
         <formula>Today()</formula>
         <name>Close Date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ConsultantAssignmentDateUpdate</fullName>
+        <field>Consultant_Assignment_Date__c</field>
+        <formula>NOW()</formula>
+        <name>ConsultantAssignmentDateUpdate</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -162,6 +180,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReassgnmentDateUpdate</fullName>
+        <description>Updating the reassignment date to current date</description>
+        <field>Reassignment_Date__c</field>
+        <formula>NOW()</formula>
+        <name>ReassgnmentDateUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
@@ -554,7 +582,7 @@ Proxy_Date_Time__c
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-        <rules>
+    <rules>
         <fullName>Email Notification to Lead Owner</fullName>
         <active>true</active>
         <criteriaItems>
@@ -570,7 +598,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Deal Lost</value>
+            <value>Settled,Closed,Deal lost</value>
         </criteriaItems>
         <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -662,7 +690,7 @@ Proxy_Date_Time__c
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-     <rules>
+    <rules>
         <fullName>Escalation%3A Lead not touched for 7 days</fullName>
         <active>true</active>
         <criteriaItems>
@@ -678,7 +706,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Deal Lost</value>
+            <value>Settled,Closed,Deal lost</value>
         </criteriaItems>
         <description>This Lead has not been touched for 7 days after creation.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -813,6 +841,19 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>LeadStatusChangedateUpdate</fullName>
+        <actions>
+            <name>CAStatusChangeDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the lead status changed  updating the CA_status_change_date__c to current date</description>
+        <formula>AND(
+    ISCHANGED(CAC_Lead_Status__c) , MD__c  = 'AU'     
+   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Leads fields update</fullName>
         <actions>
             <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
@@ -820,6 +861,32 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>false</active>
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LeadsReassignmentDateUpdate</fullName>
+        <actions>
+            <name>ReassgnmentDateUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ),        NOT( ISNULL( Dealer_Assignment_Date__c  ) ),          ISPICKVAL( CAC_Lead_Status__c ,'Qualified')      )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LeadsUpdateConsultantAssignmentDate</fullName>
+        <actions>
+            <name>ConsultantAssignmentDateUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If lead owner profile is 'Dealer Consultant' then updating the current datetime to cosultant _assingment_date__c</description>
+        <formula>AND( ISCHANGED( OwnerId ) ,
+     IF( Owner:User.Profile.Name  = 'Dealer Consultant',  
+        true,false),
+      MD__c = 'AU'
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

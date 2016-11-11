@@ -147,18 +147,15 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>RECORDTYPE</fields>
         <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Car_Relation__c</fields>
         <fields>Contact__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
         <fields>Purchase_Date__c</fields>
         <fields>Registration_Number__c</fields>
         <fields>Status__c</fields>

@@ -3297,7 +3297,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6630,7 +6630,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19002,7 +19002,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>training required</fullName>
+                <fullName>Training Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24095,6 +24095,29 @@ window.location.reload(true);
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>New_Change_Owner_Task</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Change Owner Task</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}{!REQUIRESCRIPT("/support/console/27.0/integration.js")}{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+var VRId='{!Vehicle_Relationship__c.Id}';
+var query = sforce.connection.query("select id,Name from user where name = 'Nicole Hughes' limit 1");
+if(query !=null)
+{
+var assignedId = query.records.Id;
+var assignname = query.records.Name;
+}
+var url = "/00T/e?RecordType=0123B00000009Gm&amp;what_id="+VRId+"&amp;tsk1="+assignname+"&amp;tsk1_lkid="+assignedId+"&amp;retURL="+VRId;
+
+window.parent.navigateToUrl(url);</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Task</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -24174,6 +24197,44 @@ else{
 	url += "Task_RelatedTo={!Task.What}&amp;Task_CustomerId={!Task.Who}&amp;CurrentUser_UserName={!$User.LastName}{!$User.FirstName}&amp;Task_Id={!Task.Id}&amp;Redo=true"; 
 
 	window.open(url, "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Remove_Account</fullName>
+        <availability>online</availability>
+        <description>Soft Delete Account</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Remove Account</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>//alert('Hi');
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+var query = sforce.connection.query("select id from user where name = 'Nicole Hughes' limit 1");
+if(query !=null)
+{
+var assignedId = query.records.Id;
+}
+var tsk= new sforce.SObject("Task");
+ tsk.subject='Remove Account';
+ // alert('Account Id'+'{!Account.Id}');
+  tsk.WhatId='{!Account.Id}';
+ tsk.OwnerId=assignedId ;
+ tsk.Priority='Normal';
+ tsk.status='Not Started';
+  tsk.RecordTypeId='0123B00000009eU';
+// alert('Hello');
+result=sforce.connection.create([tsk]); 
+if(result[0].getBoolean("Success")){ 
+
+window.open="/"+result[0].Id; 
+
+}else{ 
+
+alert("Task created"+result); 
+
 }</url>
     </webLinks>
     <webLinks>

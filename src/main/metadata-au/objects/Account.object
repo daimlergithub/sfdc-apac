@@ -1466,6 +1466,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Consent_Form_Serial_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact_Background__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -5861,6 +5872,26 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <externalId>false</externalId>
         <label>First Name Native</label>
         <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10762,6 +10793,26 @@ To indicate that the dealer need to update their external systems</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>UpsellOpportunity__c</fullName>
         <externalId>false</externalId>
         <label>Upsell Opportunity</label>
@@ -11240,6 +11291,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <type>Lookup</type>
     </fields>
     <listViews>
+        <fullName>Accounts_Updated_within_Last_Week</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>Accounts Updated within the Last Week</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Province__c</columns>
@@ -11312,6 +11380,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <value>PersonAccount.ThirdParty</value>
         </filters>
         <label>All third-party data</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
         <language>en_US</language>
     </listViews>
     <listViews>
