@@ -1564,10 +1564,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>VehicleRelationshipHelper2</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>VehicleRelationshipHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
