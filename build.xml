@@ -447,7 +447,8 @@
 			<sf:include name="TrialCustomerPortalHomePageController"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="BrochureLinkController"/>
-			<sf:include name="AccountLinkEmailTemplate"/>			
+			<sf:include name="AccountLinkEmailTemplate"/>
+			<sf:include name="MakeUpdateLinkControl"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
@@ -472,6 +473,7 @@
 				<sf:include name="SiteFooter"/>
 				<sf:include name="Brochure_component"/>
 				<sf:include name="AccountLinkComponent"/>
+				<sf:include name="LedStatusContactAttemptMade"/>
 		</sf:typeset>
 		</deploy>				
     </target>
