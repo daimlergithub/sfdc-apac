@@ -448,7 +448,6 @@
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
 			<sf:include name="BrochureLinkController"/>
 			<sf:include name="AccountLinkEmailTemplate"/>
-			<sf:include name="MakeUpdateLinkControl"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
