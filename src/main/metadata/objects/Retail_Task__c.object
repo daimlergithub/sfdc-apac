@@ -5378,7 +5378,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_Name__c</picklist>
+             <picklist>Product_Name__c</picklist>
             <values>
                 <fullName>Close End Lease</fullName>
                 <default>false</default>
@@ -5397,6 +5397,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Dual Auto Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus Light</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyMercedes Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5444,11 +5456,59 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Touring support Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Plan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Second Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Start Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack Second Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack Start Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 2 years Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 3 years Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 6 years Plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
