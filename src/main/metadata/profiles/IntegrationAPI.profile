@@ -3847,12 +3847,7 @@
         <editable>true</editable>
         <field>Lead__c.Wholesale_Comment__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.Contractor_Company_Esatblished_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>   
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Related_Contact2__c</field>
@@ -23451,10 +23446,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateAuditFields</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
@@ -23700,10 +23691,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>TransferAnyLead</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>UpdateWithInactiveOwner</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
