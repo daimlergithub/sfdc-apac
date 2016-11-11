@@ -154,37 +154,39 @@ public class AccountLinkHelper
         {
             for(Account_Link__c shaclnk : shareaclkList)
             {
-                AccountShare acshar = new AccountShare();
-                acshar.AccountId = accountMap.get(shaclnk.id);
-                acshar.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                acshar.AccountAccessLevel = 'Edit';
-                acshar.CaseAccessLevel = 'Read';
-                shareacclinkList.add(acshar);
-                
-                Account_Link__Share alinkShare = new Account_Link__Share();
-                alinkShare.ParentId = shaclnk.Id;
-                alinkShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                alinkShare.AccessLevel = 'Edit';
-                shareacclinkList.add(alinkShare);
-                if(!vRMap.isEmpty() && vRMap.get(shaclnk.toRole__c) != null)
+                if(!groupMap.isEmpty() && groupMap != null && groupMap.get(shaclnk.fromrole__r.Name) != null)
                 {
-                    Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
-                    vrShare.ParentId = vRMap.get(shaclnk.toRole__c);
-                    vrShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                    vrShare.AccessLevel = 'Edit';
-                    shareacclinkList.add(vrShare);
+                    AccountShare acshar = new AccountShare();
+                    acshar.AccountId = accountMap.get(shaclnk.id);
+                    acshar.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                    acshar.AccountAccessLevel = 'Edit';
+                    acshar.CaseAccessLevel = 'Read';
+                    shareacclinkList.add(acshar);
+                    
+                    Account_Link__Share alinkShare = new Account_Link__Share();
+                    alinkShare.ParentId = shaclnk.Id;
+                    alinkShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                    alinkShare.AccessLevel = 'Edit';
+                    shareacclinkList.add(alinkShare);
+                    if(!vRMap.isEmpty() && vRMap.get(shaclnk.toRole__c) != null)
+                    {
+                        Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
+                        vrShare.ParentId = vRMap.get(shaclnk.toRole__c);
+                        vrShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                        vrShare.AccessLevel = 'Edit';
+                        shareacclinkList.add(vrShare);
+                    }
+                    if(!vechMap.isEmpty() && vechMap != null)
+                    {
+                        Vehicle__Share shrVehicle = new Vehicle__Share();
+                        shrVehicle.ParentId = vechMap.get(shaclnk.toRole__c);
+                        shrVehicle.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                        shrVehicle.AccessLevel = 'Edit';
+                        shareacclinkList.add(shrVehicle);
+                    }
                 }
-                if(!vechMap.isEmpty() && vechMap != null)
-                {
-                    Vehicle__Share shrVehicle = new Vehicle__Share();
-                    shrVehicle.ParentId = vechMap.get(shaclnk.toRole__c);
-                    shrVehicle.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                    shrVehicle.AccessLevel = 'Edit';
-                    shareacclinkList.add(shrVehicle);
-                }
-            }
+        	}
         }
-        
         if(!shareacclinkList.isEmpty() && shareacclinkList != null)
         {
             insert shareacclinkList;

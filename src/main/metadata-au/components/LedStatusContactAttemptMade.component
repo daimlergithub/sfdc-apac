@@ -1,0 +1,7 @@
+<apex:component controller="MakeUpdateLinkControl" access="global">
+<apex:attribute name="leadId" type="String" description="Lead account Id"/>
+<apex:attribute name="leadName" type="String" description="Lead account Name"/>
+<br/><b>Dealer Responses</b><br/>
+Please click below once first contact attempt has been made :<br/>
+<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Contact Attempt Made:">Contact Attempt Made</a><br/>
+</apex:component>
