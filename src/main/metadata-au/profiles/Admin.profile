@@ -180,6 +180,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>true</enabled>
     </classAccesses>

@@ -178,6 +178,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountOptinandOptoutControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>

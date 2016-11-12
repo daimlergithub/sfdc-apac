@@ -166,6 +166,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
