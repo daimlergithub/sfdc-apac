@@ -640,6 +640,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MakeUpdateLinkControl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
