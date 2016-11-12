@@ -168,6 +168,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -19829,18 +19833,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Master Layout</layout>
-        <recordType>Account.Company</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Master Layout</layout>
-        <recordType>Account.Dealer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Master Layout</layout>
         <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
+        <layout>Account-Company Layout%28Dealer%29</layout>
+        <recordType>Account.Company</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Dealer Layout-Admin</layout>
+        <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MBAuP BA Layout Soft Deleted ReadOnly</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20189,15 +20193,15 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Aftersales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Finance Lead Layout%28Dealer%29</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Insurance Lead Layout%28Dealer%29</layout>
+        <recordType>Lead__c.Insurance_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -20209,15 +20213,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Insurance_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -20228,8 +20224,16 @@
         <recordType>Lead__c.Parts_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Service Lead Layout%28Dealer%29</layout>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Vans Fleet Lead</layout>
         <recordType>Lead__c.Fleet_Vans</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Vehicle lead layout%28Dealer%29</layout>
+        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
@@ -20261,10 +20265,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.Person_Account_Manual_Merge</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20274,6 +20274,10 @@
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.ThirdParty</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-Person Account%28Dealer%29</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PreOrder__c-Pre-Order Layout</layout>
@@ -20746,6 +20750,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>ContractLineItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Dealer_System__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
