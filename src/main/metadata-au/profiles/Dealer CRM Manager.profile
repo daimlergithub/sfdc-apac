@@ -169,7 +169,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkEmailTemplate</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>

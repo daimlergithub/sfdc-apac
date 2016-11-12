@@ -636,6 +636,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkEmailTemplate</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
