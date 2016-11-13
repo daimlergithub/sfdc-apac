@@ -304,6 +304,7 @@ public class AddressSearchValidationController{
                             objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
                         }  
                         refreshPage = true;
+						objPersonAccount.Id = null;
                         insert objPersonAccount ;
                         AddressObj.Customer__c = objPersonAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
