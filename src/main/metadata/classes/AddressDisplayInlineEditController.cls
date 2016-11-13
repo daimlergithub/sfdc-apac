@@ -236,7 +236,7 @@ public class AddressDisplayInlineEditController {
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             AddressObj.Address_Type__c = addresspicklist;
-            AddressObj.Province__c = provincepicklist;
+            //AddressObj.Province__c = provincepicklist;
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
             {
