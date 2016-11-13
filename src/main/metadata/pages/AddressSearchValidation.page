@@ -193,7 +193,7 @@
                 </apex:pageBlockSection>       
                 
          <!--  KOREA MARKET Company Account - End -->
-                <apex:pageBlockSection title="{!$Label.Address_Information}" >
+                <apex:pageBlockSection title="{!$Label.Address_Information}" Id="AddrPBS">
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
@@ -229,13 +229,13 @@
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.District__c.Label}"/>
                         <apex:inputField value="{!AddressObj.District__c}"/>
-                    </apex:pageBlockSectionItem>
-                   
-                    
+                    </apex:pageBlockSectionItem>                   
+                    <!--
                     <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
                         <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
                     </apex:pageBlockSectionItem>
+					-->
                     <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Block__c}"/>           
@@ -269,7 +269,7 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(RecordType == 'Person Account' ,true,false)}"/>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <apex:outputPanel id="redirectPanel">                  
                         <apex:outputText rendered="{!refreshPage}">
