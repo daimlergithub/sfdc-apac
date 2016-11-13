@@ -367,18 +367,18 @@ EP/Tolerant for Validation.
 **/
     public void ValidateAddressSearch(){
         system.debug('addresspicklist 4 :'+addresspicklist);
-        if(Market =='KR'){
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){
+        system.debug('Market 1 :'+Market);
+        if(Market =='KR'){         
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){               
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
                 addressobj.Address_Line_2__c = '';
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = ''; 
-				addressobj.MD__c = Market;					
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
-                
+                addressobj.Province__c = '';
+                addressobj.MD__c = ''; 
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));                 
             }
             if(addressobj.ZipCode__c == null)
             {
@@ -393,6 +393,7 @@ EP/Tolerant for Validation.
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }
             if(addressobj.ZipCode__c != null){
+                addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
             }           
         }
@@ -405,16 +406,17 @@ EP/Tolerant for Validation.
                 addressobj.City__c = '';
                 addressobj.District__c = '';
                 addressobj.Province__c = '';  
-				addressobj.MD__c = Market;				
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
-                              
+                addressobj.MD__c = '';              
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));                              
             }
             if(addressobj.ZipCode__c != null){
+                addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
             }  
         }
     }
-    public void ValidateAddressSearchCallout(Address__c addressobj){   
+    public void ValidateAddressSearchCallout(Address__c addressobj){       
+        
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj);
         system.debug('*$*$*$*$ response   ' + response + '   *$*$*$*   response.ValidationStatus   ' + response.ValidationStatus + '   *$*$*response.Addresses   ' + response.Addresses);
@@ -453,6 +455,7 @@ EP/Tolerant for Validation.
             else if(!response.Addresses[0].Valid){
                 string province;   
                 Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                system.debug(Market + '   *$*$*$*  addtrmapUpdate ' + addtrmapUpdate);
                 UtilAddressTranslation.gettranslatedvalues(Market);
                 if(addtrmapUpdate.containsKey(AddressObj.Province__c)){
                     province = addtrmapUpdate.get(AddressObj.Province__c);
