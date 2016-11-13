@@ -68,7 +68,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         private String[] field_order_type_info = new String[]{'AddressValidationResponseMessage'};
     }
     public class AddressValidationPort {
-        public String endpoint_x = 'http://localhost:9080/webservices/AddressValidation';
+        public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlAddressValidation');
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;
         public String clientCertName_x;
