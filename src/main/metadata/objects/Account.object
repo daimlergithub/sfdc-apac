@@ -67,11 +67,6 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>Dealer_Compact_Layout</fullName>
-        <fields>Company_Name__c</fields>
-        <label>Dealer Compact Layout</label>
-    </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
