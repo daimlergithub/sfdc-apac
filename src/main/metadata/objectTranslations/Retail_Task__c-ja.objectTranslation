@@ -82,7 +82,7 @@
         <name>Assist_End_Date__c</name>
     </fields>
     <fields>
-        <label>æ›´æ–°æ—¥</label>
+        <label>更新日</label>
         <name>Balance_Update_Date__c</name>
     </fields>
     <fields>
