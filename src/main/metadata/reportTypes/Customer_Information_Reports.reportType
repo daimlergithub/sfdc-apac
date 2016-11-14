@@ -23,7 +23,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Primary_Address__c</field>
+            <field>Contact__c.Primary_Address_Display__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
