@@ -21863,7 +21863,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     <recordTypes>
         <fullName>Dealer</fullName>
         <active>true</active>
-        <compactLayoutAssignment>Dealer_Compact_Layout</compactLayoutAssignment>
         <description>Record type for dealer</description>
         <label>Dealer</label>
         <picklistValues>
