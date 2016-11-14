@@ -189,7 +189,7 @@
         <name>DM_Request_External_Id__c</name>
     </fields>
     <fields>
-        <label><!-- Date --></label>
+        <label>リクエスト日付</label>
         <name>Date__c</name>
     </fields>
     <fields>

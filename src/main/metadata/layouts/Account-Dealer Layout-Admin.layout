@@ -544,6 +544,11 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>ParentId</fields>
+        <fields>Company_Name__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
