@@ -679,6 +679,12 @@ public with sharing class RetailTaskHelper
             {
                 if(!relgroupMap.isEmpty() && relgroupMap.get(shrrt.Related_Dealer__r.Name) != null)
                 {
+                    Retail_Task__Share rtshare = new Retail_Task__Share();
+                    rtshare.ParentId = shrrt.Id;
+                    rtshare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+                    rtshare.AccessLevel = 'Read';
+                    relshareList.add(rtshare);
+                    
                     AccountShare relaccShare = new AccountShare();
                     relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
                     relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
