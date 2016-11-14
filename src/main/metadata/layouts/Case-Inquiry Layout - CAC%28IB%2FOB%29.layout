@@ -3,6 +3,7 @@
     <customButtons>New_Lead</customButtons>
     <customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+    <customButtons>Notify_to_Dealer</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -187,10 +188,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Call_Duration__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Vehicle__c</field>
             </layoutItems>
             <layoutItems>
@@ -320,11 +317,15 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Dealer Info</label>
+        <label>Dealer Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Case_Notice_Dealer_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -472,6 +473,29 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>New Fields</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Share_to_Regional_Office__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Narrative_of_Type__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Station__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
