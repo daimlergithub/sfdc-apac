@@ -6558,11 +6558,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.Payer_Fax_Email_address__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Case.Request_date_time__c</field>
         <readable>true</readable>
     </fieldPermissions>
