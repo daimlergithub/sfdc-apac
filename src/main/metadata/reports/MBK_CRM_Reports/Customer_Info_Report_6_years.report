@@ -266,12 +266,12 @@
             <value>KR</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
+            <column>Vehicle_Relationship__c$Registration_Date__c</column>
             <operator>lessOrEqual</operator>
             <value>N_WEEKS_AGO:308</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
+            <column>Vehicle_Relationship__c$Registration_Date__c</column>
             <operator>greaterOrEqual</operator>
             <value>N_WEEKS_AGO:312</value>
         </criteriaItems>
