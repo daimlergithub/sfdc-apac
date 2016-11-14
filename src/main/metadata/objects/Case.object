@@ -22169,25 +22169,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receiver_address_type__c</picklist>
-            <values>
-                <fullName>Actual</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
