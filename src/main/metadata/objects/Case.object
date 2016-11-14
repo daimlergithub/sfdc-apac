@@ -109864,4 +109864,14 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>Notify_to_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Notify to Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
 </CustomObject>
