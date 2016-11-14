@@ -40,6 +40,11 @@
                 // alert('Primary did not refresh');
             }
         };
+        function CloseAndRefresh(){
+            window.opener.location.href="/{!Lead.Id}";
+            window.top.close();
+        }
+        
     </script>
 
     <apex:sectionHeader title="Select Assigned Dealer"/>
@@ -71,20 +76,26 @@
                     <apex:inputField id="city" value="{!dealer.City__c}" /> 
                     <!-- <apex:selectList id="city" value="{!dealer.City__c}" multiselect="false" size="1"> 
                     
-	                        <apex:selectOptions value="{!cityOptions}" ></apex:selectOptions>
-	                        <apex:actionStatus id="cityStatus" >
-	                            <apex:facet name="start">
-	                                <img src="/img/loading24.gif" style="vertical-align:middle;"/>
-	                            </apex:facet>      
-	                        </apex:actionStatus>
-                    	</apex:selectList>
-					-->
+                            <apex:selectOptions value="{!cityOptions}" ></apex:selectOptions>
+                            <apex:actionStatus id="cityStatus" >
+                                <apex:facet name="start">
+                                    <img src="/img/loading24.gif" style="vertical-align:middle;"/>
+                                </apex:facet>      
+                            </apex:actionStatus>
+                        </apex:selectList>
+                    
                     <apex:pageblockSectionItem >
                         <apex:outputLabel value="Campaigns" />
                         <apex:selectList value="{!choosenCampaignId}" size="1" multiselect="false">
                             <apex:selectOptions value="{!campaignOptions}"/>
                         </apex:selectList>
                     </apex:pageblockSectionItem>
+                    -->
+                    <apex:pageblockSectionItem >
+                       
+                    </apex:pageblockSectionItem>
+                    <apex:inputField id="Dealer_Sales_Type" value="{!dealer.Dealer_Sales_Type__c}" />
+                    <apex:inputField id="Dealer_Service_Codes" value="{!dealer.Dealer_Service_Codes__c}" /> 
                     
                 </apex:pageBlockSection>
             </apex:outputpanel>
@@ -94,7 +105,7 @@
             <apex:outputPanel Id="query">
                 <apex:pageBlockTable value="{!dealers}" var="dea" rendered="{!hasQueryResult}">                    
                     <apex:column headerValue="Dealer Name">
-                        <apex:commandLink action="{!choose}" value="{!dea.Name}" oncomplete="closeTab();">
+                        <apex:commandLink action="{!choose}" value="{!dea.Name}" oncomplete="CloseAndRefresh();">
                             <apex:param assignTo="{!choosenDealerId}" value="{!dea.Id}" name="choosenDealerId"/>
                         </apex:commandLink>
                     </apex:column>
