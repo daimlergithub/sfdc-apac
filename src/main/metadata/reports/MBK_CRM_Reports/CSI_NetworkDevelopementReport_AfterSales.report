@@ -27,15 +27,15 @@
     <columns>
         <field>Account$Primary_Address__c</field>
     </columns>
-    <columns>
-        <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$Phone__c</field>
+	 <columns>
+        <field>Account$Mobile__c</field>
     </columns>
-    <columns>
-        <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$Home_Phone__c</field>
+	 <columns>
+        <field>Account$Individual_Home_Phone__c</field>
     </columns>
-    <columns>
-        <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$Work_Phone__c</field>
-    </columns>
+	 <columns>
+        <field>Account$Work_Phone__c</field>
+    </columns>   
     <columns>
         <field>Account.Vehicles__r.Vehicle_Relationships__r.Leads__r$Email__c</field>
     </columns>
