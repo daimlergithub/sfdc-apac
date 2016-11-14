@@ -3746,7 +3746,7 @@ Contact__r.Email__c
     <fields>
         <fullName>Existing_Contract_End_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>"DATEVALUE(Existing_Contract__r.EndDate__c)"</formula>
+        <formula>TEXT(Existing_Contract__r.EndDate__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Existing Contract End Date</label>
         <required>false</required>
