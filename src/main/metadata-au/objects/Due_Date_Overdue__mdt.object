@@ -258,7 +258,7 @@
         <externalId>false</externalId>
         <label>SLA Duration (in hrs.)</label>
         <length>6</length>
-        <required>true</required>
+        <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>

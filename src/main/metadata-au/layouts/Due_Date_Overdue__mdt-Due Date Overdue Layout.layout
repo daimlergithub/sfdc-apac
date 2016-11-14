@@ -33,7 +33,7 @@
                 <field>NamespacePrefix</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>SLA_Duration__c</field>
             </layoutItems>
             <layoutItems>
