@@ -11,17 +11,17 @@
             <field>Contact__c.Name</field>
             <table>Lead__c</table>
         </columns>
-		<columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Mobile__c</field>
             <table>Lead__c</table>
         </columns>
-		<columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Individual_Home_Phone__c</field>
             <table>Lead__c</table>
         </columns>
-		<columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Work_Phone__c</field>
             <table>Lead__c</table>
