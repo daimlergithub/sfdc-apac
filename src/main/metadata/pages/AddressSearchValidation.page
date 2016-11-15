@@ -135,6 +135,7 @@
                    
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
+				  <apex:inputField value="{!objPersonAccount.VIN__c}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
                  
@@ -315,8 +316,8 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
-					 <apex:Column headerValue="{!$ObjectType.Account.fields.Vin__c.Label}">                    
-                        <apex:outputField value="{!cr.Vin__c}"/>
+					 <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
                      
                 </apex:PageBlockTable>
