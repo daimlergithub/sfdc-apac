@@ -58,7 +58,7 @@
     <fields>
         <fullName>ClosedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Closed Date</label>
+        <label>Close Date</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
