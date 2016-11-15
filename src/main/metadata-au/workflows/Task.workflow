@@ -92,14 +92,23 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <!--<rules>
+    <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
+		<workflowTimeTriggers>
+        <actions>
+            <name>Update_Notification_Email_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
+        <timeLength>0</timeLength>
+        <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
         <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>Fleet,Fleet (Delete)</value>
+            <value>Fleet,Fleet (Delete),EMC</value>
         </criteriaItems>
         <criteriaItems>
             <field>Task.Status</field>
@@ -122,8 +131,8 @@
             <value>AU</value>
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>-->
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
        <!-- <actions>
