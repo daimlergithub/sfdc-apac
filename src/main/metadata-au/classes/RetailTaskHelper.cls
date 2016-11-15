@@ -527,7 +527,10 @@ public with sharing class RetailTaskHelper
             for(Retail_Task__c rts : rtasklist)
             {
                 groupid.add(rts.Service_Dealer__r.Name);
-                shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);                
+                if(!vrmap.isEmpty() && vrmap != null && vrMap.get(rts.Related_Vehicle__c).get(0).contact__c != null)
+                {
+                	shraccid.add(vrMap.get(rts.Related_Vehicle__c).get(0).contact__c);
+                }                
             }
         }
 		if(!shraccid.isEmpty() && shraccid != null)
