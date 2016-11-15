@@ -2637,7 +2637,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2701,7 +2700,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2762,7 +2760,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2798,7 +2795,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.LAST_UPDATE</columns>
         <columns>UPDATEDBY_USER.ALIAS</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Last_OB_Call__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Activity_Status__c</columns>
@@ -2832,7 +2828,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2873,7 +2868,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHO_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Last_OB_Call__c</columns>
         <columns>Activity_Status__c</columns>
         <columns>TASK.STATUS</columns>
