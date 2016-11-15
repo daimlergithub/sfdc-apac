@@ -14977,6 +14977,28 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Retail_Non_Retail_car__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail/Non-Retail car</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Risk_classification__c</fullName>
         <externalId>false</externalId>
         <label>Enterprise risk classification</label>
@@ -22981,17 +23003,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Response_Type__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Non_Retail_car__c</picklist>
-            <values>
-                <fullName>Non-Retail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
