@@ -17711,11 +17711,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Template__c.MD__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Template__c.Message_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
