@@ -3946,7 +3946,7 @@ Modify By:
 Modify Reason: 
 */</description>
         <externalId>false</externalId>
-        <label>*Dealer Lead Gate Keeper</label>
+        <label>Dealer Lead Administrator</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Accounts2</relationshipName>
         <required>false</required>
@@ -4187,6 +4187,16 @@ Feb-18-2012: Added by Rob and Falk</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Parts_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Parts Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -4575,6 +4585,16 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Service_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Service Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_Suburb__c</fullName>
