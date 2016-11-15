@@ -2575,6 +2575,20 @@
         <value>No Complaint</value>
     </labels>
     <labels>
+        <fullName>No_Match_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Match Found</shortDescription>
+        <value>No Match Found</value>
+    </labels>
+    <labels>
+        <fullName>No_Result_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Result Found</shortDescription>
+        <value>No Result Found</value>
+    </labels>
+    <labels>
         <fullName>No_Target_records</fullName>
         <categories>Catalogue Download</categories>
         <language>en_US</language>
