@@ -21773,6 +21773,26 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_my_Case_with_notify_to_Dealer</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>Name__c</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Retail_Case_Notice_Dealer_Flag__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Retail_Case_Notice_Dealer_Flag__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All my Case with notify to Dealer</label>
+        <language>en_US</language>
+    </listViews>
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
         <filterScope>Queue</filterScope>
