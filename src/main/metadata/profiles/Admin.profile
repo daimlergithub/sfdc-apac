@@ -6207,11 +6207,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.Address_for_Transfer_Certificate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Case.ET_Type_for_Close_Mileage__c</field>
         <readable>true</readable>
     </fieldPermissions>
