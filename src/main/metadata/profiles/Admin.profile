@@ -17723,11 +17723,6 @@
         <editable>true</editable>
         <field>Template__c.Template_ID__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Template__c.TemplateID__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
