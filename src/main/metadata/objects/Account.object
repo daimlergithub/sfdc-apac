@@ -10317,24 +10317,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
-        <fullName>Agreement_to_commit_info_processing__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Agreement to commit info processing</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>All_channel_opt_out__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All channel opt-out</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>Customer_Consent_Happy_Calls__c</fullName>
         <externalId>false</externalId>
