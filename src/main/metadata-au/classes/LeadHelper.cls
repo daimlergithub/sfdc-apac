@@ -2204,7 +2204,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Lead__c> olddeDupleadList = new List<Lead__c>();
         for(Lead__c dedupLeads : deDupleadList)
         {
-            if(dedupLeads.Assigned_Dealer__c != null && dedupLeads.CAC_Lead_Status__c != 'Closed Won' && dedupLeads.CAC_Lead_Status__c != 'Closed Lost')
+            if(dedupLeads.Assigned_Dealer__c != null && dedupLeads.CAC_Lead_Status__c != 'Closed' && dedupLeads.CAC_Lead_Status__c != 'Lost')
             {
                 if(dedupLeads.Contact__c != null)
                 {

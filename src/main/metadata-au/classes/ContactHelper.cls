@@ -75,6 +75,50 @@ public class ContactHelper {
          
     }
     
+         public static void validateduplicategatekeeper(List<Contact> New_Contact_List)
+	{
+		
+				
+			Set<Id> AccIdSet = new Set<Id>(); 
+			for (Contact con: New_Contact_List){
+				AccIdSet.add ( con.accountId);
+				   
+				}
+			Map<id,Account> AccountMap= new  Map<id,Account>([SELECT id,(SELECT id, Dealer_Lead_Gate_Keeper__c,Sub_BusinessUnit__c,Business_Unit__c FROM Contacts WHERE Dealer_Lead_Gate_Keeper__c=true) FROM Account WHERE id IN : AccIdSet ]);
+		   
+		   for (Contact con: New_Contact_List)
+		   {
+				   if (con.Dealer_Lead_Gate_Keeper__c == true){
+						Id AccId = con.accountId;
+				   Account acct= AccountMap.get(AccId);
+				   for (Contact con1: acct.contacts){
+					   if ( con1.id != con.id){
+						   Set<String> Con_business_unit_set= new set<String>(con.Business_Unit__c.split(';'));
+						   Set<String> Con1_business_unit_set= new set<String>(con1.Business_Unit__c.split(';'));
+						   for(String businessunit: Con_business_unit_set){
+							   if(Con1_business_unit_set.Contains(businessunit)){
+								   con.adderror('Business unit options of this contact is simillar to existed contacts. choose the different values');
+								 
+								   
+								   
+							   }
+						   }
+						   Set<String> Con_offer_service_set= new set<String>(con.Sub_BusinessUnit__c.split(';'));
+						   Set<String> Con1_offer_service_set= new set<String>(con1.Sub_BusinessUnit__c.split(';'));
+						   for(String offerservice: Con_offer_service_set){
+							   if(Con1_offer_service_set.Contains(offerservice)){
+								   con.adderror('Offered services options of this contact is simillar to existed contacts. choose the different values');
+								 }
+						   }
+						}
+					}
+			   }
+				  
+		   }
+				
+				
+				
+	}
     public static void ValidateManager(List<Contact> contacts) {
         
         List<Contact> newContactsForManager = new List<Contact>();
@@ -151,6 +195,8 @@ public class ContactHelper {
         }
         
     }
+    
+    
     public static void ValidateBusinessUnit(List<Contact> newContacts) {
         Set<Id> AccountIds = new Set<Id>();
         map<id,Account> accountMap = new  map<id,Account>();
