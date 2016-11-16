@@ -30465,6 +30465,28 @@ else {
     window.open("/apex/CarModelComparison?retURL=/{!Account.Id}", "", "width = 800, height = 600");
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Check_Duplicates</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Check Duplicates</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Retail_Copy</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>    
     <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
@@ -30817,6 +30839,39 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Send_to_JPOS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to JPOS</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_MyMercedes</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to MyMercedes</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_SPO</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>    
     <webLinks>
         <fullName>Test</fullName>
         <availability>online</availability>
