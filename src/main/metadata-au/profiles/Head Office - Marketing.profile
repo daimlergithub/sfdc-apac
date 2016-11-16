@@ -18746,7 +18746,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Car_Model__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19171,7 +19171,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.SAP_Dealer_Code__c</field>
+<<<<<<< HEAD
         <readable>false</readable>
+=======
+        <readable>true</readable>
+>>>>>>> au-prod
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
