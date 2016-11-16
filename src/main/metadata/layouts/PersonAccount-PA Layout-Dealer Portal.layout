@@ -3,6 +3,13 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
+    <customButtons>Send_to_JPOS</customButtons>
+    <customButtons>Send_to_SPO</customButtons>
+    <customButtons>Check_Duplicates</customButtons>
+    <customButtons>Send_to_MyMercedes</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
