@@ -3452,7 +3452,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleREl_Replacem
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields>	
     <fields>
         <fullName>SSI__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
