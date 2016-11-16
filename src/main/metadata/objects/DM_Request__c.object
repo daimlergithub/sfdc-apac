@@ -1329,9 +1329,10 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <nameField>
+        <displayFormat>DMR-{000000}</displayFormat>
         <label>DM Number</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>DM Request</pluralLabel>
     <searchLayouts>
