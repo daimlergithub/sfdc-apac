@@ -4309,7 +4309,6 @@ AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_
         <type>Checkbox</type>
     </fields>
     <fields>
-    <fields>
         <fullName>Dealer_DMS_AS_Code_2__c</fullName>
         <externalId>false</externalId>
         <label>Dealer DMS AS Code 2</label>
