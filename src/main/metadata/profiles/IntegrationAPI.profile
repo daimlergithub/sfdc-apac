@@ -1739,16 +1739,6 @@
         <field>Account.CustomerPriority__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Customer_Consent__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Customer_Consent_Happy_Calls__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.All_channel_opt_out__c</field>
@@ -3322,21 +3312,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Partner_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions> 
-	 <fieldPermissions>
-       <editable>true</editable>
-        <field>Account.Personal_Abroad_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Personal_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Personal_Information_Third_Party_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
