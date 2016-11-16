@@ -67,6 +67,19 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Additional_Comments__c</fullName>
+        <description>Additional comments</description>
+        <externalId>false</externalId>
+        <label>Additional Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Additional_Services__c</fullName>
         <externalId>false</externalId>
         <label>Additional Service</label>
@@ -217,6 +230,17 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Dealer_Due_Date__c</fullName>
+        <description>to show the due date for the daler</description>
+        <externalId>false</externalId>
+        <label>Dealer Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
 	<fields>
         <fullName>Finance_Comment__c</fullName>
         <externalId>false</externalId>
@@ -253,7 +277,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Requested_Service_Date1__c</fullName>
         <externalId>false</externalId>
         <label>Service requested date1</label>
@@ -436,6 +460,20 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Assignment_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL( CAC_Lead_Status__c ,"Closed"),Close_Date__c - DATEVALUE(Assigned_Date_Time__c), TODAY() - DATEVALUE(Assigned_Date_Time__c) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assignment Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Attachment_Flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -469,6 +507,36 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Behavioral_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Behavioral Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Revolvers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Keepers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New to brand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attriters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>    
     <fields>
         <fullName>Behavioural_group__c</fullName>
         <description>This is used to calcuate the priority score.</description>
@@ -2533,6 +2601,32 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Business_Unit_Sub_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit Sub Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Business_Unit__c</fullName>
         <externalId>false</externalId>
         <label>Business Unit</label>
@@ -3025,6 +3119,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Consultant_Due_Date__c</fullName>
+        <description>to show the due date for the consultant</description>
+        <externalId>false</externalId>
+        <label>Consultant Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Contact_Failed_For_3_Days_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Contact Failed For 3 Days Date Time</label>
@@ -3264,6 +3369,29 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Customer_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Sub Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    
     <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
@@ -3772,6 +3900,22 @@ Contact__r.Email__c
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Escalation_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ Not( 
+ OR(ISPICKVAl(CAC_Lead_Status__c,'Closed'),ISPICKVAL(CAC_Lead_Status__c,'Lost')) 
+ ) 
+ ,Consultant_Due_Date__c + 1/1440 
+ ,Null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Escalation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Escalation_Flag__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOW()-LastModifiedDate &gt;= 1, NOW()-LastModifiedDate &lt; 3)
@@ -3797,6 +3941,17 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Due_Date__c</fullName>
+        <description>Capture the due date for the lead to be closed</description>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Existing_Contract_End_Date__c</fullName>
@@ -8731,6 +8886,52 @@ Modify Reason:
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Lead_Origin__c</fullName>
+        <description>to established if the lead was created by wholesale or retail.</description>
+        <externalId>false</externalId>
+        <label>Lead Origin</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Overdue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to indicate a lead is greater than 12 months old</description>
+        <externalId>false</externalId>
+        <label>Lead Overdue</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Possibility_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Possibility Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead_Possibility__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c  =  DATEVALUE( NOW()) ) , "T1",  IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c   &gt;   DATEVALUE( NOW()) ), "T2",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  =   DATEVALUE( NOW()) ), "HOT1",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  &gt;   DATEVALUE( NOW()) ), "HOT2",  IF(AND( Expected_Close_Date__c  &gt;DATEVALUE( NOW()) , Expected_Registration_Date__c  &gt;DATEVALUE( NOW()) ), "HOT3", null) ) ) ) )</formula>
@@ -8919,6 +9120,20 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Status_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( CAC_Lead_Status__c , "Closed || Lost"), DATEVALUE( LastModifiedDate ) - DATEVALUE( CreatedDate ) , TODAY() - DATEVALUE( LastModifiedDate ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Status Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lead_Sub_Type__c</fullName>
@@ -10194,6 +10409,16 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Next_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Contact</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('resource/1422335657000/Dealer_Reminder','Dealer Not Assigned'))</formula>
@@ -10356,6 +10581,59 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overdue_Description__c</fullName>
+        <description>Free text field to enter a description</description>
+        <externalId>false</externalId>
+        <label>Overdue Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overdue_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Overdue Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Override_Escalation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>used to override escalation</description>
+        <externalId>false</externalId>
+        <label>Override Escalation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Overdue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to lead is overdue</description>
+        <externalId>false</externalId>
+        <label>Override Overdue</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Parts_Required__c</fullName>
@@ -10837,6 +11115,32 @@ Modify Reason:
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority Value</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -11779,6 +12083,17 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Reassignment_Date__c</fullName>
+        <description>populate this field when there is a change to the assigned dealer.</description>
+        <externalId>false</externalId>
+        <label>Reassignment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Received_Date_Time__c</fullName>
@@ -19824,6 +20139,33 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Type__c</fullName>
+        <description>DFE</description>
+        <externalId>false</externalId>
+        <label>Vehicle Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Demo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>POV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Vehicle_Use__c</fullName>
         <description>Capture if this vehicle use is for business or personal</description>
         <externalId>false</externalId>
@@ -20333,6 +20675,20 @@ Company_Account__r.Work_Phone__c  ,
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( CAC_Lead_Status__c ,"Closed"), Close_Date__c - DATEVALUE(CreatedDate),TODAY() - DATEVALUE(CreatedDate))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
 	<fields>
         <fullName>Lead_Assignment_Notification_Done__c</fullName>
