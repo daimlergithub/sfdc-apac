@@ -17490,11 +17490,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>SurveyTaker__c.Survey__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>SurveyTaker__c.Taken__c</field>
         <readable>false</readable>
     </fieldPermissions>
