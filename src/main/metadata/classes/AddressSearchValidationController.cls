@@ -420,7 +420,7 @@ EP/Tolerant for Validation.
     {   system.debug('recordType 9:'+ objPersonAccount.Mobile__c);
         system.debug('mobileAreaCode 1 :'+mobileAreaCode);   
         if(Market =='KR'){
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+            /*if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
             {
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -443,8 +443,9 @@ EP/Tolerant for Validation.
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-            }
-            if(addressobj.ZipCode__c != null){
+            }*/
+            if(addressobj.ZipCode__c != null)
+			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
             } 
@@ -680,6 +681,21 @@ If the user is Saving  same address which matches the fields returned by toleran
             {             
                 objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
             }
+			if(market == System.Label.KR)
+			{
+				if(!homePhoneAreaCodePart1.equals('0'))
+				{                      
+					objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+				}
+				if(!workPhoneAreaCodePart1.equals('0'))
+				{                         
+					objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+				}
+				if(!mobileAreaCode.equals('0'))
+				{              
+					objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+				}  
+			}
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             System.debug('@@@@@@@@@@ response '+response);
