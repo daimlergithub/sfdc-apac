@@ -369,7 +369,7 @@ EP/Tolerant for Validation.
         system.debug('addresspicklist 4 :'+addresspicklist);
         system.debug('Market 1 :'+Market);
         if(Market =='KR'){         
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){               
+           /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){               
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
                 addressobj.Address_Line_2__c = '';
@@ -391,8 +391,9 @@ EP/Tolerant for Validation.
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-            }
-            if(addressobj.ZipCode__c != null){
+            }*/
+            if(addressobj.ZipCode__c != null)
+			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
             }           
