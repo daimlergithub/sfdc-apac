@@ -122,9 +122,9 @@ public class AccountLinkHelper
                 aclnkId.add(aclnk.id);   
             }            
         }
-        
+        system.debug('aclnkId>>>>' + aclnkId);
         shareaclkList = [select id, torole__c, fromrole__c, fromrole__r.Name from Account_Link__c where id =:aclnkId];        
-        if(shareaclkList.isEmpty() && shareaclkList != null)
+        if(!shareaclkList.isEmpty() && shareaclkList != null)
         {
             for(Account_Link__c acln : shareaclkList)
             {
@@ -133,6 +133,7 @@ public class AccountLinkHelper
                 accountMap.put(acln.Id, acln.toRole__c);
             }
         }
+        system.debug('groupID>>>>' + grpId);
         if(!accid.isEmpty() && accid != null)
         {
             shvRList = [select id , contact__c , vehicle_ID__c from Vehicle_Relationship__c where contact__c =:accid];
@@ -150,16 +151,19 @@ public class AccountLinkHelper
         {
             groupMap.put(gr.Name, gr.id);
         }
+        system.debug('groupMap>>>>' + groupMap);
         if(!shareaclkList.isEmpty() && shareaclkList != null)
         {
             for(Account_Link__c shaclnk : shareaclkList)
             {
+                system.debug('$%^^&^%&&' + groupMap.get(shaclnk.fromrole__r.Name));
                 if(!groupMap.isEmpty() && groupMap != null && groupMap.get(shaclnk.fromrole__r.Name) != null)
                 {
                     AccountShare acshar = new AccountShare();
                     acshar.AccountId = accountMap.get(shaclnk.id);
                     acshar.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
                     acshar.AccountAccessLevel = 'Edit';
+                    acshar.OpportunityAccessLevel = 'Read';
                     acshar.CaseAccessLevel = 'Read';
                     shareacclinkList.add(acshar);
                     
@@ -187,6 +191,7 @@ public class AccountLinkHelper
                 }
         	}
         }
+        system.debug('5253645322' + shareacclinkList);
         if(!shareacclinkList.isEmpty() && shareacclinkList != null)
         {
             insert shareacclinkList;
