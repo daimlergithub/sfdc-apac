@@ -2563,6 +2563,27 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Customer_Consent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),
+AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Agreement_to_commit_info_processing__c),
+AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c)),true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	  <fields>
+        <fullName>Customer_Consent_Happy_Calls__c</fullName>
+        <externalId>false</externalId>        <formula>IF(OR(AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Agreement__c,Agreement_to_commit_info_processing__c),AND(Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c))
+		,true,false)
+		</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
 	<fields>
         <fullName>All_channel_opt_out__c</fullName>
         <externalId>false</externalId> 
@@ -4249,64 +4270,6 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
         <trackHistory>false</trackHistory>
         <type>Html</type>
         <visibleLines>10</visibleLines>
-    </fields><fields>
-        <fullName>Customer_Consent__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR(AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c)),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	  <fields>
-        <fullName>Customer_Consent_Happy_Calls__c</fullName>
-        <externalId>false</externalId>        <formula>IF(OR(AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Agreement__c,Agreement_to_commit_info_processing__c),AND(Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c))
-		,true,false)
-		</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
- 	<fields>
-         <fullName>All_channel_opt_out__c</fullName>
-         <externalId>false</externalId> 
- 		<formula>
- 		IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)
- 		</formula>
-     <fields>
-         <fullName>PersonTitle</fullName>
-         <trackFeedHistory>false</trackFeedHistory>
-         <trackHistory>false</trackHistory>
-     </fields>
-     <fields>
-        <fullName>Personal_Abroad_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Personal Abroad Agreement</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Personal_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Personal Agreement</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Personal_Information_Third_Party_Release__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Personal Information Third Party Release</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Dealer_DMS_AS_Code_2__c</fullName>
@@ -10753,6 +10716,33 @@ Modify Reason:
         <fullName>PersonTitle</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Personal_Abroad_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Abroad Agreement</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Agreement</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Information_Third_Party_Release__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Information Third Party Release</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -30936,3 +30926,5 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
+
+
