@@ -2044,8 +2044,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
 			Integer SLADuration=0;
            
             if ((lead.Assigned_Dealer__c!= null && Lead.Dealer_Assignment_Date__c != null ) && lead.Lead_Priority__c != null) {
-               Datetime Localtime = datetime.valueOfGMT(Lead.Dealer_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
-                
+               
+                Datetime Localtime = datetime.valueOfGMT(Lead.Dealer_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
                  if (lead.Lead_Priority__c == 'Hot'){
        				 SLADuration= SLA_hot;
         			}
@@ -2063,6 +2063,24 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 else{
                     System.debug('SLA Duration for priority values is not configured correctly.');
                 }
+            }
+            
+            if(lead.Consultant_Assignment_Date__c!=null &&  lead.Lead_Priority__c != null){
+                Datetime Localtime = datetime.valueOfGMT(lead.Consultant_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+                  if (lead.Lead_Priority__c == 'Hot'){
+       				 SLADuration= SLA_hot;
+        			}
+      			if (lead.Lead_Priority__c == 'Warm'){
+         			SLADuration= SLA_Warm;
+        			}
+        		if (lead.Lead_Priority__c== 'Cold'){
+         			SLADuration= SLA_cold;
+        			}
+                if (SLADuration > 0){
+                 
+                 lead.Consultant_Due_Date__c=   GetDueTimeofLead(Localtime,SLADuration);
+             
+ }
             }
         }
        
