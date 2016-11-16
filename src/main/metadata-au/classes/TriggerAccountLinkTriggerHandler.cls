@@ -7,5 +7,9 @@ public class TriggerAccountLinkTriggerHandler
         {
         	AccountLinkHelper.shareAccountToDealer(trigger.new);
         }
+		if(trigger.isAfter && trigger.isUpdate)
+        {
+        	AccountLinkHelper.shareAccountToDealer(trigger.new);
+        }
     }
 }
