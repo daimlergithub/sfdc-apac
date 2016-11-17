@@ -99,25 +99,30 @@ public with sharing class SelectAssignedDealerController {
             'RecordType.Name = :ACCOUNT_RT_DEALER AND ';
         // If Lead Record Type is Sales Leads, this filter is must,
         // if not, no need.
+      
         if (lead.RecordType.Name == 'Sales Leads') {
             querySOQL += 'Dealer_Service_Codes__c includes (\'Sales\') AND ';
+            /********************************
             if (lead.Interested_Vehicle_Brand__c == 'MB' || lead.Interested_Vehicle_Brand__c == 'AMG') {
                 querySOQL += 'Dealer_Sales_Type__c includes (\'MB\') AND ';   
             }
             else if (lead.Interested_Vehicle_Brand__c == 'smart') {
                 querySOQL += 'Dealer_Sales_Type__c includes (\'smart\') AND ';   
             }
+            ********************************/
         }
         else if (lead.RecordType.Name == 'Aftersales Leads') {
             querySOQL += 'Dealer_Service_Codes__c includes (\'Service\') AND ';
+            /********************************
             if (lead.Aftersales_Vehicle_Brand__c != 'smart') {
                 querySOQL += 'Dealer_Sales_Type__c excludes (\'smart\') AND ';   
             }
             else if (lead.Aftersales_Vehicle_Brand__c == 'smart') {
                 querySOQL += 'Dealer_Sales_Type__c includes (\'smart\') AND ';   
             }
+            *******************************/
         }
-
+      
         // Filter Part
         if (choosenCampaignId != null) {
             // Get the Central MKT Campaign Id by choosenCampaignId
@@ -145,11 +150,20 @@ public with sharing class SelectAssignedDealerController {
                 }
             }
         }
-
+        if (dealer.Dealer_Sales_Type__c != null && dealer.Dealer_Sales_Type__c != '') {
+            String Dealer_Sales_Type = dealer.Dealer_Sales_Type__c;
+            querySOQL += 'Dealer_Sales_Type__c = :Dealer_Sales_Type AND ';
+        }
+        if (dealer.Dealer_Service_Codes__c != null && dealer.Dealer_Service_Codes__c != '') {
+            String Dealer_Service_Codes = dealer.Dealer_Service_Codes__c;
+            querySOQL += 'Dealer_Service_Codes__c = :Dealer_Service_Codes AND ';
+        }
+        
         if (name != null && name != '') {
             querySOQL += 'Name Like \'%' + name + '%\' AND ';
         }
-        
+        system.debug('dealers >>>1 :'+dealer.Dealer_Service_Codes__c);
+        system.debug('dealers >>>2 :'+dealer.Dealer_Sales_Type__c);
         if (dealer.Province__c != null && dealer.Province__c != '') {
             String province = dealer.Province__c;
             querySOQL += 'Province__c = :province AND ';
@@ -167,7 +181,7 @@ public with sharing class SelectAssignedDealerController {
             'ORDER BY Dealer_Region__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
         
         dealers = Database.query(querySOQL);
-        
+        system.debug('dealers >>>3 :'+dealers);
         // If no query result, system alert no search result.
         hasQueryResult = (dealers.size() > 0);
         if (!hasQueryResult) {
