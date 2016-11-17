@@ -22,16 +22,11 @@
     <emailTemplate>unfiled$public/Template_Approval</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>User.Profile</field>
-            <operation>equals</operation>
-            <value>Korea Call Center</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.UserRole</field>
-            <operation>equals</operation>
-            <value>Call Center Operator</value>
+            <operation>startsWith</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
             <field>Template__c.MD__c</field>
