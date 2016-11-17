@@ -11039,6 +11039,30 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</d
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Customer_Consent_Happy_Calls__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),
+		ISPICKVAL(  Personal_Agreement__c , 'Yes'),
+		ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes'))		
+		, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Consent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'), 
+ISPICKVAL( Personal_Agreement__c , 'Yes'), 
+ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'))	
+, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Preferred_Internet_Site__c</fullName>
         <externalId>false</externalId>
         <label>Preferred Internet Site</label>
