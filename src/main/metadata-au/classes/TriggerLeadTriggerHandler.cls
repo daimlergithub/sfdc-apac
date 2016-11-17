@@ -36,6 +36,7 @@ public class TriggerLeadTriggerHandler
         LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.emailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.sendEmailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.shareAccountwithAssignDealer(trigger.new);
        // AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isAfter && trigger.isUpdate)
@@ -46,6 +47,7 @@ public class TriggerLeadTriggerHandler
         LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.emailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.sendEmailNotificationsToAssignedDealer(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.shareAccountwithAssignDealer(trigger.new);
         //AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isInsert)
