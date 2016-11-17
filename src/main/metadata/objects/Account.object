@@ -10698,30 +10698,78 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Information Third Party Release</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -30905,3 +30953,9 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
+
+
+
+
+
+
