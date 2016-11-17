@@ -671,7 +671,10 @@ public with sharing class RetailTaskHelper
                 relateddlrgroup.add(rt.Related_Dealer__r.Name);
             }
         }
-        relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
+        if(!relateddlrgroup.isEmpty() && relateddlrgroup != null)
+        {
+        	relgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:relateddlrgroup];
+        }
         for(Group grp : relgroupList)
         {
             relgroupMap.put(grp.Name, grp.Id);

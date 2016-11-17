@@ -2275,5 +2275,74 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
         }
     }	
-        
+    public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList)
+    {
+        set<id> dleadId = new set<id>();
+        map<id,id> delaccmap = new map<id,id>();
+        set<string> assigndlrgroup = new set<string>();
+        List<group> assgroupList = new List<group>();
+        map<string,id> assgroupMap = new map<string,id>();
+        List<sobject> assshareList = new List<sobject>();
+        List<Lead__c> leaddrList = new List<Lead__c>();
+        for(Lead__c drled : assignLeadList)
+        {
+			if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
+            {
+                dleadId.add(drled.Id);
+            }
+        }
+        if(!dleadId.isEmpty() && dleadId != null)
+        {
+            leaddrList = [select id,Assigned_Dealer__c,CAC_Lead_Status__c,Contact__c,Company_Account__c,Assigned_Dealer__r.Name from Lead__c where id =:dleadId];
+        }
+        if(!leaddrList.isEmpty() && leaddrList != null)
+        {
+            for(Lead__c dleds : leaddrList)
+            {
+                if(dleds.Contact__c != null && dleds.Company_Account__c == null)
+                {
+                    delaccmap.put(dleds.Id, dleds.Contact__c);
+                }
+                if(dleds.Company_Account__c != null && dleds.Contact__c == null)
+                {
+                    delaccmap.put(dleds.Id, dleds.Company_Account__c);
+                }
+                if(dleds.Assigned_Dealer__c != null)
+                {
+                    assigndlrgroup.add(dleds.Assigned_Dealer__r.Name);
+                }
+            }
+        }
+        if(!assigndlrgroup.isEmpty() && assigndlrgroup != null)
+        {
+            assgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:assigndlrgroup];
+        }
+        if(!assgroupList.isEmpty() && assgroupList !=null)
+        {
+            for(Group assg : assgroupList)
+            {
+            	assgroupMap.put(assg.Name, assg.id);
+            }
+        }
+        if(!leaddrList.isEmpty() && leaddrList != null)
+        {
+            for(Lead__c shrleds : leaddrList)
+            {
+                if(!assgroupMap.isEmpty() && assgroupMap.get(shrleds.Assigned_Dealer__r.Name) != null)
+                {
+                    AccountShare assaccShare = new AccountShare();
+                    assaccShare.AccountId =delaccmap.get(shrleds.Id);
+                    assaccShare.UserOrGroupId = assgroupMap.get(shrleds.Assigned_Dealer__r.Name);
+                    assaccShare.AccountAccessLevel = 'Edit';
+                    assaccShare.OpportunityAccessLevel = 'None';
+                    assaccShare.CaseAccessLevel = 'None';
+                    assshareList.add(assaccShare);
+                }
+            }
+        }
+        if(!assshareList.isEmpty() && assshareList != null)
+        {
+            insert assshareList;
+        }
+    }
 }
