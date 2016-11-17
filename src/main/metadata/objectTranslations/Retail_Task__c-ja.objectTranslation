@@ -226,7 +226,7 @@
         <name>ContractNumber__c</name>
     </fields>
 	<fields>
-        <label>è§£ç´„æ—¥</label>
+        <label>解約日</label>
         <name>Contract_Cancellation_Date__c</name>
     </fields>
     <fields>
@@ -1286,7 +1286,7 @@
         <name>Maximum_lease_extention_Date__c</name>
     </fields>
 	<fields>
-        <label>ä¼šå“¡è¨¼å—é ˜æ—¥</label>
+       <label>会員証受領日</label>
         <name>Membership_Accept_Date__c</name>
     </fields>
     <fields>
@@ -1635,17 +1635,17 @@
         <name>Re_lease_Prohibit_flag__c</name>
     </fields>
     <fields>
-        <label>é–¢é€£é¡§å®¢</label>
+        <label>関連顧客</label>
         <name>Related_Contact2__c</name>
         <relationshipLabel><!-- Retail Tasks (Related Contact 2) --></relationshipLabel>
     </fields>
     <fields>
-        <label>é–¢é€£é¡§å®¢</label>
+        <label>関連顧客</label>
         <name>Related_Contact3__c</name>
         <relationshipLabel><!-- Retail Tasks (Related Contact 3) --></relationshipLabel>
     </fields>
     <fields>
-        <label>é¡§å®¢å</label>
+        <label>顧客名</label>
         <name>Related_Contact__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Contact) --></relationshipLabel>
     </fields>
@@ -1659,7 +1659,7 @@
         <relationshipLabel>保証/契約</relationshipLabel>
     </fields>
 	<fields>
-        <label>é–¢é€£ãƒªãƒ¼ãƒ‰</label>
+         <label>関連リード</label>
         <name>Related_Lead__c</name>
         <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
@@ -1751,7 +1751,7 @@
         <name>Service_Amount__c</name>
     </fields>
     <fields>
-        <label>ã‚µãƒ¼ãƒ“ã‚¹åŒºåˆ†</label>
+        <label>サービス区分</label>
         <name>Service_Code__c</name>
         <picklistValues>
             <masterLabel>Body Jobs</masterLabel>
@@ -1819,15 +1819,15 @@
         <name>Service_Contact_Name__c</name>
     </fields>
     <fields>
-        <label>å…¥åº«æ—¥</label>
+         <label>入庫日</label>
         <name>Service_Date_In__c</name>
     </fields>
     <fields>
-        <label>å‡ºåº«æ—¥</label>
+        <label>出庫日</label>
         <name>Service_Date_Out__c</name>
     </fields>
     <fields>
-        <label>ã‚µãƒ¼ãƒ“ã‚¹æ—¥</label>
+        <label>サービス日</label>
         <name>Service_Date__c</name>
     </fields>
     <fields>
@@ -1836,11 +1836,11 @@
         <relationshipLabel><!-- Retail Tasks (Service Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label>ã‚µãƒ¼ãƒ“ã‚¹è©³ç´°</label>
+         <label>サービス詳細</label>
         <name>Service_Details__c</name>
     </fields>
     <fields>
-        <label>è«‹æ±‚ç•ªå·</label>
+        <label>請求番号</label>
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
@@ -1848,7 +1848,7 @@
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
-        <label>ã‚µãƒ¼ãƒ“ã‚¹ç•ªå·</label>
+         <label>サービス番号</label>
         <name>Service_Number__c</name>
     </fields>
     <fields>
@@ -1856,11 +1856,11 @@
         <name>Service_Position__c</name>
     </fields>
 	<fields>
-        <label>è»Šå°ç•ªå·</label>
+         <label>車台番号</label>
         <name>Service_Vehicle_VIN__c</name>
     </fields>
 	<fields>
-        <label>ã‚µãƒ¼ãƒ“ã‚¹å¯¾è±¡è»Šä¸¡</label>
+        <label>サービス対象車両</label>
         <name>Service_Vehicle__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Vehicle) --></relationshipLabel>
     </fields>
@@ -2406,7 +2406,7 @@
             <section>MOT Information</section>
         </sections>
 		 <sections>
-            <label>æ–°ã—ã„é …ç›®</label>
+            <label>新しい</label>
             <section>New</section>
         </sections>
     </layouts>
