@@ -102,7 +102,7 @@ private with sharing class TriggerLeadTest {
                                                                  Car_Relation__c='user');
         insert vr;
                                                                  
-        Id aftersalesRecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 'Service/Parts Lead');
+        Id aftersalesRecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 'Service Lead');
                                                                  
         Lead__c lead = new Lead__c(
             VehicleRel_No__c = vr.Id,
