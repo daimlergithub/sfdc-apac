@@ -197,8 +197,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Agreement_to_commit_info_processing__c</field>
-                <behavior>Readonly</behavior>
+                <field>Agreement_to_commit_info_processing__c</field>                
                 <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
