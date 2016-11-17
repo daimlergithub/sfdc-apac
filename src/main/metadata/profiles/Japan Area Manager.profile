@@ -3311,6 +3311,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+<<<<<<< HEAD
         <field>Account.Personal_Abroad_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3326,6 +3327,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+=======
+>>>>>>> asia-kr
         <field>Account.Phone</field>
         <readable>false</readable>
     </fieldPermissions>
