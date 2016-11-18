@@ -183,7 +183,7 @@
                 <field>Opt_In_Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
