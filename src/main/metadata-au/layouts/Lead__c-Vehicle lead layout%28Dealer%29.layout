@@ -26,10 +26,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Origin__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lead_Source_Channel__c</field>
             </layoutItems>
             <layoutItems>

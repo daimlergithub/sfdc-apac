@@ -26,10 +26,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Origin__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lead_Source_Channel__c</field>
             </layoutItems>
             <layoutItems>
@@ -244,7 +240,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Task.New_Change_Owner_Task</customButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>

@@ -27879,7 +27879,7 @@ if(query !=null)
 var assignedId = query.records.Id;
 var assignname = query.records.Name;
 }
-var url = "/00T/e?RecordType=0123B00000009Gm&amp;what_id="+VRId+"&amp;tsk1="+assignname+"&amp;tsk1_lkid="+assignedId+"&amp;retURL="+VRId;
+var url = "/OBJECT_TASK_WEBLINK_TASK_TAB_ID/e?RecordType=OBJECT_TASK_WEBLINK_CHANGE_OWNER_RECORDTYPEID&amp;what_id="+VRId+"&amp;tsk1="+assignname+"&amp;tsk1_lkid="+assignedId+"&amp;retURL="+VRId;
 
 window.parent.navigateToUrl(url);</url>
     </webLinks>
@@ -27990,7 +27990,7 @@ var tsk= new sforce.SObject("Task");
  tsk.OwnerId=assignedId ;
  tsk.Priority='Normal';
  tsk.status='Not Started';
-  tsk.RecordTypeId='0123B00000009eU';
+  tsk.RecordTypeId='OBJECT_TASK_WEBLINK_REMOVE_ACCOUNT_RECORDTYPEID';
 // alert('Hello');
 result=sforce.connection.create([tsk]); 
 if(result[0].getBoolean("Success")){ 
