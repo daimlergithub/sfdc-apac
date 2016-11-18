@@ -892,7 +892,7 @@ public class TaskHelper {
 
   */
     
-    public static void UpdateLinkedLeads(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate) {
+    public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
         Set<ID> leadId = new Set<ID>();
           List<Lead__c> lstLead = new List<Lead__c>();
          for(Task tsk : tasks){            
