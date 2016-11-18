@@ -205,6 +205,22 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_MEDIA_TYPE_FIELD_ID</token>
 	</changetext>
+		
+	<changetext>
+		<filename>objects\Task.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Change_Owner_Task']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_TASK_WEBLINK_CHANGE_OWNER_RECORDTYPEID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Task.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Remove_Account']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_TASK_WEBLINK_REMOVE_ACCOUNT_RECORDTYPEID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Task.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Remove_Account']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_TASK_WEBLINK_TASK_TAB_ID</token>
+	</changetext>
 	
 	<changetext>
 		<filename>objects\Car_Enquiry__c.object</filename>

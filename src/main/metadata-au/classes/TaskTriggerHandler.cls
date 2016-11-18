@@ -62,6 +62,14 @@ public class TaskTriggerHandler
             TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
             TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
         }*/
+        if(trigger.isAfter && trigger.isInsert)
+        {
+            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
+        }
+        if(trigger.isAfter && trigger.isUpdate)
+        {
+            TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
+        }
         if(trigger.isBefore && trigger.isInsert)
         {
           //todo commented: need to add trigger wsitching mechanism
