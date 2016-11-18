@@ -324,7 +324,6 @@
 				<sf:include name="VehicleRelationshipHelperJP"/>
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
-				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerKR"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
@@ -506,7 +505,8 @@
 	
 	<target name="deploy35">
 		<deploy runAllTests="${sfdc.runAllTests}">
-		<sf:typeset name="classes">
+		<sf:typeset name="classes">			
+			<sf:include name="TaskTriggerHandlerJP"/>
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
 			<sf:include name="TaskTriggerHandler"/>

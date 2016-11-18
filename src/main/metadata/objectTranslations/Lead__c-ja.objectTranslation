@@ -4881,6 +4881,14 @@
         <label>顧客リクエスト(サービスプログラム）</label>
         <name>Lead_Additional_Service__c</name>
         <picklistValues>
+            <masterLabel>1 Year Inspection</masterLabel>
+            <translation>1年点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 month Inspection</masterLabel>
+            <translation>新車6ヵ月点検</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation><!-- Buy --></translation>
         </picklistValues>
@@ -4893,6 +4901,10 @@
             <translation><!-- General Car Care --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>General Repair</masterLabel>
+            <translation>般整備</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Inspection</masterLabel>
             <translation><!-- Inspection --></translation>
         </picklistValues>
@@ -4901,8 +4913,28 @@
             <translation><!-- Insurance --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MOT</masterLabel>
+            <translation>車検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paint</masterLabel>
+            <translation>板金</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Participate</masterLabel>
             <translation><!-- Participate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plus Check</masterLabel>
+            <translation>αプラスチェック</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation>リコール作業</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Repair</masterLabel>
@@ -14266,10 +14298,6 @@
         <sections>
             <label>参照情報</label>
             <section>Referal/Referee Information</section>
-        </sections>
-        <sections>
-            <label><!-- Select Assigne Dealer --></label>
-            <section>Select Assigne Dealer</section>
         </sections>
         <sections>
             <label><!-- Source Information --></label>
