@@ -7,7 +7,52 @@
         <fullName>PersonAccount</fullName>
         <active>true</active>
         <description>Record type for person account</description>
-        <label>Person Account</label>
+        <label>Person Account</label>		
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+		<picklistValues>
+            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -9890,7 +9935,52 @@
         <fullName>Person_Account_Retail</fullName>
         <active>true</active>
         <description>Record type for customer created by dealer</description>
-        <label>Person Account Retail</label>
+        <label>Person Account Retail</label>		
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+		<picklistValues>
+            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>

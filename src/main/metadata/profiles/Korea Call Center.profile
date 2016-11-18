@@ -3288,6 +3288,30 @@
         <editable>false</editable>
         <field>Account.Partner_First_Name__c</field>
         <readable>false</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Information_Third_Party_Release__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Customer_Consent_Happy_Calls__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Customer_Consent__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4308,6 +4332,21 @@
         <editable>false</editable>
         <field>Account_Link__c.Retail_Address_CreatedDate__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Information_Third_Party_Release__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
