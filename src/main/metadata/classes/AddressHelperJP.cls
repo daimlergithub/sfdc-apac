@@ -96,7 +96,36 @@ public with sharing class AddressHelperJP {
                  
         
           }
+     /**             
+        * @Description: update Account on Delete of address       
+        * @Date       : 15/11/2016
+        * @param      : list of old addresses 
+        * @return     : void
+        * @see:       : AddressHelperJP
+        */
     
+       public static void updateAccountonDeletion(List<Address__c> OldAddress){         
+                 set<id> accountId = new set<id>();  
+                 list<Account> accountList = new list<Account>();                  
+                 //get the related accountIds
+                 for(Address__c add:OldAddress){
+                        accountId.add(add.Customer__c);
+                        System.debug('Customer__c'+accountId);
+                  } 
+          
+                 for(Account acc:[select id,Primary_Address_Reference__c,Customer_LastUpdatedDate__c from Account where id IN:accountId]){
+                    acc.Customer_LastUpdatedDate__c = Datetime.now();
+                    System.debug('Customer__date'+acc.Customer_LastUpdatedDate__c);
+                         accountList.add(acc);
+                }                  
+            
+                if(!accountList.isEmpty()||accountList!=null)
+                {
+                  update accountList; 
+                }
+                 
+        
+          }
     @Future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
     {
