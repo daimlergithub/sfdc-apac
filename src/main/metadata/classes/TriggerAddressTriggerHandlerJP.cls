@@ -23,7 +23,10 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             
             AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
         }
-        
+        if ((Trigger.isAfter && Trigger.isDelete)){
+            
+            AddressHelperJP.updateAccountonDeletion(Trigger.Old);
+        }
         
         
         if(isAfter && isInsert)
@@ -43,7 +46,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
         
@@ -70,7 +73,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
         
