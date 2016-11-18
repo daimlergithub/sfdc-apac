@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <columns>
-        <field>ACCOUNT.NAME</field>
-    </columns>
-    <description>Total Number of Customers</description>
+    <description>Hobby HC</description>
     <filter>
         <criteriaItems>
-            <column>Account.MD__c</column>
+            <column>Account$MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Summary</format>
+    <format>Matrix</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Occupation__c</field>
+        <field>Account$Hobby__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>MBK Reports - Total Number of Customer</name>
+    <name>MBK Report - Hobby</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>AccountList</reportType>
+    <reportType>Account_with_Vehicle_Relationships__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>CREATED_DATE</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <dateColumn>Account.Vehicle_Relationships2__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

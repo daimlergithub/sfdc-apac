@@ -2496,6 +2496,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             <picklistValues>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2586,6 +2590,30 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Under Credit Assessment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conditionally Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3350,6 +3378,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3689,7 +3721,7 @@ Contact__r.Email__c
     <fields>
         <fullName>Existing_Contract_End_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>"DATEVALUE(Existing_Contract__r.EndDate__c)"</formula>
+        <formula>TEXT(Existing_Contract__r.EndDate__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Existing Contract End Date</label>
         <required>false</required>
@@ -11498,6 +11530,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Purchased_VIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Purchased_Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Purchased VIN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Purchased_Vehicle_Text__c</fullName>
@@ -23224,6 +23268,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -23354,6 +23402,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48282,10 +48334,34 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CA_Lead_Status__c</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conditionally Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Under Credit Assessment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>        
         <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
@@ -59733,7 +59809,31 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CA_Lead_Status__c</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conditionally Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Under Credit Assessment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

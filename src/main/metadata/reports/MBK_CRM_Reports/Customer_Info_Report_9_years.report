@@ -10,7 +10,7 @@
         <field>Vehicle_Relationship__c$Contact__c.CreatedDate</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Contact__c.Primary_Address__c</field>
+        <field>Vehicle_Relationship__c$Contact__c.Primary_Address_Display__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Contact__c.Gender__c</field>
@@ -266,12 +266,12 @@
             <value>KR</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
+            <column>Vehicle_Relationship__c$Registration_Date__c</column>
             <operator>lessOrEqual</operator>
             <value>N_WEEKS_AGO:465</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Vehicle_Relationship__c$Vehicle_ID__c.FirstRegistrationDate__c</column>
+            <column>Vehicle_Relationship__c$Registration_Date__c</column>
             <operator>greaterOrEqual</operator>
             <value>N_WEEKS_AGO:469</value>
         </criteriaItems>

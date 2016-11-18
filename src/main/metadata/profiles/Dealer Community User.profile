@@ -1741,11 +1741,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Customer_Consent__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Customer_LastUpdatedDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3287,21 +3282,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Partner_Title__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Personal_Abroad_Agreement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Personal_Agreement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Personal_Information_Third_Party_Release__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8792,11 +8772,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Collaboration_Team__c.Member_Role__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Collaboration_Team__c.Resource_Required__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

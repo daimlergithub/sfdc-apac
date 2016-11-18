@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>CUST_NAME</field>
+        <field>ACCOUNT.NAME</field>
     </columns>
-    <columns>
-        <field>FK_NAME</field>
-    </columns>
-    <columns>
-        <field>Vehicle_Relationship__c.Purchase_Date__c</field>
-    </columns>
-    <description>Age Group by Year</description>
+    <description>Customer by City Province</description>
     <filter>
         <criteriaItems>
-            <column>Vehicle_Relationship__c.MD__c</column>
+            <column>Address__c.City__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Summary</format>
+    <format>Matrix</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>FK_$Account.Age_Range__c</field>
+        <field>Address__c.City__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>MBK Reports - Age Group by Year</name>
+    <name>MBK Reports - Customer by City Province</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntity$Vehicle_Relationship__c@Vehicle_Relationship__c.Contact__c</reportType>
+    <reportType>AccountCustomEntity$Address__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>CUST_CREATED_DATE</dateColumn>
-        <interval>INTERVAL_THISMONTH</interval>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

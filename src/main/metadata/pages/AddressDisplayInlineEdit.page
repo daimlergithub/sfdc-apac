@@ -51,6 +51,11 @@
                         </apex:outputField>
                     </apex:column>
                     
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
+                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
                         <apex:outputText value="{!row.City__c}" style="width:10%; white-space:nowrap;" >
                         </apex:outputText>
@@ -61,8 +66,8 @@
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="{!if(Market=='KR',$ObjectType.Address__c.fields.HouseNumber__c.Label,$ObjectType.Address__c.fields.Block__c.Label)}" >                                               
-                        <apex:outputText value="{!if(Market=='KR',row.HouseNumber__c,row.Block__c)}"/>          
+                    <apex:column headerValue="{!if(Market!='KR',$ObjectType.Address__c.fields.Block__c.Label,'')}">                                               
+                        <apex:outputText value="{!if(Market!='KR',row.Block__c,'')}"/>          
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
@@ -145,10 +150,10 @@
                           
                     <apex:inputField value="{!addressobj.City__c}"/>
                     <apex:inputField value="{!addressobj.District__c}"/>
-                    <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
+                 <!--   <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
                         <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
-                    </apex:pageBlockSectionItem>
+                    </apex:pageBlockSectionItem> -->
                     <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Block__c}"/>           

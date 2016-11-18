@@ -469,19 +469,19 @@
         <name>CompanyExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label>Contact2Contact</label>
+        <label><!-- Contact2Contact --></label>
         <name>Contact2Contact</name>
     </recordTypes>
     <recordTypes>
-        <label>ContactSector</label>
+        <label><!-- ContactSector --></label>
         <name>ContactSector</name>
     </recordTypes>
     <recordTypes>
-        <label>Individual Customer External Link</label>
+        <label><!-- Individual Customer External Link --></label>
         <name>IndividualExternalLink</name>
     </recordTypes>
     <recordTypes>
-        <label>Vehicle External Link</label>
+        <label><!-- Vehicle External Link --></label>
         <name>Vehicle_External_Link</name>
     </recordTypes>
     <sharingReasons>

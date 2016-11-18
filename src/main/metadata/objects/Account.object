@@ -1293,17 +1293,6 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-     <fields>
-       <fullName>Age__c</fullName>
-       <externalId>false</externalId>
-       <label>Age</label>
-       <length>20</length>
-       <required>false</required>
-       <trackFeedHistory>false</trackFeedHistory>
-       <trackHistory>false</trackHistory>
-       <type>Text</type>
-       <unique>false</unique>
-   </fields>
     <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <defaultValue>false</defaultValue>
@@ -2312,6 +2301,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Consent_Form_Serial_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Consent Form Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Complaint_Priority__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2475,6 +2475,21 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Age__c</fullName>
+		<description>/* 
+			Calculate Age of the Customer
+		*/</description>
+        <externalId>false</externalId> 
+		<formula>
+		 IF(ISNULL(PersonContact.Birthdate) , '', TEXT(FLOOR((TODAY()-PersonContact.Birthdate +1)/365.2425)))
+		</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Age</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>	
+		<unique>false</unique>		
+    </fields>	
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
@@ -2546,27 +2561,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Customer_Consent__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR(AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c)),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	  <fields>
-        <fullName>Customer_Consent_Happy_Calls__c</fullName>
-        <externalId>false</externalId>        <formula>IF(OR(AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Agreement__c,Agreement_to_commit_info_processing__c),AND(Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c))
-		,true,false)
-		</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
 	<fields>
         <fullName>All_channel_opt_out__c</fullName>
@@ -6745,6 +6739,15 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>First_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Fleet_Category__c</fullName>
         <externalId>false</externalId>
         <label>Fleet Category</label>
@@ -10694,30 +10697,78 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Information Third Party Release</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -10984,6 +11035,30 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</d
         <externalId>false</externalId>
         <label>Preferred Home Phone 2</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Consent_Happy_Calls__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),
+		ISPICKVAL(  Personal_Agreement__c , 'Yes'),
+		ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes'))		
+		, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Consent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'), 
+ISPICKVAL( Personal_Agreement__c , 'Yes'), 
+ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'))	
+, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -13050,6 +13125,37 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <inlineHelpText>The integration layer (EP) needs this field for defect handling and debugging:</inlineHelpText>
         <label>Updated By EP Transactions</label>
         <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -30410,6 +30516,28 @@ else {
     window.open("/apex/CarModelComparison?retURL=/{!Account.Id}", "", "width = 800, height = 600");
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Check_Duplicates</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Check Duplicates</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Retail_Copy</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>    
     <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
@@ -30762,6 +30890,39 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Send_to_JPOS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to JPOS</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_MyMercedes</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to MyMercedes</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_SPO</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/</url>
+    </webLinks>    
     <webLinks>
         <fullName>Test</fullName>
         <availability>online</availability>
