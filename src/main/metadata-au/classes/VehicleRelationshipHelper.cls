@@ -550,12 +550,14 @@ public with sharing class VehicleRelationshipHelper {
                         vrShare.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
                         vrShare.AccessLevel = 'Edit';
                         shareList.add(vrShare);
-                        
-                        Vehicle__Share shrVehicle = new Vehicle__Share();
-                        shrVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
-                        shrVehicle.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
-                        shrVehicle.AccessLevel = 'Edit';
-                        shareList.add(shrVehicle);
+                        if(!accvechmMap.isEmpty() && accvechmMap != null && accvechmMap.get(sVr.Contact__c).get(sVr.Id) != null)
+                        {
+                            Vehicle__Share shrVehicle = new Vehicle__Share();
+                            shrVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
+                            shrVehicle.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                            shrVehicle.AccessLevel = 'Edit';
+                            shareList.add(shrVehicle);
+                        }
                     }
                 }
                 if(sVr.Finance_Dealer__c != null && (sVr.Owner_Dealer__c != sVr.Finance_Dealer__c) && financeGroupMap.get(sVr.Finance_Dealer__r.Name) != null)
@@ -583,12 +585,14 @@ public with sharing class VehicleRelationshipHelper {
                         vrfinShare.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
                         vrfinShare.AccessLevel = 'Edit';
                         shareList.add(vrfinShare);
-                        
-                        Vehicle__Share shrfinVehicle = new Vehicle__Share();
-                        shrfinVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
-                        shrfinVehicle.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
-                        shrfinVehicle.AccessLevel = 'Edit';
-                        shareList.add(shrfinVehicle);
+                        if(!accvechmMap.isEmpty() && accvechmMap != null && accvechmMap.get(sVr.Contact__c).get(sVr.Id) != null)
+                        {
+                            Vehicle__Share shrfinVehicle = new Vehicle__Share();
+                            shrfinVehicle.ParentId = accvechmMap.get(sVr.Contact__c).get(sVr.Id);
+                            shrfinVehicle.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                            shrfinVehicle.AccessLevel = 'Edit';
+                            shareList.add(shrfinVehicle);
+                        }
                     }
                 }
             }
