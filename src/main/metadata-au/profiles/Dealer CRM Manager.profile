@@ -19251,7 +19251,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.ToBeActioned__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20685,6 +20685,14 @@
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout%28Retail%29</layout>
+        <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout%28Retail%29</layout>
+        <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20698,14 +20706,6 @@
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
         <recordType>Vehicle_Relationship__c.Lessee</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
-        <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
-        <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
@@ -22044,9 +22044,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

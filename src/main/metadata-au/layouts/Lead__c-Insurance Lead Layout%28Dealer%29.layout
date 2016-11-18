@@ -26,10 +26,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Origin__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lead_Source_Channel__c</field>
             </layoutItems>
         </layoutColumns>
@@ -67,10 +63,6 @@
         <editHeading>true</editHeading>
         <label>Financial Lead Details</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Financial_Product2__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Amount2__c</field>
@@ -170,7 +162,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Task.New_Change_Owner_Task</customButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>

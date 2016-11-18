@@ -888,5 +888,49 @@ public class TaskHelper {
                    
         
        }
+    
+    /* Vehicle Relationship Field update on creation and updation of task record
+   * whenever a task is created with recordtype change owner, To be actioned Checkbox on Vehicle Relationship should be checked
+   * when the task is updated with activity status completed, To be actioned checkbox should be unchecked
+   */
+     public static void au_After_Insert_Update_Events_Task(list<task> listTaskNew,boolean isInsert,boolean isUpdate){
+        set<Id> vehRelation1 =new set<Id>();
+        set<Id> vehRelation2 =new set<Id>(); 
+        List<Vehicle_Relationship__c> vehRelationList1 =new List<Vehicle_Relationship__c>();
+        List<Vehicle_Relationship__c> vehRelationList2 =new List<Vehicle_Relationship__c>(); 
+        id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
+         System.debug('test1'+listTaskNew);
+        for(Task task : listTaskNew){
+              system.debug('Relaionship object'+task.WhatId);
+              system.debug('Record type Id'+task.RecordTypeId);
+              system.debug('isInsert'+isInsert);
+             if(String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId && isInsert){
+                   system.debug('test3');
+                   vehRelation1.add(task.WhatId); 
+                 vehRelationList1=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation1];
+                 for(Vehicle_Relationship__c vrl1:vehRelationList1){
+                      vrl1.ToBeActioned__c =true;
+                   }    
+             }
+            if(String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId && isUpdate && task.Activity_Status__c =='Completed'){
+                   system.debug('test4');
+                   vehRelation2.add(task.WhatId); 
+                 vehRelationList2=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation2];
+                 for(Vehicle_Relationship__c vrl2:vehRelationList2){
+                      vrl2.ToBeActioned__c =false;
+                     }    
+               }
+          }
+          system.debug('test5');
+         try {
+                    system.debug('test6');
+                    update vehRelationList1;
+                    update vehRelationList2;
+                }
+                catch (DMLException e) {
+                    trigger.new[0].addError(e.getDMLMessage(0));
+                }
+     }
+
   
 }
