@@ -547,6 +547,7 @@
     <miniLayout>
         <fields>Name</fields>
         <fields>ParentId</fields>
+        <fields>Company_Name__c</fields>
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
