@@ -13843,7 +13843,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>		
 		<picklistValues>
-            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
@@ -13858,7 +13858,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
 		<picklistValues>
-            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
@@ -24831,36 +24831,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>		
 		<picklistValues>
-            <picklist>Retail_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Retail_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>Yes</fullName>
@@ -24874,24 +24844,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Retail_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
 		<picklistValues>
-            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
