@@ -343,6 +343,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
             </layoutItems>
             <layoutItems>
