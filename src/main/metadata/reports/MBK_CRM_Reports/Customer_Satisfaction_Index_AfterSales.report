@@ -45,14 +45,14 @@
     <columns>
         <field>Lead__c$Contact__c.Agreement_to_commit_info_processing__c</field>
     </columns>
-    <columns>
+	<columns>
         <field>Lead__c$Contact__c.Personal_Abroad_Agreement__c</field>
     </columns>
-    <columns>
-        <field>Lead__c$Contact__c.Personal_Information_Third_Party_Release__c</field>
-    </columns>
-    <columns>
+	<columns>
         <field>Lead__c$Contact__c.Personal_Agreement__c</field>
+    </columns>
+	<columns>
+        <field>Lead__c$Contact__c.Personal_Information_Third_Party_Release__c</field>
     </columns>
     <description>Customer Satisfaction Index (CSI) Network Developement for AfterSales Dealer</description>
     <filter>
@@ -87,6 +87,3 @@
         <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
-
-
-
