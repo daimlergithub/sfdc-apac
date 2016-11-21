@@ -19458,6 +19458,11 @@
         <field>Vehicle_Relationship__c.Add_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Point_of_Purchase__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Add_User__c</field>
