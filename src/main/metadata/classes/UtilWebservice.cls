@@ -252,6 +252,25 @@ Global class UtilWebservice
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+		
+        sendingCustomerDetails.Address_xc[0].Address_Code_xc=AddressObj.Address_Code__c;
+        sendingCustomerDetails.Address_xc[0].Address_Line_1_xc=AddressObj.Address_Line_1__c;
+        sendingCustomerDetails.Address_xc[0].Address_Line_2_xc=AddressObj.Address_Line_2__c;
+        sendingCustomerDetails.Address_xc[0].Block_xc=AddressObj.Block__c;
+        sendingCustomerDetails.Address_xc[0].City_xc=AddressObj.City__c;
+        sendingCustomerDetails.Address_xc[0].District_xc=AddressObj.District__c;
+        sendingCustomerDetails.Address_xc[0].Province_xc=AddressObj.Province__c;
+        sendingCustomerDetails.Address_xc[0].ZipCode_xc=AddressObj.ZipCode__c;
+        sendingCustomerDetails.Address_xc[0].Country_xc=AddressObj.Country__c;
+        sendingCustomerDetails.Address_xc[0].Company_Name_xc=AddressObj.Company_Name__c;
+        sendingCustomerDetails.Address_xc[0].Company_Name_Native_xc=AddressObj.Company_Name_Native__c;
+        sendingCustomerDetails.Address_xc[0].Delivery_Point_ID_xc=AddressObj.Delivery_Point_ID__c;
+        sendingCustomerDetails.Address_xc[0].HouseNumber_xc=AddressObj.HouseNumber__c;
+        sendingCustomerDetails.Address_xc[0].Temp_Address_xc=AddressObj.Temp_Address__c;
+        sendingCustomerDetails.Address_xc[0].Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
+        sendingCustomerDetails.Address_xc[0].TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
+		
+		
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
             sendingCustomerDetails.RecordType = 'PersonAccount';     
@@ -261,10 +280,9 @@ Global class UtilWebservice
             sendingCustomerDetails.RecordType = 'Company';     
         }       
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
-          //request.OrganizationId = UserInfo.getOrganizationId();
-          //request.MarketDiscriminator= Usr.Market__c;
-          request.OrganizationId = '00Dp00000000eeVEAQ';
-          request.MarketDiscriminator= 'JP';
+          request.OrganizationId = UserInfo.getOrganizationId();
+          request.MarketDiscriminator= Usr.Market__c;
+          
           
 
           System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
