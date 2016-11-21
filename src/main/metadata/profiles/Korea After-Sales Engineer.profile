@@ -19812,6 +19812,11 @@
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Performance__c</field>
         <readable>false</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Point_of_Purchase__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

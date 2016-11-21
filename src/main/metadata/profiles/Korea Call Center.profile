@@ -8637,7 +8637,7 @@
         <editable>false</editable>
         <field>Case.Vehicle_Relationship__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Vehicle_Source__c</field>
@@ -19456,6 +19456,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Add_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Point_of_Purchase__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
