@@ -697,7 +697,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 				}  
 			}
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
-            response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
+            response =  UtilWebservice.validateCustomerDetails(objPersonAccount,AddressObj); 
             System.debug('@@@@@@@@@@ response '+response);
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
