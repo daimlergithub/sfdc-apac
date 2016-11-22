@@ -1822,6 +1822,83 @@
         <errorMessage>Address Line 1 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Address_Line_1_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Address_Line_1_Native__c),
+REGEX(Address_Line_1_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Address_Line_1_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_2_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Address_Line_2_Native__c),
+REGEX(Address_Line_2_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Address_Line_2_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Block_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Block_Native__c),
+REGEX(Block_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Block_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>City_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(City_Native__c),
+REGEX(City_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>City_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Company_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Company_Name_Native__c),
+REGEX(Company_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Company_Name_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prefecture_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Province_Native__c),
+REGEX(Province_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Province_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Town_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(District_Native__c),
+REGEX(District_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>District_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>AddressLine2_NoOfDigit</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Address_Line_2__c ) &gt; 50 ,true,false))</errorConditionFormula>
