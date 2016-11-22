@@ -9640,30 +9640,78 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Personal Information Third Party Release</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -10320,8 +10368,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
     <fields>
         <fullName>Customer_Consent_Happy_Calls__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Agreement__c,Agreement_to_commit_info_processing__c),AND(Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c))
-		,true,false)</formula>
+        <formula>IF(OR(AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(  Personal_Abroad_Agreement__c , 'Yes'))),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
@@ -10330,9 +10380,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
 	<fields>
         <fullName>Customer_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c),AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Abroad_Agreement__c,Personal_Agreement__c,Agreement_to_commit_info_processing__c),
-AND(Personal_Agreement__c,Personal_Information_Third_Party_Release__c,Agreement_to_commit_info_processing__c)),true,false)</formula>
+        <formula>IF(OR(AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
+			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(  Personal_Abroad_Agreement__c , 'Yes'))),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
@@ -12468,6 +12519,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Company</fullName>
         <active>true</active>
         <label>Company</label>
+		<picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
             <values>
@@ -16685,6 +16781,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
+		<picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
             <values>
