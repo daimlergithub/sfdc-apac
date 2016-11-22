@@ -102,6 +102,31 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>RT_Agreement_commit_info_processing__c</fullName>
+        <externalId>false</externalId>
+        <label>RT Agreement commit info processing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Retail_Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Retail Agreement</label>
@@ -2435,7 +2460,66 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <recordTypes>
         <fullName>Retail_Company</fullName>
         <active>true</active>
-        <label>Retail Company</label>
+        <label>Retail Company</label><picklistValues>
+            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RT_Agreement_commit_info_processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
@@ -2590,7 +2674,66 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <recordTypes>
         <fullName>Retail_Person</fullName>
         <active>true</active>
-        <label>Retail Person</label>
+        <label>Retail Person</label><picklistValues>
+            <picklist>Retail_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RT_Agreement_commit_info_processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
             <values>
