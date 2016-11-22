@@ -147,6 +147,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Company_Phone__c</field>
             </layoutItems>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
