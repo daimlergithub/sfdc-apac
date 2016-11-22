@@ -3348,7 +3348,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>RT_Agreement_commit_info_processing__c</picklist><values>
+            <picklist>RT_Agreement_commit_info_processing__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
