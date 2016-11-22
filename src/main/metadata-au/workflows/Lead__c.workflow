@@ -410,6 +410,25 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Lead_Origin_field_as_Retail</fullName>
+        <field>Lead_Origin__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Lead Origin field as Retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Origin_field_as_Wholesale</fullName>
+        <field>Lead_Origin__c</field>
+        <literalValue>Wholesale</literalValue>
+        <name>Update Lead Origin field as Wholesale</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Lead_Recieved_Date_Time_to_Now</fullName>
         <field>Received_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -848,9 +867,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>Whenever the lead status changed  updating the CA_status_change_date__c to current date</description>
-        <formula>AND(
-    ISCHANGED(CAC_Lead_Status__c) , MD__c  = 'AU'     
-   )</formula>
+        <formula>AND(     ISCHANGED(CAC_Lead_Status__c) , MD__c  = 'AU'         )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -882,11 +899,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>If lead owner profile is 'Dealer Consultant' then updating the current datetime to cosultant _assingment_date__c</description>
-        <formula>AND( ISCHANGED( OwnerId ) ,
-     IF( Owner:User.Profile.Name  = 'Dealer Consultant',  
-        true,false),
-      MD__c = 'AU'
-)</formula>
+        <formula>AND( ISCHANGED( OwnerId ) ,      IF( Owner:User.Profile.Name  = 'Dealer Consultant',           true,false),       MD__c = 'AU' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1124,6 +1137,28 @@ Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</descripti
         </actions>
         <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer")</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Origin field as Retail</fullName>
+        <actions>
+            <name>Update_Lead_Origin_field_as_Retail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>In case the record will be created manually in Wholesale this field is to be set to “Retail”</description>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ($Profile.Name != 'Integration API')</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Origin field as Wholesale</fullName>
+        <actions>
+            <name>Update_Lead_Origin_field_as_Wholesale</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>In case the record will be created manually in Wholesale this field is to be set to “Wholesale”</description>
+        <formula>NOT(ISPICKVAL($Profile.UserType,"PowerPartner")) &amp;&amp;  ($Profile.Name != 'Integration API')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
