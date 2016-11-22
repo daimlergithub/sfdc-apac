@@ -1018,9 +1018,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_Agreement_to_commit_info_processing__c</fullName>
+        <fullName>RT_Agreement_commit_info_processing__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Abroad Agreement</label>
+        <label>Retail Agreement to commit info processing</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -3348,17 +3348,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_to_commit_info_processing__c</picklist>
+            <picklist>RT_Agreement_commit_info_processing__c</picklist><values>
             <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4082,17 +4082,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_to_commit_info_processing__c</picklist>
+            <picklist>RT_Agreement_commit_info_processing__c</picklist>
             <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
