@@ -662,7 +662,7 @@ public with sharing class RetailTaskHelper
         {
             delaerRtList = [select id, Account__c, Related_Dealer__c,Related_Vehicle__c, Related_Dealer__r.Name from Retail_Task__c where Id =:rtIds];
         }
-        if(delaerRtList.isEmpty() && delaerRtList != null)
+        if(!delaerRtList.isEmpty() && delaerRtList != null)
         {
             for(Retail_Task__c rt : delaerRtList)
             {
@@ -679,7 +679,7 @@ public with sharing class RetailTaskHelper
         {
             relgroupMap.put(grp.Name, grp.Id);
         }
-        if(delaerRtList.isEmpty() && delaerRtList != null)
+        if(!delaerRtList.isEmpty() && delaerRtList != null)
         {       
             for(Retail_Task__c shrrt : delaerRtList)
             {
