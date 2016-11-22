@@ -697,7 +697,15 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }  
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
-            response =  UtilWebservice.validateCustomerDetails(objPersonAccount,AddressObj); 
+           Address__c NewAdd=new Address__c();
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
+            {
+            response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
+            }
+            if(AddressObj ==null)
+            {
+            response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
+            }
             System.debug('@@@@@@@@@@ response '+response);
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
