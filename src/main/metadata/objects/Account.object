@@ -29465,6 +29465,16 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+    OR(
+	   NOT(CONTAINS( $Profile.Name, 'MBJ' )), NOT(CONTAINS( $Profile.Name, 'MBF' ))
+	),$Profile.Name != 'Integration API', MD__c ='JP', ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+)</errorConditionFormula>
+        <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Allow_Data_Sharing_Comments</fullName>
         <active>true</active>
         <description>When the value of Allow data sharing is “No“ .</description>
@@ -29490,6 +29500,16 @@ OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY())
 $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Brahcn_name_Native</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(LEN(Branch_name_Native__c)&lt;=1,
+AND($Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP',(NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")))
+))</errorConditionFormula>
+        <errorDisplayField>Branch_name_Native__c</errorDisplayField>
+        <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CP_Contact_Background_Check</fullName>
@@ -29593,12 +29613,13 @@ RecordType.DeveloperName = 'ThirdParty'
     <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(REGEX(Company_Name_Native_1__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(Company_Name_Native_1__c)),
-$Profile.Name != 'IntegrationAPI', 
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Company_Name_Native_1__c),
+REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
-        <errorMessage>Company Name Native should be Double byte.</errorMessage>
+        <errorMessage>Company Name Native should be KANA Characters</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
@@ -29840,12 +29861,10 @@ FirstName  value &gt; 20 letters.</description>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(REGEX(FirstName_Native_1__c ,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(FirstName_Native_1__c )),
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISBLANK(FirstName_Native_1__c),NOT(REGEX(FirstName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
-        <errorMessage>First Name Native should be Double byte.</errorMessage>
+        <errorMessage>First Name Native should be KANA Chaarcters</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Foundation_Date_Past</fullName>
@@ -30071,12 +30090,13 @@ LastName  value &gt; 40 letters.</description>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(REGEX(LastName_Native_1__c,"[^\\x00-\\x7F]+")),
-NOT(ISBLANK(LastName_Native_1__c)),
-$Profile.Name != 'IntegrationAPI', 
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(LastName_Native_1__c),
+REGEX(LastName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
-        <errorMessage>Last Name Native should be Double byte.</errorMessage>
+        <errorMessage>Last Name Native should be KANA Characters</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile2_NoChar</fullName>

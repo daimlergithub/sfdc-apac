@@ -5141,4 +5141,48 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
+    <validationRules>
+        <fullName>Retail_Company_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Company_Name_Native1__c),
+REGEX(Retail_Company_Name_Native1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Company_Name_Native1__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_First_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_FirstName_Native__c),
+REGEX(Retail_FirstName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
+        <errorMessage>IT Should be KANA Characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Full_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Full_Name_Native__c),
+REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Full_Name_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Last_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_LastName_Native__c),
+REGEX(Retail_LastName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_LastName_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
 </CustomObject>
