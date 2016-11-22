@@ -570,7 +570,7 @@ public with sharing class VehicleRelationshipHelper {
                     accfinsha.CaseAccessLevel = 'None';
                     shareList.add(accfinsha);
                     
-                    if(!acclinkList.isEmpty() && acclinkList != null)
+                    if(!acclinkList.isEmpty() && acclinkList != null && finacLinkMap.get(sVr.Contact__c) != null)
                     {
                         Account_Link__Share alinkfinShare = new Account_Link__Share();
                         alinkfinShare.ParentId = finacLinkMap.get(sVr.Contact__c);
