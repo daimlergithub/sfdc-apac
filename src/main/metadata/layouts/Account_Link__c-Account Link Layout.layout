@@ -159,6 +159,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Information_Third_Party_Release__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
