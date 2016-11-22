@@ -1335,20 +1335,16 @@
             <tab>Account_Link__c</tab>
         </mapping>
         <mapping>
+            <fieldName>Car_Model__c</fieldName>
+            <tab>DM_Material__c</tab>
+        </mapping>
+        <mapping>
             <fieldName>Customer_Name__c</fieldName>
             <tab>DM_Request__c</tab>
         </mapping>
         <mapping>
             <fieldName>Contact__c</fieldName>
             <tab>Lead__c</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Vehicle_ID__c</fieldName>
-            <tab>Recall__c</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Account__c</fieldName>
-            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <fieldName>SurveyTaker__c</fieldName>
@@ -1364,9 +1360,6 @@
         </mapping>
         <mapping>
             <tab>Survey__c</tab>
-        </mapping>
-		<mapping>
-            <tab>Claim__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>
