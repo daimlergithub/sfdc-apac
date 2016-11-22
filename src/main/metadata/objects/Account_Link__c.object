@@ -1020,7 +1020,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>RT_Agreement_commit_info_processing__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Agreement to commit info processing</label>
+        <label>RT Agreement commit info processing</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
