@@ -3348,6 +3348,21 @@
         <field>Account.Mobile_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Information_Third_Party_Release__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile__c</field>
@@ -4376,6 +4391,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_Information_Third_Party_Release__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.RT_Agreement_commit_info_processing__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
