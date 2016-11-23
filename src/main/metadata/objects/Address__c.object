@@ -255,6 +255,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Australia</fullName>
                 <default>false</default>
             </picklistValues>
