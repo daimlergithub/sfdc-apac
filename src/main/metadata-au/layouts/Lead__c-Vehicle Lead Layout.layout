@@ -33,16 +33,16 @@
                 <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Escalation_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Override_Escalation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Source_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -145,6 +145,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Preferred_Contact_Method__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
         </layoutColumns>
@@ -152,10 +156,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contact_Timing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Marketing_Opt_Out__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

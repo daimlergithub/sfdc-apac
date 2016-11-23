@@ -742,6 +742,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Retail_Consent_Form_Serial_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Consent From Serial No</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Retail_Contact_Method__c</fullName>
         <externalId>false</externalId>
         <label>Retail Contact Method</label>
@@ -947,6 +958,26 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Retail FirstName</label>
         <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_First_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail First Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail First Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1359,6 +1390,26 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Retail UCID</label>
         <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent User</label>
+        <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
