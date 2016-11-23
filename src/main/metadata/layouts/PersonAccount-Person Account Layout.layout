@@ -4,7 +4,12 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Merge</customButtons>
-    <customButtons>View_Hierarchy</customButtons>   
+    <customButtons>View_Hierarchy</customButtons>
+    <customButtons>Create_Retail_Copy</customButtons>
+    <customButtons>Send_to_JPOS</customButtons>
+    <customButtons>Send_to_SPO</customButtons>
+    <customButtons>Check_Duplicates</customButtons>
+    <customButtons>Send_to_MyMercedes</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -37,9 +42,6 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -80,6 +82,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
@@ -93,10 +99,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Data_Source__c</field>
-            </layoutItems>			
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -179,7 +181,7 @@
                 <field>Opt_In_Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
@@ -195,10 +197,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -222,6 +220,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>COS_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Sanction_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -444,15 +446,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Newspaper__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Magazine__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KaKao_Talk_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Website</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -504,11 +514,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Last_Modified_By__c</field>
+                <field>Email_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Last_Modified_By2__c</field>
+                <field>Email_Last_Modified_By__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -516,19 +526,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Last_Modified_Date2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Email_Status_2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Website</field>
+                <field>Email_Last_Modified_By2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>KaKao_Talk_ID__c</field>
+                <field>Primary_Fax_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Last_Modified_Date2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -546,7 +556,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Occupation__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Occupation__c</field>
@@ -597,31 +607,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Special_Needs_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Owner_Club__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company_Fiscal_Year_Start__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company_Legal_Form__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Company_Legal_Form_text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -673,10 +663,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Fax_Display__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Special_Care__c</field>
             </layoutItems>
             <layoutItems>
@@ -700,6 +686,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
             </layoutItems>
             <layoutItems>
@@ -710,7 +700,7 @@
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Consent__c</field>
             </layoutItems>

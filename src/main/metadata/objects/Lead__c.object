@@ -2496,6 +2496,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             <picklistValues>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -3374,6 +3378,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3713,7 +3721,7 @@ Contact__r.Email__c
     <fields>
         <fullName>Existing_Contract_End_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>"DATEVALUE(Existing_Contract__r.EndDate__c)"</formula>
+        <formula>TEXT(Existing_Contract__r.EndDate__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Existing Contract End Date</label>
         <required>false</required>
@@ -7637,6 +7645,38 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Car Wash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plus Check</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -23260,6 +23300,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -23390,6 +23434,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25704,6 +25752,14 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -25716,6 +25772,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Inspection</fullName>
                 <default>false</default>
             </values>
@@ -25724,7 +25784,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Participate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plus Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recall</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50651,6 +50731,14 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -50663,6 +50751,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Inspection</fullName>
                 <default>false</default>
             </values>
@@ -50671,7 +50763,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Participate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plus Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recall</fullName>
                 <default>false</default>
             </values>
             <values>

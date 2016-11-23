@@ -226,7 +226,7 @@ Global class UtilWebservice
         }
     }
     
-    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
+   public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
    
         User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
         System.debug('@@@@@@ ## User'+Usr);
@@ -252,6 +252,8 @@ Global class UtilWebservice
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        
+        
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
             sendingCustomerDetails.RecordType = 'PersonAccount';     
@@ -261,10 +263,85 @@ Global class UtilWebservice
             sendingCustomerDetails.RecordType = 'Company';     
         }       
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
-          //request.OrganizationId = UserInfo.getOrganizationId();
-          //request.MarketDiscriminator= Usr.Market__c;
-          request.OrganizationId = '00Dp00000000eeVEAQ';
-          request.MarketDiscriminator= 'JP';
+          request.OrganizationId = UserInfo.getOrganizationId();
+          request.MarketDiscriminator= Usr.Market__c;
+          
+          
+
+          System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
+          request.Customer = sendingCustomerDetails;
+          system.debug('request request: '+request);
+        try{
+        system.debug('try request request: '+request);
+            response = stub.IdentifyCustomer(request);
+             system.debug('try response response : '+response);
+        }
+        catch(CalloutException excpObj){
+            system.debug('Error *** :'+excpObj.getMessage());
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Online_Dedup_callout_failure));
+        }
+        system.debug('response : '+response);
+        return response;
+    }
+    
+     public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetailsWithAddress(Account accountDetails,Address__C AddressObj){
+   
+        User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
+        System.debug('@@@@@@ ## User'+Usr);
+        String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+        String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
+        crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+        sendingCustomerDetails.Id  = accountDetails.Id;
+        sendingCustomerDetails.FirstName = accountDetails.FirstName; 
+        sendingCustomerDetails.LastName = accountDetails.LastName;
+        sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
+        sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
+        sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
+        sendingCustomerDetails.LoyaltyCardNo = accountDetails.Loyalty_Card_No__c;
+        sendingCustomerDetails.Individual_Home_Phone_xc = accountDetails.Individual_Home_Phone__c;
+        sendingCustomerDetails.Home_Phone_2_xc = accountDetails.Home_Phone_2__c;
+        sendingCustomerDetails.Work_Phone_xc = accountDetails.Work_Phone__c;
+        sendingCustomerDetails.Phone = accountDetails.Phone;
+        sendingCustomerDetails.Mobile_xc = accountDetails.Mobile__c;
+        sendingCustomerDetails.Mobile2_xc = accountDetails.Mobile2__c ;
+        sendingCustomerDetails.Email_xc = accountDetails.Email__c;
+        sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
+        sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        if(sendingCustomerDetails.Address_xc!=null)
+        {
+        sendingCustomerDetails.Address_xc[0].Address_Code_xc=AddressObj.Address_Code__c;
+        sendingCustomerDetails.Address_xc[0].Address_Line_1_xc=AddressObj.Address_Line_1__c;
+        sendingCustomerDetails.Address_xc[0].Address_Line_2_xc=AddressObj.Address_Line_2__c;
+        sendingCustomerDetails.Address_xc[0].Block_xc=AddressObj.Block__c;
+        sendingCustomerDetails.Address_xc[0].City_xc=AddressObj.City__c;
+        sendingCustomerDetails.Address_xc[0].District_xc=AddressObj.District__c;
+        sendingCustomerDetails.Address_xc[0].Province_xc=AddressObj.Province__c;
+        sendingCustomerDetails.Address_xc[0].ZipCode_xc=AddressObj.ZipCode__c;
+        sendingCustomerDetails.Address_xc[0].Country_xc=AddressObj.Country__c;
+        sendingCustomerDetails.Address_xc[0].Company_Name_xc=AddressObj.Company_Name__c;
+        sendingCustomerDetails.Address_xc[0].Company_Name_Native_xc=AddressObj.Company_Name_Native__c;
+        sendingCustomerDetails.Address_xc[0].Delivery_Point_ID_xc=AddressObj.Delivery_Point_ID__c;
+        sendingCustomerDetails.Address_xc[0].HouseNumber_xc=AddressObj.HouseNumber__c;
+        sendingCustomerDetails.Address_xc[0].Temp_Address_xc=AddressObj.Temp_Address__c;
+        sendingCustomerDetails.Address_xc[0].Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
+        sendingCustomerDetails.Address_xc[0].TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
+        }
+        
+        if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
+        {
+            sendingCustomerDetails.RecordType = 'PersonAccount';     
+        }
+        if(accountDetails.RecordTypeId == companyRecordTypeId)
+        {
+            sendingCustomerDetails.RecordType = 'Company';     
+        }       
+        crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType request = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationRequestMessageType();
+          request.OrganizationId = UserInfo.getOrganizationId();
+          request.MarketDiscriminator= Usr.Market__c;
+          
           
 
           System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);

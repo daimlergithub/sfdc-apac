@@ -51,13 +51,18 @@
                         </apex:outputField>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
-                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Province_Native__c.Label}" >
+                        <apex:outputField value="{!row.Province_Native__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
                         <apex:outputText value="{!row.City__c}" style="width:10%; white-space:nowrap;" >
+                        </apex:outputText>
+                    </apex:column>
+
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}">
+                        <apex:outputText value="{!row.City_Native__c}" style="width:10%; white-space:nowrap;" >
                         </apex:outputText>
                     </apex:column> 
                     
@@ -66,8 +71,18 @@
                         </apex:outputText>
                     </apex:column>
                     
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}" >
+                        <apex:outputText value="{!row.District_Native__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>          
+                    
+                    
                     <apex:column headerValue="{!if(Market=='KR',$ObjectType.Address__c.fields.HouseNumber__c.Label,$ObjectType.Address__c.fields.Block__c.Label)}" >                                               
                         <apex:outputText value="{!if(Market=='KR',row.HouseNumber__c,row.Block__c)}"/>          
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!if(Market=='KR',$ObjectType.Address__c.fields.HouseNumber__c.Label,$ObjectType.Address__c.fields.Block_Native__c.Label)}" >                                               
+                        <apex:outputText value="{!if(Market=='KR',row.HouseNumber__c,row.Block_Native__c)}"/>          
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
@@ -75,10 +90,21 @@
                         </apex:outputText>
                     </apex:column>
                     
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1_Native__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_1_Native__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
                         <apex:outputText value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_2_Native__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}"> 
                         <apex:outputText value="{!row.Company_Name__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
@@ -139,7 +165,7 @@
                     
                     <apex:inputField value="{!addressobj.ZipCode__c}"/>
                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>                      
                          <apex:inputField value="{!addressobj.Province__c}" style="width:80%; white-space:none;" /> 
                        <!-- <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
                         <apex:selectList value="{!provincepicklist}" multiselect="false" size="1" style="width:80%; white-space:none;">
@@ -147,21 +173,33 @@
                         </apex:selectList>
                         -->
                     </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province_Native__c.Label}"/>                       
+                         <apex:inputField value="{!addressobj.Province_Native__c}" style="width:80%; white-space:none;" /> 
+                    </apex:pageBlockSectionItem>
+                    
+                    
                           
                     <apex:inputField value="{!addressobj.City__c}"/>
+                    <apex:inputField value="{!addressobj.City_Native__c}"/>
                     <apex:inputField value="{!addressobj.District__c}"/>
+                    <apex:inputField value="{!addressobj.District_Native__c}"/>
                     <apex:pageBlockSectionItem rendered="{!IF(market == 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
                         <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
+                    <!--<apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">-->
+                    <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Block__c}"/>           
                     </apex:pageBlockSectionItem>
                     <!-- <apex:inputField value="{!addressobj.Block__c}"/> -->
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
+                    <apex:inputField value="{!addressobj.Address_Line_1_Native__c}"/>
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>
+                    <apex:inputField value="{!addressobj.Address_Line_2_Native__c}"/>                   
                     <apex:inputField value="{!addressobj.Company_Name__c}"/>
+                    
                     <apex:outputPanel rendered="{!if(Market=='KR',False,True)}">
                         <apex:inputField value="{!addressobj.Company_Name_Native__c}"/>
                         <apex:inputField value="{!addressobj.TitleOfHonor__c}"/> 
@@ -170,6 +208,8 @@
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
                     <apex:inputField value="{!addressobj.Temp_Address__c}"/>
+                    <apex:outputText ></apex:outputText>
+                    
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">

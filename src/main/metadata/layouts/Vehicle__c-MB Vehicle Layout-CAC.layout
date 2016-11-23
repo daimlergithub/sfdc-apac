@@ -247,6 +247,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastServiceDate__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>InsuranceExpiryDate__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -263,6 +267,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>LastServiceMileage__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

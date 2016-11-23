@@ -1458,6 +1458,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -1655,6 +1666,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MTH_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>MTH Penetration</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Next_Steps__c</fullName>
         <externalId>false</externalId>
         <label>Next Steps</label>
@@ -1752,6 +1772,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Ordered_Against_Factory__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ordered Against Factory</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Other_Activity__c</fullName>
@@ -1853,6 +1880,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Public__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Public</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>QC_ID__c</fullName>
@@ -2265,6 +2299,14 @@ noted by Lio on 10.28.2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Task_Details__c</fullName>
+        <description>This is field is required to store  details</description>
+        <externalId>false</externalId>
+        <label>Task Details</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Task_RecordType_Name__c</fullName>
         <externalId>false</externalId>
         <formula>RecordType.Name</formula>
@@ -2359,6 +2401,15 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>YTD_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>YTD Penetration</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eDM_Template_ID__c</fullName>
@@ -2579,7 +2630,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2643,7 +2693,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2704,7 +2753,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2740,7 +2788,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.LAST_UPDATE</columns>
         <columns>UPDATEDBY_USER.ALIAS</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Last_OB_Call__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Activity_Status__c</columns>
@@ -2774,7 +2821,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHAT_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Activity_Resolution__c</columns>
         <columns>TASK.STATUS</columns>
         <columns>Last_OB_Call__c</columns>
@@ -2815,7 +2861,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.WHO_NAME</columns>
         <columns>DUP_Number__c</columns>
         <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
         <columns>Last_OB_Call__c</columns>
         <columns>Activity_Status__c</columns>
         <columns>TASK.STATUS</columns>
@@ -2946,3 +2991,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
+
+
+

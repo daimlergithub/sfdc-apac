@@ -30,8 +30,9 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
     private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
-	public static string closedString='closed'; 
-	public static string validString='valid';
+  public static string closedString='closed'; 
+  public static string validString='valid';
+   private static string leadTabId = System.Label.LeadId;
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
   /**
@@ -43,8 +44,8 @@ public class TaskHelper {
   */     
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   	
+     
+     
         set<Id> setTaskIds = new set<Id>();
         for(Task tk : tasks)
         {
@@ -99,9 +100,9 @@ public class TaskHelper {
   */
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   		
-   	
+     
+       
+     
         if(isInsert)
             UtilTask.updateCampaignMemberStatus(tasks);
         if(isUpdate)
@@ -127,8 +128,8 @@ public class TaskHelper {
   */
    public static void recordTypeUpdate_Generaltask(List<Task> tasks)
    {
-   		
-   	
+       
+     
        Set<String> contactIds = new Set<String>();
        Set<String> templateIds = new Set<String>();
        Set<Id> relatedOrderIds = new Set<Id>();
@@ -293,8 +294,8 @@ public class TaskHelper {
   */
    public static void Reply_TD_unsubscribeForeachSMScontent(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   		
+     
+       
         Map<Id, String> userIdNames = new Map<Id, String>();
         Set<Id> taskOwnerIds = new Set<Id>();
         for(Task t : tasks)
@@ -343,8 +344,8 @@ public class TaskHelper {
   */
    public static void FillintheCampaignNameBasedontheRelatedtoObject(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		
-   	
+       
+     
         Set<String> caseIds = new Set<String>();
         Set<String> campaignIds = new Set<String>();
         Set<String> campaignLeadIds = new Set<String>();
@@ -387,9 +388,9 @@ public class TaskHelper {
    
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    
-   	
+     
    {
-   	
+     
        List<Task> taskforGenerateQC = new List<Task>();
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
@@ -432,10 +433,10 @@ public class TaskHelper {
             }
             
             for(Task t : tasks) {
-	            //When QC Quantity is changed, insert IB/OB QC records.
-	            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
-	                taskforGenerateQC.add(t);
-	        }
+              //When QC Quantity is changed, insert IB/OB QC records.
+              if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
+                  taskforGenerateQC.add(t);
+          }
         }
         
         
@@ -883,4 +884,37 @@ public class TaskHelper {
        }
     }
  // By Shuang Li BRD-AS-CAC-007---- end
+    /**
+  *@Description : Update Linked Leads. 
+  *@Date : 11/14/2016
+  *@param: List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */
+    
+    public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
+        Set<ID> leadId = new Set<ID>();
+          List<Lead__c> lstLead = new List<Lead__c>();
+         for(Task tsk : tasks){            
+            if(tsk.WhatId != null){
+                if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
+                      leadId.add(tsk.WhatId);        
+                }
+            }   
+        }
+         if(leadId != Null && !leadId.isEmpty()){
+            lstLead = [Select Id,Task_Update_Flag__c from Lead__c where Id =:leadId];
+        }
+        for(Lead__c led : lstLead){
+            if(led.Task_Update_Flag__c == False){
+                led.Task_Update_Flag__c = True;
+            }
+            else if(led.Task_Update_Flag__c == True){
+                led.Task_Update_Flag__c = False;
+            }
+        } 
+        if(lstLead.size()>0){ 
+            update  lstLead;  
+        }          
+    } 
 }

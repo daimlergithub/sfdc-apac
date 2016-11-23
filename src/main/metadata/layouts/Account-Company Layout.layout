@@ -4,7 +4,11 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <customButtons>Merge</customButtons>  
+    <customButtons>Merge</customButtons>
+    <customButtons>Create_Retail_Copy</customButtons>
+    <customButtons>Send_to_JPOS</customButtons>
+    <customButtons>Send_to_SPO</customButtons>
+    <customButtons>Check_Duplicates</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -192,10 +196,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Agreement_to_commit_info_processing__c</field>
+                <field>Agreement_to_commit_info_processing__c</field> 
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>                               
                 <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
@@ -227,7 +231,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Data_Source__c</field>
@@ -342,6 +346,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
             </layoutItems>
             <layoutItems>
@@ -351,10 +359,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Consent__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Interested_Event__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -402,10 +406,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Sales_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>VIP__c</field>
             </layoutItems>
             <layoutItems>
@@ -450,10 +450,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Household_Amount__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Fleet__c</field>
             </layoutItems>
             <layoutItems>
@@ -485,10 +481,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Website</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Car_Owner_Club__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -528,10 +520,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Gender__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Fleet_Category__c</field>
             </layoutItems>
             <layoutItems>
@@ -544,11 +532,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Newspaper__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Magazine__c</field>
+                <field>Vat_No__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
