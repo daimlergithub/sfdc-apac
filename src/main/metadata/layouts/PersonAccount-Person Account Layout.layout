@@ -148,10 +148,6 @@
                 <field>VAN_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sales_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
