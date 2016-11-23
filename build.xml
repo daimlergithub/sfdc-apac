@@ -956,11 +956,3 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
-
-
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 34f3682e1a74aac3614ccaf1a7ae36b2f0872339
