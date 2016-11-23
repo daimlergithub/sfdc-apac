@@ -608,6 +608,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Status</fullName>
+        <field>Status</field>
+        <literalValue>In progress</literalValue>
+        <name>Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Status_Final_approval_done</fullName>
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
@@ -1610,5 +1619,15 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Case status to %22In Progress%22</fullName>
+        <actions>
+            <name>Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Owner:Queue.QueueName  =&quot;Supervisor Team B&quot;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

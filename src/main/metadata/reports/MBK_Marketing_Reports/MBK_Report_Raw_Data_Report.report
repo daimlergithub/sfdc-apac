@@ -58,9 +58,6 @@
         <field>FK_$Account.Mobile__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Mobile2__c</field>
-    </columns>
-    <columns>
         <field>FK_$Account.City__c</field>
     </columns>
     <columns>
@@ -76,43 +73,10 @@
         <field>FK_$Account.MBK_Occupation__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Opt_In_Email__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Email2__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Email3__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Home_Phone__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Home_Phone2__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_SMS__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_SMS2__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Work_Phone__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_In_Work_Phone2__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Opt_Out_Portal_Reason__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c.Previous_Make__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Previous_Model__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Personal_Agreement__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
@@ -127,6 +91,18 @@
         <field>Vehicle_Relationship__c.Registration_Date__c</field>
     </columns>
     <columns>
+        <field>FK_PC_EMAIL_OPT_OUT</field>
+    </columns>
+    <columns>
+        <field>FK_PC_$Contact.SMSOptOut__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.FS_Opt_In_Home_Phone__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.FS_Opt_In_Work_Phone__c</field>
+    </columns>
+    <columns>
         <field>Vehicle_Relationship__c.UsVIN__c</field>
     </columns>
     <columns>
@@ -137,6 +113,9 @@
     </columns>
     <columns>
         <field>FK_ACC_RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Primary_Address_Display__c</field>
     </columns>
     <columns>
         <field>FK_$Account.Dealer_GC_Code__c</field>

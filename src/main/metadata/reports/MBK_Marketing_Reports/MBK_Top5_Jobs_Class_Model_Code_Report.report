@@ -12,17 +12,17 @@
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>Account$MBK_Occupation__c</field>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Class__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Class__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</field>
+        <field>Account$MBK_Occupation__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>MBK-Top5 Jobs(Class,Model,Code) Report</name>

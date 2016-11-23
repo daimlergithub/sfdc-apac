@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <columns>
-        <field>ACCOUNT.NAME</field>
-    </columns>
     <description>Customer by City Province</description>
     <filter>
         <criteriaItems>
@@ -20,7 +17,12 @@
     <format>Matrix</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Address__c.City__c</field>
+        <field>Address__c.Province__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>MBK Reports - Customer by City Province</name>

@@ -1054,6 +1054,31 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Retail_Agreement_Info_Processing__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Agreement info processing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>LastModifiedById__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3322,6 +3347,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
 		<picklistValues>
             <picklist>Retail_Address_Type__c</picklist>
             <values>
@@ -4038,6 +4078,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5141,4 +5196,48 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
+    <validationRules>
+        <fullName>Retail_Company_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Company_Name_Native1__c),
+REGEX(Retail_Company_Name_Native1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Company_Name_Native1__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_First_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_FirstName_Native__c),
+REGEX(Retail_FirstName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
+        <errorMessage>IT Should be KANA Characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Full_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Full_Name_Native__c),
+REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Full_Name_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Last_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_LastName_Native__c),
+REGEX(Retail_LastName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_LastName_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
 </CustomObject>
