@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
-    <aggregates>
-        <acrossGroupingContext>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</acrossGroupingContext>
-        <calculatedFormula>RowCount/100</calculatedFormula>
-        <datatype>percent</datatype>
-        <description>Percentage</description>
-        <developerName>FORMULA1</developerName>
-        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
-        <isActive>true</isActive>
-        <isCrossBlock>false</isCrossBlock>
-        <masterLabel>%</masterLabel>
-        <scale>2</scale>
-    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_33501592</developerName>
+        <masterLabel>Vehicle Model</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</sourceColumnName>
+        <useOther>false</useOther>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnStacked</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Class__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Large</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
     <columns>
         <field>Account$Age__c</field>
     </columns>
@@ -30,12 +52,17 @@
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</field>
+        <field>BucketField_33501592</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Class__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Model__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>MBK Reports - Vehicle Class and Model</name>
@@ -48,6 +75,6 @@
     <showDetails>true</showDetails>
     <timeFrameFilter>
         <dateColumn>Account.Vehicle_Relationships2__r$CreatedDate</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
