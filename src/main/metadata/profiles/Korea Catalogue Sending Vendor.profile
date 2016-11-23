@@ -4336,11 +4336,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.RT_Agreement_commit_info_processing__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account_Link__c.Responsible_Dealer__c</field>
         <readable>false</readable>
     </fieldPermissions>

@@ -157,7 +157,7 @@
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>RT_Agreement_commit_info_processing__c</field>
+                <field>Retail_Agreement_Info_Processing__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

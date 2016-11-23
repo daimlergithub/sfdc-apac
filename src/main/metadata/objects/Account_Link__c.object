@@ -1018,9 +1018,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>RT_Agreement_commit_info_processing__c</fullName>
+        <fullName>Retail_Agreement_Info_Processing__c</fullName>
         <externalId>false</externalId>
-        <label>RT Agreement commit info processing</label>
+        <label>Retail Agreement info processing</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -3348,7 +3348,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>RT_Agreement_commit_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
@@ -4082,7 +4082,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>RT_Agreement_commit_info_processing__c</picklist>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
