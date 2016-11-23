@@ -12,7 +12,7 @@
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Code__c</field>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>

@@ -81,24 +81,24 @@
             <field>Contact__c.Agreement_to_commit_info_processing__c</field>
             <table>Lead__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.All_channel_opt_out__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
+		<columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Personal_Abroad_Agreement__c</field>
             <table>Lead__c</table>
         </columns>
-        <columns>
+		<columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Personal_Agreement__c</field>
             <table>Lead__c</table>
         </columns>
-        <columns>
+		<columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Personal_Information_Third_Party_Release__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contact__c.All_channel_opt_out__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>

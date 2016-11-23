@@ -1317,24 +1317,26 @@
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
-	<tab>Claim__c</tab>
-    <tab>Tasks</tab>
-    <tab>Lead__c</tab>
-    <tab>Vehicle_Relationship__c</tab>
-    <tab>Vehicle__c</tab>
+	<tab>Lead__c</tab>
+    <tab>Tasks</tab>    
+	<tab>Vehicle__c</tab>
+    <tab>Vehicle_Relationship__c</tab>    
     <tab>standard-Campaign</tab>
-    <tab>Account_Link__c</tab>
-    <tab>DM_Request__c</tab>
-    <tab>Retail_Task__c</tab>
-    <tab>Recall__c</tab>
+	<tab>DM_Material__c</tab>
+	<tab>DM_Request__c</tab>
     <tab>Survey__c</tab>
     <tab>Survey_Question__c</tab>
     <tab>SurveyQuestionResponse__c</tab>
     <tab>SurveyTaker__c</tab>
+	<tab>Account_Link__c</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>fromRole__c</fieldName>
             <tab>Account_Link__c</tab>
+        </mapping>
+        <mapping>
+            <fieldName>Car_Model__c</fieldName>
+            <tab>DM_Material__c</tab>
         </mapping>
         <mapping>
             <fieldName>Customer_Name__c</fieldName>
@@ -1343,14 +1345,6 @@
         <mapping>
             <fieldName>Contact__c</fieldName>
             <tab>Lead__c</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Vehicle_ID__c</fieldName>
-            <tab>Recall__c</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Account__c</fieldName>
-            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <fieldName>SurveyTaker__c</fieldName>
@@ -1366,9 +1360,6 @@
         </mapping>
         <mapping>
             <tab>Survey__c</tab>
-        </mapping>
-		<mapping>
-            <tab>Claim__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>
