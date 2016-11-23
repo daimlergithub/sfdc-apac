@@ -20991,14 +20991,6 @@
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Dealer AfterSales Lead ReadOnly</layout>
-        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</layout>
-        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -22714,16 +22706,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
