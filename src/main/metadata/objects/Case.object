@@ -108818,7 +108818,54 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <searchResultsAdditionalFields>Related_Department__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PARENT.CASE_NUMBER</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+	 <sharingModel>Private</sharingModel>
+	  <validationRules>
+        <fullName>Japan_Dealer_Company_Manager</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Company Manager" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Company Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Japan_Dealer_Sales_Manager</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Sales Manager" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Sales Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Japan_Dealer_Service_Manage</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Service Manage" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Service Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+	 <validationRules>
+        <fullName>Mandatory_Fields_for_Dealer_Escalation</fullName>
+        <active>true</active>
+        <description>When dealer user modify the "Share to Regional Office" checkbox to true, “Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory(cannot be null or empty).</description>
+        <errorConditionFormula>AND( 
+(MD__c = 'JP'),
+(Share_to_Regional_Office__c=true)  , OR(ISBLANK( Case_Dealer_User__c ),ISBLANK(  Account.Name ),ISBLANK( Case_Dealer__c )),
+OR(($Profile.Name = "Japan Dealer Company Manager" ),
+($Profile.Name="Japan Dealer Sales Manager"),
+ ($Profile.Name="Japan Dealer Service Manager" ) 
+))</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>“Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Cannot_Update_Knowledge_Complete_Flag</fullName>
         <active>true</active>
