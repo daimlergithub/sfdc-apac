@@ -702,7 +702,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
-            if(AddressObj ==null)
+            if(AddressObj == NewAdd)
             {
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             }
