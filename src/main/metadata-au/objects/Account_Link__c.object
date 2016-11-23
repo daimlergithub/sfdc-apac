@@ -3291,7 +3291,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </recordTypes>
     <recordTypes>
         <fullName>Retail_Person</fullName>
-        <active>false</active>
+        <active>true</active>
         <label>Retail Person</label>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>

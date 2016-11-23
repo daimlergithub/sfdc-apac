@@ -19,6 +19,10 @@
                 <field>IsAllDayEvent</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Origin__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>StartDateTime</field>
             </layoutItems>
@@ -126,7 +130,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h3B000000Enwt</masterLabel>
+        <masterLabel>00hg0000000dRgs</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
