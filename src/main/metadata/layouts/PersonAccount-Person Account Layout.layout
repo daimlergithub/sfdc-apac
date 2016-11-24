@@ -161,13 +161,10 @@
                 <field>VAN_Status__c</field>
             </layoutItems>
             <layoutItems>
-<<<<<<< HEAD
-=======
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
             <layoutItems>
->>>>>>> asia-kr
                 <behavior>Edit</behavior>
                 <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
