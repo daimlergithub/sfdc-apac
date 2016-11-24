@@ -53,10 +53,6 @@
                 <behavior>Edit</behavior>
                 <field>NumberSent</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Questionnaire__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
