@@ -3227,6 +3227,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
