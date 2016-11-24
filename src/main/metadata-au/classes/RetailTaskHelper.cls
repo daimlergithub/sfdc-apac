@@ -478,14 +478,12 @@ public with sharing class RetailTaskHelper
         set<id> relatedvechId = new set<id>();
         map<string,id> groupMap = new map<string,id>();
         map<id,id> dealermap = new map<id,id>();
-        map<id,id> acclinkmap = new map<id,id>();
         map<id,id> vehMap = new map<id,id>();
         map<id,id> chkduplicateShareMap = new map<id,id>();
         map<id,map<id,id>> accvechmMap = new map<id,map<id,id>>();
         map<id,List<Vehicle_Relationship__c>> vrMap = new map<id,List<Vehicle_Relationship__c>>();
         List<Vehicle_Relationship__c> vrelList = new List<Vehicle_Relationship__c>();
         List<Accountshare> duplisharedList = new List<AccountShare>();
-        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
         List<Retail_Task__c> rtasklist = new List<Retail_Task__c>();
         List<Vehicle_Relationship__c> sharedVrlist = new List<Vehicle_Relationship__c>();
         List<Group> groupList = new List<Group>();
@@ -535,26 +533,9 @@ public with sharing class RetailTaskHelper
         }
 		if(!shraccid.isEmpty() && shraccid != null)
         {
-            duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];
-            acclinkList = [select id , toRole__c,fromRole__c from Account_Link__c where toRole__c =:shraccid];
+            duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];            
         }
-        
-        if(!rtasklist.isEmpty() && rtasklist != null)
-        {
-            for(Retail_Task__c acrts : rtasklist)
-            {
-                if(!acclinkList.isEmpty() && acclinkList != null)
-                {
-                    for(Account_Link__c alink : acclinkList)
-                    {
-                        if(acrts.Service_Dealer__c == alink.fromRole__c)
-                        {
-                            acclinkmap.put(alink.toRole__c , alink.id);
-                        }
-                    }
-                }
-            }
-        }
+                
         system.debug('duplisharedList>>>' + duplisharedList);
         if(!duplisharedList.isEmpty() && duplisharedList != null)
         {
@@ -601,15 +582,6 @@ public with sharing class RetailTaskHelper
                            accshare.OpportunityAccessLevel = 'None';
                            accshare.CaseAccessLevel = 'None';
                            shareList.add(accShare);
-                           
-                           if(!acclinkmap.isEmpty() && acclinkmap.get(rtk.Account__c) != null)
-                           {
-                               Account_Link__Share alinkShare = new Account_Link__Share();
-                               alinkShare.ParentId = acclinkmap.get(vrMap.get(rtk.Related_Vehicle__c).get(0).contact__c);
-                               alinkShare.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
-                               alinkShare.AccessLevel = 'Edit';
-                               shareList.add(alinkShare);
-                           }
                                                   
                            system.debug('RelatedVehicleAccount>>>>>>' + vrMap.get(rtk.Related_Vehicle__c).get(0).Contact__c);
 
