@@ -41,7 +41,7 @@ public with sharing class UserHelper {
      * @param       : list of new users
      * @return      : returns contactId and boolean flag.
      * @see         : UserTriggerHandler(UserHelper.ValidateUser)
-    **/	   
+    **/    
     
     public static void ValidateUser(list<user> usersList)
     {
@@ -76,7 +76,7 @@ public with sharing class UserHelper {
      * @param       : contactId and boolean flag
      * @return      : 
      * @see         : ValidateUser
-    **/	     
+    **/      
     
     @future
     public static void updateContact(Id contactId, boolean flag) {
@@ -100,7 +100,7 @@ public with sharing class UserHelper {
      * @param       : accountId, UserId and ProfileId.
      * @return      : 
      * @see         : AfterInsert_UpdateMethod
-    **/	  
+    **/   
 
    
     public static void ShareAllDataToNewUser(Id accountId, Id newUserId, Id profileId) {
@@ -124,7 +124,7 @@ public with sharing class UserHelper {
      * @param       : accountId, newuserId.
      * @return      : 
      * @see         : AfterInsert_UpdateMethod
-    **/	  
+    **/   
 
     public static void ShareAllDataToNewUserBatch(Id accountId, ID newUserId) {
         // Fetch the existing users
@@ -153,7 +153,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds and profileId.
      * @return      : 
      * @see         : ShareAllDataToNewUser
-    **/	  
+    **/   
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
@@ -205,7 +205,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : 
-    **/	  
+    **/   
 
     public static void ShareVehicleToNewUser(Id newUserId, Set<Id> existUserIds) {      
         List<Vehicle__Share> shares = new List<Vehicle__Share>();
@@ -232,7 +232,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : 
-    **/	  
+    **/   
 
     public static void ShareVehicleRelationToNewUser(Id newUserId, Set<Id> existUserIds) {
        
@@ -260,7 +260,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : 
-    **/	  
+    **/   
     
     public static void ShareAccountLinkToNewUser(Id newUserId, Set<Id> existUserIds) {
         
@@ -287,7 +287,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : 
-    **/	  
+    **/   
 
     public static void ShareRetailTaskToNewUser(Id newUserId, Set<Id> existUserIds) {
         
@@ -314,7 +314,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
 
     public static void ShareCaseToNewUser(Id newUserId, Set<Id> existUserIds) {
        
@@ -350,7 +350,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
    
     public static void ShareLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
@@ -382,7 +382,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
     
     public static void ShareRetailLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
@@ -414,7 +414,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
      
     public static void ShareAsRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -445,7 +445,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     public static void ShareAsYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId());
@@ -476,7 +476,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
     public static void ShareSmYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -507,7 +507,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
     public static void ShareSmRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -538,7 +538,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
     public static void ShareRetailBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -569,7 +569,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	  
+    **/   
     
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -598,7 +598,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	 
+    **/  
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
@@ -627,7 +627,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	
+    **/ 
     public static void ShareBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId());
@@ -656,7 +656,7 @@ public with sharing class UserHelper {
      * @param       : newUserId, existUserIds 
      * @return      : 
      * @see         : ShareAllDataToNewUserFuture
-    **/	
+    **/ 
     public static void ShareToolKitToNewUser(Id newUserId, Set<Id> existUserIds) {
         List<Tool_Kit__Share> shares = new List<Tool_Kit__Share>();
         for(Tool_Kit__c tk : [Select Id from Tool_Kit__c Where Id in (select ParentId from Tool_Kit__Share where UserOrGroupId in :existUserIds)]) {
@@ -682,7 +682,7 @@ public with sharing class UserHelper {
      * @param       : newUserId
      * @return      : 
      * @see         : AfterInsert_UpdateMethod
-    **/	
+    **/ 
 
     public static void AssignPermissionSetForPortalUser(Set<Id> userIds) {
         List<PermissionSetAssignment> permissionSetAssignments = new List<PermissionSetAssignment>();
@@ -734,7 +734,7 @@ public with sharing class UserHelper {
      * @param       : new user list, old user map, and trigger boolean perameters isInsert,isUpdate.
      * @return      : 
      * @see         : UserTriggerHandler
-    **/	
+    **/ 
     
     public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
     {
@@ -802,7 +802,7 @@ public with sharing class UserHelper {
      * @param       : 
      * @return      : all the profile ids
      * @see         : ValidateUser,AfterInsert_UpdateMethod,ShareAllDataToNewUserFuture
-    **/	
+    **/ 
     
     public static void getPofileId()
     {
@@ -835,5 +835,22 @@ public with sharing class UserHelper {
                     CACSSITRAINERId=obj.Id;
             }
         }
+    }
+    public Static void ApexShare(List<User> usrList){        
+        Set<Id> userIds = new Set<Id>();
+        for(User u : usrList){
+            if(U.Profile.Name.Contains('Dealer')){
+                userIds.add(u.id);
+            }
+        }
+        Map<Id,User> userMap = new Map<Id,User>([select Id,Name,Contact.AccountId from user where Id In : userIds]);
+        set<Id> dealerAccountIds = new set<Id>();
+        if(userMap.size() > 0){
+            for(User u : userMap.Values()){
+                dealerAccountIds.add(u.Contact.AccountId);
+                userIds.add(u.id);
+            }      
+            UtilShare.DealerGroupCreation(dealerAccountIds,userIds); 
+        } 
     }
 }
