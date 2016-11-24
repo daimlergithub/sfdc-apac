@@ -109140,7 +109140,7 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
         <fullName>Repeat_Complaint_Reason_is_Required</fullName>
         <active>true</active>
         <description>If Repeat Complaint Times is more than 1,  Repeat Complaint Reason is required.</description>
-        <errorConditionFormula>AND(Repeat_Complaint_Times__c &gt; 1, 
+        <errorConditionFormula>AND(Repeat_Complaint_Times__c &gt; 0, 
 $Profile.Name != 'IntegrationAPI', MD__c = 'KR',RecordType.Name = 'MB Complaint',ISBLANK(TEXT(Case_RepeatCause__c)))</errorConditionFormula>
         <errorDisplayField>Case_RepeatCause__c</errorDisplayField>
         <errorMessage>Please enter the "Repeat Complaint Reason".</errorMessage>
