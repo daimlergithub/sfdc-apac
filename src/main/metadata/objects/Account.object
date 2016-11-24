@@ -26089,6 +26089,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer_ND_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
