@@ -2103,7 +2103,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
          {
             integer hour = Integer.valueOf(time_str1.substring(0,time_str1.indexOf(':')));
             integer minute = integer.valueOf(time_str1.substring(time_str1.indexOf(':')+1 ,time_str1.indexOf(':')+3));
-            if (time_str1.contains('PM')  ) {
+            if (time_str1.contains('PM')  && hour != 12) {
                 hour+=12;
             }
             return  datetime.valueOfGMT(dateandtime1.format('yyyy-MM-dd','GMT') + ' ' +  hour + ':' + minute + ':00' );
