@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Select_Assigned_Dealer</customButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -22,7 +24,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Source_Campaign__c</field>
+                <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -34,7 +36,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Nurture_Date__c</field>
+                <field>Nurture_Start_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -61,10 +63,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Purchase_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -146,23 +144,11 @@
                 <field>Current_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Model__c</field>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Year_Current__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>VIN__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Registration_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Purchase_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <height>200</height>
+                <height>20</height>
                 <page>InlineVFPageToShowGenericVehicleDetails</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -170,41 +156,21 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vehicle_Year_Current__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Vehicle_Need__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MB_Vehicle_Outcome__c</field>
+                <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vehicle_Type__c</field>
+                <field>Vehicle_Use__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Courtesy_Car_Provided_by_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Courtesy_Car_Date_Return__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Courtesy_Car_Date_In__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Selling_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Odometer_Reading__c</field>
+                <field>Interested_Vehicle_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -212,7 +178,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>MB_Vehicle_Outcome__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Vehicle_Model_Interest__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Purchase_Time__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
