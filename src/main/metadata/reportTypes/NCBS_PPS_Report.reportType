@@ -12,7 +12,7 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Individual_Home_Phone__c</field>
+            <field>Contact__c.Mobile__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>

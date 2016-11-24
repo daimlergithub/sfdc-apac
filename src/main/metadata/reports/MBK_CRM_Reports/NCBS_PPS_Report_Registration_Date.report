@@ -4,7 +4,7 @@
         <field>Vehicle_Relationship__c$Contact__c.Name</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Contact__c.Individual_Home_Phone__c</field>
+        <field>Vehicle_Relationship__c$Contact__c.Mobile__C</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Contact__c.Primary_Address_Display__c</field>
