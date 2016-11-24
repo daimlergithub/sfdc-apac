@@ -21045,7 +21045,7 @@
         <layout>Lead__c-AfterSales Lead</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
-   <layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
     </layoutAssignments>
     <layoutAssignments>

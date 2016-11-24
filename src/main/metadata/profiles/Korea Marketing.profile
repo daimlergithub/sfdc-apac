@@ -22240,7 +22240,7 @@
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-   <recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
         <visible>false</visible>
