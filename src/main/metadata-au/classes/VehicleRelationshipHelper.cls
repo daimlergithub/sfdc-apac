@@ -429,7 +429,6 @@ public with sharing class VehicleRelationshipHelper {
         List<AccountShare> accshareList = new List<AccountShare>();
         set<id> vrId = new set<id>();
         set<id> conid = new set<id>();
-        map<id,id> acLinkMap = new map<id,id>();
         map<id,id> finacLinkMap = new map<id,id>();
         map<id,id> accountmap = new map<id,id>();          
         map<id,id> vehMap = new map<id,id>(); 
@@ -441,9 +440,7 @@ public with sharing class VehicleRelationshipHelper {
         set<string> ownerGroup = new set<string>();
         set<string> financeGroup = new set<string>();
         List<Vehicle_Relationship__c> shareVrList = new List<Vehicle_Relationship__c>();
-        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
         List<Accountshare> accountshareList = new List<Accountshare>();
-        List<Account_Link__Share> aclnkshareList = new List<Account_Link__Share>();
         List<Vehicle__Share> vechshareList = new List<Vehicle__Share>();
         List<Vehicle_Relationship__Share> vRshareList = new List<Vehicle_Relationship__Share>();
         for (Vehicle_Relationship__c vr:vrList )
@@ -466,21 +463,6 @@ public with sharing class VehicleRelationshipHelper {
                            Finance_Dealer__r.Name,vehicle_ID__c from Vehicle_Relationship__c where ID =:vrId];        
         }
         
-        if(!conid.isEmpty() && conid != null)
-        {
-            acclinkList = [select id , torole__c, fromRole__c from Account_Link__c where torole__c =:conid];
-        }
-        if(!acclinkList.isEmpty() && acclinkList != null)
-        {
-            for(Account_Link__c aclnk : acclinkList)
-            {
-                system.debug('role>>>>' + aclnk.toRole__c);
-                system.debug('role>>' + aclnk.id);
-                acLinkMap.put(aclnk.toRole__c, aclnk.id);
-            }
-        }
-        system.debug('aclink>>>>' + acLinkMap);
-        system.debug('acclinkList>>>..' + acclinkList);
         if(!shareVrList.isEmpty() && shareVrList != null)
         {
             for(Vehicle_Relationship__c shrVr : shareVrList)
@@ -490,22 +472,6 @@ public with sharing class VehicleRelationshipHelper {
                 accountmap.put(shrVr.id , shrVr.Contact__c);
                 vehMap.put(shrVr.id , shrVr.Vehicle_ID__c);
                 accvechmMap.put(shrVr.Contact__c, vehMap);
-                if(!acclinkList.isEmpty() && acclinkList != null)
-        		{
-                    for(Account_Link__c aclnk : acclinkList)
-                    {
-                        system.debug('role>>>>' + aclnk.toRole__c);
-                        system.debug('role>>' + aclnk.id);
-                        if(shrVr.Owner_Dealer__c == aclnk.fromRole__c)
-                        {
-                        	acLinkMap.put(aclnk.toRole__c, aclnk.id);
-                        }
-                        if(shrVr.Finance_Dealer__c == aclnk.fromRole__c)
-                        {
-                        	finacLinkMap.put(aclnk.toRole__c, aclnk.id);
-                        }                        
-                    }
-                }
             }
         }
         if(!ownerGroup.isEmpty() && ownerGroup!= null)
@@ -538,14 +504,6 @@ public with sharing class VehicleRelationshipHelper {
                     accSha.CaseAccessLevel = 'None';
                     accountshareList.add(accsha);
                     
-                    if(!acclinkList.isEmpty() && acclinkList != null && acLinkMap.get(sVr.Contact__c) != null)
-                    {                       
-                        Account_Link__Share alinkShare = new Account_Link__Share();
-                        alinkShare.ParentId = acLinkMap.get(sVr.Contact__c);
-                        alinkShare.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
-                        alinkShare.AccessLevel = 'Edit';
-                        aclnkshareList.add(alinkShare);
-                    }
                     if(!shareVrList.isEmpty() && shareVrList !=null)
                     {
                         Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
@@ -573,14 +531,6 @@ public with sharing class VehicleRelationshipHelper {
                     accfinsha.CaseAccessLevel = 'None';
                     accountshareList.add(accfinsha);
                     
-                    if(!acclinkList.isEmpty() && acclinkList != null && finacLinkMap.get(sVr.Contact__c) != null)
-                    {
-                        Account_Link__Share alinkfinShare = new Account_Link__Share();
-                        alinkfinShare.ParentId = finacLinkMap.get(sVr.Contact__c);
-                        alinkfinShare.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
-                        alinkfinShare.AccessLevel = 'Edit';
-                        aclnkshareList.add(alinkfinShare);
-                    }
                     if(!shareVrList.isEmpty() && shareVrList != null)
                     {
                         Vehicle_Relationship__Share vrfinShare = new Vehicle_Relationship__Share();
@@ -605,10 +555,6 @@ public with sharing class VehicleRelationshipHelper {
         if(!accountshareList.isEmpty() && accountshareList != null)
         {
             insert accountshareList;
-        }
-        if(!aclnkshareList.isEmpty() && aclnkshareList !=null)
-        {
-            insert aclnkshareList;
         }
         if(!vechshareList.isEmpty() && vechshareList != null)
         {

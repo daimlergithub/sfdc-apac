@@ -2,7 +2,7 @@
     Type:       Utility for LeadAfterUpdate
     Purpose:    1.Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
                 2.Assigned lead to Dealer Lead Gate Keeper
-                3.Share lead's contact to Dealer Sales Gate Keeper
+                3.ShFare lead's contact to Dealer Sales Gate Keeper
                 4.If a lead is created from Inquiry case, copy lead id to Case's lead.  US-IB-001
     User Story: US-DP-022, US-DP-023, US-DP-014, US-IB-001
     Used By:  
@@ -32,7 +32,7 @@ public class LeadHelper
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS)].Id;
     private static final String EmcOrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_EMC)].Id;
-   private static boolean autoAssignLead_boolean = false;
+   private static boolean boolean_autoassignleads = false;
     private static Integer SLA_hot ;
     private static Integer SLA_Warm;
     private static Integer SLA_cold;
@@ -713,31 +713,22 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     //    system will auto assign them to the gate keepers of the assigned
     //    dealers, and send email notifications to lead owners and
     //    proper contacts
-  public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate){
-       try{
-           if (autoAssignLead_boolean== false ){
-           
-         Set<Id> rtIdSet = new Set<Id>();
-        rtIdSet.add(leadFinanceRT);
-        rtIdSet.add(leadVehicleRt);
-        rtIdSet.add(leadSPRt);
-           //autoAssignLead_boolean
-           System.debug(' boolean value >>>>>>>>>> ' + autoAssignLead_boolean);
-           autoAssignLead_boolean = true;
-		System.debug(' auto assign Leads >>>>>>>>>> ' + newMap.size());
-        // Get all leads that need to be dealt
-       
-        List<String> etNames = New List<String>();
-        etNames.add('Lead_Assignment_Notification_Individual');
-        etNames.add('Lead_Assignment_Notification_Company ');
-        etNames.add('Lead_Gate_Keeper_Notification_Individual');
-        etNames.add('Lead_Gate_Keeper_Notification_Company');
-		etNames.add('Leads_Immediate_Notice');
-       
-        EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
+    public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate){
+        set<String> setNatureRequest = new set<string>{'Quote Request','Parts Enquiry','Parts Enquiries', 'Service Booking'};
+            try{
+                if (boolean_autoassignleads== false){
                     
-        List<EmailTemplate> List_Email_Template = [SELECT Id, DeveloperName FROM EmailTemplate WHERE  DeveloperName IN : etNames] ;
-        for (EmailTemplate et: List_Email_Template){
+                    boolean_autoassignleads= true;           
+                    Set<Id> rtIdSet = new Set<Id>{leadFinanceRT,leadVehicleRt,leadSPRt};
+                        List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
+                    System.debug(' auto assign Leads >>>>>>>>>> ' + boolean_autoassignleads);
+                    System.debug('auto assign Leads boolean value >>>>>>>>>> ' + newMap.size());
+                    List<String> etNames = New List<String>{'Lead_Assignment_Notification_Individual','Lead_Assignment_Notification_Company ', 'Lead_Gate_Keeper_Notification_Individual','Lead_Gate_Keeper_Notification_Company','Leads_Immediate_Notice' };
+                        
+                        EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
+                    Map<id,id> ldDlerIdMap= new Map<id,id>(); 
+                    List<EmailTemplate> List_Email_Template = [SELECT Id, DeveloperName FROM EmailTemplate WHERE  DeveloperName IN : etNames] ;
+                    for (EmailTemplate et: List_Email_Template){
                         if (et.DeveloperName =='Lead_Assignment_Notification_Individual'){
                             etToAssignement_Person= et;
                         }
@@ -755,205 +746,120 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             etToImmediateNotice=et;
                         }
                     }
-        
-        List<Id> toBeDealtLdIds = new List<Id>();
-        Map<Id, Id> ldDlerIdMap = new Map<Id, Id>();
-         Map<Id, Id> ldsalesconsulatantIdMap = new Map<Id, Id>();
-        for(Id curLdId : newMap.keySet()){
-           
-            Lead__c curLd = newMap.get(curLdId);
-            if(rtIdSet.contains(curLd.RecordTypeId)){
-                if(curLd.Assigned_Dealer__c != null && curLd.CAC_Lead_Status__c == 'Qualified'){
+                    Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,Nature_of_Request__c,Business_unit__c,Sub_BusinessUnit__c,RecordTypeId,Sales_Consultant__c,ownerid, Contact__c, Assigned_Dealer__c,Contact__r.recordtypeid FROM Lead__c Where id IN : newMap.keySet()]);
+                    Map<id,id> ldsalesconsulatantIdMap = new Map<id,id>();
                     
-                    if((oldMap == null || oldMap.get(curLdId) == null) || curLd.Business_unit__c != oldMap.get(curLdId).Business_unit__c || curLd.sub_businessunit__c != oldMap.get(curLdId).sub_businessunit__c || curLd.CAC_Lead_Status__c != oldMap.get(curLdId).CAC_Lead_Status__c)
+                    for(Lead__c Lead : newleadmap.Values())
                     {
-                          toBeDealtLdIds.add(curLdId);
-                            ldDlerIdMap.put(curLdId, curLd.Assigned_Dealer__c);
-                    }
-                   
-                }
-                if (curLd.Sales_Consultant__c != null && (oldMap.get(curLdid)== NULL ||  oldMap.get(curLdid).Sales_Consultant__c !=  curLd.Sales_Consultant__c)) {
-                   ldsalesconsulatantIdMap.put(curLdId,curLd.Sales_Consultant__c );
-                }
-            }
-        }
-       System.debug('LdsalesconsulatantIDDDDDD'+ldsalesconsulatantIdMap);
-        if (!ldsalesconsulatantIdMap.isEmpty()){
-        Set<Id> SalesConsultantIdSet = new Set<Id>();
-        SalesConsultantIdSet.addAll(ldsalesconsulatantIdMap.values());
-        List< Contact> SalesConsultantList = [SELECT id, AccountId FROM Contact WHERE id IN: SalesConsultantIdSet];
-        Map<id,id> S_Consulatnt_to_act_Map = new Map<id,Id>();
-        for(Contact Cn: SalesConsultantList){
-            S_Consulatnt_to_act_Map.put(cn.id,cn.AccountId);
-        }
-        Map<id,Account> ConsultantAccountMap = new Map<id,Account>([SELECT Id, RecordTypeId FROM Account Where Id IN: S_Consulatnt_to_act_Map.values()]);  
-            system.debug('IDDDDDDDDD'+ConsultantAccountMap);
-            for (Id leadId: ldsalesconsulatantIdMap.keySet()){
-                Messaging.SingleEmailMessage mail; 
-                Id ContactId= ldsalesconsulatantIdMap.get(leadId);
-                Id AccountId = S_Consulatnt_to_act_Map.get(ContactId);
-                Id RecordTypeId = ConsultantAccountMap.get(AccountId).recordTypeId;
-                system.debug('RecordTypeid'+RecordTypeId+'\n perAccountrt'+PersonalAccountRT);
-                if (RecordTypeId == PersonalAccountRT){
-                     mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Person.Id,leadId ) ;
-                }
-                else{
-                     mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Company.Id,leadId ) ;
-                }
-           }
-        }
-     
-        
-        // Auto assign the lead to the gate keeper of the dealer Account, and send email notification to the new owner and the 'Immediate Notice' dealer contacts
-     
-        
-        if(!toBeDealtLdIds.isEmpty()){
-            List<Lead__c> toBeDealtLeads = [SELECT Id,Assigned_Dealer__c, Business_unit__c, sub_businessunit__c, OwnerId FROM Lead__c WHERE Id IN: toBeDealtLdIds];
-            System.debug('toBedealtleads'+toBeDealtLeads);
-            Set<Id> dealerIds = new Set<Id>();
-            dealerIds.addAll(ldDlerIdMap.values());
-            Map<Id,Id> ldDealerRecordTypeMap = new Map<Id,Id>();
-            Map<Id, Account> AccountMap= new Map<Id, Account>([SELECT Id, RecordTypeId FROM Account Where Id IN: dealerIds]);
-            for (Id ld: ldDlerIdMap.keySet()){
-                ldDealerRecordTypeMap.put(ld,AccountMap.get(ldDlerIdMap.get (ld)).recordtypeId);
-                
-            }
-
-            Map<Id, String> accountIdOffSer = new Map<Id, String>();
-             Map<Id, String> accountIdBuss = new Map<Id, String>();
-            
-            System.Debug('IIIIIIIIIIIIIIII'+dealerIds);
-            for(Contact con : [SELECT Id,AccountId,Business_unit__c, sub_businessunit__c FROM contact WHERE AccountId IN: dealerIds AND Dealer_Lead_Gate_Keeper__c = true]){
-                if(con.Business_unit__c != null)
-                    accountIdBuss.put(con.AccountId, con.Business_unit__c);
-                if(con.sub_businessunit__c != null)
-                    accountIdOffSer.put(con.AccountId, con.sub_businessunit__c);
-            }
-            System.Debug('AccountIdBuss'+accountIdBuss);
-            System.Debug('AccountIdBuss'+accountIdOffSer);
-            
-            // Get the gate keeper users of all relevant dealer accounts
-            List<User> dlerGKUsers = new List<User>();
-               
-               dlerGKUsers = [SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId =: [SELECT Id,Dealer_Lead_Gate_Keeper__c FROM Contact WHERE AccountId IN: dealerIds AND Dealer_Lead_Gate_Keeper__c = true]];
-            	System.debug('dlerGKUsers'+dlerGKUsers);
-            If(Test.isRunningtest()) {
-                dlerGKUsers = [SELECT Id, ContactId, Contact.AccountId
-                   FROM User limit 1];
-            }
-            // Map the dealer accounts Ids with the gate keeper users Ids
-            Map<Id, Id> dlerGKIdMap = new Map<Id, Id>();
-            for(User curUser : dlerGKUsers){
-                dlerGKIdMap.put(curUser.Contact.AccountId, curUser.Id);
-            }
-
-            // Get the 'Immediate Notice' dealer contacts of all relevant dealer accounts, exclude dealer sales gate keepers
-         /*   List<Contact> dlerCnttList = [SELECT Id, AccountId FROM Contact WHERE Lead_Escalation_Recipient_Type__c = 'Immediate Notice' AND Dealer_Lead_Gate_Keeper__c = false AND AccountId IN: ldDlerIdMap.values()];
-            Map<Id, Set<Id>> dlerCnttIdMap = new Map<Id, Set<Id>>();
-            for(Contact curCntt : dlerCnttList){
-                Set<Id> cnttIdSet = new Set<Id>();
-                if(dlerCnttIdMap.get(curCntt.AccountId) == null){
-                    cnttIdSet.add(curCntt.Id);
-                    dlerCnttIdMap.put(curCntt.AccountId, cnttIdSet);
-                }
-                else{
-                    cnttIdSet = dlerCnttIdMap.get(curCntt.AccountId);
-                    cnttIdSet.add(curCntt.Id);
-                    dlerCnttIdMap.put(curCntt.AccountId, cnttIdSet);
-                }
-            }
-*/
-            if(!dlerGKIdMap.isEmpty()){
-                Map<Id, Id> ldNewOwnerMap = new Map<Id, Id>();
-                for(Id curLdId : ldDlerIdMap.keySet()){
-                    Id dlerId = ldDlerIdMap.get(curLdId);
-                    if(dlerGKIdMap.get(dlerId) != null){
-                        ldNewOwnerMap.put(curLdId, dlerGKIdMap.get(dlerId));
-                    }
-                    /*If(!Test.isRunningtest()) {
-                        for(User curUser : dlerGKUsers){
-                            ldNewOwnerMap.put(curLdId, curUser.Id);
+                        //if(rtIdSet.contains(Lead.RecordTypeId))
+                        //{
+                            if (Lead.Assigned_Dealer__c != null && (Lead.CAC_Lead_Status__c == 'Qualified' || setNatureRequest.contains(Lead.Nature_of_Request__c)))
+                            {
+                                System.debug('Request >>>>>>>>>>>>>>> ' + Lead.Nature_of_Request__c);
+                                ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+                            }
+                        //}
+                        if (Lead.Sales_Consultant__c != null && (oldMap.get(Lead.id)== NULL ||  oldMap.get(Lead.id).Sales_Consultant__c !=  Lead.Sales_Consultant__c)) 
+                        {
+                            ldsalesconsulatantIdMap.put(Lead.id,lead.Sales_Consultant__c );
                         }
-                    }*/
-                }
-
-                if(!ldNewOwnerMap.isEmpty()){
-                    // Get email template Id for Lead assignment notification
-                    //Get Email Templates from Dealer FOlder
-                     List<Lead__c> toBeUpdatedLeads = new List<Lead__c>();
-                    Set<Messaging.Email> mailSet= new Set<Messaging.Email>();
-                    for(Lead__c curLd : toBeDealtLeads){
-                        System.debug('============'+curLd.Business_Unit__c);
-                            System.debug('============'+curLd.sub_BusinessUnit__c);
-                        if(accountIdBuss.containsKey(curLd.Assigned_Dealer__c) && accountIdBuss.get(curLd.Assigned_Dealer__c).indexOf(curLd.Business_unit__c) != -1 && accountIdOffSer.containsKey(curLd.Assigned_Dealer__c) && accountIdOffSer.get(curLd.Assigned_Dealer__c).indexOf(curLd.sub_BusinessUnit__c) != -1 ){
-                            System.debug('PPPPPPPPPP');
-                            if(ldNewOwnerMap.get(curLd.Id) != null){
-                            // Assign the leads to the dealer sales gate keeper
-                            Id newOwnerId = ldNewOwnerMap.get(curLd.Id);
-                            System.debug('+++++++++++++++++'+curLd.ownerId);
-                            System.debug('+++++++++++++++++'+newOwnerId);
-                            curLd.OwnerId = newOwnerId;
-                            toBeUpdatedLeads.add(curLd);
-                            // Send email notification to the new owner
-                             Messaging.SingleEmailMessage mail;
-                            if (curLd.contact__r.recordtypeId != null && (curLd.contact__r.recordtypeId ==  PersonalAccountRT  && etToOwner_Person !=NULL)){
-                                System.debug('Personal Record Type '+curld.Id);
-                              mail   = SingleEmailMessageWithparams(newOwnerId,etToOwner_Person.Id,curLd.Id );
-                                 mailSet.add(mail);
+                    }
+                    System.debug('Map Size >>>>>>>>>>>>>' + ldDlerIdMap.size());
+                    Set<ID> DealerIdSet = new Set<id>(ldDlerIdMap.values());
+                    Map<id, Account> AccountMap = New Map<id,Account> ([SELECT Id, RecordTypeId,(Select id, Business_Unit__c, Sub_BusinessUnit__c,Dealer_Lead_Gate_Keeper__c From Contacts WHERE Dealer_Lead_Gate_Keeper__c= true) FROM Account WHERE Id IN: DealerIdSet]);
+                    List<User> GateKeeperUsersList = [SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : DealerIdSet AND Dealer_Lead_Gate_Keeper__c = true)];
+                    System.debug('Users Size >>>>>>>>>>>>>' + GateKeeperUsersList.size());
+                    
+                    //// SalesCOnsultant 
+                    if (!ldsalesconsulatantIdMap.isEmpty()){
+                        Set<Id> SalesConsultantIdSet = new Set<Id>();
+                        SalesConsultantIdSet.addAll(ldsalesconsulatantIdMap.values());
+                        List<Contact> SalesConsultantList = [SELECT id, Email, AccountId FROM Contact WHERE id IN: SalesConsultantIdSet and Email != null];
+                        Map<id,id> S_Consulatnt_to_act_Map = new Map<id,Id>();
+                        for(Contact Cn: SalesConsultantList){
+                            S_Consulatnt_to_act_Map.put(cn.id,cn.AccountId);
+                        }
+                        Map<id,Account> ConsultantAccountMap = new Map<id,Account>([SELECT Id, RecordTypeId FROM Account Where Id IN: S_Consulatnt_to_act_Map.values()]);  
+                        for (Id leadId: ldsalesconsulatantIdMap.keySet()){
+                            
+                            Id ContactId= ldsalesconsulatantIdMap.get(leadId);
+                            Id AccountId = S_Consulatnt_to_act_Map.get(ContactId);
+                            Id RecordTypeId = ConsultantAccountMap.get(AccountId).recordTypeId;
+                            if (RecordTypeId == PersonalAccountRT){
+                                Messaging.SingleEmailMessage mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Person.Id,leadId ) ;
+                                mailList.add(mail);
                             }
                             else{
-                                if (etToOwner_Company!= NULL){
-                                     System.debug('Comapany Record Type '+curld.Id);
-                                    mail= SingleEmailMessageWithparams(newOwnerId,etToOwner_Company.Id,curLd.Id );
-                                     mailSet.add(mail);
-                                }
-                              
+                                Messaging.SingleEmailMessage mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Company.Id,leadId ) ;
+                                mailList.add(mail);
                             }
-                           
-
-                           /*
-                            Id curDlerId = ldDlerIdMap.get(curLd.Id);
-                            Set<Id> curDlerCnttIdSet = dlerCnttIdMap.get(curDlerId);
-                            if( curDlerCnttIdSet != null){
-                              
-                                for(Id curCnttId : curDlerCnttIdSet){
-                             Messaging.SingleEmailMessage mail2=SingleEmailMessageWithparams(curCnttId,etToImmediateNotice.Id,curLd.Id );
-                                    mailList.add(mail2);
-                                }
-                             
-                            }
-                          */
-                        }
-                      }
-                    }
-
-                    if(!toBeUpdatedLeads.isEmpty()){
-                        try{
-                            update toBeUpdatedLeads;
-                            Messaging.sendEmail(new List<Messaging.Email> (mailSet)); 
-                            system.debug('Count : ' + mailSet.size());
-                            system.debug('SENTTTTTTTTTT');
-                        }
-                        catch(DMLException e){
-                            system.debug('Debug Output ======> {Error: '+ e + '}');
-                        }
-                        catch(Exception e){
-                            system.debug('Debug Output ======> {Error: '+ e + '}');
                         }
                     }
+                    
+                    // Gate keeper is true , Business unit is match and Offered Unit is match
+                    Map<id, User> ContacttoUserMap= new Map<id, User>();
+                    for(User usr: GateKeeperUsersList){
+                        ContacttoUserMap.put(usr.contactId, usr);
+                    }
+                    
+                    
+                    // Mail notification to Gate keeper 
+                    if(ContacttoUserMap!= Null && !ContacttoUserMap.isEmpty()){
+                        List<Lead__c> updateleadslist= new List<lead__c>();
+                        for(ID LeadId:ldDlerIdMap.keySet() ){
+                            Lead__c lead = newleadmap.get (leadid);
+                            ID AccId=ldDlerIdMap.get(LeadId);
+                            Account Acct= AccountMap.get(AccId);
+                            List<Contact> Cnts = AccountMap.get(AccId).contacts;
+                            User usr = new user();
+                            for ( Contact cnt : Cnts){
+                                
+                                if (cnt.business_unit__c != null && cnt.business_unit__c .Indexof(lead.Business_unit__c)> -1 && cnt.Sub_BusinessUnit__c != null && cnt.Sub_BusinessUnit__c.Indexof(lead.Sub_BusinessUnit__c) > -1){
+                                    usr= ContacttoUserMap.get(cnt.id);
+                                    System.debug('User name >>>>>>>>>>> ' + usr.id);
+                                    break;
+                                }
+                            }
+                            if (usr.id != Null ){
+                                newleadmap.get(LeadId).ownerid= usr.id;
+                                updateleadslist.add ( newleadmap.get(LeadId));
+                                if (newleadmap.get(LeadId).contact__r.recordtypeid ==  PersonalAccountRT  && etToOwner_Person !=NULL){
+                                    
+                                    Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(usr.id,etToOwner_Person.Id,LeadId );
+                                    mailList.add(mail);
+                                }
+                                else{
+                                    if (etToOwner_Company!= NULL){
+                                        
+                                        Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(usr.id,etToOwner_Company.Id,LeadId );
+                                        mailList.add(mail);
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        System.debug('Messaging Size ' + mailList.size());
+                        if (mailList.size()>0){
+                            Messaging.sendEmail(mailList);
+                            update updateleadslist;
+                        }
+                    }     
+                    
+                    
                 }
+                
+            }catch(Exception Ex){
+                System.debug('Exception >>>>>>>> ' + ex.getMessage());
+                System.debug('Caused By >>>>>>>>>>>>> ' + ex.getCause());
+                System.debug(' Line Number >>>>>>>>>>' + Ex.getLineNumber());
             }
-        }
-       } 
-
-          
- 
-} Catch (Exception ex){
-      System.debug('error following getting message ' + ex.getMessage());}
     }
+    
     private static Messaging.SingleEmailMessage SingleEmailMessageWithparams(Id TargetObjectId, Id EmailTemplateId , Id WhatObjectId ){
          Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();
-		mail.setSaveAsActivity(false);
+        mail.setSaveAsActivity(false);
          mail.setTargetObjectId(TargetObjectId);
          mail.setTemplateId(EmailTemplateId);
          mail.setOrgWideEmailAddressId(OrgWideEmailAddressId);
@@ -1563,7 +1469,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                (lead.Business_Unit__c == 'Cars' || lead.Business_Unit__c == 'Vans') && (isInsert || (isUpdate && lead.Business_Unit__c != leadOldMap.get(lead.Id).Business_Unit__c)))
             {         
                 leadMailMap.put(lead.id,lead.Email__c);
-            }		            
+            }                   
         }
         
         EmailTemplate etassigneddealer = [SELECT Id,Body,Subject FROM EmailTemplate WHERE Name = 'Brochure Request/Test Drive Request Email CARS' limit 1];         
@@ -1591,7 +1497,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     
                     System.debug('The email was sent successfully.');
                 }   
-            }		
+            }       
             catch(Exception e)
             {
                 system.debug('Email notification when Assigned Dealer is changed Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
@@ -1672,7 +1578,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         
         for(Lead__c led : leadlist)
-        {           		            
+        {                               
              if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (carMap.containsKey(led.Business_Unit__c)))
              {
                 CustomLogUtil.CustomLoggingEntry('Lead Priority Score ' +leadlist.size() );
@@ -1723,7 +1629,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         }
                     }
                      system.debug('vehiclerelationClasslist>>>>>' + vehiclerelationClasslist);
-					if(!contractList.isEmpty() && contractList != null)
+                    if(!contractList.isEmpty() && contractList != null)
                     {
                         for(Retail_Task__c rtask : contractList)
                         {
@@ -1770,7 +1676,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         purchasetime = purchaseMap.get(led.Purchase_Time__c);
                     }
-                   	
+                    
                     if(!behaviourMap.isEmpty() && behaviourMap != null)
                     {
                         if(led.Contact__c != null)
@@ -1823,7 +1729,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         {
                             if(vechClassMap.containsKey(vehicleInterestList[i]))
                             {
-                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                                highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
                             }
                         }
                         if(!highestClassMap.isEmpty() && highestClassMap != null)
@@ -1948,7 +1854,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         {
                             if(vechClassMap.containsKey(vehicleInterestList[i]))
                             {
-                            	highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
+                                highestClassMap.put(vehicleInterestList[i],vechClassMap.get(vehicleInterestList[i]));
                             }
                         }
                         if(!highestClassMap.isEmpty() && highestClassMap != null)
@@ -1992,7 +1898,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         led.Lead_Priority__c = 'Cold';
                     }
-            	}
+                }
              }
             if((led.RecordTypeId == leadVehicleRt) && (leadRequestMap.containsKey(led.Nature_of_Request__c)) && (vanMap.containsKey(led.Business_Unit__c)))
             {
@@ -2002,8 +1908,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     }
     
     /*
-	Requirment : If a dealer is creating a lead then update the dealer_assignment_Date__c as current date
-	*/
+    Requirment : If a dealer is creating a lead then update the dealer_assignment_Date__c as current date
+    */
     public static void updateDealerAssignmentDate(List<Lead__C> leadList){
         Set<Id> dealerIdSet = new Set<Id>();
         list<Lead__c> updateLeadList = new List<Lead__c>();
@@ -2030,7 +1936,15 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-      
+        try{
+            if(!updateLeadList.isEmpty())
+                update updateLeadList;
+        }
+        catch(Exception ex){
+            System.debug('Exception >>>>>>>> ' + ex.getMessage());
+            System.debug('Caused By >>>>>>>>>>>>> ' + ex.getCause());
+            System.debug(' Line Number >>>>>>>>>>' + Ex.getLineNumber());
+        }
     }
     /* Calculation of Dealer Due Date*/
 
@@ -2041,20 +1955,20 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
         for (Lead__c Lead: list_leads_new)
         {
-			Integer SLADuration=0;
+            Integer SLADuration=0;
            
             if ((lead.Assigned_Dealer__c!= null && Lead.Dealer_Assignment_Date__c != null ) && lead.Lead_Priority__c != null) {
                
                 Datetime Localtime = datetime.valueOfGMT(Lead.Dealer_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
                  if (lead.Lead_Priority__c == 'Hot'){
-       				 SLADuration= SLA_hot;
-        			}
-      			if (lead.Lead_Priority__c == 'Warm'){
-         			SLADuration= SLA_Warm;
-        			}
-        		if (lead.Lead_Priority__c== 'Cold'){
-         			SLADuration= SLA_cold;
-        			}
+                     SLADuration= SLA_hot;
+                    }
+                if (lead.Lead_Priority__c == 'Warm'){
+                    SLADuration= SLA_Warm;
+                    }
+                if (lead.Lead_Priority__c== 'Cold'){
+                    SLADuration= SLA_cold;
+                    }
                 if (SLADuration > 0){
                  
                  lead.Dealer_Due_Date__c=   GetDueTimeofLead(Localtime,SLADuration);
@@ -2068,14 +1982,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             if(lead.Consultant_Assignment_Date__c!=null &&  lead.Lead_Priority__c != null){
                 Datetime Localtime = datetime.valueOfGMT(lead.Consultant_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
                   if (lead.Lead_Priority__c == 'Hot'){
-       				 SLADuration= SLA_hot;
-        			}
-      			if (lead.Lead_Priority__c == 'Warm'){
-         			SLADuration= SLA_Warm;
-        			}
-        		if (lead.Lead_Priority__c== 'Cold'){
-         			SLADuration= SLA_cold;
-        			}
+                     SLADuration= SLA_hot;
+                    }
+                if (lead.Lead_Priority__c == 'Warm'){
+                    SLADuration= SLA_Warm;
+                    }
+                if (lead.Lead_Priority__c== 'Cold'){
+                    SLADuration= SLA_cold;
+                    }
                 if (SLADuration > 0){
                  
                  lead.Consultant_Due_Date__c=   GetDueTimeofLead(Localtime,SLADuration);
@@ -2088,113 +2002,113 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
      public Static Long DifferenceMinutesbetweenStartEndtime(datetime Starttime,datetime Endtime )
     {
-       		Long long_startdate= Starttime.getTime();
-			Long long_enddate = Endtime.getTime();
-			Long milliseconds = long_startdate - long_enddate;
-			Long seconds = milliseconds / 1000;
-			Long minutes = seconds / 60;
-			return minutes;
+            Long long_startdate= Starttime.getTime();
+            Long long_enddate = Endtime.getTime();
+            Long milliseconds = long_startdate - long_enddate;
+            Long seconds = milliseconds / 1000;
+            Long minutes = seconds / 60;
+            return minutes;
     }
     public Static void valuesofDuedateValuesfromCustomMetaData()
-    		{
-        		try
-        			{
-     					List<Due_Date_Overdue__mdt> List_Overdue = [SELECT Lead_Priority__c,MasterLabel,Business_Hour_End_time__c, Business_Hour_start_time__c ,SLA_Duration__c FROM Due_Date_Overdue__mdt];
-   		
-        				for( Due_Date_Overdue__mdt Overdue: List_Overdue){
-            			if (Overdue.Lead_Priority__c == 'Hot' && Overdue.MasterLabel.contains('Hot')){
-               				SLA_hot=  Integer.valueof(Overdue.SLA_Duration__c );
-            			}
-             			if (Overdue.Lead_Priority__c == 'Warm' && Overdue.MasterLabel.contains('Warm')){
-                 			SLA_Warm=  Integer.valueof(Overdue.SLA_Duration__c) ;
-            			}
-             			if (Overdue.Lead_Priority__c== 'Cold' && Overdue.MasterLabel.contains('Cold')){
-                 			SLA_cold=  Integer.valueof(Overdue.SLA_Duration__c );
-            			}
-            			if (Overdue.MasterLabel.contains('Business') ){
-                 			Str_Business_Start_hour = Overdue.Business_Hour_start_time__c;
-                 			Str_Business_End_hour = Overdue.Business_Hour_End_time__c;
-            			}
-        		}
+            {
+                try
+                    {
+                        List<Due_Date_Overdue__mdt> List_Overdue = [SELECT Lead_Priority__c,MasterLabel,Business_Hour_End_time__c, Business_Hour_start_time__c ,SLA_Duration__c FROM Due_Date_Overdue__mdt];
+        
+                        for( Due_Date_Overdue__mdt Overdue: List_Overdue){
+                        if (Overdue.Lead_Priority__c == 'Hot' && Overdue.MasterLabel.contains('Hot')){
+                            SLA_hot=  Integer.valueof(Overdue.SLA_Duration__c );
+                        }
+                        if (Overdue.Lead_Priority__c == 'Warm' && Overdue.MasterLabel.contains('Warm')){
+                            SLA_Warm=  Integer.valueof(Overdue.SLA_Duration__c) ;
+                        }
+                        if (Overdue.Lead_Priority__c== 'Cold' && Overdue.MasterLabel.contains('Cold')){
+                            SLA_cold=  Integer.valueof(Overdue.SLA_Duration__c );
+                        }
+                        if (Overdue.MasterLabel.contains('Business') ){
+                            Str_Business_Start_hour = Overdue.Business_Hour_start_time__c;
+                            Str_Business_End_hour = Overdue.Business_Hour_End_time__c;
+                        }
+                }
    
              }
-        			Catch(Exception ex){
-            				System.debug('Excpetion follwing Cause ' + ex.getMessage());
-        			}
-    	}
+                    Catch(Exception ex){
+                            System.debug('Excpetion follwing Cause ' + ex.getMessage());
+                    }
+        }
     public Static Datetime GetDueTimeofLead(Datetime StartTime, Integer SLADuration)
-			{
-        		Datetime DueDateandTime;
-        		try
-        			{ 
-        					integer remainingMinutes =  SLADuration * 60;
-        					
-							Datetime today_working_hour_start_time =Converttimeinto24hrFormat(StartTime,Str_Business_Start_hour);
+            {
+                Datetime DueDateandTime;
+                try
+                    { 
+                            integer remainingMinutes =  SLADuration * 60;
+                            
+                            Datetime today_working_hour_start_time =Converttimeinto24hrFormat(StartTime,Str_Business_Start_hour);
                         
-							Datetime today_working_hour_end_time=Converttimeinto24hrFormat(StartTime,Str_Business_End_hour) ;
+                            Datetime today_working_hour_end_time=Converttimeinto24hrFormat(StartTime,Str_Business_End_hour) ;
                            SYSTEM.debug('today_working_hour_start_time >>>>>>>>>> ' +  today_working_hour_start_time );
                     SYSTEM.debug('today_working_hour_end_time >>>>>>>>>> ' +  today_working_hour_end_time );
-       						//Calculate the total business time in minutes
-        					Integer daily_business_minutes =integer.valueof(DifferenceMinutesbetweenStartEndtime(today_working_hour_end_time,today_working_hour_start_time));  
-       						// This condition for today remaing time from assign the lead 
-        					if (Starttime.format('EEEE') !='Sunday' && (today_working_hour_start_time <=  StartTime &&  StartTime < = today_working_hour_end_time)) 
-        						{
-             						Integer todayminutes =integer.valueof(DifferenceMinutesbetweenStartEndtime(today_working_hour_end_time,StartTime));
-                                  	Integer afterremainminues =    remainingMinutes-todayminutes;
+                            //Calculate the total business time in minutes
+                            Integer daily_business_minutes =integer.valueof(DifferenceMinutesbetweenStartEndtime(today_working_hour_end_time,today_working_hour_start_time));  
+                            // This condition for today remaing time from assign the lead 
+                            if (Starttime.format('EEEE') !='Sunday' && (today_working_hour_start_time <=  StartTime &&  StartTime < = today_working_hour_end_time)) 
+                                {
+                                    Integer todayminutes =integer.valueof(DifferenceMinutesbetweenStartEndtime(today_working_hour_end_time,StartTime));
+                                    Integer afterremainminues =    remainingMinutes-todayminutes;
                                      
-                					if ( afterremainminues <= 0) 
-                					{
-                                  		DueDateandTime= StartTime.addminutes(remainingMinutes);
-									}
-                 					remainingMinutes = afterremainminues;
-								}
-     							// condition for assign time before the start time of the business hour 
-            				if (StartTime > = today_working_hour_start_time)
+                                    if ( afterremainminues <= 0) 
+                                    {
+                                        DueDateandTime= StartTime.addminutes(remainingMinutes);
+                                    }
+                                    remainingMinutes = afterremainminues;
+                                }
+                                // condition for assign time before the start time of the business hour 
+                            if (StartTime > = today_working_hour_start_time)
                             {
-                				today_working_hour_start_time = today_working_hour_start_time.addDays(1);
-               					today_working_hour_end_time = today_working_hour_end_time.addDays(1); 
-                			}
+                                today_working_hour_start_time = today_working_hour_start_time.addDays(1);
+                                today_working_hour_end_time = today_working_hour_end_time.addDays(1); 
+                            }
                       
-						 While(DueDateandTime == null)
-            				{ 
-				  				if (today_working_hour_start_time.format('EEEE') !='Sunday' )
-                					{
-										Integer afterremainminues = remainingMinutes - daily_business_minutes;
+                         While(DueDateandTime == null)
+                            { 
+                                if (today_working_hour_start_time.format('EEEE') !='Sunday' )
+                                    {
+                                        Integer afterremainminues = remainingMinutes - daily_business_minutes;
 
                                         if ( afterremainminues <= 0) 
-                							{
-                								DueDateandTime =today_working_hour_start_time.addminutes(remainingMinutes);
+                                            {
+                                                DueDateandTime =today_working_hour_start_time.addminutes(remainingMinutes);
                                              
-                							}
-                     				remainingMinutes = afterremainminues;
-               						}
-                					today_working_hour_start_time = today_working_hour_start_time.addDays(1);
-               						today_working_hour_end_time = today_working_hour_end_time.addDays(1);
+                                            }
+                                    remainingMinutes = afterremainminues;
+                                    }
+                                    today_working_hour_start_time = today_working_hour_start_time.addDays(1);
+                                    today_working_hour_end_time = today_working_hour_end_time.addDays(1);
                              
-            				} 
-					
+                            } 
+                    
    
-        		}
-					catch(Exception Ex)
-					{
-    					System.debug('Error Following Reason : ' + Ex .getMessage() + ' Line Caused to Error : ' + Ex.getLineNumber());
-					}
+                }
+                    catch(Exception Ex)
+                    {
+                        System.debug('Error Following Reason : ' + Ex .getMessage() + ' Line Caused to Error : ' + Ex.getLineNumber());
+                    }
                System.debug('Due Time : Lead : ' +  DueDateandTime);
                 
            
                return datetime.valueOf(DueDateandTime.format('yyyy-MM-dd HH:mm:ss','GMT'));
          }        
 
-   		public Static Datetime Converttimeinto24hrFormat(datetime dateandtime1 , String time_str1)
+        public Static Datetime Converttimeinto24hrFormat(datetime dateandtime1 , String time_str1)
          {
-         	integer hour = Integer.valueOf(time_str1.substring(0,time_str1.indexOf(':')));
-        	integer minute = integer.valueOf(time_str1.substring(time_str1.indexOf(':')+1 ,time_str1.indexOf(':')+3));
-        	if (time_str1.contains('PM')  ) {
-            	hour+=12;
-        	}
-      		return  datetime.valueOfGMT(dateandtime1.format('yyyy-MM-dd','GMT') + ' ' +  hour + ':' + minute + ':00' );
+            integer hour = Integer.valueOf(time_str1.substring(0,time_str1.indexOf(':')));
+            integer minute = integer.valueOf(time_str1.substring(time_str1.indexOf(':')+1 ,time_str1.indexOf(':')+3));
+            if (time_str1.contains('PM')  ) {
+                hour+=12;
+            }
+            return  datetime.valueOfGMT(dateandtime1.format('yyyy-MM-dd','GMT') + ' ' +  hour + ':' + minute + ':00' );
             
- 	 	} 
+        } 
     
     /* To Prevent Dealers to create duplicate Leads */
     
@@ -2208,11 +2122,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             {
                 if(dedupLeads.Contact__c != null)
                 {
-                	newLedaccId.add(dedupLeads.Contact__c);
+                    newLedaccId.add(dedupLeads.Contact__c);
                 }
                 else if(dedupLeads.Company_Account__c != null)
                 {
-                	newLedaccId.add(dedupLeads.Company_Account__c);
+                    newLedaccId.add(dedupLeads.Company_Account__c);
                 }
             }            
         }
@@ -2220,7 +2134,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             olddeDupleadList = [select id, name, business_unit__c, Nature_of_Request__c, Purchase_Time__c, MB_Vehicle_Interest__c,
                                 Test_Drive_Date__c, Assigned_Dealer__c, Contact__c,Company_Account__c,Preferred_Drop_off_Time__c,
-                            	Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId OR Company_Account__c =:newLedaccId];
+                                Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId OR Company_Account__c =:newLedaccId];
         }
         
         for(Lead__c olddedupLeads : olddeDupleadList)
@@ -2274,7 +2188,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-    }	
+    }   
     public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList)
     {
         set<id> dleadId = new set<id>();
@@ -2286,7 +2200,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         List<Lead__c> leaddrList = new List<Lead__c>();
         for(Lead__c drled : assignLeadList)
         {
-			if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
+            if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
             {
                 dleadId.add(drled.Id);
             }
@@ -2321,7 +2235,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             for(Group assg : assgroupList)
             {
-            	assgroupMap.put(assg.Name, assg.id);
+                assgroupMap.put(assg.Name, assg.id);
             }
         }
         if(!leaddrList.isEmpty() && leaddrList != null)
