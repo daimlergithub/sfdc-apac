@@ -293,6 +293,9 @@ Global class UtilWebservice
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+		sendingCustomerDetails.Address_xc = new List<crmasiaDaimlerApacComCustomeridentif.Address>();
+        crmasiaDaimlerApacComCustomeridentif.Address addrValues = new crmasiaDaimlerApacComCustomeridentif.Address();
+		
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
@@ -310,25 +313,24 @@ Global class UtilWebservice
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
-        if(sendingCustomerDetails.Address_xc!=null)
-        {
-        sendingCustomerDetails.Address_xc[0].Address_Code_xc=AddressObj.Address_Code__c;
-        sendingCustomerDetails.Address_xc[0].Address_Line_1_xc=AddressObj.Address_Line_1__c;
-        sendingCustomerDetails.Address_xc[0].Address_Line_2_xc=AddressObj.Address_Line_2__c;
-        sendingCustomerDetails.Address_xc[0].Block_xc=AddressObj.Block__c;
-        sendingCustomerDetails.Address_xc[0].City_xc=AddressObj.City__c;
-        sendingCustomerDetails.Address_xc[0].District_xc=AddressObj.District__c;
-        sendingCustomerDetails.Address_xc[0].Province_xc=AddressObj.Province__c;
-        sendingCustomerDetails.Address_xc[0].ZipCode_xc=AddressObj.ZipCode__c;
-        sendingCustomerDetails.Address_xc[0].Country_xc=AddressObj.Country__c;
-        sendingCustomerDetails.Address_xc[0].Company_Name_xc=AddressObj.Company_Name__c;
-        sendingCustomerDetails.Address_xc[0].Company_Name_Native_xc=AddressObj.Company_Name_Native__c;
-        sendingCustomerDetails.Address_xc[0].Delivery_Point_ID_xc=AddressObj.Delivery_Point_ID__c;
-        sendingCustomerDetails.Address_xc[0].HouseNumber_xc=AddressObj.HouseNumber__c;
-        sendingCustomerDetails.Address_xc[0].Temp_Address_xc=AddressObj.Temp_Address__c;
-        sendingCustomerDetails.Address_xc[0].Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
-        sendingCustomerDetails.Address_xc[0].TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
-        }
+		
+		addrValues.Address_Code_xc=AddressObj.Address_Code__c;
+        addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;
+        addrValues.Address_Line_2_xc=AddressObj.Address_Line_2__c;
+        addrValues.Block_xc=AddressObj.Block__c;
+        addrValues.City_xc=AddressObj.City__c;
+        addrValues.District_xc=AddressObj.District__c;
+        addrValues.Province_xc=AddressObj.Province__c;
+        addrValues.ZipCode_xc=AddressObj.ZipCode__c;
+        addrValues.Country_xc=AddressObj.Country__c;
+        addrValues.Company_Name_xc=AddressObj.Company_Name__c;
+        addrValues.Company_Name_Native_xc=AddressObj.Company_Name_Native__c;
+        addrValues.Delivery_Point_ID_xc=AddressObj.Delivery_Point_ID__c;
+        addrValues.HouseNumber_xc=AddressObj.HouseNumber__c;
+        addrValues.Temp_Address_xc=AddressObj.Temp_Address__c;
+        addrValues.Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
+        addrValues.TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
+        sendingCustomerDetails.Address_xc.add(addrValues);
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
