@@ -69,9 +69,11 @@
         <fullName>Address_Line_1_Native__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1 Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Address_Line_1__c</fullName>
@@ -87,9 +89,11 @@
         <fullName>Address_Line_2_Native__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 2 Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Address_Line_2__c</fullName>
@@ -180,9 +184,11 @@
         <fullName>Block_Native__c</fullName>
         <externalId>false</externalId>
         <label>Block Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Block__c</fullName>
@@ -198,9 +204,11 @@
         <fullName>City_Native__c</fullName>
         <externalId>false</externalId>
         <label>City Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>City__c</fullName>
@@ -289,9 +297,11 @@
         <fullName>District_Native__c</fullName>
         <externalId>false</externalId>
         <label>Town Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>District__c</fullName>
@@ -393,9 +403,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Province_Native__c</fullName>
         <externalId>false</externalId>
         <label>Prefecture Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Province__c</fullName>
