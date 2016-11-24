@@ -101,12 +101,6 @@ public class AccountLinkHelper
     Public static void shareAccountToDealer(List<Account_Link__c> aclinkList)
     {
         set<id> aclnkId = new set<id>();
-        set<id> accid = new set<id>();
-        List<Account> shaccList = new List<Account>();
-        List<Vehicle_Relationship__c> shvRList = new List<Vehicle_Relationship__c>();
-        set<id> vRId = new set<id>();
-        map<id,id> vRMap = new map<id,id>();
-        map<id,id> vechMap = new map<id,id>();
         set<string> grpId = new set<string>();
         map<string,id> groupMap = new map<string,id>();
         List<Group> grpList = new List<Group>();
@@ -129,23 +123,11 @@ public class AccountLinkHelper
             for(Account_Link__c acln : shareaclkList)
             {
                 grpId.add(acln.fromrole__r.Name);
-                accid.add(acln.toRole__c);
                 accountMap.put(acln.Id, acln.toRole__c);
             }
         }
         system.debug('groupID>>>>' + grpId);
-        if(!accid.isEmpty() && accid != null)
-        {
-            shvRList = [select id , contact__c , vehicle_ID__c from Vehicle_Relationship__c where contact__c =:accid];
-        }
-        if(!shvRList.isEmpty() && shvRList != null)
-        {
-            for(Vehicle_Relationship__c srVr : shvRList)
-            {
-                vRMap.put(srVr.contact__c, srVr.id);
-                vechMap.put(srVr.Contact__c, srVr.Vehicle_ID__c);
-            }            
-        }
+        
         grpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpId];
         for(Group gr :grpList)
         {
@@ -172,22 +154,6 @@ public class AccountLinkHelper
                     alinkShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
                     alinkShare.AccessLevel = 'Edit';
                     shareacclinkList.add(alinkShare);
-                    if(!vRMap.isEmpty() && vRMap.get(shaclnk.toRole__c) != null)
-                    {
-                        Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
-                        vrShare.ParentId = vRMap.get(shaclnk.toRole__c);
-                        vrShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                        vrShare.AccessLevel = 'Edit';
-                        shareacclinkList.add(vrShare);
-                    }
-                    if(!vechMap.isEmpty() && vechMap != null)
-                    {
-                        Vehicle__Share shrVehicle = new Vehicle__Share();
-                        shrVehicle.ParentId = vechMap.get(shaclnk.toRole__c);
-                        shrVehicle.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
-                        shrVehicle.AccessLevel = 'Edit';
-                        shareacclinkList.add(shrVehicle);
-                    }
                 }
         	}
         }

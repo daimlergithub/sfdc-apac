@@ -81,10 +81,12 @@
         <description>To Store the Correlation ID received from Auto-line through UI integration. Hidden field not to be displayed to the user.</description>
         <externalId>false</externalId>
         <label>Correlation ID</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CreatedById__c</fullName>
