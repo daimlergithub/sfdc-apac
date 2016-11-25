@@ -68,7 +68,7 @@ public class ContactHelper {
                 
                 if(con.Dealer_Lead_Gate_Keeper__c && AccountIdHasSalesKeeper.contains(con.AccountId))
                 {
-                    con.addError(HasSalesGetKeeper);
+                    //con.addError(HasSalesGetKeeper);
                 }
             }   
         }
