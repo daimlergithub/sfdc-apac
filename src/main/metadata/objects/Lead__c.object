@@ -4300,10 +4300,6 @@ Collectioner_Name__r.HomePhone
         <label>Insurance Type</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>This outlet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -23626,10 +23622,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other outlet</fullName>
                 <default>false</default>
             </values>
@@ -36228,13 +36220,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
             <values>
                 <fullName>JEEP</fullName>
@@ -48827,13 +48812,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
             <values>
                 <fullName>JEEP</fullName>
@@ -60282,13 +60260,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special Programme</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
