@@ -126,6 +126,21 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Point_of_Purchase__c</fullName>
+		<description>/* 
+			Point of Purchase (Age)
+		*/</description>
+        <externalId>false</externalId> 
+		<formula>
+		 IF(AND(ISNULL(Contact__r.PersonContact.Birthdate),ISNULL(Start_Date__c)),'',TEXT(FLOOR((Start_Date__c-Contact__r.PersonContact.Birthdate +1)/365.2425)))
+		</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Point of Purchase (Age)</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>	
+		<unique>false</unique>		
+    </fields>
     <fields>
         <fullName>Brand__c</fullName>
         <externalId>false</externalId>
