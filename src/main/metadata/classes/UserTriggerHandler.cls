@@ -36,7 +36,7 @@ public class UserTriggerHandler
         if (trigger.isBefore && trigger.isUpdate) {
             UserHelper.ValidateUser(Trigger.new);   
         }
-        if ((trigger.isBefore && trigger.isInsert)) {
+        if ((trigger.isAfter  && trigger.isInsert)) {
             UserHelper.ApexShare((List<User>)trigger.new);   
         }
     }
