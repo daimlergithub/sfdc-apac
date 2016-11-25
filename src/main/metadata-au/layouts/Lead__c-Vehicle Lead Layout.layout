@@ -159,6 +159,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Marketing_Opt_Out__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lodgment_Date__c</field>
             </layoutItems>
         </layoutColumns>
@@ -275,9 +279,9 @@
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
-        <label>New Section</label>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Lead Age and Activity Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
