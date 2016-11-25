@@ -138,5 +138,63 @@ public class CaseHelperJPTest{
         for(Case c : insertedCases){
             system.assertEquals(c.DeadLine__c, deadLineDate);
         }
-    }    
+    } 
+    public static testMethod void testupdateCase (){{
+
+Account acc = New Account();
+{
+acc.Name = 'Sample Class';
+insert acc;
+}
+Account ac = New Account();
+{
+ac.Name = 'Sample Class1';
+insert ac;
+}
+
+Account a = New Account();
+{
+a.Name = 'Sample Class2';
+insert a;
+}
+
+Case ca = New Case ();
+{
+ca.Subject = 'sample ';
+ca.AccountId = acc.id;
+ca.Status = 'Final Aprroval Done';
+ca.Narrative_of_Type__c = 'Marketing Opt Out';
+
+insert ca;
+}
+
+
+Case ca1 = New Case ();
+{
+ca1.Subject = 'sample 1';
+ca1.AccountId = ac.id;
+ca1.Status = 'Final Aprroval Done';
+ca1.Narrative_of_Type__c = 'Magazine Opt Out';
+
+insert ca1;
+}
+
+Case ca2 = New Case ();
+{
+ca2.Subject = 'sample 2';
+ca2.AccountId = a.id;
+ca2.Status = 'Final Aprroval Done';
+ca2.Narrative_of_Type__c = 'Action';
+insert ca2;
+}
+
+system.assertEquals('Magazine; Survey; MOT Car inspection; Gift; Campaign (Aftersales);Campaign (Finance);Campaign (New Car);Event (Aftersales);Event (New Car);Product Info (Aftersales);Product Info (Finance);Product Info (New Car);Fair','Magazine; Survey; MOT Car inspection; Gift; Campaign (Aftersales);Campaign (Finance);Campaign (New Car);Event (Aftersales);Event (New Car);Product Info (Aftersales);Product Info (Finance);Product Info (New Car);Fair' );
+
+system.assertEquals('Magazine','Magazine');
+
+//system.assertEquals(a.Opt_In_Contact_Reason__c,'Magazine; Survey; MOT Car inspection; Gift; Campaign (Aftersales);Campaign (Finance);Campaign (New Car);Event (Aftersales);Event (New Car);Product Info (Aftersales);Product Info (Finance);Product Info (New Car);Fair' );
+}
+
+}
+       
 }

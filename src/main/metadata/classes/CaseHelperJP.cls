@@ -291,4 +291,39 @@ public with sharing class CaseHelperJP {
             } 
           }      
        }
+       
+       
+public  void updateCase (List<case> caseSta) {
+
+map<id, string> accidmap = new map<id, string>();
+List<Account> accUpdLst = new List<Account>();
+    
+        for(case cas: caseSta){
+            if (cas.Narrative_of_Type__c == 'Marketing Opt Out'){
+                accidmap.put(cas.accountId, 'Marketing Opt Out');
+            }
+            if (cas.Narrative_of_Type__c == 'Magazine Opt Out'){
+                accidmap.put(cas.accountId, 'Magazine Opt Out');
+            }
+           
+        }   
+    
+    if(accidmap.size() > 0){
+        List<Account> accLst = new List<Account>([select id, Opt_In_Contact_Reason__c from account where id in: accidmap.keyset()]);
+        for(Account acc: accLst){
+            if(accidmap.get(acc.id) == 'Marketing Opt Out'){
+                acc.Opt_In_Contact_Reason__c = 'Magazine; Survey; MOT Car inspection; Gift; Campaign (Aftersales);Campaign (Finance);Campaign (New Car);Event (Aftersales);Event (New Car);Product Info (Aftersales);Product Info (Finance);Product Info (New Car);Fair';
+            }
+           
+            if(accidmap.get(acc.id) == 'Magazine Opt Out'){
+                acc.Opt_In_Contact_Reason__c = 'Magazine';
+            }
+            accUpdLst.add(acc);
+        }
+        if(accUpdLst.size()>0){
+            update accUpdLst;
+        }
+    }
+ 
+}
  }
