@@ -2343,10 +2343,6 @@
             <translation>加入していない</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Other outlet</masterLabel>
             <translation>本販売店以外の販売店・代理店</translation>
         </picklistValues>
