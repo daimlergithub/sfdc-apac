@@ -277,6 +277,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Accident_repair_history__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Accident repair history</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -367,6 +377,16 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Authentification_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Authentification Address</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Best_Contact_Time__c</fullName>
         <externalId>false</externalId>
         <label>Best Contact Time</label>
@@ -376,6 +396,19 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bonus_Payment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Bonus Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -394,6 +427,90 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Buyer__c</fullName>
+        <externalId>false</externalId>
+        <label>Buyer</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CA_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CA_Requested__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CA Requested</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CA_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Result</label>
+        <picklist>
+            <picklistValues>
+                <fullName>JPOS status (MBF internal)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CA_result_shared__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CA result shared</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>CLB_Used__c</fullName>
@@ -8564,6 +8681,52 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Confirmation_person__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmation person</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Confirmed_with_Person_name__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmed with (Person name)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ContactEmail</fullName>
         <trackTrending>false</trackTrending>
     </fields>
@@ -8643,6 +8806,28 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_document_requested_date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Contract document requested date</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contractor_UCID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.UCID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contractor UCID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Correction__c</fullName>
@@ -8916,6 +9101,16 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>DOB__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DOB</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Data_Source__c</fullName>
         <externalId>false</externalId>
         <label>Data Source</label>
@@ -9121,6 +9316,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_application_input__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Date of application input</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>DeadLine__c</fullName>
@@ -9981,6 +10186,84 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Document_sending_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Document sending date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Down_payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Down payment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Due_date_of_adjustment_charge__c</fullName>
+        <externalId>false</externalId>
+        <label>Due date of adjustment charge</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ET_Type_for_Close_Mileage__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Type for Close Mileage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ET_calculation_sheet_availability_check__c</fullName>
+        <externalId>false</externalId>
+        <label>ET calculation sheet availability check</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>EU_VIN__c</fullName>
         <externalId>false</externalId>
         <label>EU FIN</label>
@@ -10217,6 +10500,44 @@ Modify Reason:
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>EuroVIN__c</fullName>
+        <externalId>false</externalId>
+        <label>EuroVIN</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Evidence_Check__c</fullName>
+        <externalId>false</externalId>
+        <label>Evidence Check</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>External_Case_ID__c</fullName>
         <externalId>false</externalId>
         <label>External Case ID</label>
@@ -10424,6 +10745,90 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Final_app_Planned_repossession_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final-app : Planned repossession date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_app_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final-app : date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_app_due_date_of_penalty_charge__c</fullName>
+        <externalId>false</externalId>
+        <label>Final-app : due date of penalty charge</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_app_payment_confirmation__c</fullName>
+        <externalId>false</externalId>
+        <label>Final-app : payment confirmation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_app_result_Invoice_amount_Penalty__c</fullName>
+        <externalId>false</externalId>
+        <label>Final-app result: Invoice amount_Penalty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_monthly_payment_date1__c</fullName>
+        <externalId>false</externalId>
+        <label>Final monthly payment date1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_monthly_payment_date2__c</fullName>
+        <externalId>false</externalId>
+        <label>Final monthly payment date2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_monthly_payment_date_check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Final monthly payment date check/ET Date check/Payment due date check/ET Total payment amount/Regarding DD information/Regarding Payment due date/Regarding ET agreement/Invoice</inlineHelpText>
+        <label>Final monthly payment date check</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>First_OB_By__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -10476,6 +10881,16 @@ Modify Reason:
 */</description>
         <externalId>false</externalId>
         <label>First OB Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_payment__c</fullName>
+        <externalId>false</externalId>
+        <label>First payment</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10706,6 +11121,28 @@ Modify Reason:
                 <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Govt_Subsidy_reimburse__c</fullName>
+        <externalId>false</externalId>
+        <label>Govt. Subsidy reimburse</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11502,6 +11939,18 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Invoice_amount_of_adjustment_charge__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice amount of adjustment charge</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>IsClosedOnCreate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -12255,6 +12704,83 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Payer_Company_Person_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Payer(Company/Person/Phone)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payer_Same_as_Requestor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Payer (Same as Requestor)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payer__c</fullName>
+        <externalId>false</externalId>
+        <label>Payer</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Payer_address__c</fullName>
+        <externalId>false</externalId>
+        <label>Payer address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Payer_input_check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Payer input check</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Perferred_Contact_Email__c</fullName>
         <externalId>false</externalId>
         <label>Perferred Contact Email</label>
@@ -12274,6 +12800,40 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Place_of_vehicle_repossession__c</fullName>
+        <externalId>false</externalId>
+        <label>Place of vehicle repossession</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Policy_Number__c</fullName>
@@ -12307,6 +12867,59 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Pre_app_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-app.：Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JAAI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Pre_app_Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Pre-app.：1st requested date / 2nd requested date</inlineHelpText>
+        <label>Pre-app.：Requested Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_app_requested_date_to_JAAI__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-app.：requested date to JAAI</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_app_result_shared__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-app.： result shared</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Previous_Owner__c</fullName>
@@ -12961,6 +13574,47 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Re_lease_term__c</fullName>
+        <externalId>false</externalId>
+        <label>Re-lease term</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Re_lease_voluntary_insurance_check__c</fullName>
+        <externalId>false</externalId>
+        <label>Re-lease voluntary insurance check</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Reason</fullName>
         <picklist>
             <picklistValues>
@@ -13010,6 +13664,129 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Receiver1_For_quotation__c</fullName>
+        <externalId>false</externalId>
+        <label>Receiver1 (For quotation)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Receiver_Company_Person_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Receiver (Company/Person/Phone)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receiver_Preferred_comm_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Receiver Preferred comm. Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Receiver_Same_as_Requestor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Receiver (Same as Requestor)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Receiver_address__c</fullName>
+        <externalId>false</externalId>
+        <label>Receiver address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Receiver_address_type__c</fullName>
+        <externalId>false</externalId>
+        <label>Receiver address type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Record_Status__c</fullName>
         <externalId>false</externalId>
         <label>Record Status</label>
@@ -13022,6 +13799,58 @@ ISPICKVAL(Vehicle_Brand__c,'Maybach')
                 <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reduction_of_fee_for_date1__c</fullName>
+        <externalId>false</externalId>
+        <label>Reduction of fee (for date1)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reduction_of_fee_for_date2__c</fullName>
+        <externalId>false</externalId>
+        <label>Reduction of fee (for date2)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13075,6 +13904,48 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Regarding_ET_for_insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Regarding ET for insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Regarding_Payment_due_date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Regarding Payment due date</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Regarding_Vehicle_transfer_doc__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Regarding Vehicle transfer doc</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Region__c</fullName>
         <externalId>false</externalId>
         <label>Region</label>
@@ -13102,6 +13973,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Registered_Phone_no__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Registered Phone no</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Registration_Number__c</fullName>
@@ -13542,6 +14423,88 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Replacement__c</fullName>
+        <externalId>false</externalId>
+        <label>Replacement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Request_date_time__c</fullName>
+        <externalId>false</externalId>
+        <label>Request date/time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Requestor_Company_Person_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Requestor (Company/Person/Phone)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requestor__c</fullName>
+        <externalId>false</externalId>
+        <label>Requestor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Requires_Dealer_Contact__c</fullName>
         <defaultValue>false</defaultValue>
         <description>/* 
@@ -13720,6 +14683,28 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Non_Retail_car__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail/Non-Retail car</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Risk_classification__c</fullName>
@@ -14626,6 +15611,16 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Settlement_Amount__c</fullName>
@@ -17451,6 +18446,16 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Vehicle_repossession_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle repossession date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Vehicle_you_are_most_interested_in__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle you are most interested in?</label>
@@ -17831,6 +18836,28 @@ Modify Reason:
         <type>Url</type>
     </fields>
     <fields>
+        <fullName>Voluntary_insurance_check__c</fullName>
+        <externalId>false</externalId>
+        <label>Voluntary insurance check</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Web_Category__c</fullName>
         <externalId>false</externalId>
         <label>Web Category</label>
@@ -17925,6 +18952,28 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X3_months_usage__c</fullName>
+        <externalId>false</externalId>
+        <label>3 months usage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>customercare_cn__c</fullName>
@@ -18268,6 +19317,28 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All Cases</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>CASE_MB_Complaint</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CASES.RECORDTYPE</columns>
+        <columns>CASES.REASON</columns>
+        <columns>Case_SubSubType__c</columns>
+        <columns>External_Case_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>CASE_MB_Complaint</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -18769,6 +19840,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Not reply Chrysler complaint</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Zakkiya_sultana</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>External_Case_ID__c</columns>
+        <columns>External_Created_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Zakkiya sultana</label>
+        <language>en_US</language>
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -18777,6 +19863,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <businessProcess>Inquiry Process</businessProcess>
         <description>Chrysler Complaint Record Type</description>
         <label>Chrysler Complaint</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -19761,6 +20877,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -20378,6 +21517,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -20417,6 +21582,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -20510,6 +21690,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21175,6 +22366,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -21182,6 +22419,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21315,6 +22563,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -21338,6 +22604,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -21345,6 +22668,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21707,6 +23071,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22891,9 +24304,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22903,6 +24338,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
         <label>FOS Complaint</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -29223,6 +30688,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -29868,6 +31356,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -29907,6 +31421,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -30000,6 +31529,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30761,6 +32301,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -30768,6 +32354,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30941,6 +32538,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -30964,6 +32579,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -30971,6 +32643,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -31333,6 +33046,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33817,6 +35579,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Brochure Request</fullName>
@@ -33859,6 +35632,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Inquiry</fullName>
@@ -33866,6 +35650,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <businessProcess>Inquiry Process</businessProcess>
         <description>Customer Inquiry Case</description>
         <label>Enquiry</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -39678,6 +41492,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -40295,6 +42132,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -40334,6 +42197,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -40427,6 +42305,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41100,6 +42989,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -41107,6 +43042,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41240,6 +43186,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -41263,6 +43227,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -41270,6 +43291,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41632,6 +43694,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -43964,9 +46075,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -43976,6 +46109,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
         <label>MBDA Complaint</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -50188,6 +52351,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -50817,6 +53003,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -50856,6 +53068,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -50949,6 +53176,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -51618,6 +53856,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -51625,6 +53909,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -51758,6 +54053,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -51781,6 +54094,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -51788,6 +54158,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -52150,6 +54561,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54374,9 +56834,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54386,6 +56868,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
         <label>MBDA Inquiry</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -60342,6 +62854,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -60960,6 +63495,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -60999,6 +63560,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -61092,6 +63668,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61761,6 +64348,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -61768,6 +64401,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61901,6 +64545,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -61924,6 +64586,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -61931,6 +64650,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62293,6 +65053,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64517,9 +67326,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64530,6 +67361,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <businessProcess>MB Complaint Process</businessProcess>
         <description>MB Complaint includes Import &amp; Export MB</description>
         <label>MB Complaint</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -66382,6 +69243,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -66999,6 +69883,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -67038,6 +69948,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -67131,6 +70056,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -67796,6 +70732,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -67803,6 +70785,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -67936,6 +70929,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -67959,6 +70970,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -67966,6 +71034,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -68328,6 +71437,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -70040,9 +73198,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -70053,6 +73233,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <businessProcess>MB Complaint Process</businessProcess>
         <description>For migrating history Cases. explicitly created for the linkage of Task. Requested by migration team James.</description>
         <label>Object Connector</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -71221,6 +74431,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -71830,6 +75063,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -71869,6 +75128,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -71962,6 +75236,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -72627,6 +75912,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -72634,6 +75965,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -72767,6 +76109,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -72790,6 +76150,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -72797,6 +76214,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -73159,6 +76617,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -74419,9 +77926,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -74431,6 +77960,36 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <active>true</active>
         <businessProcess>MB Complaint Process</businessProcess>
         <label>Retail Campaign</label>
+        <picklistValues>
+            <picklist>Buyer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CA_Result__c</picklist>
+            <values>
+                <fullName>JPOS status %28MBF internal%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>
@@ -80728,6 +84287,29 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Confirmation_person__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Customer_Request__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -81369,6 +84951,32 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>ET_Type_for_Close_Mileage__c</picklist>
+            <values>
+                <fullName>ET A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ET_calculation_sheet_availability_check__c</picklist>
+            <values>
+                <fullName>No but can confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No cannot confirm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>0%3DSent</fullName>
@@ -81408,6 +85016,21 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <values>
                 <fullName>3%3DNone</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evidence_Check__c</picklist>
+            <values>
+                <fullName>Checked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -81501,6 +85124,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Govt_Subsidy_reimburse__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -82170,6 +85804,52 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payer__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Place_of_vehicle_repossession__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PotentialLiability__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -82177,6 +85857,17 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pre_app_Location__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JAAI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -82310,6 +86001,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Re_lease_term__c</picklist>
+            <values>
+                <fullName>1 Yr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Yrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Re_lease_voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Reason</picklist>
             <values>
                 <fullName>Complex function</fullName>
@@ -82333,6 +86042,63 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Receiver1_For_quotation__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_Preferred_comm_Channel__c</picklist>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receiver_address_type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -82340,6 +86106,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date1__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reduction_of_fee_for_date2__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regarding_ET_for_insurance__c</picklist>
+            <values>
+                <fullName>Explained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -82702,6 +86509,55 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>VPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Replacement__c</picklist>
+            <values>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor__c</picklist>
+            <values>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Non_Retail_car__c</picklist>
+            <values>
+                <fullName>Non-Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -84926,9 +88782,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Voluntary_insurance_check__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Web_Category__c</picklist>
             <values>
                 <fullName>Contact Us</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>X3_months_usage__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
