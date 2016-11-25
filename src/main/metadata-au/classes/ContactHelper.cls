@@ -97,19 +97,11 @@ public class ContactHelper {
 						   Set<String> Con1_business_unit_set= new set<String>(con1.Business_Unit__c.split(';'));
 						   for(String businessunit: Con_business_unit_set){
 							   if(Con1_business_unit_set.Contains(businessunit)){
-								   con.adderror('Business unit options of this contact is simillar to existed contacts. choose the different values');
-								 
-								   
+								   con.adderror('Business unit options of this contact is simillar to existed contacts. choose the different values');								   
 								   
 							   }
 						   }
-						   Set<String> Con_offer_service_set= new set<String>(con.Sub_BusinessUnit__c.split(';'));
-						   Set<String> Con1_offer_service_set= new set<String>(con1.Sub_BusinessUnit__c.split(';'));
-						   for(String offerservice: Con_offer_service_set){
-							   if(Con1_offer_service_set.Contains(offerservice)){
-								   con.adderror('Offered services options of this contact is simillar to existed contacts. choose the different values');
-								 }
-						   }
+						 
 						}
 					}
 			   }
