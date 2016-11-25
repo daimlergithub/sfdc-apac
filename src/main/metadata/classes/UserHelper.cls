@@ -836,14 +836,22 @@ public with sharing class UserHelper {
             }
         }
     }
-    public Static void ApexShare(List<User> usrList){        
+    public Static void ApexShare(List<User> usrList){   
+        system.debug('usrList '+usrList);
         Set<Id> userIds = new Set<Id>();
+        Set<Id> ProfileIds = new Set<Id>();
         for(User u : usrList){
-            if(U.Profile.Name.Contains('Dealer')){
+            ProfileIds.add(u.ProfileId);
+        }
+        Map<Id,Profile> profileMaps = new Map<Id,Profile>([Select id,Name from Profile where Id In : ProfileIds]);
+        for(User u : usrList){
+            Profile p = profileMaps.get(u.ProfileId);
+            if(P != NULL && P.Name.Contains('Dealer')){
                 userIds.add(u.id);
             }
         }
-        Map<Id,User> userMap = new Map<Id,User>([select Id,Name,Contact.AccountId from user where Id In : userIds]);
+       
+       Map<Id,User> userMap=new  Map<Id,User>([select Id,Name,Contact.AccountId from user where Id In : userIds]);
         set<Id> dealerAccountIds = new set<Id>();
         if(userMap.size() > 0){
             for(User u : userMap.Values()){
