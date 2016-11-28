@@ -174,6 +174,8 @@
 			   <sf:include name="CommunitiesLandingController"/>
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
+			   <sf:include name="VehicleRelationshipHelper"/>
+			   
 			</sf:typeset>
 		</deploy>
     </target>
@@ -618,7 +620,7 @@
 			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>
-			<sf:include name="VehicleRelationshipHelper"/>		
+			<!--<sf:include name="VehicleRelationshipHelper"/>		-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>
