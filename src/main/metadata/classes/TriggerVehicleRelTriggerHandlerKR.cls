@@ -18,7 +18,7 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
             
            if(trigger.isAfter && (trigger.isInsert))
             {
-              	VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);                
+                VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);                
             }
             if(trigger.isAfter && Trigger.isUpdate) 
             {
@@ -28,13 +28,17 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
            if(trigger.isAfter && Trigger.isDelete) {
               VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
             }
-        	if(trigger.isBefore && trigger.isInsert)
+            if(trigger.isBefore && trigger.isInsert)
             {
                 VehicleRelationshipHelperJP.validateOverlappingVehicleRelationshiponInsert(Trigger.new);
             }
-        	if(trigger.isBefore && trigger.isUpdate)
+            if(trigger.isBefore && trigger.isUpdate)
             {
                 VehicleRelationshipHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
+            }
+            if(trigger.isAfter && trigger.isUpdate || trigger.isAfter && trigger.isInsert)
+            {
+                VehicleRelationshipHelper.updateRecall(trigger.new);
             }
     }
 

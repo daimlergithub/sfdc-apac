@@ -4911,18 +4911,14 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4931,6 +4927,10 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6997,15 +6997,22 @@
                 <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues><picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8391,18 +8398,14 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MyM</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8411,6 +8414,10 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
