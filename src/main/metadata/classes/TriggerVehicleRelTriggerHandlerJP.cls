@@ -28,12 +28,14 @@ public class TriggerVehicleRelTriggerHandlerJP
         Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
          // US-CP-007
-        /* if (trigger.isBefore && trigger.isInsert){
-                vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
-         }*/
-       /*  if(trigger.isBefore && trigger.isUpdate){
-                vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
-         }*/
+         if (trigger.isBefore && trigger.isInsert){
+                //vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
+                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New, new Map<Id,Vehicle_Relationship__c>());
+         }
+         if(trigger.isBefore && trigger.isUpdate){
+                //vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
+                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
+         }
        // Update Status , Update Vehicle Relationship and Create Account Link 
         
        if(trigger.isAfter && (trigger.isInsert))
