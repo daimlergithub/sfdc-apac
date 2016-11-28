@@ -4467,6 +4467,18 @@
         <label>NT</label>
         <name>National_Model__c</name>
     </fields>
+	<fields>
+        <label><!-- New Used --></label>
+        <name>New_Used__c</name>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>新車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation>中古車</translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label><!-- NextEmissionsCheckDate --></label>
         <name>NextEmissionsCheckDate__c</name>
