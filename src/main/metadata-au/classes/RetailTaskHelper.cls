@@ -473,17 +473,20 @@ public with sharing class RetailTaskHelper
     public static void sharewithServiceDealers(list<Retail_Task__c> retailtaskList)
     {
         set<id> rtaskid = new set<id>();
+        set<id> userGroupId = new set<id>();
+        set<id> vechUserGroupId = new set<id>();
         set<string> groupid = new set<string>();
         set<id> shraccid = new set<id>();
         set<id> relatedvechId = new set<id>();
         map<string,id> groupMap = new map<string,id>();
         map<id,id> dealermap = new map<id,id>();
         map<id,id> vehMap = new map<id,id>();
-        map<id,id> chkduplicateShareMap = new map<id,id>();
+        map<id,set<id>> chkduplicateShareMap = new map<id,set<id>>();
         map<id,map<id,id>> accvechmMap = new map<id,map<id,id>>();
         map<id,List<Vehicle_Relationship__c>> vrMap = new map<id,List<Vehicle_Relationship__c>>();
         List<Vehicle_Relationship__c> vrelList = new List<Vehicle_Relationship__c>();
         List<Accountshare> duplisharedList = new List<AccountShare>();
+        List<Vehicle__share> duplivechicleList = new List<Vehicle__share>();
         List<Retail_Task__c> rtasklist = new List<Retail_Task__c>();
         List<Vehicle_Relationship__c> sharedVrlist = new List<Vehicle_Relationship__c>();
         List<Group> groupList = new List<Group>();
@@ -497,6 +500,18 @@ public with sharing class RetailTaskHelper
             }
         }
         
+        if(!relatedvechId.isEmpty() && relatedvechId != null)
+        {
+            duplivechicleList = [select ParentId, UserOrGroupId, AccessLevel from Vehicle__Share where ParentId =:relatedvechId];
+        }
+        if(!duplivechicleList.isEmpty() && duplivechicleList != null)
+        {
+            for(Vehicle__Share dupli: duplivechicleList)
+            {
+                vechUserGroupId.add(dupli.UserOrGroupId);
+                chkduplicateShareMap.put(dupli.ParentId, vechUserGroupId);
+            }
+        }
         if(!rtaskid.isEmpty() && rtaskid != null)
         {
             rtasklist = [select id , Account__c, Related_Vehicle__c, Service_Dealer__c , Service_Dealer__r.Name from Retail_Task__c where id =:rtaskid];
@@ -541,7 +556,8 @@ public with sharing class RetailTaskHelper
         {
             for(AccountShare accsh : duplisharedList)
             {
-                chkduplicateShareMap.put(accsh.AccountId , accsh.UserOrGroupId);                    
+                userGroupId.add(accsh.UserOrGroupId);
+                chkduplicateShareMap.put(accsh.AccountId , userGroupId);                    
             }
         }
         
@@ -570,7 +586,7 @@ public with sharing class RetailTaskHelper
                    rtshare.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
                    rtshare.AccessLevel = 'Read';
                    shareList.add(rtshare);
-                   if(chkduplicateShareMap.get(rtk.Account__c) != groupMap.get(rtk.Service_Dealer__r.Name))
+                   if(!chkduplicateShareMap.get(vrMap.get(rtk.Related_Vehicle__c).get(0).contact__c).contains(groupMap.get(rtk.Service_Dealer__r.Name)))
                    {
                        if(!sharedVrlist.isEmpty() && sharedVrlist != null)
                        {
@@ -585,7 +601,8 @@ public with sharing class RetailTaskHelper
                                                   
                            system.debug('RelatedVehicleAccount>>>>>>' + vrMap.get(rtk.Related_Vehicle__c).get(0).Contact__c);
 
-                           if(!vrMap.isEmpty() && vrMap.get(rtk.Related_Vehicle__c) != null)
+                           if(!vrMap.isEmpty() && vrMap.get(rtk.Related_Vehicle__c) != null 
+                              && (!chkduplicateShareMap.get(rtk.Related_Vehicle__c).contains(groupMap.get(rtk.Service_Dealer__r.Name))))
                            {
                                Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
                                vrShare.ParentId = vrMap.get(rtk.Related_Vehicle__c).get(0).id;

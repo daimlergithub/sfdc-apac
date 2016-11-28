@@ -8585,6 +8585,50 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <fullName>Freelancers</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Associate Degree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diploma</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctoral Degree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Graduate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High School Certificate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Masters Degree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Formal Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Post Graduate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TAFE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>University</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8853,6 +8897,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaintant</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -11757,6 +11805,10 @@ To indicate that the dealer need to update their external systems</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaintant</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -16071,6 +16123,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>PC_Status__c</picklist>
             <values>
+                <fullName>Complaintant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Customer</fullName>
                 <default>false</default>
             </values>
@@ -17155,6 +17211,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>VAN_Status__c</picklist>
+            <values>
+                <fullName>Complaintant</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Customer</fullName>
                 <default>false</default>

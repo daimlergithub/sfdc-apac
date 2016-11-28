@@ -751,14 +751,17 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     
                     for(Lead__c Lead : newleadmap.Values())
                     {
-                        //if(rtIdSet.contains(Lead.RecordTypeId))
-                        //{
-                            if (Lead.Assigned_Dealer__c != null && (Lead.CAC_Lead_Status__c == 'Qualified' || setNatureRequest.contains(Lead.Nature_of_Request__c)))
+                        if (Lead.CAC_Lead_Status__c == 'Qualified'  ) 
+                        {
+                            if ((Oldmap.isEmpty()  || Oldmap.get(Lead.id)== null) || Lead.CAC_Lead_Status__c!=oldMap.get(Lead.id).CAC_Lead_Status__c || (oldMap.get(Lead.id).Assigned_Dealer__c == null  || oldMap.get(Lead.id).Assigned_Dealer__c !=Lead.Assigned_Dealer__c  ) ) 
                             {
-                                System.debug('Request >>>>>>>>>>>>>>> ' + Lead.Nature_of_Request__c);
                                 ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
                             }
-                        //}
+                        }
+                        else if (setNatureRequest.contains(Lead.Nature_of_Request__c) && Lead.Assigned_Dealer__c != null )
+                        {
+                            ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+                        }
                         if (Lead.Sales_Consultant__c != null && (oldMap.get(Lead.id)== NULL ||  oldMap.get(Lead.id).Sales_Consultant__c !=  Lead.Sales_Consultant__c)) 
                         {
                             ldsalesconsulatantIdMap.put(Lead.id,lead.Sales_Consultant__c );

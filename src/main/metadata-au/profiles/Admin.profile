@@ -11589,7 +11589,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.First_Activity_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12889,7 +12889,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Time_since_Last_Activity__c</field>
         <readable>true</readable>
     </fieldPermissions>
