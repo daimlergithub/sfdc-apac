@@ -36,7 +36,7 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Content_Preview__c</field>
             </layoutItems>
             <layoutItems>
