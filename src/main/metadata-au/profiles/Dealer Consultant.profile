@@ -8810,11 +8810,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Claim__c.Updated_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Claim__c.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
