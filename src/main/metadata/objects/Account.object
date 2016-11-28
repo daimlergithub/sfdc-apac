@@ -30254,9 +30254,7 @@ MD__c = 'JP'
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
         <description>Phone must be in any of the following formats : 
-1.	xxx-xxx-xxxx 
-2.	xxx-xxxx-xxxx
-3.	xxxx-xxxx-xxx</description>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -30274,9 +30272,7 @@ REGEX(Mobile__c, "[0130]{4}-[0-9]{3,4}-[0-9]{3}")
 )
 )</errorConditionFormula>
         <errorMessage>Mobile must be in any of the following formats : 
-1.	xxx-xxx-xxxx 
-2.	xxx-xxxx-xxxx
-3.	xxxx-xxxx-xxx</errorMessage>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
