@@ -23488,7 +23488,7 @@
         <enabled>true</enabled>
         <name>EditPublicFilters</name>
     </userPermissions>
-    <userPermissions>
+	<userPermissions>
         <enabled>true</enabled>
         <name>EditPublicReports</name>
     </userPermissions>
@@ -23502,11 +23502,11 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditTask</name>
+        <name>EditReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditReports</name>
+        <name>EditTask</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

@@ -23412,7 +23412,7 @@
         <enabled>true</enabled>
         <name>EditPublicFilters</name>
     </userPermissions>
-    <userPermissions>
+	<userPermissions>
         <enabled>true</enabled>
         <name>EditPublicReports</name>
     </userPermissions>
@@ -23561,7 +23561,7 @@
         <name>RunReports</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ScheduleReports</name>
     </userPermissions>
     <userPermissions>
