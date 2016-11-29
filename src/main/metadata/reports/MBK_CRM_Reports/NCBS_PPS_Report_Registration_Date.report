@@ -4,7 +4,7 @@
         <field>Vehicle_Relationship__c$Contact__c.Name</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Contact__c.Mobile__C</field>
+        <field>Vehicle_Relationship__c$Contact__c.Mobile__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Contact__c.Primary_Address_Display__c</field>
@@ -24,7 +24,7 @@
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.EngineNumber__c</field>
     </columns>
-		 <columns>
+    <columns>
         <field>Vehicle_Relationship__c$Selling_Dealer__c</field>
     </columns>
     <columns>

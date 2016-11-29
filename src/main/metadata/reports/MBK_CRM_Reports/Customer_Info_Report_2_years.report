@@ -118,9 +118,6 @@
         <field>Vehicle_Relationship__c$Contact__c.Main_Dealer__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Warranty_Expiry__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c$Contact__c.Vehicle_Amount__c</field>
     </columns>
     <columns>
@@ -139,10 +136,10 @@
         <field>Vehicle_Relationship__c$Contact__c.Salutation__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Vehicle_Brand__c</field>
+        <field>Vehicle_Relationship__c$Contact__c.Annual_Mileage__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Contact__c.Annual_Mileage__c</field>
+        <field>Vehicle_Relationship__c$Vehicle_Brand__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_Model__c</field>
@@ -157,10 +154,10 @@
         <field>Vehicle_Relationship__c$Vehicle_ID__c.CurrentMileage__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Vehicle_ID__c.CylinderCapacity__c</field>
+        <field>Vehicle_Relationship__c$Vehicle_ID__c.EngineNumber__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Vehicle_ID__c.EngineNumber__c</field>
+        <field>Vehicle_Relationship__c$Vehicle_ID__c.CylinderCapacity__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.Transmission__c</field>
@@ -193,16 +190,10 @@
         <field>Vehicle_Relationship__c$Vehicle_ID__c.ProductionDate__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Vehicle_ID__c.Retail_LastModifiedDate__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.LastServiceDate__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.LastModifiedDate</field>
-    </columns>
-    <columns>
-        <field>Vehicle_Relationship__c$Vehicle_ID__c.LastModifiedBy</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c$Vehicle_ID__c.UsVIN__c</field>
@@ -286,6 +277,8 @@
     <reportType>Customer_Information_Reports__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Vehicle_Relationship__c$Vehicle_ID__c.CylinderCapacity__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Vehicle_Relationship__c$Contact__c.CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

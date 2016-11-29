@@ -12,7 +12,8 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Mobile__c</field>
+            <displayNameOverride>Home Phone</displayNameOverride>
+            <field>Contact__c.Individual_Home_Phone__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
@@ -22,6 +23,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sales Address Display</displayNameOverride>
             <field>Contact__c.Primary_Address_Display__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
@@ -30,13 +32,14 @@
             <field>Registration_Date__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
-		  <columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Selling_Dealer__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Model</displayNameOverride>
             <field>Vehicle_ID__c.Model__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
@@ -52,6 +55,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Engine No</displayNameOverride>
             <field>Vehicle_ID__c.EngineNumber__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
@@ -62,17 +66,25 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Customer_Consent__c</field>
-            <table>Vehicle_Relationship__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>MD__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Car Model: Model Hierarchy Description</displayNameOverride>
             <field>Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Customer Consent</displayNameOverride>
+            <field>Contact__c.Customer_Consent__c</field>
+            <table>Vehicle_Relationship__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Contact: Mobile</displayNameOverride>
+            <field>Contact__c.Mobile__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
         <masterLabel>NCBS Report</masterLabel>
