@@ -23421,7 +23421,7 @@
         <name>EditReadonlyFields</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>EditReports</name>
     </userPermissions>
     <userPermissions>
