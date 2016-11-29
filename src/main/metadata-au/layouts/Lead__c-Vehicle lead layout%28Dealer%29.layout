@@ -23,20 +23,24 @@
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Nature_of_Request__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Source_Channel__c</field>
+                <behavior>Readonly</behavior>
+                <field>Escalation_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Nurtured__c</field>
+                <field>Customer_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Nurture_Start_Date__c</field>
+                <field>Close_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -53,10 +57,6 @@
                 <field>Sub_BusinessUnit__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Nature_of_Request__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
             </layoutItems>
@@ -66,7 +66,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Close_Date__c</field>
+                <field>Nurtured__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Nurture_Start_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -227,12 +231,8 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Escalation and Overdue Information</label>
+        <label>Overdue Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Escalation_Flag__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Dealer_Overdue_Flag__c</field>
