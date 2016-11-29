@@ -23557,7 +23557,7 @@
         <name>RunReports</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ScheduleReports</name>
     </userPermissions>
     <userPermissions>
