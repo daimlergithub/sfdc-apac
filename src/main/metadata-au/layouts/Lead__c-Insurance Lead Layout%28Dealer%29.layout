@@ -20,6 +20,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>Nature_of_Request__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -28,7 +32,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Source_Channel__c</field>
+                <field>Close_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -49,12 +53,8 @@
                 <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Nature_of_Request__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Close_Date__c</field>
+                <field>RecordTypeId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -146,10 +146,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>

@@ -20,6 +20,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>Nature_of_Request__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -27,12 +31,12 @@
                 <field>Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Source_Channel__c</field>
+                <behavior>Required</behavior>
+                <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Priority__c</field>
+                <field>Close_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -49,16 +53,20 @@
                 <field>Sub_BusinessUnit__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>CAC_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Nature_of_Request__c</field>
+                <behavior>Readonly</behavior>
+                <field>Escalation_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Close_Date__c</field>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Priority__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Nurtured__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -139,10 +147,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interested_Vehicle_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Interested_Vehicle_Brand__c</field>
             </layoutItems>
             <layoutItems>
@@ -210,10 +214,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>

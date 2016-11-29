@@ -151,6 +151,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <customButtons>Task.New_Change_Owner_Task</customButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.STATUS</fields>
         <fields>TASK.PRIORITY</fields>
