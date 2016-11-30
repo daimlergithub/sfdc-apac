@@ -753,12 +753,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         if (Lead.CAC_Lead_Status__c == 'Qualified'  ) 
                         {
-                            if ((Oldmap.isEmpty()  || Oldmap.get(Lead.id)== null) || Lead.CAC_Lead_Status__c!=oldMap.get(Lead.id).CAC_Lead_Status__c || (oldMap.get(Lead.id).Assigned_Dealer__c == null  || oldMap.get(Lead.id).Assigned_Dealer__c !=Lead.Assigned_Dealer__c  ) ) 
+                            if (Lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && (Lead.CAC_Lead_Status__c!=oldMap.get(Lead.id).CAC_Lead_Status__c || Lead.Assigned_Dealer__c != oldMap.get(Lead.id).Assigned_Dealer__c)))) 
                             {
                                 ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
                             }
                         }
-                        else if (setNatureRequest.contains(Lead.Nature_of_Request__c) && Lead.Assigned_Dealer__c != null )
+                        else if (setNatureRequest.contains(Lead.Nature_of_Request__c) && Lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && Lead.Nature_of_Request__c != oldmap.get(Lead.Id).Nature_of_Request__c)))
                         {
                             ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
                         }
@@ -1919,7 +1919,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         Map<Id,Contact> dealerIdContactID = new Map<Id,Contact>();
         //List<Lead__c> leadList = [SELECT Id,Assigned_dealer__C, OwnerId FROM Lead__c WHERE CAC_lead_status__c = 'Qualified' AND Assigned_dealer__c != NULL AND Dealer_assignment_date__c = null];
         for(Lead__c curLead : leadList){
-            if(curLead.CAC_lead_status__c == 'Qualified' && curLead.Assigned_dealer__c != NULL && curLead.Dealer_assignment_date__c == null)
+            if(curLead.Assigned_dealer__c != NULL && curLead.Dealer_assignment_date__c == null)
             dealerIdSet.add(curLead.Assigned_Dealer__c);
         }
         System.debug('DealerIdSet===='+dealeridSet);

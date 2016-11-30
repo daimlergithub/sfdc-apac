@@ -11160,6 +11160,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Consultant_Assignment_Age__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Consultant_Assignment_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22270,7 +22275,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
