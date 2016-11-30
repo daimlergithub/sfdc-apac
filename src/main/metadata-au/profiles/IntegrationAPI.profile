@@ -111,6 +111,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>true</visible>
@@ -637,6 +642,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Lead_AddmultiBrandControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningForgotPasswordController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningForgotPasswordControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningLoginFormController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningLoginFormControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningSelfRegisterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LightningSelfRegisterControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -8804,6 +8833,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Claim__c.Updated_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Claim__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
@@ -11156,6 +11190,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Company_Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Consultant_Assignment_Age__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23412,7 +23451,7 @@
         <enabled>true</enabled>
         <name>EditPublicFilters</name>
     </userPermissions>
-	<userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>EditPublicReports</name>
     </userPermissions>
@@ -23561,10 +23600,6 @@
         <name>RunReports</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ScheduleReports</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
     </userPermissions>
@@ -23623,6 +23658,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
