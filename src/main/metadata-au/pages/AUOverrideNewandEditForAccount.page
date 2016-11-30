@@ -40,15 +40,16 @@
             <apex:inputField value="{!objAccount.Opt_In_Work_Phone__c}" taborderhint="13"/>
             <apex:inputField value="{!objAccount.FS_Opt_In_Work_Phone__c}" taborderhint="14"/>
             <apex:inputField value="{!objAccount.Opt_In_Home_Phone__c}" taborderhint="15"/>
-            <apex:inputField value="{!objAccount.FS_Opt_In_SMS__c}" taborderhint="16"/>
+            <apex:inputField value="{!objPersonAccount.FS_Opt_In_Home_Phone__c}" taborderhint="16"/>
             <apex:inputField value="{!objAccount.Opt_In_SMS__c}" taborderhint="17"/>
-            <apex:inputField value="{!objAccount.FS_Opt_In_Email__c}" taborderhint="18"/>
+            <apex:inputField value="{!objAccount.FS_Opt_In_SMS__c}" taborderhint="18"/>
             <apex:inputField value="{!objAccount.Opt_In_Email__c}" taborderhint="19"/>
+            <apex:inputField value="{!objAccount.FS_Opt_In_Email__c}" taborderhint="20"/>
         </apex:pageBlockSection>
         
         <apex:pageBlockSection columns="2" id="pbsSysInfoId" title="System Information" collapsible="false">
-            <apex:inputField value="{!objAccount.Add_User__c}" taborderhint="20"/>
-            <apex:inputField value="{!objAccount.Add_Date__c}" taborderhint="21"/>  
+            <apex:inputField value="{!objAccount.Add_User__c}" taborderhint="21"/>
+            <apex:inputField value="{!objAccount.Add_Date__c}" taborderhint="22"/>  
         </apex:pageBlockSection>
     </apex:outputpanel>
     
@@ -93,10 +94,11 @@
             <apex:inputField value="{!objPersonAccount.Opt_In_Work_Phone__c}" taborderhint="24"/>
             <apex:inputField value="{!objPersonAccount.FS_Opt_In_Work_Phone__c}" taborderhint="25"/>
             <apex:inputField value="{!objPersonAccount.Opt_In_Home_Phone__c}" taborderhint="26"/>
-            <apex:inputField value="{!objPersonAccount.FS_Opt_In_SMS__c}" taborderhint="27"/>
+            <apex:inputField value="{!objPersonAccount.FS_Opt_In_Home_Phone__c}" taborderhint="27"/>
             <apex:inputField value="{!objPersonAccount.Opt_In_SMS__c}" taborderhint="28"/>
-            <apex:inputField value="{!objPersonAccount.FS_Opt_In_Email__c}" taborderhint="29"/>
+            <apex:inputField value="{!objPersonAccount.FS_Opt_In_SMS__c}" taborderhint="29"/>
             <apex:inputField value="{!objPersonAccount.Opt_In_Email__c}" taborderhint="30"/>
+            <apex:inputField value="{!objPersonAccount.FS_Opt_In_Email__c}" taborderhint="31"/>
         </apex:pageBlockSection>
     </apex:outputpanel>
     </apex:pageblock>
