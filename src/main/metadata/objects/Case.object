@@ -108902,7 +108902,7 @@ ISBLANK(Suspended_Reason__c)
         <fullName>Change_To_Closed</fullName>
         <active>true</active>
         <description>Status is changed to "Closed"</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status , 'Closed'),$Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'),OR(ISPICKVAL(  Priority , 'A'),ISPICKVAL(Priority ,'Green &lt;= 2')))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status , 'Closed'),$Profile.Name != 'IntegrationAPI',MD__c = 'JP',OR(ISPICKVAL(  Priority , 'A'),ISPICKVAL(Priority ,'Green &lt;= 2')))</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>You cannot manually select "Closed".</errorMessage>
     </validationRules>
