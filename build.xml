@@ -137,6 +137,10 @@
 				<sf:include name="SSI__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
+			<sf:typeset name="components"/>
+			<sf:typeset name="tabs">						
+				<sf:include name="selectAllChkBox"/>                			
+			</sf:typeset>	
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
