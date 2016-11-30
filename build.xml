@@ -143,7 +143,8 @@
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
-			</sf:typeset>				
+               <sf:include name="ChangeContactTarget"/>
+			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
 			   <sf:include name="UtilViewHierarchyTestData"/>
@@ -174,6 +175,8 @@
 			   <sf:include name="CommunitiesLandingController"/>
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
+			   <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="ChangeContactTargetTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
