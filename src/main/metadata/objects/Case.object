@@ -109489,7 +109489,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, '/500/e?CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
+sforce.console.openPrimaryTab(tabid, '/500/e?CF00NO0000001atuu={!Vehicle_Relationship__c.Name}&amp;CF00NO0000001atuu_lkid={!Vehicle_Relationship__c.Id}&amp;CF00NO0000001atuw={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
@@ -109525,7 +109525,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
+sforce.console.openPrimaryTab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
