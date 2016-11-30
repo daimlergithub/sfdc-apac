@@ -30025,9 +30025,11 @@ REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
 ) 
 )</errorConditionFormula>
         <errorMessage>Home Phone2 must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</errorMessage>
+1.	0x-xxx-xxxx
+2. 0x-xxxx-xxxx
+2.	0xx-xxx-xxxx
+3.	0xx-xxxx-xxxx
+4. blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_KR</fullName>
