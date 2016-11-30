@@ -180,10 +180,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Finance_Sanction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>System_Data_Source__c</field>
             </layoutItems>
             <layoutItems>
@@ -323,10 +319,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Email_Opt_Out_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Finance_Sanction_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
