@@ -1,0 +1,34 @@
+<apex:page standardController="Vehicle__c" extensions="ChangeContactTarget" tabStyle="Vehicle__c"  sidebar="true" showHeader="true"   >
+   <apex:form >
+   <apex:pageBlock >
+ 
+   <apex:pageBlockSection title="{!$Label.Vehicle_Information}" collapsible="false">
+               <apex:outputField value="{!vehicle.Name}"/>
+               <apex:outputField value="{!vehicle.UsVIN__c}"/>
+               <apex:outputField value="{!vehicle.Brand__c}"/>
+               <apex:outputField value="{!vehicle.Class__c}"/>
+               <apex:outputField value="{!vehicle.Model__c}"/>              
+   </apex:pageBlockSection>
+  
+   <table border="1" align="Center" cellspacing="0">
+   <tr> <th align='center'>FIELDS </th><th align='center'>OLD VALUES </th><th align='center'>NEW VALUES </th></tr>
+   <tr><td> Owner</td><td> <apex:outputtext value="{!vehiclewrpper.purchaservr.Contact__r.Name}"/></td><td></td></tr>
+    <tr><td>Sales Contact Target</td><td> <apex:outputtext value="{!vehiclewrpper.salescontactvr.Contact__r.Name}"/></td><td><apex:inputField value="{!vehiclewrpper.salescontactvr.Contact__c}"/></td></tr>
+     <tr><td>Sales Contact Target Purchaser Relation</td><td> <apex:outputtext value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/></td><td><apex:inputField value="{!vehiclewrpper.salescontactvr.Owner_Relation__c}"/></td></tr>
+     <tr><td>After Sales Contact Target</td><td> <apex:outputtext value="{!vehiclewrpper.aftersalescontactvr.Contact__r.Name}"/></td><td><apex:inputField value="{!vehiclewrpper.aftersalescontactvr.Contact__c}"/></td></tr>
+      <tr><td>After Sales Contact Target Purchaser Relation</td><td> <apex:outputtext value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/></td><td><apex:inputField value="{!vehiclewrpper.aftersalescontactvr.Owner_Relation__c}"/></td></tr>
+  <tr><td>  Selling Dealer</td><td> <apex:outputtext value="{!vehiclewrpper.userdealeracclink.Selling_Dealer__r.Name}"/></td><td><apex:inputField value="{!vehiclewrpper.userdealeracclink.Selling_Dealer__c}"/></td></tr>
+  <tr><td>Service responsible Outlet</td><td> <apex:outputtext value="{!vehiclewrpper.userdealeracclink.Service_Dealer__r.name}"/></td><td><apex:inputField value="{!vehiclewrpper.userdealeracclink.Service_Dealer__c}"/></td></tr>
+  <tr><td>Service responsible Person</td><td> <apex:outputtext value="{!vehiclewrpper.userdealeracclink.Service_Advisor__r.name}"/></td><td><apex:inputField value="{!vehiclewrpper.userdealeracclink.Service_Advisor__c}"/></td></tr>
+    <tr> <td> Owner Sales Responsible Person</td> <td><apex:outputtext value="{!vehiclewrpper.purchaseracclink.Retail_Sales_Consultant__r.name }"/></td> <td><apex:inputfield value="{!vehiclewrpper.purchaseracclink.Retail_Sales_Consultant__c }"/></td> </tr>
+     <tr> <td> Sales Contact Target Sales Responsible Person</td> <td><apex:outputtext value="{!vehiclewrpper.salescontactacclink.Retail_Sales_Consultant__r.name }"/></td> <td><apex:inputfield value="{!vehiclewrpper.salescontactacclink.Retail_Sales_Consultant__c }"/></td> </tr>
+      <tr> <td> After Sales Contact Target Sales Responsible Person</td> <td><apex:outputtext value="{!vehiclewrpper.aftersalescontactacclink.Retail_Sales_Consultant__r.name }"/></td> <td><apex:inputfield value="{!vehiclewrpper.aftersalescontactacclink.Retail_Sales_Consultant__c }"/></td> </tr>
+   </table>
+  
+  <apex:pageBlockButtons >
+        <apex:commandButton value="Update" action="{!updateit}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>
+   </apex:pageBlock>
+   </apex:form>
+</apex:page>
