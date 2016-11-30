@@ -10,6 +10,22 @@
     { 
         setRecType();
     }
+    function unCheckOther(cb)
+    {
+        var inputElem = document.getElementsByTagName("input");                    
+        for(var i=0; i<inputElem.length; i++)
+        {            
+            if(inputElem[i].id.indexOf('checkedone') != -1)
+                if (inputElem[i].checked = true)
+                    inputElem[i].checked = false;
+        }
+        cb.checked = true;
+        callControllerMethod();
+    }
+    function SelectMethod(){  
+      //callControllerMethod();
+      return false;
+    }
     </script>     
     <apex:form id="form">
         <div>
@@ -135,7 +151,7 @@
                    
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
-				  <apex:inputField value="{!objPersonAccount.VIN__c}" />
+                  <apex:inputField value="{!objPersonAccount.VIN__c}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
                  
@@ -236,7 +252,7 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.HouseNumber__c.Label}"/>
                         <apex:inputField value="{!AddressObj.HouseNumber__c}"/>           
                     </apex:pageBlockSectionItem>
-					-->
+                    -->
                     <apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Block__c}"/>           
@@ -270,7 +286,7 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(RecordType == 'Person Account' ,true,false)}"/>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS"/>
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,addressIds"/>
                     <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <apex:outputPanel id="redirectPanel">                  
                         <apex:outputText rendered="{!refreshPage}">
@@ -294,18 +310,36 @@
                 <apex:facet name="start" >
                   <img src="/img/loading.gif" />                   
                 </apex:facet>
-            </apex:actionStatus>                               
+            </apex:actionStatus>  
+                                         
                 </apex:pageBlockButtons>
-            </apex:pageBlock>
+            
+        <br/>
+        <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" >           
+            <apex:column value="{!item.add.Province__c}"/>
+            <apex:column value="{!item.add.City__c}"/>
+            <apex:column value="{!item.add.District__c}"/>
+            <apex:column value="{!item.add.ZipCode__c}"/>
+            <apex:column value="{!item.add.Address_Line_1__c}"/>
+             <apex:column >
+                <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
+            </apex:column>
+            <!-- <apex:column >
+                <apex:commandButton action="{!SelectedAddress}"  value="Select" reRender="form"/>      
+            </apex:column> -->
+            
+        </apex:pageBlockTable>
+      </apex:pageBlock>  
         </div>
         <div>
-            <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}" >
-                <apex:PageBlockTable Columns="5" value="{!objAccountDeDup}" var="cr">
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">  
-                    <apex:outputLink value="/{!cr.Id}">{!cr.firstName}</apex:outputLink>    
+            <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
+                <apex:PageBlockTable Columns="5" value="{!objAccountDeDup}" var="cr" >
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">                    
-                        <apex:outputField value="{!cr.LastName}"/>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
+                        <apex:outputField value="{!cr.firstName}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
@@ -316,14 +350,15 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
-					 <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
-                     
-                </apex:PageBlockTable>
-                
-                
+                     <apex:Column headerValue="Addres Details">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>                     
+                </apex:PageBlockTable>               
             </apex:PageBlock>
-        </div>
+        </div>      
+        
     </apex:form>
 </apex:page>

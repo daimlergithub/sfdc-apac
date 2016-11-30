@@ -86,46 +86,7 @@ public class AddressSearchValidationController{
         }
         return AddressOptions;
     }
-    /***
-    public List<SelectOption> getProvinceOptions() {
-        List<SelectOption> ProvinceOptions = new List<SelectOption>();
-        if(market=='KR'){           
-           ProvinceOptions.add(new SelectOption('Hokkaido','Hokkaido'));
-           ProvinceOptions.add(new SelectOption('Aomori','Aomori')); 
-           ProvinceOptions.add(new SelectOption('Iwate','Iwate'));
-           ProvinceOptions.add(new SelectOption('Miyagi','Miyagi'));
-           ProvinceOptions.add(new SelectOption('Akita','Akita'));
-           ProvinceOptions.add(new SelectOption('Yamagata','Yamagata'));
-           ProvinceOptions.add(new SelectOption('Fukushima','Fukushima'));
-           ProvinceOptions.add(new SelectOption('Ibaraki','Ibaraki'));
-           ProvinceOptions.add(new SelectOption('Tochigi','Tochigi'));
-           ProvinceOptions.add(new SelectOption('Gunma','Gunma'));
-           ProvinceOptions.add(new SelectOption('Saitama','Saitama'));
-           ProvinceOptions.add(new SelectOption('Chiba','Chiba'));
-           ProvinceOptions.add(new SelectOption('Tokyo','Tokyo'));
-           ProvinceOptions.add(new SelectOption('Kanagawa','Kanagawa'));
-           ProvinceOptions.add(new SelectOption('Niigata','Niigata'));
-           ProvinceOptions.add(new SelectOption('Toyama','Toyama'));
-           ProvinceOptions.add(new SelectOption('Ishikawa','Ishikawa'));
-           ProvinceOptions.add(new SelectOption('Fukui','Fukui'));
-           ProvinceOptions.add(new SelectOption('Yamanashi','Yamanashi'));          
-        }
-        else{
-            try{
-                Schema.DescribeFieldResult countryFieldDescription = Address__c.Province__c.getDescribe();
-                for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
-                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
-                    ProvinceOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
-                }
-            }
-            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
-            catch(Exception e){}
-        }
-        system.debug('addresspicklist : '+addresspicklist);
-        return ProvinceOptions;
-    }
-    ***/
-    
+      
     /**  Save Account based on two scenarios
 * 1. With Validated Address information record.
 * 2.Without Address record.
@@ -186,7 +147,7 @@ public class AddressSearchValidationController{
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));     
             }
         }
-        system.debug('AddressObj.Address_Type__c>>>>>>'+AddressObj.Address_Type__c);
+      
         if(AddressObj.Address_Type__c == Null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null && AddressObj.ZipCode__c == null){
             try{        
                 system.debug('recordType 1:'+recordType);
@@ -470,88 +431,98 @@ EP/Tolerant for Validation.
         }     
     }
     
+    public List<addressSelectionWrapper> mapAddressResponse{get; set;}
+    
     public void ValidateAddressSearchCallout(Address__c addressobj){ 
+        mapAddressResponse = new List<addressSelectionWrapper>();      
+        Address__c AddressObjtemp = new Address__c(); 
         system.debug('recordType 10:'+ objPersonAccount.Mobile__c);  
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(AddressObj);
+        system.debug('response >> 1:'+response);
+        system.debug('response >> 2:'+response.Addresses.size());
         if(response != null && response.ValidationStatus == 'OK'){
-            Address_Validated_Flag = true;
-            AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
-            //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-            if(response.Addresses[0].ValidFields != null && response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid){
-                String ValidStr = response.Addresses[0].ValidFields;
-                string province;   
-                Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-                UtilAddressTranslation.gettranslatedvalues(Market);
-                if(addtrmapUpdate.containsKey(AddressObj.Province__c)){
-                    province = addtrmapUpdate.get(AddressObj.Province__c);
+            for(Integer i=0;i<response.Addresses.size();i++){                
+                Address_Validated_Flag = true;                
+                AddressObjtemp.ZipCode__c =  response.Addresses[i].ZipCode;              
+                if(response.Addresses[i].ValidFields != null && response.Addresses[i].ValidFields != '' && response.Addresses[i].Valid){
+                    String ValidStr = response.Addresses[i].ValidFields;
+                    system.debug('ValidStr >> :'+ValidStr);
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues(Market);
+                    if(addtrmapUpdate.containsKey(AddressObjtemp.Province__c)){
+                        province = addtrmapUpdate.get(AddressObjtemp.Province__c);
+                    }                   
+                    if(ValidStr.contains('Address_Line_1__c'))
+                    {   
+                        AddressObjtemp.Address_Line_1__c = response.Addresses[i].Address_Line_1;                       
+                    }
+                    if(ValidStr.contains('Address_Line_2__c'))                    {   
+                        AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;                        
+                    }
+                    if(ValidStr.contains('Block__c'))
+                    {  
+                       AddressObjtemp.Block__c = response.Addresses[i].Block;                       
+                    }
+                    if(ValidStr.contains('City__c'))
+                    {  
+                        AddressObjtemp.City__c = response.Addresses[i].City;                      
+                    }
+                    if(ValidStr.contains('District__c'))                    {   
+                       AddressObjtemp.District__c = response.Addresses[i].District;                       
+                    }
+                    if(ValidStr.contains('Province__c'))
+                    {  
+                        AddressObjtemp.Province__c = response.Addresses[i].Province;                    
+                    }
+                   mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
                 }
-                if(ValidStr.contains('Address_Line_1__c'))
-                {
-                    AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                else if(!response.Addresses[i].Valid){
+                    string province;  
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues(Market);
+                    if(addtrmapUpdate.containsKey(AddressObjtemp.Province__c))
+                    {
+                        province = addtrmapUpdate.get(AddressObjtemp.Province__c);
+                    }
+                    AddressObjtemp.Province__c =  province;
+                    AddressObjtemp.Temp_ZipCode__c = AddressObjtemp.ZipCode__C;
+                    AddressObjtemp.Temp_Address__c = ((AddressObjtemp.Province__c != null) ? AddressObjtemp.Province__c : '' ) + ((AddressObjtemp.City__c != null) ? AddressObjtemp.City__c : '' ) +
+                        ((AddressObjtemp.District__c != null) ? AddressObjtemp.District__c : '' ) + ((AddressObjtemp.Block__c != null) ? AddressObjtemp.Block__c  : '' ) +
+                        ((AddressObjtemp.Address_Line_1__c != null) ? AddressObjtemp.Address_Line_1__c  : '' ) + ((AddressObjtemp.Address_Line_2__c != null) ? AddressObjtemp.Address_Line_2__c  : '' );
+                    AddressObjtemp.Address_Code__c = '';
+                    AddressObjtemp.Address_Line_1__c = '';
+                    AddressObjtemp.Address_Line_2__c = '';
+                    AddressObjtemp.Block__c = '';
+                    AddressObjtemp.City__c = '';
+                    AddressObjtemp.District__c = '';
+                    AddressObjtemp.Province__c = '';
+                    AddressObjtemp.ZipCode__C = '';  
+                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
-                if(ValidStr.contains('Address_Line_2__c'))
-                {
-                    AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
-                }
-                if(ValidStr.contains('Block__c'))
-                {
-                    AddressObj.Block__c = response.Addresses[0].Block;
-                }
-                if(ValidStr.contains('City__c'))
-                {
-                    AddressObj.City__c = response.Addresses[0].City;
-                }
-                if(ValidStr.contains('District__c'))
-                {
-                    AddressObj.District__c = response.Addresses[0].District;
-                }
-                if(ValidStr.contains('Province__c'))
-                {
-                    AddressObj.Province__c = response.Addresses[0].Province;
-                }
-            }
-            else if(!response.Addresses[0].Valid){
-                string province;  
-                Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-                UtilAddressTranslation.gettranslatedvalues(Market);
-                if(addtrmapUpdate.containsKey(AddressObj.Province__c))
-                {
-                    province = addtrmapUpdate.get(AddressObj.Province__c);
-                }
-                AddressObj.Province__c =  province;
-                AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
-                AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
-                    ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
-                    ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
-                AddressObj.Address_Code__c = '';
-                AddressObj.Address_Line_1__c = '';
-                AddressObj.Address_Line_2__c = '';
-                AddressObj.Block__c = '';
-                AddressObj.City__c = '';
-                AddressObj.District__c = '';
-                AddressObj.Province__c = '';
-                AddressObj.ZipCode__C = '';   
-            }               
+            }           
         }
         if(response != null && response.ValidationStatus == 'ERROR')
         {
-            AddressObj.Address_Code__c = '';
-            AddressObj.Address_Line_1__c = '';
-            AddressObj.Address_Line_2__c = '';
-            AddressObj.Block__c = '';
-            AddressObj.City__c = '';
-            AddressObj.District__c = '';
-            AddressObj.Province__c = '';
-            AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
-            AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
-                    ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
-                    ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
-             
+            AddressObjtemp.Address_Code__c = '';
+            AddressObjtemp.Address_Line_1__c = '';
+            AddressObjtemp.Address_Line_2__c = '';
+            AddressObjtemp.Block__c = '';
+            AddressObjtemp.City__c = '';
+            AddressObjtemp.District__c = '';
+            AddressObjtemp.Province__c = '';
+            AddressObjtemp.Temp_ZipCode__c = AddressObjtemp.ZipCode__C;
+            AddressObjtemp.Temp_Address__c = ((AddressObjtemp.Province__c != null) ? AddressObjtemp.Province__c : '' ) + ((AddressObjtemp.City__c != null) ? AddressObjtemp.City__c : '' ) +
+                    ((AddressObjtemp.District__c != null) ? AddressObjtemp.District__c : '' ) + ((AddressObjtemp.Block__c != null) ? AddressObjtemp.Block__c  : '' ) +
+                    ((AddressObjtemp.Address_Line_1__c != null) ? AddressObjtemp.Address_Line_1__c  : '' ) + ((AddressObjtemp.Address_Line_2__c != null) ? AddressObjtemp.Address_Line_2__c  : '' );
+            mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));   
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
+            
         }
-         system.debug('recordType 12:'+ objPersonAccount.Mobile__c);
-         system.debug('mobileAreaCode 2 :'+mobileAreaCode);   
+        system.debug('recordType 12:'+ objPersonAccount.Mobile__c);
+        system.debug('mobileAreaCode 2 :'+mobileAreaCode);   
+        system.debug('mapAddressResponse :'+mapAddressResponse.size());
     }
    
     
@@ -747,5 +718,23 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
         }   
+    }
+    Public class addressSelectionWrapper{
+        Public boolean isSelected{get;set;}
+        Public Address__c add{get;set;} 
+        addressSelectionWrapper(Address__c add){
+            this.add = add;
+        }         
+    }
+    public void SelectedAddress(){
+        for(addressSelectionWrapper cWrapper : mapAddressResponse){
+            if(cWrapper.isSelected){
+                AddressObj.Province__c = cWrapper.add.Province__c;
+                AddressObj.City__c = cWrapper.add.City__c;
+                AddressObj.District__c = cWrapper.add.District__c;
+                AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
+                AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;               
+            }
+        }           
     }    
 }
