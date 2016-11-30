@@ -11159,6 +11159,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Consultant_Assignment_Age__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Consultant_Assignment_Date__c</field>
         <readable>true</readable>
@@ -23412,7 +23417,7 @@
         <enabled>true</enabled>
         <name>EditPublicFilters</name>
     </userPermissions>
-	<userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>EditPublicReports</name>
     </userPermissions>
@@ -23559,10 +23564,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>ScheduleReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
