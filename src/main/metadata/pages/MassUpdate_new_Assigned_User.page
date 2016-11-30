@@ -1,0 +1,90 @@
+<apex:page controller="MassUpdatenewAssignedusercontroller" sidebar="false">
+    <apex:form >
+        <apex:pageBlock id="pb" >
+            <apex:pageBlockSection columns="1">
+                <div>
+                    <apex:pageBlock title="Currently Assigned To:" >
+                        <apex:inputField value="{!accUsr.OwnerId}" label="">
+                            <apex:actionSupport event="onchange" action="{!getFields}" reRender="pbled,pbAcc,pbveh,pbcse"/>
+                        </apex:inputField>
+                    </apex:pageBlock>
+                </div>
+                <apex:pageBlock title="Account Records" id="pbAcc">
+                    <apex:pageBlockTable value="{!Accounts}" var="acs">
+                        <apex:column headerValue="selectAll">
+                            <apex:facet name="header">
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!acs.selected}"/>
+                        </apex:column>
+                        <!-- <apex:column headerValue="Select"><apex:inputCheckbox value="{!acs.selected}"/></apex:column>-->
+                        <apex:column value="{!acs.acc.Id}"/>
+                        <apex:column value="{!acs.acc.ownerId}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Vehicle Records" id="pbveh">
+                    <apex:pageBlockTable value="{!Vehicles}" var="var">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!var.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!var.selected}"/></apex:column>-->
+                        <apex:column value="{!var.veh.Name}"/>
+                        <apex:column value="{!var.veh.ownerID}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Lead Records" id="pbled">
+                    <apex:pageBlockTable value="{!Leads}" var="lds">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!lds.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!lds.selected}"/></apex:column>-->
+                        <apex:column value="{!lds.led.Name}"/>
+                        <apex:column value="{!lds.led.ownerId}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Case Records" id="pbcse">
+                    <apex:pageBlockTable value="{!Cases}" var="ces">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!ces.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!ces.selected}"/></apex:column>-->
+                        <apex:column value="{!ces.cse.CaseNumber}"/>
+                        <apex:column value="{!ces.cse.OwnerID}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <div>
+                    <apex:pageBlock title="Newly Assigned To:" id="usr">
+                        <apex:inputField value="{!NewAsignUsr.Dealer_Lead_Gate_Keeper__c}" label="">
+                            <apex:actionSupport event="onchange" action="{!disPlayNewAssignUserInfo}" reRender="usrdetail"/>
+                        </apex:inputField>
+                    </apex:pageBlock>
+                </div>
+                <apex:pageBlock title="UserDetails" id="usrdetail" >
+                    <apex:pageBlockSection rendered="{!usr.Firstname!=null}">
+                         <apex:outputField value="{!usr.Firstname}"/>
+                     <apex:outputField value="{!usr.Lastname}"/>
+                      <apex:outputField value="{!usr.Email}"/>
+                      <apex:outputField value="{!usr.ProfileId}"/>
+                      <apex:outputField value="{!usr.userName}"/>
+                    </apex:pageBlockSection>
+                    <!--  <apex:pageBlockTable value="{!UserDetails}" var="usrdtls"><apex:outputField value="{!usr.Firstname}"/></apex:pageBlockTable>
+                               -->
+                </apex:pageBlock>
+            </apex:pageBlockSection>
+            <center>
+                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       
+                <apex:commandButton value="Cancel" style="padding-center:10px;"/>
+            </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
