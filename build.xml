@@ -144,6 +144,7 @@
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="MassUpdate_new_Assigned_User"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -177,6 +178,8 @@
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="ChangeContactTarget"/>
 			   <sf:include name="ChangeContactTargetTest"/>
+			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
+			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
