@@ -47,6 +47,7 @@ public class AddressSearchValidationController{
     // KOREA related parameters - End
     Public boolean mbkdatasource {get;set;}
     Public boolean datasource {get;set;}
+    
     // COnstructor
     public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
@@ -64,7 +65,8 @@ public class AddressSearchValidationController{
         if(market != 'KR'){
             mbkdatasource = false;
             datasource = true;
-        }        
+        } 
+          
     }
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
@@ -434,8 +436,8 @@ EP/Tolerant for Validation.
     public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     
     public void ValidateAddressSearchCallout(Address__c addressobj){ 
-        mapAddressResponse = new List<addressSelectionWrapper>();      
-        Address__c AddressObjtemp = new Address__c(); 
+        mapAddressResponse = new List<addressSelectionWrapper>();     
+        Address__c AddressObjtemp1 = new Address__c(); 
         system.debug('recordType 10:'+ objPersonAccount.Mobile__c);  
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(AddressObj);
@@ -443,8 +445,10 @@ EP/Tolerant for Validation.
         system.debug('response >> 2:'+response.Addresses.size());
         if(response != null && response.ValidationStatus == 'OK'){
             for(Integer i=0;i<response.Addresses.size();i++){                
+                Address__c AddressObjtemp = new Address__c(); 
                 Address_Validated_Flag = true;                
-                AddressObjtemp.ZipCode__c =  response.Addresses[i].ZipCode;              
+                AddressObjtemp.ZipCode__c =  response.Addresses[i].ZipCode;
+                system.debug('>>>> :'+response.Addresses[i].Address_Line_1);              
                 if(response.Addresses[i].ValidFields != null && response.Addresses[i].ValidFields != '' && response.Addresses[i].Valid){
                     String ValidStr = response.Addresses[i].ValidFields;
                     system.debug('ValidStr >> :'+ValidStr);
@@ -505,24 +509,25 @@ EP/Tolerant for Validation.
         }
         if(response != null && response.ValidationStatus == 'ERROR')
         {
-            AddressObjtemp.Address_Code__c = '';
-            AddressObjtemp.Address_Line_1__c = '';
-            AddressObjtemp.Address_Line_2__c = '';
-            AddressObjtemp.Block__c = '';
-            AddressObjtemp.City__c = '';
-            AddressObjtemp.District__c = '';
-            AddressObjtemp.Province__c = '';
-            AddressObjtemp.Temp_ZipCode__c = AddressObjtemp.ZipCode__C;
-            AddressObjtemp.Temp_Address__c = ((AddressObjtemp.Province__c != null) ? AddressObjtemp.Province__c : '' ) + ((AddressObjtemp.City__c != null) ? AddressObjtemp.City__c : '' ) +
-                    ((AddressObjtemp.District__c != null) ? AddressObjtemp.District__c : '' ) + ((AddressObjtemp.Block__c != null) ? AddressObjtemp.Block__c  : '' ) +
-                    ((AddressObjtemp.Address_Line_1__c != null) ? AddressObjtemp.Address_Line_1__c  : '' ) + ((AddressObjtemp.Address_Line_2__c != null) ? AddressObjtemp.Address_Line_2__c  : '' );
-            mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));   
+            AddressObjtemp1.Address_Code__c = '';
+            AddressObjtemp1.Address_Line_1__c = '';
+            AddressObjtemp1.Address_Line_2__c = '';
+            AddressObjtemp1.Block__c = '';
+            AddressObjtemp1.City__c = '';
+            AddressObjtemp1.District__c = '';
+            AddressObjtemp1.Province__c = '';
+            AddressObjtemp1.Temp_ZipCode__c = AddressObjtemp1.ZipCode__C;
+            AddressObjtemp1.Temp_Address__c = ((AddressObjtemp1.Province__c != null) ? AddressObjtemp1.Province__c : '' ) + ((AddressObjtemp1.City__c != null) ? AddressObjtemp1.City__c : '' ) +
+                    ((AddressObjtemp1.District__c != null) ? AddressObjtemp1.District__c : '' ) + ((AddressObjtemp1.Block__c != null) ? AddressObjtemp1.Block__c  : '' ) +
+                    ((AddressObjtemp1.Address_Line_1__c != null) ? AddressObjtemp1.Address_Line_1__c  : '' ) + ((AddressObjtemp1.Address_Line_2__c != null) ? AddressObjtemp1.Address_Line_2__c  : '' );
+            mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp1));   
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
             
         }
         system.debug('recordType 12:'+ objPersonAccount.Mobile__c);
         system.debug('mobileAreaCode 2 :'+mobileAreaCode);   
         system.debug('mapAddressResponse :'+mapAddressResponse.size());
+        
     }
    
     
@@ -720,14 +725,17 @@ If the user is Saving  same address which matches the fields returned by toleran
         }   
     }
     Public class addressSelectionWrapper{
-        Public boolean isSelected{get;set;}
+        Public boolean isSelected{get;set;}       
         Public Address__c add{get;set;} 
         addressSelectionWrapper(Address__c add){
             this.add = add;
+            //isSelected = false;
         }         
     }
     public void SelectedAddress(){
+        
         for(addressSelectionWrapper cWrapper : mapAddressResponse){
+           
             if(cWrapper.isSelected){
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
