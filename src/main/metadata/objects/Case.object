@@ -109516,9 +109516,9 @@ alert("Chrysler complaint can't be used.Please contact System Administrator");
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 if(typeof(srcUp) == 'function') { 
 
@@ -109652,9 +109652,8 @@ else {
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
