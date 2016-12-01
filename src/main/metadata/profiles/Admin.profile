@@ -17343,6 +17343,11 @@
         <editable>true</editable>
         <field>SurveyTaker__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Dealer_Account__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17433,7 +17438,7 @@
         <editable>true</editable>
         <field>Survey_Question__c.Type__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey__c.Hide_Survey_Name__c</field>
