@@ -109664,7 +109664,7 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuw={!Vehicle__c.Name}&amp;CF00NO0000001atuw_lkid={!Vehicle__c.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
+sforce.console.openPrimaryTab(tabid, '/500/e?def_account_id={!Account.Id}&amp;CF00NO0000001atuw={!Vehicle__c.Name}&amp;CF00NO0000001atuw_lkid={!Vehicle__c.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
