@@ -157,7 +157,7 @@ public class TaskHelperKR {
         if(!accId.isEmpty() && accId != null)
         {
             lstAccount = [Select Id,Opt_In_Work_Phone__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,
-                                    Opt_In_Email__c from Account where Id =:accId];
+                                    Opt_In_Email__c,PersonHasOptedOutOfEmail,PersonDoNotCall from Account where Id =:accId];
         }
         
         for(Account acc : lstAccount){
@@ -168,16 +168,13 @@ public class TaskHelperKR {
             if(t.WhatId != null && String.valueOf( t.WhatId ).startsWith('001')){
                 account = Accounts.get(t.WhatId);            	
                 if(t.RecordTypeId == OBCAllTaskRecordTypeId){                
-                    if(account != null &&                     
-                        account.Opt_In_Work_Phone__c != True &&
-                        account.Opt_In_Home_Phone__c != True &&
-                      	account.Opt_In_SMS__c != True){                     
+                    if(account != null && account.PersonDoNotCall != True){                     
                         t.addError(errMsg);
                     }
-                    
+                 //account.Opt_In_Home_Phone__c != True &&	account.Opt_In_SMS__c != True   
                 }else if(t.RecordTypeId == eDMTaskRecordTypeId){                
                         if(account != null && 
-                            account.Opt_In_Email__c != True){
+                            account.PersonHasOptedOutOfEmail != True){
                            	t.addError(errMsg);
                             }  
                         
