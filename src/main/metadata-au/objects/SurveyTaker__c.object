@@ -114,6 +114,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dealer_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Surveys Taken (Dealer Account)</relationshipLabel>
+        <relationshipName>Surveys_Taken1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Last_Answered_Question__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -178,6 +190,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
