@@ -20724,15 +20724,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-        <recordType>Account.Company</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Layout</layout>
         <recordType>Account.CompanySoftDeleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
         <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Account-Dealer Layout-Portal</layout>
+        <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -21137,8 +21137,8 @@
     <layoutAssignments>
         <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+	 <layoutAssignments>
+        <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
