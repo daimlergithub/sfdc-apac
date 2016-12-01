@@ -30849,9 +30849,9 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
@@ -30887,9 +30887,9 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}  
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
