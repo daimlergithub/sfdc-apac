@@ -2614,10 +2614,10 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
     <fields>
         <fullName>Customer_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(  Personal_Abroad_Agreement__c , 'Yes'))),true,false)</formula>
+        <formula>IF(OR(AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes'),ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes')),
+		AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes')),
+		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
+		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'))),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
