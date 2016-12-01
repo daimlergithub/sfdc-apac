@@ -4700,6 +4700,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Link__c.Retail_Agreement_info_processing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Link__c.Retail_Allow_Data_Sharing__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17961,6 +17966,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Dealer_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -713,11 +713,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     //    system will auto assign them to the gate keepers of the assigned
     //    dealers, and send email notifications to lead owners and
     //    proper contacts
-    public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate){
-        set<String> setNatureRequest = new set<string>{'Quote Request','Parts Enquiry','Parts Enquiries', 'Service Booking'};
+    public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate)
+    {
             try{
                 if (boolean_autoassignleads== false){
-                    
+                 
                     boolean_autoassignleads= true;           
                     Set<Id> rtIdSet = new Set<Id>{leadFinanceRT,leadVehicleRt,leadSPRt};
                         List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
@@ -725,7 +725,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     System.debug('auto assign Leads boolean value >>>>>>>>>> ' + newMap.size());
                     List<String> etNames = New List<String>{'Lead_Assignment_Notification_Individual','Lead_Assignment_Notification_Company ', 'Lead_Gate_Keeper_Notification_Individual','Lead_Gate_Keeper_Notification_Company','Leads_Immediate_Notice' };
                         
-                        EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
+                    EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
                     Map<id,id> ldDlerIdMap= new Map<id,id>(); 
                     List<EmailTemplate> List_Email_Template = [SELECT Id, DeveloperName FROM EmailTemplate WHERE  DeveloperName IN : etNames] ;
                     for (EmailTemplate et: List_Email_Template){
@@ -746,7 +746,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             etToImmediateNotice=et;
                         }
                     }
-                    Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,Nature_of_Request__c,Business_unit__c,Sub_BusinessUnit__c,RecordTypeId,Sales_Consultant__c,ownerid, Contact__c, Assigned_Dealer__c,Contact__r.recordtypeid FROM Lead__c Where id IN : newMap.keySet()]);
+                    Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,Nature_of_Request__c,Source_system__c,Business_unit__c,Sub_BusinessUnit__c,RecordTypeId,Sales_Consultant__c,ownerid, Contact__c, Assigned_Dealer__c,Contact__r.recordtypeid FROM Lead__c Where id IN : newMap.keySet()]);
                     Map<id,id> ldsalesconsulatantIdMap = new Map<id,id>();
                     
                     for(Lead__c Lead : newleadmap.Values())
@@ -758,9 +758,17 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                 ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
                             }
                         }
-                        else if (setNatureRequest.contains(Lead.Nature_of_Request__c) && Lead.Assigned_Dealer__c != null && (isInsert || (isUpdate && Lead.Nature_of_Request__c != oldmap.get(Lead.Id).Nature_of_Request__c)))
-                        {
-                            ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+                        else if (Lead.Assigned_Dealer__c != null && (isInsert  &&  lead.Source_system__c.contains('DLM' )))
+                        {                           
+							if ((lead.Nature_of_Request__c== 'Quote Request' || lead.Nature_of_Request__c== 'Request a Quote')  && lead.Business_Unit__c =='Vans')
+								{
+									ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+								}
+
+							else if (((lead.Nature_of_Request__c=='Parts Enquiry' || lead.Nature_of_Request__c=='Parts Enquiries') || lead.Nature_of_Request__c=='Service Booking') && (lead.Business_Unit__c =='Vans' || lead.Business_Unit__c=='Cars'))
+								{
+									ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+								}
                         }
                         if (Lead.Sales_Consultant__c != null && (oldMap.get(Lead.id)== NULL ||  oldMap.get(Lead.id).Sales_Consultant__c !=  Lead.Sales_Consultant__c)) 
                         {
@@ -2206,6 +2214,19 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
             {
                 dleadId.add(drled.Id);
+            }
+            else if (drled.Assigned_Dealer__c != null && drled.Source_system__c.contains('DLM'))
+            {                           
+                if ((drled.Nature_of_Request__c== 'Quote Request' || drled.Nature_of_Request__c== 'Request a Quote')  && drled.Business_Unit__c =='Vans')
+                {
+                    dleadId.add(drled.Id);
+                }
+                
+                else if (((drled.Nature_of_Request__c=='Parts Enquiry' || drled.Nature_of_Request__c=='Parts Enquiries') || 
+                          drled.Nature_of_Request__c=='Service Booking') && (drled.Business_Unit__c =='Vans' || drled.Business_Unit__c=='Cars'))
+                {
+                    dleadId.add(drled.Id);
+                }
             }
         }
         if(!dleadId.isEmpty() && dleadId != null)
