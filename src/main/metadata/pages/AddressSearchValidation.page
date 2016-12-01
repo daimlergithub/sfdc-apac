@@ -11,12 +11,17 @@
         setRecType();
     }
     function unCheckOther(cb)
-    {
-        var inputElem = document.getElementsByTagName("input");                    
+    {   
+   
+        var inputElem = document.getElementsByTagName("input");  
+        //var inputElem = document.getElementsByName("rdSelected");   
+                  
         for(var i=0; i<inputElem.length; i++)
-        {            
+        {          
             if(inputElem[i].id.indexOf('checkedone') != -1)
+              
                 if (inputElem[i].checked = true)
+                   
                     inputElem[i].checked = false;
         }
         cb.checked = true;
@@ -315,22 +320,18 @@
                 </apex:pageBlockButtons>
             
         <br/>
-        <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" >           
+        <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" >    
+            <apex:column >
+                <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
+            </apex:column>        
             <apex:column value="{!item.add.Province__c}"/>
             <apex:column value="{!item.add.City__c}"/>
             <apex:column value="{!item.add.District__c}"/>
             <apex:column value="{!item.add.ZipCode__c}"/>
-            <apex:column value="{!item.add.Address_Line_1__c}"/>
-             <apex:column >
-                <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
-            </apex:column>
-            <!-- <apex:column >
-                <apex:commandButton action="{!SelectedAddress}"  value="Select" reRender="form"/>      
-            </apex:column> -->
-            
+            <apex:column value="{!item.add.Address_Line_1__c}"/>            
         </apex:pageBlockTable>
-      </apex:pageBlock>  
+    </apex:pageBlock>  
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
