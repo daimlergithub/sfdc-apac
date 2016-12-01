@@ -10,16 +10,7 @@
         <field>Vehicle_Relationship__c.Owner_Relation__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Branch_name_Native__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Branch_name__c</field>
-    </columns>
-    <columns>
         <field>FK_NAME</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.R_Check_Age__c</field>
     </columns>
     <columns>
         <field>FK_PC_FIRST_NAME</field>
@@ -31,10 +22,16 @@
         <field>FK_PC_BIRTHDATE</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
+        <field>FK_$Account.Gender__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Gender__c</field>
+        <field>FK_$Account.Age__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Age_Range__c</field>
+    </columns>
+    <columns>
+        <field>Vehicle_Relationship__c.Point_of_Purchase__c</field>
     </columns>
     <columns>
         <field>FK_PC_TITLE</field>
@@ -46,16 +43,16 @@
         <field>FK_PC_PHONE4</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Brand__c</field>
+        <field>FK_PC_PHONE3</field>
     </columns>
     <columns>
         <field>FK_$Account.Work_Phone__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Branch_name_ENG__c</field>
+        <field>FK_PC_EMAIL</field>
     </columns>
     <columns>
-        <field>FK_$Account.Mobile__c</field>
+        <field>FK_$Account.Primary_Address_Display__c</field>
     </columns>
     <columns>
         <field>FK_$Account.City__c</field>
@@ -79,7 +76,19 @@
         <field>Vehicle_Relationship__c.Previous_Model__c</field>
     </columns>
     <columns>
+        <field>FK_$Account.Personal_Abroad_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Personal_Agreement__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.Personal_Information_Third_Party_Release__c</field>
+    </columns>
+    <columns>
         <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
+    </columns>
+    <columns>
+        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Registration_Number__c</field>
@@ -88,22 +97,13 @@
         <field>Vehicle_Relationship__c.Purchase_Date__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Registration_Date__c</field>
+        <field>Vehicle_Relationship__c.UsVIN__c</field>
     </columns>
     <columns>
         <field>FK_PC_EMAIL_OPT_OUT</field>
     </columns>
     <columns>
         <field>FK_PC_$Contact.SMSOptOut__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.FS_Opt_In_Home_Phone__c</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.FS_Opt_In_Work_Phone__c</field>
-    </columns>
-    <columns>
-        <field>Vehicle_Relationship__c.UsVIN__c</field>
     </columns>
     <columns>
         <field>Vehicle_Relationship__c.Status__c</field>
@@ -113,9 +113,6 @@
     </columns>
     <columns>
         <field>FK_ACC_RECORDTYPE</field>
-    </columns>
-    <columns>
-        <field>FK_$Account.Primary_Address_Display__c</field>
     </columns>
     <columns>
         <field>FK_$Account.Dealer_GC_Code__c</field>

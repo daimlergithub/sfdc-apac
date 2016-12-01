@@ -3,7 +3,6 @@
     <customButtons>Repeated_Complaint</customButtons>
     <customButtons>CloneForIB</customButtons>
     <customButtons>Escalation</customButtons>
-    <customButtons>Input_MPC_Note</customButtons>
     <customButtons>Input_PR_Comment</customButtons>
     <customButtons>Assign_case_to_dealer</customButtons>
     <emailDefault>false</emailDefault>

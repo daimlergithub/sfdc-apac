@@ -1,6 +1,17 @@
 <apex:page standardController="Account" extensions="AddressDisplayInlineEditController">
     <apex:includeScript value="/support/console/25.0/integration.js"/>
-     
+    <script type="text/javascript">
+    function unCheckOther(cb){
+        var inputElem = document.getElementsByTagName("input");  
+        for(var i=0; i<inputElem.length; i++){                    
+            if(inputElem[i].id.indexOf('checkedone') != -1)                
+                if (inputElem[i].checked = true)                    
+                    inputElem[i].checked = false;
+        }
+        cb.checked = true;
+        callControllerMethod();
+    } 
+    </script >
     <!--form starts here-->
     <apex:form id="addfrm" >
         <!--OutPutPanel starts here-->
@@ -174,8 +185,10 @@
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}"/>
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addressIds"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   />
+                   
+                    
                     <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">
@@ -198,14 +211,23 @@
                             window.open("/{!id}","_parent");
                             </script>                     
                         </apex:outputText> 
-                    </apex:outputPanel>
-                    
+                    </apex:outputPanel>                  
                     
                     <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
                     
-                </apex:pageBlockButtons>
-            </apex:pageBlock>
-            
-        </apex:outputPanel>
+                </apex:pageBlockButtons> 
+                <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="addfrm"/>                               
+                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds">           
+                    <apex:column >
+                        <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
+                    </apex:column>
+                    <apex:column value="{!item.add.Province__c}"/>
+                    <apex:column value="{!item.add.City__c}"/>
+                    <apex:column value="{!item.add.District__c}"/>
+                    <apex:column value="{!item.add.ZipCode__c}"/>
+                    <apex:column value="{!item.add.Address_Line_1__c}"/>            
+                </apex:pageBlockTable>                
+            </apex:pageBlock>            
+        </apex:outputPanel>                   
     </apex:form>
 </apex:page>
