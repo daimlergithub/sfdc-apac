@@ -161,6 +161,7 @@
 			   <sf:include name="AddressSearchValidationController"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
+			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
