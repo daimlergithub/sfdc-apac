@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -3486,11 +3490,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>2016</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>2017</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>2018</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5569,6 +5573,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             </picklistValues>
             <picklistValues>
                 <fullName>Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -9208,11 +9216,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2018</fullName>
                 <default>false</default>
             </values>
@@ -12043,7 +12051,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -17145,7 +17153,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -18832,7 +18840,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>New_Used__c</picklist>
             <values>
                 <fullName>New</fullName>
@@ -22318,7 +22326,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -27469,7 +27477,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -29501,6 +29509,16 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Change_Contact_Target</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Change Contact Target</masterLabel>
+        <openType>replace</openType>
+        <page>ChangeContactTarget</page>
+        <protected>false</protected>
+    </webLinks>
     <webLinks>
         <fullName>TerminateVehicleRelationships</fullName>
         <availability>online</availability>

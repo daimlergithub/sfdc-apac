@@ -137,13 +137,19 @@
 				<sf:include name="SSI__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
+			<sf:typeset name="components"/>
+			<sf:typeset name="tabs">						
+				<sf:include name="selectAllChkBox"/>                			
+			</sf:typeset>	
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
-			</sf:typeset>				
+               <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="MassUpdate_new_Assigned_User"/>
+			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
 			   <sf:include name="UtilViewHierarchyTestData"/>
@@ -155,6 +161,7 @@
 			   <sf:include name="AddressSearchValidationController"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
+			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
@@ -174,6 +181,10 @@
 			   <sf:include name="CommunitiesLandingController"/>
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
+			   <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="ChangeContactTargetTest"/>
+			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
+			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>

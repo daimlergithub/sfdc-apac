@@ -4,9 +4,9 @@
     <customButtons>New_Leads</customButtons>
     <customButtons>Mergeexample</customButtons>
     <customButtons>View_Hierarchy</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <customButtons>Send_to_JPOS</customButtons>
+    <customButtons>Send_to_MyMercedes</customButtons>
+    <customButtons>Send_to_SPO</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
