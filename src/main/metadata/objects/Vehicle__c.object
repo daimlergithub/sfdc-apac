@@ -29511,4 +29511,26 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <page>TerminateVehicleRelationship</page>
         <protected>false</protected>
     </webLinks>
+    <webLinks>
+        <fullName>Send_to_MyMercedes</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to MyMercedes</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>true</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_to_SPO</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>true</url>
+    </webLinks>
 </CustomObject>
