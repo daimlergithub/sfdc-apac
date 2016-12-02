@@ -31085,7 +31085,7 @@ if(r == true)
 { 
 sforce.apex.execute("UtilWebservice","AccountIfnoSendSPO",{CustomerID:"{!Account.Id}"}); 
 
-
+alert("Successfully Sent Information to SPO"); 
 function updateAccount(){ 
 //Create a New Account and Set the Fields 
 var accountToUpdate = new sforce.SObject("Account"); 
@@ -31109,7 +31109,7 @@ if(status === "" || status === "None"){
 updateAccount(); 
 
 } 
-alert("Successfully Sent Information to SPO"); 
+
 }
 		</url>
     </webLinks> 
