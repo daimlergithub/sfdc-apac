@@ -346,7 +346,7 @@
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
-                        <apex:outputField value="{!cr.Phone}"/>
+                        <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
