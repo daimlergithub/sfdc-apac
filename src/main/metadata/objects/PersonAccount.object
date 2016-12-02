@@ -9,6 +9,17 @@
         <description>Record type for person account</description>
         <label>Person Account</label>
 		<picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>Personal_Agreement__c</picklist>
             <values>
                 <fullName>Yes</fullName>
