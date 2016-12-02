@@ -83,7 +83,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Financial_Product2__c</field>
+                <field>Financial_Product__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
