@@ -1,5 +1,29 @@
 Global class UtilWebservice 
 {
+
+    webservice static  void AccountIfnoSendSPO(String CustomerID)
+    { 
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    Id acclnk_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
+    system.debug('$%$%$%$%$%$%$%$ acclnk_RecordTypeId '+acclnk_RecordTypeId );
+    Account_Link__c Acclnk=[Select fromRole__c,toRole__c,RecordtypeID from Account_Link__c where toRole__c=:CustomerID and RecordtypeId=:acclnk_RecordTypeId limit 1]; 
+     
+    String DealerId=acclnk.fromRole__c;
+    
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SPOCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SPOCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+        
+      sendport.SPOCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,DealerId);
+      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+      
+      System.debug('%^%%^%^%^% response'+response); 
+    }
     public static crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType validateAddressByZipCode(Address__c address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationPort stub = new crmasiaDaimlerApacComValidateaddress.AddressValidationPort();
