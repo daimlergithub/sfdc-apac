@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>TerminateVehicleRelationships</customButtons>
-<<<<<<< HEAD
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-=======
     <customButtons>Change_Contact_Target</customButtons>
->>>>>>> 2f7b1aa6467dddf0f313487d5f9c067c0a93c9d5
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
