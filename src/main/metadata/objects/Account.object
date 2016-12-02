@@ -13857,6 +13857,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>		
 		<picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
@@ -24846,6 +24857,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
+		<picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>	
 		<picklistValues>
             <picklist>Personal_Agreement__c</picklist>
             <values>
