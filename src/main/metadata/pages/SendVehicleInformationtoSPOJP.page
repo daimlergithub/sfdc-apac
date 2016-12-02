@@ -1,0 +1,48 @@
+<apex:page standardController="Vehicle__c" extensions="cSendVehicleInformationtoSPOJP">
+ <script type="text/javascript">
+ function myFunction(){ 
+
+ var i = {!RecordSize};
+ var SelectedRecordIdInbox;
+ 
+ for(j=0;j<i;j++)
+ {
+     console.log(document.getElementsByName("SelectedCustomer")[j].checked);
+     if(document.getElementsByName("SelectedCustomer")[j].checked)
+     {
+        SelectedRecordIdInbox = document.getElementsByName("SelectedCustomer")[j].value;
+     }
+ }
+ 
+ PassTheVariableToController(SelectedRecordIdInbox);
+}
+ </script>
+<apex:form >
+<apex:pageBlock title="SPO Interface Customer & Vehicle Info" >
+          <apex:pageBlockSection title="Customer Vehicle_Information" collapsible="false">
+              <apex:selectRadio layout="pageDirection"  value="{!SelectedType}">
+                          <apex:selectOption itemLabel="Individual Customer" itemValue="1"></apex:selectOption>
+                          <apex:selectOption itemLabel="Company Customer"    itemValue="2" ></apex:selectOption>
+                          
+                      <apex:actionSupport event="onchange" action="{!checkSelectedValue}" reRender="pgblock" >
+                      </apex:actionSupport>
+             </apex:selectRadio>
+        </apex:pageBlockSection>
+</apex:pageBlock>
+
+<apex:pageblock Title="Related Company List" id="pgblock">
+                 <apex:pageblockTable value="{!vehRec}" var="vehicleRec">
+                         <apex:column headerValue="Select Customer" width="10%">
+                           <input value="{!vehicleRec.Id}" Name="SelectedCustomer" type="radio"/>
+                         </apex:column>
+                         <apex:column value="{!vehicleRec.Contact__c}"/>
+                         <apex:column value="{!vehicleRec.OwnerId}" width="10%"/>
+                         <apex:column value="{!vehicleRec.Vehicle_ID__c}"/>
+                </apex:pageblockTable>
+                <apex:commandButton value="Confirmation" onclick="myFunction(); return false;"/>
+</apex:pageBlock>
+<apex:actionFunction name="PassTheVariableToController" action="{!Navigate}" reRender="none">
+       <apex:param Name="P1" assignTo="{!Param1}" value=""/>
+  </apex:actionFunction>
+</apex:form>
+</apex:page>

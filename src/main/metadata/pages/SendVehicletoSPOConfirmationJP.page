@@ -1,0 +1,14 @@
+<apex:page controller="cSendVehicletoSPOConfirmationJP" >
+<apex:form >
+  <apex:pageBlock title="Selected Record">
+      <apex:pageBlockTable value="{!VehRel}" var="vr">
+          <apex:column value="{!vr.Contact__c}" headerValue="Customer Name"/>
+          <apex:column value="{!vr.Contact__r.Id}" headerValue="Customer Id"/>
+          <apex:column value="{!vr.Vehicle_ID__c}" headerValue="Vehicle ID"/>
+          <apex:column value="{!vr.Name}" headerValue="VehicleRelation No"/>
+      </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+  <apex:commandButton value="Send Information" action="{!sendtoSPO}" reRender="None"/> 
+</apex:form>
+</apex:page>
