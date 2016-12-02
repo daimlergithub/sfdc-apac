@@ -149,6 +149,8 @@
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
 			   <sf:include name="MassUpdate_new_Assigned_User"/>
+			   <sf:include name="SendVehicleInformationtoSPOJP"/>
+			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -185,6 +187,10 @@
 			   <sf:include name="ChangeContactTargetTest"/>
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
+			   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
+			   <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
+			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
+			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
