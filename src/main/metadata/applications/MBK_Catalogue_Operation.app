@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK Catalogue Operation</label>
     <tab>Tasks</tab>
+	<tab>standard-report</tab>
     <tab>DM_Request__c</tab>
     <tab>DM_Material__c</tab>
     <tab>standard-Workspace</tab>
