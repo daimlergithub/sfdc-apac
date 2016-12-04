@@ -43,11 +43,14 @@ public with sharing class DealerSystemHelper
         }
         for(Dealer_System__c shrDs : dealsysList)
         {
-         	Dealer_System__Share shareds = new Dealer_System__Share();
-            shareds.ParentId = shrDs.Id;
-            shareds.UserOrGroupId = groupMap.get(shrDs.Dealer__r.Name);
-            shareds.AccessLevel = 'Edit';
-            shareDsList.add(shareds);
+            if(!groupMap.isEmpty() && groupMap != null && groupMap.get(shrDs.Dealer__r.Name) != null)
+            {
+                Dealer_System__Share shareds = new Dealer_System__Share();
+                shareds.ParentId = shrDs.Id;
+                shareds.UserOrGroupId = groupMap.get(shrDs.Dealer__r.Name);
+                shareds.AccessLevel = 'Edit';
+                shareDsList.add(shareds);
+            }
         }
         if(!shareDsList.isEmpty() && shareDsList != null)
         {
