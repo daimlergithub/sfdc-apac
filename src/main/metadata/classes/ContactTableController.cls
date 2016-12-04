@@ -161,7 +161,7 @@ public class ContactTableController
             
                         
               Map<String,String> phoneAreaCodeMapKR = new Map<String,String>();
-              phoneAreaCodeMapKR.put(System.label.None,'');
+              phoneAreaCodeMapKR.put(' ',System.label.None);
               phoneAreaCodeMapKR.put(areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c);
               phoneAreaCodeMapKR.put(areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c);
               phoneAreaCodeMapKR.put(areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c);
@@ -186,7 +186,7 @@ public class ContactTableController
               
                           
               List<SelectOption> options = new List<SelectOption>();
-                options.add(new SelectOption('0',System.label.None));              
+                options.add(new SelectOption(' ',System.label.None));              
                 options.add(new SelectOption( areacodeKR.Phone_EN1__c,areacodeKR.Phone_EN1__c+'      '+areacodeKR.Phone_TR1__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN2__c,areacodeKR.Phone_EN2__c+'       '+areacodeKR.Phone_TR2__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN3__c,areacodeKR.Phone_EN3__c+'       '+areacodeKR.Phone_TR3__c));
@@ -208,10 +208,10 @@ public class ContactTableController
                 options.add(new SelectOption( areacodeKR.Mobile_Code2__c,areacodeKR.Mobile_Code2__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN18__c,areacodeKR.Phone_EN18__c));
                 options.add(new SelectOption( areacodeKR.Phone_EN19__c,areacodeKR.Phone_EN19__c));                
-                if(!(String.isBlank(homePhoneAreaCodePart1)) && homePhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(homePhoneAreaCodePart1)){
+                if(!(String.isBlank(homePhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(homePhoneAreaCodePart1)){
                   options.add(new SelectOption( homePhoneAreaCodePart1,homePhoneAreaCodePart1));
                 }
-                if(!(String.isBlank(workPhoneAreaCodePart1)) && workPhoneAreaCodePart1!='0' && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
+                if(!(String.isBlank(workPhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
                   options.add(new SelectOption( workPhoneAreaCodePart1,workPhoneAreaCodePart1));
                 }  
                 return options; 
@@ -226,7 +226,7 @@ public class ContactTableController
          AreaCodeTranslation__mdt  mobileAreaCodeKR = [SELECT Id,Mobile_Code1__c,Mobile_Code2__c,Mobile_Code3__c,Mobile_Code4__c,Mobile_Code5__c,Mobile_Code6__c,Mobile_Code7__c FROM AreaCodeTranslation__mdt WHERE MD__c  = 'KR' LIMIT 1]; 
         
          List<selectOption> options = new List<selectOption>();
-           options.add(new SelectOption('0',System.label.None));
+           options.add(new SelectOption(' ',System.label.None));
            options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code1__c,mobileAreaCodeKR.Mobile_Code1__c));
            options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code2__c,mobileAreaCodeKR.Mobile_Code2__c));
            options.add(new SelectOption(mobileAreaCodeKR.Mobile_Code3__c,mobileAreaCodeKR.Mobile_Code3__c));
