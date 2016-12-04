@@ -1379,6 +1379,9 @@
         <mapping>
             <fieldName>ParentId</fieldName>
             <tab>standard-Campaign</tab>
+        </mapping>		
+        <mapping>            
+            <tab>standard-report</tab>
         </mapping>
         <mapping>
             <fieldName>AccountId</fieldName>
