@@ -4305,6 +4305,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Updated_By_EP_Transactions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Updated_Consent_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8806,11 +8811,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Claim__c.Service_Contents__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Claim__c.Updated_By_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
