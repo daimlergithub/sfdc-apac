@@ -185,7 +185,7 @@
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addressIds"/>
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   />
                    
                     
@@ -225,7 +225,8 @@
                     <apex:column value="{!item.add.City__c}"/>
                     <apex:column value="{!item.add.District__c}"/>
                     <apex:column value="{!item.add.ZipCode__c}"/>
-                    <apex:column value="{!item.add.Address_Line_1__c}"/>            
+                    <apex:column value="{!item.add.Address_Line_1__c}"/> 
+                    <apex:column value="{!item.add.Address_Line_2__c}"/>            
                 </apex:pageBlockTable>                
             </apex:pageBlock>            
         </apex:outputPanel>                   

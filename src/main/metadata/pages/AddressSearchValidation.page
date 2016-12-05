@@ -329,7 +329,8 @@
             <apex:column value="{!item.add.City__c}"/>
             <apex:column value="{!item.add.District__c}"/>
             <apex:column value="{!item.add.ZipCode__c}"/>
-            <apex:column value="{!item.add.Address_Line_1__c}"/>            
+            <apex:column value="{!item.add.Address_Line_1__c}"/> 
+            <apex:column value="{!item.add.Address_Line_2__c}"/>           
         </apex:pageBlockTable>
     </apex:pageBlock>  
         </div>
