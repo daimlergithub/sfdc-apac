@@ -282,6 +282,7 @@
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
+			   <sf:include name="Print_Dealer_PDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
