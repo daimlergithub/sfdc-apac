@@ -30089,7 +30089,7 @@ REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
 REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
 REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
-REGEX(Individual_Home_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
+REGEX(Individual_Home_Phone__c, "-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
@@ -30568,7 +30568,7 @@ REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"),
 REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
-REGEX(Work_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
+REGEX(Work_Phone__c, "-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
