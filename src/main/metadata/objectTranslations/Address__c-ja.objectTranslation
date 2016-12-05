@@ -17,6 +17,30 @@
         <name>Address_Line_2__c</name>
     </fields>
     <fields>
+        <label>住所1（カナ）</label>
+        <name>Address_Line_1_Native__c</name>
+    </fields>
+    <fields>
+        <label>住所2（カナ）</label>
+        <name>Address_Line_2_Native__c</name>
+    </fields>
+    <fields>
+        <label>字名・丁目（カナ）</label>
+        <name>Block_Native__c</name>
+    </fields>
+    <fields>
+        <label>市区郡町村（カナ）</label>
+        <name>City_Native__c</name>
+    </fields>
+    <fields>
+        <label>大字・通称名（カナ）</label>
+        <name>District_Native__c</name>
+    </fields>
+    <fields>
+        <label>都道府県（カナ）</label>
+        <name>Province_Native__c</name>
+    </fields>
+    <fields>
         <label>住所区分</label>
         <name>Address_Type__c</name>
         <picklistValues>
@@ -366,6 +390,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New</section>
         </sections>
     </layouts>
     <nameFieldLabel>住所番号</nameFieldLabel>
