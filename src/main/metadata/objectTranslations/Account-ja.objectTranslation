@@ -7543,43 +7543,43 @@ Allows up to 240 characters --></help>
             <section>Whole activities</section>
         </sections>
     </layouts>
-    <layouts>
+	<layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>コンタクト情報</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>コンタクト情報</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>保証/契約</label>
+            <label>プロフィール情報</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>サービス履歴情報</label>
+            <label>コンタクト情報</label>
             <section>Profile Information</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label><!-- Service History Information --></label>
+            <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>プロフィール情報</label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -7639,19 +7639,19 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
@@ -7659,11 +7659,11 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
@@ -7671,15 +7671,15 @@ Allows up to 240 characters --></help>
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Profile Information --></label>
+            <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Copy Information --></label>
+            <label>リテールコピー情報</label>
             <section>Retail Copy Information</section>
         </sections>
         <sections>
-            <label><!-- Service History Information --></label>
+            <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
     </layouts>
@@ -8072,8 +8072,8 @@ Allows up to 240 characters --></help>
         <label>マージ</label>
         <name>Mergeexample</name>
     </webLinks>
-    <webLinks>
-        <label><!-- New_AfterSales_Leads --></label>
+     <webLinks>
+        <label>新規アフターセールスリード</label>
         <name>New_AfterSales_Leads</name>
     </webLinks>
     <webLinks>
@@ -8099,6 +8099,18 @@ Allows up to 240 characters --></help>
     <webLinks>
         <label>販売店サーチ</label>
         <name>Search_Dealers</name>
+    </webLinks>
+	<webLinks>
+        <label>JPOS送信</label>
+        <name>Send_to_JPOS</name>
+    </webLinks>
+    <webLinks>
+        <label>MyMercedes送信</label>
+        <name>Send_to_MyMercedes</name>
+    </webLinks>
+    <webLinks>
+        <label>SPO登録／申請</label>
+        <name>Send_to_SPO</name>
     </webLinks>
     <webLinks>
         <label><!-- Test --></label>
