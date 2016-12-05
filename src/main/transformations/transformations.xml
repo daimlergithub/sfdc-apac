@@ -35,14 +35,29 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
+    <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
 	</changetext>
 	 <changetext>
@@ -52,7 +67,22 @@
 	</changetext>
 	 <changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
 	</changetext>
 	<changetext>
@@ -62,7 +92,17 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_FIRSTNAME_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_LASTNAME_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_LASTNAME_ID</token>
 	</changetext>
 	<changetext>
@@ -72,7 +112,17 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_NATIVE_FIRSTNAME_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_NATIVE_LASTNAME_ID</token>
 	</changetext>
 	<changetext>
@@ -82,7 +132,17 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ADDRESS_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_PHONE_ID</token>
 	</changetext>
 	<changetext>
@@ -92,7 +152,17 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_FAX_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
 	</changetext>
 	<changetext>
@@ -102,7 +172,17 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_ID</token>
 	</changetext>
 	<changetext>
@@ -110,14 +190,29 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_LKID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_LKID</token>
+	</changetext>
     <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
 		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
 	</changetext>
+    <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_Complaint']/url/text()</xpath>
+		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
+	</changetext>
    <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_ID</token>
+	</changetext>
+   <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_Complaint']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CASE_ID</token>
 	</changetext>
 	<changetext>
@@ -174,7 +269,12 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
-	</changetext> 
+	</changetext> 	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_CAC_Campaign']/url/text()</xpath>
