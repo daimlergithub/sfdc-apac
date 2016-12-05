@@ -168,13 +168,13 @@ public class TaskHelperKR {
             if(t.WhatId != null && String.valueOf( t.WhatId ).startsWith('001')){
                 account = Accounts.get(t.WhatId);            	
                 if(t.RecordTypeId == OBCAllTaskRecordTypeId){                
-                    if(account != null && account.PersonDoNotCall != True){                     
+                    if(account != null && account.PersonDoNotCall == True){                     
                         t.addError(errMsg);
                     }
                  //account.Opt_In_Home_Phone__c != True &&	account.Opt_In_SMS__c != True   
                 }else if(t.RecordTypeId == eDMTaskRecordTypeId){                
                         if(account != null && 
-                            account.PersonHasOptedOutOfEmail != True){
+                            account.PersonHasOptedOutOfEmail == True){
                            	t.addError(errMsg);
                             }  
                         
