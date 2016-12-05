@@ -386,38 +386,38 @@ public class AddressDisplayInlineEditController {
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     system.debug(Market + '   *$*$*$*  addtrmapUpdate ' + addtrmapUpdate);
                     UtilAddressTranslation.gettranslatedvalues(Market);
-                    if(addtrmapUpdate.containsKey(AddressObjtemp.Province__c)){
-                        province = addtrmapUpdate.get(AddressObjtemp.Province__c);
+                    if(addtrmapUpdate.containsKey(addressobj.Province__c)){
+                        province = addtrmapUpdate.get(addressobj.Province__c);
                     }
-                    AddressObjtemp.Province__c =  province;
-                    AddressObjtemp.Temp_ZipCode__c = AddressObjtemp.ZipCode__C;
-                    AddressObjtemp.Temp_Address__c = ((AddressObjtemp.Province__c != null) ? AddressObjtemp.Province__c : '' ) + ((AddressObjtemp.City__c != null) ? AddressObjtemp.City__c : '' ) +
-                        ((AddressObjtemp.District__c != null) ? AddressObjtemp.District__c : '' ) + ((AddressObjtemp.Block__c != null) ? AddressObjtemp.Block__c  : '' ) +
-                        ((AddressObjtemp.Address_Line_1__c != null) ? AddressObjtemp.Address_Line_1__c  : '' ) + ((AddressObjtemp.Address_Line_2__c != null) ? AddressObjtemp.Address_Line_2__c  : '' );
-                    AddressObjtemp.Address_Code__c = '';
-                    AddressObjtemp.Address_Line_1__c = '';
-                    AddressObjtemp.Address_Line_2__c = '';
-                    AddressObjtemp.Block__c = '';
-                    AddressObjtemp.City__c = '';
-                    AddressObjtemp.District__c = '';
-                    AddressObjtemp.Province__c = '';
-                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
+                    addressobj.Province__c =  province;
+                    addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
+                    addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
+                        ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
+                        ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
+                    addressobj.Address_Code__c = '';
+                    addressobj.Address_Line_1__c = '';
+                    addressobj.Address_Line_2__c = '';
+                    addressobj.Block__c = '';
+                    addressobj.City__c = '';
+                    addressobj.District__c = '';
+                    addressobj.Province__c = '';
+                    //mapAddressResponse.add(new addressSelectionWrapper(addressobj)); 
                 }
             }
         }
         if(response != null && response.ValidationStatus == 'ERROR'){
-            AddressObjtemp1.Address_Code__c = '';
-            AddressObjtemp1.Address_Line_1__c = '';
-            AddressObjtemp1.Address_Line_2__c = '';
-            AddressObjtemp1.Block__c = '';
-            AddressObjtemp1.City__c = '';
-            AddressObjtemp1.District__c = '';
-            AddressObjtemp1.Province__c = '';
-            AddressObjtemp1.Temp_ZipCode__c = AddressObjtemp1.ZipCode__C;
-            AddressObjtemp1.Temp_Address__c = ((AddressObjtemp1.Province__c != null) ? AddressObjtemp1.Province__c : '' ) + ((AddressObjtemp1.City__c != null) ? AddressObjtemp1.City__c : '' ) +
-                    ((AddressObjtemp1.District__c != null) ? AddressObjtemp1.District__c : '' ) + ((AddressObjtemp1.Block__c != null) ? AddressObjtemp1.Block__c  : '' ) +
-                    ((AddressObjtemp1.Address_Line_1__c != null) ? AddressObjtemp1.Address_Line_1__c  : '' ) + ((AddressObjtemp1.Address_Line_2__c != null) ? AddressObjtemp1.Address_Line_2__c  : '' );
-            mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp1));      
+            addressobj.Address_Code__c = '';
+            addressobj.Address_Line_1__c = '';
+            addressobj.Address_Line_2__c = '';
+            addressobj.Block__c = '';
+            addressobj.City__c = '';
+            addressobj.District__c = '';
+            addressobj.Province__c = '';
+            addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
+            addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
+                    ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
+                    ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
+            //mapAddressResponse.add(new addressSelectionWrapper(addressobj));      
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
         }                
     }
@@ -467,7 +467,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
-                AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;               
+                AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;  
+                AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  
+                AddressObj.Temp_ZipCode__c = '';
+                AddressObj.Temp_Address__c = '';            
             }
         }           
     }    
