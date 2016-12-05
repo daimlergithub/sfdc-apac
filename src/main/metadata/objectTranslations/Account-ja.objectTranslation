@@ -369,7 +369,7 @@
         <name>site_account</name>
     </fields>
     <fields>
-        <label><!-- ASLead Notification Timing --></label>
+        <label>サービススリード通知タイミング</label>
         <name>ASLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -705,7 +705,7 @@
         <name>CMS_SAP_No__c</name>
     </fields>
     <fields>
-        <label><!-- COS Flag --></label>
+        <label>COSフラグ</label>
         <name>COS_Flag__c</name>
     </fields>
     <fields>
@@ -1223,7 +1223,7 @@
         <name>DMS_Customer_ID__c</name>
     </fields>
     <fields>
-        <label><!-- DMS Retailer ID --></label>
+        <label>Autoline拠点ID</label>
         <name>DMS_Retailer_ID__c</name>
     </fields>
     <fields>
@@ -2870,7 +2870,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Representative__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Rollout Status --></label>
+        <label>販売店ロールアウトステータス</label>
         <name>Dealer_Rollout_Status__c</name>
         <picklistValues>
             <masterLabel>Done</masterLabel>
@@ -2883,6 +2883,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5924,7 +5928,7 @@ Allows up to 240 characters --></help>
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Status --></label>
+        <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -5937,6 +5941,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6626,7 +6634,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- SalesLead Notification Timing --></label>
+        <label>セールスリード通知タイミング</label>
         <name>SalesLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7136,7 +7144,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- UsedLead Notification Timing --></label>
+        <label>中古車リード通知タイミング</label>
         <name>UsedLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7232,7 +7240,7 @@ Allows up to 240 characters --></help>
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Status --></label>
+        <label>保証システム連携ステータス</label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -7241,6 +7249,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
             <translation><!-- To be Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7543,43 +7555,43 @@ Allows up to 240 characters --></help>
             <section>Whole activities</section>
         </sections>
     </layouts>
-    <layouts>
+	<layouts>
         <layout>PA Layout-Dealer Portal</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>コンタクト情報</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>コンタクト情報</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>保証/契約</label>
+            <label>プロフィール情報</label>
             <section>Other information</section>
         </sections>
         <sections>
-            <label>サービス履歴情報</label>
+            <label>コンタクト情報</label>
             <section>Profile Information</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Retail Information</section>
         </sections>
         <sections>
-            <label><!-- Service History Information --></label>
+            <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
         <sections>
-            <label><!-- System Information --></label>
+            <label>プロフィール情報</label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -7639,19 +7651,19 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Soft Deleted</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>コンタクト情報</label>
+            <label><!-- Person Account Basic Information --></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label>主要コンタクト・コンセント</label>
+            <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
@@ -7659,11 +7671,11 @@ Allows up to 240 characters --></help>
         <layout>Person Account Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label>プロフィール情報</label>
+            <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
@@ -7671,15 +7683,15 @@ Allows up to 240 characters --></help>
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Profile Information --></label>
+            <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Copy Information --></label>
+            <label>リテールコピー情報</label>
             <section>Retail Copy Information</section>
         </sections>
         <sections>
-            <label><!-- Service History Information --></label>
+            <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
     </layouts>
@@ -8072,8 +8084,8 @@ Allows up to 240 characters --></help>
         <label>マージ</label>
         <name>Mergeexample</name>
     </webLinks>
-    <webLinks>
-        <label><!-- New_AfterSales_Leads --></label>
+     <webLinks>
+        <label>新規アフターセールスリード</label>
         <name>New_AfterSales_Leads</name>
     </webLinks>
     <webLinks>
@@ -8099,6 +8111,18 @@ Allows up to 240 characters --></help>
     <webLinks>
         <label>販売店サーチ</label>
         <name>Search_Dealers</name>
+    </webLinks>
+	<webLinks>
+        <label>JPOS送信</label>
+        <name>Send_to_JPOS</name>
+    </webLinks>
+    <webLinks>
+        <label>MyMercedes送信</label>
+        <name>Send_to_MyMercedes</name>
+    </webLinks>
+    <webLinks>
+        <label>SPO登録／申請</label>
+        <name>Send_to_SPO</name>
     </webLinks>
     <webLinks>
         <label><!-- Test --></label>
