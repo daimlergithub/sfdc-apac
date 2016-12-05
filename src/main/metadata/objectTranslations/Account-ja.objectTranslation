@@ -369,7 +369,7 @@
         <name>site_account</name>
     </fields>
     <fields>
-        <label><!-- ASLead Notification Timing --></label>
+        <label>サービススリード通知タイミング</label>
         <name>ASLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -705,7 +705,7 @@
         <name>CMS_SAP_No__c</name>
     </fields>
     <fields>
-        <label><!-- COS Flag --></label>
+        <label>COSフラグ</label>
         <name>COS_Flag__c</name>
     </fields>
     <fields>
@@ -1223,7 +1223,7 @@
         <name>DMS_Customer_ID__c</name>
     </fields>
     <fields>
-        <label><!-- DMS Retailer ID --></label>
+        <label>Autoline拠点ID</label>
         <name>DMS_Retailer_ID__c</name>
     </fields>
     <fields>
@@ -2870,7 +2870,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Representative__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Rollout Status --></label>
+        <label>販売店ロールアウトステータス</label>
         <name>Dealer_Rollout_Status__c</name>
         <picklistValues>
             <masterLabel>Done</masterLabel>
@@ -2883,6 +2883,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5924,7 +5928,7 @@ Allows up to 240 characters --></help>
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Status --></label>
+        <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -5937,6 +5941,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6626,7 +6634,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- SalesLead Notification Timing --></label>
+        <label>セールスリード通知タイミング</label>
         <name>SalesLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7136,7 +7144,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- UsedLead Notification Timing --></label>
+        <label>中古車リード通知タイミング</label>
         <name>UsedLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7232,7 +7240,7 @@ Allows up to 240 characters --></help>
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Status --></label>
+        <label>保証システム連携ステータス</label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -7241,6 +7249,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
             <translation><!-- To be Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
