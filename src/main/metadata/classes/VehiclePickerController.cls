@@ -179,6 +179,9 @@ global with sharing class VehiclePickerController {
             List<Car_Model__c> carModels;
             Map<String, Set<String>> brandClassMap = new Map<String, Set<String>>();
             Map<String, Set<String>> classModelMap =  new Map<String, Set<String>>();
+             map<string, set<string>> classColorfinMap = new map<string, set<String>>();
+             map<string, List<string>> modelColourMap = new map<string,List<string>>();
+             map<string, set<string>> modelColourFinMap = new map<string, set<string>>();
             List<VehicleBrandsAndClasses> vBrandsAndClasses;
             String brandClassMapping; 
             String classModelMapping;
@@ -191,9 +194,9 @@ global with sharing class VehiclePickerController {
             
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c Where Status__c =:status_type];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type];
             }
             
             System.debug('New @Shrinivas Car Models:' +carModels);
@@ -212,14 +215,46 @@ global with sharing class VehiclePickerController {
                 }else{
                     tempSet.add(cm.Name);
                 }
-            }           
-
+                 if(cm.Colour__c !=null & cm.Colour__c != ''){
+                     List<string> tempLst = cm.Colour__c.split('\\|');
+                     set<string> tempSetColors = new set<string>();
+                      tempSetColors.addAll(tempLst);
+                      if(!classColorfinMap.containsKey(cm.Series__c+cm.Brand__c)){
+                          classColorfinMap.put(cm.Series__c+cm.Brand__c,tempSetColors);
+                      }
+                      if(!modelColourMap.containsKey(cm.Name)){
+                          List<string> tempColour = new List<string>();
+                          tempColour.add(cm.Colour__c);
+                          modelColourMap.put(cm.Name, tempColour);
+                      }else{
+                          modelColourMap.get(cm.Name).add(cm.Colour__c);
+                      }
+                  }    
+            } 
+            if(modelColourMap.size()>0){ 
+                for(string str: modelColourMap.keySet()){
+                      List<string> modelColourLst = modelColourMap.get(str);
+                      set<string> SetColors = new set<string>();
+                      for(string str1: modelColourLst){
+                          List<string> colours =  str1.split('\\|');
+                          SetColors.addAll(colours);
+                      }
+                      if(!modelColourFinMap.containsKey(str)){
+                        modelColourFinMap.put(str, SetColors);
+                      }
+                        modelColourFinMap.get(str).addAll(SetColors);
+                 }
+            }     
+            system.debug('classColorfinMap '+ classColorfinMap);
+            system.debug('modelColourMap '+ modelColourMap);
+            system.debug('modelColourFinMap '+ modelColourFinMap);
             System.debug('@Shrinivas : The Brand Class Map3' +brandClassMap);
             brand_class_model.add(brandClassMap);
             brandClassMapping = JSON.serialize(brandClassMap);
             System.debug('@Shrinivas : The Class Model Map3' +classModelMap);
             brand_class_model.add(classModelMap);
-            
+            brand_class_model.add(classColorfinMap);
+            brand_class_model.add(modelColourFinMap);
             /*Work on the Picklist values here*/
             if (vBrandsAndClasses == null){
                 vBrandsAndClasses = new List<vehicleBrandsAndClasses>();
