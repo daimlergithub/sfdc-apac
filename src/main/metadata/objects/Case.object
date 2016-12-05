@@ -109614,7 +109614,8 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+            <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjJ={! Case.CaseNumber }</url>
+   
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
@@ -109625,7 +109626,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New AfterSales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjJ={! Case.CaseNumber }</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
@@ -109857,6 +109858,65 @@ if (sforce.console.isInConsole()) {
 }else{
 	window.open(url, "", "width = 1000,height = 800"); 
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Notify_to_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Notify to Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+
+
+var requesttype = '{!Case.Case_Dealer__c }'; 
+
+if(requesttype == '')
+{
+alert('Please fill out Primary Case Dealer');
+}
+
+  var r = confirm("Have you checked with supervisor to notify the dealer?"); 
+if(r == true)
+{
+if({!Case.Retail_Case_Notice_Dealer_Flag__c} == false)
+     {
+          var c = new sforce.SObject("Case");
+          c.id = "{!Case.Id}";
+          c.Retail_Case_Notice_Dealer_Flag__c = true;
+          result = sforce.connection.update([c]);
+          if ( result[0].getBoolean( "success" ) )
+          {
+               window.location.reload();
+          }
+          else
+          {
+               alert( result[0].errors.message);
+          }
+     }
+ 
+}</url>
+    </webLinks>	
+    <webLinks>
+        <fullName>Print_Dealer_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print Dealer PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>Print_Dealer_PDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>Repeated_Complaint</fullName>
