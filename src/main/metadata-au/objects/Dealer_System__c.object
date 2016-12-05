@@ -99,7 +99,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>{0000000}</displayFormat>
+        <displayFormat>DS-{0000000}</displayFormat>
         <label>Dealer System Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
