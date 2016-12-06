@@ -13171,7 +13171,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
     <fields>
         <fullName>First_Consent_User__c</fullName>
         <externalId>false</externalId>
-        <label>Updated Consent User</label>
+        <label>First Consent User</label>
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
