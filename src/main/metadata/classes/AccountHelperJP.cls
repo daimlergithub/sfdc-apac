@@ -441,5 +441,93 @@ public class AccountHelperJP
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     
+        /*
+        # Description:This method will update the retail copy when related Account(Account 1) is updated. 
+        # SFDCJP-669
+        # Release : JP-2.0
+        # Date: 02/12/2016
+        # Author : Kiran
+        */
     
+    public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst){
+        system.debug('------>Method is called');
+        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
+        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+        for(Account acc : accLst){
+            if(isUpdate && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+                AccountIds.add(acc.id); //Adding accountId's to set
+                System.debug('AccountID--->'+acc.id);        
+            }
+            
+        }
+        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
+        Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
+        List<Account_Link__c> Accountlinklist = [select id,Name,fromRole__r.RecordType.Name, fromRole__r.LastName, fromRole__r.FirstName, fromRole__r.Salutation__c, fromRole__r.LastName_Native_1__c,
+                                                fromRole__r.FirstName_Native_1__c, fromRole__r.Gender__c, fromRole__r.PersonBirthdate, fromRole__r.Occupation__c, fromRole__r.Industry, 
+                                                fromRole__r.Preferred_Language__c, fromRole__r.Primary_Phone__c, fromRole__r.Special_Care__c, fromRole__r.Special_Needs_Class__c,
+                                                fromRole__r.Allow_Data_Sharing2__c, fromRole__r.Individual_Home_Phone__c, fromRole__r.Work_Phone__c, fromRole__r.Mobile__c, fromRole__r.Fax,
+                                                fromRole__r.Email__c,fromRole__r.Primary_Address_Reference__r.Address_Type__c, fromRole__r.Primary_Address_Reference__r.Province__c,
+                                                fromRole__r.Primary_Address_Reference__r.City__c, fromRole__r.Primary_Address_Reference__r.District__c, fromRole__r.Primary_Address_Reference__r.Block__c,
+                                                fromRole__r.Primary_Address_Reference__r.Address_Line_1__c, fromRole__r.Primary_Address_Reference__r.Address_Line_2__c, fromRole__r.Primary_Address_Reference__r.ZipCode__c,
+                                                fromRole__r.Name, fromRole__r.Company_Name_Native_1__c, fromRole__r.Commercial_Reg_No__c, fromRole__r.Vat_No__c, 
+                                                fromRole__r.Foundation_Date__c, fromRole__r.Website, fromRole__r.Primary_Address_Reference__r.CreatedDate,
+                                                fromRole__r.Primary_Address_Reference__r.LastModifiedDate
+                                                from Account_Link__c WHERE fromRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
+        System.debug('Accountlinklist------>'+Accountlinklist  );
+        //Account link iteration
+        for(Account_Link__c acclnk : Accountlinklist ){
+            if(acclnk.fromRole__r.RecordType.Name == 'Person Account') {
+                acclnk.Retail_LastName__c = acclnk.fromRole__r.LastName;
+                acclnk.Retail_FirstName__c = acclnk.fromRole__r.FirstName;
+                //acclnk.Retail_Salutation__c = acclnk.fromRole__r.Salutation__c;
+                acclnk.Retail_Full_Name__c = ((acclnk.fromRole__r.LastName != null ? acclnk.fromRole__r.LastName:'') + (acclnk.fromRole__r.FirstName != null ? acclnk.fromRole__r.FirstName:'')).left(25); 
+                acclnk.Retail_Full_Name_Title__c = ((acclnk.fromRole__r.Salutation__c!= null ? acclnk.fromRole__r.Salutation__c: '')+(acclnk.fromRole__r.LastName != null ? acclnk.fromRole__r.LastName:'') + (acclnk.fromRole__r.FirstName != null ? acclnk.fromRole__r.FirstName:'')).left(140);
+                acclnk.Retail_LastName_Native__c = acclnk.fromRole__r.LastName_Native_1__c;
+                acclnk.Retail_FirstName_Native__c = acclnk.fromRole__r.FirstName_Native_1__c; 
+                acclnk.Retail_Gender__c = acclnk.fromRole__r.Gender__c;
+                acclnk.Retail_PersonBirthdate__c = acclnk.fromRole__r.PersonBirthdate;
+                acclnk.Retail_Occupation__c = acclnk.fromRole__r.Occupation__c;                
+                acclnk.Retail_Preferred_Language__c = acclnk.fromRole__r.Preferred_Language__c;
+                acclnk.Retail_Primary_Phone__c = acclnk.fromRole__r.Primary_Phone__c;
+                acclnk.Retail_Special_Care__c = acclnk.fromRole__r.Special_Care__c;
+                acclnk.Retail_Special_Needs_Class__c = acclnk.fromRole__r.Special_Needs_Class__c;
+                acclnk.Retail_Allow_Data_Sharing__c = acclnk.fromRole__r.Allow_Data_Sharing2__c;                
+                acclnk.Retail_Work_Phone__c = acclnk.fromRole__r.Work_Phone__c;
+                acclnk.Retail_Mobile__c = acclnk.fromRole__r.Mobile__c;                
+                acclnk.Retail_Email__c = acclnk.fromRole__r.Email__c;
+            }
+            //Checking the Company RecordType
+            if(acclnk.fromRole__r.RecordType.Name=='Company'){ 
+                acclnk.Retail_Company_Name__c = acclnk.fromRole__r.Name;
+                acclnk.Retail_Company_Name_Native1__c = acclnk.fromRole__r.Company_Name_Native_1__c;
+                acclnk.Retail_Commercial_Reg_No__c = acclnk.fromRole__r.Commercial_Reg_No__c;
+                acclnk.Retail_Vat_No__c = acclnk.fromRole__r.Vat_No__c;
+                if(acclnk.fromRole__r.Foundation_Date__c != null)
+                    acclnk.Retail_Foundation_Month__c = string.valueOf(acclnk.fromRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.fromRole__r.Foundation_Date__c.Year());         
+            }//End if for Company record type
+            acclnk.Retail_Industry__c = acclnk.fromRole__r.Industry; 
+            acclnk.Retail_Website__c = acclnk.fromRole__r.website;
+            acclnk.Retail_Individual_Home_Phone__c = acclnk.fromRole__r.Individual_Home_Phone__c;
+            acclnk.Retail_Fax__c = acclnk.fromRole__r.Fax;
+            
+            //Checking Null for sales Address 
+            if(acclnk.fromRole__r.Primary_Address_Reference__c != null){ 
+                    acclnk.Retail_Address_Type__c = acclnk.fromRole__r.Primary_Address_Reference__r.Address_Type__c;
+                    acclnk.Retail_Province__c = acclnk.fromRole__r.Primary_Address_Reference__r.Province__c;
+                    acclnk.Retail_City__c = acclnk.fromRole__r.Primary_Address_Reference__r.City__c;
+                    acclnk.Retail_Distinct__c = ((acclnk.fromRole__r.Primary_Address_Reference__r.District__c!=null ? acclnk.fromRole__r.Primary_Address_Reference__r.District__c : '')+(acclnk.fromRole__r.Primary_Address_Reference__r.Block__c!= null ?acclnk.fromRole__r.Primary_Address_Reference__r.Block__c : '')).left(17);
+                    acclnk.Retail_Address_Line_1__c = ((acclnk.fromRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.fromRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
+                    acclnk.Retail_Address_Line_2__c = ((acclnk.fromRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.fromRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
+                    acclnk.Retail_ZipCode__c = acclnk.fromRole__r.Primary_Address_Reference__r.ZipCode__c;
+                    acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.fromRole__r.Primary_Address_Reference__r.CreatedDate);
+                    acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.fromRole__r.Primary_Address_Reference__r.LastModifiedDate);
+
+                }//End if for Sales Address
+            
+            AccountlnkUpdate.add(acclnk); //Adding Account link to Lsit  
+        }//End of for loop
+        
+        if(!AccountlnkUpdate.isEmpty())
+            update AccountlnkUpdate;
+    }//End of Method
 }
