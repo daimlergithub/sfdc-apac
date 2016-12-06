@@ -30941,12 +30941,12 @@ var records = myCase.getArray("records");
 if(records[0].IsPortalEnabled=true) 
 { 
 
-window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012O000000058Vr&amp;amp&amp;retURL={!Account.Id}&amp;CF00N2800000A9Ctz_lkid={!Account.Id}&amp;CF00N2800000A9Ctz={!Account.Name}&amp;CF00N2800000A9Cty_lkid={!Account.OwnerId}&amp;CF00N2800000A9Cty={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};" )
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};" )
 
 } 
 else 
 { 
-window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012O000000058Vr&amp;amp&amp;retURL={!Account.Id}&amp;CF00N2800000A9Ctz_lkid={!Account.Id}&amp;CF00N2800000A9Ctz={!Account.Name}" )
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" )
 
 }</url>
     </webLinks>
