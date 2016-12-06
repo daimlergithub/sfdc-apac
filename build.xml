@@ -257,7 +257,7 @@
 		</deploy>
     </target>	
 	<target name="deploy21">
-		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
+		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations.xml">
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
@@ -282,6 +282,7 @@
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
+			   <sf:include name="Print_Dealer_PDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>

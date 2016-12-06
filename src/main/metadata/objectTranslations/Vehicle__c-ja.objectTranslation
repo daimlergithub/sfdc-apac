@@ -2336,6 +2336,22 @@
         <name>FinanceType__c</name>
     </fields>
     <fields>
+        <label>購入方法</label>
+        <name>Finance_Method__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>最終サービス時走行距離</label>
+        <name>LastServiceMileage__c</name>
+    </fields>
+    <fields>
+        <label>次回車検日</label>
+        <name>MOT_Expired_Date__c</name>
+    </fields>
+    <fields>
         <label>初年度登録日</label>
         <name>FirstRegistrationDate__c</name>
     </fields>
@@ -4480,6 +4496,11 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>担当販売店</label>
+        <name>Related_Dealer__c</name>
+        <relationshipLabel><!-- Vehicles (Related Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- NextEmissionsCheckDate --></label>
         <name>NextEmissionsCheckDate__c</name>
     </fields>
@@ -5601,6 +5622,10 @@
             <section>Date Information</section>
         </sections>
         <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
             <label>その他</label>
             <section>Other Information</section>
         </sections>
@@ -5700,5 +5725,13 @@
     <webLinks>
         <label>車両手放し情報登録</label>
         <name>TerminateVehicleRelationships</name>
+    </webLinks>
+    <webLinks>
+        <label>MyMercedes送信</label>
+        <name>Send_to_MyMercedes</name>
+    </webLinks>
+    <webLinks>
+        <label>SPO登録／申請</label>
+        <name>Send_to_SPO</name>
     </webLinks>
 </CustomObjectTranslation>
