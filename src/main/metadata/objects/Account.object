@@ -30920,6 +30920,37 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>New_Case</fullName>
+        <availability>online</availability>
+        <description>New Case button for Dealer User and MBJ users.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+
+
+var userid = "{!$User.Id}";
+
+var myCase= sforce.connection.query("Select Id ,IsPortalEnabled From user where id='{!Account.OwnerId}'" ); 
+//var recordType1 = recordtypeResult1.getArray('myCase'); 
+var records = myCase.getArray("records");
+
+if(records[0].IsPortalEnabled=true) 
+{ 
+
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}&amp;OBJECT_CASE_CASE_DEALER_USER_ID_LKID={!Account.OwnerId}&amp;OBJECT_CASE_CASE_DEALER_USER_ID={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};" )
+
+} 
+else 
+{ 
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID={!Account.Id}&amp;OBJECT_CASE_CASE_DEALER_ID={!Account.Name}" )
+
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
