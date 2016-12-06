@@ -1175,7 +1175,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Customer Attributes UpdatedDate --></label>
+        <label>顧客属性最終更新日時</label>
         <name>Customer_LastUpdatedDate__c</name>
     </fields>
     <fields>
@@ -4946,7 +4946,7 @@ Allows up to 240 characters --></help>
         <name>Last_Campaign_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Last Modified User Type --></label>
+        <label>最終更新者ユーザ種別</label>
         <name>Last_Modified_User_Type__c</name>
     </fields>
     <fields>
@@ -5556,7 +5556,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Online Dedup Hidden --></label>
+        <label>顧客検索対象外フラグ</label>
         <name>Online_Dedup_Hidden__c</name>
     </fields>
     <fields>
@@ -5924,7 +5924,7 @@ Allows up to 240 characters --></help>
         <name>Place_of_Birth__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Date --></label>
+        <label>My Mercedes申請日</label>
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
@@ -5948,7 +5948,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Portal Apply User --></label>
+        <label>My Mercedes申請者</label>
         <name>Portal_Apply_User__c</name>
         <relationshipLabel><!-- Accounts (Portal Apply User) --></relationshipLabel>
     </fields>
@@ -7236,7 +7236,7 @@ Allows up to 240 characters --></help>
         <name>Vol_NAF_Bonus3__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Date --></label>
+        <label>SPO登録／申請日</label>
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
@@ -7256,7 +7256,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Warranty Apply User --></label>
+        <label>SPO登録／申請者</label>
         <name>Warranty_Apply_User__c</name>
         <relationshipLabel><!-- Accounts (Warranty Apply User) --></relationshipLabel>
     </fields>
