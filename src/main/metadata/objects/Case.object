@@ -33,6 +33,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -13856,10 +13860,10 @@ Modify Reason:
     <fields>
         <fullName>Narrative_of_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Narrative of Type</label>		   
+        <label>Narrative of Type</label>
         <picklist>
-		 <picklistValues>
-              <fullName>Action</fullName>
+            <picklistValues>
+                <fullName>Action</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -17636,7 +17640,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -21627,7 +21631,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <sharedTo>
             <role>PL_WL_Team</role>
         </sharedTo>
-    </listViews><listViews>
+    </listViews>
+    <listViews>
         <fullName>All_Region_East_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -21778,7 +21783,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>OB_TL</role>
         </sharedTo>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_my_Case_with_notify_to_Dealer</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>Name__c</columns>
@@ -22015,6 +22020,24 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBK_Managers_KR_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBK Call Center Managers</label>
+        <queue>MBK_Call_Center_Managers</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Managers_KR_Case_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBK Call Center Managers</label>
+        <queue>MBK_Managers_KR_Case</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
@@ -22130,7 +22153,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>Major cases handled by</label>
         <language>en_US</language>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>R23552</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -22333,6 +22356,62 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <value>Trial</value>
         </filters>
         <label>Trial Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>View</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Closed,Closed</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Case_Dealer__c</field>
+            <operation>equals</operation>
+            <value>Beijing Olympic star car service co</value>
+        </filters>
+        <label>All closed cases_Beijing Olympic star</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>View5</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Chrysler_Complaint</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Requires Manager Review,Waiting for Reply</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>9/1/2013 12:00 AM</value>
+        </filters>
+        <label>Not reply Chrysler complaint</label>
+        <language>en_US</language>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
@@ -24484,27 +24563,27 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>Action</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Marketing Opt Out</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Magazine Opt Out</fullName>
-                <default>false</default>            
-			</values>
-			<values>
+            <values>
                 <fullName>Magazine Number Change</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Marketing Opt In</fullName>
-                <default>false</default>
-            </values>
-			<values>
+            <values>
                 <fullName>Magazine Opt In</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
+                <fullName>Magazine Opt Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Opt In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Opt Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recall Address Chage</fullName>
                 <default>false</default>
             </values>
@@ -31839,7 +31918,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Coporate office</fullName>
@@ -37312,7 +37391,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>S212</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>S213</fullName>
                 <default>false</default>
             </values>
@@ -108827,54 +108906,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <searchResultsAdditionalFields>Related_Department__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PARENT.CASE_NUMBER</searchResultsAdditionalFields>
     </searchLayouts>
-	 <sharingModel>Private</sharingModel>
-	  <validationRules>
-        <fullName>Japan_Dealer_Company_Manager</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-(MD__c = 'JP'),
-(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
-     ($Profile.Name  &lt;&gt; "Japan Dealer Company Manager" )
-)</errorConditionFormula>
-        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
-        <errorMessage>Only Japan Dealer Company Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
-    </validationRules>
-	<validationRules>
-        <fullName>Japan_Dealer_Sales_Manager</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-(MD__c = 'JP'),
-(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
-     ($Profile.Name  &lt;&gt; "Japan Dealer Sales Manager" )
-)</errorConditionFormula>
-        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
-        <errorMessage>Only Japan Dealer Sales Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
-    </validationRules>
-	 <validationRules>
-        <fullName>Japan_Dealer_Service_Manage</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-(MD__c = 'JP'),
-(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
-     ($Profile.Name  &lt;&gt; "Japan Dealer Service Manage" )
-)</errorConditionFormula>
-        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
-        <errorMessage>Only Japan Dealer Service Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
-    </validationRules>
-	 <validationRules>
-        <fullName>Mandatory_Fields_for_Dealer_Escalation</fullName>
-        <active>true</active>
-        <description>When dealer user modify the "Share to Regional Office" checkbox to true, “Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory(cannot be null or empty).</description>
-        <errorConditionFormula>AND( 
-(MD__c = 'JP'),
-(Share_to_Regional_Office__c=true)  , OR(ISBLANK( Case_Dealer_User__c ),ISBLANK(  Account.Name ),ISBLANK( Case_Dealer__c )),
-OR(($Profile.Name = "Japan Dealer Company Manager" ),
-($Profile.Name="Japan Dealer Sales Manager"),
- ($Profile.Name="Japan Dealer Service Manager" ) 
-))</errorConditionFormula>
-        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
-        <errorMessage>“Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory.</errorMessage>
-    </validationRules>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Cannot_Update_Knowledge_Complete_Flag</fullName>
         <active>true</active>
@@ -109114,6 +109146,39 @@ NOT(ISBLANK( US_VIN__c )),NOT(REGEX( US_VIN__c , "^[A-Za-z0-9]+$")), $Profile.Na
         <errorMessage>US VIN can't include the character(s) which is not alphanumeric.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Japan_Dealer_Company_Manager</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Company Manager" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Company Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Japan_Dealer_Sales_Manager</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Sales Manager" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Sales Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Japan_Dealer_Service_Manage</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+(MD__c = 'JP'),
+(RecordType.Name == 'Inquiry'), (Share_to_Regional_Office__c=true) ,
+     ($Profile.Name  &lt;&gt; "Japan Dealer Service Manage" )
+)</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>Only Japan Dealer Service Manager Profile can modify Share to Regional Office checkbox.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Mandatory_Fields_When_Goodwill_Checked</fullName>
         <active>false</active>
         <errorConditionFormula>AND( 
@@ -109131,6 +109196,20 @@ $Profile.Name = 'Central PL/WL Manager'
 ) 
 )</errorConditionFormula>
         <errorMessage>Please check Goodwill first before input Goodwill Details, Goodwill Cost or Goodwill Category.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_Fields_for_Dealer_Escalation</fullName>
+        <active>true</active>
+        <description>When dealer user modify the "Share to Regional Office" checkbox to true, “Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory(cannot be null or empty).</description>
+        <errorConditionFormula>AND( 
+(MD__c = 'JP'),
+(Share_to_Regional_Office__c=true)  , OR(ISBLANK( Case_Dealer_User__c ),ISBLANK(  Account.Name ),ISBLANK( Case_Dealer__c )),
+OR(($Profile.Name = "Japan Dealer Company Manager" ),
+($Profile.Name="Japan Dealer Sales Manager"),
+ ($Profile.Name="Japan Dealer Service Manager" ) 
+))</errorConditionFormula>
+        <errorDisplayField>Share_to_Regional_Office__c</errorDisplayField>
+        <errorMessage>“Escalation to (Delaer PIC)” and “Primary Case Dealer” and “Account Name” fields are mandatory.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Order_No_Vehicle_Must_be_Number</fullName>
@@ -109495,6 +109574,17 @@ alert("Inquiy can't be used.Please contact System Administrator");
         <url>/apex/TextInputting?cid={!Case.Id}&amp;field=mbcl</url>
     </webLinks>
     <webLinks>
+        <fullName>New_AfterSales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New AfterSales Lead</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Chrysler_Complaint</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -109592,17 +109682,17 @@ if(typeof(srcUp) == 'function') {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
+sforce.console.openSubtab(tabid, 'OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case&amp;amp;tabId='+tabid, true); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
+window.parent.navigateToUrl("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case"); 
 } 
 
 } 
 else { 
-window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE_INQUIRY_TYPE_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
+window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;amp&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case", "", ""); 
 }</url>
     </webLinks>
     <webLinks>
@@ -109613,17 +109703,8 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <linkType>url</linkType>
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>            <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }</url>   
-    </webLinks>
-    <webLinks>
-        <fullName>New_AfterSales_Lead</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New AfterSales Lead</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }</url>
+        <protected>false</protected>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
@@ -109896,7 +109977,7 @@ if({!Case.Retail_Case_Notice_Dealer_Flag__c} == false)
      }
  
 }</url>
-    </webLinks>	
+    </webLinks>
     <webLinks>
         <fullName>Print_Dealer_PDF</fullName>
         <availability>online</availability>
