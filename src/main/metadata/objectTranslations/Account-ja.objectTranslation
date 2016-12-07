@@ -493,7 +493,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>個人情報許諾フラグ(MBJ⇒販売店)</label>
+        <label>個人情報第三者提供の許諾</label>
         <name>Allow_Data_Sharing2__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -873,7 +873,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Company Legal Form Native --></label>
+        <label>法人格（リスト　カナ）</label>
         <name>Company_Legal_Form_Native__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -941,7 +941,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Company Legal Form text Native --></label>
+        <label>法人格（Text　カナ）</label>
         <name>Company_Legal_Form_text_Native__c</name>
     </fields>
     <fields>
@@ -953,7 +953,7 @@
         <name>Company_Name_Native_1__c</name>
     </fields>
     <fields>
-        <label><!-- Company Name Native2 --></label>
+        <label>法人格除く法人名(カナ)</label>
         <name>Company_Name_Native_2__c</name>
     </fields>
     <fields>
@@ -3322,7 +3322,7 @@ Allows up to 240 characters --></help>
         <name>Email2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他）</label>
+        <label>MyMercedesメールアドレス</label>
         <name>Email3__c</name>
     </fields>
     <fields>
@@ -3330,7 +3330,7 @@ Allows up to 240 characters --></help>
         <name>Email_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新者</label>
+        <label>MyMercedesメールアドレス 更新者</label>
         <name>Email_Last_Modified_By3__c</name>
     </fields>
     <fields>
@@ -3342,7 +3342,7 @@ Allows up to 240 characters --></help>
         <name>Email_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新日時</label>
+        <label>MyMercedesメールアドレス 更新日時</label>
         <name>Email_Last_Modified_Date3__c</name>
     </fields>
     <fields>
@@ -3374,7 +3374,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(その他） Validity</label>
+        <label>MyMercedesメールアドレス Validity</label>
         <name>Email_Status_3__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3590,7 +3590,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- FinanceLead Notification Timing --></label>
+        <label>ファイナンスリード通知タイミング</label>
         <name>FinanceLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -5116,7 +5116,7 @@ Allows up to 240 characters --></help>
         <name>MBJ_Yanase_Code__c</name>
     </fields>
     <fields>
-        <label><!-- MB Customer Info Remove --></label>
+        <label>MBJ顧客情報削除</label>
         <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
@@ -7035,7 +7035,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- To Be Deleted --></label>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
