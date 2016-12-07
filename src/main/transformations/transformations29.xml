@@ -29,12 +29,7 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
 		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
-	</changetext>
-	<changetext>
-		<filename>objects\Case.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
-		<token tokenonly="true">CASE_FIELD_ID_IN_LEAD</token>
-	</changetext>
+	</changetext> 
 	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
@@ -44,7 +39,12 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">CONTACT_FIELD_ID_IN_LEAD</token>
-	</changetext>
+	</changetext>	
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
+	</changetext> 
 	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_Complaint']/url/text()</xpath>

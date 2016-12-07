@@ -14138,23 +14138,58 @@
             <section>Web Information</section>
         </sections>
     </layouts>
-    <layouts>
+  <layouts>
         <layout>Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
-            <label><!-- Case Feedback --></label>
+            <label>ケース・フィードバック</label>
             <section>Case Feedback</section>
         </sections>
         <sections>
             <label>販売店情報</label>
-            <section>Dealer Info</section>
+            <section>Dealer Information</section>
         </sections>
         <sections>
             <label>問合わせ情報</label>
             <section>Inquiry Information</section>
         </sections>
         <sections>
+            <label>新しいフィールド</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
             <label>その他</label>
             <section>Other Information</section>
+        </sections>
+        <sections>
+            <label>車両選択</label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Inquiry Layout - Dealer User</layout>
+        <sections>
+            <label>ケース情報</label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>ディーラー情報</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>説明情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>お問い合わせ情報</label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label>MBJのリクエスト情報</label>
+            <section>MBJ Request Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -14591,6 +14626,10 @@
         <label><!-- New_Chrysler_Complaint --></label>
         <name>New_Chrysler_Complaint</name>
     </webLinks>
+	<webLinks>
+        <label>新規アフターセールスリード</label>
+        <name>New_AfterSales_Lead</name>
+    </webLinks>
     <webLinks>
         <label><!-- New_Chrysler_ComplaintForVehicleShip --></label>
         <name>New_Chrysler_ComplaintForVehicleShip</name>
@@ -14603,11 +14642,15 @@
         <label>リード新規作成</label>
         <name>New_Lead</name>
     </webLinks>
-    <webLinks>
+     <webLinks>
+        <label>リード新規作成</label>
+        <name>New_Lead</name>
+    </webLinks>
+	<webLinks>
         <label><!-- New_MBDA_Complaint --></label>
         <name>New_MBDA_Complaint</name>
     </webLinks>
-    <webLinks>
+	<webLinks>
         <label><!-- New_MBDA_Inquiry --></label>
         <name>New_MBDA_Inquiry</name>
     </webLinks>
@@ -14626,6 +14669,14 @@
     <webLinks>
         <label><!-- New_SSI_Complaint --></label>
         <name>New_SSI_Complaint</name>
+    </webLinks>
+	 <webLinks>
+        <label>ディーラーに通知する</label>
+        <name>Notify_to_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>プリントディーラーPDF</label>
+        <name>Print_Dealer_PDF</name>
     </webLinks>
     <webLinks>
         <label>頻出苦情</label>

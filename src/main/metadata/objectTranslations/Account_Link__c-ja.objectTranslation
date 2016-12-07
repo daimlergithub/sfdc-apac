@@ -83,6 +83,30 @@
         <name>Position__c</name>
     </fields>
     <fields>
+        <label>販売時担当者</label>
+        <name>Sales_Representative__c</name>
+        <relationshipLabel><!-- Account Link (Sales Representative) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>販売拠点</label>
+        <name>Selling_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Selling Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>車台番号</label>
+        <name>VIN__c</name>
+    </fields>
+    <fields>
+        <label>サービス担当者</label>
+        <name>Service_Advisor__c</name>
+        <relationshipLabel><!-- Account Link (Service Advisor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>サービス担当拠点</label>
+        <name>Service_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Service Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label>有効</label>
         <name>Primary__c</name>
     </fields>

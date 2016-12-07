@@ -1313,6 +1313,30 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>cSendVehicleInformationtoSPOJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>cSendVehicleInformationtoSPOJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>cSendVehicletoSPOConfirmationJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>cSendVehicletoSPOConfirmationJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>UtilWebservice</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilwebserviceTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -20707,6 +20731,14 @@
     <pageAccesses>
         <apexPage>SelectSlaveAccount</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SendVehicleInformationtoSPOJP</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SendVehicletoSPOConfirmationJP</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteLogin</apexPage>

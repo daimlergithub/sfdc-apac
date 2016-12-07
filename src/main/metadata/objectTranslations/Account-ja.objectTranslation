@@ -369,7 +369,7 @@
         <name>site_account</name>
     </fields>
     <fields>
-        <label><!-- ASLead Notification Timing --></label>
+        <label>サービススリード通知タイミング</label>
         <name>ASLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -493,7 +493,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>個人情報許諾フラグ(MBJ⇒販売店)</label>
+        <label>個人情報第三者提供の許諾</label>
         <name>Allow_Data_Sharing2__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -705,7 +705,7 @@
         <name>CMS_SAP_No__c</name>
     </fields>
     <fields>
-        <label><!-- COS Flag --></label>
+        <label>COSフラグ</label>
         <name>COS_Flag__c</name>
     </fields>
     <fields>
@@ -873,7 +873,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Company Legal Form Native --></label>
+        <label>法人格（リスト　カナ）</label>
         <name>Company_Legal_Form_Native__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -941,7 +941,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Company Legal Form text Native --></label>
+        <label>法人格（Text　カナ）</label>
         <name>Company_Legal_Form_text_Native__c</name>
     </fields>
     <fields>
@@ -953,7 +953,7 @@
         <name>Company_Name_Native_1__c</name>
     </fields>
     <fields>
-        <label><!-- Company Name Native2 --></label>
+        <label>法人格除く法人名(カナ)</label>
         <name>Company_Name_Native_2__c</name>
     </fields>
     <fields>
@@ -1175,7 +1175,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Customer Attributes UpdatedDate --></label>
+        <label>顧客属性最終更新日時</label>
         <name>Customer_LastUpdatedDate__c</name>
     </fields>
     <fields>
@@ -1223,7 +1223,7 @@
         <name>DMS_Customer_ID__c</name>
     </fields>
     <fields>
-        <label><!-- DMS Retailer ID --></label>
+        <label>Autoline拠点ID</label>
         <name>DMS_Retailer_ID__c</name>
     </fields>
     <fields>
@@ -2870,7 +2870,7 @@ Allows up to 240 characters --></help>
         <name>Dealer_Representative__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Rollout Status --></label>
+        <label>販売店ロールアウトステータス</label>
         <name>Dealer_Rollout_Status__c</name>
         <picklistValues>
             <masterLabel>Done</masterLabel>
@@ -2883,6 +2883,10 @@ Allows up to 240 characters --></help>
         <picklistValues>
             <masterLabel>Not Yet</masterLabel>
             <translation><!-- Not Yet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -3318,7 +3322,7 @@ Allows up to 240 characters --></help>
         <name>Email2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他）</label>
+        <label>MyMercedesメールアドレス</label>
         <name>Email3__c</name>
     </fields>
     <fields>
@@ -3326,7 +3330,7 @@ Allows up to 240 characters --></help>
         <name>Email_Last_Modified_By2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新者</label>
+        <label>MyMercedesメールアドレス 更新者</label>
         <name>Email_Last_Modified_By3__c</name>
     </fields>
     <fields>
@@ -3338,7 +3342,7 @@ Allows up to 240 characters --></help>
         <name>Email_Last_Modified_Date2__c</name>
     </fields>
     <fields>
-        <label>Eメール(その他） 更新日時</label>
+        <label>MyMercedesメールアドレス 更新日時</label>
         <name>Email_Last_Modified_Date3__c</name>
     </fields>
     <fields>
@@ -3370,7 +3374,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label>Eメール(その他） Validity</label>
+        <label>MyMercedesメールアドレス Validity</label>
         <name>Email_Status_3__c</name>
         <picklistValues>
             <masterLabel>Bounce-Back</masterLabel>
@@ -3586,7 +3590,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- FinanceLead Notification Timing --></label>
+        <label>ファイナンスリード通知タイミング</label>
         <name>FinanceLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -4942,7 +4946,7 @@ Allows up to 240 characters --></help>
         <name>Last_Campaign_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Last Modified User Type --></label>
+        <label>最終更新者ユーザ種別</label>
         <name>Last_Modified_User_Type__c</name>
     </fields>
     <fields>
@@ -5112,7 +5116,7 @@ Allows up to 240 characters --></help>
         <name>MBJ_Yanase_Code__c</name>
     </fields>
     <fields>
-        <label><!-- MB Customer Info Remove --></label>
+        <label>MBJ顧客情報削除</label>
         <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
@@ -5552,7 +5556,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Online Dedup Hidden --></label>
+        <label>顧客検索対象外フラグ</label>
         <name>Online_Dedup_Hidden__c</name>
     </fields>
     <fields>
@@ -5920,11 +5924,11 @@ Allows up to 240 characters --></help>
         <name>Place_of_Birth__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Date --></label>
+        <label>My Mercedes申請日</label>
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Status --></label>
+        <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -5938,9 +5942,13 @@ Allows up to 240 characters --></help>
             <masterLabel>Waiting for confirmation</masterLabel>
             <translation><!-- Waiting for confirmation --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Portal Apply User --></label>
+        <label>My Mercedes申請者</label>
         <name>Portal_Apply_User__c</name>
         <relationshipLabel><!-- Accounts (Portal Apply User) --></relationshipLabel>
     </fields>
@@ -6626,7 +6634,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- SalesLead Notification Timing --></label>
+        <label>セールスリード通知タイミング</label>
         <name>SalesLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7027,7 +7035,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- To Be Deleted --></label>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
@@ -7136,7 +7144,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- UsedLead Notification Timing --></label>
+        <label>中古車リード通知タイミング</label>
         <name>UsedLead_Notification_Timing__c</name>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7228,11 +7236,11 @@ Allows up to 240 characters --></help>
         <name>Vol_NAF_Bonus3__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Date --></label>
+        <label>SPO登録／申請日</label>
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Status --></label>
+        <label>保証システム連携ステータス</label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
@@ -7242,9 +7250,13 @@ Allows up to 240 characters --></help>
             <masterLabel>To be Sent</masterLabel>
             <translation><!-- To be Sent --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>none</masterLabel>
+            <translation><!-- none --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Warranty Apply User --></label>
+        <label>SPO登録／申請者</label>
         <name>Warranty_Apply_User__c</name>
         <relationshipLabel><!-- Accounts (Warranty Apply User) --></relationshipLabel>
     </fields>
