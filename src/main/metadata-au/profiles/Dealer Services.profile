@@ -10310,11 +10310,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Engagement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18301,11 +18296,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.End_call_time__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Engagement__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
