@@ -286,7 +286,9 @@
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
-			   <sf:include name="Tasks"/>			   
+			   <sf:include name="Tasks"/>
+			   <sf:include name="LeadMerge"/>
+			   <sf:include name="SelectSlaveLead"/>			   
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -375,6 +377,7 @@
 				<sf:include name="RetailTaskHelperJP"/>						
 				<sf:include name="RetailTaskHelperJPTest"/>	
 				<sf:include name="LeadcustomClone"/>
+				<sf:include name="LeadMergeController"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
