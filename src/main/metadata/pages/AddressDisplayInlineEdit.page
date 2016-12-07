@@ -191,7 +191,11 @@
                     <!--<apex:pageBlockSectionItem rendered="{!IF(market != 'KR', true, false)}">-->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Block__c}"/>           
+                        <apex:inputField value="{!AddressObj.Block__c}"/>
+                    </apex:pageBlockSectionItem>
+                     <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Block_Native__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Block_Native__c}"/>
                     </apex:pageBlockSectionItem>
                     <!-- <apex:inputField value="{!addressobj.Block__c}"/> -->
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
@@ -200,10 +204,8 @@
                     <apex:inputField value="{!addressobj.Address_Line_2_Native__c}"/>                   
                     <apex:inputField value="{!addressobj.Company_Name__c}"/>
                     
-                    <apex:outputPanel rendered="{!if(Market=='KR',False,True)}">
-                        <apex:inputField value="{!addressobj.Company_Name_Native__c}"/>
-                        <apex:inputField value="{!addressobj.TitleOfHonor__c}"/> 
-                    </apex:outputPanel> 
+                    <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
+                    <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                     <apex:inputField value="{!addressobj.Status__c}"/>
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
