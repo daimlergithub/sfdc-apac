@@ -1010,10 +1010,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Outbount visit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Phone-in</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1023,6 +1019,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Walk-in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound visit</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
