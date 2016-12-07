@@ -64,6 +64,9 @@ public with sharing class AccountHelperJPTest
       //insert companyacc;
       accountlist.add(companyacc);
       insert accountlist;  
+      Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = accountlist[0].id, ReCordTypeId = RetailPerson);
+        insert acclnk;
       for(Account acc: accountlist){
          accountMap.put(acc.Id,acc);
        }
@@ -94,6 +97,8 @@ public with sharing class AccountHelperJPTest
         personAcc.Primary_Email__c = 'Email2';
         personAcc.Primary_Phone__c = 'Work Mobile';   
         update personAcc;
+        
+        
         AccountHelperJP.updateAccountFieldsBeforeUpdate(accountlist,accountMap,true);
       Test.Stoptest();           
     } 
@@ -130,5 +135,4 @@ public with sharing class AccountHelperJPTest
       Test.Stoptest();      
      }
       
-  }    
-  
+  }
