@@ -899,11 +899,11 @@ public class TaskHelper {
         set<Id> vehRelation2 =new set<Id>(); 
         List<Vehicle_Relationship__c> vehRelationList1 =new List<Vehicle_Relationship__c>();
         List<Vehicle_Relationship__c> vehRelationList2 =new List<Vehicle_Relationship__c>(); 
-        id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
+        Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
         System.debug('test1'+listTaskNew);
         for(Task task : listTaskNew)
         {              
-            if(String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId && task.Status !='Complete'){
+            if(task.WhatId != null && String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId && task.Status !='Complete'){
                 system.debug('test3');
                 vehRelation1.add(task.WhatId); 
                 vehRelationList1=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation1];
@@ -911,10 +911,12 @@ public class TaskHelper {
                     vrl1.ToBeActioned__c =true;
                 }    
             }
-            else{
+            else if(task.WhatId != null) 
+            {
                 vehRelation2.add(task.WhatId); 
                 vehRelationList2=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation2];
-                for(Vehicle_Relationship__c vrl2:vehRelationList2){
+                for(Vehicle_Relationship__c vrl2:vehRelationList2)
+                {
                     vrl2.ToBeActioned__c =false;
                 }
             }
