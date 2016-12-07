@@ -70505,6 +70505,41 @@ ISNULL(Visited_Showroom_Date__c)
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Visited Showroom, Visited Showroom Date is required.</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>Convert_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")}
+var relatedId='{!Lead__c.Related_Leads__c}';
+if(relatedId !==''){
+	alert("This Lead is already converted");
+}
+else{
+	var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'});
+	var relatedId1='{!Lead__c.Related_Leads__c}';
+	window.location.href='/'+leadCopy;
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Task</fullName>
+        <availability>online</availability>
+        <description>Creating new task with Lead and Account Auto populated and Record type is General Task.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Task</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+
+var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Task' and developerName ='General_Task'"); 
+var rt = RTs.getArray("records"); 
+window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
+    </webLinks>
     <webLinks>
         <fullName>Find_Duplicates</fullName>
         <availability>online</availability>
