@@ -245,7 +245,7 @@
     </target>
 	
 	<target name="deploy25">			
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<!--<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -260,10 +260,10 @@
 				<sf:include name="TaskDeleting"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
-				<!--<sf:include name="Task"/>-->
-				<!--<sf:include name="Activity"/>-->
+				<sf:include name="Task"/>
+				<sf:include name="Activity"/>
 			</sf:typeset>
-		</deploy>
+		</deploy>-->
     </target>
 	
 	<target name="deploy29">
