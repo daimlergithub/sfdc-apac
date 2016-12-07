@@ -62,7 +62,7 @@
                 <field>Lost_to__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>ClosedDate__c</field>
             </layoutItems>
         </layoutColumns>

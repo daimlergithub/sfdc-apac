@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -331,6 +330,7 @@
         <customButtons>New_Finance_Lead</customButtons>
         <customButtons>New_Insurance_Lead</customButtons>
         <customButtons>New_Service_Parts_Lead</customButtons>
+        <customButtons>New_Parts_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>

@@ -9,6 +9,13 @@
         <description>Record type for person account</description>
         <label>Person Account</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -1538,6 +1545,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -1593,6 +1607,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1957,6 +1982,77 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuso_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -1991,6 +2087,10 @@
             </values>
             <values>
                 <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2484,6 +2584,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Status__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -2777,6 +2931,495 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -2799,6 +3442,49 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3094,6 +3780,58 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -3286,6 +4024,13 @@
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3819,6 +4564,13 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3870,6 +4622,13 @@
         <description>Person Account record type for merged customer before soft deleted</description>
         <label>Person Account Manual Merge</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -5492,6 +6251,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -5571,6 +6337,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5938,6 +6715,77 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6469,6 +7317,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Status__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -6762,6 +7664,495 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -6784,6 +8175,49 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7130,6 +8564,58 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -7341,6 +8827,13 @@
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7895,6 +9388,13 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7946,6 +9446,13 @@
         <description>Record type for customer created by dealer</description>
         <label>Person Account Retail</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -9568,6 +11075,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -9623,6 +11137,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9994,6 +11519,77 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fuso_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -10028,10 +11624,6 @@
             </values>
             <values>
                 <fullName>Male</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10525,6 +12117,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Status__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -10818,6 +12464,495 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -10844,9 +12979,64 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Occupation__c</picklist>
             <values>
+                <fullName>Associate Degree</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Business%2C Service staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diploma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctoral Degree</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10866,7 +13056,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Graduate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High School Certificate</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Masters Degree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Formal Education</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10879,6 +13085,10 @@
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post Graduate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10899,6 +13109,18 @@
             </values>
             <values>
                 <fullName>Soldier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAFE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>University</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10927,6 +13149,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>PC_Status__c</picklist>
+            <values>
+                <fullName>Complaintant</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Customer</fullName>
                 <default>false</default>
@@ -11186,6 +13412,58 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -11397,6 +13675,13 @@
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11915,6 +14200,10 @@
         <picklistValues>
             <picklist>VAN_Status__c</picklist>
             <values>
+                <fullName>Complaintant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Customer</fullName>
                 <default>false</default>
             </values>
@@ -11951,6 +14240,13 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12001,6 +14297,13 @@
         <active>true</active>
         <description>Record type for person account soft deleted</description>
         <label>Person Account Soft Deleted</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -13500,6 +15803,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -13579,6 +15889,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13946,6 +16267,77 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14477,6 +16869,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Status__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -14770,6 +17216,495 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -14792,6 +17727,49 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15138,6 +18116,58 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -15349,6 +18379,13 @@
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15887,6 +18924,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Western_Star_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -15932,6 +18976,13 @@
         <fullName>ThirdParty</fullName>
         <active>true</active>
         <label>3rd Party</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -17583,6 +20634,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -17638,6 +20696,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18033,6 +21102,77 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fleet_Sub_Category__c</picklist>
+            <values>
+                <fullName>Affinity Schemes To Commercial Accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Affinity Schemes to Professional Groups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffeur Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter companies of BIG X %28IFA companies%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchisees of Big X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Authorities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National embassies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other National rental companies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats abroad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>diplomats in country</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18564,6 +21704,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Status__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interested_Event__c</picklist>
+            <values>
+                <fullName>Concert%2FEvent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Lesson</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Lunch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -18857,6 +22051,495 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>AB Road</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arena</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asiana Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autocar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avenue L %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bazzar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beyond %28대한_국제선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casa Living</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmopolitan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignHouse %28행가집%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Esquire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORBES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FORTUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Galleria %28겔러리아%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Digest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf For Women</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Herald</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grazia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heren</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lemon Tree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxury</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marie Claire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mens Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Trend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neighbor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblesse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Noblian %28신라%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreVillage %28롯데%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Style H %28현대%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Gear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traveller</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VOGUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -18879,6 +22562,49 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>Asia Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chosun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Donga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hankyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Herald Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joongang</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maekyung</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Money Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seokyung</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19225,6 +22951,58 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -19436,6 +23214,13 @@
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19990,6 +23775,13 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

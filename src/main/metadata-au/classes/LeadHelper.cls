@@ -1921,42 +1921,36 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     /*
     Requirment : If a dealer is creating a lead then update the dealer_assignment_Date__c as current date
     */
-    public static void updateDealerAssignmentDate(List<Lead__C> leadList){
-        Set<Id> dealerIdSet = new Set<Id>();
-        list<Lead__c> updateLeadList = new List<Lead__c>();
-        Map<Id,Contact> dealerIdContactID = new Map<Id,Contact>();
-        //List<Lead__c> leadList = [SELECT Id,Assigned_dealer__C, OwnerId FROM Lead__c WHERE CAC_lead_status__c = 'Qualified' AND Assigned_dealer__c != NULL AND Dealer_assignment_date__c = null];
-        for(Lead__c curLead : leadList){
-            if(curLead.Assigned_dealer__c != NULL && curLead.Dealer_assignment_date__c == null)
-            dealerIdSet.add(curLead.Assigned_Dealer__c);
+  public static void updateDealerAssignmentDate(map<id,Lead__c> newleadMap,map<id,Lead__c> leadoldMap,boolean isInsert,boolean isUpdate)
+ {
+     	Map<Id,Id> Lead_DealerIdMap = new Map<Id,Id>();        
+        for(Lead__c curLead : newleadMap.values())
+        {
+            if(curLead.Assigned_dealer__c != NULL && (isInsert || (isUpdate && newleadMap.get(curLead.Id).Assigned_dealer__c != leadoldMap.get(curLead.Id).Assigned_dealer__c)))
+             {
+               
+			    Lead_DealerIdMap.put(curLead.id,curLead.Assigned_Dealer__c);
+			 }
         }
-        System.debug('DealerIdSet===='+dealeridSet);
-        List<Contact> conlistWithDealerId = [SELECT Id FROM Contact WHERE AccountId IN: dealerIdSet];
-        list<id> conId = new list<Id>();
-        for(contact c : conlistWithDealerId){
-            conId.add(c.id);
-        }
-        List<user> userList = [SELECT id,contactid,contact.Dealer_Lead_Gate_Keeper__c from user where contactId IN: conId ];
-        System.debug('conlistWithDealerIds'+conlistWithDealerId);
-        for(Lead__c curLead : leadList){
-            for(user curuser : userList ){
-                if(curLead.OwnerId == curuser.Id && curuser.Contact.Dealer_Lead_Gate_Keeper__c == true){
-                    curLead.Dealer_Assignment_Date__c = System.now();
-                    updateLeadList.add(curLead);
-                    System.debug('Leadwithdealer'+curLead.id);
+        
+        Map<id,user> UsersMap = New Map<id,user>([SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : Lead_DealerIdMap.values() AND Dealer_Lead_Gate_Keeper__c = true)]);
+        
+        for(ID  LeadId: Lead_DealerIdMap.KeySet())
+		{
+				Lead__c curLead = newleadMap.get (LeadId);
+				
+                if( UsersMap.containskey(curLead.OwnerId) && UsersMap.get(curLead.OwnerId).Contact.AccountId ==curLead.Assigned_dealer__c )
+                {
+                    if ( curLead.Dealer_Assignment_Date__c == null)
+                    {
+				   		curLead.Dealer_Assignment_Date__c = System.now();
+				  	}
                 }
-            }
         }
-        try{
-            if(!updateLeadList.isEmpty())
-                update updateLeadList;
-        }
-        catch(Exception ex){
-            System.debug('Exception >>>>>>>> ' + ex.getMessage());
-            System.debug('Caused By >>>>>>>>>>>>> ' + ex.getCause());
-            System.debug(' Line Number >>>>>>>>>>' + Ex.getLineNumber());
-        }
-    }
+ }
+          
+      
+    
     /* Calculation of Dealer Due Date*/
 
     public Static void DueDateForAssignedDealer(List<Lead__C> list_leads_new)
@@ -1969,8 +1963,19 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             Integer SLADuration=0;
            
             if ((lead.Assigned_Dealer__c!= null && Lead.Dealer_Assignment_Date__c != null ) && lead.Lead_Priority__c != null) {
+              
+                Datetime Localtime;
                
-                Datetime Localtime = datetime.valueOfGMT(Lead.Dealer_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+                if(Lead.Reassignment_Date__c == null )
+               {
+                   Localtime  = datetime.valueOfGMT(Lead.Dealer_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+
+               }else
+               {
+                   Localtime  = datetime.valueOfGMT(Lead.Reassignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+                   
+               }
+              
                  if (lead.Lead_Priority__c == 'Hot'){
                      SLADuration= SLA_hot;
                     }
@@ -2200,35 +2205,79 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
         }
     }   
-    public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList)
+    public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList ,map<id,Lead__c> newAdMap,map<id,Lead__c> oldAdMap,boolean isInsert,boolean isUpdate)
     {
         set<id> dleadId = new set<id>();
         map<id,id> delaccmap = new map<id,id>();
         set<string> assigndlrgroup = new set<string>();
+        set<id> delgroupId = new set<id>();
+        set<id> olddelId = new set<id>();
+        set<id> oldaccId = new set<id>();
+        set<string> olddelacc = new set<string>();
         List<group> assgroupList = new List<group>();
+        set<id> oldGroupId = new set<id>();
         map<string,id> assgroupMap = new map<string,id>();
         List<sobject> assshareList = new List<sobject>();
         List<Lead__c> leaddrList = new List<Lead__c>();
+        List<Account> oldaccList = new List<Account>();
         for(Lead__c drled : assignLeadList)
         {
-            if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
+            if(isInsert)
             {
-                dleadId.add(drled.Id);
-            }
-            else if (drled.Assigned_Dealer__c != null && drled.Source_system__c.contains('DLM'))
-            {                           
-                if ((drled.Nature_of_Request__c== 'Quote Request' || drled.Nature_of_Request__c== 'Request a Quote')  && drled.Business_Unit__c =='Vans')
+                if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
                 {
                     dleadId.add(drled.Id);
                 }
-                
-                else if (((drled.Nature_of_Request__c=='Parts Enquiry' || drled.Nature_of_Request__c=='Parts Enquiries') || 
-                          drled.Nature_of_Request__c=='Service Booking') && (drled.Business_Unit__c =='Vans' || drled.Business_Unit__c=='Cars'))
+                else if (drled.Assigned_Dealer__c != null && drled.Source_system__c != null && drled.Source_system__c != '' && drled.Source_system__c.contains('DLM'))
+                {                           
+                    if ((drled.Nature_of_Request__c== 'Quote Request' || drled.Nature_of_Request__c== 'Request a Quote')  && drled.Business_Unit__c =='Vans')
+                    {
+                        dleadId.add(drled.Id);
+                    }
+                    
+                    else if (((drled.Nature_of_Request__c=='Parts Enquiry' || drled.Nature_of_Request__c=='Parts Enquiries') || 
+                              drled.Nature_of_Request__c=='Service Booking') && (drled.Business_Unit__c =='Vans' || drled.Business_Unit__c=='Cars'))
+                    {
+                        dleadId.add(drled.Id);
+                    }
+                }
+            }
+            If(isUpdate)
+            {
+                if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && 
+                   (newAdMap.get(drled.Id).CAC_Lead_Status__c != oldAdMap.get(drled.Id).CAC_Lead_Status__c))
+                {
+                    dleadId.add(drled.Id);                    
+                }
+                else if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && 
+                   (newAdMap.get(drled.Id).Assigned_Dealer__c != oldAdMap.get(drled.Id).Assigned_Dealer__c))
                 {
                     dleadId.add(drled.Id);
+                    olddelId.add(oldAdMap.get(drled.Id).Assigned_Dealer__c);
+                    if(drled.Contact__c != null)
+                    {
+                    	oldaccId.add(oldAdMap.get(drled.Id).Contact__c);
+                    }
+                    if(drled.Company_Account__c != null)
+                    {
+                        oldaccId.add(oldAdMap.get(drled.Id).Company_Account__c);
+                    }
                 }
             }
         }
+        
+        if(!olddelId.isEmpty() && olddelId != null)
+        {
+            oldaccList = [select id,Name from Account where ID =:olddelId];
+        }
+        if(!oldaccList.isEmpty() && oldaccList != null)
+        {
+            for(Account oldacc : oldaccList)
+            {
+                olddelacc.add(oldacc.Name);
+            }
+        }
+        
         if(!dleadId.isEmpty() && dleadId != null)
         {
             leaddrList = [select id,Assigned_Dealer__c,CAC_Lead_Status__c,Contact__c,Company_Account__c,Assigned_Dealer__r.Name from Lead__c where id =:dleadId];
@@ -2245,12 +2294,24 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 {
                     delaccmap.put(dleds.Id, dleds.Company_Account__c);
                 }
-                if(dleds.Assigned_Dealer__c != null)
+                if(dleds.Assigned_Dealer__c != null) 
                 {
                     assigndlrgroup.add(dleds.Assigned_Dealer__r.Name);
-                }
+                }       
             }
         }
+        if(!olddelacc.isEmpty() && olddelacc != null)
+        {
+            assgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:olddelacc];
+        }
+        if(!assgroupList.isEmpty() && assgroupList != null)
+        {
+            for(Group oldg: assgroupList)
+            {
+                oldGroupId.add(oldg.Id);
+            }
+        }
+        system.debug('assgroupList>>>>> ' + assgroupList);
         if(!assigndlrgroup.isEmpty() && assigndlrgroup != null)
         {
             assgroupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:assigndlrgroup];
@@ -2278,6 +2339,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
+        if(!oldGroupId.isEmpty() && oldGroupId != null && !oldaccId.isEmpty() && oldaccId != null)
+        {
+            system.debug('INNNNN');
+            delete [select Id from AccountShare where AccountAccessLevel = 'Edit' and OpportunityAccessLevel = 'None' and AccountId in :oldaccId and UserOrGroupId in :oldGroupId];
+        }
+        system.debug('assshareList>>.' + assshareList);
         if(!assshareList.isEmpty() && assshareList != null)
         {
             insert assshareList;
