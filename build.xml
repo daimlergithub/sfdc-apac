@@ -286,9 +286,7 @@
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
-			   <sf:include name="Tasks"/>
-			   <sf:include name="LeadMerge"/>
-			   <sf:include name="SelectSlaveLead"/>			   
+			   <sf:include name="Tasks"/>		   
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -443,7 +441,9 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
-				<sf:include name="VehiclePickerForCase"/>
+				<sf:include name="VehiclePickerForCase"/>				
+			   <sf:include name="LeadMerge"/>
+			   <sf:include name="SelectSlaveLead"/>	
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
