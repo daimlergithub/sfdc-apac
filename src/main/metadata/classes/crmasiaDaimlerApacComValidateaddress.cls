@@ -22,30 +22,42 @@ public class crmasiaDaimlerApacComValidateaddress {
     public class Address {
         public String Address_Code;
         public String Address_Line_1;
+        public String Address_Line_1_Native;
         public String Address_Line_2;
+        public String Address_Line_2_Native;
         public String HouseNumber;
         public String Block;
+        public String Block_Native;
         public String City;
+        public String City_Native;
         public String District;
+        public String District_Native;
         public String Province;
+        public String Province_Native;
         public String ZipCode;
         public String MarketDiscriminator;
         public String ValidFields;
         public Boolean Valid;
         private String[] Address_Code_type_info = new String[]{'Address_Code','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_1_type_info = new String[]{'Address_Line_1','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] Address_Line_1_Native_type_info = new String[]{'Address_Line_1_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Address_Line_2_type_info = new String[]{'Address_Line_2','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] Address_Line_2_Native_type_info = new String[]{'Address_Line_2_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] HouseNumber_type_info = new String[]{'HouseNumber','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Block_type_info = new String[]{'Block','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] Block_Native_type_info = new String[]{'Block_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] City_type_info = new String[]{'City','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] City_Native_type_info = new String[]{'City_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] District_type_info = new String[]{'District','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] District_Native_type_info = new String[]{'District_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] Province_type_info = new String[]{'Province','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
+        private String[] Province_Native_type_info = new String[]{'Province_Native','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] ZipCode_type_info = new String[]{'ZipCode','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'0','1','true'};
         private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] ValidFields_type_info = new String[]{'ValidFields','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] Valid_type_info = new String[]{'Valid','http://crmasia.daimler-apac.com/ValidateAddress_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0','false','false'};
-        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_2','HouseNumber','Block','City','District','Province','ZipCode','MarketDiscriminator','ValidFields','Valid'};
+        private String[] field_order_type_info = new String[]{'Address_Code','Address_Line_1','Address_Line_1_Native','Address_Line_2','Address_Line_2_Native','HouseNumber','Block','Block_Native','City','City_Native','District','District_Native','Province','Province_Native','ZipCode','MarketDiscriminator','ValidFields','Valid'};
     }
     public class AddressValidationResponseMessageType {
         public String ValidationStatus;
