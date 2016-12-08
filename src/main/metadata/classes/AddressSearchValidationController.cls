@@ -75,13 +75,14 @@ public class AddressSearchValidationController{
         }
         else{
             try{
+                AddressOptions.add(new SelectOption('',''));       
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
                 for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
-                    //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
+                   // Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
                     AddressOptions.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
                 }
             }
-            //AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
+           // AddressOptions.add(new SelectOption(addressobj.id,addressobj.Address_Type__c));
             catch(Exception e){}
         }
         return AddressOptions;
