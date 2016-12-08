@@ -252,7 +252,7 @@
             </apex:outputPanel>      
         </tr>  
      </table>  
-     <apex:pageBlockButtons location="bottom">
+     <apex:pageBlockButtons location="bottom" rendered="{!IF($Profile.Name =='Dealer Consultant' || $Profile.Name =='Dealer-Read Only', false , true)}">
          <apex:commandbutton value="Update"  action="{!updateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rerender="pnlId,showmsg" onComplete="refreshParentPage();"/>                 
      </apex:pageBlockButtons>
     </apex:pageBlock>  

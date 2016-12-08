@@ -31815,7 +31815,7 @@ else {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Contracts &amp; AfterSales</masterLabel>
+        <masterLabel>Contracts &amp; Aftersales</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
