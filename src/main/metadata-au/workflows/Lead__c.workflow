@@ -142,6 +142,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>ConsulatantReassignment_Date_update</fullName>
+        <field>Consultant_Reassignment_Date__c</field>
+        <formula>now()</formula>
+        <name>Consultant Reassignment date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>ConsultantAssignmentDateUpdate</fullName>
         <field>Consultant_Assignment_Date__c</field>
         <formula>NOW()</formula>
@@ -860,6 +869,17 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Lead Consultant Reassignment Date update</fullName>
+        <actions>
+            <name>ConsulatantReassignment_Date_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When owner of lead is modified, owner is Dealer consultant and  consulatant assignement date is not NULL Then change Field : Consultant Reassignment Date to current Date/time</description>
+        <formula>AND( ISCHANGED( OwnerId ) , IF( Owner:User.Profile.Name = 'Dealer Consultant', true,false), NOT(ISNULL( Consultant_Assignment_Date__c )) , MD__c = 'AU' )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>LeadStatusChangedateUpdate</fullName>
         <actions>
             <name>CAStatusChangeDate</name>
@@ -888,7 +908,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
-        <formula>AND( ISCHANGED( Assigned_Dealer__c ),        NOT( ISNULL( Dealer_Assignment_Date__c  ) ),          ISPICKVAL( CAC_Lead_Status__c ,'Qualified')      )</formula>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ), NOT(ISNULL( Dealer_Assignment_Date__c  ) ), ISPICKVAL( CAC_Lead_Status__c ,'Qualified'))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -899,7 +919,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>If lead owner profile is 'Dealer Consultant' then updating the current datetime to cosultant _assingment_date__c</description>
-        <formula>AND( ISCHANGED( OwnerId ) ,      IF( Owner:User.Profile.Name  = 'Dealer Consultant',           true,false),       MD__c = 'AU' )</formula>
+        <formula>AND( ISCHANGED( OwnerId ) ,      IF( Owner:User.Profile.Name  = 'Dealer Consultant',           true,false), ISNULL( Consultant_Assignment_Date__c ) ,       MD__c = 'AU' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

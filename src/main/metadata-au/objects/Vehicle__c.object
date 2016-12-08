@@ -173,7 +173,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
         <externalId>false</externalId>
-        <label>BodyType</label>
+        <label>Body Type</label>
         <picklist>
             <picklistValues>
                 <fullName>3 door</fullName>
