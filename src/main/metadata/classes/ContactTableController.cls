@@ -110,25 +110,41 @@ public class ContactTableController
     
     public void UpdateAccount()  
     {
-         
-       if(!(String.isBlank(homePhoneAreaCodePart1)) && !(String.isBlank(homePhoneAreaCodePart2)) && !(String.isBlank(homePhoneAreaCodePart3))){
+       if((String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3)))
+       {
+           ParAcc.Individual_Home_Phone__c='';
+       } 
+       else if((!(String.isBlank(homePhoneAreaCodePart1)) || (String.isBlank(homePhoneAreaCodePart1))) && (!(String.isBlank(homePhoneAreaCodePart2)) || (String.isBlank(homePhoneAreaCodePart2))) && (!(String.isBlank(homePhoneAreaCodePart3)) || (String.isBlank(homePhoneAreaCodePart3))))
+       {
            ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-        }
+       }
         else
          {
            ParAcc.Individual_Home_Phone__c='';
          }
        
-      if(!(String.isBlank(workPhoneAreaCodePart1)) && !(String.isBlank(workPhoneAreaCodePart2)) && !(String.isBlank(workPhoneAreaCodePart3))){
-               ParAcc.Work_Phone__c=workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-          }
-        else{ 
+      if((String.isBlank(workPhoneAreaCodePart1)) && (String.isBlank(workPhoneAreaCodePart2)) && (String.isBlank(workPhoneAreaCodePart3)))
+      {
+               ParAcc.Work_Phone__c='';
+      }
+      else if((String.isBlank(workPhoneAreaCodePart1) || !(String.isBlank(workPhoneAreaCodePart1))) && (String.isBlank(workPhoneAreaCodePart2) || !(String.isBlank(workPhoneAreaCodePart2))) && (String.isBlank(workPhoneAreaCodePart3) || !(String.isBlank(workPhoneAreaCodePart3))))
+      {
+               ParAcc.Work_Phone__c= workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+      }
+        else
+        { 
              ParAcc.Work_Phone__c='';
         }
-      if(!(String.isBlank(mobilePhoneAreaCodePart1)) && !(String.isBlank(mobilePhoneAreaCodePart2)) && !(String.isBlank(mobilePhoneAreaCodePart3))){
+        if((String.isBlank(mobilePhoneAreaCodePart1)) && (String.isBlank(mobilePhoneAreaCodePart2)) && (String.isBlank(mobilePhoneAreaCodePart3)))
+      {
+               ParAcc.Mobile__c='';
+      }
+      else if((!(String.isBlank(mobilePhoneAreaCodePart1)) || (String.isBlank(mobilePhoneAreaCodePart1))) && (!(String.isBlank(mobilePhoneAreaCodePart2)) || (String.isBlank(mobilePhoneAreaCodePart2))) && (!(String.isBlank(mobilePhoneAreaCodePart3)) || (String.isBlank(mobilePhoneAreaCodePart3))))
+      {
                ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
-          }
-        else{ 
+      }
+        else
+        { 
              ParAcc.Mobile__c='';
         }
       
