@@ -1920,26 +1920,28 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
     /*
     Requirment : If a dealer is creating a lead then update the dealer_assignment_Date__c as current date
+	Created by : Sudheer Kandukuri
     */
-  public static void updateDealerAssignmentDate(map<id,Lead__c> newleadMap,map<id,Lead__c> leadoldMap,boolean isInsert,boolean isUpdate)
+  public static void updateDealerAssignmentDate(List<Lead__c> newlist,map<id,Lead__c> newleadMap,map<id,Lead__c> leadoldMap,boolean isInsert,boolean isUpdate)
  {
-     	Map<Id,Id> Lead_DealerIdMap = new Map<Id,Id>();        
-        for(Lead__c curLead : newleadMap.values())
+     	  
+     	Set<id> DealerIdSet= new Set<id>();
+     	List<lead__c> listlead_filter = new List<Lead__c>();
+     
+        for(Lead__c curLead : newlist)
         {
             if(curLead.Assigned_dealer__c != NULL && (isInsert || (isUpdate && newleadMap.get(curLead.Id).Assigned_dealer__c != leadoldMap.get(curLead.Id).Assigned_dealer__c)))
              {
-               
-			    Lead_DealerIdMap.put(curLead.id,curLead.Assigned_Dealer__c);
+               DealerIdSet.add(curLead.Assigned_Dealer__c);
+			    listlead_filter.add(curLead);
 			 }
         }
         
-        Map<id,user> UsersMap = New Map<id,user>([SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : Lead_DealerIdMap.values() AND Dealer_Lead_Gate_Keeper__c = true)]);
+        Map<id,user> UsersMap = New Map<id,user>([SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : DealerIdSet AND Dealer_Lead_Gate_Keeper__c = true)]);
         
-        for(ID  LeadId: Lead_DealerIdMap.KeySet())
+        for(Lead__c  curLead: listlead_filter)
 		{
-				Lead__c curLead = newleadMap.get (LeadId);
-				
-                if( UsersMap.containskey(curLead.OwnerId) && UsersMap.get(curLead.OwnerId).Contact.AccountId ==curLead.Assigned_dealer__c )
+				if( UsersMap.containskey(curLead.OwnerId) && UsersMap.get(curLead.OwnerId).Contact.AccountId ==curLead.Assigned_dealer__c )
                 {
                     if ( curLead.Dealer_Assignment_Date__c == null)
                     {
@@ -1996,8 +1998,18 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
             
             if(lead.Consultant_Assignment_Date__c!=null &&  lead.Lead_Priority__c != null){
-                Datetime Localtime = datetime.valueOfGMT(lead.Consultant_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
-                  if (lead.Lead_Priority__c == 'Hot'){
+                Datetime Localtime ;
+                
+                 if(Lead.Consultant_Reassignment_Date__c == null )
+               {
+                   Localtime  = datetime.valueOfGMT(Lead.Consultant_Assignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+
+               }else
+               {
+                   Localtime  = datetime.valueOfGMT(Lead.Consultant_Reassignment_Date__c.format('YYYY-MM-dd HH:mm:ss'));
+                   
+               }  
+                if (lead.Lead_Priority__c == 'Hot'){
                      SLADuration= SLA_hot;
                     }
                 if (lead.Lead_Priority__c == 'Warm'){

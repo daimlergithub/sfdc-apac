@@ -11,14 +11,17 @@
     </apex:pageBlockButtons>
     <apex:outputpanel rendered="{!isCompany}">
         <apex:pageBlockSection columns="2" id="pbsAccInfoId" title="Account Information" collapsible="false">
+            
             <apex:inputField value="{!objAccount.Name}"/>
-            <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
             <apex:inputField value="{!objAccount.City__c}"/>
+            <apex:inputField value="{!objAccount.Company_Name__c}" />
             <apex:inputField value="{!objAccount.Website}"/>
-            <apex:inputField value="{!objAccount.Fax}" />
-            <apex:inputField value="{!objAccount.Fleet__c}" />
             <apex:inputField value="{!objAccount.ParentId}" />
-            <apex:inputField value="{!objAccount.Company_Name__c}" />   
+            <apex:inputField value="{!objAccount.Fax}" />
+            <apex:outputText value="" />
+            <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
+           <apex:inputField value="{!objAccount.Fleet__c}" />   
+            <apex:outputText value="" />               
             <apex:outputtext value="{!recordType}" label="Account Record Type"/>
             <apex:outputText value="" />
             <apex:inputField value="{!objAccount.Description}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}" />
@@ -26,9 +29,10 @@
             <apex:inputField value="{!objAccount.Dealer_ABN__c}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}"/>
             <apex:outputText value="" />
             <apex:inputField value="{!objAccount.AccountNumber}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}" />
+       
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection columns="2" id="pbsOtherInfoId" title="Other Informations" collapsible="false">
+		<apex:pageBlockSection columns="2" id="pbsOtherInfoId" title="Other Informations" collapsible="false">
             <apex:inputField value="{!objAccount.Fleet_Category__c}" />
         </apex:pageBlockSection>
         
@@ -50,7 +54,7 @@
         <apex:pageBlockSection columns="2" id="pbsSysInfoId" title="System Information" collapsible="false">
             <apex:inputField value="{!objAccount.Add_User__c}" taborderhint="21"/>
             <apex:inputField value="{!objAccount.Add_Date__c}" taborderhint="22"/>  
-        </apex:pageBlockSection>
+        </apex:pageBlockSection>  
     </apex:outputpanel>
     
     <apex:outputpanel rendered="{!isPerson}">

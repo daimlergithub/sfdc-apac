@@ -49,7 +49,11 @@ Global with sharing class UtilConstant {
     public final static String DRM_MBFS = 'DRM MBFS';
     public final static String Finance_Fleet_lead = 'Fleet Finance Lead';
     public final static String Fleet_Vans = 'Fleet Vans';
-    
+    public final static String PERSON_ACCOUNT='Person Account';
+    public final static String COMPANY_ACCOUNT='Company';
+    public final static String PERSON_SOFT_DELETE_ACCOUNT='Person Account Soft Deleted';
+    public final static String COMPANY_SOFT_DELETE_ACCOUNT='Company Soft Deleted';
+      public final static String Prospect_Value = 'Prospect';
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
