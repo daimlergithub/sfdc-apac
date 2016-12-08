@@ -1046,7 +1046,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1066,7 +1066,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>View_By_All__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1090,6 +1090,11 @@ Modify Reason:
     <listViews>
         <fullName>AfterSales_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
         <label>AfterSales Department</label>
         <language>en_US</language>
         <queue>AfterSales_Department</queue>
@@ -1109,6 +1114,9 @@ Modify Reason:
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_temp</fullName>
@@ -1146,6 +1154,27 @@ Modify Reason:
         </filters>
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_CRM_Department_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBJ_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBJ Supervisor</label>
+        <queue>MBJ_Supervisor</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_Supervisor_DM_Request</fullName>
@@ -1155,6 +1184,135 @@ Modify Reason:
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_temp</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Created_By_EP_Transaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_By_EP_Transaction__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>MBK All_temp</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Direct_request_has_been_sent</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Sent_Date__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Direct request has been sent</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Open_mail_requests</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Open mail requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Rejected_requests_for_direct_mail</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SuggestedName__c</columns>
+        <columns>SentName__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Comment__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Customer_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Returned</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Rejected requests for direct mail</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1187,6 +1345,9 @@ Modify Reason:
         </filters>
         <label>Open mail requests</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Returned_DM_Requests</fullName>
@@ -1208,6 +1369,9 @@ Modify Reason:
         </filters>
         <label>Rejected requests for direct mail</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Sales_Department_DM_Request</fullName>
@@ -1244,6 +1408,18 @@ Modify Reason:
         </filters>
         <label>Direct request has been sent</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Supervisor_DM_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Supervisor Team A</label>
+        <queue>Supervisor_Team_A</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Team_A_DM_Request</fullName>

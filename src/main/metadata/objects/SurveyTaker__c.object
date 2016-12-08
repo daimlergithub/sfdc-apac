@@ -118,7 +118,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -200,6 +200,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -239,7 +240,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -272,7 +273,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>View_By_All__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -286,6 +287,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM</fullName>
@@ -332,6 +337,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         </filters>
         <label>今日作成のセントラルDM_コピー</label>
         <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Surveys_Taken</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Surveys Taken</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>{0000000}</displayFormat>
