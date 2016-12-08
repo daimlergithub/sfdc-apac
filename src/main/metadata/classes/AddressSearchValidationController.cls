@@ -248,6 +248,22 @@ public class AddressSearchValidationController{
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));                       
                     }
+                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                    }
+                    if(addressobj.Address_Line_1__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+                    }
+                    if(addressobj.Province__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+                    }
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
                         if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
@@ -299,6 +315,22 @@ public class AddressSearchValidationController{
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                        
+                    } 
+                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));  
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                    }
+                    if(addressobj.Address_Line_1__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+                    }
+                    if(addressobj.Province__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
                     }                   
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
@@ -755,6 +787,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             }
             System.debug('@@@@@@@@@@ response '+response);
+            //System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage[0].Customer);
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
                 {
@@ -770,13 +803,25 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
-                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
-                    objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc !=null)
+                    {
+                        objAccountDeDup.Email__c=response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {                   
-                        AddressDetails ='Address Code' +' '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' ;' + 'Post Code '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + ' ' +'Prefecture '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ ' ' +'City '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ ' ' +'Town '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ ' ' + 'Block '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + ' ' +'Address Line 1 '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+' ' + 'Address Line 2 '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;// + 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;
+                    {   
+                        AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;// + 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
