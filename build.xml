@@ -752,7 +752,7 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>
+		<!--<sf:typeset name="workflows"/>-->
 		<sf:typeset name="flows"/>
 		</deploy>					
     </target>
