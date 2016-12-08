@@ -22,9 +22,12 @@ public with sharing class SelectAssignedDealerController {
     public Id choosenDealerId                    {get; set;}
     public Id choosenCampaignId                  {get; set;}
     public Boolean hasMessage                    {get; set;}
-    public Id dealerRecordTypeId                  {get; set;}
+    public Id dealerRecordTypeId                 {get; set;}
+    // this was added to check the market discriminator based on the logged in user
+    public user usr;
     
     public SelectAssignedDealerController(ApexPages.StandardController controller) {
+        usr = [select id,Market__c from user where id =:userInfo.getUserid()];
         lead = [SELECT RecordType.Name, Name, Contact__r.Province__c, Contact__r.City__c, 
                 Interested_Vehicle_Brand__c, Combine_Interested_Vehicle_Brand__c, Aftersales_Vehicle_Brand__c
                 FROM Lead__c WHERE Id = :controller.getId()];
@@ -174,12 +177,18 @@ public with sharing class SelectAssignedDealerController {
             String city = dealer.City__c;
             querySOQL += 'City__c = :city AND ';
         }
-        
+        // Below condition was added to imprint the logged in user Market discriminator to find dealer(accounts) in his specific market
+        if(usr.Market__c != null && usr.Market__c != ''){
+            system.debug('usr.Market__c '+ usr.Market__c);
+            
+            querySOQL += 'MD__c='+'\''+usr.Market__c+'\'';
+        }
+        system.debug('querySOQL1 '+ querySOQL);
         //for CR-000259 end
         // Query Dealers               
-        querySOQL = querySOQL.subString(0, querySOQL.length() - 4) + 
-            'ORDER BY Dealer_Region__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
-        
+        querySOQL = querySOQL.subString(0, querySOQL.length()) + 
+            ' ORDER BY Dealer_Region__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
+        system.debug('querySOQL '+ querySOQL);
         dealers = Database.query(querySOQL);
         system.debug('dealers >>>3 :'+dealers);
         // If no query result, system alert no search result.
