@@ -192,6 +192,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -207,6 +208,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Survey_Questions</fullName>
+        <columns>NAME</columns>
+        <columns>OrderNumber__c</columns>
+        <columns>Question__c</columns>
+        <columns>Survey__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Survey Questions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <label>Name</label>
