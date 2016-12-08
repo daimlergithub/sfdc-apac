@@ -30278,7 +30278,7 @@ MD__c = 'JP'
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
         <description>Phone must be in any of the following formats : 
-1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx</description>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxx 4. xxxx-xxx-xxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
