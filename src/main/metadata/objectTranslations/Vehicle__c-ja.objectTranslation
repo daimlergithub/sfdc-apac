@@ -2608,6 +2608,10 @@
         <name>InsuranceExpiryDate__c</name>
     </fields>
     <fields>
+        <label>最終サービス日</label>
+        <name>LastServiceDate__c</name>
+    </fields>
+    <fields>
         <label><!-- LastServiceDate --></label>
         <name>LastServiceDate__c</name>
     </fields>
@@ -4483,12 +4487,16 @@
         <label>NT</label>
         <name>National_Model__c</name>
     </fields>
-	<fields>
-        <label><!-- New Used --></label>
+    <fields>
+        <label>新車中古車区分</label>
         <name>New_Used__c</name>
         <picklistValues>
             <masterLabel>New</masterLabel>
             <translation>新車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used</masterLabel>
@@ -4507,6 +4515,10 @@
     <fields>
         <label>次車検予定日</label>
         <name>NextInspectionDate__c</name>
+    </fields>
+    <fields>
+        <label>次サービス時走行距離</label>
+        <name>NextMileage__c</name>
     </fields>
     <fields>
         <label><!-- NextMileage --></label>
