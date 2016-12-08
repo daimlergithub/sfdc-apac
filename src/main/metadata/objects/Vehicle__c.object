@@ -29564,14 +29564,4 @@ else {
 alert('Please set the information in Autoline first');	
 }</url>
     </webLinks>
-    <webLinks>
-        <fullName>TerminateVehicleRelationships</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>replace</openType>
-        <page>TerminateVehicleRelationship</page>
-        <protected>false</protected>
-    </webLinks>
 </CustomObject>
