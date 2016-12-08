@@ -245,7 +245,6 @@
                 <field>vehicle_fax_picklist__c</field>
             </layoutItems>
             <layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>vehicle_mail__c</field>
             </layoutItems>
