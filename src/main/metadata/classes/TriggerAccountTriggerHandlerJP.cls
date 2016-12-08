@@ -12,12 +12,13 @@ Used By:
 public class TriggerAccountTriggerHandlerJP 
 implements TriggerHandlerIf
 {
+    User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     list<Account> ListAccOld = (list<Account>)trigger.old;
     list<Account> ListAccNew = (list<Account>)trigger.new;
     string serializedObject;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-        
+     system.debug('------->');   
         
         if(isBefore && isInsert )
         {
@@ -43,6 +44,7 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -50,6 +52,17 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
+            
+        }
+        /*
+        # Description:Calling UpdateRetailCopy to update the retail Copy when related account(Account 1) is updated.
+        # SFDCJP-669
+        # Date: 02/12/2016
+        # Author : Kiran
+        */
+        if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+            System.debug('----->Is update is called');
+            AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
         }
     }
     
@@ -81,7 +94,10 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            
+            
         }
+        
         
         if(isAfter && isDelete && !System.isFuture())
         {
