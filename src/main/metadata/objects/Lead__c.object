@@ -9796,7 +9796,8 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+		<visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>MBK_Lost_Situation__c</fullName>
