@@ -2748,6 +2748,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>夜間削除対象フラグ</label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- TradeIn Make --></label>
         <name>TradeIn_Make__c</name>
     </fields>
@@ -2937,6 +2941,10 @@
         <name>UsVIN__c</name>
     </fields>
     <fields>
+        <label>UCP登録／申請日</label>
+        <name>UsedWarranty_Apply_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- VIN --></label>
         <name>VIN_Search__c</name>
     </fields>
@@ -2958,6 +2966,36 @@
         <picklistValues>
             <masterLabel>Yes</masterLabel>
             <translation>確認済</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>MyM車両表示フラグ</label>
+        <name>Portal_Visiblity__c</name>
+    </fields>
+    <fields>
+        <label>SPO登録／申請者</label>
+        <name>Warranty_Apply_User__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Warranty Apply User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>SPO登録／申請日</label>
+        <name>Warranty_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label>UCP登録／申請者</label>
+        <name>UsedWarranty_Apply_User__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (UsedWarranty Apply User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>UCP登録／申請ステータス</label>
+        <name>UsedWarranty_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation>送信済み</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
