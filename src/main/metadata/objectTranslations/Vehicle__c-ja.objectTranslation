@@ -2612,10 +2612,6 @@
         <name>LastServiceDate__c</name>
     </fields>
     <fields>
-        <label><!-- LastServiceDate --></label>
-        <name>LastServiceDate__c</name>
-    </fields>
-    <fields>
         <label><!-- Latest Contract Date --></label>
         <name>Latest_Contract_Date__c</name>
     </fields>
@@ -4518,10 +4514,6 @@
     </fields>
     <fields>
         <label>次サービス時走行距離</label>
-        <name>NextMileage__c</name>
-    </fields>
-    <fields>
-        <label><!-- NextMileage --></label>
         <name>NextMileage__c</name>
     </fields>
     <fields>
