@@ -326,4 +326,113 @@ List<Account> accUpdLst = new List<Account>();
     }
  
 }
+ 
+ public static void shareCaseWithDealers(List<Case> shcaseList)
+    {
+    Id profileId=userinfo.getProfileId();
+    Profile profileName=[Select Id,Name from Profile where Id=:profileId];
+    
+        Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+        List<CaseShare> CaseSharingRecord = new List<CaseShare>();
+        List<Caseshare> shareList = new List<Caseshare>();
+        List<Case> caserecList = new List<Case>();
+        set<id> shrcaseId = new set<id>();
+        set<id> userId = new set<id>();
+        set<string> Dealername = new set<string>();
+        map<string,id> groupmap = new map<string,id>();
+        set<id> shUserId = new set<id>();
+        List<Group> partnerUserList = new List<Group>();
+         List<Case> caselist = new List<Case>();
+        set<id> dealerId = new set<id>();
+        for(Case c : shcaseList)
+        {
+            if(c.RecordTypeId == caseRecId && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
+             {
+                shrcaseId.add(c.Id);
+                dealerId.add(c.Case_Dealer__c);
+            }
+           
+        }
+         if(!shrcaseId.isEmpty() && shrcaseId != null)
+            {
+                caserecList = [select id,Case_Dealer__c,Case_Dealer__r.Name from Case where ID =:shrcaseId];                
+            }
+            if(!caserecList.isEmpty() && caserecList != null)
+            {
+                for(Case listca:caserecList)
+                    {
+                        Dealername.add(listca.Case_Dealer__r.Name);
+                        userId.add(listca.Case_Dealer__c);                    
+                    }
+            }
+      List<User> pUser=new List<User>();
+      pUser=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId];
+       
+        if(!Dealername.isempty() && Dealername != null)
+        {
+            partnerUserList = [select id,name,developername from group where name =:Dealername];
+        }
+        for(Group g : partnerUserList)
+        {
+            groupmap.put(g.name,g.id);
+        }
+        if(!caserecList.isEmpty() && caserecList != null)
+        { 
+          for(User us:pUser)
+          {
+            for(Case shrcs : caserecList)
+            {
+                if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
+                {
+                    CaseShare shrcase = new CaseShare();
+                    shrcase.CaseId = shrcs.id;
+                    shrcase.CaseAccessLevel = 'edit';
+                    shrcase.UserOrGroupId = groupmap.get(shrcs.Case_Dealer__r.Name);
+                    CaseSharingRecord.add(shrcase);
+                }
+            }
+           } 
+        }
+       // if(!CaseSharingRecord.isempty() && CaseSharingRecord != null)
+      //  {
+      //      insert CaseSharingRecord ;
+        //}
+        
+         // Insert sharing records and capture save result 
+        // The false parameter allows for partial processing if multiple records are passed 
+        // into the operation 
+        Database.SaveResult[] lsr = Database.insert(CaseSharingRecord,false);
+        
+        // Create counter
+        Integer i=0;
+        
+        // Process the save results
+        for(Database.SaveResult sr : lsr){
+         if(sr.isSuccess())
+         {
+         system.debug('###### %^%^%^%^%^%^%^%^'+sr);
+         }
+            if(!sr.isSuccess()){
+                // Get the first save result error
+                Database.Error err = sr.getErrors()[0];
+                
+                // Check if the error is related to a trivial access level
+                // Access levels equal or more permissive than the object's default 
+                // access level are not allowed. 
+                // These sharing records are not required and thus an insert exception is 
+                // acceptable. 
+                if(!(err.getStatusCode() == StatusCode.FIELD_FILTER_VALIDATION_EXCEPTION  
+                                               &&  err.getMessage().contains('AccessLevel'))){
+                    // Throw an error when the error is not related to trivial access level.
+                    trigger.newMap.get(CaseSharingRecord[i].CaseId).
+                      addError(
+                       'Unable to grant sharing access due to following exception: '
+                       + err.getMessage());
+                }
+            }
+            i++;
+        }
+        System.debug('$%$%$%$%$%$% CaseSharingRecord'+CaseSharingRecord);
+        
+    }
  }

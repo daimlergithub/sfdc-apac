@@ -3,6 +3,18 @@ public class CaseTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+	
+	 if (trigger.isAfter)
+    {
+    if (trigger.isInsert){
+    System.debug('$$$$$$@@@@'+trigger.new);
+    caseHelperJP.shareCaseWithDealers(trigger.new);
+    }
+    if (trigger.isUpdate){
+    System.debug('('$$$$$$@@@@'+'+trigger.new);
+    caseHelperJP.shareCaseWithDealers(trigger.new);
+    }
+    } 
         system.debug('Entered handler...JP handler');
         system.debug('Trigger IsDelete...' +trigger.isDelete);
         CaseHelperJP caseHelperJP = new CaseHelperJP();
