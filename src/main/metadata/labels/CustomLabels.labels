@@ -3438,6 +3438,13 @@
         <value>Please set the information in Autoline first</value>
     </labels>	
     <labels>
+        <fullName>SentToSPO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SentToSPO</shortDescription>
+        <value>Sent to SPO</value>
+    </labels>
+    <labels>
         <fullName>ServiceDealer</fullName>
         <language>en_US</language>
         <protected>false</protected>
