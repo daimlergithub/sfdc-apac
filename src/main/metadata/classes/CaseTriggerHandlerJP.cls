@@ -38,7 +38,7 @@ public class CaseTriggerHandlerJP
                  
             }
         
-		
+		}
 		
         if (trigger.isAfter){
             if (trigger.isInsert||trigger.isUpdate){
