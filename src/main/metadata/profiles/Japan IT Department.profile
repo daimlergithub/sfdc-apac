@@ -20923,9 +20923,6 @@
         <recordType>Audit_Trail__c.CampaignMember</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>BLND_DFAC_Shared_View__c-DreamFactory Shared View Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>BLND_DFCS_Carousel__c-Carousel Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
