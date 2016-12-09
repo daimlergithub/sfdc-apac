@@ -1,0 +1,69 @@
+<apex:page Standardcontroller="Account" extensions="createRetailCopy" >
+<apex:form >
+                        <div align="Center">
+                        <apex:outputPanel >
+
+            <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputField value=" {!Account.Company__c}">
+                             <apex:actionSupport event="onchange" action="{!getAccount }" rerender="Selected_PBS" >
+                                       <apex:param name="account" value="{!Account.Id}"/>
+                                  </apex:actionSupport>
+                        
+                                    </apex:inputField>
+                                </apex:outputPanel>
+                                </div>
+
+<apex:pageBlock >
+<apex:pageBlockTable value="{!sample }" var="ad">
+
+                <apex:column headerValue="Primary">
+                <input type="radio" name="selectRadio" id="radio">
+                                  <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS" >
+                                       <apex:param name="idselected" value="{!ad.id}"/>
+                                  </apex:actionSupport>
+                           </input>
+                          </apex:column>
+
+
+
+                    <apex:column value="{!ad.Name}"/>
+                    <apex:column value="{!ad.Address_Type__c}"/>
+                    <apex:column value="{!ad.ZipCode__c }"/>
+                    <apex:column value="{!ad.Province__c }"/>
+                    <apex:column value="{!ad.Province_Native__c }"/>
+                    <apex:column value="{!ad.City_Native__c }"/>
+                    <apex:column value="{!ad.District__c }"/>
+                    <apex:column value="{!ad.District_Native__c }"/>
+                    <apex:column value="{!ad.Block__c }"/>
+                    <apex:column value="{!ad.Block_Native__c }"/>
+                    <apex:column value="{!ad.Address_Line_1__c }"/>
+                    <apex:column value="{!ad.Address_Line_1_Native__c }"/>
+                    <apex:column value="{!ad.Address_Line_2__c }"/>
+                    <apex:column value="{!ad.Address_Line_2_Native__c }"/>
+                    <apex:column value="{!ad.Company_Name__c }"/>
+                    <apex:column value="{!ad.Company_Name_Native__c }"/>
+                    <apex:column value="{!ad.TitleOfHonor__c }"/>
+                    <apex:column value="{!ad.Status__c }"/>
+                    <apex:column value="{!ad.Temp_ZipCode__c }"/>
+                    <apex:column value="{!ad.Temp_Address__c }"/>
+
+
+
+
+
+
+
+</apex:pageBlockTable>
+
+</apex:pageBlock>
+                        <div align="Center">
+                        <apex:outputPanel >
+
+                         <apex:commandButton value="Save" style="left:0px;position:relative;" action="{!save}" /> 
+                   <apex:commandButton value="Cancel" style="left:20px;position:relative;"  action="{!cancel}" /> 
+                        </apex:outputPanel>
+                        </div>
+
+
+
+</apex:form>
+</apex:page>
