@@ -377,6 +377,10 @@
             <translation>様</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>夜間削除対象フラグ</label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>

@@ -145,6 +145,7 @@
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
+			   <sf:include name="SendAccountInfoToSPO"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
@@ -161,6 +162,8 @@
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
 			   <sf:include name="AddressSearchValidationController"/>
+			   <sf:include name="SendAccountInfoToSPO"/>			   
+			   <sf:include name="SendAccountInfoToSPOTest"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
@@ -286,7 +289,8 @@
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
-			   <sf:include name="Tasks"/>			   
+			   <sf:include name="Tasks"/>
+               <sf:include name="Retailcopybutton"/>			   
 			</sf:typeset>
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
@@ -375,6 +379,9 @@
 				<sf:include name="RetailTaskHelperJP"/>						
 				<sf:include name="RetailTaskHelperJPTest"/>	
 				<sf:include name="LeadcustomClone"/>
+				<sf:include name="LeadMergeController"/>
+				<sf:include name="createRetailCopy"/>
+				<sf:include name="createRetailCopyJPTEST"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -440,7 +447,9 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
-				<sf:include name="VehiclePickerForCase"/>
+				<sf:include name="VehiclePickerForCase"/>				
+			   <sf:include name="LeadMerge"/>
+			   <sf:include name="SelectSlaveLead"/>	
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
