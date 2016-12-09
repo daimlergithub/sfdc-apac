@@ -38,7 +38,8 @@ public class AddressSearchValidationController{
     public String mobileAreaCode{get;set;}
     public String mobileAreaCodePart2{get;set;}
     public String mobileAreaCodePart3{get;set;}
-    public String AddressDetails{get;set;}
+     public String TouchPoint{get;set;} 
+    
     public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
     public string selectedValue { get;set; }
     public List<SelectOption> statusOptions { get;set; }
@@ -48,6 +49,8 @@ public class AddressSearchValidationController{
     Public boolean mbkdatasource {get;set;}
     Public boolean datasource {get;set;}
     // COnstructor
+    public boolean firstsave{get;set;}
+    public boolean secondsave{get;set;}
     public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
         objPersonAccount= new Account();
@@ -64,7 +67,9 @@ public class AddressSearchValidationController{
         if(market != 'KR'){
             mbkdatasource = false;
             datasource = true;
-        }        
+        }   
+        firstsave = false;  
+        secondsave = true;   
     }
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
@@ -304,7 +309,7 @@ public class AddressSearchValidationController{
                             objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
                         }  
                         refreshPage = true;
-                        objPersonAccount.Id = null;
+                                                objPersonAccount.Id = null;
                         insert objPersonAccount ;
                         AddressObj.Customer__c = objPersonAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
@@ -445,7 +450,7 @@ EP/Tolerant for Validation.
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }*/
             if(addressobj.ZipCode__c != null)
-            {
+                        {
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
             } 
@@ -681,31 +686,23 @@ If the user is Saving  same address which matches the fields returned by toleran
             {             
                 objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
             }
-            if(market == System.Label.KR)
-            {
-                if(!homePhoneAreaCodePart1.equals('0'))
-                {                      
-                    objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                }
-                if(!workPhoneAreaCodePart1.equals('0'))
-                {                         
-                    objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                }
-                if(!mobileAreaCode.equals('0'))
-                {              
-                    objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-                }  
-            }
+                        if(market == System.Label.KR)
+                        {
+                                if(!homePhoneAreaCodePart1.equals('0'))
+                                {                      
+                                        objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                                }
+                                if(!workPhoneAreaCodePart1.equals('0'))
+                                {                         
+                                        objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                                }
+                                if(!mobileAreaCode.equals('0'))
+                                {              
+                                        objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                                }  
+                        }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
-           Address__c NewAdd=new Address__c();
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
-            {
-            response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
-            }
-            if(AddressObj == NewAdd)
-            {
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
-            }
             System.debug('@@@@@@@@@@ response '+response);
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null)
@@ -722,14 +719,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
-                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
-                    {
-                    objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
-                    }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {
-                    AddressDetails='Address Code' +' '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' ;' + 'Post Code '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + 'Prefecture '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ 'City '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ 'Town '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ 'Block '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + 'Address Line 1 '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+ 'Address Line 2 '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc + 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;
-                    }
+                                         if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                                        {
+                                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                                        }
                 }
                 show = true;
                 if(response.CustomerIdentificationResponseMessage ==null)
@@ -746,6 +739,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
-        }   
+        }
+        firstsave = true;  
+        secondsave = false;     
     }    
 }
