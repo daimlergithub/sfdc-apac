@@ -60,7 +60,6 @@ public class TriggerLeadTriggerHandler
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.leadPriorityScore(trigger.new);
 		LeadHelper.leaddeDuplication(trigger.new);
-		LeadHelper.updateDealerAssignmentDate(trigger.new ,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
 		LeadHelper.DueDateForAssignedDealer(trigger.new);        
         //AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
     }
@@ -71,7 +70,6 @@ public class TriggerLeadTriggerHandler
         LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);
-        LeadHelper.updateDealerAssignmentDate(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.DueDateForAssignedDealer(trigger.new);
        // AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
        // AuLeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);

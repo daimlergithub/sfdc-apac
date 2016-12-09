@@ -70,10 +70,6 @@
         <label>Cancelled Reason</label>
         <picklist>
             <picklistValues>
-                <fullName>Vehicle purchased</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Wait time too long</fullName>
                 <default>false</default>
             </picklistValues>
@@ -83,6 +79,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Purchased Competitor Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -110,8 +110,8 @@
         <externalId>false</externalId>
         <label>Customer</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Pre Orders</relationshipLabel>
         <relationshipName>PreOrders</relationshipName>
+		<relationshipLabel>Pre Orders</relationshipLabel>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -268,7 +268,7 @@
         <externalId>false</externalId>
         <label>Vehicle Interested</label>
         <referenceTo>Car_Model__c</referenceTo>
-        <relationshipLabel>Pre Orders</relationshipLabel>
+		<relationshipLabel>Pre Orders</relationshipLabel>
         <relationshipName>PreOrders</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
@@ -442,7 +442,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Pre Order</label>
+    <label>Orders</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
@@ -454,7 +454,7 @@
         <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Pre Orders</pluralLabel>
+    <pluralLabel>Orders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
