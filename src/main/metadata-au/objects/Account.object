@@ -31805,7 +31805,7 @@ else {
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>Contracts_Aftersales</fullName>
+        <fullName>Contracts_AfterSales</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
         <encodingKey>UTF-8</encodingKey>
