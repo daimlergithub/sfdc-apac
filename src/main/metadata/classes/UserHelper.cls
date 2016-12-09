@@ -836,4 +836,90 @@ public with sharing class UserHelper {
             }
         }
     }
+	
+	public static void createGroup(List<User> newUserList)
+    {
+    system.debug('#$#$#$#$#$#$#$#$# newUserList'+newUserList);
+        set<id> userid = new set<id>();
+        set<id> newuserid = new set<id>();
+        set<string> dealername = new set<string>();
+        List<Group> listgp=new List<Group>();
+        List<Group> insertlistgp=new List<Group>();
+         List<GroupMember> listGroupMember =new List<GroupMember>();  
+         
+        for(User pu:newUserList)
+        {
+        system.debug('#$#$#$#$ ContactId newUserList'+pu.ContactId);
+          
+            if(pu.ContactId !=null )
+            {
+                userid.add(pu.id);
+            }
+        }
+        system.debug('#$#$#$#$ ContactId ne'+userid);
+        List<User> users=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.userlicense.name from user where Id =:userid];
+       system.debug('#$#$#$#$ users usersne'+users);
+        for(User u:users)
+        {
+        system.debug(' Contact.AccountId ContactId newUserList'+u.Contact.AccountId);
+    system.debug(' Contact.u.Profile.userlicense.name st'+u.Profile.userlicense.name);
+            if(u.Profile.userlicense.name == 'Partner Community' && u.Contact.AccountId != null)
+            {
+                dealername.add(u.Contact.Account.Name);
+            }
+        }
+        listgp=[select id,Name ,Developername from group where Name =:dealername];
+        if(listgp.size()>0 && listgp!=null)
+        {
+            for(User Us:users)
+            {
+                for(Group gp:listgp)
+                {
+                    if(Us.Contact.Account.Name == gp.Name)
+                    {
+                        GroupMember gm= new GroupMember(); 
+                        gm.GroupId=gp.id;
+                        gm.UserOrGroupId = Us.id;
+                        listGroupMember.add(gm);
+                    }
+                }
+            }       
+            
+            insert listGroupMember;
+        }
+        else if(listgp.size()==0 )
+        {
+            for(User u : users)
+            {
+                Group g  = new group();
+                if(dealername.contains(u.Contact.Account.Name))
+                {
+                    newuserid.add(u.Id);
+                    g.name=u.Contact.Account.Name;
+                    insertlistgp.add(g);
+                }
+            }
+            insert insertlistgp;
+            
+             userhelper.addGroupmembers(insertlistgp,newuserid);
+        }
+         
+    }
+    public static void addGroupmembers(List<Group> listGroup,Set<Id> UsersID)
+    {
+        List<GroupMember> listGroupMember =new List<GroupMember>();
+        List<User> partUserList = new List<User>();
+            partUserList=[Select id from User where id=:UsersID];
+        for(Group g:listGroup)
+        {
+            for(User u:partUserList)
+            {
+              GroupMember gm= new GroupMember(); 
+              gm.GroupId=g.id;
+              gm.UserOrGroupId = U.id;
+              listGroupMember.add(gm); 
+            }    
+        }
+        insert listGroupMember;
+    }
 }

@@ -230,6 +230,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>vehicle_address_picklist__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>vehicle_address__c</field>
             </layoutItems>
             <layoutItems>
@@ -260,6 +264,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>vehicle_mail_picklist__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Phone_picklist__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -330,8 +338,15 @@
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Visiblity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -351,6 +366,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>UsedWarranty_Apply_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Warranty_Apply_Status__c</field>
             </layoutItems>
             <layoutItems>
@@ -366,6 +385,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Warranty_Apply_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UsedWarranty_Apply_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
