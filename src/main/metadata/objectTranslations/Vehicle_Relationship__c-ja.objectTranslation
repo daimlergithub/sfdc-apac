@@ -9,6 +9,10 @@
         <name>Add_Date__c</name>
     </fields>
     <fields>
+        <label>最終更新者ユーザ種別</label>
+        <name>Last_Modified_User_Type__c</name>
+    </fields>
+    <fields>
         <label>追加ユーザ</label>
         <name>Add_User__c</name>
     </fields>
@@ -1749,6 +1753,11 @@
         <name>Other_Driver__c</name>
     </fields>
     <fields>
+        <label>MyM申請者</label>
+        <name>Portal_Apply_User__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Portal Apply User) --></relationshipLabel>
+    </fields>
+    <fields>
         <label>所有拠点</label>
         <name>Owner_Dealer__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Owner Dealer) --></relationshipLabel>
@@ -1863,15 +1872,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>MM申請フラグ</label>
+        <label>MyM申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送信済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2630,8 +2639,48 @@
         <label>販売形態</label>
         <name>SalesType__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>D</masterLabel>
+            <translation>社有車(ﾃﾞﾓｶｰ等)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L</masterLabel>
+            <translation>ﾘｰｽ販売(ﾃﾞﾓｶｰ等)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R</masterLabel>
+            <translation>小売</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S</masterLabel>
+            <translation>社員販売</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>T</masterLabel>
+            <translation>卸売(使用不可)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U</masterLabel>
+            <translation>ﾈｯﾄﾜｰｸ(別法人 G)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V</masterLabel>
+            <translation>ｵｰｸｼｮﾝ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W</masterLabel>
+            <translation>業者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X</masterLabel>
+            <translation>ﾈｯﾄﾜｰｸ(同法人 G)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Y</masterLabel>
+            <translation>解体</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Z</masterLabel>
+            <translation>その他(使用不可)</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2746,6 +2795,10 @@
             <masterLabel>5</masterLabel>
             <translation><!-- 5 --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>夜間削除対象フラグ</label>
+        <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
         <label><!-- TradeIn Make --></label>
@@ -2937,6 +2990,10 @@
         <name>UsVIN__c</name>
     </fields>
     <fields>
+        <label>UCP登録／申請日</label>
+        <name>UsedWarranty_Apply_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- VIN --></label>
         <name>VIN_Search__c</name>
     </fields>
@@ -2958,6 +3015,44 @@
         <picklistValues>
             <masterLabel>Yes</masterLabel>
             <translation>確認済</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>MyM車両表示フラグ</label>
+        <name>Portal_Visiblity__c</name>
+    </fields>
+    <fields>
+        <label>SPO登録／申請者</label>
+        <name>Warranty_Apply_User__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Warranty Apply User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>SPO登録／申請日</label>
+        <name>Warranty_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label>UCP登録／申請者</label>
+        <name>UsedWarranty_Apply_User__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (UsedWarranty Apply User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>電話番号（車両）</label>
+        <name>Vehicle_Phone_picklist__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>UCP登録／申請ステータス</label>
+        <name>UsedWarranty_Apply_Status__c</name>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation>送信済み</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To be Sent</masterLabel>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2990,15 +3085,39 @@
         <name>Vehicle_Phone__c</name>
     </fields>
     <fields>
-        <label>保証申請フラグ</label>
+        <label>メール（車両）</label>
+        <name>vehicle_mail_picklist__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>FAX（車両）</label>
+        <name>vehicle_fax_picklist__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>住所（車両）</label>
+        <name>vehicle_address_picklist__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>SPO登録／申請ステータス</label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送信済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -3104,9 +3223,36 @@
         <name>vehicle_mail__c</name>
     </fields>
     <layouts>
+        <layout>Vehicle Relationship Retail</layout>
+        <sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>日付情報</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>車検情報</label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
-            <label><!-- Basic Information --></label>
+            <label>基本情報</label>
             <section>Basic Information</section>
         </sections>
         <sections>
