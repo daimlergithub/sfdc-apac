@@ -713,6 +713,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     //    system will auto assign them to the gate keepers of the assigned
     //    dealers, and send email notifications to lead owners and
     //    proper contacts
+    //    Created By : Sudheer Kandukuri
     public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate)
     {
             try{
@@ -720,11 +721,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                  
                     boolean_autoassignleads= true;           
                     Set<Id> rtIdSet = new Set<Id>{leadFinanceRT,leadVehicleRt,leadSPRt};
-                        List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
+                    List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
+                    
+                    List<Messaging.SingleEmailMessage> consultantmailList = new List<Messaging.SingleEmailMessage>();
                     System.debug(' auto assign Leads >>>>>>>>>> ' + boolean_autoassignleads);
                     System.debug('auto assign Leads boolean value >>>>>>>>>> ' + newMap.size());
                     List<String> etNames = New List<String>{'Lead_Assignment_Notification_Individual','Lead_Assignment_Notification_Company ', 'Lead_Gate_Keeper_Notification_Individual','Lead_Gate_Keeper_Notification_Company','Leads_Immediate_Notice' };
-                        
                     EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
                     Map<id,id> ldDlerIdMap= new Map<id,id>(); 
                     List<EmailTemplate> List_Email_Template = [SELECT Id, DeveloperName FROM EmailTemplate WHERE  DeveloperName IN : etNames] ;
@@ -746,8 +748,16 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             etToImmediateNotice=et;
                         }
                     }
-                    Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,Nature_of_Request__c,Source_system__c,Business_unit__c,Sub_BusinessUnit__c,RecordTypeId,Sales_Consultant__c,ownerid, Contact__c, Assigned_Dealer__c,Contact__r.recordtypeid FROM Lead__c Where id IN : newMap.keySet()]);
-                    Map<id,id> ldsalesconsulatantIdMap = new Map<id,id>();
+                    Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,
+                                                                       Nature_of_Request__c,Source_system__c,
+                                                                       Business_unit__c,Sub_BusinessUnit__c,
+                                                                       RecordTypeId,Sales_Consultant__c,
+                                                                       ownerid, Contact__c,
+                                                                       Assigned_Dealer__c,Owner.Profile.name,
+                                                                       Contact__r.recordtypeid,
+                                                                       Dealer_Assignment_Date__c
+                                                                       FROM Lead__c Where id IN : newMap.keySet()]);
+                   
                     
                     for(Lead__c Lead : newleadmap.Values())
                     {
@@ -760,53 +770,50 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         }
                         else if (Lead.Assigned_Dealer__c != null && (isInsert  &&  lead.Source_system__c.contains('DLM' )))
                         {                           
-							if ((lead.Nature_of_Request__c== 'Quote Request' || lead.Nature_of_Request__c== 'Request a Quote')  && lead.Business_Unit__c =='Vans')
-								{
-									ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
-								}
+                            if ((lead.Nature_of_Request__c== 'Quote Request' || lead.Nature_of_Request__c== 'Request a Quote')  && lead.Business_Unit__c =='MBFS Vans')
+                                {
+                                    ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+                                }
 
-							else if (((lead.Nature_of_Request__c=='Parts Enquiry' || lead.Nature_of_Request__c=='Parts Enquiries') || lead.Nature_of_Request__c=='Service Booking') && (lead.Business_Unit__c =='Vans' || lead.Business_Unit__c=='Cars'))
-								{
-									ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
-								}
+                            else if (((lead.Nature_of_Request__c=='Parts Enquiry' || lead.Nature_of_Request__c=='Parts Enquiries') || lead.Nature_of_Request__c=='Service Booking') && (lead.Business_Unit__c =='Vans' || lead.Business_Unit__c=='Cars'))
+                                {
+                                    ldDlerIdMap.put(Lead.id, Lead.Assigned_Dealer__c);
+                                }
                         }
-                        if (Lead.Sales_Consultant__c != null && (oldMap.get(Lead.id)== NULL ||  oldMap.get(Lead.id).Sales_Consultant__c !=  Lead.Sales_Consultant__c)) 
+                       
+                        if (lead.Owner.Profile.name == 'Dealer Consultant' && (Isinsert || (IsUpdate && newmap.get(lead.Id).Ownerid != oldmap.get(lead.Id).Ownerid)))
                         {
-                            ldsalesconsulatantIdMap.put(Lead.id,lead.Sales_Consultant__c );
-                        }
+                            
+                           
+                            if (lead.contact__r.recordtypeid ==  PersonalAccountRT  && etToAssignement_Person !=NULL)
+                            {
+                                 
+                                Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(lead.ownerid,etToAssignement_Person.Id,lead.id );
+                                consultantmailList.add(mail);
+                            }
+                            else
+                            {
+                                if (etToAssignement_Company!= NULL)
+                                    {
+                                         
+                                        Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(lead.ownerid,etToAssignement_Company.Id,lead.id );
+                                        consultantmailList.add(mail);
+                                    }
+                            }
+                        }       
                     }
+                    
+                    //Send mail to consultant
+                    if (!consultantmailList.isEmpty())
+                    {
+                       Messaging.sendEmail(consultantmailList);
+                    }
+                    
                     System.debug('Map Size >>>>>>>>>>>>>' + ldDlerIdMap.size());
                     Set<ID> DealerIdSet = new Set<id>(ldDlerIdMap.values());
                     Map<id, Account> AccountMap = New Map<id,Account> ([SELECT Id, RecordTypeId,(Select id, Business_Unit__c, Sub_BusinessUnit__c,Dealer_Lead_Gate_Keeper__c From Contacts WHERE Dealer_Lead_Gate_Keeper__c= true) FROM Account WHERE Id IN: DealerIdSet]);
                     List<User> GateKeeperUsersList = [SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : DealerIdSet AND Dealer_Lead_Gate_Keeper__c = true)];
                     System.debug('Users Size >>>>>>>>>>>>>' + GateKeeperUsersList.size());
-                    
-                    //// SalesCOnsultant 
-                    if (!ldsalesconsulatantIdMap.isEmpty()){
-                        Set<Id> SalesConsultantIdSet = new Set<Id>();
-                        SalesConsultantIdSet.addAll(ldsalesconsulatantIdMap.values());
-                        List<Contact> SalesConsultantList = [SELECT id, Email, AccountId FROM Contact WHERE id IN: SalesConsultantIdSet and Email != null];
-                        Map<id,id> S_Consulatnt_to_act_Map = new Map<id,Id>();
-                        for(Contact Cn: SalesConsultantList){
-                            S_Consulatnt_to_act_Map.put(cn.id,cn.AccountId);
-                        }
-                        Map<id,Account> ConsultantAccountMap = new Map<id,Account>([SELECT Id, RecordTypeId FROM Account Where Id IN: S_Consulatnt_to_act_Map.values()]);  
-                        for (Id leadId: ldsalesconsulatantIdMap.keySet()){
-                            
-                            Id ContactId= ldsalesconsulatantIdMap.get(leadId);
-                            Id AccountId = S_Consulatnt_to_act_Map.get(ContactId);
-                            Id RecordTypeId = ConsultantAccountMap.get(AccountId).recordTypeId;
-                            if (RecordTypeId == PersonalAccountRT){
-                                Messaging.SingleEmailMessage mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Person.Id,leadId ) ;
-                                mailList.add(mail);
-                            }
-                            else{
-                                Messaging.SingleEmailMessage mail= SingleEmailMessageWithparams(ContactId,etToAssignement_Company.Id,leadId ) ;
-                                mailList.add(mail);
-                            }
-                        }
-                    }
-                    
                     // Gate keeper is true , Business unit is match and Offered Unit is match
                     Map<id, User> ContacttoUserMap= new Map<id, User>();
                     for(User usr: GateKeeperUsersList){
@@ -823,16 +830,29 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             Account Acct= AccountMap.get(AccId);
                             List<Contact> Cnts = AccountMap.get(AccId).contacts;
                             User usr = new user();
-                            for ( Contact cnt : Cnts){
+                            for ( Contact cnt : Cnts)
+                            {
                                 
-                                if (cnt.business_unit__c != null && cnt.business_unit__c .Indexof(lead.Business_unit__c)> -1 && cnt.Sub_BusinessUnit__c != null && cnt.Sub_BusinessUnit__c.Indexof(lead.Sub_BusinessUnit__c) > -1){
+                              if (cnt.business_unit__c != null && cnt.business_unit__c .Indexof(lead.Business_unit__c)> -1 ){
                                     usr= ContacttoUserMap.get(cnt.id);
                                     System.debug('User name >>>>>>>>>>> ' + usr.id);
                                     break;
                                 }
                             }
-                            if (usr.id != Null ){
+                            if (usr.id != Null )
+                            {
                                 newleadmap.get(LeadId).ownerid= usr.id;
+                                if (newleadmap.get(LeadId).CAC_Lead_Status__c == 'Qualified')
+                                {
+                                    if (newleadmap.get(LeadId).Dealer_Assignment_Date__c == null) 
+                                    {
+                                         newleadmap.get(LeadId).Dealer_Assignment_Date__c=System.now();
+                                     }
+                                else 
+                                    {
+                                          newleadmap.get(LeadId).Reassignment_Date__c=System.now();
+                                    }
+                               }
                                 updateleadslist.add ( newleadmap.get(LeadId));
                                 if (newleadmap.get(LeadId).contact__r.recordtypeid ==  PersonalAccountRT  && etToOwner_Person !=NULL){
                                     
@@ -1920,33 +1940,36 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
     /*
     Requirment : If a dealer is creating a lead then update the dealer_assignment_Date__c as current date
-	Created by : Sudheer Kandukuri
+    Created by : Sudheer Kandukuri
     */
   public static void updateDealerAssignmentDate(List<Lead__c> newlist,map<id,Lead__c> newleadMap,map<id,Lead__c> leadoldMap,boolean isInsert,boolean isUpdate)
  {
-     	  
-     	Set<id> DealerIdSet= new Set<id>();
-     	List<lead__c> listlead_filter = new List<Lead__c>();
+          System.debug('Enter>>>>>>> Update Dealer Assignment Date >>>>>>>>>');
+        Set<id> DealerIdSet= new Set<id>();
+        List<lead__c> listlead_filter = new List<Lead__c>();
      
         for(Lead__c curLead : newlist)
         {
             if(curLead.Assigned_dealer__c != NULL && (isInsert || (isUpdate && newleadMap.get(curLead.Id).Assigned_dealer__c != leadoldMap.get(curLead.Id).Assigned_dealer__c)))
              {
                DealerIdSet.add(curLead.Assigned_Dealer__c);
-			    listlead_filter.add(curLead);
-			 }
+                 System.debug('Enter>>>>>>> Add List tooo >>>>>>>>>');
+                listlead_filter.add(curLead);
+             }
         }
         
         Map<id,user> UsersMap = New Map<id,user>([SELECT Id, ContactId, Contact.AccountId FROM User WHERE ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : DealerIdSet AND Dealer_Lead_Gate_Keeper__c = true)]);
         
         for(Lead__c  curLead: listlead_filter)
-		{
-				if( UsersMap.containskey(curLead.OwnerId) && UsersMap.get(curLead.OwnerId).Contact.AccountId ==curLead.Assigned_dealer__c )
+        {
+            System.debug('Enter>>>>>>> Loop Again >>>>>>>>>');
+                if( UsersMap.containskey(curLead.OwnerId)  )
                 {
                     if ( curLead.Dealer_Assignment_Date__c == null)
                     {
-				   		curLead.Dealer_Assignment_Date__c = System.now();
-				  	}
+                        System.debug('Enter>>>>>>> Changed Dealer Assignment Date >>>>>>>>>');
+                        curLead.Dealer_Assignment_Date__c = System.now();
+                    }
                 }
         }
  }
@@ -2268,7 +2291,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     olddelId.add(oldAdMap.get(drled.Id).Assigned_Dealer__c);
                     if(drled.Contact__c != null)
                     {
-                    	oldaccId.add(oldAdMap.get(drled.Id).Contact__c);
+                        oldaccId.add(oldAdMap.get(drled.Id).Contact__c);
                     }
                     if(drled.Company_Account__c != null)
                     {

@@ -31805,25 +31805,6 @@ else {
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>Contracts</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Contracts &amp; Aftersales</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/REPORT_WEBLINK_CONTRACT_WITH_ACCOUNT_REPORT_ID?pv0={!Account.Id}</url>
-    </webLinks>
-    <webLinks>
         <fullName>Contracts_AfterSales</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
@@ -31834,7 +31815,7 @@ else {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Contracts &amp; AfterSales</masterLabel>
+        <masterLabel>Contracts &amp; Aftersales</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
