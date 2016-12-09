@@ -174,11 +174,25 @@ public class AddressDisplayInlineEditController {
                 try{  
                     if(Address_Validated_Flag == false){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                    }
+                    if(addressobj.Province__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+                    }
+                    if((market == 'KR') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));               
+                        
                     }                    
-                    else if(Address_Validated_Flag == true){
-                        refreshPage= true;
-                        addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-                        insert addressobj;
+                    else {
+                        if(Address_Validated_Flag == true){
+                            refreshPage= true;
+                            addressObj.Address_Code__c = ValidateAddressCode(addressObj);
+                            insert addressobj;
+                        }
                     }
                 }
                 catch (DmlException e){
@@ -192,6 +206,17 @@ public class AddressDisplayInlineEditController {
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if((market == 'KR') && (addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))){       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));                 
+                    }
+                    if(addressobj.ZipCode__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                    }
+                    if(addressobj.Province__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
                     }                    
                     else 
                     {
