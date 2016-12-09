@@ -145,6 +145,7 @@
 			   <sf:include name="TerminateVehicleRelationship"/>
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
+			   <sf:include name="SendAccountInfoToSPO"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
@@ -161,6 +162,8 @@
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
 			   <sf:include name="AddressSearchValidationController"/>
+			   <sf:include name="SendAccountInfoToSPO"/>			   
+			   <sf:include name="SendAccountInfoToSPOTest"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
