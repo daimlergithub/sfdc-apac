@@ -181,12 +181,12 @@ public with sharing class SelectAssignedDealerController {
         if(usr.Market__c != null && usr.Market__c != ''){
             system.debug('usr.Market__c '+ usr.Market__c);
             
-            querySOQL += 'MD__c='+'\''+usr.Market__c+'\'';
+            querySOQL += 'MD__c='+'\''+usr.Market__c+'\''+ ' AND';
         }
         system.debug('querySOQL1 '+ querySOQL);
         //for CR-000259 end
         // Query Dealers               
-        querySOQL = querySOQL.subString(0, querySOQL.length()) + 
+        querySOQL = querySOQL.subString(0, querySOQL.length()-4) + 
             ' ORDER BY Dealer_Region__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
         system.debug('querySOQL '+ querySOQL);
         dealers = Database.query(querySOQL);
