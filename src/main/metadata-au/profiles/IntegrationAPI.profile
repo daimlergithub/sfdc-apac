@@ -11185,6 +11185,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Consultant_Reassignment_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Contact_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -20868,16 +20873,16 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-Parts Lead Layout</layout>
+        <recordType>Lead__c.Parts_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Service%2FParts Lead Layout</layout>
-        <recordType>Lead__c.Parts_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Vans Fleet Lead</layout>

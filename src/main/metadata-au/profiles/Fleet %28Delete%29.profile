@@ -11184,6 +11184,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Consultant_Reassignment_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Contact_Date__c</field>
         <readable>false</readable>
@@ -20852,10 +20857,6 @@
         <recordType>Lead__c.Fleet_Finance_Daimler_Fleet_Management</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout</layout>
-        <recordType>Lead__c.Parts_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Fleet%2FFleet Delete Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
@@ -20870,6 +20871,10 @@
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Parts Lead Layout</layout>
+        <recordType>Lead__c.Parts_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Service%2FParts Lead Layout</layout>
