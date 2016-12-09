@@ -24,6 +24,14 @@ public class UserTriggerHandler
         Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
         Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
         
+		if(trigger.isAfter && trigger.isInsert)
+        {
+        
+        System.debug('@$@$@$@$ user trigger');
+        UserHelper.createGroup(trigger.new);
+        System.debug('@$@$@$@$ user trigger'+trigger.new);
+        }
+		
         if (trigger.isAfter && trigger.isInsert) {
             UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
         }
