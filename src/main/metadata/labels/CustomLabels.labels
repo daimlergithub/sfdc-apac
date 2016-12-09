@@ -3429,7 +3429,14 @@
         <protected>false</protected>
         <shortDescription>SellingDealer</shortDescription>
         <value>Selling Dealer</value>
-    </labels>
+    </labels>	
+    <labels>
+        <fullName>Send_to_spo_translate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send to spo translate</shortDescription>
+        <value>Please set the information in Autoline first</value>
+    </labels>	
     <labels>
         <fullName>SentToSPO</fullName>
         <language>en_US</language>
@@ -4701,6 +4708,13 @@
         <protected>false</protected>
         <shortDescription>&amp;retURL=/apex/SelectSlaveAccount?Id=</shortDescription>
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
+    </labels>	
+    <labels>
+        <fullName>send_to_spo_active</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>send to spo active</shortDescription>
+        <value>Not Active</value>
     </labels>
     <labels>
         <fullName>servletfile</fullName>

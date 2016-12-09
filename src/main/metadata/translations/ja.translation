@@ -1760,6 +1760,10 @@
     <customLabels>
         <label>販売拠点</label>
         <name>SellingDealer</name>
+    </customLabels>	
+    <customLabels>
+        <label>まずAutolineの情報を設定してください</label>
+        <name>Send_to_spo_translate</name>
     </customLabels>
     <customLabels>
         <label>サービス拠点</label>
@@ -2336,6 +2340,10 @@
     <customLabels>
         <label><!-- &amp;retURL=/apex/SelectSlaveAccount?Id= --></label>
         <name>retURL_apex_SelectSlaveAccount_Id</name>
+    </customLabels>	
+    <customLabels>
+        <label>非活動中</label>
+        <name>send_to_spo_active</name>
     </customLabels>
     <customLabels>
         <label><!-- servletfile --></label>
