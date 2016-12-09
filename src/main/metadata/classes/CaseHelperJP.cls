@@ -435,4 +435,72 @@ List<Account> accUpdLst = new List<Account>();
         System.debug('$%$%$%$%$%$% CaseSharingRecord'+CaseSharingRecord);
         
     }
+	
+	
+    public void countchildcase(List<Case> cases){
+        Id devRecordTypeId = Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+        Id devRecordTypeId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Id devRecordTypeId2 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+         List<case> casedealer=[select id,accountId,Case_Dealer__c from case where RecordTypeId=:devRecordTypeId ];
+        Set<id> accids=new Set<Id>();
+      Set<id> accids1=new Set<Id>();
+    Set<id> accids2=new Set<Id>();
+    Set<id> accids3=new Set<Id>();
+    List<Account> samedealerlst=new List<Account>();
+    string dealerGCcode;
+       List<Account_Link__c> acclnklst=[select id,fromRole__c,toRole__c from Account_Link__c];
+        for(case a:casedealer){
+            accids.add(a.accountId);
+             accids1.add(a.Case_Dealer__c);
+           } 
+    List<Account> accdealer=[select id,name,Dealer_GC_Code__c,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Links1__r),(select id, Case_Dealer__c,accountId from Dealer__r) from Account where id=:accids1 ];
+    for(Account ac:accdealer){
+      dealerGCcode=ac.Dealer_GC_Code__c; 
+    }
+    List<Account> sameaccdealer=[select id,name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c=:dealerGCcode];
+    List<Account_Link__c> acclnklst2=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:accids AND toRole__c=:accids1  ];
+    List<case> casedealer1=new List<case>();
+    
+        List<Account> acccompany=[select id,name,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c from Account_Link1__r) from Account where RecordTypeId=:devRecordTypeId2 ];
+       List<Account_Link__c> acclnk=new List<Account_Link__c>();
+         List<case> casecompany=[select id,accountId from case where RecordTypeId=:devRecordTypeId  ];
+    if(trigger.isInsert||trigger.isUpdate){
+        for(case c:cases){
+          
+           for(case ca:casedealer) {
+               if((c.accountId==ca.accountId) &&(c.Case_Dealer__c==ca.Case_Dealer__c)){
+                   casedealer1.add(ca);
+                   for(Account a:sameaccdealer){
+                   for(Account_Link__c al :acclnklst2){  
+                       if((c.accountId==a.Id || c.AccountId==al.fromRole__c )&&(c.Case_Dealer__c==al.toRole__c )){
+                   al.Retail_Complaint_Amount__c=casedealer1.size();
+                    } 
+                  }
+           }
+               }
+        }
+   update acclnklst2;          
+        }
+        }
+     // List<Account_Link__c> acclnk1=new List<Account_Link__c>();
+      List<case> casedealer2=new List<case>();
+    
+    if(trigger.isDelete){
+  for(case c:[select id,accountId,Case_Dealer__c from case where RecordTypeId=:devRecordTypeId AND id=:trigger.old]){
+                   accids2.add(c.accountId);
+             accids3.add(c.Case_Dealer__c);
+       casedealer2.add(c);
+  }
+    List<Account_Link__c> acclnk3=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:accids2 AND toRole__c=:accids3  ];
+      for(case c1:casedealer2){              
+    for(Account_Link__c al :acclnk3){  
+                       if((c1.accountId==al.fromRole__c)&&(c1.Case_Dealer__c==al.toRole__c)){
+                   al.Retail_Complaint_Amount__c=casedealer2.size()-1;
+} 
+                  }
+     }
+      
+         update acclnk3;
+    }
+    }     
  }

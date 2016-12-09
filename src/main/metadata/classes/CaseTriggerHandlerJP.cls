@@ -37,7 +37,21 @@ public class CaseTriggerHandlerJP
                caseHelperJPd.calculateComplaintAmount(trigger.new);
                  
             }
+        
+		
+		
+        if (trigger.isAfter){
+            if (trigger.isInsert||trigger.isUpdate){
+               caseHelperJPd.countchildcase(trigger.new); 
+            }
         }
+        if(trigger.isBefore){
+            if(trigger.isDelete){
+                
+              caseHelperJPd.countchildcase(trigger.old);    
+                
+            }
+        }    
         
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
