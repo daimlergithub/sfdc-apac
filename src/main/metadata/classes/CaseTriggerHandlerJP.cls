@@ -11,7 +11,7 @@ public class CaseTriggerHandlerJP
     caseHelperJP.shareCaseWithDealers(trigger.new);
     }
     if (trigger.isUpdate){
-    System.debug('('$$$$$$@@@@'+'+trigger.new);
+    System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
     }
     } 
