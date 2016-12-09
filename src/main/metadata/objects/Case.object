@@ -109582,7 +109582,7 @@ alert("Inquiy can't be used.Please contact System Administrator");
         <masterLabel>New AfterSales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }&amp;OBJECT_LEAD_AFTERSALES_VEHICLE={!Case.Vehicle__c}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Chrysler_Complaint</fullName>
