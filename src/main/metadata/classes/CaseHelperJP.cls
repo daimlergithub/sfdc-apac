@@ -326,4 +326,181 @@ List<Account> accUpdLst = new List<Account>();
     }
  
 }
+ 
+ public static void shareCaseWithDealers(List<Case> shcaseList)
+    {
+    Id profileId=userinfo.getProfileId();
+    Profile profileName=[Select Id,Name from Profile where Id=:profileId];
+    
+        Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+        List<CaseShare> CaseSharingRecord = new List<CaseShare>();
+        List<Caseshare> shareList = new List<Caseshare>();
+        List<Case> caserecList = new List<Case>();
+        set<id> shrcaseId = new set<id>();
+        set<id> userId = new set<id>();
+        set<string> Dealername = new set<string>();
+        map<string,id> groupmap = new map<string,id>();
+        set<id> shUserId = new set<id>();
+        List<Group> partnerUserList = new List<Group>();
+         List<Case> caselist = new List<Case>();
+        set<id> dealerId = new set<id>();
+        for(Case c : shcaseList)
+        {
+            if(c.RecordTypeId == caseRecId && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
+             {
+                shrcaseId.add(c.Id);
+                dealerId.add(c.Case_Dealer__c);
+            }
+           
+        }
+         if(!shrcaseId.isEmpty() && shrcaseId != null)
+            {
+                caserecList = [select id,Case_Dealer__c,Case_Dealer__r.Name from Case where ID =:shrcaseId];                
+            }
+            if(!caserecList.isEmpty() && caserecList != null)
+            {
+                for(Case listca:caserecList)
+                    {
+                        Dealername.add(listca.Case_Dealer__r.Name);
+                        userId.add(listca.Case_Dealer__c);                    
+                    }
+            }
+      List<User> pUser=new List<User>();
+      pUser=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId];
+       
+        if(!Dealername.isempty() && Dealername != null)
+        {
+            partnerUserList = [select id,name,developername from group where name =:Dealername];
+        }
+        for(Group g : partnerUserList)
+        {
+            groupmap.put(g.name,g.id);
+        }
+        if(!caserecList.isEmpty() && caserecList != null)
+        { 
+          for(User us:pUser)
+          {
+            for(Case shrcs : caserecList)
+            {
+                if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
+                {
+                    CaseShare shrcase = new CaseShare();
+                    shrcase.CaseId = shrcs.id;
+                    shrcase.CaseAccessLevel = 'edit';
+                    shrcase.UserOrGroupId = groupmap.get(shrcs.Case_Dealer__r.Name);
+                    CaseSharingRecord.add(shrcase);
+                }
+            }
+           } 
+        }
+       // if(!CaseSharingRecord.isempty() && CaseSharingRecord != null)
+      //  {
+      //      insert CaseSharingRecord ;
+        //}
+        
+         // Insert sharing records and capture save result 
+        // The false parameter allows for partial processing if multiple records are passed 
+        // into the operation 
+        Database.SaveResult[] lsr = Database.insert(CaseSharingRecord,false);
+        
+        // Create counter
+        Integer i=0;
+        
+        // Process the save results
+        for(Database.SaveResult sr : lsr){
+         if(sr.isSuccess())
+         {
+         system.debug('###### %^%^%^%^%^%^%^%^'+sr);
+         }
+            if(!sr.isSuccess()){
+                // Get the first save result error
+                Database.Error err = sr.getErrors()[0];
+                
+                // Check if the error is related to a trivial access level
+                // Access levels equal or more permissive than the object's default 
+                // access level are not allowed. 
+                // These sharing records are not required and thus an insert exception is 
+                // acceptable. 
+                if(!(err.getStatusCode() == StatusCode.FIELD_FILTER_VALIDATION_EXCEPTION  
+                                               &&  err.getMessage().contains('AccessLevel'))){
+                    // Throw an error when the error is not related to trivial access level.
+                    trigger.newMap.get(CaseSharingRecord[i].CaseId).
+                      addError(
+                       'Unable to grant sharing access due to following exception: '
+                       + err.getMessage());
+                }
+            }
+            i++;
+        }
+        System.debug('$%$%$%$%$%$% CaseSharingRecord'+CaseSharingRecord);
+        
+    }
+	
+	
+    public void countchildcase(List<Case> cases){
+        Id devRecordTypeId = Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+        Id devRecordTypeId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Id devRecordTypeId2 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+         List<case> casedealer=[select id,accountId,Case_Dealer__c from case where RecordTypeId=:devRecordTypeId ];
+        Set<id> accids=new Set<Id>();
+      Set<id> accids1=new Set<Id>();
+    Set<id> accids2=new Set<Id>();
+    Set<id> accids3=new Set<Id>();
+    List<Account> samedealerlst=new List<Account>();
+    string dealerGCcode;
+       List<Account_Link__c> acclnklst=[select id,fromRole__c,toRole__c from Account_Link__c];
+        for(case a:casedealer){
+            accids.add(a.accountId);
+             accids1.add(a.Case_Dealer__c);
+           } 
+    List<Account> accdealer=[select id,name,Dealer_GC_Code__c,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Links1__r),(select id, Case_Dealer__c,accountId from Dealer__r) from Account where id=:accids1 ];
+    for(Account ac:accdealer){
+      dealerGCcode=ac.Dealer_GC_Code__c; 
+    }
+    List<Account> sameaccdealer=[select id,name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c=:dealerGCcode];
+    List<Account_Link__c> acclnklst2=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:accids AND toRole__c=:accids1  ];
+    List<case> casedealer1=new List<case>();
+    
+        List<Account> acccompany=[select id,name,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c from Account_Link1__r) from Account where RecordTypeId=:devRecordTypeId2 ];
+       List<Account_Link__c> acclnk=new List<Account_Link__c>();
+         List<case> casecompany=[select id,accountId from case where RecordTypeId=:devRecordTypeId  ];
+    if(trigger.isInsert||trigger.isUpdate){
+        for(case c:cases){
+          
+           for(case ca:casedealer) {
+               if((c.accountId==ca.accountId) &&(c.Case_Dealer__c==ca.Case_Dealer__c)){
+                   casedealer1.add(ca);
+                   for(Account a:sameaccdealer){
+                   for(Account_Link__c al :acclnklst2){  
+                       if((c.accountId==a.Id || c.AccountId==al.fromRole__c )&&(c.Case_Dealer__c==al.toRole__c )){
+                   al.Retail_Complaint_Amount__c=casedealer1.size();
+                    } 
+                  }
+           }
+               }
+        }
+   update acclnklst2;          
+        }
+        }
+     // List<Account_Link__c> acclnk1=new List<Account_Link__c>();
+      List<case> casedealer2=new List<case>();
+    
+    if(trigger.isDelete){
+  for(case c:[select id,accountId,Case_Dealer__c from case where RecordTypeId=:devRecordTypeId AND id=:trigger.old]){
+                   accids2.add(c.accountId);
+             accids3.add(c.Case_Dealer__c);
+       casedealer2.add(c);
+  }
+    List<Account_Link__c> acclnk3=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:accids2 AND toRole__c=:accids3  ];
+      for(case c1:casedealer2){              
+    for(Account_Link__c al :acclnk3){  
+                       if((c1.accountId==al.fromRole__c)&&(c1.Case_Dealer__c==al.toRole__c)){
+                   al.Retail_Complaint_Amount__c=casedealer2.size()-1;
+} 
+                  }
+     }
+      
+         update acclnk3;
+    }
+    }     
  }

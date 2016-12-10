@@ -2342,7 +2342,7 @@
         <name>retURL_apex_SelectSlaveAccount_Id</name>
     </customLabels>	
     <customLabels>
-        <label>非活動中</label>
+        <label>SPOに送信</label>
         <name>send_to_spo_active</name>
     </customLabels>
     <customLabels>
