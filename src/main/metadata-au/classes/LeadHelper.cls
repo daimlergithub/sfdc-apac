@@ -722,7 +722,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     boolean_autoassignleads= true;           
                     Set<Id> rtIdSet = new Set<Id>{leadFinanceRT,leadVehicleRt,leadSPRt};
                     List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
-                    
+                    List<String> contBuList = new List<string>();
                     List<Messaging.SingleEmailMessage> consultantmailList = new List<Messaging.SingleEmailMessage>();
                     System.debug(' auto assign Leads >>>>>>>>>> ' + boolean_autoassignleads);
                     System.debug('auto assign Leads boolean value >>>>>>>>>> ' + newMap.size());
@@ -824,7 +824,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     // Mail notification to Gate keeper 
                     if(ContacttoUserMap!= Null && !ContacttoUserMap.isEmpty()){
                         List<Lead__c> updateleadslist= new List<lead__c>();
-                        for(ID LeadId:ldDlerIdMap.keySet() ){
+                        for(ID LeadId:ldDlerIdMap.keySet() )
+                        {
                             Lead__c lead = newleadmap.get (leadid);
                             ID AccId=ldDlerIdMap.get(LeadId);
                             Account Acct= AccountMap.get(AccId);
@@ -832,12 +833,26 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             User usr = new user();
                             for ( Contact cnt : Cnts)
                             {
+                                if (cnt.business_unit__c != null && (lead.Business_Unit__c == 'Cars' || lead.Business_Unit__c == 'Vans') )
+                                {
+                                    contBuList = cnt.Business_Unit__c.split(';');
                                 
-                              if (cnt.business_unit__c != null && cnt.business_unit__c .Indexof(lead.Business_unit__c)> -1 ){
+                                    for(Integer i =0 ;i < contBuList.size() ; i++)
+                                    {
+                                        if (cnt.business_unit__c != null && ((contBuList[i].equals('MB Cars') && lead.Business_Unit__c == 'Cars') || (cnt.business_unit__c.contains('MB Vans') && lead.Business_Unit__c == 'Vans')))
+                                        {
+                                            usr= ContacttoUserMap.get(cnt.id);
+                                            System.debug('User name >>>>>>>>>>> ' + usr.id);
+                                            break;
+                                        }
+                                    }
+                                }
+                                else if(cnt.business_unit__c != null && cnt.business_unit__c.contains(lead.Business_Unit__c))
+                                {
                                     usr= ContacttoUserMap.get(cnt.id);
                                     System.debug('User name >>>>>>>>>>> ' + usr.id);
-                                    break;
                                 }
+                                
                             }
                             if (usr.id != Null )
                             {
