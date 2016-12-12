@@ -4557,7 +4557,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Vehicle Relationship</label>
+    <label>Vehicle Relationships</label>
     <listViews>
         <fullName>All_Vehicle_Relationship_to_be_Actioned</fullName>
         <columns>NAME</columns>
@@ -4595,7 +4595,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Vehicle Relationship</pluralLabel>
+    <pluralLabel>Vehicle Relationships</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Company</fullName>
