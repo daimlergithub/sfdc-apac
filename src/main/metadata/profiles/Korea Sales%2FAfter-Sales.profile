@@ -11390,7 +11390,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Existing_Contract_End_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
