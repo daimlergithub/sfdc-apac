@@ -344,10 +344,6 @@
                 <behavior>Readonly</behavior>
                 <field>Customer_Consent__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Recall__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -759,19 +755,14 @@
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h28000003kTMG</masterLabel>
         <sizeX>1</sizeX>
-        <sizeY>2</sizeY>
-        <summaryLayoutItems>
-            <field>Recall__c</field>
-            <posX>0</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
+        <sizeY>1</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>

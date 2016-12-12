@@ -292,10 +292,6 @@
                 <behavior>Edit</behavior>
                 <field>SMS_Last_Modified_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Recall__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -930,19 +926,14 @@
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h28000000HWeG</masterLabel>
         <sizeX>1</sizeX>
-        <sizeY>2</sizeY>
-        <summaryLayoutItems>
-            <field>Recall__c</field>
-            <posX>0</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
+        <sizeY>1</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
