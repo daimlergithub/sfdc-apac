@@ -18,6 +18,7 @@ public class AddressDisplayInlineEditController {
     public String addresspicklist{get;set;}
     public String market{get;set;}
     public String provincepicklist{get;set;}
+    Public Boolean Validation;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -166,6 +167,7 @@ public class AddressDisplayInlineEditController {
     **/  
     
     public void saveAddress(){
+        Validation = false;
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             AddressObj.Address_Type__c = addresspicklist;
@@ -174,21 +176,24 @@ public class AddressDisplayInlineEditController {
                 try{  
                     if(Address_Validated_Flag == false){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                        Validation = true;
                     }
                     if(addressobj.ZipCode__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
+                        Validation = true;
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
+                        Validation = true;
                     }
                     if((market == 'KR') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));               
-                        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
+                        Validation = true;
                     }                    
                     else {
-                        if(Address_Validated_Flag == true){
+                        if(Address_Validated_Flag == true && Validation == False){
                             refreshPage= true;
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                             insert addressobj;
@@ -206,30 +211,34 @@ public class AddressDisplayInlineEditController {
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                        Validation = true;
                     }
                     if((market == 'KR') && (addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))){       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));                 
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));   
+                        Validation = true;
                     }
                     if(addressobj.ZipCode__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
+                        Validation = true;
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
+                        Validation = true;
                     }                    
                     else 
-                    {
-                        refreshPage= true;
-                        addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-                        update addressobj;
+                    {   if(Validation == False){
+                            refreshPage= true;
+                            addressObj.Address_Code__c = ValidateAddressCode(addressObj);
+                            update addressobj;
+                        }
                     }
                 }
                 catch (DmlException e) 
                 {
                     refreshPage = false;
-                    ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
-                    
+                    ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                    
                     system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
                 }
             }    
