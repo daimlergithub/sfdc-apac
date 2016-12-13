@@ -531,4 +531,55 @@ public class AccountHelperJP
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
     }//End of Method
+	
+	
+	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    sivaram(2.0)SFDCJP-474
+    */
+    public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
+        try{
+            user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
+            system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
+            List<Account> accList = new List<Account>();
+           Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
+            for(Account acc : listAccounts){
+                if(acc.Company_Name__c != NUll){
+                   String Company_Legal_Form;
+
+                   if (acc.Company_Legal_form__c != NULL)
+                    {
+                     Company_Legal_Form= acc.Company_Legal_form__c;
+                     }
+                     else if (acc.Company_Legal_Form_text__c !=NULL)
+                     {
+                       Company_Legal_Form= acc.Company_Legal_form_Text__c;
+                        }
+                                    
+                                    if(acc.Legal_Form_Position__c== NULL )
+                                    {
+                                        
+                                           acc.name =  acc.Company_Name__c;
+                                    }
+                                    else if(acc.Legal_Form_Position__c == 'Pre') {
+                                        if(usr.LanguageLocaleKey == 'ja')
+                                            acc.name = TranslateMap.get(Company_Legal_Form) + ' ' + acc.Company_Name__c;
+                                        else
+                                           acc.name = Company_Legal_Form + ' ' + acc.Company_Name__c;     
+                                    }
+                                    else if(acc.Legal_Form_Position__c == 'Post'){
+                                        if(usr.LanguageLocaleKey == 'ja')
+                                            acc.name = acc.Company_Name__c + ' ' + TranslateMap.get(Company_Legal_Form);
+                                        else
+                                            acc.name = acc.Company_Name__c + ' ' + Company_Legal_Form;    
+                                    }
+                                
+                }
+            }
+        }
+        catch(Exception e){
+            System.debug('Error'+e.getMessage());
+            System.debug('Cause'+e.getCause());
+            System.debug('Line Numer'+e.getLineNumber());
+        }
+    }
 }
