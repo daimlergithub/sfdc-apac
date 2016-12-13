@@ -34,14 +34,14 @@ public class SendAccountInfoToSPO {
      User  CurrentUsr=[SELECT Market__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
      if(CurrentUsr.contactid!=null)
      {
-    Usr = [SELECT Market__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
+    Usr = [SELECT Market__c,contactid,Id,Contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
     
     }
       crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
   
     if (!Test.isRunningTest())
     {
-    response= UtilWebservice.AccountIfnoSendSPO(AccId,Usr.contactid);
+    response= UtilWebservice.AccountIfnoSendSPO(AccId,usr.Contact.AccountId);
     }
     System.debug('response $%$%$%$%$%$$'+response);
     listAcc =[select id,Warranty_Apply_Status__c from Account where id=:AccId];
