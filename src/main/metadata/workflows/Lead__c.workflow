@@ -56,9 +56,8 @@
         <fullName>Escalated_after_24hrs</fullName>
         <description>Escalated after 24hrs</description>
         <protected>false</protected>
-		<recipients>
-            <recipient>Manager</recipient>
-            <type>role</type>
+        <recipients>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
@@ -672,7 +671,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -684,7 +683,7 @@ Proxy_Date_Time__c
                 <name>Escalated_after_24hrs</name>
                 <type>Alert</type>
             </actions>
-            <offsetFromField>Lead__c.CreatedDate</offsetFromField>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
             <timeLength>24</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>

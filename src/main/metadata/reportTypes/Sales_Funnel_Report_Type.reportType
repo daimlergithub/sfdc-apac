@@ -6,21 +6,23 @@
     <description>Sales Funnel Report Type</description>
     <label>Sales Funnel Report Type</label>
     <sections>
-		<columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Assigned_Dealer__c</field>
             <table>Lead__c</table>
         </columns>
-		 <columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Branch Name Native</displayNameOverride>
             <field>Assigned_Dealer__c.Branch_name_Native__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Account Name</displayNameOverride>
             <field>Contact__c.Name</field>
             <table>Lead__c</table>
-        </columns>        
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Team__c</field>
@@ -48,16 +50,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Individual_Home_Phone__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Work_Phone__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Mobile__c</field>
             <table>Lead__c</table>
         </columns>
@@ -68,12 +60,13 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Email__c</field>
+            <displayNameOverride>Contracted/Purchased Vehicle</displayNameOverride>
+            <field>Purchased_Vehicle__c.Model__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.Primary_Address_Reference__c</field>
+            <field>Email__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
@@ -98,22 +91,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>VehicleRel_No__c.Delivery_Date__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Dealer_Comments__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Vehicle_Model_Interest__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Lead_Possibility__c</field>
             <table>Lead__c</table>
         </columns>
         <columns>
@@ -144,6 +122,33 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>RecordType</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Handover_Date__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sales Address Display</displayNameOverride>
+            <field>Contact__c.Primary_Address_Display__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Purchased_Vehicle__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Model of Interest</displayNameOverride>
+            <field>Interested_Vehicle__c.Model__c</field>
+            <table>Lead__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Interested_Vehicle__c</field>
             <table>Lead__c</table>
         </columns>
         <masterLabel>Sales Funnel Report</masterLabel>

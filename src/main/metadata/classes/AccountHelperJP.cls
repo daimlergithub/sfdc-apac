@@ -370,19 +370,29 @@ public class AccountHelperJP
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
                     {                        
                         
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'JP'){
                             ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                         }
                         else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
+                            if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'JP'){
                                 ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
+						else
+						if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Person Account---KR');
+							ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
+						}
+						else
+						if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Company Account---KR');
+							ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
+						}
                         
                         if(ucidsequence != null && ucidsequence.length() > 0)
                         {
