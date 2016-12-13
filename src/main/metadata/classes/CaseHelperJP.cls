@@ -320,9 +320,9 @@ public class CaseHelperJP {
          map<id, id> accandUsrId = new map<id,id>();
          List<AccountShare> aShareLst = new List<AccountShare>(); 
          for(case cs: caseIn){
-             if(cs.Case_Dealer__c != '' && cs.Case_Dealer__c != null){
+             //if(cs.Case_Dealer__c != '' || cs.Case_Dealer__c != null){
                  accandUsrId.put(cs.AccountId, cs.OwnerId);
-             }
+            // }
          }
          system.debug('accandUsrId '+accandUsrId);
          List<Account> accLst = [select id, name from Account where id in:accandUsrId.keySet()];
