@@ -20326,7 +20326,11 @@
     </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-    </layoutAssignments> 
+    </layoutAssignments> 	
+    <layoutAssignments>
+        <layout>Account-Company Read Only Layout</layout>
+        <recordType>Account.Company</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
         <recordType>Account.CompanySoftDeleted</recordType>
@@ -20488,7 +20492,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
-    </layoutAssignments>
+    </layoutAssignments>	
     <layoutAssignments>
         <layout>Case-Dealer Complaint Read Only Layout</layout>
         <recordType>Case.MB_Complaint</recordType>
