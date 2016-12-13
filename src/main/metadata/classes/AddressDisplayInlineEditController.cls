@@ -119,17 +119,11 @@ public class AddressDisplayInlineEditController {
     
     public void addEditOptions(){    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-<<<<<<< HEAD
+        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c, 
                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,
                Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,
-               Address_Line_2_Native__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];
-        if(adds.size()>=5)
-        {
-=======
-               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];
-        if(adds.size()>=5){
->>>>>>> asia-kr
+               Address_Line_2_Native__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];  
+                if(adds.size()>=5){ 
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
         }
@@ -146,17 +140,10 @@ public class AddressDisplayInlineEditController {
     public void EditOptions(){
         Address__c editadds;
         if (editaddressId != null){
-            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-<<<<<<< HEAD
+            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c, 
                         Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,
                         Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,
-                        LastModifiedDate from Address__c where Id =: editaddressId];
-            // if for any reason we are missing the reference 
-            
-=======
-                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Id =: editaddressId];
-            // if for any reason we are missing the reference           
->>>>>>> asia-kr
+                        LastModifiedDate from Address__c where Id =: editaddressId]; 
         }
         
         // find the address record within the collection
@@ -195,15 +182,12 @@ public class AddressDisplayInlineEditController {
     public void saveAddress(){
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
-            AddressObj.Address_Type__c = addresspicklist;
-<<<<<<< HEAD
+            AddressObj.Address_Type__c = addresspicklist; 
             AddressObj.Province__c = provincepicklist;
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
-            {
-=======
-            if(editaddressId ==null){
->>>>>>> asia-kr
+            { 
+            if(editaddressId ==null){ 
                 addressobj.Customer__c = acc.id;            
                 try{  
                     if(Address_Validated_Flag == false){
@@ -268,6 +252,7 @@ public class AddressDisplayInlineEditController {
                 }
             }    
         }  
+    }
     }
     
     /**  Address Search based on Zip code.
@@ -382,15 +367,10 @@ public class AddressDisplayInlineEditController {
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-<<<<<<< HEAD
-            }
-            if(addressobj.ZipCode__c != null){
-=======
-            }*/
+            } 
             if(addressobj.ZipCode__c != null)
             {
-                addressobj.MD__c = Market;
->>>>>>> asia-kr
+                addressobj.MD__c = Market; 
                 ValidateAddressSearchCallout(addressobj);
             }           
         }
@@ -418,14 +398,11 @@ public class AddressDisplayInlineEditController {
             }  
         }
     }
-<<<<<<< HEAD
-    public void ValidateAddressSearchCallout(Address__c addressobj){   
-=======
-    public List<addressSelectionWrapper> mapAddressResponse{get; set;}
+      
+ public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     public void ValidateAddressSearchCallout(Address__c addressobj){       
         mapAddressResponse = new List<addressSelectionWrapper>();      
         Address__c AddressObjtemp1 = new Address__c();       
->>>>>>> asia-kr
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj);
         system.debug('*$*$*$*$ response   ' + response);
@@ -464,15 +441,6 @@ public class AddressDisplayInlineEditController {
                     }
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
                 }
-<<<<<<< HEAD
-            }
-            else if(!response.Addresses[0].Valid){
-                string province;   
-                Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-                UtilAddressTranslation.gettranslatedvalues(Market);
-                if(addtrmapUpdate.containsKey(AddressObj.Province__c)){
-                    province = addtrmapUpdate.get(AddressObj.Province__c);
-=======
                 else if(!response.Addresses[i].Valid){
                     string province;   
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
@@ -494,7 +462,6 @@ public class AddressDisplayInlineEditController {
                     addressobj.District__c = '';
                     addressobj.Province__c = '';
                     //mapAddressResponse.add(new addressSelectionWrapper(addressobj)); 
->>>>>>> asia-kr
                 }
             }
         }
@@ -514,8 +481,6 @@ public class AddressDisplayInlineEditController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
         }                
     }
-    
-    
     
     /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
