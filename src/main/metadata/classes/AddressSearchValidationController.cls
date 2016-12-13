@@ -584,11 +584,12 @@ EP/Tolerant for Validation.
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }*/
-            if(addressobj.ZipCode__c != null)
-            {
+			//Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
+            //if(addressobj.ZipCode__c != null)
+            //{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
-            } 
+            //} 
         }
         if(Market !='KR'){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
