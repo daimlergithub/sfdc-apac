@@ -194,6 +194,7 @@
 			   <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
+			   <sf:include name="VehicleRelationshipHelper"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -382,6 +383,8 @@
 				<sf:include name="LeadMergeController"/>
 				<sf:include name="createRetailCopy"/>
 				<sf:include name="createRetailCopyJPTEST"/>
+				<sf:include name="UtilShare"/>
+				<sf:include name="LeadSharingforDealerJP"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -645,7 +648,7 @@
 			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>
-			<sf:include name="VehicleRelationshipHelper"/>		
+			<!--<sf:include name="VehicleRelationshipHelper"/>		-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>

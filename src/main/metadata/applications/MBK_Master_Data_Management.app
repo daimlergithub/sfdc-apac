@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK Master Data Management</label>
     <tab>Tasks</tab>
+	<tab>standard-report</tab>
     <tab>Car_Model__c</tab>
     <tab>Dealer_Locator__c</tab>
     <tab>DM_Material__c</tab>
