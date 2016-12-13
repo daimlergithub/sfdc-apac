@@ -31,15 +31,20 @@
 </apex:pageBlock>
 
 <apex:pageblock Title="Related Company List" id="pgblock">
-                 <apex:pageblockTable value="{!vehRec}" var="vehicleRec">
-                         <apex:column headerValue="Select Customer" width="10%">
-                           <input value="{!vehicleRec.Id}" Name="SelectedCustomer" type="radio"/>
+                 <apex:pageblockTable value="{!newacc}" var="vehicleRec">
+                         <apex:column headerValue="Select Company" width="10%">
+                           <input value="{!vehicleRec.Id}" Name="SelectedCustomer" type="radio">
+                           <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS" >
+                                       <apex:param name="idselected" value="{!vehicleRec.id}"/>
+                                  </apex:actionSupport>
+                           </input>
                          </apex:column>
-                         <apex:column value="{!vehicleRec.Contact__c}"/>
-                         <apex:column value="{!vehicleRec.OwnerId}" width="10%"/>
-                         <apex:column value="{!vehicleRec.Vehicle_ID__c}"/>
+                         <apex:column value="{!vehicleRec.Name}"/>
+                         
+                   
                 </apex:pageblockTable>
                 <apex:commandButton value="Confirmation" onclick="myFunction(); return false;"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
 </apex:pageBlock>
 <apex:actionFunction name="PassTheVariableToController" action="{!Navigate}" reRender="none">
        <apex:param Name="P1" assignTo="{!Param1}" value=""/>
