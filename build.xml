@@ -296,6 +296,7 @@
 			<sf:typeset name="layouts">
 				<sf:include name="Account.*"/>
 				<sf:include name="Case.*"/>
+				<sf:include name="PersonAccount.*"/>
 			</sf:typeset>	
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
