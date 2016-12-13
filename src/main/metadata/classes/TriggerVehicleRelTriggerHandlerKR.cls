@@ -30,7 +30,7 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
             }
             if(trigger.isBefore && trigger.isInsert)
             {
-                VehicleRelationshipHelperJP.validateOverlappingVehicleRelationshiponInsert(Trigger.new);
+                vrHelperJP.validateOverlappingVehicleRelationshiponInsert(Trigger.new);
             }
             if(trigger.isBefore && trigger.isUpdate)
             {
