@@ -171,6 +171,25 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Question_Responses</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Question Responses</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>Response-{0000000}</displayFormat>

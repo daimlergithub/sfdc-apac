@@ -10,16 +10,10 @@
         <field>Lead__c$WIP_Number__c</field>
     </columns>
     <columns>
-        <field>Lead__c$VehicleRel_No__c.Vehicle_ID__c.Latest_Invoice_Date__c</field>
+        <field>Lead__c$Invoice_Date__c</field>
     </columns>
     <columns>
         <field>Lead__c$VehicleRel_No__c.Vehicle_ID__c.Model__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$VehicleRel_No__c.Registration_Number__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$VehicleRel_No__c.Registration_Date__c</field>
     </columns>
     <columns>
         <field>Lead__c$Owner</field>
@@ -28,13 +22,7 @@
         <field>Lead__c$Contact__c.Primary_Address_Display__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Phone__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$Contact__c.Individual_Home_Phone__c</field>
-    </columns>
-    <columns>
-        <field>Lead__c$Contact__c.Work_Phone__c</field>
+        <field>Lead__c$Contact__c.Mobile__c</field>
     </columns>
     <columns>
         <field>Lead__c$Email__c</field>
@@ -43,16 +31,16 @@
         <field>Lead__c$Contact__c.All_channel_opt_out__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Contact__c.Agreement_to_commit_info_processing__c</field>
-    </columns>
-	<columns>
         <field>Lead__c$Contact__c.Personal_Abroad_Agreement__c</field>
     </columns>
-	<columns>
+    <columns>
         <field>Lead__c$Contact__c.Personal_Agreement__c</field>
     </columns>
-	<columns>
+    <columns>
         <field>Lead__c$Contact__c.Personal_Information_Third_Party_Release__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Contact__c.Agreement_to_commit_info_processing__c</field>
     </columns>
     <description>Customer Satisfaction Index (CSI) Network Developement for AfterSales Dealer</description>
     <filter>
@@ -63,8 +51,8 @@
         </criteriaItems>
         <criteriaItems>
             <column>Lead__c$Owner</column>
-            <operator>equals</operator>
-            <value>Sneha Chail</value>
+            <operator>notEqual</operator>
+            <value></value>
         </criteriaItems>
         <criteriaItems>
             <column>Lead__c$RecordType</column>
@@ -82,6 +70,8 @@
     <reportType>Customer_Satisfaction_Index__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Lead__c$Invoice_Date__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Lead__c$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

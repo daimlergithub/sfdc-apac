@@ -16,9 +16,9 @@
 
 <!--  ==================================================== -->
 
-<apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false"  >
+<apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="true" sidebar="false" showChat="false"  >
     <apex:form id="form1">         
-         <apex:pageMessages/>
+         <apex:pageMessages />
         <apex:pageMessages id="showmsg"></apex:pageMessages>       
         <apex:includeScript value="/support/console/25.0/integration.js"/>
         <apex:includeScript value="/support/api/28.0/interaction.js"/>
@@ -233,8 +233,9 @@
                          </apex:selectList>    
                          <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                          <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> </apex:outputPanel>     
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> 
+                       </apex:outputPanel>    
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
@@ -253,8 +254,8 @@
                           <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c} </a> </apex:outputPanel>   
-                           
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>
+                   </apex:outputPanel>    
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
@@ -274,7 +275,8 @@
                           <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> </apex:outputPanel>     
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> 
+                       </apex:outputPanel>     
                            
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
