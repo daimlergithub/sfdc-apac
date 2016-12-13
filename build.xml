@@ -293,6 +293,11 @@
 			   <sf:include name="Tasks"/>
                <sf:include name="Retailcopybutton"/>			   
 			</sf:typeset>
+			<sf:typeset name="layouts">
+				<sf:include name="Account.*"/>
+				<sf:include name="Case.*"/>
+				<sf:include name="PersonAccount.*"/>
+			</sf:typeset>	
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
 				<sf:include name="TriggerUtil"/>
@@ -780,7 +785,7 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>
+		<!--<sf:typeset name="workflows"/>-->
 		<sf:typeset name="flows"/> 
 		</deploy>					
     </target>
