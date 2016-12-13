@@ -2613,10 +2613,10 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
     <fields>
         <fullName>Customer_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(  Personal_Abroad_Agreement__c , 'Yes'))),true,false)</formula>
+        <formula>IF(OR(AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes'),ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes')),
+		AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes')),
+		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
+		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'))),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
@@ -13856,6 +13856,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>		
 		<picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
@@ -24846,6 +24857,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <description>Record type for dealer</description>
         <label>Dealer</label>
 		<picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>	
+		<picklistValues>
             <picklist>Personal_Agreement__c</picklist>
             <values>
                 <fullName>Yes</fullName>
@@ -30042,9 +30064,11 @@ REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
 ) 
 )</errorConditionFormula>
         <errorMessage>Home Phone2 must be in any of the following formats : 
-1.	xx-xxxx-xxxx 
-2.	xxx-xxx-xxxx 
-3.	xxx-xxxx-xxxx</errorMessage>
+1.	0x-xxx-xxxx
+2. 0x-xxxx-xxxx
+2.	0xx-xxx-xxxx
+3.	0xx-xxxx-xxxx
+4. blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_KR</fullName>
@@ -30081,8 +30105,8 @@ REGEX(Individual_Home_Phone__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
 REGEX(Individual_Home_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
 REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
-REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
-REGEX(Individual_Home_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
+REGEX(Individual_Home_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Individual_Home_Phone__c, "-[0-9]{4}-[0-9]{4}")
 )
 )
 )</errorConditionFormula>
@@ -30272,9 +30296,7 @@ MD__c = 'JP'
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
         <description>Phone must be in any of the following formats : 
-1.	xxx-xxx-xxxx 
-2.	xxx-xxxx-xxxx
-3.	xxxx-xxxx-xxx</description>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxx 4. xxxx-xxx-xxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -30287,14 +30309,13 @@ REGEX(Mobile__c, "[016]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Mobile__c, "[017]{3}-[0-9]{3,4}-[0-9]{4}"), 
 REGEX(Mobile__c, "[018]{3}-[0-9]{3,4}-[0-9]{4}"),
 REGEX(Mobile__c, "[019]{3}-[0-9]{3,4}-[0-9]{4}"),
-REGEX(Mobile__c, "[0130]{4}-[0-9]{3,4}-[0-9]{3}")
+REGEX(Mobile__c, "[0130]{4}-[0-9]{3,4}-[0-9]{3}"),
+REGEX(Mobile__c, "-[0-9]{4}-[0-9]{4}")
 )
 )
 )</errorConditionFormula>
         <errorMessage>Mobile must be in any of the following formats : 
-1.	xxx-xxx-xxxx 
-2.	xxx-xxxx-xxxx
-3.	xxxx-xxxx-xxx</errorMessage>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
@@ -30566,7 +30587,7 @@ REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"),
 REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
-REGEX(Work_Phone__c, "0-[0-9]{4}-[0-9]{4}") 
+REGEX(Work_Phone__c, "-[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
@@ -30889,20 +30910,20 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubTab(result) { 
+function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == '012280000000f0p') 
 {	
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 else if ('{!Account.RecordTypeId}' == '012280000000f14') 
 { 
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
@@ -30958,20 +30979,20 @@ window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}  
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubTab(result) { 
+function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-sforce.console.openSubtab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 

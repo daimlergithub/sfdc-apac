@@ -1,141 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>FK_$Account.UCID__c</field>
+        <field>Account$UCID__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Status__c</field>
+        <field>Account$Status__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Owner_Relation__c</field>
+        <field>Account.Vehicle_Relationships2__r$Owner_Relation__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Branch_name_Native__c</field>
+        <field>Account$TextName</field>
     </columns>
     <columns>
-        <field>FK_$Account.Branch_name__c</field>
+        <field>Account$FirstName</field>
     </columns>
     <columns>
-        <field>FK_NAME</field>
+        <field>Account$LastName</field>
     </columns>
     <columns>
-        <field>FK_$Account.R_Check_Age__c</field>
+        <field>Account$PersonContact.Birthdate</field>
     </columns>
     <columns>
-        <field>FK_PC_FIRST_NAME</field>
+        <field>Account$Gender__c</field>
     </columns>
     <columns>
-        <field>FK_PC_LAST_NAME</field>
+        <field>Account$Age__c</field>
     </columns>
     <columns>
-        <field>FK_PC_BIRTHDATE</field>
+        <field>Account$Age_Range__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
+        <field>Account.Vehicle_Relationships2__r$Point_of_Purchase__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Gender__c</field>
+        <field>Account$Title__c</field>
     </columns>
     <columns>
-        <field>FK_PC_TITLE</field>
+        <field>Account$Company_Name__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Company_Name__c</field>
+        <field>Account$Individual_Home_Phone__c</field>
     </columns>
     <columns>
-        <field>FK_PC_PHONE4</field>
+        <field>Account$Mobile__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Brand__c</field>
+        <field>Account$Work_Phone__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Work_Phone__c</field>
+        <field>Account$Email__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Branch_name_ENG__c</field>
+        <field>Account$Primary_Address_Display__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Mobile__c</field>
+        <field>Account$City__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.City__c</field>
+        <field>Account$Marital_Status__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Marital_Status__c</field>
+        <field>Account$Hobby__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Hobby__c</field>
+        <field>Account$Interested_Event__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Interested_Event__c</field>
+        <field>Account$MBK_Occupation__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.MBK_Occupation__c</field>
+        <field>Account.Vehicle_Relationships2__r$Previous_Make__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Previous_Make__c</field>
+        <field>Account.Vehicle_Relationships2__r$Previous_Model__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Previous_Model__c</field>
+        <field>Account$Personal_Abroad_Agreement__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Vehicle_Class__c</field>
+        <field>Account$Personal_Agreement__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Registration_Number__c</field>
+        <field>Account$Personal_Information_Third_Party_Release__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Purchase_Date__c</field>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Car_Model__c.Model_Hierarchy_Desc__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Registration_Date__c</field>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_Class__c</field>
     </columns>
     <columns>
-        <field>FK_PC_EMAIL_OPT_OUT</field>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_Model__c</field>
     </columns>
     <columns>
-        <field>FK_PC_$Contact.SMSOptOut__c</field>
+        <field>Account.Vehicle_Relationships2__r$Registration_Number__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.FS_Opt_In_Home_Phone__c</field>
+        <field>Account.Vehicle_Relationships2__r$Purchase_Date__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.FS_Opt_In_Work_Phone__c</field>
+        <field>Account.Vehicle_Relationships2__r$UsVIN__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.UsVIN__c</field>
+        <field>Account$PersonContact.HasOptedOutOfEmail</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Status__c</field>
+        <field>Account$PersonContact.SMSOptOut__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.Ownership__c</field>
+        <field>Account.Vehicle_Relationships2__r$Status__c</field>
     </columns>
     <columns>
-        <field>FK_ACC_RECORDTYPE</field>
+        <field>Account.Vehicle_Relationships2__r$Ownership__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Primary_Address_Display__c</field>
+        <field>Account$RecordType</field>
     </columns>
     <columns>
-        <field>FK_$Account.Dealer_GC_Code__c</field>
+        <field>Account.Vehicle_Relationships2__r$New_Used__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Dealer_GS_Code__c</field>
+        <field>Account$Dealer_GC_Code__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Dealer_Sales_Manager__c</field>
+        <field>Account$Dealer_GS_Code__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c.New_Used__c</field>
+        <field>Account$Dealer_Sales_Manager__c</field>
     </columns>
     <columns>
-        <field>FK_$Account.Vehicle_Amount__c</field>
+        <field>Account$Vehicle_Amount__c</field>
     </columns>
     <description>Raw Data Reports</description>
     <filter>
         <criteriaItems>
-            <column>Vehicle_Relationship__c.MD__c</column>
+            <column>Account$MD__c</column>
             <operator>equals</operator>
             <value>KR</value>
         </criteriaItems>
@@ -147,11 +147,11 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntity$Vehicle_Relationship__c@Vehicle_Relationship__c.Contact__c</reportType>
+    <reportType>MKT_Raw_Data_Report__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <dateColumn>Account$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

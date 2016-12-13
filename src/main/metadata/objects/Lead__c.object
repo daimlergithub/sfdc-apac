@@ -9888,6 +9888,7 @@ Modify Reason:
                 <fullName>car care</fullName>
                 <default>false</default>
                 <controllingFieldValues>Product</controllingFieldValues>
+                <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>wear and tear</fullName>
@@ -9898,6 +9899,7 @@ Modify Reason:
                 <fullName>spare part</fullName>
                 <default>false</default>
                 <controllingFieldValues>Product</controllingFieldValues>
+                <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>service contract</fullName>
@@ -9912,6 +9914,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>others</fullName>
                 <default>false</default>
+                <controllingFieldValues>Activities</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -10208,6 +10211,231 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>MBK_Lead_DataSource__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Lead DataSource</label>
+        <picklist>
+            <picklistValues>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web/Mobile Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBK_Lead_DataSubSource__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Lead_DataSubSource</label>
+        <picklist>
+            <picklistValues>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>People</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBK_Lead_Desired_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Lead Desired Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+		<visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MBK_Lost_Situation__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Lost Situation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Competitor&apos;s Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purhcased at othe MB stores</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>MB_Vehicle_Interest__c</fullName>
@@ -71172,20 +71400,20 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubTab(result) { 
+function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == '012280000000f0p') 
 {	
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 else if ('{!Account.RecordTypeId}' == '012280000000f14') 
 { 
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
@@ -71211,20 +71439,20 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
-function openSubTab(result) { 
+function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == '012280000000f0p')
 {	
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordTypeId}' == '012280000000f14')
 {
-sforce.console.openSubtab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 

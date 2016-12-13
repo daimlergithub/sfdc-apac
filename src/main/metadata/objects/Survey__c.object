@@ -172,12 +172,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <label>Survey</label>
     <listViews>
+        <fullName>MBK_Standard_View</fullName>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Standard View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>standard_view</fullName>
         <columns>NAME</columns>
         <columns>CREATEDBY_USER</columns>
         <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <label>standard view</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <nameField>
         <label>Survey Name</label>
