@@ -26,6 +26,7 @@ public class AddressSearchValidationController{
     
     // KOREA related parameters - Start
     public String market{get;set;}
+	public String AddressDetails{get;set;}
     public String homePhoneAreaCodePart1{get;set;}   
     public String homePhoneAreaCodePart2{get;set;}
     public String homePhoneAreaCodePart3{get;set;}
