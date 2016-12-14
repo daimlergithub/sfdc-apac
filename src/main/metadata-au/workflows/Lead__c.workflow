@@ -7,7 +7,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
     </alerts>
     <alerts>
@@ -17,7 +18,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Lead_Created</template>
     </alerts>
     <alerts>
@@ -27,7 +29,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_customer_doesn_t_allow_dealer_contact</template>
     </alerts>
     <alerts>
@@ -37,7 +40,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</template>
     </alerts>
     <alerts>
@@ -48,7 +52,8 @@
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_10_days</template>
     </alerts>
     <alerts>
@@ -59,7 +64,8 @@
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_5_days</template>
     </alerts>
     <alerts>
@@ -69,7 +75,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
@@ -79,7 +86,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
     <alerts>
@@ -90,7 +98,8 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Lead_Notification_Email</template>
     </alerts>
     <alerts>
@@ -100,7 +109,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -110,7 +120,8 @@
         <recipients>
             <type>accountOwner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -120,7 +131,8 @@
         <recipients>
             <type>owner</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>customer_care@daimler.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <fieldUpdates>
@@ -414,6 +426,15 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <field>Assigned_Date_Time__c</field>
         <formula>NOW()</formula>
         <name>Update Lead Assigned Date Time to Now</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Closed_Date_Field</fullName>
+        <field>Lead_Closed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lead Closed Date Field</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -906,9 +927,12 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <name>ReassgnmentDateUpdate</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
-        <formula>AND( ISCHANGED( Assigned_Dealer__c ), NOT(ISNULL( Dealer_Assignment_Date__c  ) ), ISPICKVAL( CAC_Lead_Status__c ,'Qualified'))</formula>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ),
+ NOT(ISNULL( Dealer_Assignment_Date__c  ) ),
+ ISPICKVAL( CAC_Lead_Status__c ,'Qualified'),
+ IF( OR(Owner:User.Profile.Name = 'Dealer CRM Manager',Owner:User.Profile.Name = 'Dealer Divisional Manager') , true,false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -919,7 +943,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>true</active>
         <description>If lead owner profile is 'Dealer Consultant' then updating the current datetime to cosultant _assingment_date__c</description>
-        <formula>AND( ISCHANGED( OwnerId ) ,      IF( Owner:User.Profile.Name  = 'Dealer Consultant',           true,false), ISNULL( Consultant_Assignment_Date__c ) ,       MD__c = 'AU' )</formula>
+        <formula>AND( ISCHANGED( OwnerId ) , Owner:User.Profile.Name  = 'Dealer Consultant', ISBLANK( Consultant_Assignment_Date__c ) ,       MD__c = 'AU' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1158,6 +1182,16 @@ Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</descripti
         <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Closed Date When status closed or lost</fullName>
+        <actions>
+            <name>Update_Lead_Closed_Date_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED(CAC_Lead_Status__c), OR(ISPICKVAL(CAC_Lead_Status__c , "Closed")  ,ISPICKVAL(CAC_Lead_Status__c , "Lost")), ISBLANK(Lead_Closed_Date__c))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Lead Origin field as Retail</fullName>

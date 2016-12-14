@@ -111,7 +111,6 @@
         <label>Customer</label>
         <referenceTo>Account</referenceTo>
         <relationshipName>PreOrders</relationshipName>
-		<relationshipLabel>Pre Orders</relationshipLabel>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -266,9 +265,9 @@
         <fullName>VehicleInterested__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Vehicle Interested</label>
+        <label>Vehicle Model Class</label>
         <referenceTo>Car_Model__c</referenceTo>
-		<relationshipLabel>Pre Orders</relationshipLabel>
+        <relationshipLabel>Orders</relationshipLabel>
         <relationshipName>PreOrders</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
@@ -442,7 +441,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Orders</label>
+    <label>Order</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
@@ -450,7 +449,7 @@
     </listViews>
     <nameField>
         <displayFormat>{0000000}</displayFormat>
-        <label>Pre Order</label>
+        <label>Order</label>
         <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
