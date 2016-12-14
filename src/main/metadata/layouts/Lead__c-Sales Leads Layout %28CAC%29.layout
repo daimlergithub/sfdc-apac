@@ -423,9 +423,9 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>VehiclePicker</page>
+                <page>MarketCheckOnVehiclePicker</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
+                <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
