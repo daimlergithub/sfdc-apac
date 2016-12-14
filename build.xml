@@ -136,6 +136,7 @@
 				<sf:include name="Account_Link__c"/>
 				<sf:include name="SSI__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
+				<sf:include name="Account_Object__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">						
@@ -194,6 +195,7 @@
 			   <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
+			   <sf:include name="VehicleRelationshipHelper"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -292,6 +294,11 @@
 			   <sf:include name="Tasks"/>
                <sf:include name="Retailcopybutton"/>			   
 			</sf:typeset>
+			<sf:typeset name="layouts">
+				<sf:include name="Account.*"/>
+				<sf:include name="Case.*"/>
+				<sf:include name="PersonAccount.*"/>
+			</sf:typeset>	
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
 				<sf:include name="TriggerUtil"/>
@@ -382,6 +389,8 @@
 				<sf:include name="LeadMergeController"/>
 				<sf:include name="createRetailCopy"/>
 				<sf:include name="createRetailCopyJPTEST"/>
+				<sf:include name="UtilShare"/>
+				<sf:include name="LeadSharingforDealerJP"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -645,7 +654,7 @@
 			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>
-			<sf:include name="VehicleRelationshipHelper"/>		
+			<!--<sf:include name="VehicleRelationshipHelper"/>		-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>
@@ -777,7 +786,7 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>
+		<!--<sf:typeset name="workflows"/>-->
 		<sf:typeset name="flows"/> 
 		</deploy>					
     </target>

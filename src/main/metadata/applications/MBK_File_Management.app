@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK File Management</label>
     <tab>Tasks</tab>
+	<tab>standard-report</tab>
     <tab>standard-Workspace</tab>
     <tab>standard-File</tab>
 </CustomApplication>

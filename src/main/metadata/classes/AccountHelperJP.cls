@@ -370,19 +370,29 @@ public class AccountHelperJP
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
                     {                        
                         
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'JP'){
                             ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                         }
                         else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
+                            if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'JP'){
                                 ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
+						else
+						if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Person Account---KR');
+							ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
+						}
+						else
+						if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Company Account---KR');
+							ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
+						}
                         
                         if(ucidsequence != null && ucidsequence.length() > 0)
                         {
@@ -531,4 +541,55 @@ public class AccountHelperJP
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
     }//End of Method
+	
+	
+	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    sivaram(2.0)SFDCJP-474
+    */
+    public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
+        try{
+            user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
+            system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
+            List<Account> accList = new List<Account>();
+           Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
+            for(Account acc : listAccounts){
+                if(acc.Company_Name__c != NUll){
+                   String Company_Legal_Form;
+
+                   if (acc.Company_Legal_form__c != NULL)
+                    {
+                     Company_Legal_Form= acc.Company_Legal_form__c;
+                     }
+                     else if (acc.Company_Legal_Form_text__c !=NULL)
+                     {
+                       Company_Legal_Form= acc.Company_Legal_form_Text__c;
+                        }
+                                    
+                                    if(acc.Legal_Form_Position__c== NULL )
+                                    {
+                                        
+                                           acc.name =  acc.Company_Name__c;
+                                    }
+                                    else if(acc.Legal_Form_Position__c == 'Pre') {
+                                        if(usr.LanguageLocaleKey == 'ja')
+                                            acc.name = TranslateMap.get(Company_Legal_Form) + ' ' + acc.Company_Name__c;
+                                        else
+                                           acc.name = Company_Legal_Form + ' ' + acc.Company_Name__c;     
+                                    }
+                                    else if(acc.Legal_Form_Position__c == 'Post'){
+                                        if(usr.LanguageLocaleKey == 'ja')
+                                            acc.name = acc.Company_Name__c + ' ' + TranslateMap.get(Company_Legal_Form);
+                                        else
+                                            acc.name = acc.Company_Name__c + ' ' + Company_Legal_Form;    
+                                    }
+                                
+                }
+            }
+        }
+        catch(Exception e){
+            System.debug('Error'+e.getMessage());
+            System.debug('Cause'+e.getCause());
+            System.debug('Line Numer'+e.getLineNumber());
+        }
+    }
 }

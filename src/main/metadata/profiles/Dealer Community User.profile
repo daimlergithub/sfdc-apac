@@ -236,11 +236,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddressDisplayInlineEditControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddressHelperJP</apexClass>
@@ -252,11 +252,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddressSearchValidationController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddressSearchValidationControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
@@ -1203,14 +1203,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UtilCustomSettings</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilCustomSettingsJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UtilCustomSettingsKernel</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1389,6 +1381,62 @@
     <classAccesses>
         <apexClass>YearlyTargetControllerTest</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>cSendVehicleInformationtoSPOJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>cSendVehicleInformationtoSPOJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>cSendVehicletoSPOConfirmationJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>cSendVehicletoSPOConfirmationJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>SendAccountInfoToSPO</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SendAccountInfoToSPOTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddressSearchValidationController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddressSearchValidationControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>createRetailCopy</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>createRetailCopyJPTEST</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilWebservice</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilwebserviceTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCustomSettings</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCustomSettingsJP</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
@@ -20326,9 +20374,9 @@
     </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-    </layoutAssignments>
+    </layoutAssignments> 	
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
+        <layout>Account-Company Read Only Layout</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20492,18 +20540,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
+    </layoutAssignments>	
+    <layoutAssignments>
+        <layout>Case-Dealer Complaint Read Only Layout</layout>
+        <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-        <recordType>Case.Chrysler_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
+        <layout>Case-Dealer Inquiry Read Only Layout</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
-        <recordType>Case.MBDA_Complaint</recordType>
+        <recordType>Case.Chrysler_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
@@ -20512,10 +20560,6 @@
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.MBJ_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-        <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
@@ -20703,7 +20747,7 @@
         <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+        <layout>PersonAccount-Person Account Read Only Layout</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21104,6 +21148,15 @@
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -21227,11 +21280,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressDisplayInlineEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSearchValidation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AnswersHome</apexPage>
@@ -21315,7 +21368,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
@@ -21416,6 +21469,22 @@
     <pageAccesses>
         <apexPage>SMSSendResult</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>SendVehicleInformationtoSPOJP</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SendVehicletoSPOConfirmationJP</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
+    <pageAccesses>
+        <apexPage>SendAccountInfoToSPO</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Retailcopybutton</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectAssignedDealer</apexPage>

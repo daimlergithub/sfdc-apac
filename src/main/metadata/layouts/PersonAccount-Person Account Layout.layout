@@ -10,6 +10,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
+	<customButtons>New_Case</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -1011,8 +1012,8 @@
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h28000000HWeG</masterLabel>
-        <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
+        <sizeX>1</sizeX>
+        <sizeY>1</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>

@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>CloneForIB</customButtons>
     <customButtons>Escalation</customButtons>
-    <customButtons>Input_MPC_Note</customButtons>
     <customButtons>Input_PR_Comment</customButtons>
     <customButtons>Assign_case_to_dealer</customButtons>
     <excludeButtons>Clone</excludeButtons>
