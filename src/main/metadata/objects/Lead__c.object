@@ -3281,17 +3281,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Dealer_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Comment</label>
-        <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
         <fullName>Dealer_Comments__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Comments</label>
@@ -11807,104 +11796,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Preferred_Dropoff_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Dropoff Time</label>
-        <picklist>
-            <picklistValues>
-                <fullName>8:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Purchased_Vehicle__c</fullName>
