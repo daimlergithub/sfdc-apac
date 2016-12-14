@@ -502,6 +502,22 @@
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>LeadVehiclePickerKRController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>LeadVehiclePickerKRControllerTests</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerConTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordControllerTest</apexClass>
         <enabled>true</enabled>
@@ -21655,6 +21671,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>LeadVehiclePickerKR</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>MarketCheckOnVehiclePicker</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
