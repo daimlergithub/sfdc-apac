@@ -784,7 +784,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                         if (lead.Owner.Profile.name == 'Dealer Consultant' && (Isinsert || (IsUpdate && newmap.get(lead.Id).Ownerid != oldmap.get(lead.Id).Ownerid)))
                         {
                             
-                           
+                          
                             if (lead.contact__r.recordtypeid ==  PersonalAccountRT  && etToAssignement_Person !=NULL)
                             {
                                  
@@ -857,6 +857,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             if (usr.id != Null )
                             {
                                 newleadmap.get(LeadId).ownerid= usr.id;
+                               
+                                newleadmap.get(LeadId).Consultant_Assignment_Date__c= null;
+                                
+                                 newleadmap.get(LeadId).Consultant_Reassignment_Date__c= null;
+                                
+                                  newleadmap.get(LeadId).Consultant_Due_Date__c= null;
+                                 
                                 if (newleadmap.get(LeadId).CAC_Lead_Status__c == 'Qualified')
                                 {
                                     if (newleadmap.get(LeadId).Dealer_Assignment_Date__c == null) 

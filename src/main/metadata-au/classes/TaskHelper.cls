@@ -935,7 +935,7 @@ public class TaskHelper {
         
         Id removeAccountRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Remove Account').getRecordTypeId(); 
         Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
-        Id assignedToId=[select id from user where name = 'Nicole Hughes' limit 1].Id;
+        Id assignedToId=[select id from user where name = 'Clare Yan' limit 1].Id;
         
         System.debug('assigned to'+assignedToId);
         for(Task tsk : listTaskNew){
