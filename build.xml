@@ -426,6 +426,8 @@
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
 				<sf:include name="VehiclePickerForCase"/>
+				<sf:include name="LeadVehiclePickerKR"/>
+				<sf:include name="MarketCheckOnVehiclePicker"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
@@ -445,6 +447,10 @@
 			<sf:include name="VehiclePickerControllerTests"/>
 			<sf:include name="VehiclePickerForCaseController"/>
 			<sf:include name="VehiclePickerForCaseControllerTest"/>
+			<sf:include name="LeadVehiclePickerKRController"/>
+			<sf:include name="LeadVehiclePickerKRControllerTests"/>
+			<sf:include name="MarketCheckOnVehiclePickerCon"/>
+			<sf:include name="MarketCheckOnVehiclePickerConTest"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
