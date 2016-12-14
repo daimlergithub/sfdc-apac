@@ -17,9 +17,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Lead_Created</template>
     </alerts>
     <alerts>
@@ -28,9 +26,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_customer_doesn_t_allow_dealer_contact</template>
     </alerts>
     <alerts>
@@ -39,9 +35,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</template>
     </alerts>
     <alerts>
@@ -51,9 +45,7 @@
         <recipients>
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_10_days</template>
     </alerts>
     <alerts>
@@ -63,9 +55,7 @@
         <recipients>
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_5_days</template>
     </alerts>
     <alerts>
@@ -74,9 +64,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
@@ -85,9 +73,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
     <alerts>
@@ -97,9 +83,7 @@
         <recipients>
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>unfiled$public/Lead_Notification_Email</template>
     </alerts>
     <alerts>
@@ -108,9 +92,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -119,9 +101,7 @@
         <protected>false</protected>
         <recipients>
             <type>accountOwner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -130,9 +110,7 @@
         <protected>false</protected>
         <recipients>
             <type>owner</type>
-        </recipients>
-        <senderAddress>customer_care@daimler.com</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
+        </recipients><senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <fieldUpdates>
