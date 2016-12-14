@@ -66,4 +66,30 @@ public class UtilAddressTranslation
         addtrmap.put(prolist.Province_EN47__c, prolist.Province_TR47__c);
         return addtrmap;
     }
+	
+	public static Map<String, String> addtrmaps = new Map<String, String>();
+    public static Account_Object__mdt prolists; 
+    public static Map<String, String> gettranslatedAccName(string market)
+    {
+        prolists = [select Object__c,Picklist_Name__c,Cooperative_society__c,Education_insitution__c,Joint_venture__c,Limited_partnership_company__c,Limited_liability_company__c,Medical_corporation__c,Medical_enterprise__c,Mutual_aid_association__c,
+                    Mutual_company__c,Others__c,Religious_corporation__c,Social_welfare_institution__c,Stock_company__c,Unlimited_partnership_company__c,Cooperative_society_TL__c,Education_insitution_TL__c,Joint_venture_TL__c,
+                    Limited_partnership_company_TL__c,Limited_liability_company_T__c,Medical_corporation_TL__c,Medical_enterprise_TL__c,Mutual_aid_association_TL__c,Mutual_company_TL__c,Others_TL__c,Religious_corporation_TL__c,Social_welfare_institution_TL__c,
+                    Stock_company_TL__c,Unlimited_partnership_company_TL__c from Account_Object__mdt where MD__c =: market];
+        
+        addtrmaps.put(prolists.Cooperative_society__c,prolists.Cooperative_society_TL__c);
+        addtrmaps.put(prolists.Social_welfare_institution__c, prolists.Social_welfare_institution_TL__c);
+        addtrmaps.put(prolists.Education_insitution__c, prolists.Education_insitution_TL__c);
+        addtrmaps.put(prolists.Joint_venture__c, prolists.Joint_venture_TL__c);
+        addtrmaps.put(prolists.Limited_partnership_company__c, prolists.Limited_partnership_company_TL__c);
+        addtrmaps.put(prolists.Limited_liability_company__c, prolists.Limited_liability_company_T__c);
+        addtrmaps.put(prolists.Medical_corporation__c, prolists.Medical_corporation_TL__c);
+        addtrmaps.put(prolists.Medical_enterprise__c, prolists.Medical_enterprise_TL__c);
+        addtrmaps.put(prolists.Mutual_aid_association__c, prolists.Mutual_aid_association_TL__c);
+        addtrmaps.put(prolists.Mutual_company__c, prolists.Mutual_company_TL__c);
+        addtrmaps.put(prolists.Others__c, prolists.Others_TL__c);
+        addtrmaps.put(prolists.Religious_corporation__c, prolists.Religious_corporation_TL__c);
+        addtrmaps.put(prolists.Stock_company__c, prolists.Stock_company_TL__c);
+        addtrmaps.put(prolists.Unlimited_partnership_company__c, prolists.Unlimited_partnership_company_TL__c);
+        return addtrmaps;
+    }
 }

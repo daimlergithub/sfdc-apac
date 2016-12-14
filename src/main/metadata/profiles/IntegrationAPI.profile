@@ -251,14 +251,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AddressSearchValidationController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AddressSearchValidationControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1203,14 +1195,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UtilCustomSettings</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilCustomSettingsJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UtilCustomSettingsKernel</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1420,7 +1404,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddressSearchValidationControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>	
     <classAccesses>
         <apexClass>createRetailCopy</apexClass>
@@ -1444,7 +1428,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilCustomSettingsJP</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
@@ -22400,10 +22384,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>AddressSearchValidation</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -22601,7 +22581,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSearchValidation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Retailcopybutton</apexPage>
