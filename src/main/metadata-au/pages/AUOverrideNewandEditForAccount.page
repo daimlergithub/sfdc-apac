@@ -60,35 +60,28 @@
     <apex:outputpanel rendered="{!isPerson}">
         <apex:pageBlockSection columns="2" id="pbsAccInfoId1" title="Account Information" collapsible="false">
             <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
-            <apex:outputtext value="{!recordType}" label="Account Record Type"/>
+            <apex:inputField value="{!objPersonAccount.Partner_Title__c}" />
+           <!-- <apex:outputtext value="{!recordType}" label="Account Record Type"/> -->
             <apex:pageBlockSectionItem >
                 <apex:outputlabel value="First Name"/>
                 <apex:outputpanel >
-                    <apex:inputField value="{!objContact.Salutation}" taborderhint="1"/>
+                    <apex:inputField value="{!objContact.Salutation}" taborderhint="1" style="width:100px" />
                     &nbsp;
                     <apex:inputField value="{!objContact.FirstName}" taborderhint="2"/>
                 </apex:outputpanel>
             </apex:pageBlockSectionItem>
-            <apex:inputField value="{!objPersonAccount.Fax}" taborderhint="3"/>
+          
+            <apex:inputField value="{!objPersonAccount.Partner_First_Name__c }" />
             <apex:inputField value="{!objContact.LastName}" taborderhint="4"/>
-            <apex:inputField value="{!objPersonAccount.Deceased__c}" taborderhint="5"/>
-            <apex:inputField value="{!objPersonAccount.Gender__c}" taborderhint="6"/>
+            <apex:inputField value="{!objPersonAccount.Partner_Surname__c}" taborderhint="5"/> 
             <apex:inputField value="{!objPersonAccount.Suffix__c}" taborderhint="7"/>
-            <apex:inputField value="{!objPersonAccount.Marital_Status__c}" taborderhint="8"/>
-            <apex:inputField value="{!objPersonAccount.Company__c}" taborderhint="9"/>
-            <apex:inputField value="{!objPersonAccount.PersonBirthdate}" taborderhint="10"/>
-            <apex:inputField value="{!objPersonAccount.Education__c}" taborderhint="11"/>   
-            <apex:inputField value="{!objPersonAccount.Industry}" taborderhint="12"/>   
-            <apex:inputField value="{!objPersonAccount.Age_Range__c}" taborderhint="13"/>   
-            <apex:inputField value="{!objPersonAccount.Occupation__c}" taborderhint="14"/>  
-            <apex:inputField value="{!objPersonAccount.Partner_Title__c}" taborderhint="15"/>   
-            <apex:inputField value="{!objPersonAccount.Corporate_Program__c}" taborderhint="16"/>
-            <apex:inputField value="{!objPersonAccount.Partner_First_Name__c}" taborderhint="17"/>
-            <apex:inputField value="{!objPersonAccount.Partner_Surname__c}" taborderhint="18"/>
-            <apex:inputField value="{!objPersonAccount.PreferredName__c}" taborderhint="19"/>
             <apex:inputField value="{!objPersonAccount.Preferred_Partner_Name__c}" taborderhint="20"/>
-            <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="21"/>            
-        </apex:pageBlockSection>
+            <apex:inputField value="{!objPersonAccount.PreferredName__c}" taborderhint="19"/>
+            <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="21"/>
+            <apex:inputField value="{!objPersonAccount.PersonBirthdate}" taborderhint="10"/>
+            <apex:inputField value="{!objPersonAccount.Corporate_Program__c}" taborderhint="16"/>
+            
+         </apex:pageBlockSection>
         
         <apex:pageBlockSection columns="2" id="pbsContactInfoId1" title="Contact Informations" collapsible="false">
             <apex:inputField value="{!objPersonAccount.Work_Phone__c}" taborderhint="20"/>
