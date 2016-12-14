@@ -16942,6 +16942,11 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19472,6 +19477,11 @@ Modify Reason:
                 <fullName>A453</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart fortwo CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C253</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLC SUC</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -33176,6 +33186,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLC SUV</fullName>
                 <default>false</default>
             </values>
@@ -33759,6 +33773,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>C240E Elegance %28not current series%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C253</fullName>
                 <default>false</default>
             </values>
             <values>
