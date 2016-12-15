@@ -1,0 +1,116 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+        
+            <apex:pageblockSection >
+                <apex:outputField value="{!Case.Retail_Task__c}"/>
+                <apex:outputField value="{!Case.RecordTypeid}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLink value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!Case.Case_Complainant__c}"/>
+                <apex:outputField value="{!Case.ownerId}"/>
+                <apex:outputField value="{!Case.Lead__c}"/>
+                <apex:outputField value="{!Case.Case_Class__c}"/>
+                <apex:outputField value="{!Case.Inquiry_Comments__c}"/>
+                <apex:outputField value="{!Case.Case_Type__c}"/>
+                <apex:outputField value="{!Case.Internal_Comments__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Early Termination" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}">
+                <apex:outputField value="{!Case.Retail_Non_Retail_car__c}"/>
+                <apex:outputField value="{!Case.ET_Type_for_Close_Mileage__c}"/>
+                <apex:outputField value="{!Case.Voluntary_insurance_check__c}"/>
+                <apex:outputField value="{!Case.X3_months_usage__c}"/>
+                <apex:outputField value="{!Case.Area_manager_approval__c}"/>
+                <apex:outputField value="{!Case.Govt_Subsidy_reimburse__c}"/>
+                <apex:outputField value="{!Case.Final_monthly_payment_date1__c}"/>
+                <apex:outputField value="{!Case.Reduction_of_fee_for_date1__c}"/>
+                <apex:outputField value="{!Case.Final_monthly_payment_date2__c}"/>
+                <apex:outputField value="{!Case.Reduction_of_fee_for_date2__c}"/>                  
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Payout" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}">
+                <apex:outputField value="{!Case.Buyer__c}"/>
+                <apex:outputField value="{!Case.Replacement__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Re-Lease" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}">
+                <apex:outputField value="{!Case.Mileage__c}"/>
+                <apex:outputField value="{!Case.Accident_repair_history__c}"/>
+                <apex:outputField value="{!Case.Re_lease_voluntary_insurance_check__c}"/>
+                <apex:outputField value="{!Case.Re_lease_term__c}"/>
+                <apex:outputField value="{!Case.Regarding_Vehicle_transfer_doc__c}"/>                 
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Re-loan" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
+                <apex:outputField value="{!Case.Down_payment__c}"/>
+                <apex:outputField value="{!Case.Bonus_payment_amount__c}"/>
+                <apex:outputField value="{!Case.Bonus_payment_month_1_month_2__c}"/>
+                <apex:outputField value="{!Case.Payment_term__c}"/>
+                <apex:outputField value="{!Case.First_payment__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Pre-Appraisal (Close End) or Pre-Appraisal (SWP)" rendered="{!IF(Case.Case_Type__c == 'Pre-Appraisal (Close End)' || Case.Case_Type__c == 'Pre-Appraisal (SWP)' ,true,false)}">
+                <apex:outputField value="{!Case.Pre_app_Location__c}"/>
+                <apex:outputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
+                <apex:outputField value="{!Case.Pre_app_result_shared__c}"/>
+                <apex:outputField value="{!Case.Pre_app_1st_requested_date__c }"/>
+                <apex:outputField value="{!Case.Pre_app_2nd_requested_date__c}"/>                 
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Authentification">
+                <apex:outputField value="{!Case.Full_Name__c}"/>
+                <apex:outputField value="{!Case.DOB__c}"/>
+                <apex:outputField value="{!Case.Registered_Phone_no__c}"/>
+                <apex:outputField value="{!Case.Authentification_Address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Requestor">
+                <apex:outputField value="{!Case.Requestor__c}"/>
+                <apex:outputText rendered="{!IF(Case.Requestor__c = '' || Case.Requestor__c = 'Contractor' || Case.Requestor__c = 'Guarantor',true,false)}"/>
+                <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c = 'Others',true,false)}"/>
+                <apex:outputField value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:outputField value="{!Case.Evidence_Check__c}"/>
+                <apex:outputField value="{!Case.Request_date_time__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Receiver">
+                <apex:outputField value="{!Case.Receiver_Same_as_Requestor__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!Case.Receiver1_For_quotation__c}"/>
+                <apex:outputText rendered="{!IF(Case.Receiver1_For_quotation__c == '' || Case.Receiver1_For_quotation__c == 'Contractor' || Case.Receiver1_For_quotation__c == 'Guarantor',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Company_Person_Phone__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Others',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Initial_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Initial Dealer' || Case.Receiver1_For_quotation__c == 'Other Dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
+                <apex:outputField value="{!Case.Receiver_address_type__c}"/>
+                <apex:outputField value="{!Case.Receiver_address__c}"/>
+                <apex:outputField value="{!Case.Receiver_Fax_Email_address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Payer">
+                <apex:outputField value="{!Case.Payer_Same_as_Requestor__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!Case.Payer__c}"/>
+                <apex:outputText rendered="{!IF(Case.Payer__c == '' || Case.Payer__c == 'Contractor' || Case.Payer__c == 'Guarantor',true,false)}"/>
+                <apex:outputField value="{!Case.Payer_Company_Person_Phone__c}" rendered="{!IF(Case.Payer__c == 'Others',true,false)}"/>
+                <apex:outputField value="{!Case.Payer_Initial_Dealer__c}" rendered="{!IF(Case.Payer__c == 'Initial Dealer' || Case.Payer__c == 'Other Dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Payer_Supporting_Dealer__c}" rendered="{!IF(Case.Payer__c == 'Supporting dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Payer_Preferred_comm_Channel__c}"/>
+                <apex:outputField value="{!Case.Payer_address_type__c}"/>
+                <apex:outputField value="{!Case.Payer_address__c}"/>
+                <apex:outputField value="{!Case.Payer_Fax_Email_address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Case.TL_Reviewed__c}"/>
+                <apex:outputField value="{!Case.Document_sending_date__c}"/>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
