@@ -1772,12 +1772,4 @@ LEN( Company_Name__c ) = 0), True, False)</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>TitleOfHonor_is_Required</fullName>
-        <active>true</active>
-        <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR')</errorConditionFormula>
-        <errorDisplayField>TitleOfHonor__c</errorDisplayField>
-        <errorMessage>TitleOfHonor is required.</errorMessage>
-    </validationRules>
 </CustomObject>
