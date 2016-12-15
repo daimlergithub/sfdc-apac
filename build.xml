@@ -246,8 +246,8 @@
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
-				<!--<sf:include name="Activity"/>-->
-				<sf:exclude name="Activity"/>
+				<sf:include name="Activity"/>
+				<!--<sf:exclude name="Activity"/>-->
 				<sf:include name="ContentVersion"/>
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
