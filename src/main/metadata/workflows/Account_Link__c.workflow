@@ -16,11 +16,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Account_Link__c.Retail_DMS_Customer_ID__c</field>
-            <operation>notEqual</operation>
-            <value>NULL</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
+        <formula>NOT(ISBLANK(Retail_DMS_Customer_ID__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
