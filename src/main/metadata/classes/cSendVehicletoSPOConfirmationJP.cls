@@ -28,7 +28,7 @@ public Static Id accId {get; set;}
         
         // quering to display all fields in format according to the requirement
         
-        VehRel = [SELECT Id,Name,OwnerId,Vehicle_ID__c,New_Used__c,Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.FirstRegistrationDate__c,MD__c,Registration_Date__c,MOT_Owner_Name__c,MOT_Owner_Address__c,MOT_USER_NAME__c,MOT_User_Address__c, Contact__c,Contact__r.Id, Contact__r.Name
+        VehRel = [SELECT Id,Name,OwnerId,Registration_Number__c,Vehicle_ID__c,New_Used__c,Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.FirstRegistrationDate__c,MD__c,Registration_Date__c,MOT_Owner_Name__c,MOT_Owner_Address__c,MOT_USER_NAME__c,MOT_User_Address__c, Contact__c,Contact__r.Id, Contact__r.Name
                                     FROM Vehicle_Relationship__c
                                      WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' ];
                system.debug('++++++++++++++'+VehRel); 

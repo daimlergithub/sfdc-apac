@@ -1,22 +1,6 @@
 <apex:page standardController="Vehicle__c" extensions="cSendVehicleInformationtoSPOJP">
- <script type="text/javascript">
- function myFunction(){ 
-
- var i = {!RecordSize};
- var SelectedRecordIdInbox;
  
- for(j=0;j<i;j++)
- {
-     console.log(document.getElementsByName("SelectedCustomer")[j].checked);
-     if(document.getElementsByName("SelectedCustomer")[j].checked)
-     {
-        SelectedRecordIdInbox = document.getElementsByName("SelectedCustomer")[j].value;
-     }
- }
  
- PassTheVariableToController(SelectedRecordIdInbox);
-}
- </script>
 <apex:form >
 <apex:pageBlock title="SPO Interface Customer & Vehicle Info" >
           <apex:pageBlockSection title="Customer Vehicle_Information" collapsible="false">
@@ -43,11 +27,9 @@
                          
                    
                 </apex:pageblockTable>
-                <apex:commandButton value="Confirmation" onclick="myFunction(); return false;"/>
+                <apex:commandButton value="Confirmation" action="{!Navigate}" />
                 <apex:commandButton value="Cancel" action="{!cancel}"/>
 </apex:pageBlock>
-<apex:actionFunction name="PassTheVariableToController" action="{!Navigate}" reRender="none">
-       <apex:param Name="P1" assignTo="{!Param1}" value=""/>
-  </apex:actionFunction>
+
 </apex:form>
 </apex:page>
