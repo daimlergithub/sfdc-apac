@@ -169,7 +169,7 @@
         <label>Address Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>140</height>
                 <page>Account_Address</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>

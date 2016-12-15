@@ -596,7 +596,7 @@ public with sharing class RetailTaskHelper
                            accShare.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
                            accShare.AccountAccessLevel = 'Edit';
                            accshare.OpportunityAccessLevel = 'None';
-                           accshare.CaseAccessLevel = 'None';
+                           accshare.CaseAccessLevel = 'Read';
                            shareList.add(accShare);
                                                   
                            system.debug('RelatedVehicleAccount>>>>>>' + vrMap.get(rtk.Related_Vehicle__c).get(0).Contact__c);
@@ -679,26 +679,30 @@ public with sharing class RetailTaskHelper
                     rtshare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
                     rtshare.AccessLevel = 'Read';
                     relshareList.add(rtshare);
-                    
-                    AccountShare relaccShare = new AccountShare();
-                    relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
-                    relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
-                    relaccShare.AccountAccessLevel = 'Read';
-                    relaccShare.OpportunityAccessLevel = 'None';
-                    relaccShare.CaseAccessLevel = 'None';
-                    relshareList.add(relaccShare);
-                    
-                    Vehicle__Share relVehicle = new Vehicle__Share();
-                    relVehicle.ParentId = shrrt.Related_Vehicle__c;
-                    relVehicle.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
-                    relVehicle.AccessLevel = 'Read';
-                    relshareList.add(relVehicle);
+                    if(acccnrtMap.get(shrrt.Id) != null)
+                    {
+                        AccountShare relaccShare = new AccountShare();
+                        relaccShare.AccountId =acccnrtMap.get(shrrt.Id);
+                        relaccShare.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+                        relaccShare.AccountAccessLevel = 'Read';
+                        relaccShare.OpportunityAccessLevel = 'None';
+                        relaccShare.CaseAccessLevel = 'Read';
+                        relshareList.add(relaccShare);
+                    }
+                    if(shrrt.Related_Vehicle__c != null)
+                    {
+                        Vehicle__Share relVehicle = new Vehicle__Share();
+                        relVehicle.ParentId = shrrt.Related_Vehicle__c;
+                        relVehicle.UserOrGroupId = relgroupMap.get(shrrt.Related_Dealer__r.Name);
+                        relVehicle.AccessLevel = 'Read';
+                        relshareList.add(relVehicle);
+                    }
                 }
             }
         }
         if(!relshareList.isEmpty() && relshareList != null)
         {
-            insert relshareList;
+            Database.insert(relshareList);
         }
     }
 }

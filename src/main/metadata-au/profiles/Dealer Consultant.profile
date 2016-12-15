@@ -10310,6 +10310,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Event.Engagement__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Event.Executed_CSR__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18310,6 +18315,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Task.Engagement__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Task.Executed_CSR__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20851,11 +20861,11 @@
         <recordType>Lead_Product__c.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Finance Lead Layout%28Dealer%29</layout>
+        <layout>Lead__c-Finance Lead Layout%28G3%29</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Insurance Lead Layout%28Dealer%29</layout>
+        <layout>Lead__c-Insurance lead Layout%28G3%29</layout>
         <recordType>Lead__c.Insurance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20878,11 +20888,11 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Parts Lead Layout%28Dealer%29</layout>
+        <layout>Lead__c-Parts Lead Layout%28G3%29</layout>
         <recordType>Lead__c.Parts_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Service Lead Layout%28Dealer%29</layout>
+        <layout>Lead__c-Service Lead Layout%28G3%29</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20890,7 +20900,7 @@
         <recordType>Lead__c.Fleet_Vans</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Vehicle lead layout%28Dealer%29</layout>
+        <layout>Lead__c-Vehicle Lead Layout%28G3%29</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
