@@ -7,6 +7,7 @@ public class SendAccountInfoToSPO {
     Public String redirectUrl{get;set;}
     Public List<Address__c> AddRecords{get;set;}
     Public User  Usr{get;set;}
+	Public String HomeAdd{get;set;}
     Public string message{get;set;}
     public Boolean shouldRedirect {public get; private set;}
      
@@ -19,8 +20,15 @@ public class SendAccountInfoToSPO {
         Acclist=[select id,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c ,Name,Company_Name_Native_1__c,LastModifiedDate,
                 Individual_Home_Phone__c,Mobile__c,Email3__c from account where Id=:AccId ];
                 AddRecords=[select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId ];
-                
-                if(AddRecords!=null && AddRecords.Size()>0)
+                for(Address__c ad:AddRecords)
+                {
+                if(ad.Address_Type__c=='Home')
+                {
+                HomeAdd=ad.Address_Type__c;
+                }
+                }
+                System.debug('#$#$##$#$#$#'+HomeAdd);
+                if(AddRecords!=null && AddRecords.Size()>0 && HomeAdd=='Home')
                 {
                 Addlist=[Select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId and Address_Type__c='Home'];
                 }

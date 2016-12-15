@@ -153,6 +153,8 @@
 			   <sf:include name="MassUpdate_new_Assigned_User"/>
 			   <sf:include name="SendVehicleInformationtoSPOJP"/>
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
+			   <sf:include name="CustomerMymercInterface"/>
+			   <sf:include name="SendVehicleInfoMyMercedes"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -196,6 +198,8 @@
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="CustomerMymercInterfaceController"/>
+			   <sf:include name="SendToMyMercController"/>
 			</sf:typeset>
 		</deploy>
     </target>

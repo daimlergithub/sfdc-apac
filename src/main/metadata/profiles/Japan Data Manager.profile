@@ -3869,6 +3869,11 @@
         <field>Account.VAN_Tenure__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.VIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.VIP__c</field>
