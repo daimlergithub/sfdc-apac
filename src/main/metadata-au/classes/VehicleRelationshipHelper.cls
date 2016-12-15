@@ -563,7 +563,7 @@ public with sharing class VehicleRelationshipHelper {
                         accfinsha.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
                         accfinsha.AccountAccessLevel = 'Edit';
                         accfinsha.OpportunityAccessLevel = 'None';
-                        accfinsha.CaseAccessLevel = 'None';
+                        accfinsha.CaseAccessLevel = 'Read';
                         accountshareList.add(accfinsha);
                     }
                         

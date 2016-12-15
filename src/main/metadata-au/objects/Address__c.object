@@ -981,37 +981,46 @@ $Profile.Name != 'IntegrationAPI'
         <availability>online</availability>
         <description>New_Company_Address</description>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Address</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_COMPANY_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
+        <url>var acc_id='{!Account.Id}';
+var acc_name ='{!Account.Name}';
+var url="/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?RecordType=OBJECT_ADDRESS_WEBLINK_COMPANY_RECORDTYPE_ID&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID="+ acc_name+"&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID="+acc_id+"&amp;retURL="+acc_id;
+
+window.parent.navigateToUrl(url);</url>
     </webLinks>
     <webLinks>
         <fullName>New_DealerAddress</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New  Address</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_DEALER_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
+        <url>var acc_id='{!Account.Id}'; 
+var acc_name ='{!Account.Name}'; 
+var url="/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?RecordType=OBJECT_ADDRESS_WEBLINK_DEALER_RECORDTYPE_ID&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID="+ acc_name+"&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID="+acc_id+"&amp;retURL="+acc_id; 
+
+window.parent.navigateToUrl(url);</url>
     </webLinks>
     <webLinks>
         <fullName>New_Individual_Address</fullName>
         <availability>online</availability>
         <description>New_Individual_Address</description>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Address</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
+        <url>var acc_id='{!Account.Id}'; 
+var acc_name ='{!Account.Name}'; 
+var url="/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?RecordType=OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID="+ acc_name+"&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID="+acc_id+"&amp;retURL="+acc_id; 
+
+window.parent.navigateToUrl(url);</url>
     </webLinks>
 </CustomObject>

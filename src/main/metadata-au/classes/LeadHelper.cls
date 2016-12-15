@@ -863,7 +863,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                  newleadmap.get(LeadId).Consultant_Reassignment_Date__c= null;
                                 
                                   newleadmap.get(LeadId).Consultant_Due_Date__c= null;
-                                 
+                                 newleadmap.get(LeadId).Override_Escalation__c= false;
                                 if (newleadmap.get(LeadId).CAC_Lead_Status__c == 'Qualified')
                                 {
                                     if (newleadmap.get(LeadId).Dealer_Assignment_Date__c == null) 
@@ -2391,7 +2391,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     assaccShare.UserOrGroupId = assgroupMap.get(shrleds.Assigned_Dealer__r.Name);
                     assaccShare.AccountAccessLevel = 'Edit';
                     assaccShare.OpportunityAccessLevel = 'None';
-                    assaccShare.CaseAccessLevel = 'None';
+                    assaccShare.CaseAccessLevel = 'Read';
                     assshareList.add(assaccShare);
                 }
             }
