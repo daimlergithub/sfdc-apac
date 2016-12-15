@@ -20940,7 +20940,7 @@
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MB Complaint Layout - RO%2FCO</layout>
+        <layout>Case-MB Complaint Layout - CAC - KR</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
