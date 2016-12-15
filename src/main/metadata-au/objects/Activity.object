@@ -1010,7 +1010,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Outbount visit</fullName>
+                <fullName>Outbound visit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

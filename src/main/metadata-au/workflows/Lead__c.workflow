@@ -7,7 +7,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Send_Email_On_Lead_Owner_Changed</template>
     </alerts>
     <alerts>
@@ -17,7 +17,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Lead_Created</template>
     </alerts>
     <alerts>
@@ -27,7 +27,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_customer_doesn_t_allow_dealer_contact</template>
     </alerts>
     <alerts>
@@ -37,7 +37,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</template>
     </alerts>
     <alerts>
@@ -48,7 +48,7 @@
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_10_days</template>
     </alerts>
     <alerts>
@@ -59,7 +59,7 @@
             <field>Dealer_Aftersales_Manager_Email__c</field>
             <type>email</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_5_days</template>
     </alerts>
     <alerts>
@@ -69,7 +69,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</template>
     </alerts>
     <alerts>
@@ -79,7 +79,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_4_days</template>
     </alerts>
     <alerts>
@@ -90,7 +90,7 @@
             <recipient>Fleet_MBaup_Delete</recipient>
             <type>group</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Lead_Notification_Email</template>
     </alerts>
     <alerts>
@@ -100,7 +100,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -110,7 +110,7 @@
         <recipients>
             <type>accountOwner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>unfiled$public/Email_Lead_not_touched_for_7_days</template>
     </alerts>
     <alerts>
@@ -120,7 +120,7 @@
         <recipients>
             <type>owner</type>
         </recipients>
-		<senderType>CurrentUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <fieldUpdates>
@@ -198,6 +198,15 @@
         <name>ReassgnmentDateUpdate</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_Override_Escaltion_flag</fullName>
+        <field>Override_Escalation__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset Override Escaltion flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -883,6 +892,10 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <name>ConsulatantReassignment_Date_update</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Reset_Override_Escaltion_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <description>When owner of lead is modified, owner is Dealer consultant and  consulatant assignement date is not NULL Then change Field : Consultant Reassignment Date to current Date/time</description>
         <formula>AND( ISCHANGED( OwnerId ) , IF( Owner:User.Profile.Name = 'Dealer Consultant', true,false), NOT(ISNULL( Consultant_Assignment_Date__c )) , MD__c = 'AU' )</formula>
@@ -917,16 +930,17 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>false</active>
         <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
-        <formula>AND( ISCHANGED( Assigned_Dealer__c ),
- NOT(ISNULL( Dealer_Assignment_Date__c  ) ),
- ISPICKVAL( CAC_Lead_Status__c ,'Qualified'),
- IF( OR(Owner:User.Profile.Name = 'Dealer CRM Manager',Owner:User.Profile.Name = 'Dealer Divisional Manager') , true,false))</formula>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ),  NOT(ISNULL( Dealer_Assignment_Date__c  ) ),  ISPICKVAL( CAC_Lead_Status__c ,'Qualified'),  IF( OR(Owner:User.Profile.Name = 'Dealer CRM Manager',Owner:User.Profile.Name = 'Dealer Divisional Manager') , true,false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>LeadsUpdateConsultantAssignmentDate</fullName>
         <actions>
             <name>ConsultantAssignmentDateUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Reset_Override_Escaltion_flag</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
