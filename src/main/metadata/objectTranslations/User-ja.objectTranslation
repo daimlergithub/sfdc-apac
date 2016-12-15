@@ -362,20 +362,6 @@
             <section>User Provisioning Accounts</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>User Layout Sysad</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>User Master Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
 </CustomObjectTranslation>
     
 	

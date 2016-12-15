@@ -1426,6 +1426,13 @@
         <value>Detailed Model Name</value>
     </labels>
     <labels>
+        <fullName>Did_You_Get_Agreement_From_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did You Get Agreement From Customer</shortDescription>
+        <value>Did You Get Agreement From Customer ?</value>
+    </labels>
+    <labels>
         <fullName>Discardit</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2813,6 +2820,13 @@
         <protected>false</protected>
         <shortDescription>PersonAccount</shortDescription>
         <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccount_Record_Type_From_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount Record Type From Account</shortDescription>
+        <value>012280000000f14AAA</value>
     </labels>
     <labels>
         <fullName>Person_Account_Information</fullName>
