@@ -165,7 +165,7 @@ public class AccountLinkHelper
     }
     //share contact2contact accountlink record to the dealers
     
-    Public static void shareaccountlinksToDealer(List<Account_Link__c> con2conaclinkList ,map<id,Account_Link__c> oldmap,boolean isUpdate)
+    Public static void shareaccountlinksToDealer(List<Account_Link__c> con2conaclinkList ,map<id,Account_Link__c> oldmap,boolean isInsert,boolean isUpdate)
     {
         set<id> accId = new set<id>();
         List<AccountShare> sharedaccList = new List<AccountShare>();
@@ -173,7 +173,8 @@ public class AccountLinkHelper
         List<Account_Link__Share> con2conshreList = new List<Account_Link__Share>();
         for(Account_Link__c con2aclink : con2conaclinkList)
         {
-         	if(con2aclink.toRole__c != null && con2aclink.RecordTypeId == contact2ContactRT && (isUpdate && con2aclink.toRole__c != oldmap.get(con2aclink.Id).toRole__c))
+         	if(con2aclink.toRole__c != null && con2aclink.RecordTypeId == contact2ContactRT && 
+               (isInsert || (isUpdate && con2aclink.toRole__c != oldmap.get(con2aclink.Id).toRole__c)))
             {
                 accId.add(con2aclink.toRole__c);
             }
@@ -194,7 +195,7 @@ public class AccountLinkHelper
             if(conshr.RecordTypeId == contact2ContactRT && conshr.toRole__c != null)
             {
                 if(!accountgroupMap.isEmpty() && accountgroupMap.get(conshr.toRole__c) != null 
-                   && (isUpdate && conshr.toRole__c != oldmap.get(conshr.Id).toRole__c))
+                   && (isInsert || (isUpdate && conshr.toRole__c != oldmap.get(conshr.Id).toRole__c)))
                 {
                     Account_Link__Share conalinkShare = new Account_Link__Share();
                     conalinkShare.ParentId = conshr.Id;

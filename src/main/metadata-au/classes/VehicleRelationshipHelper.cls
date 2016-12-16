@@ -12,7 +12,9 @@ History:
 1. Sichao Lai Created on 2013-06-18
 */
 
-public with sharing class VehicleRelationshipHelper {
+public with sharing class VehicleRelationshipHelper 
+{
+	private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();	
     
     public static void shareVR(List<Vehicle_Relationship__c> vRelationshipNew)
     {
@@ -442,8 +444,10 @@ public with sharing class VehicleRelationshipHelper {
         map<id,map<id,id>> accvechmMap = new map<id,map<id,id>>();
         set<string> ownerGroup = new set<string>();
         set<string> financeGroup = new set<string>();
-        List<Vehicle_Relationship__c> shareVrList = new List<Vehicle_Relationship__c>();
+        List<Vehicle_Relationship__c> shareVrList = new List<Vehicle_Relationship__c>();        
+        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
         List<Accountshare> accountshareList = new List<Accountshare>();
+        List<Account_Link__share> accountlinkshareList = new List<Account_Link__share>();
         List<Accountshare> duplisharedList = new List<AccountShare>();
         List<Vehicle__Share> vechshareList = new List<Vehicle__Share>();
         List<Vehicle_Relationship__Share> vRshareList = new List<Vehicle_Relationship__Share>();
@@ -465,6 +469,7 @@ public with sharing class VehicleRelationshipHelper {
         if(!conid.isEmpty() && conid !=null)
         {
             duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:conid];
+            acclinkList =[select id,recordtypeId,torole__c,fromrole__c from Account_Link__c where torole__c=:conid and recordtypeId =:contact2ContactRT];
         }
         if(!duplisharedList.isEmpty() && duplisharedList != null)
         {
@@ -536,6 +541,21 @@ public with sharing class VehicleRelationshipHelper {
                         accountshareList.add(accsha);
                         
                     }
+                    if(!acclinkList.isEmpty() && acclinkList != null)
+                    {
+                        for(Account_Link__c sharelink : acclinkList)
+                        {
+                            if(sharelink.toRole__c != null && sharelink.RecordTypeId == contact2ContactRT 
+                               && sVr.Contact__c == sharelink.toRole__c)
+                            {
+                                Account_Link__Share con2conlink = new Account_Link__Share();
+                                con2conlink.ParentId = sharelink.Id;
+                                con2conlink.AccessLevel = 'Edit';
+                                con2conlink.UserOrGroupId = ownerGroupMap.get(sVr.Owner_Dealer__r.Name);
+                                accountlinkshareList.add(con2conlink);
+                            }
+                        }
+                    }
                         if(!shareVrList.isEmpty() && shareVrList !=null 
                            && (!chkduplicateShareMap.get(sVr.Id).contains(ownerGroupMap.get(sVr.Owner_Dealer__r.Name))))
                         {
@@ -566,6 +586,21 @@ public with sharing class VehicleRelationshipHelper {
                         accfinsha.CaseAccessLevel = 'Read';
                         accountshareList.add(accfinsha);
                     }
+                    if(!acclinkList.isEmpty() && acclinkList != null)
+                    {
+                        for(Account_Link__c sharefinlink : acclinkList)
+                        {
+                            if(sharefinlink.toRole__c != null && sharefinlink.RecordTypeId == contact2ContactRT 
+                               && sVr.Contact__c == sharefinlink.toRole__c)
+                            {
+                                Account_Link__Share con2confinlink = new Account_Link__Share();
+                                con2confinlink.ParentId = sharefinlink.Id;
+                                con2confinlink.AccessLevel = 'Edit';
+                                con2confinlink.UserOrGroupId = financeGroupMap.get(sVr.Finance_Dealer__r.Name);
+                                accountlinkshareList.add(con2confinlink);
+                            }
+                        }
+                    }
                         
                     if(!shareVrList.isEmpty() && shareVrList != null
                       && (!chkduplicateShareMap.get(sVr.Id).contains(financeGroupMap.get(sVr.Finance_Dealer__r.Name))))
@@ -593,6 +628,10 @@ public with sharing class VehicleRelationshipHelper {
         if(!accountshareList.isEmpty() && accountshareList != null)
         {
             insert accountshareList;
+        }
+        if(!accountlinkshareList.isEmpty() && accountlinkshareList != null)
+        {
+            insert accountlinkshareList;
         }
         if(!vechshareList.isEmpty() && vechshareList != null)
         {
