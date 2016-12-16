@@ -1,6 +1,27 @@
 Global class UtilWebservice 
 {
 
+    Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+         System.debug('$%$%$%$%$%$%$%$ TransactionId'+CustomerID+'Address id'+ AddressId+'Dealer ids'+DealerID);
+        
+      sendport.JPOSCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,AddressId,DealerId);
+      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% response'+response); 
+       return response;
+    }
+
     Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendSPO(String CustomerID,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
@@ -313,9 +334,9 @@ Global class UtilWebservice
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-		sendingCustomerDetails.Address_xc = new List<crmasiaDaimlerApacComCustomeridentif.Address>();
+        sendingCustomerDetails.Address_xc = new List<crmasiaDaimlerApacComCustomeridentif.Address>();
         crmasiaDaimlerApacComCustomeridentif.Address addrValues = new crmasiaDaimlerApacComCustomeridentif.Address();
-		
+        
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
@@ -333,8 +354,8 @@ Global class UtilWebservice
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
-		
-		addrValues.Address_Code_xc=AddressObj.Address_Code__c;
+        
+        addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;
         addrValues.Address_Line_2_xc=AddressObj.Address_Line_2__c;
         addrValues.Block_xc=AddressObj.Block__c;
