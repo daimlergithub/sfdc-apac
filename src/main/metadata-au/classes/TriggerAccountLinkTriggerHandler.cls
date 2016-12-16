@@ -8,12 +8,12 @@ public class TriggerAccountLinkTriggerHandler
         if(trigger.isAfter && trigger.isInsert)
         {
         	AccountLinkHelper.shareAccountToDealer(trigger.new);
-            AccountLinkHelper.shareaccountlinksToDealer(trigger.new, oldmap, trigger.isUpdate);
+            AccountLinkHelper.shareaccountlinksToDealer(trigger.new, oldmap, trigger.isInsert, trigger.isUpdate);
         }
 		if(trigger.isAfter && trigger.isUpdate)
         {
         	AccountLinkHelper.shareAccountToDealer(trigger.new);
-            AccountLinkHelper.shareaccountlinksToDealer(trigger.new, oldmap, trigger.isUpdate);
+            AccountLinkHelper.shareaccountlinksToDealer(trigger.new, oldmap, trigger.isInsert, trigger.isUpdate);
         }
     }
 }

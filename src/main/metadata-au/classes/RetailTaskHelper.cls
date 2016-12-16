@@ -4,6 +4,7 @@ public with sharing class RetailTaskHelper
     public static Set<ID> customerIds = new Set<ID>();
     public static Id servicerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT)].Id;
+    private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
     {
         List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
@@ -489,6 +490,7 @@ public with sharing class RetailTaskHelper
         List<Vehicle__share> duplivechicleList = new List<Vehicle__share>();
         List<Retail_Task__c> rtasklist = new List<Retail_Task__c>();
         List<Vehicle_Relationship__c> sharedVrlist = new List<Vehicle_Relationship__c>();
+        List<Account_Link__c> acclinkList = new List<Account_Link__c>();
         List<Group> groupList = new List<Group>();
         List<sobject> shareList = new List<sobject>();
         for(Retail_Task__c rtask : retailtaskList)
@@ -548,7 +550,8 @@ public with sharing class RetailTaskHelper
         }
 		if(!shraccid.isEmpty() && shraccid != null)
         {
-            duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];            
+            duplisharedList =[select AccountId, UserOrGroupId, AccountAccessLevel from AccountShare where AccountId =:shraccid];
+			acclinkList = [select id,recordtypeId,torole__c,fromrole__c from Account_Link__c where torole__c=:shraccid and recordtypeId =:contact2ContactRT];            
         }
                 
         system.debug('duplisharedList>>>' + duplisharedList);
@@ -598,7 +601,21 @@ public with sharing class RetailTaskHelper
                            accshare.OpportunityAccessLevel = 'None';
                            accshare.CaseAccessLevel = 'Read';
                            shareList.add(accShare);
-                                                  
+                           if(!acclinkList.isEmpty() && acclinkList != null)
+                           {
+                               for(Account_Link__c shaclnk : acclinkList)
+                               {
+                                   if(shaclnk.RecordTypeId != contact2ContactRT  && shaclnk.toRole__c != null && rtk.Account__c == shaclnk.toRole__c
+                                      && groupMap.get(rtk.Service_Dealer__r.Name) != null)
+                                   {
+                                       Account_Link__Share shareacclink = new Account_Link__Share();
+                                       shareacclink.ParentId = shaclnk.Id;
+                                       shareacclink.AccessLevel = 'Edit';
+                                       shareacclink.UserOrGroupId = groupMap.get(rtk.Service_Dealer__r.Name);
+                                       shareList.add(shareacclink);
+                                   }
+                               }
+                           }
                            system.debug('RelatedVehicleAccount>>>>>>' + vrMap.get(rtk.Related_Vehicle__c).get(0).Contact__c);
 
                            if(!vrMap.isEmpty() && vrMap.get(rtk.Related_Vehicle__c) != null 
