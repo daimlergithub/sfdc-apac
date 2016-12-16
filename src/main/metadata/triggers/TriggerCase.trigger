@@ -9,7 +9,7 @@
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerCaseTriggerHandler
  
  */
-trigger TriggerCase on Case(after insert, after delete, after undelete) 
+trigger TriggerCase on Case(after insert, after delete, after undelete,before Delete) 
 {
     TriggerUtil.handleTrigger('TriggerCase');
 }
