@@ -202,7 +202,9 @@
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			   <sf:include name="VehicleRelationshipHelper"/>
 			   <sf:include name="CustomerMymercInterfaceController"/>
+			   <sf:include name="CustomerMymercInterfaceControllerTest"/>
 			   <sf:include name="SendToMyMercController"/>
+			   <sf:include name="SendToMyMercControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
