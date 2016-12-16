@@ -7,7 +7,13 @@
 
 .rowstyle { padding:0px; }
 </style>
+<script type="text/javascript">
+function closeWin() {
+         window.close();   // Closes the new window
+        }
 
+
+    </script>
 
 
 <apex:form >
@@ -64,7 +70,7 @@
   </apex:pageBlock>
   
   
-  <apex:commandButton value="Send Information" action="{!sendtoSPO}" /> 
+  <apex:commandButton value="Send Information" action="{!sendtoSPO}"  oncomplete="closeWin();"/> 
   <apex:commandButton value="Back" action="{!backButton}" /> 
 </apex:form>
 </apex:page>

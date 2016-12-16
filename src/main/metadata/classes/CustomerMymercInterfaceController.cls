@@ -35,16 +35,18 @@ public with sharing class CustomerMymercInterfaceController {
         aclsize  = [select id, toRole__c  from Account_Link__c where toRole__c =: Accid ];
         if(aclsize.size() >0)
             accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid limit 1];
-            accont = [select id,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c from account where id =: Accid limit 1];
+            accont = [select id,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
             if(accl != null && accl.System__c == 'My Mercedes')
             {
                 myMercId = accl.name;
                 MyMercVar = true;
                 MyMercEmailVar = false;
             }
-            if(accl.fromRole__c !=null && accl.toRole__c !=null && accl.RecordtypeId == ContactSector){
+            for(Account_Link__c acclink: accont.Account_Links__r){
+            if(acclink.fromRole__c !=null && acclink.toRole__c !=null && acclink.RecordtypeId == ContactSector){
                 RegOutlet = 'Yes';
                 ContactSectorvar = true;
+            }
             }
       
             if(string.IsnotBlank(accl.Portal_Email__c)){
@@ -56,7 +58,7 @@ public with sharing class CustomerMymercInterfaceController {
  
      public pagereference createContractSector()
      {
-         user usr =[select id,profileId,contactId from user where id =: userinfo.getUserId()];
+         user usr =[select id,profileId,contactId,Contact.AccountId from user where id =: userinfo.getUserId()];
          Profile po = [SELECT Id,UserLicense.Name FROM Profile where id =: usr.profileId];         
          if(po.UserLicense.Name == 'Partner Community') {
          Contact con  = [select id,AccountId from Contact where Id =: usr.contactId ];
@@ -65,6 +67,7 @@ public with sharing class CustomerMymercInterfaceController {
          acc.Status__c = 'My Shops';
          acc.toRole__c = Accid; //con.AccountId;
          acc.name= 'Test Rec';
+         acc.fromRole__c = usr.contact.accountId;
          if(acc != null)
          insert acc;
        pagereference pr = new pagereference ('/'+Accid);
@@ -158,5 +161,16 @@ public with sharing class CustomerMymercInterfaceController {
      }
  
  }
+ 
+         
+              public pagereference saveAndReturn()
+     {
+ 
+              
+          pagereference pr = new pagereference ('/'+Account.id);
+          pr.setRedirect(true);
+          return pr;
+            
+      }
  
 }
