@@ -9248,6 +9248,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>Fleet</fullName>
@@ -13735,6 +13742,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24014,6 +24028,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>Dealer Standard Auditing Demo%2FCompany Vehicle</fullName>
@@ -28593,6 +28614,13 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>Fleet</fullName>
@@ -29520,25 +29548,14 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <protected>false</protected>
     </webLinks>
     <webLinks>
-        <fullName>TerminateVehicleRelationships</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>replace</openType>
-        <page>TerminateVehicleRelationship</page>
-        <protected>false</protected>
-    </webLinks>
-    <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>replace</openType>
+        <page>SendVehicleInfoMyMercedes</page>
         <protected>false</protected>
-        <url>true</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
@@ -29581,5 +29598,15 @@ else {
 alert('{!$Label.Send_to_spo_translate}');	
 }
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TerminateVehicleRelationships</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Terminate Vehicle Relationships</masterLabel>
+        <openType>replace</openType>
+        <page>TerminateVehicleRelationship</page>
+        <protected>false</protected>
     </webLinks>
 </CustomObject>

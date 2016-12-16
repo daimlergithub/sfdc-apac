@@ -25,6 +25,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -1294,6 +1298,19 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Age__c</fullName>
+        <description>/* 
+			Calculate Age of the Customer
+		*/</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(PersonContact.Birthdate) , '', TEXT(FLOOR((TODAY()-PersonContact.Birthdate +1)/365.2425)))</formula>
+        <label>Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <externalId>false</externalId>
         <label>Agreement to commit info processing</label>
@@ -1317,6 +1334,15 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>All_channel_opt_out__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All channel opt-out</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Alliance_Offered_Service__c</fullName>
@@ -2191,22 +2217,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>Company_Name_Native_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Company Name Native2</label>
-        <length>80</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-	    <fullName>Company_Legal_Form_text_Native__c</fullName>
+    <fields>
+        <fullName>Company_Legal_Form_text_Native__c</fullName>
         <externalId>false</externalId>
         <label>Company Legal Form text Native</label>
-        <length>50</length> <required>false</required>
+        <length>50</length>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -2231,6 +2247,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Name_Native_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Native2</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2317,6 +2344,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Complaint_Priority__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Complaint Priority</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Consent_Form_Serial_No__c</fullName>
         <externalId>false</externalId>
         <label>Consent Form Serial No</label>
@@ -2326,15 +2362,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Complaint_Priority__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Priority</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Contact_Background__c</fullName>
@@ -2491,21 +2518,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>Age__c</fullName>
-		<description>/* 
-			Calculate Age of the Customer
-		*/</description>
-        <externalId>false</externalId> 
-		<formula>
-		 IF(ISNULL(PersonContact.Birthdate) , '', TEXT(FLOOR((TODAY()-PersonContact.Birthdate +1)/365.2425)))
-		</formula>
-        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
-        <label>Age</label>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>	
-		<unique>false</unique>		
-    </fields>	
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
@@ -2578,26 +2590,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>All_channel_opt_out__c</fullName>
-        <externalId>false</externalId> 
-		<formula>
-		IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)
-		</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All channel opt-out</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>		
-    </fields>
-    <fields>
-        <fullName>Customer_LastUpdatedDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Attributes UpdatedDate</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
     <fields>
         <fullName>Customer_Consent_Happy_Calls__c</fullName>
         <externalId>false</externalId>
@@ -2621,6 +2613,15 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_LastUpdatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Attributes UpdatedDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Customer_Lifecycle_Phase__c</fullName>
@@ -6788,6 +6789,17 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Fleet_Category__c</fullName>
         <externalId>false</externalId>
         <label>Fleet Category</label>
@@ -9194,7 +9206,8 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields><fields>
+    </fields>
+    <fields>
         <fullName>MBK_Occupation__c</fullName>
         <externalId>false</externalId>
         <label>MBK Occupation</label>
@@ -13168,17 +13181,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>First_Consent_User__c</fullName>
-        <externalId>false</externalId>
-        <label>First Consent User</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>UpsellOpportunity__c</fullName>
         <externalId>false</externalId>
         <label>Upsell Opportunity</label>
@@ -13279,7 +13281,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>VIN__c</fullName>
         <externalId>false</externalId>
         <label>VIN</label>
@@ -13440,7 +13442,7 @@ Invisible on UI."</description>
         <externalId>false</externalId>
         <label>Warranty Apply Status</label>
         <picklist>
-		<picklistValues>
+            <picklistValues>
                 <fullName>To be Sent</fullName>
                 <default>false</default>
             </picklistValues>
@@ -13842,77 +13844,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Company</fullName>
         <active>true</active>
         <label>Company</label>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -13995,6 +13926,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15944,6 +15890,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -17417,7 +17374,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBFS_Truck_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -17554,7 +17511,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-        </picklistValues><picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>MBK_Occupation__c</picklist>
             <values>
                 <fullName>Accounting</fullName>
@@ -18388,6 +18346,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24856,77 +24859,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>	
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -25009,6 +24941,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26634,6 +26581,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28731,6 +28689,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -29587,11 +29590,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>		
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
         <lookupFilterFields>Primary_Address_Display__c</lookupFilterFields>
@@ -30692,7 +30695,7 @@ else {
     window.open("/apex/CarModelComparison?retURL=/{!Account.Id}", "", "width = 800, height = 600");
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Check_Duplicates</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -30713,7 +30716,7 @@ else {
         <openType>replace</openType>
         <protected>false</protected>
         <url>/</url>
-    </webLinks>    
+    </webLinks>
     <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
@@ -30917,26 +30920,26 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if('{!Account.RecordTypeId}' == '012280000000f0p') 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
 ) 
 }	
 else { 
-if('{!Account.RecordTypeId}' == '012280000000f0p') 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
-else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 }</url>
     </webLinks>
@@ -30988,11 +30991,11 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
@@ -31001,11 +31004,11 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_S
 else { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
     </webLinks>
@@ -31097,7 +31100,7 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -31112,13 +31115,12 @@ else {
         <fullName>Send_to_MyMercedes</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>replace</openType>
+        <page>CustomerMymercInterface</page>
         <protected>false</protected>
-        <url>/</url>
-    </webLinks> 
+    </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
         <availability>online</availability>
