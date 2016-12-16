@@ -1307,10 +1307,6 @@
     <classAccesses>
         <apexClass>cSendVehicletoSPOConfirmationJP</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>cSendVehicletoSPOConfirmationJPTest</apexClass>
-        <enabled>true</enabled>
     </classAccesses>	
     <classAccesses>
         <apexClass>SendAccountInfoToSPO</apexClass>
@@ -3872,6 +3868,11 @@
         <editable>false</editable>
         <field>Account.VAN_Tenure__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.VIN__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20252,7 +20253,7 @@
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Retail</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>

@@ -13,7 +13,13 @@ public class TriggerAccountLinkTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-        // Implementation to addedd as required in market
+          if(Trigger.isAfter && Trigger.isInsert){
+            AccountLinkHelper.afterInsertEvent(Trigger.new);
+        }
+        if(Trigger.isAfter && Trigger.isUpdate){
+            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+            AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+        }
     }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

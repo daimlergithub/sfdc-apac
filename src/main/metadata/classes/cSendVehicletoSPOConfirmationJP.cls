@@ -28,9 +28,9 @@ public Static Id accId {get; set;}
         
         // quering to display all fields in format according to the requirement
         
-        VehRel = [SELECT Id,Name,OwnerId,Vehicle_ID__c,New_Used__c,Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.FirstRegistrationDate__c,MD__c,Registration_Date__c,MOT_Owner_Name__c,MOT_Owner_Address__c,MOT_USER_NAME__c,MOT_User_Address__c, Contact__c,Contact__r.Id, Contact__r.Name
+        VehRel = [SELECT Id,Name,OwnerId,Registration_Number__c,Vehicle_ID__c,New_Used__c,Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.FirstRegistrationDate__c,MD__c,Registration_Date__c,MOT_Owner_Name__c,MOT_Owner_Address__c,MOT_USER_NAME__c,MOT_User_Address__c, Contact__c,Contact__r.Id, Contact__r.Name
                                     FROM Vehicle_Relationship__c
-                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' ];
+                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null  ];
                system.debug('++++++++++++++'+VehRel); 
           if(accId != null){     
           acc = [SELECT Id,Name From Account Where id =:accId ]; 
@@ -80,7 +80,7 @@ public Static Id accId {get; set;}
             
             }                        
                                                
-     public Static Void sendtoSPO(){
+     public  Void sendtoSPO(){
      
         // updating fields 
         
@@ -91,7 +91,7 @@ public Static Id accId {get; set;}
         system.debug('+++++++++++++++++'+vehId );
      list<Vehicle_Relationship__c> VehRelUpdated = new list<Vehicle_Relationship__c>();
          // updating a fields of a vehicle relation record who is a purchaser 
-         list<Vehicle_Relationship__c> VehRellist = [SELECT Id,Name,OwnerId,Vehicle_ID__c,Car_Relation__c, Contact__c,Contractor__c,New_Used__c,Warranty_Apply_Status__c,UsedWarranty_Apply_Status__c FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId AND Car_Relation__c = 'Purchaser'];         
+         list<Vehicle_Relationship__c> VehRellist = [SELECT Id,Name,OwnerId,Vehicle_ID__c,Car_Relation__c, Contact__c,Contractor__c,New_Used__c,Warranty_Apply_Status__c,UsedWarranty_Apply_Status__c FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId AND Car_Relation__c = 'Purchaser'AND End_Date__c = null];         
          system.debug('+++++++++++++++++'+vehId );
          system.debug('++++++++++++++'+ VehRellist);  
          for(Vehicle_Relationship__c Ve: VehRellist  ){
@@ -106,13 +106,18 @@ public Static Id accId {get; set;}
         
          
          Ve.Warranty_Apply_Status__c = 'To be Sent';
+         Ve.Warranty_Apply_Date__c = System.today();
+         Ve.Warranty_Apply_User__c = userinfo.getuserid();
          
          }
          if(Ve.New_Used__c == 'Used'){
              
              Ve.Warranty_Apply_Status__c = 'To be Sent';
              Ve.UsedWarranty_Apply_Status__c = 'To be Sent';
-             
+             Ve.UsedWarranty_Apply_Date__c = System.today();
+             Ve.Warranty_Apply_Date__c = System.today();
+             Ve.Warranty_Apply_User__c = userinfo.getuserid();
+             Ve.UsedWarranty_Apply_User__c = userinfo.getuserid();
              
          }
          
