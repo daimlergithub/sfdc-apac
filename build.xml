@@ -292,7 +292,8 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
-               <sf:include name="Retailcopybutton"/>			   
+               <sf:include name="Retailcopybutton"/>
+			   <sf:include name="ALKDeleteConformationpage"/>			   
 			</sf:typeset>
 			<sf:typeset name="layouts">
 				<sf:include name="Account.*"/>
@@ -391,6 +392,8 @@
 				<sf:include name="createRetailCopyJPTEST"/>
 				<sf:include name="UtilShare"/>
 				<sf:include name="LeadSharingforDealerJP"/>
+				<sf:include name="DeleteRetailCopy"/>
+				<sf:include name="DeleteRetailCopyTest"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
