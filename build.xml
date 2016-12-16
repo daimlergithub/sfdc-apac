@@ -147,6 +147,7 @@
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="SendAccountInfoToSPO"/>
+			   <sf:include name="SendToJPOS"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
@@ -167,6 +168,8 @@
 			   <sf:include name="AddressSearchValidationController"/>
 			   <sf:include name="SendAccountInfoToSPO"/>			   
 			   <sf:include name="SendAccountInfoToSPOTest"/>
+			   <sf:include name="SendToJPOS"/>			   
+			   <sf:include name="SendToJPOSTest"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
@@ -297,6 +300,7 @@
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
                <sf:include name="Retailcopybutton"/>
+			   <sf:include name="RetailTaskdealerviewForContract"/>
 			   <!-- Added by Naga Start-->
 			   <sf:include name="MBJ_FS_Case_Inquiry_Page"/>
 			   <sf:include name="MBJ_FS_Case_Request_Page"/>
@@ -339,6 +343,8 @@
 				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="UtilTask"/>
 				<sf:include name="UtilTaskTest"/>
+				<sf:include name="dealerViewForContract"/>
+				<sf:include name="dealerViewForContractTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerKR"/>
