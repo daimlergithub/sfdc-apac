@@ -42,13 +42,13 @@ public class CaseTriggerHandlerJP
 		
         if (trigger.isAfter){
             if (trigger.isInsert||trigger.isUpdate){
-               caseHelperJPd.countchildcase(trigger.new,trigger.old); 
+               caseHelperJP.countchildcase(trigger.new,trigger.old); 
             }
         }
         if(trigger.isBefore){
             if(trigger.isDelete){
                 
-              caseHelperJPd.countchildcase(trigger.new,trigger.old);    
+              caseHelperJP.countchildcase(trigger.new,trigger.old);    
                 
             }
         }    
