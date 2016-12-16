@@ -181,6 +181,13 @@
         <value>Handling level is not Dealer</value>
     </labels>
     <labels>
+        <fullName>AlreadyProcessed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AlreadyProcessed</shortDescription>
+        <value>This record is already processed or This button works only for Retail Company or Retail Person</value>
+    </labels>
+    <labels>
         <fullName>And_Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4432,6 +4439,13 @@
         <protected>false</protected>
         <shortDescription>Need contact Information</shortDescription>
         <value>Please Enter Atleast one contact Information</value>
+    </labels>
+    <labels>
+        <fullName>delete_confirmation_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>delete confirmation message</shortDescription>
+        <value>This will delete the retail copy and the Account will not be viewable anymore, is this ok?</value>
     </labels>
     <labels>
         <fullName>displayOnly</fullName>

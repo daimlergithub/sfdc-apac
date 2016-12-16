@@ -82,15 +82,15 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISCHANGED( RecordTypeId) || ISCHANGED(Gender__c) || 
-ISCHANGED( FirstName ) || ISCHANGED( LastName ) || 
-ISCHANGED( FirstName_Native_1__c ) || ISCHANGED( LastName_Native_1__c ) || 
-ISCHANGED( Company_Name__c ) || ISCHANGED( Company_Name_Native_1__c ) || 
-ISCHANGED( Company_Legal_Form__c ) || ISCHANGED( Company_Legal_Form_text__c ) || 
-ISCHANGED( Legal_Form_Position__c ) || ISCHANGED( PersonBirthdate ) || 
-ISCHANGED( Foundation_Date__c ) || AND(
-   OR(ISCHANGED(Primary_Address_Reference__c), 
-    ISBLANK(Primary_Address_Reference__c)))</formula>
+        <formula>ISCHANGED( RecordTypeId) || ISCHANGED(Gender__c) || ISCHANGED( FirstName ) || ISCHANGED( LastName ) || 
+ISCHANGED( FirstName_Native_1__c ) || ISCHANGED( LastName_Native_1__c ) || ISCHANGED( Company_Name__c ) || 
+ISCHANGED( Company_Name_Native_1__c ) || ISCHANGED( Company_Legal_Form__c ) || ISCHANGED( Company_Legal_Form_text__c ) || 
+ISCHANGED( Legal_Form_Position__c ) || ISCHANGED( PersonBirthdate ) || ISCHANGED( Foundation_Date__c ) || 
+ISCHANGED( Mobile__c ) || ISCHANGED( Individual_Home_Phone__c ) || ISCHANGED( Mobile2__c ) ||
+ISCHANGED( Work_Phone__c ) || ISCHANGED( Home_Phone_2__c ) || ISCHANGED( Phone ) ||
+ISCHANGED( Fax ) || ISCHANGED( Fax2__c ) || ISCHANGED( Email3__c ) ||
+ISCHANGED( Primary_Phone__c ) || ISCHANGED( Primary_Fax__c ) ||
+AND( OR(ISCHANGED(Primary_Address_Reference__c), ISBLANK(Primary_Address_Reference__c)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>
