@@ -714,7 +714,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     //    dealers, and send email notifications to lead owners and
     //    proper contacts
     //    Created By : Sudheer Kandukuri
-    public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate)
+     public static void autoAssignLeads(Map<Id, Lead__c> newMap, Map<Id, Lead__c> oldMap, boolean isInsert,boolean isUpdate)
     {
             try{
                 if (boolean_autoassignleads== false){
@@ -723,38 +723,33 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     Set<Id> rtIdSet = new Set<Id>{leadFinanceRT,leadVehicleRt,leadSPRt};
                     List<Messaging.SingleEmailMessage> mailList = new List<Messaging.SingleEmailMessage>();
                     List<String> contBuList = new List<string>();
-                    List<Messaging.SingleEmailMessage> consultantmailList = new List<Messaging.SingleEmailMessage>();
-                    System.debug(' auto assign Leads >>>>>>>>>> ' + boolean_autoassignleads);
-                    System.debug('auto assign Leads boolean value >>>>>>>>>> ' + newMap.size());
-                    List<String> etNames = New List<String>{'Lead_Assignment_Notification_Individual','Lead_Assignment_Notification_Company ', 'Lead_Gate_Keeper_Notification_Individual','Lead_Gate_Keeper_Notification_Company','Leads_Immediate_Notice' };
-                    EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person,etToImmediateNotice ;
+                  	 List<Lead__c> updateleadslist= new List<lead__c>();
+                  
+                    List<String> etNames = New List<String>{UtilConstant.ET_Lead_Consultant_Person,UtilConstant.ET_Lead_Consultant_Comapany,
+								UtilConstant.ET_Lead_GateKeeper_Person, UtilConstant.ET_Lead_GateKeeper_Comapany };
+                    EmailTemplate etToOwner_Person,etToOwner_Company, etToAssignement_Company,etToAssignement_Person ;
                     Map<id,id> ldDlerIdMap= new Map<id,id>(); 
                     List<EmailTemplate> List_Email_Template = [SELECT Id, DeveloperName FROM EmailTemplate WHERE  DeveloperName IN : etNames] ;
                     for (EmailTemplate et: List_Email_Template){
-                        if (et.DeveloperName =='Lead_Assignment_Notification_Individual'){
+                        if (et.DeveloperName ==UtilConstant.ET_Lead_Consultant_Person)
                             etToAssignement_Person= et;
-                        }
-                        else if(et.DeveloperName =='Lead_Assignment_Notification_Company'){
-                            etToAssignement_Company= et;
-                        }
-                        else if(et.DeveloperName =='Lead_Gate_Keeper_Notification_Individual'){
+                        else if(et.DeveloperName ==UtilConstant.ET_Lead_Consultant_Comapany)
+							etToAssignement_Company= et;
+                            
+                        else if(et.DeveloperName ==UtilConstant.ET_Lead_GateKeeper_Person)
                             etToOwner_Person= et;
-                        }
-                        else if(et.DeveloperName =='Lead_Gate_Keeper_Notification_Company'){
+                       else if(et.DeveloperName ==UtilConstant.ET_Lead_GateKeeper_Comapany)
                             etToOwner_Company= et;
-                        }
-                        else if (et.DeveloperName =='Leads_Immediate_Notice')
-                        {
-                            etToImmediateNotice=et;
-                        }
+                        
+                       
                     }
                     Map<id,lead__c> newleadmap = new Map<id,lead__c> ([SELECT id, CAC_Lead_Status__c,
                                                                        Nature_of_Request__c,Source_system__c,
                                                                        Business_unit__c,Sub_BusinessUnit__c,
                                                                        RecordTypeId,Sales_Consultant__c,
-                                                                       ownerid, Contact__c,
+                                                                       ownerid, Contact__c,Company_Account__c,
                                                                        Assigned_Dealer__c,Owner.Profile.name,
-                                                                       Contact__r.recordtypeid,
+                                                                       Contact__r.recordtypeid,Company_Account__r.recordtypeid,
                                                                        Dealer_Assignment_Date__c
                                                                        FROM Lead__c Where id IN : newMap.keySet()]);
                    
@@ -783,31 +778,26 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                        
                         if (lead.Owner.Profile.name == 'Dealer Consultant' && (Isinsert || (IsUpdate && newmap.get(lead.Id).Ownerid != oldmap.get(lead.Id).Ownerid)))
                         {
-                            
-                          
-                            if (lead.contact__r.recordtypeid ==  PersonalAccountRT  && etToAssignement_Person !=NULL)
+                           	
+                            if (lead.contact__c !=  null  && etToAssignement_Person !=NULL)
                             {
-                                 
+                                 System.debug('Enter>>>>>>Personal');
                                 Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(lead.ownerid,etToAssignement_Person.Id,lead.id );
-                                consultantmailList.add(mail);
+                                mailList.add(mail);
                             }
                             else
                             {
-                                if (etToAssignement_Company!= NULL)
+                                if (lead.Company_Account__c != null && etToAssignement_Company!= NULL)
                                     {
-                                         
-                                        Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(lead.ownerid,etToAssignement_Company.Id,lead.id );
-                                        consultantmailList.add(mail);
+                                        System.debug('Enter>>>>>>Comapny');
+										Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(lead.ownerid,etToAssignement_Company.Id,lead.id );
+                                        mailList.add(mail);
                                     }
                             }
                         }       
                     }
+                   
                     
-                    //Send mail to consultant
-                    if (!consultantmailList.isEmpty())
-                    {
-                       Messaging.sendEmail(consultantmailList);
-                    }
                     
                     System.debug('Map Size >>>>>>>>>>>>>' + ldDlerIdMap.size());
                     Set<ID> DealerIdSet = new Set<id>(ldDlerIdMap.values());
@@ -822,8 +812,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     
                     
                     // Mail notification to Gate keeper 
-                    if(ContacttoUserMap!= Null && !ContacttoUserMap.isEmpty()){
-                        List<Lead__c> updateleadslist= new List<lead__c>();
+                    if(ContacttoUserMap!= Null && !ContacttoUserMap.isEmpty())
+					{
+                       
                         for(ID LeadId:ldDlerIdMap.keySet() )
                         {
                             Lead__c lead = newleadmap.get (leadid);
@@ -876,13 +867,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                                     }
                                }
                                 updateleadslist.add ( newleadmap.get(LeadId));
-                                if (newleadmap.get(LeadId).contact__r.recordtypeid ==  PersonalAccountRT  && etToOwner_Person !=NULL){
+                                if (newleadmap.get(LeadId).contact__c !=  null  && etToOwner_Person != null ){
                                     
                                     Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(usr.id,etToOwner_Person.Id,LeadId );
                                     mailList.add(mail);
                                 }
                                 else{
-                                    if (etToOwner_Company!= NULL){
+                                    if (newleadmap.get(LeadId).Company_Account__c !=  null && etToOwner_Company!= null){
                                         
                                         Messaging.SingleEmailMessage mail=SingleEmailMessageWithparams(usr.id,etToOwner_Company.Id,LeadId );
                                         mailList.add(mail);
@@ -893,14 +884,18 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             
                         }
                         
-                        System.debug('Messaging Size ' + mailList.size());
+                       
+                    }     
+                     System.debug('Messaging Size ' + mailList.size());
+                       
                         if (mailList.size()>0){
                             Messaging.sendEmail(mailList);
+                            System.debug('Message is sent');
+                        }
+                     if(updateleadslist.size() > 0)
+                        {
                             update updateleadslist;
                         }
-                    }     
-                    
-                    
                 }
                 
             }catch(Exception Ex){
@@ -909,6 +904,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 System.debug(' Line Number >>>>>>>>>>' + Ex.getLineNumber());
             }
     }
+  
     
     private static Messaging.SingleEmailMessage SingleEmailMessageWithparams(Id TargetObjectId, Id EmailTemplateId , Id WhatObjectId ){
          Messaging.SingleEmailMessage mail= new Messaging.SingleEmailMessage();

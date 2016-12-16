@@ -53,7 +53,11 @@ Global with sharing class UtilConstant {
     public final static String COMPANY_ACCOUNT='Company';
     public final static String PERSON_SOFT_DELETE_ACCOUNT='Person Account Soft Deleted';
     public final static String COMPANY_SOFT_DELETE_ACCOUNT='Company Soft Deleted';
-      public final static String Prospect_Value = 'Prospect';
+      public final static String Prospect_Value = 'Prospect'; 
+    Public final Static String ET_Lead_Consultant_Person= 'Lead_Assignment_Notification_Individual';
+     Public final Static String ET_Lead_Consultant_Comapany= 'Lead_Assignment_Notification_Company';
+    Public final Static String ET_Lead_GateKeeper_Person= 'Lead_Gate_Keeper_Notification_Individual';
+     Public final Static String ET_Lead_GateKeeper_Comapany= 'Lead_Gate_Keeper_Notification_Company';
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
