@@ -10,6 +10,10 @@ public class TriggerLeadTriggerHandlerJP
     {
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];   
         System.debug('Handletrigger----->');
+		
+		if(isAfter && (isUpdate || isInsert)){
+        System.debug('welcome');
+          LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
         
         if(isBefore && isInsert && usr.Profile.Name != 'IntegrationAPI')
         {           
