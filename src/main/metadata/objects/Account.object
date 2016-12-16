@@ -31100,16 +31100,15 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-    <webLinks>
+	<webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>Send to JPOS</masterLabel>
+        <displayType>button</displayType> 
+        <linkType>page</linkType>
+        <masterLabel>SendtoJPOS</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>
-        <url>/</url>
+		<page>SendToJPOS</page>
+        <protected>false</protected> 
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
