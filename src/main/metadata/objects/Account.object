@@ -13722,6 +13722,35 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All Customer Accounts</label>
         <language>en_US</language>
         <sharedTo>
+            <role>central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_Customer_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>Primary_Address__c</columns>
+        <columns>Primary_Address_Validity__c</columns>
+        <columns>Customer_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.PersonAccount</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Customer Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
