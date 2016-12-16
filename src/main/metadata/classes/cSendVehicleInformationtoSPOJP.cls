@@ -38,7 +38,7 @@ public String recordTypeId2 { get; set; }
                      
                     vehRec = [SELECT Id,Name,OwnerId,Vehicle_ID__c, Contact__c,Contact__r.Id, Contact__r.Name
                                     FROM Vehicle_Relationship__c
-                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' ];
+                                     WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null ];
                                      
                                      
                      for( Vehicle_Relationship__c acc : vehRec ){
