@@ -5253,7 +5253,6 @@ MD__c = 'JP')</errorConditionFormula>
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var RetailCopyflag = "{!Account_Link__c.Retail_Delete_Flag__c}";
 var RTType = "{!Account_Link__c.RecordTypeId}";
-alert(RTType);
 var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Company'"); 
 var rt = RTs.getArray("records"); 
 var RTs1 = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Person'"); 
