@@ -46,7 +46,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>NewCase</actionName>
-        <type>Default</type>
+        <content>MBJ_FS_Case_Intermediate_Page</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -184,6 +186,38 @@
         <values>
             <fullName>Open</fullName>
             <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>MBF Case Management Process</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed %28Final%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Final approval done</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Final approval rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requires Manager Review</fullName>
+            <default>false</default>
         </values>
     </businessProcesses>
     <businessProcesses>
@@ -338,6 +372,34 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Retail_Task__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Task</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Retail_Task__c.Account__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Case_Complainant__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Case_Complainant__c</field>
+                <operation>notEqual</operation>
+                <value></value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Accident_Place__c</fullName>
         <externalId>false</externalId>
@@ -425,6 +487,16 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Already_Contacted_Dealer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Already Contacted Dealer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Alternative_Transport_Method__c</fullName>
@@ -666,6 +738,291 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Vehicle_Inspection_Certificate_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Inspection Certificate Change</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Registration Number</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>License Plate Reissue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Location for Use</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>User</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>User Address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+	<fields>
+        <fullName>Requestor_Fax_E_mail_address__c</fullName>
+        <externalId>false</externalId>
+        <label>Requestor Fax/E-mail address</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Bank_Account_of_Change_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Account of Change Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>New_Bank_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>New Bank Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+	<fields>
+        <fullName>Payer_Supporting_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Payer_Supporting_Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Payer_Supporting_Dealer)</relationshipLabel>
+        <relationshipName>Payer_Supporting_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Payer_Initial_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Payer Initial Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Payer Initial Dealer)</relationshipLabel>
+        <relationshipName>Payer_Initial_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Present_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Present Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>Receiver_Supporting_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Receiver Supporting Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Receiver Supporting Dealer)</relationshipLabel>
+        <relationshipName>Receiver_Supporting_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Receiver_Initial_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Receiver Initial Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Receiver Initial Dealer)</relationshipLabel>
+        <relationshipName>Receiver_Initial_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Present_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Present Address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Requestor_Supporting_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requestor Supporting Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Supporting Dealer)</relationshipLabel>
+        <relationshipName>Supporting_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Account_Closing_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Closing Month</label>
+        <picklist>
+            <picklistValues>
+                <fullName>January</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>February</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>March</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>April</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>May</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>June</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>July</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>August</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>September</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>October</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>November</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>December</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Registered_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Registered Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>Requester_Initial_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requester Initial Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Requester Initial Dealer)</relationshipLabel>
+        <relationshipName>Requester_Initial_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Required_Period__c</fullName>
+        <externalId>false</externalId>
+        <label>Required Period</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Year Financial Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Half-Year Financial Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly Financial Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>CA_application_submitted__c</fullName>
         <defaultValue>false</defaultValue>
@@ -809,6 +1166,37 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Requester_Preferred_comm_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Requester Preferred comm. Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Postmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>CarBrandThree__c</fullName>
@@ -1210,6 +1598,20 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Quotation_Case_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Quotation Case Number</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Cases (Quotation Case Number)</relationshipLabel>
+        <relationshipName>Quotation_Case_Number</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>CarClassThree__c</fullName>
@@ -7862,6 +8264,14 @@ Modify Reason:
                 <fullName>MBDA Complaint</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Closing</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -7994,12 +8404,28 @@ Modify Reason:
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>ND</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shinpan (ORICO)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shinpan (JACCS)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other MBF related party</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8202,6 +8628,22 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Demand /Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Serious dissatisfaction /Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unreasonable dissatisfaction /Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consultation /Inquiry /Others</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8645,6 +9087,26 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MBF Product (Lease)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF Product (Loan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF Current Contract (Lease)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF Current Contract (Loan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other MBF related</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
                 <fullName>Retro fit campaign</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8672,6 +9134,71 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <label>Case SubType</label>
         <picklist>
             <controllingField>Case_Type__c</controllingField>
+			<picklistValues>
+                <fullName>Open end lease</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed end lease (Mileage plan)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard loan</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welcome plan</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super welcome plan</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interest campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About assessment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About procedure for new contract creation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About procedure for changes</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About procedure for cancellation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>About procedure for maturity</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <controllingFieldValues>General contract related (Lease and Loan)</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Vehicle term</fullName>
                 <default>false</default>
@@ -8971,7 +9498,11 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <fullName>Others</fullName>
                 <default>false</default>
                 <controllingFieldValues>Call Center</controllingFieldValues>
+				<controllingFieldValues>Finance campaign</controllingFieldValues>
+                <controllingFieldValues>Finance contact origination process and procedure</controllingFieldValues>
+                <controllingFieldValues>Finance products (Lease and Loan)</controllingFieldValues>
                 <controllingFieldValues>Finance service</controllingFieldValues>
+				<controllingFieldValues>General contract related (Lease and Loan)</controllingFieldValues>
                 <controllingFieldValues>Others</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -9528,7 +10059,64 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <label>Case Type</label>
         <picklist>
             <controllingField>Case_Class__c</controllingField>
+			
             <picklistValues>
+                <fullName>DAG</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Finance</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Touring Support</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Finance</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Touring Support</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBJ</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Finance</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Touring Support</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance products (Lease and Loan)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance contact origination process and procedure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General contract related (Lease and Loan)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sensitive customer information (Lease and Loan)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+			
                 <fullName>After-Sales</fullName>
                 <default>false</default>
                 <controllingFieldValues>Complaint</controllingFieldValues>
@@ -9710,6 +10298,70 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <controllingFieldValues>Complaint</controllingFieldValues>
                 <controllingFieldValues>MBDA Complaint</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>MBF Change Request (WO CA)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF Documentation Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBF Change Request (W CA)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payout</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-loan</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Appraisal (Close End)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Appraisal (SWP)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Quotation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (Close End)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (Open End)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (SWP)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Contract Closing</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
@@ -9815,39 +10467,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <controllingFieldValues>Request</controllingFieldValues>
                 <controllingFieldValues>Touring Support</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-                <controllingFieldValues>Claim</controllingFieldValues>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>Finance</controllingFieldValues>
-                <controllingFieldValues>Inquiry</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Request</controllingFieldValues>
-                <controllingFieldValues>Touring Support</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBJ</fullName>
-                <default>false</default>
-                <controllingFieldValues>Claim</controllingFieldValues>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>Finance</controllingFieldValues>
-                <controllingFieldValues>Inquiry</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Request</controllingFieldValues>
-                <controllingFieldValues>Touring Support</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Claim</controllingFieldValues>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>Finance</controllingFieldValues>
-                <controllingFieldValues>Inquiry</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Request</controllingFieldValues>
-                <controllingFieldValues>Touring Support</controllingFieldValues>
-            </picklistValues>
+            
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9855,6 +10475,78 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Closing_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Closing Method</label>
+        <picklist>
+            <controllingField>Product__c</controllingField>
+            <picklistValues>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lease</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pay-Out</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lease</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lease</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (Close-end)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lease</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (Open-end)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lease</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Loan</fullName>
+                <default>false</default>
+                <controllingFieldValues>Loan</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return (SWP)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Loan</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Certificate_of_Outstanding_Balance__c</fullName>
+        <externalId>false</externalId>
+        <label>Certificate of Outstanding Balance</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Cause__c</fullName>
@@ -9905,6 +10597,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <fullName>Comments</fullName>
         <trackTrending>false</trackTrending>
     </fields>
+	
     <fields>
         <fullName>Communicated_with_Previous_dealer__c</fullName>
         <externalId>false</externalId>
@@ -9929,6 +10622,18 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CommunityId</fullName>
@@ -9960,6 +10665,47 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Customer_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Address Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Address</label>
+        <length>500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Complaint_Creator_Department__c</fullName>
@@ -10626,6 +11372,18 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Shinpan (ORICO)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shinpan (JACCS)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other MBF related party</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -11849,6 +12607,16 @@ Modify Reason:
         <fullName>Due_date_of_adjustment_charge__c</fullName>
         <externalId>false</externalId>
         <label>Due date of adjustment charge</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Existing_Account_Availability_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Existing Account Availability Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -13295,6 +14063,17 @@ Modify Reason:
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
+	<fields>
+        <fullName>Internal_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Internal Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
     <fields>
         <fullName>Info_Source__c</fullName>
         <externalId>false</externalId>
@@ -14687,6 +15466,26 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
+	<fields>
+        <fullName>Mailing_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Mailing Address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Mailing_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Mailing Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
     <fields>
         <fullName>Place_of_vehicle_repossession__c</fullName>
         <externalId>false</externalId>
@@ -14781,6 +15580,36 @@ Modify Reason:
         <externalId>false</externalId>
         <inlineHelpText>Pre-app.：1st requested date / 2nd requested date</inlineHelpText>
         <label>Pre-app.：Requested Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Pre_app_1st_requested_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-app:1st requested date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Registered_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Registered Address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Pre_app_2nd_requested_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-app: 2nd requested date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -15084,6 +15913,14 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>GC1020</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -22662,6 +23499,37 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Closing_Method__c</picklist>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay-Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28Close-end%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28Open-end%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28SWP%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
             <values>
@@ -23148,6 +24016,25 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Customer_Address_Type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
@@ -23247,6 +24134,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Case_RepeatCause__c</picklist>
             <values>
@@ -24653,6 +25541,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Overdue_Reason__c</picklist>
             <values>
@@ -24676,6 +25565,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Overdue__c</picklist>
             <values>
@@ -24714,6 +25604,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Payer_Preferred_comm_Channel__c</picklist>
             <values>
@@ -24729,6 +25620,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Payer__c</picklist>
             <values>
@@ -24752,6 +25644,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Payer_address_type__c</picklist>
             <values>
@@ -24771,6 +25664,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+ 		
         <picklistValues>
             <picklist>Payment_term__c</picklist>
             <values>
@@ -24919,6 +25813,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Progress_Status__c</picklist>
             <values>
@@ -24986,6 +25881,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Reason</picklist>
             <values>
@@ -25066,6 +25962,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Record_Status__c</picklist>
             <values>
@@ -25251,6 +26148,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Third_OB_By__c</picklist>
             <values>
@@ -31949,6 +32847,37 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Closing_Method__c</picklist>
+            <values>
+                <fullName>Early Termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay-Out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28Close-end%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28Open-end%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return %28SWP%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Case_Involvement_MPC__c</picklist>
             <values>
@@ -31988,6 +32917,25 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>2%3DOthers</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Customer_Address_Type__c</picklist>
+            <values>
+                <fullName>Actual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -34566,6 +35514,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Payer_Preferred_comm_Channel__c</picklist>
             <values>
@@ -35332,6 +36281,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Related_Warranty__c</picklist>
             <values>
@@ -35953,6 +36903,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>Vehicle_Model__c</picklist>
             <values>
@@ -38040,6 +38991,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		
         <picklistValues>
             <picklist>CA_Result__c</picklist>
             <values>
@@ -109584,6 +110536,61 @@ alert("Inquiy can't be used.Please contact System Administrator");
         <protected>false</protected>
         <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CASE_ID={! Case.CaseNumber }&amp;OBJECT_LEAD_AFTERSALES_VEHICLE={!Case.Vehicle__c}</url>
     </webLinks>
+	<webLinks>
+        <fullName>MBJ_FS_Case_ContractClosing_Page_Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MBJ_FS_Case_ContractClosing_Page?id={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBJ_FS_Case_Inquiry_Page_Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MBJ_FS_Case_Inquiry_Page?id={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBJ_FS_Case_Quotation_Page_Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MBJ_FS_Case_Quotation_Page?id={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBJ_FS_Case_Request_Page_Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MBJ_FS_Case_Request_Page?id={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBJ_FS_Complaint_Page_Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MBJ_FS_Complaint_Page?id={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
     <webLinks>
         <fullName>New_Chrysler_Complaint</fullName>
         <availability>online</availability>
@@ -110052,6 +111059,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <showsStatus>true</showsStatus>
         <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account.Id}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
     </webLinks>
+	
     <webLinks>
         <fullName>eDM</fullName>
         <availability>online</availability>

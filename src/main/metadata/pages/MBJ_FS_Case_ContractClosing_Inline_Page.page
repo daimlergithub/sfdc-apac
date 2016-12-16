@@ -1,0 +1,63 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_ContractClosing_InlineCntl"  showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+        
+            <apex:outputPanel >
+                <apex:pageblockSection title="Early Termination Actual" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}">
+                    <apex:outputField value="{!Case.Confirmation_person__c}"/>
+                    <apex:outputField value="{!Case.Confirmed_with_Person_name__c}"/>
+                    <apex:outputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:outputField value="{!Case.Date_Received__c}"/>
+                    <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection title="Payout Actual" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}">
+                    <apex:outputField value="{!Case.Buyer__c}"/>
+                    <apex:outputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:outputField value="{!Case.Date_Received__c}"/>
+                    <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection title="Re-lease Actual" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}">
+                    <apex:outputField value="{!Case.Quotation_number__c}"/>
+                    <apex:outputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:outputField value="{!Case.CA_application_submitted__c}"/>
+                    <apex:outputField value="{!Case.CA_Requested__c}"/>
+                    <apex:outputField value="{!Case.CA_Number__c}"/>
+                    <apex:outputField value="{!Case.CA_Result__c}"/>
+                    <apex:outputField value="{!Case.Date_Received__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection title="Return(Close end & SWP) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Close End)' || Case.Case_Type__c == 'Return (SWP)',true,false)}">
+                    <apex:outputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
+                    <apex:outputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
+                    <apex:outputField value="{!Case.Final_app_date__c}"/>
+                    <apex:outputField value="{!Case.Final_app_result_Invoice_amount_Penalty__c}"/>
+                    <apex:outputField value="{!Case.Pre_app_result_shared__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection title="Retun(Open end) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Open End)',true,false)}">
+                    <apex:outputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
+                    <apex:outputField value="{!Case.Place_of_vehicle_repossession__c}"/>
+                    <apex:outputField value="{!Case.Vehicle_repossession_date__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection title="Re-loan Actual" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
+                    <apex:outputField value="{!Case.Quotation_number__c}"/>
+                    <apex:outputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
