@@ -1879,16 +1879,16 @@
         <name>CAC_SourceId__c</name>
     </fields>
     <fields>
-        <label><!-- CA Applicant --></label>
+        <label>CA申込者</label>
         <name>CA_Applicant__c</name>
         <relationshipLabel><!-- Leads (CA Applicant) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- CA Application Number --></label>
+        <label>CA申請番号</label>
         <name>CA_Application_Number__c</name>
     </fields>
     <fields>
-        <label><!-- CA Status --></label>
+        <label>CAステータス</label>
         <name>CA_Lead_Status__c</name>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
@@ -1920,11 +1920,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- CA Submission Date --></label>
+        <label>審査申請日</label>
         <name>CA_Updated_Date__c</name>
     </fields>
     <fields>
-        <label><!-- CA status change date --></label>
+        <label>CAステータス変更日</label>
         <name>CA_status_change_date__c</name>
     </fields>
     <fields>
@@ -2023,7 +2023,7 @@
         <name>Combine_Interested_Vehicle_Brand__c</name>
     </fields>
     <fields>
-        <label><!-- Commission No. --></label>
+        <label>コミッション番号</label>
         <name>CommissionNumber__c</name>
     </fields>
     <fields>
@@ -2036,7 +2036,7 @@
         <relationshipLabel>リード(法人アカウント)</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Contact Date --></label>
+        <label>コンタクト日</label>
         <name>Contact_Date__c</name>
     </fields>
     <fields>
@@ -2116,11 +2116,11 @@
         <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Customer Information --></label>
+        <label>DSC：お客様入力項目</label>
         <name>Customer_Information__c</name>
     </fields>
     <fields>
-        <label><!-- Customer Intention --></label>
+        <label>顧客意向</label>
         <name>Customer_Intention__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -2184,7 +2184,7 @@
         <name>DD_Authority__c</name>
     </fields>
     <fields>
-        <label><!-- DMS Sent Flag --></label>
+        <label>Autoline送信済みフラグ</label>
         <name>DMS_Sent_Flag__c</name>
     </fields>
     <fields>
@@ -2228,7 +2228,7 @@
         <name>Dealer_Commission__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer DMS Comments --></label>
+        <label>AL送信用メモ</label>
         <name>Dealer_DMS_Comments__c</name>
     </fields>
     <fields>
@@ -2460,11 +2460,11 @@
         <name>EuroVIN__c</name>
     </fields>
     <fields>
-        <label><!-- Existing Contract End Date --></label>
+        <label>満了日/最終回支払予定年月</label>
         <name>Existing_Contract_End_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Existing Contract No. --></label>
+        <label>ファイナンス契約番号</label>
         <name>Existing_Contract_No__c</name>
     </fields>
     <fields>
@@ -2473,11 +2473,11 @@
         <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Expected Close Date --></label>
+        <label>成約予定日</label>
         <name>Expected_Close_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Expected Registration Date --></label>
+        <label>登録予定日</label>
         <name>Expected_Registration_Date__c</name>
     </fields>
     <fields>
@@ -2521,7 +2521,7 @@
         <name>Finance_Approved__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Closing Option --></label>
+        <label>ファイナンスクロージング方法意向（決定）</label>
         <name>Finance_Closing_Option__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -2529,27 +2529,27 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Finance Closing Reason --></label>
+        <label>ファイナンス契約クロージング方法の理由</label>
         <name>Finance_Closing_Reason__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Comment --></label>
+        <label>MBFコメント</label>
         <name>Finance_Comment__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Contract Term --></label>
+        <label>ファイナンス契約期間</label>
         <name>Finance_Contract_Term__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Interest Rate --></label>
+        <label>ファイナンス利率</label>
         <name>Finance_Interest_Rate__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Monthly Payment --></label>
+        <label>ファイナンス月額支払</label>
         <name>Finance_Monthly_Payment__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Product Name --></label>
+        <label>ファイナンス商品名</label>
         <name>Finance_Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
@@ -2629,31 +2629,31 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Finance Proposal Date --></label>
+        <label>ファイナンス提案日</label>
         <name>Finance_Proposal_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Quotation Date --></label>
+        <label>ファイナンス見積作成日</label>
         <name>Finance_Quotation_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Quotation No History --></label>
+        <label>ファイナンス見積</label>
         <name>Finance_Quotation_No_History__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Quotation No --></label>
+        <label>ファイナンス見積番号</label>
         <name>Finance_Quotation_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Finance RV Ballon --></label>
+        <label>ファイナンス残価</label>
         <name>Finance_RV_Ballon__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Total V Price NoTax --></label>
+        <label>ファイナンス車両総価格（税抜）</label>
         <name>Finance_Total_V_Price_NoTax__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Total V Price Tax --></label>
+        <label>ファイナンス車両総価格（税込）</label>
         <name>Finance_Total_V_Price_Tax__c</name>
     </fields>
     <fields>
@@ -2725,7 +2725,7 @@
         <name>Gender__c</name>
     </fields>
     <fields>
-        <label><!-- Handover Date --></label>
+        <label>納車日</label>
         <name>Handover_Date__c</name>
     </fields>
     <fields>
@@ -2742,7 +2742,7 @@
         <name>Insurance_Details__c</name>
     </fields>
     <fields>
-        <label><!-- Insurance Proposal Date --></label>
+        <label>保険提案日</label>
         <name>Insurance_Proposal_Date__c</name>
     </fields>
     <fields>
@@ -5248,19 +5248,19 @@
         <name>Invoice_Amount_History__c</name>
     </fields>
     <fields>
-        <label><!-- Invoice Amount --></label>
+        <label>請求金額</label>
         <name>Invoice_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Invoice Date --></label>
+        <label>請求日</label>
         <name>Invoice_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Invoice Number History --></label>
+        <label>請求情報履歴</label>
         <name>Invoice_Number_History__c</name>
     </fields>
     <fields>
-        <label><!-- Invoice Number --></label>
+        <label>請求番号</label>
         <name>Invoice_Number__c</name>
     </fields>
     <fields>
@@ -5332,7 +5332,7 @@
         <name>LastName__c</name>
     </fields>
     <fields>
-        <label><!-- Last Nonassign Notification Date --></label>
+        <label>リードアサイン通知済みフラグ</label>
         <name>Last_Nonassign_Notification_Date__c</name>
     </fields>
     <fields>
@@ -6412,7 +6412,7 @@
         <name>Lead_Items__c</name>
     </fields>
     <fields>
-        <label><!-- Lead Latest Phase --></label>
+        <label>最新フェーズ</label>
         <name>Lead_Latest_Phase__c</name>
         <picklistValues>
             <masterLabel>CA Submission</masterLabel>
@@ -6520,11 +6520,11 @@
         <name>Lead_Lost_Date_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Lead Possibility --></label>
+        <label>ホット度</label>
         <name>Lead_Possibility__c</name>
     </fields>
     <fields>
-        <label><!-- Lead Possibility Text --></label>
+        <label>ホット度（自由入力）</label>
         <name>Lead_Possibility_text__c</name>
     </fields>
     <fields>
@@ -7800,7 +7800,7 @@
         <name>Need_Contact__c</name>
     </fields>
     <fields>
-        <label><!-- Needs Check Date --></label>
+        <label>ニーズ把握日</label>
         <name>Needs_Check_Date__c</name>
     </fields>
     <fields>
@@ -7816,11 +7816,11 @@
         <name>NextMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Next Contact Contents --></label>
+        <label>次回コンタクト内容</label>
         <name>Next_Contact_Contents__c</name>
     </fields>
     <fields>
-        <label><!-- Next Contact Customer Date --></label>
+        <label>次回コンタクト日</label>
         <name>Next_Contact_Customer_Date__c</name>
     </fields>
     <fields>
@@ -7860,11 +7860,11 @@
         <name>Opportunity_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Order Confirmation Date --></label>
+        <label>受注確定日</label>
         <name>Order_Confirmation_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Order No. --></label>
+        <label>受注番号</label>
         <name>Order_No__c</name>
     </fields>
     <fields>
@@ -7872,11 +7872,11 @@
         <name>Order_Placed_Date_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Order Placed Date --></label>
+        <label>受注日</label>
         <name>Order_Placed_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Order Print Date --></label>
+        <label>受注印刷日</label>
         <name>Order_Print_Date__c</name>
     </fields>
     <fields>
@@ -7940,7 +7940,7 @@
         <name>Payment__c</name>
     </fields>
     <fields>
-        <label><!-- Person Assign Notificaton Done --></label>
+        <label>担当者アサイン通知済みフラグ</label>
         <name>Person_Assign_Notificaton_Done__c</name>
     </fields>
     <fields>
@@ -8420,7 +8420,7 @@
         <name>Priority_Score__c</name>
     </fields>
     <fields>
-        <label><!-- Product Proposal Date --></label>
+        <label>商品説明提案日</label>
         <name>Product_Proposal_Date__c</name>
     </fields>
     <fields>
@@ -8561,28 +8561,28 @@
         <name>Questionnair__c</name>
     </fields>
     <fields>
-        <label><!-- Quotation Amount --></label>
+        <label>見積金額</label>
         <name>Quotation_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Quotation Date --></label>
+        <label>見積日</label>
         <name>Quotation_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Quotation Model --></label>
+        <label>見積対象モデル</label>
         <name>Quotation_Model__c</name>
         <relationshipLabel><!-- Leads (Car Model) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Quotation No History --></label>
+        <label>見積番号履歴</label>
         <name>Quotation_Number_History__c</name>
     </fields>
     <fields>
-        <label><!-- Quotation No --></label>
+        <label>見積番号</label>
         <name>Quotation_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Quotation Print Date --></label>
+        <label>見積印刷日</label>
         <name>Quotation_Print_Date__c</name>
     </fields>
     <fields>
@@ -8792,7 +8792,7 @@
         <name>Registration_No__c</name>
     </fields>
     <fields>
-        <label><!-- Registration No. --></label>
+        <label>登録番号</label>
         <name>Registration_Number__c</name>
     </fields>
     <fields>
@@ -8800,7 +8800,7 @@
         <name>Related_Configuration_Codes__c</name>
     </fields>
     <fields>
-        <label><!-- Related Leads --></label>
+        <label>関連リード</label>
         <name>Related_Leads__c</name>
         <relationshipLabel><!-- RelatedLeads --></relationshipLabel>
     </fields>
@@ -8845,11 +8845,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>入庫希望日（第一希望）</label>
+        <label><!-- Service requested date1 --></label>
         <name>Requested_Service_Date1__c</name>
     </fields>
     <fields>
-        <label>入庫希望日（第二希望）</label>
+        <label><!-- Service requested date2 --></label>
         <name>Requested_Service_Date2__c</name>
     </fields>
     <fields>
@@ -8878,12 +8878,12 @@
         <relationshipLabel>リード</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Company --></label>
+        <label>DMS契約対象会社ID</label>
         <name>Retail_Company__c</name>
         <relationshipLabel><!-- Leads (Retail Company) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Contact --></label>
+        <label>DMS顧客ID</label>
         <name>Retail_Contact__c</name>
         <relationshipLabel><!-- Leads --></relationshipLabel>
     </fields>
@@ -11681,7 +11681,7 @@
         <name>Selling_Dealer__c</name>
     </fields>
     <fields>
-        <label><!-- Service Program Proposal Date --></label>
+        <label>サービスプログラム提案日</label>
         <name>ServiceProgram_Proposal_Date__c</name>
     </fields>
     <fields>
@@ -11726,7 +11726,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Simple Estimation Date --></label>
+        <label>簡易見積日</label>
         <name>Simple_Estimation_Date__c</name>
     </fields>
     <fields>
@@ -11847,7 +11847,7 @@
         <name>Test_Drive_Date_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Test Drive Date --></label>
+        <label>試乗日</label>
         <name>Test_Drive_Date__c</name>
     </fields>
     <fields>
@@ -13729,7 +13729,7 @@
         <relationshipLabel><!-- Leads (Trade In Vehicle) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Trade-in Date --></label>
+        <label>下取り査定日</label>
         <name>Trade_in_Date__c</name>
     </fields>
     <fields>
@@ -13749,47 +13749,47 @@
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label><!-- UsVIN --></label>
+        <label>DSC：車台番号</label>
         <name>UsVIN__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Brand --></label>
+        <label>DSC：ブランド</label>
         <name>Used_Brand__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car request ID --></label>
+        <label>リクエスト中古車番号</label>
         <name>Used_Car_RequestID__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Class --></label>
+        <label>DSC：クラス</label>
         <name>Used_Class__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Color --></label>
+        <label>DSC：色</label>
         <name>Used_Color__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car FirstRegistration Date --></label>
+        <label>DSC：初度登録日</label>
         <name>Used_FirstRegistrationDate__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Inspection Date --></label>
+        <label>DSC：点検日</label>
         <name>Used_InspectionDate__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Mileage --></label>
+        <label>DSC：走行距離</label>
         <name>Used_Mileage__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Model --></label>
+        <label>DSC：モデル</label>
         <name>Used_Model__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Price --></label>
+        <label>DSC：価格</label>
         <name>Used_Price__c</name>
     </fields>
     <fields>
-        <label><!-- Used Car Steering --></label>
+        <label>DSC：ハンドル位置</label>
         <name>Used_Steering__c</name>
     </fields>
     <fields>
@@ -15570,7 +15570,7 @@
         <name>Visited_Showroom_Date_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Visited Showroom Date --></label>
+        <label>来店日</label>
         <name>Visited_Showroom_Date__c</name>
     </fields>
     <fields>
@@ -15602,7 +15602,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Wholesale Comment --></label>
+        <label>MBJコメント</label>
         <name>Wholesale_Comment__c</name>
     </fields>
     <fields>
@@ -15665,9 +15665,60 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>After-Sales Leads Soft Deleted</layout>
+        <sections>
+            <label>アクティビティ日付情報</label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>カスタム リンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>リード顧客情報</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>リード処理情報</label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label>リードリクエスト情報</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>AfterSales Lead</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタム リンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -15675,31 +15726,31 @@
             <section>Date Information</section>
         </sections>
         <sections>
-            <label><!-- Dealer Information --></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Description Information --></label>
+            <label>販売店情報</label>
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Customer Information --></label>
+            <label>リード顧客情報</label>
             <section>Lead Customer Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Information --></label>
+            <label>リード情報</label>
             <section>Lead Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Processing Information --></label>
+            <label>リード処理情報</label>
             <section>Lead Processing Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Request Information --></label>
+            <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Select --></label>
+            <label>車両情報</label>
             <section>Vehicle Select</section>
         </sections>
     </layouts>
@@ -15851,11 +15902,15 @@
     <layouts>
         <layout>Sales Leads Layout (CAC)</layout>
         <sections>
-            <label><!-- Assigned Dealer Reminder --></label>
+            <label>割り当てられたディーラー アラーム</label>
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label><!-- Cross Point Information --></label>
+            <section>Cross Point Information</section>
+        </sections>
+        <sections>
+            <label>カスタム リンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -15887,15 +15942,19 @@
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Miscelleneous Section --></label>
+            <label>園セクション</label>
             <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
         </sections>
         <sections>
             <label>参照情報</label>
             <section>Referal/Referee Information</section>
         </sections>
         <sections>
-            <label><!-- Source Information --></label>
+            <label>ソース情報</label>
             <section>Source Information</section>
         </sections>
         <sections>
@@ -15906,15 +15965,15 @@
     <layouts>
         <layout>Sales Leads Layout (Dealer)</layout>
         <sections>
-            <label>アクティビティ日付情報</label>
+            <label><!-- Activity Date Information --></label>
             <section>Activity Date Information</section>
         </sections>
         <sections>
-            <label>審査詳細</label>
+            <label><!-- CA Details --></label>
             <section>CA Details</section>
         </sections>
         <sections>
-            <label>クロスポイント情報</label>
+            <label><!-- Cross-point information --></label>
             <section>Cross-point information</section>
         </sections>
         <sections>
@@ -15922,11 +15981,11 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>中古車リクエスト情報（DSC）</label>
+            <label><!-- DSC Request Information --></label>
             <section>DSC Request Information</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Information --></label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -15934,7 +15993,7 @@
             <section>Description Information</section>
         </sections>
         <sections>
-            <label>リード顧客情報</label>
+            <label><!-- Lead Customer Information --></label>
             <section>Lead Customer Information</section>
         </sections>
         <sections>
@@ -15942,43 +16001,47 @@
             <section>Lead Information</section>
         </sections>
         <sections>
-            <label>リード処理情報</label>
+            <label><!-- Lead Processing Information --></label>
             <section>Lead Processing Information</section>
         </sections>
         <sections>
-            <label>リードリクエスト情報</label>
+            <label><!-- Lead Request Information --></label>
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label>敗戦情報</label>
+            <label><!-- Lost Information --></label>
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label>成約情報</label>
+            <label><!-- Order Confirmed Information --></label>
             <section>Order Confirmed Information</section>
         </sections>
         <sections>
-            <label>参照情報</label>
+            <label><!-- Reference Information --></label>
             <section>Reference Information</section>
         </sections>
         <sections>
-            <label>車両情報</label>
+            <label><!-- Vehicle Select --></label>
             <section>Vehicle Select</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Sales Leads Soft Deleted</layout>
         <sections>
-            <label><!-- Assigned Dealer Reminder --></label>
+            <label>アクティビティ日付情報</label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>割り当てられたディーラー アラーム</label>
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
+            <label>クロスポイント情報</label>
+            <section>Cross-point information</section>
         </sections>
         <sections>
-            <label>日付情報</label>
-            <section>Date Information</section>
+            <label>カスタム リンク</label>
+            <section>Custom Links</section>
         </sections>
         <sections>
             <label>販売店情報</label>
@@ -16005,19 +16068,23 @@
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Miscelleneous Section --></label>
+            <label>園セクション</label>
             <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
         </sections>
         <sections>
             <label>参照情報</label>
             <section>Referal/Referee Information</section>
         </sections>
         <sections>
-            <label><!-- Select Assigne Dealer --></label>
+            <label>ありますディーラーを選択します。</label>
             <section>Select Assigne Dealer</section>
         </sections>
         <sections>
-            <label><!-- Source Information --></label>
+            <label>ソース情報</label>
             <section>Source Information</section>
         </sections>
         <sections>
@@ -16195,7 +16262,7 @@
         <name>Assign_to_Leads</name>
     </webLinks>
     <webLinks>
-        <label><!-- Convert_Lead --></label>
+        <label>リードタイプ変更</label>
         <name>Convert_Lead</name>
     </webLinks>
     <webLinks>
@@ -16215,7 +16282,7 @@
         <name>New_Sales_Lead</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Task --></label>
+        <label>新規ToDo</label>
         <name>New_Task</name>
     </webLinks>
     <webLinks>
