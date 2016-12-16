@@ -15750,18 +15750,6 @@
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- New Fields --></label>
-            <section>New Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Reference Information --></label>
-            <section>Reference Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
-        </sections>
-        <sections>
             <label>車両情報</label>
             <section>Vehicle Select</section>
         </sections>
