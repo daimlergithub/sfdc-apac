@@ -25,24 +25,29 @@ public with sharing class AccountMergeController{
     public List<Address__C> MasterAddresses {get; set;}
     public List<Address__C> SlaveAddresses  {get; set;}
     public List<AddressWrapper> AddWrapList {get; set;}
-   
+    
      /** 
      * @Description : Constructor would be called to get the Master and Slave record
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)      
      */    
      public AccountMergeController(){
+           Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
+           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','CompanySoftDeleted');
+         
            if(AccountwrapperList == null) {
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName  from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
- 
                AccountwrapperList = new List<Accountwrapper>();
-               for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
-                    DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
-                    WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId]) {
-                // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
-                   AccountwrapperList.add(new Accountwrapper(a));
-               }
+               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName,(Select Name from Account_Links1__r),PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
+               AccountwrapperList.add(new Accountwrapper(Acct));               
+             
+                 for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+                      DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
+                      WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
+                    // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
+                    AccountwrapperList.add(new Accountwrapper(a));
+                 }
           } 
+          system.debug('AccountwrapperList>>>>>>>'+AccountwrapperList);
         SoqlFieldset = new set<string>();
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsCompany'));
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsPerson'));
@@ -77,13 +82,14 @@ public with sharing class AccountMergeController{
             if(AccountwrapperObj.acc.Master_Record__c== true)
             {
                 selectedMasterAccount=AccountwrapperObj.acc;
+                hasMasterAccount++;
             }
          }
-         if(hasMasterAccount>=2 || hasMasterAccount==0){
+           if(hasMasterAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,System.Label.Please_select_only_one_Master_Record));   
                 return Null;           
             } 
-            if(hasSlaveAccount>=2 || hasSlaveAccount==0){
+            if(hasSlaveAccount==0){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info,'Please select only one slave Record'));   
                 return Null; 
             }
@@ -134,27 +140,26 @@ public with sharing class AccountMergeController{
             Master_Account__c = selectedMasterAccount.Id,
             Duplicate_Account__c = selectedSlaveAccount.Id,
             Duplicate_Reason_Code__c = selectedMasterAccount.Dup_Reason__c,
-            DUPNumber__c = selectedMasterAccount.DUPNumber__c
-          );
-        // If this rejected account is the last one, just return master record
-        // detail page
-        Integer dupCount = [SELECT COUNT() FROM Account 
-                                 WHERE DUPNumber__c = :selectedMasterAccount.DUPNumber__c 
-                                 AND Master_Record__c = False];
-        SavePoint sp = Database.setSavepoint();
-       
-        try {
-            insert duplicateLog;            
-        }
-        catch (DMLException e) {
+            DUPNumber__c = selectedMasterAccount.DUPNumber__c,Status__c=System.Label.Rejected);
+        
+           // Update Master and Slave record 
+            selectedSlaveAccount.DUPNumber__c='';
+            selectedSlaveAccount.Dup_Reason__c ='';
+            selectedSlaveAccount.Master_Account_Id__c=selectedMasterAccount.Id;
+            selectedMasterAccount.DUPNumber__c='';
+            selectedMasterAccount.Master_Record__c=false;
+            
+            try {
+            insert duplicateLog; 
+            update selectedMasterAccount;
+            update selectedSlaveAccount;                      
+              }
+        Catch (DMLException e) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 
-                e.getDMLMessage(0)));
-            Database.rollback(sp);
-            return null;
+                e.getDMLMessage(0)));      
+            return null;     
         }             
-        if (dupCount == 1) {
-            return new PageReference('/' + selectedMasterAccount.Id);
-        }        
+             
         PageReference pr = new PageReference(system.Label.apex_SelectSlaveAccount+selectedMasterAccount.Id);
         pr.setRedirect(true);
         return pr;
@@ -178,20 +183,25 @@ public with sharing class AccountMergeController{
                 master.put(wrap.fieldAPI, slave.get(wrap.fieldAPI));
               }
           }
+         
         // Update Slave RecordTypeId and Owner
           if(slave.RecordType.developerName == 'PersonAccount' && master.RecordType.developerName == 'PersonAccount')
            {
-            slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 
-            UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
+            slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
             slave.OwnerId = usr.Id;       
             slave.Master_Account_Id__c = master.Id;
+            master.DUPNumber__c='';
+            master.Master_Record__c=false;
           }
             else if(slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')
             {
              slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account','CompanySoftDeleted'); 
              slave.OwnerId = usr.Id;       
-             slave.Master_Account_Id__c = master.Id;                 
+             slave.Master_Account_Id__c = master.Id; 
+             master.DUPNumber__c='';
+             master.Master_Record__c=false;                
          }
+        
         // If the merged record is the last suspected duplicate to the master record, 
         // after merge, also remove master record (checkbox) and Dup Number 
         // from the master record.
@@ -245,37 +255,7 @@ public with sharing class AccountMergeController{
             // Populate isMasterNull and isSlaveNull
             wrap.isMasterNull = (masterFieldValue == null);
             wrap.isSlaveNull = (slaveFieldValue == null);
-            
-          /*  if (masterFieldValue!=slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null) {
-                wrap.isSame = false;
-                wrap.isMasterChecked = true;
-                wrap.isSlaveChecked = true;
-                wraps.add(wrap);
-                continue;
-            }
-            else if(masterFieldValue==slaveFieldValue && masterFieldValue!=Null && slaveFieldValue!=Null){
-                wrap.isSame = false;
-                wrap.isMasterChecked = false;
-                wrap.isSlaveChecked = false;
-                wraps.add(wrap);
-                continue;
-           } 
-           else if (masterFieldValue == null &&  slaveFieldValue != null)
-            {
-               wrap.isSame = false;
-               wrap.isMasterChecked = false;
-               wrap.isSlaveChecked = false;
-               wraps.add(wrap);
-                continue;
-           }
-           else if (masterFieldValue == null &&  slaveFieldValue == null)
-            {
-               wrap.isSame = false;
-               wrap.isMasterChecked = false;
-               wrap.isSlaveChecked = false;
-               wraps.add(wrap);
-                continue;
-           } */
+         
            if ((masterFieldValue != null && masterFieldValue == slaveFieldValue) ||
                     fieldAPI == 'Master_Record__c' ) {
                 wrap.isSame = true;
