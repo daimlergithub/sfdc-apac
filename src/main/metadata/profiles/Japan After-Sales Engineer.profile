@@ -490,6 +490,14 @@
         <apexClass>DealerSearchControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>DeleteRetailCopy</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DeleteRetailCopyTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>true</enabled>
@@ -21910,7 +21918,11 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Vehicle__c</object>
         <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
+    </objectPermissions>	
+    <pageAccesses>
+        <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
