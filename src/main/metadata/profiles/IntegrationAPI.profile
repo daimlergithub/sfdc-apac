@@ -3432,22 +3432,7 @@
         <field>EP_Export_Notification__c.Usecase__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>EP_Export_Notification__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-	<tabVisibilities>
-        <tab>EP_Export_Notification__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<layoutAssignments>
-        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
-    </layoutAssignments>
+	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Company_Legal_Form_Native__c</field>
@@ -19960,6 +19945,9 @@
         <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
@@ -20684,6 +20672,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>EP_Export_Notification__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -22388,6 +22385,11 @@
         <tab>Campaign_Partner__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>EP_Export_Notification__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	
     <tabVisibilities>
         <tab>Car_Model_Attribute__c</tab>
         <visibility>DefaultOn</visibility>
