@@ -1222,6 +1222,11 @@ Modify Reason:
             <field>Created_By_EP_Transaction__c</field>
             <operation>notEqual</operation>
         </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
         <label>MBK All_temp</label>
         <language>en_US</language>
         <sharedTo>
@@ -1376,6 +1381,11 @@ Modify Reason:
     <listViews>
         <fullName>Sales_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
         <label>Sales Department</label>
         <language>en_US</language>
         <queue>Sales_Department</queue>
