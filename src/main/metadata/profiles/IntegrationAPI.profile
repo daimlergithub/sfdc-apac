@@ -491,7 +491,7 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>DeleteRetailCopy</apexClass>
+       <apexClass>DeleteRetailCopy</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -10327,6 +10327,56 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.AddInfo1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.AddInfo2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.AddInfo3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.SFDC_object_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Usecase__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21203,6 +21253,9 @@
     <layoutAssignments>
         <layout>Dealer_Offering__c-Dealer Offering Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
@@ -21935,6 +21988,15 @@
         <object>Dealer_Offering__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>EP_Export_Notification__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -22394,10 +22456,10 @@
         <object>Vehicle__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	 <pageAccesses>
-        <apexPage>ALKDeleteConformationpage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+	<pageAccesses>
+       <apexPage>ALKDeleteConformationpage</apexPage>
+       <enabled>true</enabled>
+   </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
@@ -23372,6 +23434,10 @@
     <tabVisibilities>
         <tab>Dealer_Locator__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>EP_Export_Notification__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
