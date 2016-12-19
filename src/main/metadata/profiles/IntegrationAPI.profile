@@ -9525,31 +9525,31 @@
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Duplicate_Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Duplicate_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Duplicate_Merge_Info__c.EP_Transaction_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Transaction_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
