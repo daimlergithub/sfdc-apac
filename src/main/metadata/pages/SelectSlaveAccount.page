@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="AccountMergeController" showHeader="false" sidebar="false">
+<apex:page controller="AccountMergeController" showHeader="false" sidebar="false">
     <style>
         a {
             color: #015BA7;
@@ -41,32 +41,38 @@
     <apex:sectionHeader title="{!$Label.Master_Account}" subtitle="{!master.Name}"/>
     <apex:form id="theForm">
         <apex:pageBlock title="{!$Label.Suspected_Duplicates}" id="resultBlock">
-            <apex:pageBlockButtons id="pb_btn" rendered="{!NOT(hasSuspectAccounts)}">
+            <apex:pageBlockButtons id="pb_btn">
                 <apex:actionRegion >
                      <apex:commandButton value="{!$Label.Close}" action="{!Previous}" onclick="window.close();"/>
                 </apex:actionRegion>
+                <apex:commandbutton value="{!$Label.Reject}" action="{!rejectDup}"/>                 
+                <apex:commandbutton value="{!$Label.Merge}" action="{!processSelected}"/> 
             </apex:pageBlockButtons>
             
             <apex:pageMessages />
+            <!--  rendered="{!hasSuspectAccounts}"  -->
             
-            <apex:pageblockTable value="{!Slaves}" var="slave" rendered="{!hasSuspectAccounts}" styleclass="compare_table" id="a">           
-                 <apex:column headerValue="{!$Label.Master_Record}">
-                   <apex:inputcheckbox value="{!slave.Master_Record__c}"/>                  
-                 </apex:column>             
-                 <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column">
-                    <apex:column value="{!slave[column]}" />
-                 </apex:repeat> 
+            <apex:pageblockTable value="{!AccountwrapperList}" var="accWrap" styleclass="compare_table" id="a">   
+                  <apex:column headerValue="{!$Label.Master_Record}">
+                        <apex:inputCheckbox value="{!accWrap.acc.Master_Record__c}" id="masterId"/>               
+                  </apex:column>    
+                  <apex:column headerValue="Slave Record">
+                    <apex:inputCheckbox value="{!accWrap.selected}" id="inputId" />
+                  </apex:column>       
+                  <apex:repeat value="{!$ObjectType.Account.FieldSets.SuspectAccountFields}" var="column">
+                    <apex:column value="{!accWrap.acc[column]}" />
+                  </apex:repeat> 
                <apex:column headerValue="{!$Label.My_Mercedes_ID}">
-                <apex:repeat value="{!slave.Account_Links1__r}"  var="acclinks">                       
+                <apex:repeat value="{!accWrap.acc.Account_Links1__r}"  var="acclinks">                       
                           <li> <apex:outputtext style="color:blue;" value="{!acclinks.Name}"/> </li>
                     </apex:repeat>                 
-                 </apex:column> 
-            </apex:pageblockTable>                             
-                <apex:commandbutton value="{!$Label.Reject}" action="{!rejectDup}">                
-                </apex:commandbutton>
-                <apex:commandbutton value="{!$Label.Merge}" action="{!mergeDup}"/>
-    
-        </apex:pageBlock>
- 
+                 </apex:column>
+             </apex:pageblockTable>                   
+        </apex:pageBlock>  
     </apex:form>
+     <script>
+        function changeValue(input, textid) {
+            document.getElementById(textid).value = input.value;
+        }
+    </script>
 </apex:page>
