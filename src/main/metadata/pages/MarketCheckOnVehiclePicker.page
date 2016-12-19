@@ -1,0 +1,4 @@
+<apex:page standardController="Lead__c" extensions="MarketCheckOnVehiclePickerCon">
+  <apex:include pageName="LeadVehiclePickerKR" rendered="{!usr.Market__c == 'KR'}"/>
+  <apex:include pageName="VehiclePicker" rendered="{!usr.Market__c == 'JP'}"/>
+</apex:page>

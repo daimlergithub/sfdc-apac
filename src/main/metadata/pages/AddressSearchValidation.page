@@ -38,7 +38,8 @@
                 <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
                 <apex:pageBlockSection >
                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>                        
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
+                        <!--<apex:outputLabel value="{!$Label.RecordTypeId}"/> -->
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                          <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:selectList id="selectRecType" value="{!RecordType}" size="1" onchange="CallSetRecType()" required="true" >
@@ -358,7 +359,7 @@
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
-                <apex:PageBlockTable Columns="5" value="{!objAccountDeDup}" var="cr" >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
                         <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
