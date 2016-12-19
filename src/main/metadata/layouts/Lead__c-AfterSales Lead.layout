@@ -53,6 +53,14 @@
                 <behavior>Edit</behavior>
                 <field>Next_Contact__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Possibility__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -70,6 +78,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Sub_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -102,6 +114,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Possibility_text__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -208,6 +224,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Opportunity_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Payment_Mode__c</field>
             </layoutItems>
             <layoutItems>
@@ -231,6 +251,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Payment_Condition__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Request_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
