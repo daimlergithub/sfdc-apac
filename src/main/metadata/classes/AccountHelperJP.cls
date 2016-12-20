@@ -616,7 +616,7 @@ public class AccountHelperJP
                                  gender__c, Occupation__c, Industry,Preferred_Language__c,
                                  Special_Needs_Class__c, Allow_Data_Sharing2__c, Primary_Address_Reference__r.Address_Type__c, 
                                  Primary_Address_Reference__r.Province__c, Preferred_Contact_Method__c,MD__c,
-                                 UCID__c, RecordtypeId, Name, Company_Name_Native_1__c,Foundation_Date__c,
+                                 UCID__c, RecordtypeId, Name, Company_Name_Native_1__c,Foundation_Date__c,ownerid,Commercial_Reg_No__c,
                                  Website,Vat_No__c                                                 
                                  from Account WHERE id IN : AccountIds];
         List<Account_Link__c> acckLst = new List<Account_Link__c>();                             
