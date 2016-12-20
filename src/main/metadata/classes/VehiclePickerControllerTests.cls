@@ -13,13 +13,13 @@ public without sharing class VehiclePickerControllerTests{
     
     /********************* CREATING TEST DATA : START **************************/
         UtilConstant utilConst = new UtilConstant();     
-        testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
+        testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(),UtilTestData.LEAD_RT_SALES_LEADS);
         system.debug('Leads... :' +testLead);
         
-        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB);
         system.debug('Test Vehicle1' +testVehicleMB);                                              
         
-        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), utilConst.VEHICLE_PRODUCT);
+        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.Vehicle_Relationship_Retail);
         system.debug('Test Vehicle2' +testVehicle_VehicleProduct);
         
         //Create Car Models
@@ -401,16 +401,16 @@ public without sharing class VehiclePickerControllerTests{
         VehiclePickerController vpc = new VehiclePickerController(sc);
         
         //Creating associated data for search test.
-        Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+        Account testAccount = (Account)UtilTestData.createSobject(new Account(),UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         testLead.Contact__c = testAccount.Id;
         update testLead;
         
         String Vin = '87465345982346578';
-        Vehicle__c testVIN_Vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        Vehicle__c testVIN_Vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB);
         testVIN_Vehicle.UsVIN__c = Vin;
         update testVIN_Vehicle;
         
-        Vehicle__c testVR_vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
+        Vehicle__c testVR_vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(),UtilTestData.VEHICLE_MB );
         Vehicle_Relationship__c testVR  = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
         testVR.Contact__c = testAccount.Id;
         testVR.Vehicle_ID__c = testVehicleMB.Id;
