@@ -22,6 +22,7 @@ public with sharing class AccountMergeController{
     public Account Slave  {get; set;}
     public Account Acct  {get; set;}
     public set<string> SoqlFieldset;
+    public Boolean hasSuspectAccounts{get;set;}
     public List<Address__C> MasterAddresses {get; set;}
     public List<Address__C> SlaveAddresses  {get; set;}
     public List<AddressWrapper> AddWrapList {get; set;}
@@ -34,31 +35,42 @@ public with sharing class AccountMergeController{
      public AccountMergeController(){
            Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
            Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','CompanySoftDeleted');
-         
+           hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
-               AccountwrapperList = new List<Accountwrapper>();
-               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName,(Select Name from Account_Links1__r),PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
-               AccountwrapperList.add(new Accountwrapper(Acct));               
-             
-                 for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
+               AccountwrapperList = new List<Accountwrapper>();             
+               Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName,(Select Name from Account_Links1__r),PersonMobilePhone,
+                       PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,Dup_Reason__c from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
+               if(Acct.DUPNumber__c!=Null){
+                AccountwrapperList.add(new Accountwrapper(Acct));  
+                for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,PersonMobilePhone,PersonOtherPhone,PersonHomePhone,Phone,PersonEmail,
                       DUPNumber__c,Id,(Select Name from Account_Links1__r) FROM Account
                       WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
-                 }
-          } 
-          system.debug('AccountwrapperList>>>>>>>'+AccountwrapperList);
-        SoqlFieldset = new set<string>();
-        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsCompany'));
-        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsPerson'));
-        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyCompany'));
-        SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyPerson')); 
-        try{
-        if(Apexpages.currentPage().getParameters().get('selectedSlaveAccount')!=Null && Apexpages.currentPage().getParameters().get('selectedMasterAccount')!=Null){
-           Slave = this.getQueriedAccount(Apexpages.currentPage().getParameters().get('selectedSlaveAccount')); 
-           Master =  this.getQueriedAccount(Apexpages.currentPage().getParameters().get('selectedMasterAccount'));    
+                 }  
+                 if(AccountwrapperList.size()==1){
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'You should have aleast one master and one slave record to merge the duplicates'));
+                   }  
+               } 
+             else{
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'No record found'));
+              }
             }
-        }
+            if(AccountwrapperList.size()!=2){
+                hasSuspectAccounts=true;
+               }
+            system.debug('AccountwrapperList>>>>>>>'+AccountwrapperList);
+            SoqlFieldset = new set<string>();
+            SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsCompany'));
+            SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsPerson'));
+            SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyCompany'));
+            SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeReadonlyPerson')); 
+        try{
+           if(Apexpages.currentPage().getParameters().get('selectedSlaveAccount')!=Null && Apexpages.currentPage().getParameters().get('selectedMasterAccount')!=Null){
+               Slave = this.getQueriedAccount(Apexpages.currentPage().getParameters().get('selectedSlaveAccount')); 
+               Master =  this.getQueriedAccount(Apexpages.currentPage().getParameters().get('selectedMasterAccount'));    
+            }
+         }
         Catch(Exception e){
          //hasMessage=true;
           ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master record found for duplicate merge'));
@@ -97,7 +109,7 @@ public with sharing class AccountMergeController{
                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,'Master and Slave can not have same Id'));
                return null;        
           }
-          PageReference pr = new PageReference('/apex/Accountmerge1?selectedMasterAccount='+selectedMasterAccount.Id+'&selectedSlaveAccount='+selectedSlaveAccount.Id+'&Id='+Acct.Id);
+          PageReference pr = new PageReference('/apex/Accountmerge?selectedMasterAccount='+selectedMasterAccount.Id+'&selectedSlaveAccount='+selectedSlaveAccount.Id+'&Id='+Acct.Id);
           pr.setRedirect(true);
           return pr;
       }
@@ -361,7 +373,7 @@ public with sharing class AccountMergeController{
      * @returns "SelectSlaveAccount" page with choosen master and slave record Id as  parameters.     
      */  
       public PageReference previous() {      
-        PageReference pr = new PageReference('/apex/SelectSlaveAccount1?id='+Apexpages.currentPage().getParameters().get('Id'));
+        PageReference pr = new PageReference('/apex/SelectSlaveAccount?id='+Apexpages.currentPage().getParameters().get('Id'));
         pr.setRedirect(true);
         return pr;
       }    
