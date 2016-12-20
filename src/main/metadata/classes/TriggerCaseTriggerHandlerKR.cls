@@ -25,11 +25,11 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             } 
             if (trigger.isInsert){
                caseHelperJP.calculateComplaintAmount(trigger.new);
-               caseHelperJP.sharerecord(trigger.new); 
+               //caseHelperJP.sharerecord(trigger.new); 
             }
             if (trigger.isUpdate){
                caseHelperJP.calculateComplaintAmount(trigger.new);
-               caseHelperJP.sharerecord(trigger.new);
+               //caseHelperJP.sharerecord(trigger.new);
             }
         }
         // Implementation to addedd as required in market
