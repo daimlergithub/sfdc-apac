@@ -63,6 +63,16 @@
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <alerts>
+        <fullName>Send_Mail_to_Lead_Owner</fullName>
+        <description>Send Mail to Lead Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Lead_owner_is_updated</template>
+    </alerts>
+    <alerts>
         <fullName>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</fullName>
         <description>When lead fields updated by dealer, leads owner will receive an email notification</description>
         <protected>false</protected>
@@ -597,6 +607,17 @@ Proxy_Date_Time__c
             <timeLength>24</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Lead Owner is Changed</fullName>
+        <actions>
+            <name>Send_Mail_to_Lead_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
+        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED( OwnerId )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Leads fields update</fullName>
