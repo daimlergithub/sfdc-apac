@@ -39,8 +39,16 @@
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
         <label>Custom Links</label>
-        <layoutColumns/>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <customLink>Change_Notification_Settings</customLink>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <customLink>Mass_Update_Assignment</customLink>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
