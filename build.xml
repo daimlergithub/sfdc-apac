@@ -193,13 +193,14 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="VehiclePicker"/>
 			</sf:typeset>
-			<sf:typeset name="classes">			
+			<sf:typeset name="classes">		
+			    <sf:include name="UtilTestData"/>
 			    <sf:include name="UtilConstant"/>
 				<sf:include name="VehiclePickerController"/>
 				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
 				<sf:include name="AccountMergeController"/>	
-				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtil"/>				
 			</sf:typeset>
 		</deploy>
     </target>
@@ -292,8 +293,7 @@
 			<sf:include name="UtilCampaignTaskGenerationByCase"/>
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
-			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>
+			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>					
 			<sf:include name="TriggerQCTriggerHandler"/>
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
 			<sf:include name="GenerateCatalogueCsv"/>
