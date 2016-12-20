@@ -20,6 +20,12 @@ public class TriggerAccountLinkTriggerHandlerJP
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
         }
+        if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert))
+        {
+        
+            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+            AccountLinkHelper.beforeInsertUpdateEvent(Trigger.new, oldMap);
+        }
     }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
