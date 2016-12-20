@@ -127,7 +127,7 @@ public Static Id accId {get; set;}
          }
          
          
-         list<Vehicle_Relationship__c> VehRelTwo = [SELECT Id,Vehicle_ID__c, Contact__c,Contact__r.Id FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId ];
+         list<Vehicle_Relationship__c> VehRelTwo = [SELECT Id,Vehicle_ID__c, Contact__c,Contact__r.Id FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId AND End_Date__c = null];
          for(Vehicle_Relationship__c Va: VehRelTwo  ){
                  asetId.add(va.Contact__r.Id);
             system.debug('++++++++++++++'+ asetId); 
