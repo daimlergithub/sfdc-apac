@@ -175,6 +175,7 @@
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="shareAccountRecord"/>
 			   
 			</sf:typeset>
 		</deploy>
