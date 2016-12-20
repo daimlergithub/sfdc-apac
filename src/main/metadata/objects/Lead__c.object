@@ -70891,6 +70891,54 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lead_Invoice_Amount_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Amount__c ))),ISCHANGED( Invoice_Amount__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Amount__c</errorDisplayField>
+        <errorMessage>"Invoice Amount" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finance_Product_Name_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Product_Name__c))),ISCHANGED(Finance_Product_Name__c),
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Product_Name__c</errorDisplayField>
+        <errorMessage>Finance Product name cannot be changed manually</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finance_Quotation_No_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_Number__c))),ISCHANGED(Finance_Quotation_Number__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Quotation_Number__c</errorDisplayField>
+        <errorMessage>Finance Quotation No cannot be changed manually</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Invoice_Amount_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Amount_History__c ))),ISCHANGED(  Invoice_Amount_History__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Amount_History__c</errorDisplayField>
+        <errorMessage>"Invoice Amount History" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Invoice_Number_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Number_History__c ))),ISCHANGED(  Invoice_Number_History__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Number_History__c</errorDisplayField>
+        <errorMessage>"Invoice Number History" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -71077,8 +71125,8 @@ ISNULL(Lost_Dealer_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Lost_Reason_Mandatory</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(ISPICKVAL(Dealer_Lead_Status__c,'Lost') &amp;&amp; ($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'), AND((ISPICKVAL(Dealer_Lost_Reason__c,'')),(ISPICKVAL(Lost_Situation__c,''))),null)</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
@@ -71136,21 +71184,30 @@ ISNULL(Order_Placed_Date__c)
     </validationRules>
     <validationRules>
         <fullName>Purchase_Leads_NoChange_Los</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost'))) &amp;&amp; (RecordType.DeveloperName = 'sales_Leads')&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),AND(NOT(ISBLANK(PRIORVALUE(Dealer_Lead_Status__c))),ISCHANGED(Dealer_Lead_Status__c)),null)</errorConditionFormula>
-        <errorMessage>Dealer Lead Status cannot be changed</errorMessage>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Dealer_Lead_Status__c),
+				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+RecordType.Name = 'Sales Leads',
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>Dealer Lead Status current value is "Purchased" or "Lost" AND record type is "Sales Leads", "Dealer Lead Status" cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Purchase_Leads_NoChange_Lost</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost')))&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP')&amp;&amp;(RecordType.DeveloperName='Sales_Leads'),AND(NOT(ISBLANK(PRIORVALUE(Lead_Latest_Phase__c))),ISCHANGED(Lead_Latest_Phase__c)),null)</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
+				OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
+				ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+				RecordType.Name = 'Sales Leads',
+				$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
         <errorMessage>Lead Latest Phase cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Purchased_Leads_NoChange_Lost</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(OR((ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)')),(ISPICKVAL(Dealer_Lead_Status__c,'Lost'))) &amp;&amp;  (RecordType.DeveloperName = 'Aftersales_Leads')&amp;&amp;($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),AND(NOT(ISBLANK(PRIORVALUE(AfterSales_Vehicle__c))),ISCHANGED(AfterSales_Vehicle__c)),null)</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'Aftersales_Leads',ISBLANK(AfterSales_Vehicle__c),
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP', ISCHANGED(AfterSales_Vehicle__c),OR(ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)'),ISPICKVAL(Dealer_Lead_Status__c,'Lost')))</errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
