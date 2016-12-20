@@ -150,7 +150,7 @@ public with sharing class SendToMyMercController {
                 }
                 if(accset !=null && !accset.isEmpty() )// && Notregistered ==true 
                 {
-                     Accupdate = [select id,Portal_Apply_Status__c,Email2__c,PersonBirthdate,LastName_Native_1__c  from account where Id In: accset];
+                     Accupdate = [select id,Portal_Apply_Status__c,recordtypeid,Email2__c,PersonBirthdate,LastName_Native_1__c  from account where Id In: accset];
                      AccVehupdate = [select Portal_Apply_Status__c,Portal_Apply_User__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accset];
                 }
                 if(Vehset !=null && !Vehset.isEmpty()){

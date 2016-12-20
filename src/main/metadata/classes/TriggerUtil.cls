@@ -44,7 +44,7 @@ public class TriggerUtil
             {
                 if( Test.isRunningTest())
                 {
-                 	triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
+                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
                     triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);                    
                 }
                 else
