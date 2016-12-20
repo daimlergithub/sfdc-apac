@@ -11346,6 +11346,10 @@
             <translation><!-- GLA-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLC SUC</masterLabel>
+            <translation>GLC SUC (SUクーペ)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GLC SUV</masterLabel>
             <translation><!-- GLC SUV --></translation>
         </picklistValues>
