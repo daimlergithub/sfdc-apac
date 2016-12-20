@@ -21887,6 +21887,113 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Customer Care Team View</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_Open_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Open Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Customer_Care_Team_View</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Customer_Care_Owner__c</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </filters>
+        <filters>
+            <field>Repeat_Complaint_Times__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Closed,Finished</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Customer Care Team View</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_Central_Office_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>CASES.SOURCE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Central Office Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Feedback_from_Dealer</fullName>
@@ -22109,6 +22216,37 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>Major cases handled by</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Major_cases_handled_by</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Case_Dealer__c</columns>
+        <columns>Support_Dealer_1__c</columns>
+        <columns>Support_Dealer_2__c</columns>
+        <columns>Support_Dealer_3__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Primary_Case__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Major cases handled by</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
 	<listViews>
         <fullName>R23552</fullName>
