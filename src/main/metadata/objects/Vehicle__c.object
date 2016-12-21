@@ -13334,7 +13334,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>smart 2014 new year edition</fullName> 
                 <default>false</default>
-				<values>
+			</values>
             </picklistValues>
             <picklistValues>
                 <fullName>Fleet</fullName>
