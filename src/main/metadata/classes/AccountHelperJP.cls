@@ -593,7 +593,7 @@ public class AccountHelperJP
             System.debug('Line Numer'+e.getLineNumber());
         }
     }
-    
+    }
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
     Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's    
