@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="AccountMergeController" sidebar="false" showHeader="false">
+<apex:page controller="AccountMergeController" sidebar="false" showHeader="false">
     <style>
         .rollup td {
         padding: 5px;
@@ -124,7 +124,7 @@
                                 </td>         
                             </tr>
                         </apex:repeat>
-                        <apex:repeat var="wrapouter" value="{!AddWrapList}">
+                     <!--   <apex:repeat var="wrapouter" value="{!AddWrapList}">
                             <apex:repeat var="wrap" value="{!fieldAddressAPIList}">
                                 <tr onmouseover="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" 
                                     onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}">
@@ -143,7 +143,7 @@
                                     </td>         
                                 </tr>
                             </apex:repeat>  
-                        </apex:repeat>
+                        </apex:repeat> -->
                     </tbody>
                 </table>
             </apex:outputpanel>
