@@ -30777,12 +30777,11 @@ else {
         <fullName>Create_Retail_Copy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>Create Retail Copy</masterLabel>
         <openType>replace</openType>
+        <page>Retailcopybutton</page>
         <protected>false</protected>
-        <url>/</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Vehicle</fullName>
