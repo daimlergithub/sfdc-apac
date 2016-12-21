@@ -552,11 +552,12 @@ public class AccountHelperJP
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
+		   ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
                 if(acc.Company_Name__c != NUll){
                    String Company_Legal_Form;
 
-                   if (acc.Company_Legal_form__c != NULL)
+                   if(acc.Company_Name__c != NUll&& acc.recordtypeid == RDType){
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }
