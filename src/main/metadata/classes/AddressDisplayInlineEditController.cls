@@ -380,7 +380,7 @@ public class AddressDisplayInlineEditController {
             if(addressobj.ZipCode__c != null)
             {
                 addressobj.MD__c = Market; 
-            }*/
+            }
 			 //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
