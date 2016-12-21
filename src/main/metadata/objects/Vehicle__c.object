@@ -7979,7 +7979,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10291,11 +10291,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -10373,7 +10369,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15376,11 +15372,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -15466,7 +15458,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20549,11 +20541,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -20639,7 +20627,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25731,11 +25719,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -25813,7 +25797,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
