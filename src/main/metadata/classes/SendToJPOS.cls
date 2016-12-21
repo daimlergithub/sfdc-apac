@@ -12,16 +12,17 @@ public class SendToJPOS{
     Public User  Usr{get;set;} 
     public Account DealerID { get; set; }  
     public List<Account_Link__c> listAlk{ get; set; }  
-    public static  Address__c AddreesSedntoSPO{set;get;}
+    public static  Address__c AddreesSedntoJPOS{set;get;}
     public List<Account> accc {set;get;}
     public User  CurrentUsr{set;get;}
     public User  AssignedDealer{set;get;}
+    public  Boolean ShowHideError{set;get;}
     public String AssignedDealerUserID;
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
      public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-    public SendToJPOS(ApexPages.StandardController controller) {
+    public SendToJPOS(ApexPages.StandardController controller) { 
     CurrentUsr=[SELECT Market__c,DMS_UserID__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
      addr=new Address__c();
      address=new List<Address__c>();
@@ -99,17 +100,20 @@ public class SendToJPOS{
           if(addId==null)
             {
             System.debug('Selected address records '+addId);
+            ShowHideError=True;
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select atleast one Address'));
             }
             if(DealerID.Company__c ==null)
             {
+            ShowHideError=True;
             System.debug('Selected Out dealer'+DealerID.Company__c);
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer Outlet'));
             }
            If(addId!=null)
            {
+           
            system.debug('#$#$#$#$#$#$#$# addId'+addId);
-           AddreesSedntoSPO= [select id,City__c,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
+           AddreesSedntoJPOS= [select id,City__c,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
            }
            Dealeracc=[Select id,Name from Account where id=:DealerID.Company__c];
            for(Account AccDealer:Dealeracc)
@@ -118,7 +122,7 @@ public class SendToJPOS{
            }
            system.debug('+++ Dealeracc+'+ Dealeracc);
              system.debug('+++ DealeAccId DealeAccId DealeAccId+'+ DealeAccId);
-           system.debug('@#@#@#@@#@#@#@ adreess ID'+ AddreesSedntoSPO);
+           system.debug('@#@#@#@@#@#@#@ adreess ID'+ AddreesSedntoJPOS);
           
           
            if(Acclist.Recordtypeid==accPerson_RecordTypeId)
@@ -156,6 +160,7 @@ public class SendToJPOS{
                    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
          if(Acclist.Recordtypeid==accPerson_RecordTypeId)
            {
+           ShowHideError=True;
                    if(Acclist.Gender__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Gender'));
@@ -184,6 +189,7 @@ public class SendToJPOS{
            
             if(Acclist.Recordtypeid==alkCompany_RecordTypeId)
            {
+           ShowHideError=True;
                if(Acclist.Company_Name__c==null)
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name'));
@@ -207,33 +213,34 @@ public class SendToJPOS{
            
            }
            
-           if(((Acclist.Recordtypeid==alkCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId)) && (AddreesSedntoSPO!=Null))
+           if(((Acclist.Recordtypeid==alkCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId)) && (AddreesSedntoJPOS!=Null))
             {
-                 if(AddreesSedntoSPO.Province_Native__c==null)
+            ShowHideError=True;
+                 if(AddreesSedntoJPOS.Province_Native__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Province Native Should not be null'));
                    }
-                   if(AddreesSedntoSPO.City_Native__c==null)
+                   if(AddreesSedntoJPOS.City_Native__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'City Native Should not be null'));
                    }
-                   if(AddreesSedntoSPO.District_Native__c==null)
+                   if(AddreesSedntoJPOS.District_Native__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'District Native Should not be null'));
                    }
-                   if(AddreesSedntoSPO.Province__c==null)
+                   if(AddreesSedntoJPOS.Province__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Province Should not be null'));
                    }
-                   if(AddreesSedntoSPO.City__c==null)
+                   if(AddreesSedntoJPOS.City__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'City Should not be null'));
                    }
-                   if(AddreesSedntoSPO.District__c==null)
+                   if(AddreesSedntoJPOS.District__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'District Should not be null'));
                    }    
-                   if(AddreesSedntoSPO.ZipCode__c==null)
+                   if(AddreesSedntoJPOS.ZipCode__c==null)
                    {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Zip Code Should not be null'));
                    }    
@@ -242,6 +249,7 @@ public class SendToJPOS{
             {
             if(AssignedDealer.DMS_UserID__c==null)
                    {
+                   ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'DMS UserID Should not be null'));
                    } 
             }
@@ -253,7 +261,11 @@ public class SendToJPOS{
             if(Usr.Id!=null )
             {
             System.debug('#$ NOT NULL ##$#$#$#'+Usr);
-            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoSPO.id,Usr.Id);
+            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,Usr.Id);
+            if(response!=null)
+            {
+            ShowHideError=false;
+            }
             }
             if(Usr.id==null)
             {
@@ -262,16 +274,23 @@ public class SendToJPOS{
               System.debug('#$ NOT UserIDNULL ##$#$#$#'+AssignedDealerUserID);
               System.debug('#$ NOT AccId  ##$#$#$#'+AccId);
               System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
-              if(AddreesSedntoSPO!=null  && AssignedDealer!=null)
+              if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
-           response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoSPO.id,AssignedDealer.Id);
+           response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+            if(response!=null)
+            {
+            ShowHideError=false;
+            }
             }
             }
             }
             }
            Catch(Exception e)
            {
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'error on sending to JPOS'));     
+           ShowHideError=True;
+           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
+           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Web service callout failed'));     
           
           }
          }

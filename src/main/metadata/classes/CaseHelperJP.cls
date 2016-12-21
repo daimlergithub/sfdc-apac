@@ -1,4 +1,4 @@
-public with sharing class CaseHelperJP {
+public class CaseHelperJP {
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
@@ -290,9 +290,7 @@ public with sharing class CaseHelperJP {
                c.DeadLine__c= System.Now() + 10;          
             } 
           }      
-       }
-       
-       
+       }  
 public  void updateCase (List<case> caseSta) {
 
 map<id, string> accidmap = new map<id, string>();
@@ -534,5 +532,53 @@ List<Account> accUpdLst = new List<Account>();
       update relatedacclnk;
       }     
  }
-     
+         
+    public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
+        Set<Id> primarydealerId = new Set<Id>();
+        Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
+        
+        if(lstCase != null && !lstCase.isempty()){
+            for(Case cse : lstCase){
+                primarydealerId.add(cse.Case_Dealer__c);    
+            }
+            for(User usr : [select Id, AccountId from User where isActive = true and AccountId in :primarydealerId and Contact.Dealer_Lead_Gate_Keeper__c = true]){
+                dealerIdGateKeeperIds.put(usr.AccountId, usr.Id);
+            }
+            for(Case cs : lstCase){
+                //if(cs.Status == 'Final approval done'){
+                    if(dealerIdGateKeeperIds.containsKey(cs.Case_Dealer__c)){
+                        cs.ownerid = dealerIdGateKeeperIds.get(cs.Case_Dealer__c);                        
+                    }                    
+                    
+               // }    
+            }
+        
+        }
+        
+    }
+    
+    public void sharerecord(List<case> caseIn){
+         map<id, id> accandUsrId = new map<id,id>();
+         List<AccountShare> aShareLst = new List<AccountShare>(); 
+         for(case cs: caseIn){
+             //if(cs.Case_Dealer__c != '' || cs.Case_Dealer__c != null){
+                 accandUsrId.put(cs.AccountId, cs.OwnerId);
+            // }
+         }
+         system.debug('accandUsrId '+accandUsrId);
+         List<Account> accLst = [select id, name from Account where id in:accandUsrId.keySet()];
+         
+          for(Account acc: accLst){
+                AccountShare ash = new AccountShare();
+                ash.AccountId = acc.id;
+                ash.AccountAccessLevel = 'Edit';
+                ash.UserOrGroupId = accandUsrId.get(acc.id);
+                ash.OpportunityAccessLevel = 'Read';
+                aShareLst.add(ash);
+        }
+        
+        if(aShareLst.size()>0){
+            insert aShareLst;
+        }
+    }
  }
