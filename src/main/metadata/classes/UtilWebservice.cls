@@ -1,6 +1,26 @@
 Global class UtilWebservice 
 {
 
+
+ Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        String Usecase; 
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+          
+      sendport.SARICustomerNotification(OrganizationId ,MarketDiscriminator,Usecase,RTCustomerId,DealerId,CorrelationId);
+      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% response'+response); 
+       return response;
+    }
     Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
