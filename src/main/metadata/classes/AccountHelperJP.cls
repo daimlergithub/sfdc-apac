@@ -542,7 +542,7 @@ public class AccountHelperJP
             update AccountlnkUpdate;
     }//End of Method
     
-    
+      
     /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
@@ -552,12 +552,12 @@ public class AccountHelperJP
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
-		   ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+           ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
-                if(acc.Company_Name__c != NUll){
+                if(acc.Company_Name__c != NUll&& acc.recordtypeid == RDType){
                    String Company_Legal_Form;
 
-                   if(acc.Company_Name__c != NUll&& acc.recordtypeid == RDType){
+                   if (acc.Company_Legal_form__c != NULL )
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }
@@ -592,7 +592,6 @@ public class AccountHelperJP
             System.debug('Cause'+e.getCause());
             System.debug('Line Numer'+e.getLineNumber());
         }
-    }
     }
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
