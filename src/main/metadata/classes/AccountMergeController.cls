@@ -12,6 +12,10 @@
 
 public with sharing class AccountMergeController{
     
+	public AccountMergeController() {
+
+    }
+
     public List<Accountwrapper> AccountwrapperList {get; set;}
     public List<Accountwrapper> wraps {get; set;}
     public String selectAllParam   {get; set;}
