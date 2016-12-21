@@ -452,56 +452,56 @@ public class AddressSearchValidationController{
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                         return PageRef;
 						if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
--                        {    
--                            system.debug('*$*$*$ Entered HOme Null scenario');                  
--                            objPersonAccount.Individual_Home_Phone__c = '';
--                        }
--                        else if((homePhoneAreaCodePart1 != ' ' || homePhoneAreaCodePart1 == ' ') && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
--                        {       
--                            system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
--                            objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
--                        }                    
--                        else
--                        {
--                            system.debug('*$*$*$ Entered BLANK scenario'); 
--                            objPersonAccount.Individual_Home_Phone__c = '';
--                        }
--                        if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
--                        {                      
--                            objPersonAccount.Work_Phone__c = '';
--                        }
--                        else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
--                        {                         
--                            objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
--                        }
--                        else
--                        {
--                            objPersonAccount.Work_Phone__c = '';
--                        }
--                        if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
--                        {              
--                            objPersonAccount.Mobile__c = '';
--                        }
--                        else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
--                        {              
--                            objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
--                        }
--                        else
--                        {
--                            objPersonAccount.Mobile__c = '';
--                        }  
--                        
--                        if(Validation == false){
--                            refreshPage = true;
--                            objPersonAccount.Id = null;
--                            insert objPersonAccount ;
-Add a comment to this line
--                            AddressObj.Customer__c = objPersonAccount.id;
--                            AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
--                            insert AddressObj;
--                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
--                            return PageRef;
--                        }
+                       {    
+                            system.debug('*$*$*$ Entered HOme Null scenario');                  
+                            objPersonAccount.Individual_Home_Phone__c = '';
+                        }
+                        else if((homePhoneAreaCodePart1 != ' ' || homePhoneAreaCodePart1 == ' ') && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
+                        {       
+                            system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
+                            objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                        }                    
+                        else
+                        {
+                            system.debug('*$*$*$ Entered BLANK scenario'); 
+                            objPersonAccount.Individual_Home_Phone__c = '';
+                        }
+                        if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
+                        {                      
+                            objPersonAccount.Work_Phone__c = '';
+                        }
+                        else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
+                        {                         
+                            objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                        }
+                        else
+                        {
+                            objPersonAccount.Work_Phone__c = '';
+                        }
+                        if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
+                        {              
+                            objPersonAccount.Mobile__c = '';
+                        }
+                        else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
+                        {              
+                            objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                        }
+                        else
+                        {
+                            objPersonAccount.Mobile__c = '';
+                        }  
+                        
+                        if(Validation == false){
+                            refreshPage = true;
+                            objPersonAccount.Id = null;
+                            insert objPersonAccount ;
+                            Add a comment to this line
+                            AddressObj.Customer__c = objPersonAccount.id;
+                            AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                            insert AddressObj;
+                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
+                            return PageRef;
+                        }
                     }
                 }
             }
@@ -639,8 +639,8 @@ EP/Tolerant for Validation.
             if(addressobj.ZipCode__c != null)
                         {
 						//Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
--            //if(addressobj.ZipCode__c != null)
--            //{
+            //if(addressobj.ZipCode__c != null)
+            //{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
 				 //}
