@@ -475,6 +475,10 @@
                 <behavior>Edit</behavior>
                 <field>Website</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Sanction__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sales_Sanction_Comment__c</field>
