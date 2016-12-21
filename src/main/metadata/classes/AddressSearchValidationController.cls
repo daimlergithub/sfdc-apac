@@ -23,7 +23,7 @@ public class AddressSearchValidationController{
     public List<Account> cResult{get;set;} 
     public Address__C AddressObj {get;set;}
     public boolean Address_Validated_Flag {get;set;}   
-    Public Boolean Validation;
+	Public Boolean Validation;
     
     // KOREA related parameters - Start
     public String market{get;set;}
@@ -102,12 +102,11 @@ public class AddressSearchValidationController{
 **  Created By: Narasimha 
 **  Date: 2016-1-19
 **/
-    
     public pagereference saveAccount(){    
         system.debug('enter 1 :');
         AddressObj.Address_Type__c = addresspicklist;
         //AddressObj.Province__c = provincepicklist;
-        Validation = false;
+		 Validation = false;
         // Save record without Address record if no value is Entered in Address section
         if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
@@ -289,32 +288,31 @@ public class AddressSearchValidationController{
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
-                        Validation = true;
+						Validation = true;
                     }
                     if(AddressObj.Address_Type__c == null )
-                    {   
+                    {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
-                        Validation = true;
+						 Validation = true;
                     }
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
-                        Validation = true;                      
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
+                         Validation = true;						
                     }
                     if(addressobj.ZipCode__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
-                        Validation = true;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
+                        Validation = true;						
                     }
                     if(addressobj.Address_Line_1__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.')); 
-                        Validation = true;                      
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
+                        Validation = true;						
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
-                        Validation = true;                      
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
                     }
                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
@@ -355,17 +353,16 @@ public class AddressSearchValidationController{
                     {
                         objAccount.Mobile__c = '';
                     }  
-                    if(Validation == False){
-                        refreshPage = true;
+                        if(Validation == False){
+						refreshPage = true;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
-                    }
-                }         
-                
+                    }         
+                }
                 system.debug('recordType 6:'+recordType);
                 system.debug('recordType 7:'+ System.Label.PersonAccount);
                 if(recordType == System.Label.PersonAccount)
@@ -377,32 +374,33 @@ public class AddressSearchValidationController{
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
-                        Validation = TRUE;
+						Validation = TRUE;
                     }
                     if(AddressObj.Address_Type__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
-                        Validation = TRUE;
+						Validation = TRUE;
+                       
                     } 
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
-                        Validation = TRUE;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
+                      Validation = TRUE;						
                     }
                     if(addressobj.ZipCode__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
-                        Validation = TRUE;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+						Validation = TRUE;
                     }
                     if(addressobj.Address_Line_1__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
-                        Validation = TRUE;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.')); 
+                      Validation = TRUE;						
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
-                        Validation = TRUE;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
+                     Validation = TRUE;						
                     }                   
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
@@ -453,9 +451,8 @@ public class AddressSearchValidationController{
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                         return PageRef;
-						
-                        if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
-                        {    
+						if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
+                       {    
                             system.debug('*$*$*$ Entered HOme Null scenario');                  
                             objPersonAccount.Individual_Home_Phone__c = '';
                         }
@@ -498,11 +495,12 @@ public class AddressSearchValidationController{
                             refreshPage = true;
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
+                            //Add a comment to this line
                             AddressObj.Customer__c = objPersonAccount.id;
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                             insert AddressObj;
-                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
-                            return PageRef;
+                            PageReference pageRefe = new PageReference('/'+objPersonAccount.Id);           
+                            return PageRefe;
                         }
                     }
                 }
@@ -640,12 +638,13 @@ EP/Tolerant for Validation.
             }*/
             if(addressobj.ZipCode__c != null)
                         {
-			//Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
+						//Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
-            //} 
+				 //}
+            } 
         }
         if(Market !='KR'){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))

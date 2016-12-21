@@ -200,11 +200,11 @@
 			   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
-			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="VehicleRelationshipHelper"/> 
 			   <sf:include name="CustomerMymercInterfaceController"/>
 			   <sf:include name="CustomerMymercInterfaceControllerTest"/>
 			   <sf:include name="SendToMyMercController"/>
-			   <sf:include name="SendToMyMercControllerTest"/>
+			   <sf:include name="SendToMyMercControllerTest"/> 
 			</sf:typeset>
 		</deploy>
     </target>
@@ -314,6 +314,7 @@
 			   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
 			   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
 			   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
+			   <sf:include name="LeadDealerAssignmentPage"/>
 			   <!-- Added by Naga Start-->
 			</sf:typeset>
 			<!--<sf:typeset name="layouts">
@@ -351,6 +352,7 @@
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerKR"/>
+				<sf:include name="shareAccountRecord"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
@@ -424,6 +426,8 @@
 				<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
 				<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 				<sf:include name="FS_CaseInlineController"/>
+				<sf:include name="LeadDealerAssignmentProcess"/>
+				<sf:include name="LeadDealerAssignmentProcessTest"/>
 				<!-- Added By Naga   End  -->
 			</sf:typeset>
 			<sf:typeset name="triggers">
@@ -826,8 +830,8 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>
-		<sf:typeset name="flows"/> 
+		<sf:typeset name="workflows"/> 
+		<sf:typeset name="flows"/>  
 		</deploy>					
     </target>
 	
