@@ -10,10 +10,8 @@
     2. Modified on 1-dec-2015    
 */
 
-public with sharing class AccountMergeController{ 
-	public AccountMergeController() {
-
-    }  
+public with sharing class AccountMergeController{
+    
     public List<Accountwrapper> AccountwrapperList {get; set;}
     public List<Accountwrapper> wraps {get; set;}
     public String selectAllParam   {get; set;}
