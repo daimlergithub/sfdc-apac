@@ -495,7 +495,7 @@ public class AddressSearchValidationController{
                             refreshPage = true;
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
-                            Add a comment to this line
+                            //Add a comment to this line
                             AddressObj.Customer__c = objPersonAccount.id;
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                             insert AddressObj;
