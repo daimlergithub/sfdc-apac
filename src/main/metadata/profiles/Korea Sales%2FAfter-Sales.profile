@@ -5793,9 +5793,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.ParentId</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22453,7 +22453,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.General_Task</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -22478,7 +22478,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.OB_Task</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -22498,7 +22498,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.Welcome_Call</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
