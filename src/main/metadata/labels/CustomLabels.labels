@@ -281,6 +281,13 @@
         <value>There is an error in this attached pdf.</value>
     </labels>
     <labels>
+        <fullName>Authorization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorization</shortDescription>
+        <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
         <fullName>Brand</fullName>
         <language>en_US</language>
         <protected>false</protected>
