@@ -1237,7 +1237,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>354 Paint，Light red chalcedony，Metallic paint</fullName>
+                <fullName>354 Paintï¼ŒLight red chalcedonyï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1269,19 +1269,19 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paintï¼ŒRutile-Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paintï¼ŒGermanium-limeï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paintï¼ŒTin-lead-blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paintï¼ŒSapphire blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1313,11 +1313,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paintï¼ŒGarnet Greenï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk whiteï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1329,7 +1329,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paintï¼ŒFlint Greyï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1353,7 +1353,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paintï¼ŒPearl ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1365,7 +1365,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paintï¼ŒPalladium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1373,7 +1373,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>799 Paint，Diamond White high color，Metallic paint</fullName>
+                <fullName>799 Paintï¼ŒDiamond White high colorï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1389,7 +1389,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9197 Paint，Hard rock black，Metallic paint</fullName>
+                <fullName>9197 Paintï¼ŒHard rock blackï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1413,15 +1413,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9723 Paint，Cuban silver，Metallic paint</fullName>
+                <fullName>9723 Paintï¼ŒCuban silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9775 Paint，Iridium silver，Metallic paint</fullName>
+                <fullName>9775 Paintï¼ŒIridium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium-silver</fullName>
+                <fullName>792 Paintï¼ŒPalladium-silver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1437,7 +1437,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brownï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1445,15 +1445,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light）</fullName>
+                <fullName>697 Rocky Mountain Brownï¼ˆLightï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya greyï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（color）</fullName>
+                <fullName>756 Himalaya greyï¼ˆcolorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1461,11 +1461,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light）</fullName>
+                <fullName>770 Himalaya greyï¼ˆLightï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light）</fullName>
+                <fullName>773 Di Yi flute grayï¼ˆLightï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1473,19 +1473,19 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（color）</fullName>
+                <fullName>781 Di Yi flute grayï¼ˆcolorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Greenï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（color）</fullName>
+                <fullName>886 Ireland Greenï¼ˆcolorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blueï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1497,79 +1497,79 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAB3 Metallic paint，Light blue / tridion Frame，White</fullName>
+                <fullName>EAAB3 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAN1 Metallic paint，Light blue / tridion Frame，Black</fullName>
+                <fullName>EAAN1 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAN2 Metallic paint，Light blue / tridion Frame，Silver</fullName>
+                <fullName>EAAN2 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAN3 Metallic paint，Light blue / tridion Frame，White</fullName>
+                <fullName>EAAN3 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EACB3 Paint， Deep Black/Tridion Frame，Silver</fullName>
+                <fullName>EACB3 Paintï¼Œ Deep Black/Tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAD Metallic paint，Silver</fullName>
+                <fullName>EAD Metallic paintï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADB1 Metallic paint，Silver / tridion Frame，Black</fullName>
+                <fullName>EADB1 Metallic paintï¼ŒSilver / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADB2 Metallic paint，Silver / tridion Frame，Silver</fullName>
+                <fullName>EADB2 Metallic paintï¼ŒSilver / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADB3 Metallic paint，Silver / tridion Frame，White</fullName>
+                <fullName>EADB3 Metallic paintï¼ŒSilver / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADN1 Metallic paint，Silver / tridion Frame，Black</fullName>
+                <fullName>EADN1 Metallic paintï¼ŒSilver / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADN2 Metallic paint，Silver / tridion Frame，Silver</fullName>
+                <fullName>EADN2 Metallic paintï¼ŒSilver / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EADN3 Metallic paint，Silver / tridion Frame，White</fullName>
+                <fullName>EADN3 Metallic paintï¼ŒSilver / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIB1 Matte painting， Deep Ash / tridion Frame，Black</fullName>
+                <fullName>EAIB1 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIB2 Matte painting， Deep Ash / tridion Frame，Silver</fullName>
+                <fullName>EAIB2 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIB3 Matte painting， Deep Ash / tridion Frame，White</fullName>
+                <fullName>EAIB3 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIN1 Matte painting， Deep Ash / tridion Frame，Black</fullName>
+                <fullName>EAIN1 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIN2 Matte painting， Deep Ash / tridion Frame，Silver</fullName>
+                <fullName>EAIN2 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAIN3 Matte painting， Deep Ash / tridion Frame，White</fullName>
+                <fullName>EAIN3 Matte paintingï¼Œ Deep Ash / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAK Metallic paint，Orange/Tridion Frame，Black</fullName>
+                <fullName>EAK Metallic paintï¼ŒOrange/Tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1577,183 +1577,183 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EALB1 Paint，Yellow / tridion Frame，Black</fullName>
+                <fullName>EALB1 Paintï¼ŒYellow / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EALB2 Paint，Yellow/Tridion，Silver</fullName>
+                <fullName>EALB2 Paintï¼ŒYellow/Tridionï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EALB3 Paint，White/Tridion，Silver</fullName>
+                <fullName>EALB3 Paintï¼ŒWhite/Tridionï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZ Paint，Crystal white</fullName>
+                <fullName>EAZ Paintï¼ŒCrystal white</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZB1 Paint，Crystal white / tridion Frame，Black</fullName>
+                <fullName>EAZB1 Paintï¼ŒCrystal white / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZB2 Paint，Crystal white / tridion Frame，Silver</fullName>
+                <fullName>EAZB2 Paintï¼ŒCrystal white / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZB3 Paint，Crystal white / tridion Frame，White</fullName>
+                <fullName>EAZB3 Paintï¼ŒCrystal white / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZN1 Paint，Crystal white / tridion Frame，Black</fullName>
+                <fullName>EAZN1 Paintï¼ŒCrystal white / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZN2 Paint，Crystal white / tridion Frame，Silver</fullName>
+                <fullName>EAZN2 Paintï¼ŒCrystal white / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAZN3 Paint，Crystal white / tridion Frame，White</fullName>
+                <fullName>EAZN3 Paintï¼ŒCrystal white / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EB1 Tridion Frame，Black</fullName>
+                <fullName>EB1 Tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EB2 Tridion Frame，Silver</fullName>
+                <fullName>EB2 Tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EBAN1 Metallic paint，Chocolate / tridion Frame，Black</fullName>
+                <fullName>EBAN1 Metallic paintï¼ŒChocolate / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECA Paint， Deep Black</fullName>
+                <fullName>ECA Paintï¼Œ Deep Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAB1 Paint， Deep Black / tridion Frame，Black</fullName>
+                <fullName>ECAB1 Paintï¼Œ Deep Black / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAB2 Paint， Deep Black / tridion Frame，Silver</fullName>
+                <fullName>ECAB2 Paintï¼Œ Deep Black / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAB3 Paint， Deep Black / tridion Frame，White</fullName>
+                <fullName>ECAB3 Paintï¼Œ Deep Black / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAB6 Paint， Deep Black / tridion Frame，Red</fullName>
+                <fullName>ECAB6 Paintï¼Œ Deep Black / tridion Frameï¼ŒRed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAN1 Paint， Deep Black / tridion Frame，Black</fullName>
+                <fullName>ECAN1 Paintï¼Œ Deep Black / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAN2 Paint， Deep Black / tridion Frame，Silver</fullName>
+                <fullName>ECAN2 Paintï¼Œ Deep Black / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECAN3 Paint， Deep Black / tridion Frame，White</fullName>
+                <fullName>ECAN3 Paintï¼Œ Deep Black / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECC Metallic paint，Blue</fullName>
+                <fullName>ECC Metallic paintï¼ŒBlue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECCB1 Metallic paint，Blue/Tridion Frame，Black</fullName>
+                <fullName>ECCB1 Metallic paintï¼ŒBlue/Tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECCB2 Metallic paint，Blue/Tridion Frame，Silver</fullName>
+                <fullName>ECCB2 Metallic paintï¼ŒBlue/Tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECDB1 Matte painting，Green / tridion Frame，Black</fullName>
+                <fullName>ECDB1 Matte paintingï¼ŒGreen / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECDB2 Matte painting，Green / tridion Frame，Silver</fullName>
+                <fullName>ECDB2 Matte paintingï¼ŒGreen / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECDB3 Matte painting，Green / tridion Frame，White</fullName>
+                <fullName>ECDB3 Matte paintingï¼ŒGreen / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECF Paint，Racing Red</fullName>
+                <fullName>ECF Paintï¼ŒRacing Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFB0 Paint，Racing Red/Tridion Frame，Golden</fullName>
+                <fullName>ECFB0 Paintï¼ŒRacing Red/Tridion Frameï¼ŒGolden</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFB1 Paint，Racing Red / tridion Frame，Black</fullName>
+                <fullName>ECFB1 Paintï¼ŒRacing Red / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFB2 Paint，Racing Red / tridion Frame，Silver</fullName>
+                <fullName>ECFB2 Paintï¼ŒRacing Red / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFB3 Paint，Racing Red / tridion Frame，White</fullName>
+                <fullName>ECFB3 Paintï¼ŒRacing Red / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFN1 Paint，Racing Red / tridion Frame，Black</fullName>
+                <fullName>ECFN1 Paintï¼ŒRacing Red / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFN2 Paint，Racing Red / tridion Frame，Silver</fullName>
+                <fullName>ECFN2 Paintï¼ŒRacing Red / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECFN3 Paint，Racing Red / tridion Frame，White</fullName>
+                <fullName>ECFN3 Paintï¼ŒRacing Red / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECG Metallic paint，Grey</fullName>
+                <fullName>ECG Metallic paintï¼ŒGrey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGB1 Metallic paint，Grey / tridion Frame，Black</fullName>
+                <fullName>ECGB1 Metallic paintï¼ŒGrey / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGB2 Metallic paint，Grey / tridion Frame，Silver</fullName>
+                <fullName>ECGB2 Metallic paintï¼ŒGrey / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGB3 Metallic paint，Grey / tridion Frame，White</fullName>
+                <fullName>ECGB3 Metallic paintï¼ŒGrey / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGN1 Metallic paint，Grey / tridion Frame，Black</fullName>
+                <fullName>ECGN1 Metallic paintï¼ŒGrey / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGN2 Metallic paint，Grey / tridion Frame，Silver</fullName>
+                <fullName>ECGN2 Metallic paintï¼ŒGrey / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECGN3 Metallic paint，Grey / tridion Frame，White</fullName>
+                <fullName>ECGN3 Metallic paintï¼ŒGrey / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECHB2 Metallic paint， Deep AshBlue/Tridion Frame，Silver</fullName>
+                <fullName>ECHB2 Metallic paintï¼Œ Deep AshBlue/Tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECIB3 Paint，Blue / tridion Frame，White</fullName>
+                <fullName>ECIB3 Paintï¼ŒBlue / tridion Frameï¼ŒWhite</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECJN1 Metallic paint， Orange Yellow / tridion Frame，Black</fullName>
+                <fullName>ECJN1 Metallic paintï¼Œ Orange Yellow / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1761,15 +1761,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECZG0 Personalized body / Personalized safety car-body structure，Varnished</fullName>
+                <fullName>ECZG0 Personalized body / Personalized safety car-body structureï¼ŒVarnished</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ECZM0 Personalized body / Personalized safety car-body structure，Matt</fullName>
+                <fullName>ECZM0 Personalized body / Personalized safety car-body structureï¼ŒMatt</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>996 ZirconRed，Metallic paint</fullName>
+                <fullName>996 ZirconRedï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1845,7 +1845,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>162 Paint，South China Sea Blue（Metallic paint）</fullName>
+                <fullName>162 Paintï¼ŒSouth China Sea Blueï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1853,23 +1853,23 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>183 Paint，Magnet Black ，Metallic paint</fullName>
+                <fullName>183 Paintï¼ŒMagnet Black ï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>187 Paint，Silver-Green smithsonite（Metallic paint）</fullName>
+                <fullName>187 Paintï¼ŒSilver-Green smithsoniteï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>191 Paint，Universe Black （Metallic paint）</fullName>
+                <fullName>191 Paintï¼ŒUniverse Black ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>230 Metallic paint，Electrical Stone Blue</fullName>
+                <fullName>230 Metallic paintï¼ŒElectrical Stone Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>240 Paint，Lotus Blue（Metallic paint）</fullName>
+                <fullName>240 Paintï¼ŒLotus Blueï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1881,11 +1881,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>3544 Paint，Light red chalcedony，Metallic paint</fullName>
+                <fullName>3544 Paintï¼ŒLight red chalcedonyï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>391 Paint，Horizon Blue（Metallic paint）</fullName>
+                <fullName>391 Paintï¼ŒHorizon Blueï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1897,23 +1897,23 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>478 M-Green（Metallic paint）</fullName>
+                <fullName>478 M-Greenï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>490 Paint，Meadow Brown（Metallic paint）</fullName>
+                <fullName>490 Paintï¼ŒMeadow Brownï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>497 Metallic paint，Copper Brown</fullName>
+                <fullName>497 Metallic paintï¼ŒCopper Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>526  White Cloud Stone Brown，Metallic paint</fullName>
+                <fullName>526  White Cloud Stone Brownï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>589 Paint，Jupiter Red</fullName>
+                <fullName>589 Paintï¼ŒJupiter Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1921,7 +1921,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>597 Paint，Saturn Red （Metallic paint）</fullName>
+                <fullName>597 Paintï¼ŒSaturn Red ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1929,15 +1929,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>696 Paint，Night Black</fullName>
+                <fullName>696 Paintï¼ŒNight Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>728 Paint，Mountain Veined grey （Metallic paint）</fullName>
+                <fullName>728 Paintï¼ŒMountain Veined grey ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>761 Paint，Polar silver （Metallic paint）</fullName>
+                <fullName>761 Paintï¼ŒPolar silver ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1945,11 +1945,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>787 Paint，Mountain Veined grey （Metallic paint）</fullName>
+                <fullName>787 Paintï¼ŒMountain Veined grey ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>794 Metallic paint，Pearl yellow</fullName>
+                <fullName>794 Metallic paintï¼ŒPearl yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1957,7 +1957,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>796 Lemon Brown， Metallic paint</fullName>
+                <fullName>796 Lemon Brownï¼Œ Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1965,27 +1965,27 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>893 Paint，Giant Stone Ash（Metallic paint）</fullName>
+                <fullName>893 Paintï¼ŒGiant Stone Ashï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>894 Paint，UniverseBlue（Metallic paint）</fullName>
+                <fullName>894 Paintï¼ŒUniverseBlueï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>895 Paint，Canyon M  Color （Metallic paint）</fullName>
+                <fullName>895 Paintï¼ŒCanyon M  Color ï¼ˆMetallic paintï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>967 Party Galena Silver，Metallic paint</fullName>
+                <fullName>967 Party Galena Silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>986 Sulfur-copper-arsenic Stone Ash，Metallic paint</fullName>
+                <fullName>986 Sulfur-copper-arsenic Stone Ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>988 Diamond Silver，Metallic paint</fullName>
+                <fullName>988 Diamond Silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1997,11 +1997,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAB1 Metallic paint，Light blue / tridion Frame，Black</fullName>
+                <fullName>EAAB1 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EAAB2 Metallic paint，Light blue / tridion Frame，Silver</fullName>
+                <fullName>EAAB2 Metallic paintï¼ŒLight blue / tridion Frameï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2695,7 +2695,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is "Vehicle_CurrentMileage“</description>
+Attribute in Data Dictionary object Vehicle is "Vehicle_CurrentMileageâ€œ</description>
         <externalId>false</externalId>
         <label>CurrentMileage</label>
         <precision>18</precision>
@@ -2744,7 +2744,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_Description“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Descriptionâ€œ</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>100</length>
@@ -2766,7 +2766,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_EngineNumber“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_EngineNumberâ€œ</description>
         <externalId>false</externalId>
         <label>Engine No.</label>
         <length>20</length>
@@ -2788,7 +2788,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is”Vehicle_EuroVIN“</description>
+Attribute in Data Dictionary object Vehicle isâ€Vehicle_EuroVINâ€œ</description>
         <externalId>true</externalId>
         <label>EuroVIN</label>
         <length>18</length>
@@ -2810,7 +2810,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_FinanceExpiryDate“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_FinanceExpiryDateâ€œ</description>
         <externalId>false</externalId>
         <label>FinanceExpiryDate</label>
         <required>false</required>
@@ -2858,7 +2858,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_FirstRegistrationDateâ€œ</description>
         <externalId>false</externalId>
         <label>FirstRegistrationDate</label>
         <required>false</required>
@@ -3218,7 +3218,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is” LastServiceDate“</description>
+Attribute in Data Dictionary object Vehicle isâ€ LastServiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>LastServiceDate</label>
         <required>false</required>
@@ -3240,7 +3240,7 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is ”Vehicle_LatestSalesContractDate“</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesContractDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Contract Date</label>
         <required>false</required>
@@ -3250,7 +3250,7 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
     </fields>
     <fields>
         <fullName>Latest_Handover_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is ”Vehicle_LatestSalesDeliveryDate“</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesDeliveryDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Handover Date</label>
         <required>false</required>
@@ -3260,7 +3260,7 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
     </fields>
     <fields>
         <fullName>Latest_Invoice_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is ”Vehicle_LatestSalesInvoiceDate“</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesInvoiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Invoice Date</label>
         <required>false</required>
@@ -3270,7 +3270,7 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
     </fields>
     <fields>
         <fullName>Latest_Sales_Person__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is ”Vehicle_LatestSalesPerson“</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesPersonâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Sales Person</label>
         <length>18</length>
@@ -3338,7 +3338,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_ModelYearâ€œ</description>
         <externalId>false</externalId>
         <label>Year Of Manufacture</label>
         <picklist>
@@ -5617,7 +5617,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_NextMileage“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_NextMileageâ€œ</description>
         <externalId>false</externalId>
         <label>NextMileage</label>
         <precision>18</precision>
@@ -5640,7 +5640,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”NextServiceDate“</description>
+Attribute in Data Dictionary object Vehicle is â€NextServiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>NextServiceDate</label>
         <required>false</required>
@@ -5660,7 +5660,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_OptionCode“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_OptionCodeâ€œ</description>
         <externalId>false</externalId>
         <label>OptionCode</label>
         <length>255</length>
@@ -5716,7 +5716,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_ProductionDate“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_ProductionDateâ€œ</description>
         <externalId>false</externalId>
         <label>ProductionDate</label>
         <required>false</required>
@@ -5784,7 +5784,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Recallâ€œ</description>
         <externalId>false</externalId>
         <label>Recall</label>
         <trackHistory>false</trackHistory>
@@ -5899,7 +5899,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_SalesType“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_SalesTypeâ€œ</description>
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
@@ -6096,7 +6096,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is”Vehicle_Transmission“</description>
+Attribute in Data Dictionary object Vehicle isâ€Vehicle_Transmissionâ€œ</description>
         <externalId>false</externalId>
         <label>Transmission</label>
         <picklist>
@@ -6163,7 +6163,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Trimâ€œ</description>
         <externalId>false</externalId>
         <label>Trim</label>
         <picklist>
@@ -6192,55 +6192,55 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Interior trim， Elegant Red</fullName>
+                <fullName>Designo Interior trimï¼Œ Elegant Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Interior trim，Chestnut Color</fullName>
+                <fullName>Designo Interior trimï¼ŒChestnut Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Mauritius Blue</fullName>
+                <fullName>DesignoInterior trimï¼Œ Mauritius Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Sha Grey</fullName>
+                <fullName>DesignoInterior trimï¼Œ Sha Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Shallow Brown</fullName>
+                <fullName>DesignoInterior trimï¼Œ Shallow Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Carbon Grey</fullName>
+                <fullName>DesignoInterior trimï¼Œ Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Stone Dark green</fullName>
+                <fullName>DesignoInterior trimï¼Œ Stone Dark green</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Mystery  Red</fullName>
+                <fullName>DesignoInterior trimï¼Œ Mystery  Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Mystery Blue</fullName>
+                <fullName>DesignoInterior trimï¼Œ Mystery Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Natural  Color</fullName>
+                <fullName>DesignoInterior trimï¼Œ Natural  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim，Silver</fullName>
+                <fullName>DesignoInterior trimï¼ŒSilver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Interior trim，Black</fullName>
+                <fullName>Designo Interior trimï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Wood trim ， Carbon Grey</fullName>
+                <fullName>Designo Wood trim ï¼Œ Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6248,7 +6248,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Nappa leather ，Black and White， With special Black</fullName>
+                <fullName>Designo Nappa leather ï¼ŒBlack and Whiteï¼Œ With special Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6260,11 +6260,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Style  Steering wheel  and  Shift lever ， Carbon Grey</fullName>
+                <fullName>Designo Style  Steering wheel  and  Shift lever ï¼Œ Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Style  Steering wheel  and  Shift lever ， Natural  Color</fullName>
+                <fullName>Designo Style  Steering wheel  and  Shift lever ï¼Œ Natural  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6516,123 +6516,123 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Pebble m</fullName>
+                <fullName>Leather ï¼ŒPebble m</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Egg Stone  Yellow</fullName>
+                <fullName>Leather ï¼ŒEgg Stone  Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Sahara M  Yellow /Black</fullName>
+                <fullName>Leather ï¼ŒSahara M  Yellow /Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Xuan Wu Ash/ Deep Grey</fullName>
+                <fullName>Leather ï¼ŒXuan Wu Ash/ Deep Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Xuan Wu Ash/Black</fullName>
+                <fullName>Leather ï¼ŒXuan Wu Ash/Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Alpaca grey</fullName>
+                <fullName>Leather ï¼ŒAlpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather ，Black</fullName>
+                <fullName>Leather ï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，TwinEgg Stone  Color</fullName>
+                <fullName>Leatherï¼ŒTwinEgg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，TwinAlpaca grey</fullName>
+                <fullName>Leatherï¼ŒTwinAlpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Twin grandeur Blue</fullName>
+                <fullName>Leatherï¼ŒTwin grandeur Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Twin Black</fullName>
+                <fullName>Leatherï¼ŒTwin Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Egg Stone  Color</fullName>
+                <fullName>Leatherï¼ŒEgg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Egg Stone  Yellow</fullName>
+                <fullName>Leatherï¼ŒEgg Stone  Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Sierra Ash</fullName>
+                <fullName>Leatherï¼Œ Sierra Ash</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Pacific Blue</fullName>
+                <fullName>Leatherï¼Œ Pacific Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，UniverseBlue</fullName>
+                <fullName>Leatherï¼ŒUniverseBlue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Bao Stone Gold</fullName>
+                <fullName>Leatherï¼ŒBao Stone Gold</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Delta Blue</fullName>
+                <fullName>Leatherï¼ŒDelta Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Berry Red</fullName>
+                <fullName>Leatherï¼ŒBerry Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Flame Red</fullName>
+                <fullName>Leatherï¼ŒFlame Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，AshRed</fullName>
+                <fullName>Leatherï¼ŒAshRed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Carbon Ash</fullName>
+                <fullName>Leatherï¼Œ Carbon Ash</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Tropical Prairie  Yellow /Cashmere yellow</fullName>
+                <fullName>Leatherï¼Œ Tropical Prairie  Yellow /Cashmere yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Graphite colour</fullName>
+                <fullName>Leatherï¼Œ Graphite colour</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Nappa leather ，Bao Stone Gold</fullName>
+                <fullName>Leatherï¼Œ Nappa leather ï¼ŒBao Stone Gold</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Nappa leather ，AshRed</fullName>
+                <fullName>Leatherï¼Œ Nappa leather ï¼ŒAshRed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Nappa leather ，Black</fullName>
+                <fullName>Leatherï¼Œ Nappa leather ï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Alpaca grey</fullName>
+                <fullName>Leatherï¼ŒAlpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， grandeur Blue</fullName>
+                <fullName>Leatherï¼Œ grandeur Blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Black</fullName>
+                <fullName>Leatherï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6720,19 +6720,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Design，Grey</fullName>
+                <fullName>Designï¼ŒGrey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Design，Beige</fullName>
+                <fullName>Designï¼ŒBeige</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Design，Red</fullName>
+                <fullName>Designï¼ŒRed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Design，Black</fullName>
+                <fullName>Designï¼ŒBlack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6740,19 +6740,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Egg Stone  Color</fullName>
+                <fullName>Senior Nappa leather ï¼ŒEgg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ， Carbon Grey</fullName>
+                <fullName>Senior Nappa leather ï¼Œ Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Java Yellow</fullName>
+                <fullName>Senior Nappa leather ï¼ŒJava Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Alpaca grey</fullName>
+                <fullName>Senior Nappa leather ï¼ŒAlpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6808,7 +6808,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Black， ARTICO Skin</fullName>
+                <fullName>Blackï¼Œ ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -6843,7 +6843,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_UsVIN“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_UsVINâ€œ</description>
         <externalId>true</externalId>
         <label>UsVIN</label>
         <length>17</length>
@@ -6865,7 +6865,7 @@ Modify History
 Modify By: Mouse Liu
 Modify Reason: Just change the field type to Picklist with LOV 'Unknown Yes No'
 */
-Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Validâ€œ</description>
         <externalId>false</externalId>
         <label>Validity</label>
         <picklist>
@@ -7979,7 +7979,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10291,11 +10291,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -10373,7 +10369,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15376,11 +15372,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -15466,7 +15458,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20549,11 +20541,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -20639,7 +20627,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25731,11 +25719,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>162 Paint%EF%BC%8CSouth China Sea Blue%EF%BC%88Metallic paint%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
+            </values> 
             <values>
                 <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
@@ -25813,7 +25797,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8CLight red chalcedony%EF%BC%8CMetallic paint</fullName>
+                <fullName> </fullName>
                 <default>false</default>
             </values>
             <values>

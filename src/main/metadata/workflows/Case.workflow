@@ -13,7 +13,7 @@
             <type>portalRole</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Case_Deadline_Notification</template>
+        <template>MBK_Email_Templates/X24_hours_before_deadline</template>
     </alerts>
     <alerts>
         <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</fullName>
@@ -158,6 +158,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Retail_Campaign_Inquiry_Assignment_To_Dealer_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_Case_Owner</fullName>
+        <description>Send Email To Case Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Case_owner_is_updated</template>
     </alerts>
     <alerts>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
@@ -1267,6 +1277,17 @@
             <timeLength>240</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Owner Changed</fullName>
+        <actions>
+            <name>Send_Email_To_Case_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Case Owner changed, email need to send to case owner.</description>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Case handling level Assignment Notification to Dealer</fullName>
