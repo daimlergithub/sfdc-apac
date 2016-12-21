@@ -499,8 +499,8 @@ public class AddressSearchValidationController{
                             AddressObj.Customer__c = objPersonAccount.id;
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                             insert AddressObj;
-                            PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
-                            return PageRef;
+                            PageReference pageRefe = new PageReference('/'+objPersonAccount.Id);           
+                            return PageRefe;
                         }
                     }
                 }
