@@ -71306,6 +71306,36 @@ else{
 	window.location.href='/'+leadCopy;
 }</url>
     </webLinks>
+	    <webLinks>
+        <fullName>Convert</fullName>
+        <availability>online</availability>
+        <description>Change sales lead to after sales lead and vice versa.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/13.0/connection.js")}
+
+var leadObj = new sforce.SObject("Lead__c");
+leadObj.Id = '{!Lead__c.Id}';
+if(leadObj.RecordTypeId='012280000006I7s')
+{
+leadObj.RecordTypeId = '012280000006I7q';
+}
+else if(leadObj.RecordTypeId='012280000006I7q')
+{
+leadObj.RecordTypeId = '012280000006I7s';
+}
+
+var result = sforce.connection.update([leadObj]);
+
+if (result[0].success =='false') {
+alert (result[0].errors.message);
+} else {
+location.reload(true);
+}</url>
+    </webLinks>
 	<webLinks>
         <fullName>Assign_to_Leads</fullName>
         <availability>online</availability>
