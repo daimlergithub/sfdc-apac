@@ -24,7 +24,7 @@ public class ContactTableController
     public String mobilePhoneAreaCodePart2{get;set;}
     public String mobilePhoneAreaCodePart3{get;set;}
     public AreaCodeTranslation__mdt areacodeKR ;
-  
+    Public Boolean profilename{get;set;}
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
   *@Description : Constructor.
@@ -45,6 +45,11 @@ public class ContactTableController
              
             } 
         ParAcc = (Account)stdController.getRecord(); 
+        profilename = FALSE;
+        String usrProfileName = [select u.Profile.Name from User u where u.id = :Userinfo.getUserId()].Profile.Name;
+        if(usrProfileName.contains('Dealer')){
+            profilename = TRUE;
+        }
      }
      
     
