@@ -19,6 +19,7 @@ public class AddressDisplayInlineEditController {
     public String market{get;set;}
     public String provincepicklist{get;set;}
     Public Boolean Validation;
+    Public Boolean profilename{get;set;}
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -31,11 +32,16 @@ public class AddressDisplayInlineEditController {
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        User u = [SELECT Id,Market__c,Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
         openPanal = true;
         if(market == 'KR'){
             openPanal = true;
+        }
+        profilename = FALSE;
+        
+        if(u.Profile.Name.contains('Dealer')){
+            profilename = TRUE;
         }
     } 
     public List<SelectOption> getAddressOptions() {
@@ -349,7 +355,7 @@ public class AddressDisplayInlineEditController {
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }*/
-			 //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
+             //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
                 addressobj.MD__c = Market;
