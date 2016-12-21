@@ -375,7 +375,7 @@ global with sharing class LeadVehiclePickerKRController {
             else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                 lead.Purchased_Vehicle__c = null;
             }
-            update lead;
+          //  update lead;
         }
     }
     
@@ -571,4 +571,6 @@ global with sharing class LeadVehiclePickerKRController {
     public class BrandClasses{
         public Map<String, String> name {get;set;}
     }
+    
+    
 }

@@ -9,7 +9,7 @@ global with sharing class VehiclePickerForCaseController {
     
     Map<String, Set<String>> brandClassMap {get;set;}
     Map<String, Set<String>> classModelMap {get;set;}
-    
+    Public boolean disableButtons{get;set;}
     public List<Vehicle_Relationship__c> caseVehicleRelationships;
 
     /**
@@ -21,7 +21,11 @@ global with sharing class VehiclePickerForCaseController {
     *@see: VehiclePickerController
     */
     public VehiclePickerForCaseController(ApexPages.StandardController controller) {
-                
+        profile p = [select Name from profile where id =:userinfo.getprofileId()];
+        disableButtons = true;
+        if(p.Name.contains('Dealer')){
+            disableButtons = false;
+        }        
         currentRecordId  = controller.getId();
         System.debug('cse Vehicles Types...' +case_Vehicles);
         Set<Id> case_VehicleIds;

@@ -1,4 +1,5 @@
 /**
+
 ** Controller class for the Vehicle Picker Page.
 ** 1. Provides the Brand, Class and Model values for the Vehicle Picker from Car Models.
 ** 2. Handles execution all the Vehicle Picker Operation like New, Edit and Clear.
@@ -23,17 +24,17 @@ global with sharing class VehiclePickerController {
     
     public List<Vehicle_Relationship__c> leadVehicleRelationships;
     
-	public static user usr{
-		get
-		{
-			if (usr == null)
-			{
-				usr = [select id,Market__c from User where id=:userinfo.getuserId()];
-			}
-			return usr;
-		}
-		private set;
-	}
+    public static user usr{
+        get
+        {
+            if (usr == null)
+            {
+                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
+            }
+            return usr;
+        }
+        private set;
+    }
 
     /**
     *@Description : This method fetches all the vehicles that are associated with the Lead to pre-populate the values.
