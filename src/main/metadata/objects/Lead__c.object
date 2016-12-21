@@ -71261,20 +71261,19 @@ else{
         <fullName>Assign_to_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Assign to Leads</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var prName = "{!$Profile.Name}"; 
+if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
+var myWindow = window.open("/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+} 
+else{ 
+alert("{!$Label.Authorization}"); 
+}</url>
     </webLinks>
 	<webLinks>
         <fullName>New_Task</fullName>
@@ -71556,3 +71555,13 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+
+
+
+
+
+     
+
+
+
+          
