@@ -19,33 +19,37 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
         private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','CustomerId','DealerId'};
     }
-    public class SARILeadNotificationRequestMessageType {
-        public String Organization;
-        public String MarketDiscriminator;
-        public String Usecase;
-        public String LeadId;
-        public String DealerId;
-        private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
-        private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
-        private String[] Usecase_type_info = new String[]{'Usecase','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
-        private String[] LeadId_type_info = new String[]{'LeadId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
-        private String[] DealerId_type_info = new String[]{'DealerId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
-        private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','Usecase','LeadId','DealerId'};
-    }
     public class SARICustomerNotificationRequestMessageType {
         public String Organization;
         public String MarketDiscriminator;
         public String Usecase;
         public String RTCustomerId;
         public String DealerId;
+        public String CorrelationId;
         private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] Usecase_type_info = new String[]{'Usecase','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] RTCustomerId_type_info = new String[]{'RTCustomerId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] DealerId_type_info = new String[]{'DealerId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] CorrelationId_type_info = new String[]{'CorrelationId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','Usecase','RTCustomerId','DealerId'};
+        private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','Usecase','RTCustomerId','DealerId','CorrelationId'};
+    }
+    public class SARILeadNotificationRequestMessageType {
+        public String Organization;
+        public String MarketDiscriminator;
+        public String Usecase;
+        public String LeadId;
+        public String DealerId;
+        public String CorrelationId;
+        private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] Usecase_type_info = new String[]{'Usecase','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] LeadId_type_info = new String[]{'LeadId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] DealerId_type_info = new String[]{'DealerId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] CorrelationId_type_info = new String[]{'CorrelationId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
+        private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','Usecase','LeadId','DealerId','CorrelationId'};
     }
     public class SFDCNotificationFaultType {
         public String TransactionId;
@@ -82,13 +86,14 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
         public String clientCertPasswd_x;
         public Integer timeout_x;
         private String[] ns_map_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0', 'crmasiaDaimlerApacComSfdcnotificatio'};
-        public String SARILeadNotification(String Organization,String MarketDiscriminator,String Usecase,String LeadId,String DealerId) {
+        public String SARILeadNotification(String Organization,String MarketDiscriminator,String Usecase,String LeadId,String DealerId,String CorrelationId) {
             crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType request_x = new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType();
             request_x.Organization = Organization;
             request_x.MarketDiscriminator = MarketDiscriminator;
             request_x.Usecase = Usecase;
             request_x.LeadId = LeadId;
             request_x.DealerId = DealerId;
+            request_x.CorrelationId = CorrelationId;
             crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
             Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
             response_map_x.put('response_x', response_x);
@@ -107,13 +112,14 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
             response_x = response_map_x.get('response_x');
             return response_x.TransactionId;
         }
-        public String SARICustomerNotification(String Organization,String MarketDiscriminator,String Usecase,String RTCustomerId,String DealerId) {
+        public String SARICustomerNotification(String Organization,String MarketDiscriminator,String Usecase,String RTCustomerId,String DealerId,String CorrelationId) {
             crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType request_x = new crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType();
             request_x.Organization = Organization;
             request_x.MarketDiscriminator = MarketDiscriminator;
             request_x.Usecase = Usecase;
             request_x.RTCustomerId = RTCustomerId;
             request_x.DealerId = DealerId;
+            request_x.CorrelationId = CorrelationId;
             crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
             Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
             response_map_x.put('response_x', response_x);
@@ -166,8 +172,6 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
             crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
             Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
             response_map_x.put('response_x', response_x);
-            
-            System.debug(request_x+'^&^&^^&^&'+response_x+response_map_x+endpoint_x);
             WebServiceCallout.invoke(
               this,
               request_x,

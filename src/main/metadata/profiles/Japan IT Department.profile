@@ -445,6 +445,10 @@
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>crmasiaDaimlerApacComSfdcnotificatio</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
@@ -1776,9 +1780,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Company__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12188,11 +12192,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Preferred_Drop_off_Time__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Preferred_Dropoff_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

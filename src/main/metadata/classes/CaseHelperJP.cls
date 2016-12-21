@@ -1,4 +1,4 @@
-public with sharing class CaseHelperJP {
+public class CaseHelperJP {
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
@@ -290,9 +290,7 @@ public with sharing class CaseHelperJP {
                c.DeadLine__c= System.Now() + 10;          
             } 
           }      
-       }
-       
-       
+       }  
 public  void updateCase (List<case> caseSta) {
 
 map<id, string> accidmap = new map<id, string>();
@@ -534,5 +532,19 @@ List<Account> accUpdLst = new List<Account>();
       update relatedacclnk;
       }     
  }
-     
+         
+    public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
+       List<Id> caseIds = new List<Id>();
+       for(case cs: lstCase){
+           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true){
+               caseIds.add(cs.id);
+                
+            }
+       }        
+       
+       if(caseIds.size()>0){
+           
+           shareAccountRecord.shareAccountRecordNow(caseIds);
+       }
+    }
  }

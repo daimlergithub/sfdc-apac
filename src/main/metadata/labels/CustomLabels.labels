@@ -281,6 +281,13 @@
         <value>There is an error in this attached pdf.</value>
     </labels>
     <labels>
+        <fullName>Authorization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorization</shortDescription>
+        <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
         <fullName>Brand</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3084,6 +3091,14 @@
         <protected>false</protected>
         <shortDescription>RecipientofthisFAX</shortDescription>
         <value>If you are not the recipient of this FAX</value>
+    </labels>
+    <labels>
+        <fullName>RecordTypeId</fullName>
+        <categories>Address Search</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RecordTypeId</shortDescription>
+        <value>RecordTypeId</value>
     </labels>
     <labels>
         <fullName>Registration</fullName>
