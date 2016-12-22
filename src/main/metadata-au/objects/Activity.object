@@ -45,7 +45,7 @@
     <fields>
         <fullName>Activity_CommChannel__c</fullName>
         <externalId>false</externalId>
-        <label>Activity CommChannel</label>
+        <label>Communication Channel</label>
         <picklist>
             <picklistValues>
                 <fullName>0=inbound call</fullName>
@@ -1527,7 +1527,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     <fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
-        <label>Subject Other</label>
+        <label>Wholesale</label>
         <length>100</length>
         <required>false</required>
         <type>Text</type>

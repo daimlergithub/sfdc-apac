@@ -8979,7 +8979,7 @@ Modify By:
 Modify Reason: 
 */</description>
         <externalId>false</externalId>
-        <label>Courtesy car required by customer</label>
+        <label>Loan car required by customer</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -9652,7 +9652,7 @@ Modify By:
 Modify Reason: 
 */</description>
         <externalId>false</externalId>
-        <label>Courtesy car provided by dealer</label>
+        <label>Loan car provided by dealer</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
