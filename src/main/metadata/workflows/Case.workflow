@@ -228,6 +228,15 @@
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Approval_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Approval Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>ChangeStatus</fullName>
         <field>Status</field>
         <literalValue>Waiting for final approval</literalValue>
@@ -609,6 +618,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Rejection_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Rejection Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>0</literalValue>
@@ -641,6 +659,16 @@
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
         <name>Status Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Update</fullName>
+        <field>Status</field>
+        <literalValue>Requires Manager Review</literalValue>
+        <name>Status Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
