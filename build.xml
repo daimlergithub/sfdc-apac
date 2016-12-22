@@ -684,6 +684,8 @@
 		<sf:typeset name="classes">
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
+			<sf:include name="usernotificationsetting"/>
+			<sf:include name="testusernotification"/>
 			<sf:include name="UtilAccount"/>
 			<sf:include name="UtilAccountTest"/>
 			<sf:include name="TriggerAccountTest"/>
@@ -706,6 +708,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="VehicleRelLooking"/>
+				<sf:include name="usernotificationsetting"/>
 		</sf:typeset>
 		</deploy>					
     </target>
