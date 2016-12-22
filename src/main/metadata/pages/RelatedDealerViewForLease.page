@@ -1,0 +1,16 @@
+<apex:page standardController="Retail_Task__c" extensions="RelatedDealerLease"  showHeader="false" sidebar="false">
+    <apex:form >
+   <apex:pageBlock >
+         
+         <apex:repeat value="{!rettsk}" var="a" >
+             <apex:pageblockSection >
+             <apex:outputText value="{!a.Contractor_Name__c}"/>
+             <apex:outputText value="{!a.Contractor_Name_Native__c}"/>            
+             <apex:outputText value="{!a.Contractor_ZipCode1__c}"/>            
+             <apex:outputText value="{!a.Latest_Sales_Person__c}"/> 
+             </apex:pageblockSection> 
+            </apex:repeat> 
+        </apex:pageBlock>
+        </apex:form>
+
+        </apex:page>

@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Vehicle</customButtons>
-    <customButtons>New_Leads</customButtons>
-    <customButtons>Mergeexample</customButtons>
-    <customButtons>View_Hierarchy</customButtons>
-    <customButtons>Send_to_JPOS</customButtons>
-    <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Send_to_SPO</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
