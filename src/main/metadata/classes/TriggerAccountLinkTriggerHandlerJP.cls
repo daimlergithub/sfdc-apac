@@ -19,6 +19,7 @@ public class TriggerAccountLinkTriggerHandlerJP
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
+            AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
         }
         if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert))
         {
