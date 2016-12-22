@@ -157,6 +157,7 @@
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
 			   <sf:include name="RetailTask_inline_service_amount"/>
+			   <sf:include name="RelatedDealerViewForLease"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
 			   <sf:include name="RetailCopyOnlyRelatedList"/>
 			   </sf:typeset>				
@@ -202,7 +203,9 @@
 			   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
 			   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
 			   <sf:include name="RetailtaskInlineEditController"/>
-			   <sf:include name="RetailtaskInlineEditController_Test"/>			   
+			   <sf:include name="RetailtaskInlineEditController_Test"/>
+			    <sf:include name="RelatedDealerLease"/>
+			   <sf:include name="TestRelatedDealerLease"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			   <sf:include name="VehicleRelationshipHelper"/> 
