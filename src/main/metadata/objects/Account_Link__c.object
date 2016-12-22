@@ -1166,17 +1166,66 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Retail_OptOutContact_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Retail Denied Activities</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Campaign (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
@@ -1881,13 +1930,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -2068,13 +2110,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -2223,13 +2258,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -2374,13 +2402,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>X</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2592,13 +2613,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -2806,13 +2820,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -2957,13 +2964,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>X</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_OptOutContact_Reason__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
