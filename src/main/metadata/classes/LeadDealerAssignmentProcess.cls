@@ -23,7 +23,7 @@ public class LeadDealerAssignmentProcess{
        if(leadslist.RecordType.DeveloperName == 'Sales_Leads') {
       
         UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c LIMIT 2];// AND Profile.Name ='Japan Dealer Sales Representative'];// ];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND Profile.Name ='Japan Dealer Sales Representative'];
               try
         {
            Account_Link__c accLink = [select id, Name, Sales_Representative__c,toRole__c from Account_Link__c WHERE toRole__c =: leadslist.Assigned_Dealer__c  LIMIT 1];
@@ -38,7 +38,7 @@ public class LeadDealerAssignmentProcess{
         }
         else if(leadslist.RecordType.DeveloperName == 'Aftersales_Leads'){
             UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c LIMIT 2]; //AND Profile.Name ='Japan Dealer Service Advisor'];// ];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND Profile.Name ='Japan Dealer Service Advisor'];
             if (leadslist.Service_Advisor__c != null ){
                 userid1 = leadslist.Service_Advisor__c ;
             }
