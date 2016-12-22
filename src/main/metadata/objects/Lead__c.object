@@ -71332,13 +71332,13 @@ else{
 
 var leadObj = new sforce.SObject("Lead__c");
 leadObj.Id = '{!Lead__c.Id}';
-if(leadObj.RecordTypeId='012280000006I7s')
+if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
 {
-leadObj.RecordTypeId = '012280000006I7q';
+leadObj.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID';
 }
-else if(leadObj.RecordTypeId='012280000006I7q')
+else if(leadObj.RecordTypeId='OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID')
 {
-leadObj.RecordTypeId = '012280000006I7s';
+leadObj.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID';
 }
 
 var result = sforce.connection.update([leadObj]);

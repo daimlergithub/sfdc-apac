@@ -13723,74 +13723,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All Customer Accounts</label>
         <language>en_US</language>
         <sharedTo>
-            <role>central</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_dealers_MBK</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Dealer_ND_Code__c</columns>
-        <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_Lead_System__c</columns>
-        <columns>Dealer_DMS_CRM_Code__c</columns>
-        <columns>Dealer_DMS_SR_Code__c</columns>
-        <columns>Dealer_DMS_AS_Code__c</columns>
-        <columns>Dealer_Region__c</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>Dealer_City_EN__c</columns>
-        <columns>Dealer_Active__c</columns>
-        <columns>ACCOUNT.LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>All dealers</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_All_Customer_Accounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>ZipCode__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CREATEDBY_USER.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>Primary_Address__c</columns>
-        <columns>Primary_Address_Validity__c</columns>
-        <columns>Customer_Number__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.PersonAccount</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>MBK All Customer Accounts</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -13853,6 +13786,44 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>All_dealers_MBK</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Dealer_ND_Code__c</columns>
+        <columns>Dealer_Default_Flag__c</columns>
+        <columns>Dealer_Lead_System__c</columns>
+        <columns>Dealer_DMS_CRM_Code__c</columns>
+        <columns>Dealer_DMS_SR_Code__c</columns>
+        <columns>Dealer_DMS_AS_Code__c</columns>
+        <columns>Dealer_Region__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>Dealer_City_EN__c</columns>
+        <columns>Dealer_Active__c</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Dealer</value>
+        </filters>
+        <filters>
+            <field>Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All dealers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBDA_DM</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.PHONE1</columns>
@@ -13868,6 +13839,35 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_Customer_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>Primary_Address__c</columns>
+        <columns>Primary_Address_Validity__c</columns>
+        <columns>Customer_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.PersonAccount</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Customer Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -31082,6 +31082,17 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>New_MBFS_Case</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New MBFS Case</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_Survey</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -31169,15 +31180,15 @@ else {
     window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
-        <displayType>button</displayType> 
+        <displayType>button</displayType>
         <linkType>page</linkType>
         <masterLabel>SendtoJPOS</masterLabel>
         <openType>replace</openType>
-		<page>SendToJPOS</page>
-        <protected>false</protected> 
+        <page>SendToJPOS</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
@@ -31307,8 +31318,3 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
-
-
-  
-
-      
