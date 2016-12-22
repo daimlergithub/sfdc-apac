@@ -156,6 +156,7 @@
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="RetailTask_inline_service_amount"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -198,6 +199,8 @@
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 			   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
 			   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
+			   <sf:include name="RetailtaskInlineEditController"/>
+			   <sf:include name="RetailtaskInlineEditController_Test"/>			   
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			   <sf:include name="VehicleRelationshipHelper"/> 
