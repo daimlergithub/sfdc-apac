@@ -70853,6 +70853,68 @@ NOT
         <errorMessage>"Invoice Amount" cannot be changed manually.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_Lead_Status_Manual_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+	AND(
+		ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'),	 NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'),
+	AND(ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI')
+  )</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>"Dealer Lead Status" can change into "Purchased" only if ("Lead Latest Phase" is "Registration" and Leads record type is "Sales Lead") or ("Lead Latest Phase" is "Invoiced" and Leads record type if "After-Sales Lead").</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Latest_Phase_Manual_Check_AS</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
+	OR(
+	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Job Card Issue'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Aftersales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
+        <errorMessage>Lead Latest Phase" cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced”</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Status_Lost_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+	OR(
+	ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>Dealer Lead Status" cannot be changed into “Lost</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Latest_Phase_Manual_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
+    OR(
+        ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Confirmed'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Placed'),
+   ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
+        <errorMessage>It cannot be changed Manually</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Finance_Product_Name_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Product_Name__c))),ISCHANGED(Finance_Product_Name__c),
