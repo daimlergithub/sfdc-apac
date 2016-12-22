@@ -156,6 +156,7 @@
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="RetailTask_inline_service_amount"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
 			   <sf:include name="RetailCopyOnlyRelatedList"/>
 			   </sf:typeset>				
@@ -200,6 +201,8 @@
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 			   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
 			   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
+			   <sf:include name="RetailtaskInlineEditController"/>
+			   <sf:include name="RetailtaskInlineEditController_Test"/>			   
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 			   <sf:include name="VehicleRelationshipHelper"/> 
@@ -208,8 +211,8 @@
 			   <sf:include name="SendToMyMercController"/>
 			   <sf:include name="SendToMyMercControllerTest"/> 
 			   <sf:include name="AccountLinkController"/>
-			   <sf:include name="AccountLinkControllerTest"/>
-			 			</sf:typeset>
+			   <sf:include name="AccountLinkControllerTest"/> 
+			</sf:typeset>
 		</deploy>
     </target>
 
@@ -688,6 +691,8 @@
 		<sf:typeset name="classes">
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
+			<sf:include name="usernotificationsetting"/>
+			<sf:include name="testusernotification"/>
 			<sf:include name="UtilAccount"/>
 			<sf:include name="UtilAccountTest"/>
 			<sf:include name="TriggerAccountTest"/>
@@ -710,6 +715,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="VehicleRelLooking"/>
+				<sf:include name="usernotificationsetting"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -1041,5 +1047,4 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
-
 
