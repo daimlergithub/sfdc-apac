@@ -447,7 +447,55 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Retail Denied Activities</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Campaign (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -458,7 +506,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields> 
+    </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
@@ -3675,6 +3723,61 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
 		<picklistValues>
+            <picklist>Retail_OptOutContact_Reason__c</picklist>
+            <values>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>        
+		<picklistValues>
             <picklist>Retail_Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -4474,6 +4577,61 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Retail_OptOutContact_Reason__c</picklist>
+            <values>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

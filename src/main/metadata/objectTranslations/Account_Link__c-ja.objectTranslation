@@ -178,6 +178,62 @@
         <label><!-- Retail Responsible --></label>
         <name>Retail_Responsible__c</name>
     </fields>
+	<fields>
+        <label><!-- Retail Denied Activities --></label>
+        <name>Retail_OptOutContact_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Campaign (Aftersales)</masterLabel>
+            <translation>キャンペーン（アフターセールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (Finance)</masterLabel>
+            <translation>キャンペーン（ファイナンス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (New Car)</masterLabel>
+            <translation>キャンペーン（セールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (Aftersales)</masterLabel>
+            <translation>イベント（アフターセールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (New Car)</masterLabel>
+            <translation>イベント（セールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation>フェア</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gift</masterLabel>
+            <translation>ギフト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOT Car inspection</masterLabel>
+            <translation>車検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation>マガジン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Aftersales)</masterLabel>
+            <translation>製品情報（アフターセールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Finance)</masterLabel>
+            <translation>製品情報（ファイナンス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (New Car)</masterLabel>
+            <translation>製品情報（セールス）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート</translation>
+        </picklistValues>
+    </fields>    
     <fields>
         <label>関係性2</label>
         <name>Role2__c</name>
