@@ -63,6 +63,14 @@
                 <field>Lost_Dealer_Date__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Possibility__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Possibility_text__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
             </layoutItems>
@@ -159,10 +167,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Relation_With_The_Leads__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Order_No__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -280,10 +284,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Existing_Contract__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Phone__c</field>
             </layoutItems>
             <layoutItems>
@@ -313,10 +313,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Order_Placed_Date__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lodgment_Date__c</field>
@@ -550,6 +546,10 @@
                 <field>Order_Confirmation_Date__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Order_Placed_Date__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
             </layoutItems>
@@ -675,6 +675,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Existing_Contract__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Finance_RV_Ballon__c</field>
             </layoutItems>
             <layoutItems>
@@ -791,10 +795,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Registration_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Used_Price__c</field>
             </layoutItems>
             <layoutItems>
@@ -890,6 +890,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Used_Steering__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Order_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Registration_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
