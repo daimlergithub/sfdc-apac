@@ -29892,9 +29892,9 @@ NOT(Dealer_Active__c)
     <validationRules>
         <fullName>DealerAddressCN_NoOfDigits</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Dealer_Address_CN__c) &gt; 50, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name="Dealer",LEN(Dealer_Address_CN__c) &gt; 192, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Dealer_Address_CN__c</errorDisplayField>
-        <errorMessage>Dealer Address Native should be less than or equal to 50 letters.</errorMessage>
+        <errorMessage>Dealer Address Native should be less than or equal to 192 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>DealerBranchName_NoOfDigits</fullName>
@@ -30087,9 +30087,12 @@ FirstName  value &gt; 20 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(OR(ISBLANK(FirstName_Native_1__c),NOT(REGEX(FirstName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
-$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(FirstName_Native_1__c),
+REGEX(FirstName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be KANA Chaarcters</errorMessage>
     </validationRules>
@@ -30318,7 +30321,7 @@ LastName  value &gt; 40 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(LastName_Native_1__c),

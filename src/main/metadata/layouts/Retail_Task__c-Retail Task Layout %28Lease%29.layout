@@ -729,6 +729,13 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns>
+			<layoutItems>
+                <height>200</height>
+                <page>RelatedDealerViewForLease</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+			</layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>

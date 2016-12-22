@@ -5,6 +5,7 @@ Date : 20/12/2016
 Dev Item : P3 
 -->
 <apex:page standardController="Lead__c" extensions="LeadDealerAssignmentProcess" id="page1">
+    <apex:pageMessages ></apex:pageMessages>
     <script type="text/javascript"> 
          function fnbuttoncheck(id)  
             { 
@@ -48,11 +49,11 @@ Dev Item : P3
            
           
            <apex:pageBlockButtons id="btnblock1" location="top">
-           <apex:commandButton value="Assign" oncomplete="RelodeParent()" action="{!AssignLeadtoDealer}" />
+           <apex:commandButton value="Assign" oncomplete="RelodeParent()" action="{!AssignLeadtoDealer}" rendered="{!isAvailable }"/>
           
         <apex:inputHidden value="{!userid1}" id="theHiddenInput"/> 
  
-           <apex:commandButton value="Cancel" oncomplete="RelodeParent()"/>
+           <apex:commandButton value="Cancel" oncomplete="RelodeParent()" rendered="{!isAvailable }"/>
            
            </apex:pageBlockButtons>
            </apex:pageblock>
