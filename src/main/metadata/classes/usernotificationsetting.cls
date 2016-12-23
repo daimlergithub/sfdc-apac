@@ -88,7 +88,7 @@ public class usernotificationsetting {
          update usertoupdate;
     }
     public PageReference cancelit(){
-        PageReference p=new pagereference('https://daimlerasia--asiadev7.cs31.my.salesforce.com/00528000000G17g?noredirect=1&isUserEntityOverride=1');
+        PageReference p=new pagereference('/'+currentuser.id+'/e' );
         p.setRedirect(true);
         return p;
     }
