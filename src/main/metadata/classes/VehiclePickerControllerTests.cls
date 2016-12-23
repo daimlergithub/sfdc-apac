@@ -12,10 +12,6 @@ public without sharing class VehiclePickerControllerTests{
     public static void createTestData(){
     
     /********************* CREATING TEST DATA : START **************************/
-        
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
         UtilConstant utilConst = new UtilConstant();     
         testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
         system.debug('Leads... :' +testLead);
@@ -28,26 +24,22 @@ public without sharing class VehiclePickerControllerTests{
         
         //Create Car Models
         List<String> carStatus = new List<String>{'Own Sellable', 'Own Non Sellable','Competitor'};
-        List<String> brands = new List<String>{'AMG','Others','TRUCKS','Maybach'};
-        List<String> classes = new List<String>{'A-CLASS','B-CLASS','C-CLASS','C-CLASS'};
-        List<String> models = new List<String>{'A160','A180','B200','C200K Elegance'};
+        List<String> brands = new List<String>{'AMG','Others','TRUCKS'};
+        List<String> classes = new List<String>{'A-CLASS','B-CLASS','C-CLASS'};
+        List<String> models = new List<String>{'A160','A180','B200'};
         
         carModels = new List<Car_Model__c>();
-        for (Integer i=0; i<4; i++){
+        for (Integer i=0; i<3; i++){
             carModels.add(new Car_Model__c());
         }
         carModels = (List<Car_Model__c>)UtilTestData.createSobjects(carModels, '');
         system.debug('Car Models :' +carModels);
         
-        for (Integer i=0; i<4; i++){
-        
-            if (i<3){
-                carModels[i].Status__c = carStatus[i];
-            }
+        for (Integer i=0; i<3; i++){
+            carModels[i].Status__c = carStatus[i];
             carModels[i].Brand__c = brands[i];
             carModels[i].Series__c = classes[i];
             carModels[i].Model__c = models[i];
-            carModels[i].Name = models[i];
         }
         update carModels;
         system.debug('Updated Car Models...' +carModels);
@@ -66,7 +58,7 @@ public without sharing class VehiclePickerControllerTests{
         Map<String, Set<String>> tempMap = carModelmap[0];
         System.debug('Size of the Car Model Map :' +tempMap.size());
         test.StopTest();
-        System.assertEquals(tempMap.size(),4);
+        System.assertEquals(tempMap.size(),3);
           
     }
     public static testMethod void testCarModels1(){
@@ -139,33 +131,33 @@ public without sharing class VehiclePickerControllerTests{
             Vehicle__c lead_VehicleDetails;
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
                 leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                 leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
                 leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
                 leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                 leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
             }
                 
             
             System.assertEquals(lead_VehicleDetails.Brand__c,'AMG');
-            System.assertEquals(lead_VehicleDetails.Class__c,'A-Class');
-            System.assertEquals(lead_VehicleDetails.Model_Description__c,'A160');
+            System.assertEquals(lead_VehicleDetails.Class__c,'A-CLASS');
+            System.assertEquals(lead_VehicleDetails.Model__c,'A160');
             System.assertEquals(lead_VehicleDetails.Colour__c,'Green');
             System.assertEquals(lead_VehicleDetails.Trim__c,'Yellow');
             System.assertEquals(lead_VehicleDetails.NextMileage__c,45);
@@ -188,32 +180,32 @@ public without sharing class VehiclePickerControllerTests{
             
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
                 leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                 leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
                 leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
                 leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                 leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
+                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
             }
             
             System.assertEquals(lead_VehicleDetails.Brand__c,'Maybach');
-            System.assertEquals(lead_VehicleDetails.Class__c,'C-Class');
-            System.assertEquals(lead_VehicleDetails.Model_Description__c,'C200K Elegance');
+            System.assertEquals(lead_VehicleDetails.Class__c,'C-CLASS');
+            System.assertEquals(lead_VehicleDetails.Model__c,'C200K Elegance');
             System.assertEquals(lead_VehicleDetails.Colour__c,'Green');
             System.assertEquals(lead_VehicleDetails.Trim__c,'Yellow');
             System.assertEquals(lead_VehicleDetails.NextMileage__c,55);
