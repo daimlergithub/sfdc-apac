@@ -584,7 +584,7 @@ EP/Tolerant for Validation.
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }*/
-			//Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
+            //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
                 addressobj.MD__c = Market;
@@ -893,18 +893,19 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc !=null)
-                    {
-                        objAccountDeDup.Email__c=response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
                     }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     {
-                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
-                    {
-                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
-                    }
+                    // if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    // {
+                    //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
                         AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
