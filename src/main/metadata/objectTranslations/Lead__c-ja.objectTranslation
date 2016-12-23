@@ -15540,7 +15540,54 @@
     <fields>
         <label>未対応フラグ(72H)</label>
         <name>X72H_Untouched__c</name>
-    </fields>
+    </fields>	
+    <layouts>
+        <layout>After-Sales Leads Layout for Dealer Users</layout>
+        <sections>
+            <label>アクティビティ日付情報</label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>リード顧客情報</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>リード処理情報</label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label>リードリクエスト情報</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>敗戦情報</label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Reference Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
         <sections>
