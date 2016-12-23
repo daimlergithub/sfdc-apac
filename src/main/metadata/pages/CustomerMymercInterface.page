@@ -1,0 +1,101 @@
+<apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
+    <apex:form >
+    <apex:pagemessages ></apex:pagemessages>
+        <apex:pageBlock title="Customer My Mercedes Interface Customer" id="a">
+            <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> 
+                <apex:pageblockButtons location="bottom">
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" oncomplete="window.open('/{!account.id}')"/> <!-- oncomplete="myfunction();"-->
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" oncomplete="window.open('/{!account.id}')"/>
+                     <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
+                     <apex:commandButton action="{!mymercnew}" value="Send Information"/>
+                     <apex:commandButton action="{!cancel}" value="Cancel"/>
+                </apex:pageblockButtons>
+                  
+                <apex:pageBlockSection title="Select Your Preferred Email Id For Customer" columns="1">
+                    <apex:pageblockTable value="{!accl}" var="ac">
+                        <apex:column value="{!ac.toRole__c}" headerValue="Account Name"/>
+                        <apex:column headerValue="My Mercedes Id" value="{!myMercId}"/>
+                        <apex:column headerValue="My Mercedes Email Id">
+                        <apex:inputText value="{!MyMercEmail}"/>
+                        </apex:column>
+                        <apex:column >
+                            <apex:commandLink value="Details" action="{!showPopup}">
+                                 <apex:param name="recordID" value="{!ac.ID}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column headerValue="Outlet Registered To MyMercedes" value="{!RegOutlet}"/>
+                    </apex:pageblockTable>
+                    <apex:outputPanel id="one">
+                        <apex:repeat value="{!aLink}" var="eachWrap">
+                            <apex:outputPanel id="popup">
+                                <apex:outputPanel styleClass="popupBg" layout="block" rendered="{!displayPopUp}"/>
+                                <apex:outputPanel styleClass="popup" layout="block" rendered="{!displayPopUp}">
+                                    <apex:pageblockSection columns="1" >
+                                       <table width="100%">
+                                           <tr>
+                                               <td width="25"> <!--1 -->
+                                                   <apex:inputtext value="{!FinalEmail}" label="Portal Email" Id="ddlNames"/>
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td width="25"><!--2-->
+                                                   <apex:inputtext value="{!eachWrap.toRole__r.Email__c}" label="Email" />
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td width="25"><!--3-->
+                                                     <apex:inputtext value="{!eachWrap.toRole__r.Email2__c}" label="Email2" />
+                                               </td>
+                                           </tr>
+                                       </table>
+                                    </apex:pageblockSection>
+                                        <apex:commandButton value="Save" action="{!savepop}"/>
+                                        <apex:commandButton value="Close" action="{!closePopup}" rerender="one"/>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:repeat>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <script>
+        function myfunction()
+        {
+
+
+             <!-- alert('Records updated'); -->
+
+        }
+    </script>
+      <style type="text/css">
+
+        .popup
+        {
+            background-color: white;
+            border-width: 1px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 500px;
+            margin-left: -250px;
+            top:80px;
+        }
+
+        .popupBg
+        {
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 70);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;f
+            left: 0;
+            z-index: 9998;
+        }
+
+    </style>
+</apex:page>

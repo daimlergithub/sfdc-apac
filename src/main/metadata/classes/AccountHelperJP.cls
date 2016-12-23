@@ -383,16 +383,16 @@ public class AccountHelperJP
                             if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'JP'){
                                 ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
-						else
-						if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
+                        else
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
                             System.debug('###############################-->createUCID---Person Account---KR');
-							ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
-						}
-						else
-						if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
+                            ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
+                        }
+                        else
+                        if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
                             System.debug('###############################-->createUCID---Company Account---KR');
-							ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
-						}
+                            ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
+                        }
                         
                         if(ucidsequence != null && ucidsequence.length() > 0)
                         {
@@ -541,9 +541,9 @@ public class AccountHelperJP
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
     }//End of Method
-	
-	
-	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    
+      
+    /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
@@ -552,11 +552,12 @@ public class AccountHelperJP
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
+           ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
-                if(acc.Company_Name__c != NUll){
+                if(acc.Company_Name__c != NUll&& acc.recordtypeid == RDType){
                    String Company_Legal_Form;
 
-                   if (acc.Company_Legal_form__c != NULL)
+                   if (acc.Company_Legal_form__c != NULL )
                     {
                      Company_Legal_Form= acc.Company_Legal_form__c;
                      }
@@ -592,4 +593,105 @@ public class AccountHelperJP
             System.debug('Line Numer'+e.getLineNumber());
         }
     }
+ public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
+    Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
+    Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's    
+    for(Account acc : accLst){
+                if(isInsert && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+                    AccountIds.add(acc.id); //Adding accountId's to set
+                    OwnerIds.add(acc.Ownerid);//Adding Owner Id's to set
+                    System.debug('AccountID--->'+acc.id);        
+                }
+                
+            }
+             String origin = ApexPages.currentPage().getParameters().get('correlationID');
+       
+    Map<ID,User> ownermap = new Map<ID,User>([select id , name , ContactId , Contact.AccountId from user where id IN : OwnerIds]);
+        
+        List<Account> AccList = [select Id, LastName, FirstName,LastName_Native_1__c, 
+                                 FirstName_Native_1__c, PersonBirthdate, Special_Care__c, Individual_Home_Phone__c, Work_Phone__c,
+                                 Mobile__c, Fax, Email__c, Primary_Address_Reference__r.City__c, Primary_Address_Reference__r.District__c,
+                                 Primary_Address_Reference__r.Block__c, Primary_Address_Reference__r.Address_Line_1__c,
+                                 Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,                                 
+                                 gender__c, Occupation__c, Industry,Preferred_Language__c,
+                                 Special_Needs_Class__c, Allow_Data_Sharing2__c, Primary_Address_Reference__r.Address_Type__c, 
+                                 Primary_Address_Reference__r.Province__c, Preferred_Contact_Method__c,MD__c,
+                                 UCID__c, RecordtypeId, Name, Company_Name_Native_1__c,Foundation_Date__c,ownerid,Commercial_Reg_No__c,
+                                 Website,Vat_No__c                                                 
+                                 from Account WHERE id IN : AccountIds];
+        List<Account_Link__c> acckLst = new List<Account_Link__c>();                             
+        Map<String,Id> recordTypes = new Map<String,Id>();
+         for(RecordType rt : [select id,DeveloperName from RecordType WHERE DeveloperName IN ( 'ContactSector' ,'Retail_Company', 'Retail_Person' ) ] ){
+             recordTypes.put(rt.DeveloperName,rt.Id) ;
+         }
+         Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+         Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+         
+    for(Account led : AccList){            
+            if(ownermap.containskey(led.ownerid)){
+                 Account_Link__c acclnk = new Account_Link__c();
+                 acclnk.RecordTypeId = recordTypes.get('ContactSector');
+                 acclnk.Name = led.UCID__c;
+                 acclnk.fromRole__c = led.Id;               
+                  acclnk.toRole__c = ownermap.get(led.ownerid).Contact.AccountId;
+                  acclnk.CorrelationID__c = origin ;
+                 acckLst.add(acclnk);
+                 if(led.RecordTypeId == PersonRecordTypeId){
+                 acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.UCID__c, fromRole__c = led.Id, toRole__c = ownermap.get(led.ownerid).Contact.AccountId,                                                                         
+                                                                        Retail_Full_Name__c = ((led.LastName!=null ? led.LastName : '') + ' ' + (led.FirstName != null ? led.FirstName : '')).left(25) ,
+                                                                        Retail_PersonBirthdate__c = led.PersonBirthdate, Retail_Special_Care__c = led.Special_Care__c, Retail_Individual_Home_Phone__c = led.Individual_Home_Phone__c,
+                                                                        Retail_Work_Phone__c = led.Work_Phone__c, Retail_Mobile__c = led.Mobile__c, Retail_Email__c = led.Email__c,                                                                       
+                                                                        Retail_Gender__c = led.Gender__c, Retail_Occupation__c = led.Occupation__c,
+                                                                        Retail_Preferred_Language__c = led.Preferred_Language__c,
+                                                                        Retail_Preferred_Contact_Method__c = led.Preferred_Contact_Method__c,CorrelationID__c = origin ,
+                                                                        Retail_Special_Needs_Class__c = led.Special_Needs_Class__c, Retail_Allow_Data_Sharing__c = led.Allow_Data_Sharing2__c,
+                                                                        Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
+                                                                        
+                                                                        Retail_LastName__c = led.LastName, Retail_FirstName__c = led.FirstName, 
+                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + ' ' + (led.FirstName != null ? led.FirstName : '') + ' ' + (led.FirstName!= null ? led.FirstName : '')),
+                                                                        Retail_LastName_Native__c = led.LastName_Native_1__c, Retail_FirstName_Native__c = led.FirstName_Native_1__c
+                                                                        );
+                  }else if(led.RecordTypeId == AccountCompanyId){
+                      acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.UCID__c, fromRole__c = led.id, toRole__c = ownermap.get(led.ownerid).Contact.AccountId,         
+                                                     Retail_Company_Name__c = led.Name, Retail_Company_Name_Native1__c = led.Company_Name_Native_1__c, CorrelationID__c = origin ,
+                                                     Retail_Commercial_Reg_No__c = led.Commercial_Reg_No__c, Retail_Website__c = led.website,Retail_Company_Phone__c = led.Individual_Home_Phone__c,
+                                                     Retail_Company_Other_Phone__c = led.Work_Phone__c, Retail_Vat_No__c = led.Vat_No__c); 
+                       if(led.Foundation_Date__c != null){
+                           acclnk.Retail_Foundation_Month__c = String.ValueOf(led.Foundation_Date__c.month())+String.valueOf(led.Foundation_Date__c.year());
+                       }
+                  }
+                  acclnk.Retail_Fax__c = led.Fax;
+                  acclnk.Retail_Industry__c = led.Industry;
+                  if(led.MD__c == Label.MarketKR){
+                      acclnk.Retail_Country__c = 'Korea';   
+                  }
+                  else if(led.MD__c == Label.MarketJP){
+                      acclnk.Retail_Country__c = 'Japan';
+                  }
+                  
+                  
+                  
+                  if(led.Primary_Address_Reference__c != null){
+                     acclnk.Retail_Address_Type__c = (led.Primary_Address_Reference__r.Address_Type__c!=null ?led.Primary_Address_Reference__r.Address_Type__c : '' );
+                     acclnk.Retail_Address_Line_1__c = (led.Primary_Address_Reference__r.Address_Line_1__c != null ? led.Primary_Address_Reference__r.Address_Line_1__c: '' ).left(17);
+                     acclnk.Retail_Address_Line_2__c  = (led.Primary_Address_Reference__r.Address_Line_2__c!= null ? led.Primary_Address_Reference__r.Address_Line_2__c : '' ).left(17);
+                     acclnk.Retail_ZipCode__c= (led.Primary_Address_Reference__r.ZipCode__c!=null ? led.Primary_Address_Reference__r.ZipCode__c : '');
+                     acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Primary_Address_Reference__r.CreatedDate);
+                     acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(led.Primary_Address_Reference__r.LastModifiedDate);
+                     acclnk.Retail_Province__c = (led.Primary_Address_Reference__r.Province__c!= null ? led.Primary_Address_Reference__r.Province__c : '');
+                     acclnk.Retail_City__c = (led.Primary_Address_Reference__r.City__c != null ? led.Primary_Address_Reference__r.City__c : '').left(17);
+                     acclnk.Retail_Distinct__c = ((led.Primary_Address_Reference__r.District__c != null ? led.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Primary_Address_Reference__r.Block__c != null ? led.Primary_Address_Reference__r.Block__c : '' )).left(17);
+                   } else {
+                   
+                   
+                   }   
+                   acckLst.add(acclnk);
+            }
+         }    
+         if(!accLst.isEmpty()){
+           insert acckLst;
+           
+         }
+     }   
+ 
 }

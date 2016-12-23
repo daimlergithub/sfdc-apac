@@ -233,6 +233,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>LastName_Native_1__c</field>

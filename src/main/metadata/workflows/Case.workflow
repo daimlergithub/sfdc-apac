@@ -13,7 +13,7 @@
             <type>portalRole</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Case_Deadline_Notification</template>
+        <template>MBK_Email_Templates/X24_hours_before_deadline</template>
     </alerts>
     <alerts>
         <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</fullName>
@@ -160,6 +160,16 @@
         <template>unfiled$public/Change_Retail_Campaign_Inquiry_Assignment_To_Dealer_Notification</template>
     </alerts>
     <alerts>
+        <fullName>Send_Email_To_Case_Owner</fullName>
+        <description>Send Email To Case Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Case_owner_is_updated</template>
+    </alerts>
+    <alerts>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <description>Send Email to Gate Keeper</description>
         <protected>false</protected>
@@ -217,6 +227,15 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
+    <fieldUpdates>
+        <fullName>Approval_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Approval Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>ChangeStatus</fullName>
         <field>Status</field>
@@ -599,6 +618,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Rejection_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Rejection Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>0</literalValue>
@@ -631,6 +659,16 @@
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
         <name>Status Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Update</fullName>
+        <field>Status</field>
+        <literalValue>Requires Manager Review</literalValue>
+        <name>Status Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1267,6 +1305,17 @@
             <timeLength>240</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Owner Changed</fullName>
+        <actions>
+            <name>Send_Email_To_Case_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Case Owner changed, email need to send to case owner.</description>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Case handling level Assignment Notification to Dealer</fullName>

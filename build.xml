@@ -147,12 +147,19 @@
 			   <sf:include name="ViewHierarchy"/>
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="SendAccountInfoToSPO"/>
+			   <sf:include name="SendToJPOS"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
                <sf:include name="ChangeContactTarget"/>
 			   <sf:include name="MassUpdate_new_Assigned_User"/>
 			   <sf:include name="SendVehicleInformationtoSPOJP"/>
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
+			   <sf:include name="CustomerMymercInterface"/>
+			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="RetailTask_inline_service_amount"/>
+			   <sf:include name="RelatedDealerViewForLease"/>
+			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
+			   <sf:include name="RetailCopyOnlyRelatedList"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -165,6 +172,8 @@
 			   <sf:include name="AddressSearchValidationController"/>
 			   <sf:include name="SendAccountInfoToSPO"/>			   
 			   <sf:include name="SendAccountInfoToSPOTest"/>
+			   <sf:include name="SendToJPOS"/>			   
+			   <sf:include name="SendToJPOSTest"/>
 			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
@@ -192,10 +201,20 @@
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 			   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
-			   <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
+			   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
+			   <sf:include name="RetailtaskInlineEditController"/>
+			   <sf:include name="RetailtaskInlineEditController_Test"/>
+			    <sf:include name="RelatedDealerLease"/>
+			   <sf:include name="TestRelatedDealerLease"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 			   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
-			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="VehicleRelationshipHelper"/> 
+			   <sf:include name="CustomerMymercInterfaceController"/>
+			   <sf:include name="CustomerMymercInterfaceControllerTest"/>
+			   <sf:include name="SendToMyMercController"/>
+			   <sf:include name="SendToMyMercControllerTest"/> 
+			   <sf:include name="AccountLinkController"/>
+			   <sf:include name="AccountLinkControllerTest"/> 
 			</sf:typeset>
 		</deploy>
     </target>
@@ -262,7 +281,7 @@
 		</deploy>
     </target>	
 	<target name="deploy21">
-		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations.xml">
+		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
@@ -292,13 +311,27 @@
 			   <sf:include name="AccountMerge"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
-               <sf:include name="Retailcopybutton"/>			   
+               <sf:include name="Retailcopybutton"/>
+			   <sf:include name="ALKDeleteConformationpage"/>
+			   <sf:include name="RetailTaskdealerviewForContract"/>
+			   <!-- Added by Naga Start-->
+			   <sf:include name="MBJ_FS_Case_Inquiry_Page"/>
+			   <sf:include name="MBJ_FS_Case_Request_Page"/>
+			   <sf:include name="MBJ_FS_Case_Intermediate_Page"/>
+			   <sf:include name="FS_CaseInlinePage"/>
+			   <sf:include name="MBJ_FS_Case_Quotation_Page"/>
+			   <sf:include name="MBJ_FS_Case_Request_Inline_Page"/>
+			   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
+			   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
+			   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
+			   <sf:include name="LeadDealerAssignmentPage"/>
+			   <!-- Added by Naga Start-->
 			</sf:typeset>
-			<sf:typeset name="layouts">
+			<!--<sf:typeset name="layouts">
 				<sf:include name="Account.*"/>
 				<sf:include name="Case.*"/>
 				<sf:include name="PersonAccount.*"/>
-			</sf:typeset>	
+			</sf:typeset>-->	
 			<sf:typeset name="classes">	
 				<sf:include name="TriggerHandlerIf"/>
 				<sf:include name="TriggerUtil"/>
@@ -324,9 +357,12 @@
 				<sf:include name="SSITriggerHandlerTest"/>
 				<sf:include name="UtilTask"/>
 				<sf:include name="UtilTaskTest"/>
+				<sf:include name="dealerViewForContract"/>
+				<sf:include name="dealerViewForContractTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerKR"/>
+				<sf:include name="shareAccountRecord"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
@@ -351,7 +387,7 @@
 				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 				<sf:include name="VehicleRelationshipHelperJP"/>
-				<sf:include name="VehicleRelationshipHelperJPTest"/>
+				<!--<sf:include name="VehicleRelationshipHelperJPTest"/>-->
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerKR"/>
 				<sf:include name="LeadHelperJP"/>
@@ -391,6 +427,18 @@
 				<sf:include name="createRetailCopyJPTEST"/>
 				<sf:include name="UtilShare"/>
 				<sf:include name="LeadSharingforDealerJP"/>
+				<sf:include name="DeleteRetailCopy"/>
+				<sf:include name="DeleteRetailCopyTest"/>
+				<!-- Added By Naga   Start   -->
+				<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
+				<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+				<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+				<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
+				<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+				<sf:include name="FS_CaseInlineController"/>
+				<sf:include name="LeadDealerAssignmentProcess"/>
+				<sf:include name="LeadDealerAssignmentProcessTest"/>
+				<!-- Added By Naga   End  -->
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -459,6 +507,8 @@
 				<sf:include name="VehiclePickerForCase"/>				
 			   <sf:include name="LeadMerge"/>
 			   <sf:include name="SelectSlaveLead"/>	
+				<sf:include name="LeadVehiclePickerKR"/>
+				<sf:include name="MarketCheckOnVehiclePicker"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
@@ -478,6 +528,10 @@
 			<sf:include name="VehiclePickerControllerTests"/>
 			<sf:include name="VehiclePickerForCaseController"/>
 			<sf:include name="VehiclePickerForCaseControllerTest"/>
+			<sf:include name="LeadVehiclePickerKRController"/>
+			<sf:include name="LeadVehiclePickerKRControllerTests"/>
+			<sf:include name="MarketCheckOnVehiclePickerCon"/>
+			<sf:include name="MarketCheckOnVehiclePickerConTest"/>
 			<sf:include name="GenerateCatalogueCsv"/>
 			<sf:include name="GenerateCatalogueCsvTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
@@ -640,6 +694,8 @@
 		<sf:typeset name="classes">
 			<sf:include name="AccountHelper"/>
 			<sf:include name="AccountHelperTest"/>
+			<sf:include name="usernotificationsetting"/>
+			<sf:include name="testusernotification"/>
 			<sf:include name="UtilAccount"/>
 			<sf:include name="UtilAccountTest"/>
 			<sf:include name="TriggerAccountTest"/>
@@ -662,6 +718,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="VehicleRelLooking"/>
+				<sf:include name="usernotificationsetting"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -786,8 +843,8 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<!--<sf:typeset name="workflows"/>-->
-		<sf:typeset name="flows"/> 
+		<sf:typeset name="workflows"/> 
+		<sf:typeset name="flows"/>  
 		</deploy>					
     </target>
 	
@@ -993,5 +1050,4 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
-
 

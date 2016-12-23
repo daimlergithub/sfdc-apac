@@ -452,6 +452,14 @@
         <apexClass>DealerSearchControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>DeleteRetailCopy</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DeleteRetailCopyTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>false</enabled>
@@ -1278,10 +1286,6 @@
     </classAccesses>	
     <classAccesses>
         <apexClass>cSendVehicletoSPOConfirmationJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>cSendVehicletoSPOConfirmationJPTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>	
     <classAccesses>
@@ -3834,6 +3838,11 @@
         <editable>false</editable>
         <field>Account.VAN_Tenure__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.VIN__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19341,6 +19350,10 @@
         <object>Idea</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<pageAccesses>
+        <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>false</enabled>
