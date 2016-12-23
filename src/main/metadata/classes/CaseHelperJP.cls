@@ -485,7 +485,7 @@ List<Account> accUpdLst = new List<Account>();
          }   
   
     //fetch all  the account link record which is related with case
-    List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
+List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
   
      
        // for insert and update trigger 
@@ -533,8 +533,6 @@ List<Account> accUpdLst = new List<Account>();
       }     
  }
 
-       
- 
          
     public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
        List<Id> caseIds = new List<Id>();
