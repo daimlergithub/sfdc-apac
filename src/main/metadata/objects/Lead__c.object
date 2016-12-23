@@ -71435,6 +71435,12 @@ var r = confirm("Are you sure want to send information to Auto Line interface?")
 if(r == true)
 {
 var resultMsg=
+
+sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Lead__c.Id}",DealerID:"{!Lead__c.Assigned_DealerId__c}",CorrelationId:"{!Lead__c.Correlation_ID__c}"}); 
+if(resultMsg!=null)
+{
+alert("Successfully Sent Information to AutoLine");
+
 sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Lead__c.Id}",DealerID:"{!Lead__c.Assigned_DealerId__c}",CorrelationId:"{!Lead__c.Correlation_ID__c}"});
 if(resultMsg!=null)
 {
@@ -71462,6 +71468,7 @@ if(correlation != " " || correlation !=null){
 updatelead();
 
 }
+
 }
 else
 {
