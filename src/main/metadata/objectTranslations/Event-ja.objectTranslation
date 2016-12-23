@@ -31,12 +31,7 @@
     <fields>
         <label><!-- Activity CommChannel --></label>
         <name>Activity_CommChannel__c</name>
-    </fields>
-    <fields>
-        <help><!-- Activity Comment --></help>
-        <label><!-- Activity Comment --></label>
-        <name>Activity_Comment__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Activity DataSource --></label>
         <name>Activity_DataSource__c</name>
