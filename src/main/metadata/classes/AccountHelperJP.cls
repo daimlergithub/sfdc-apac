@@ -681,12 +681,16 @@ public class AccountHelperJP
                      acclnk.Retail_Province__c = (led.Primary_Address_Reference__r.Province__c!= null ? led.Primary_Address_Reference__r.Province__c : '');
                      acclnk.Retail_City__c = (led.Primary_Address_Reference__r.City__c != null ? led.Primary_Address_Reference__r.City__c : '').left(17);
                      acclnk.Retail_Distinct__c = ((led.Primary_Address_Reference__r.District__c != null ? led.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Primary_Address_Reference__r.Block__c != null ? led.Primary_Address_Reference__r.Block__c : '' )).left(17);
-                   }    
+                   } else {
+                   
+                   
+                   }   
                    acckLst.add(acclnk);
             }
          }    
          if(!accLst.isEmpty()){
-            insert accLst;
+           insert acckLst;
+           
          }
      }   
  
