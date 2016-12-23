@@ -7001,7 +7001,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.ContactId</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7691,7 +7691,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MPC_Internal_Notes__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7751,7 +7751,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Notice_Parts__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7761,7 +7761,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Notice_Service__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7786,7 +7786,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.On_Site_Manager_Confirmed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7821,7 +7821,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Overdue_Reason__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8581,7 +8581,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.TSM__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10286,7 +10286,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Communication_date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10336,7 +10336,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Engagement__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10411,7 +10411,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.MTH_Penetration__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11905,6 +11905,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Lead_Closed_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Lead_DataSource__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12211,12 +12216,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Overdue_Description__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Overdue_Reason__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13139,7 +13144,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Vehicle_Use__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18061,7 +18066,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Choices__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18081,7 +18086,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Required__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18096,7 +18101,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18286,7 +18291,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Communication_date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18336,7 +18341,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Engagement__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18401,7 +18406,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.MTH_Penetration__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
