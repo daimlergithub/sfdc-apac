@@ -549,7 +549,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(isInsert || isUpdate){
             // For qualified Leads, they will be automatically assigned
             // to the dealer sales gate keeper user
-            autoAssignLeads(leadNewMap, leadOldMap,isInsert,isUpdate);       
+           autoAssignLeads(leadNewMap, leadOldMap,isInsert,isUpdate);       
         }
        
         //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
@@ -847,6 +847,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                             }
                             if (usr.id != Null )
                             {
+                                system.debug('INSert>>>');
                                 newleadmap.get(LeadId).ownerid= usr.id;
                                
                                 newleadmap.get(LeadId).Consultant_Assignment_Date__c= null;
@@ -2261,6 +2262,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList ,map<id,Lead__c> newAdMap,map<id,Lead__c> oldAdMap,boolean isInsert,boolean isUpdate)
     {
         set<id> dleadId = new set<id>();
+        set<id> dealerId = new set<id>();
         map<id,id> delaccmap = new map<id,id>();
         set<string> assigndlrgroup = new set<string>();
         set<id> delgroupId = new set<id>();
@@ -2269,6 +2271,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         set<string> olddelacc = new set<string>();
         List<group> assgroupList = new List<group>();
         set<id> oldGroupId = new set<id>();
+        List<User> partuserList = new List<User>();
         map<string,id> assgroupMap = new map<string,id>();
         List<sobject> assshareList = new List<sobject>();
         List<Lead__c> leaddrList = new List<Lead__c>();
@@ -2280,6 +2283,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && (drled.Contact__c != null || drled.Company_Account__c != null))
                 {
                     dleadId.add(drled.Id);
+                    dealerId.add(drled.Assigned_Dealer__c);
                 }
                 else if (drled.Assigned_Dealer__c != null && drled.Source_system__c != null && drled.Source_system__c != '' && drled.Source_system__c.contains('DLM'))
                 {                           
@@ -2298,14 +2302,22 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             If(isUpdate)
             {
                 if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && 
+                   (newAdMap.get(drled.Id).OwnerId != oldAdMap.get(drled.Id).OwnerId))
+                {
+					dleadId.add(drled.Id);                    
+					dealerId.add(newAdMap.get(drled.Id).Assigned_Dealer__c);  
+                }
+                if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && 
                    (newAdMap.get(drled.Id).CAC_Lead_Status__c != oldAdMap.get(drled.Id).CAC_Lead_Status__c))
                 {
-                    dleadId.add(drled.Id);                    
+                    dleadId.add(drled.Id);
+					dealerId.add(newAdMap.get(drled.Id).Assigned_Dealer__c);                    
                 }
                 else if(drled.Assigned_Dealer__c != null && drled.CAC_Lead_Status__c == 'Qualified' && 
                    (newAdMap.get(drled.Id).Assigned_Dealer__c != oldAdMap.get(drled.Id).Assigned_Dealer__c))
                 {
                     dleadId.add(drled.Id);
+					dealerId.add(newAdMap.get(drled.Id).Assigned_Dealer__c);  
                     olddelId.add(oldAdMap.get(drled.Id).Assigned_Dealer__c);
                     if(drled.Contact__c != null)
                     {
@@ -2318,7 +2330,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-        
+        system.debug('dealerId>>>' + dealerId);
+        if(!dealerId.isEmpty() && dealerId != null)
+        {
+            partuserList = [select id, ContactId,Contact.AccountId from User where ContactId IN (SELECT Id FROM Contact WHERE AccountId IN : dealerId AND Dealer_Lead_Gate_Keeper__c = true)];
+        }
+        system.debug('partuserList>>>' + partuserList);
         if(!olddelId.isEmpty() && olddelId != null)
         {
             oldaccList = [select id,Name from Account where ID =:olddelId];
@@ -2333,7 +2350,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
         if(!dleadId.isEmpty() && dleadId != null)
         {
-            leaddrList = [select id,Assigned_Dealer__c,CAC_Lead_Status__c,Contact__c,Company_Account__c,Assigned_Dealer__r.Name from Lead__c where id =:dleadId];
+            leaddrList = [select id,OwnerId,Assigned_Dealer__c,CAC_Lead_Status__c,Contact__c,Company_Account__c,Assigned_Dealer__r.Name from Lead__c where id =:dleadId];
         }
         if(!leaddrList.isEmpty() && leaddrList != null)
         {
@@ -2388,8 +2405,22 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     assaccShare.AccountAccessLevel = 'Edit';
                     assaccShare.OpportunityAccessLevel = 'None';
                     assaccShare.CaseAccessLevel = 'Read';
-                    assshareList.add(assaccShare);
+                    assshareList.add(assaccShare);                                      
                 }
+				if(!partuserList.isEmpty() && partuserList != null)
+                    {
+                        for(User gatekeeper : partuserList)
+                        {
+                            if(shrleds.OwnerId != gatekeeper.id && shrleds.Assigned_Dealer__c == gatekeeper.Contact.AccountId)
+                            {
+                                Lead__Share leadshr = new Lead__Share();
+                                leadshr.ParentId = shrleds.Id;
+                                leadshr.UserOrGroupId = gatekeeper.Id;
+                                leadshr.AccessLevel = 'Edit';
+                                assshareList.add(leadshr);
+                            }
+                        }
+                    }                
             }
         }
         if(!oldGroupId.isEmpty() && oldGroupId != null && !oldaccId.isEmpty() && oldaccId != null)
