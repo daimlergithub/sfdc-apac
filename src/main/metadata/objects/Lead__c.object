@@ -71319,7 +71319,7 @@ else{
 	window.location.href='/'+leadCopy;
 }</url>
     </webLinks>
-	    <webLinks>
+	     <webLinks>
         <fullName>Convert</fullName>
         <availability>online</availability>
         <description>Change sales lead to after sales lead and vice versa.</description>
@@ -71330,24 +71330,27 @@ else{
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/13.0/connection.js")}
 
-var leadObj = new sforce.SObject("Lead__c");
-leadObj.Id = '{!Lead__c.Id}';
-if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
-{
-leadObj.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID';
-}
-else if(leadObj.RecordTypeId='OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID')
-{
-leadObj.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID';
-}
+	var leadObj = new sforce.SObject("Lead__c");
+	leadObj.Id = '{!Lead__c.Id}';
+		if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
+			{
+				leadObj.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID';
+			}
+					else if(leadObj.RecordTypeId='OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID')
+			{
+				leadObj.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID';
+			}
 
-var result = sforce.connection.update([leadObj]);
+					var result = sforce.connection.update([leadObj]);
 
-if (result[0].success =='false') {
-alert (result[0].errors.message);
-} else {
-location.reload(true);
-}</url>
+			if (result[0].success =='false') 	
+			{
+				alert (result[0].errors.message);
+			} 			
+			else 
+			{
+				location.reload(true);
+			}</url>
     </webLinks>
 	<webLinks>
         <fullName>Assign_to_Leads</fullName>

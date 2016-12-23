@@ -657,6 +657,7 @@
 		<xpath>/Profile/tabVisibilities[tab/text()='standard-SocialPersona']</xpath>
 	</removeelement>
 	
+	
 	<!-- remove duplicate list views -->
 	<removeduplicateelement deploy="false">
 		<filename>objects\*.object</filename>
