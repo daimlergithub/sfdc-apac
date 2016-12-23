@@ -8444,6 +8444,18 @@ Modify Reason:
                 <fullName>MB Card</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -51490,6 +51502,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>CCC</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
@@ -51504,6 +51524,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Friends recommend</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62870,6 +62894,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>E-mail</fullName>
                 <default>false</default>
@@ -62880,6 +62912,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
