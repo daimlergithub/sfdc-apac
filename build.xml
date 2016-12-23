@@ -160,6 +160,9 @@
 			   <sf:include name="RelatedDealerViewForLease"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
 			   <sf:include name="RetailCopyOnlyRelatedList"/>
+			   <sf:include name="RetailTaskInsurance"/>
+			<sf:include name="ServiceRetailTask "/>
+				<sf:include name="RetailTaskLoan"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -215,6 +218,12 @@
 			   <sf:include name="SendToMyMercControllerTest"/> 
 			   <sf:include name="AccountLinkController"/>
 			   <sf:include name="AccountLinkControllerTest"/> 
+			   <sf:include name="ServiceRetailTask"/>
+			<sf:include name="ServiceRetailTaskTest"/>
+			<sf:include name="RelatedDealerViewForInsurance"/>
+			<sf:include name="RelatedDealerViewForInsuranceTest"/>
+			<sf:include name="RelatedDealerViewForLoan"/>
+			<sf:include name="RelatedDealerViewForLoanTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
