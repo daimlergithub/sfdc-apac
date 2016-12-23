@@ -27,7 +27,7 @@
         <label>住所（TEXT）</label>
         <name>Address__c</name>
     </fields>
-	 <fields>
+    <fields>
         <label><!-- AfterSales Department --></label>
         <name>AfterSales_Department__c</name>
     </fields>
@@ -206,6 +206,10 @@
         <name>Dealer__c</name>
     </fields>
     <fields>
+        <label><!-- Delivery Date --></label>
+        <name>Delivery_Date__c</name>
+    </fields>
+    <fields>
         <label>発送形態</label>
         <name>Delivery_Type__c</name>
         <picklistValues>
@@ -262,8 +266,88 @@
         <relationshipLabel>カタログリクエスト</relationshipLabel>
     </fields>
     <fields>
+        <label><!-- MBK Channel --></label>
+        <name>MBK_Channel__c</name>
+        <picklistValues>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation><!-- 24 hours Touring Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Circle of excellence</masterLabel>
+            <translation><!-- Circle of excellence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers</masterLabel>
+            <translation><!-- Dealers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter</masterLabel>
+            <translation><!-- Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation><!-- MB Connection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Magazine Survey</masterLabel>
+            <translation><!-- Mercedes Magazine Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me</masterLabel>
+            <translation><!-- Mercedes Me --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation><!-- Mercedes call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MercedesCard</masterLabel>
+            <translation><!-- MercedesCard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation><!-- My Mercedes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation><!-- Outbound Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom</masterLabel>
+            <translation><!-- Showroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>StarClass</masterLabel>
+            <translation><!-- StarClass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Department --></label>
+        <name>Marketing_Department__c</name>
     </fields>
     <fields>
         <label><!-- Mobile --></label>
@@ -280,6 +364,14 @@
     <fields>
         <label>都道府県（TEXT）</label>
         <name>Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipient Name --></label>
+        <name>Receipient_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Department --></label>
+        <name>Sales_Department__c</name>
     </fields>
     <fields>
         <label><!-- Second Mobile --></label>
@@ -473,8 +565,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- View By All --></label>
+        <name>View_By_All__c</name>
     </fields>
     <fields>
         <label>郵便番号（TEXT）</label>
@@ -501,7 +601,7 @@
     <layouts>
         <layout>DM Request Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -511,6 +611,10 @@
         <sections>
             <label>カタログ情報</label>
             <section>DM Material Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Field</section>
         </sections>
         <sections>
             <label>その他</label>
@@ -582,4 +686,4 @@
         <label>カタログダウンロード</label>
         <name>Download_Catalogue</name>
     </webLinks>
-</CustomObjectTranslation> 
+</CustomObjectTranslation>
