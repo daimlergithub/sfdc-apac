@@ -13,7 +13,11 @@ public class AccountLinkHelper
     public static Id AccountLink_ContactSectorRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-     public static Id AccountLink_contact2conatctRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+    public static Id AccountLink_VehicleExternalRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
+    public static Id AccountLink_IndividualCustomerRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+    public static Id AccountLink_Contact2ContactRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+    public static Id AccountLink_CompanyCustomerRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
+    public static Id AccountLink_contact2conatctRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
     public Account_Link__c oldals {set;get;}
 /** 
 * @Description  This method is for parsing crmCode
@@ -59,45 +63,45 @@ public class AccountLinkHelper
          
          if(als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
 
-als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
-als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
-als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
-als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
-als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
-als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
-als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
-als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
-als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
-als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
-als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
-als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
-als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
-als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
-als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
-als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
-als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
-als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
-als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
-als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
-als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
-als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
-als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
-als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
-als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
-als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
-als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
-als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
-als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
-als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
-als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
-als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
-als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
-als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
-als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
-als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
-als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
+			als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
+			als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
+			als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
+			als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
+			als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
+			als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
+			als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
+			als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
+			als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
+			als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
+			als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
+			als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
+			als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
+			als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
+			als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
+			als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
+			als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
+			als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
+			als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
+			als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
+			als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
+			als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
+			als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
+			als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
+			als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+			als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
+			als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
+			als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
+			als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
+			als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
+			als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+			als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
+			als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
+			als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
+			als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
+			als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
+			als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
+			als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
+			als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
          
             EP_Export_Notification__c epe = New EP_Export_Notification__c();
             epe.Status__c = 'New';
@@ -120,34 +124,76 @@ als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
     
     }
     }
+      /*
+        * Added By: Siva Krishna
+        * Desc: trigger hanler code for sharing record creation for after insert and after update event
+        * Updated: Dec 23, 2016
+        */
+      
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
         Set<Id> set_ToAccountId = new Set<Id>();
+        Map<Id, List<Id>> map_DealerAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         
         for(Account_Link__c accountLink : list_AccountLink){
-            if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.toRole__c != null){
-              if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
+            if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.fromRole__c != null){
+              if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+              }
+              map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
+                set_ToAccountId.add(accountLink.fromRole__c);
+                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
+                    map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
+                }
+                map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.fromRole__c);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId
+                || accountLink.RecordTypeId == AccountLink_VehicleExternalRecordTypeId){
+                    
+                if(!map_DealerAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  map_DealerAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+              }
+              map_DealerAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
+                || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId){
+                    
+                if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+              }
+              map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId){
+                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
                   map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
               }
               map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
-            
-            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
-                set_ToAccountId.add(accountLink.toRole__c);
-                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                    map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
-                }
-                map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.toRole__c);
-            }
         }
+        
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             createVehicleRelationship(map_AccountIdAndListAccountLinkId, set_ToAccountId);
+        }
+        
+        if(map_DealerAccountIdAndListAccountLinkId.size() > 0){
+            createDealerSharingRecord(map_DealerAccountIdAndListAccountLinkId);
+        }
+        
+        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+            createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
         }
     }
     
@@ -157,31 +203,62 @@ als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
         Set<Id> set_accountId = new Set<Id>();
         List<Id> list_SharingToDelete = new List<Id>();
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         
         for(Account_Link__c accountLink : list_AccountLink){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
-                accountLink.toRole__c != null && (accountLink.toRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c || 
+                accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
                 accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c)){
                     
-              set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c);
+              set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
               list_SharingToDelete.add(accountLink.Id);
               
-              if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
-                  map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
+              if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
               }
-              map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
+              map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
             }
             
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && 
                     accountLink.Status__c != 'My Shops' && map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c == 'My Shops'){
-                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c);
+                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                 list_SharingToDelete.add(accountLink.Id);
             }
             
             if(accountLink.RecordTypeId != AccountLink_ContactSectorRecordTypeId && 
                     map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_ContactSectorRecordTypeId){
-                set_accountId.add(accountLink.toRole__c);
+                set_accountId.add(accountLink.fromRole__c);
                 list_SharingToDelete.add(accountLink.Id);
+            }
+            
+            if((accountLink.RecordTypeId != AccountLink_CompanyCustomerRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_CompanyCustomerRecordTypeId)
+                    || (accountLink.RecordTypeId != AccountLink_Contact2ContactRecordTypeId && map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_Contact2ContactRecordTypeId)
+                    || (map_AccountLinkIdAndRecord.get(accountLink.Id).RecordTypeId == AccountLink_IndividualCustomerRecordTypeId && accountLink.RecordTypeId != AccountLink_IndividualCustomerRecordTypeId)){
+                    
+                set_accountId.add(accountLink.fromRole__c);
+                list_SharingToDelete.add(accountLink.Id);
+            }
+            
+            if(accountLink.fromRole__c != null && (accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
+                || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId) && accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c){
+                    
+                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
+                list_SharingToDelete.add(accountLink.Id);
+                if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                }
+                map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            }
+            
+            if(accountLink.toRole__c != null && accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
+                && accountLink.toRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c){
+                    
+                set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).toRole__c);
+                list_SharingToDelete.add(accountLink.Id);
+                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
+                    map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
+                }
+                map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
         }
         
@@ -197,6 +274,10 @@ als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
         if(map_AccountIdAndListAccountLinkId.size() > 0){
             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
+        
+        if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+            createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
+        }
     }
     
     
@@ -208,6 +289,47 @@ als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
+                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.ParentId = accountLinkId;
+                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                    list_SharingRecord.add(accountLinkShare);
+                }
+            }
+        }
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }
+    }
+    
+    
+    private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+                    Account_Link__Share accountLinkShare = new Account_Link__Share();
+                    accountLinkShare.AccessLevel = 'Read';
+                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.ParentId = accountLinkId;
+                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                    list_SharingRecord.add(accountLinkShare);
+                }
+            }
+        }
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }
+    }
+    
+    
+    
+    private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+                    Account_Link__Share accountLinkShare = new Account_Link__Share();
+                    accountLinkShare.AccessLevel = 'Edit';
                     accountLinkShare.UserOrGroupId = usr.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
