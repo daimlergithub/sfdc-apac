@@ -51,10 +51,6 @@
                 <behavior>Edit</behavior>
                 <field>Service_Position__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Amount__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -132,6 +128,22 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Service amount</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>RetailTask_inline_service_amount</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
