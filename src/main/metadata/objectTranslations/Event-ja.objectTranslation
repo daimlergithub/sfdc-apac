@@ -43,12 +43,7 @@
     <fields>
         <label><!-- Activity Date --></label>
         <name>Activity_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Activity InboundCallNumber --></help>
-        <label><!-- Activity InboundCallNumber --></label>
-        <name>Activity_InboundCallNumber__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Activity InboundExtNumber --></label>
         <name>Activity_InboundExtNumber__c</name>
