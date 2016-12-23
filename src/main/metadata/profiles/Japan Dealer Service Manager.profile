@@ -11356,11 +11356,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Dealer_Comment__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Dealer_Comments__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -21519,8 +21514,8 @@
     <layoutAssignments>
         <layout>Translation_Dictionary__c-Translation Dictionary Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>User-User Layout</layout>
+     <layoutAssignments>
+        <layout>User-Dealer Management Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>VIN_Mapping__c-VIN Mapping Layout</layout>
