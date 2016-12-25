@@ -14,7 +14,7 @@
          
               <apex:outputPanel >
                  <b> <apex:outputLabel value="Notification Account Contact Update"/></b>
-           <apex:selectList value="{!Selected}" multiselect="true" style="top:10px;position:relative;">
+           <apex:selectList value="{!Selected}" multiselect="true" size="4" style="top:10px;position:relative;">
                     <apex:selectOptions value="{!leftacc}" />
                 </apex:selectList>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -28,7 +28,7 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <apex:outputPanel >
                <b> <apex:outputLabel value="Notification Lead Dealer Assignment"/> </b>
-           <apex:selectList value="{!Selected1}" multiselect="true" style="top:10px;position:relative;">
+           <apex:selectList value="{!Selected1}" multiselect="true" size="4" style="top:10px;position:relative;">
                
                     <apex:selectOptions value="{!leftacctwo}" />
                 </apex:selectList>
@@ -43,7 +43,7 @@
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <apex:outputPanel >
               <b>  <apex:outputLabel value="Notification Account Finance Update"/> </b>
-           <apex:selectList value="{!Selected2}" multiselect="true" style="top:10px;position:relative;">
+           <apex:selectList value="{!Selected2}" multiselect="true" size="4" style="top:10px;position:relative;">
                     <apex:selectOptions value="{!leftaccthree}" />
                 </apex:selectList>
                
