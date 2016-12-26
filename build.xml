@@ -123,7 +123,8 @@
     </target>
 	
 	<target name="deploy10">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<deploy runAllTests="${sfdc.runAllTests}">		
+			<sf:typeset name="queues"/>
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="Account"/>
@@ -271,7 +272,6 @@
 	
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="queues"/>
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
