@@ -68,7 +68,7 @@ public class ContactTableController
               }
               else{
                   String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-');
-				if(resultsworkPhoneAreaCode.size() < 3)
+				if(resultshomePhoneAreaCode.size() < 3)
                 {
                   homePhoneAreaCodePart1='';
                   homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
