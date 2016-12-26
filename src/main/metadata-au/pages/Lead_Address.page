@@ -13,7 +13,6 @@
              <apex:inputText label="Suburb" value="{!suburb}"/>
              <apex:inputText label="Mobile" value="{!mobileNum}"/>
              <apex:inputField value="{!addr.Province__c}"/>
-             <apex:inputText label="Account Post Code" value="{!zipcode}"/> 
              <apex:inputText label="Post Code" value="{!postcode}"/>
                       
         </apex:pageBlockSection>      
@@ -32,7 +31,6 @@
              <apex:inputText label="Suburb" value="{!suburb}"/>
              <apex:inputText label="Mobile" value="{!mobileNum}"/>
              <apex:inputText label="City" value="{!city}"/>
-             <apex:inputText label="Account Post Code" value="{!zipcode}"/> 
              <apex:inputText label="Post Code" value="{!postcode}"/>
                       
         </apex:pageBlockSection>      
