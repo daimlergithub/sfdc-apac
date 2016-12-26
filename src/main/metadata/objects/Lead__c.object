@@ -39813,10 +39813,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
@@ -61672,13 +61668,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
             <values>
                 <fullName>JEEP</fullName>
@@ -74263,13 +74252,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
             <values>
                 <fullName>JEEP</fullName>
@@ -76347,10 +76329,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
 			<values>
