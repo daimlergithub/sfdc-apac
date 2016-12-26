@@ -280,7 +280,7 @@ public class AccountLinkHelper
     
     private static void createSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true]){
+        for(User usr : [SELECT Id, contact.AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true]){
             if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
@@ -300,7 +300,7 @@ public class AccountLinkHelper
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
+        for(User usr : [SELECT Id, contact.AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND contact.Account.RecordType.Name = 'Dealer']){
             if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
@@ -321,7 +321,7 @@ public class AccountLinkHelper
     
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
+        for(User usr : [SELECT Id, contact.AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND contact.Account.RecordType.Name = 'Dealer']){
             if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
@@ -347,7 +347,7 @@ public class AccountLinkHelper
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
         if(list_VehicleRelationRecord.size() > 0){
-            for(User usr :  [SELECT Id, AccountId FROM User WHERE AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
+            for(User usr :  [SELECT Id, contact.AccountId FROM User WHERE AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND contact.Account.RecordType.Name = 'Dealer']){
                 if(!map_AccountIdListUser.containsKey(usr.AccountId)){
                     map_AccountIdListUser.put(usr.AccountId, new List<Id>());
                 }
