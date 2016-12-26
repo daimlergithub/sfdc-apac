@@ -12238,16 +12238,16 @@
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>CAC_Marketing_Active</fullName>
+        <active>true</active>
+        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'&amp;&amp; ISNEW()</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CAS_Marketing_Active</fullName>
         <active>true</active>
         <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
-        <errorDisplayField>IsActive</errorDisplayField>
-        <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Campaign_Validation_Rule</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISNEW(),(RecordType.Name='CAS Marketing Campaign'),IF( IsActive == TRUE,TRUE,FALSE))</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>

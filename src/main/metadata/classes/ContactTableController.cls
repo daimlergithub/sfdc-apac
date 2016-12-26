@@ -67,10 +67,19 @@ public class ContactTableController
                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
               }
               else{
-                  String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-'); 
-                  homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
+                  String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-');
+				if(resultsworkPhoneAreaCode.size() < 3)
+                {
+                  homePhoneAreaCodePart1='';
                   homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
                   homePhoneAreaCodePart3=resultshomePhoneAreaCode[2]; 
+				}
+				else
+				{
+					homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
+					homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
+					homePhoneAreaCodePart3=resultshomePhoneAreaCode[2];	
+				}
               }              
           }
   
@@ -79,10 +88,19 @@ public class ContactTableController
                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
               }
             else{
-                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-');  
-                workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-                workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-                workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-'); 
+				if(resultsworkPhoneAreaCode.size() < 3)
+                {	
+					workPhoneAreaCodePart1= '';
+					workPhoneAreaCodePart2=resultsworkPhoneAreaCode[0];
+					workPhoneAreaCodePart3=resultsworkPhoneAreaCode[1];
+				}
+				else
+				{
+					workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+					workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+					workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+				}
             }
           } 
         if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
@@ -90,10 +108,19 @@ public class ContactTableController
                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
               }
             else{
-                String[] resultsworkPhoneAreaCode= ParAcc.Mobile__c.split('-');  
-                mobilePhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-                mobilePhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-                mobilePhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+                String[] resultsMobilePhoneAreaCode= ParAcc.Mobile__c.split('-');  
+                if(resultsMobilePhoneAreaCode.size() < 3)
+                {
+                mobilePhoneAreaCodePart1='';
+                mobilePhoneAreaCodePart2=resultsMobilePhoneAreaCode[0];
+                mobilePhoneAreaCodePart3=resultsMobilePhoneAreaCode[1]; 
+                }
+                else
+                {
+                    mobilePhoneAreaCodePart1=resultsMobilePhoneAreaCode[0];
+                    mobilePhoneAreaCodePart2=resultsMobilePhoneAreaCode[1];
+                    mobilePhoneAreaCodePart3=resultsMobilePhoneAreaCode[2];    
+                } 
             }
           } 
    }
