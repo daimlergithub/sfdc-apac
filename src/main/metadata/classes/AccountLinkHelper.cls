@@ -39,11 +39,7 @@ public class AccountLinkHelper
     }
     
     
-     /*
-        * Added By: Siva Krishna
-        * Desc: trigger hanler code for sharing record creation for after insert and after update event
-        * Updated: Dec 12, 2016
-        */
+     
         
         /*
         * Added By: Abhishekh Dasepalle
@@ -58,50 +54,50 @@ public class AccountLinkHelper
         for(Account_Link__c als : sample){
         Id recId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
         Id recrId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recId || als.RecordTypeId == recrId  ){
-         //Account_Link__c oldAls = Trigger.oldMap.get(als.Id);
+        if ( als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recId || als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recrId  ){
+         
          
          if(als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c || 
 
-			als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
-			als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
-			als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
-			als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
-			als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
-			als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
-			als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
-			als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
-			als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
-			als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
-			als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
-			als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
-			als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
-			als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
-			als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
-			als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
-			als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
-			als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
-			als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
-			als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
-			als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
-			als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
-			als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
-			als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
-			als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-			als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
-			als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
-			als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
-			als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
-			als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
-			als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-			als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
-			als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
-			als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
-			als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
-			als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
-			als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
-			als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
-			als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
+            als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
+            als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
+            als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
+            als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
+            als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
+            als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
+            als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
+            als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
+            als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
+            als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
+            als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
+            als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
+            als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
+            als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
+            als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
+            als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
+            als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
+            als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
+            als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
+            als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
+            als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
+            als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
+            als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
+            als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
+            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+            als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
+            als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
+            als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
+            als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
+            als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
+            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+            als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
+            als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
+            als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
+            als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
+            als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
+            als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
+            als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
+            als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
          
             EP_Export_Notification__c epe = New EP_Export_Notification__c();
             epe.Status__c = 'New';
