@@ -3,7 +3,6 @@
     <customButtons>Repeated_Complaint</customButtons>
     <customButtons>New_Lead</customButtons>
 	<customButtons>New_AfterSales_Lead</customButtons>
-    <customButtons>Escalation</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
