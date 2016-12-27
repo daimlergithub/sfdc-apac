@@ -2215,10 +2215,7 @@
         <label><!-- Dealer Audit --></label>
         <name>Dealer_Audit__c</name>
     </fields>
-    <fields>
-        <label><!-- Dealer Comment --></label>
-        <name>Dealer_Comment__c</name>
-    </fields>
+
     <fields>
         <label>リードメモ</label>
         <name>Dealer_Comments__c</name>
@@ -5434,6 +5431,14 @@
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>DSC</masterLabel>
+            <translation><!-- DSC --></translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Dealer Outlet</masterLabel>
+            <translation>販売店</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation>販売店対応相談窓口</translation>
@@ -5461,6 +5466,10 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Letter to Executive</masterLabel>
+            <translation>役員宛て書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Card</masterLabel>
@@ -6925,7 +6934,7 @@
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
             <translation><!-- 24 hours Touring Support --></translation>
-        </picklistValues>
+        </picklistValues>		
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation><!-- Dealers --></translation>
@@ -8042,94 +8051,6 @@
     <fields>
         <label><!-- Preferred Drop-off Time --></label>
         <name>Preferred_Drop_off_Time__c</name>
-        <picklistValues>
-            <masterLabel>10:00 am</masterLabel>
-            <translation><!-- 10:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>10:30 am</masterLabel>
-            <translation><!-- 10:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:00 am</masterLabel>
-            <translation><!-- 11:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:30 am</masterLabel>
-            <translation><!-- 11:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:00 pm</masterLabel>
-            <translation><!-- 12:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:30 pm</masterLabel>
-            <translation><!-- 12:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:00 pm</masterLabel>
-            <translation><!-- 1:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:30 pm</masterLabel>
-            <translation><!-- 1:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:00 pm</masterLabel>
-            <translation><!-- 2:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:30 pm</masterLabel>
-            <translation><!-- 2:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:00 pm</masterLabel>
-            <translation><!-- 3:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:30 pm</masterLabel>
-            <translation><!-- 3:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:00 pm</masterLabel>
-            <translation><!-- 4:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:30 pm</masterLabel>
-            <translation><!-- 4:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:00 pm</masterLabel>
-            <translation><!-- 5:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:30 pm</masterLabel>
-            <translation><!-- 5:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>6:00 pm</masterLabel>
-            <translation><!-- 6:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:00 am</masterLabel>
-            <translation><!-- 8:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:30 am</masterLabel>
-            <translation><!-- 8:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:00 am</masterLabel>
-            <translation><!-- 9:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:30 am</masterLabel>
-            <translation><!-- 9:30 am --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Preferred Dropoff Time --></label>
-        <name>Preferred_Dropoff_Time__c</name>
         <picklistValues>
             <masterLabel>10:00 am</masterLabel>
             <translation><!-- 10:00 am --></translation>
@@ -15616,7 +15537,54 @@
     <fields>
         <label>未対応フラグ(72H)</label>
         <name>X72H_Untouched__c</name>
-    </fields>
+    </fields>	
+    <layouts>
+        <layout>After-Sales Leads Layout for Dealer Users</layout>
+        <sections>
+            <label>アクティビティ日付情報</label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>リード顧客情報</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>リード処理情報</label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label>リードリクエスト情報</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>敗戦情報</label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Reference Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
         <sections>
