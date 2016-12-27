@@ -485,7 +485,7 @@ List<Account> accUpdLst = new List<Account>();
          }   
   
     //fetch all  the account link record which is related with case
-    List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:caseaccountid AND toRole__c=:casedealeraccid];
+List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
   
      
        // for insert and update trigger 
@@ -493,8 +493,8 @@ List<Account> accUpdLst = new List<Account>();
            
          
             for(Account_Link__c al :relatedacctlnk){  
-            if(mapofcasefromids.containsKey(al.fromRole__c) &&  mapofcasetoids.containsKey(al.toRole__c ) )
-            if((mapofcasefromids.get(al.fromRole__c)==al.fromRole__c) &&( mapofcasetoids.get(al.toRole__c )==al.toRole__c) )
+            if(mapofcasetoids.containsKey(al.fromRole__c) &&  mapofcasefromids.containsKey(al.toRole__c ) )
+            if((mapofcasetoids.get(al.fromRole__c)==al.fromRole__c) &&( mapofcasefromids.get(al.toRole__c )==al.toRole__c) )
             
             al.Retail_Complaint_Amount__c=casedealercount.size();
             }
@@ -522,16 +522,17 @@ List<Account> accUpdLst = new List<Account>();
   
   //fetch all the account link records whose Account1 and Account2 are related with case record which we are trying to delete
   
-    List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delaccidcase AND toRole__c  IN: delcasedealer  ];
+    List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delcasedealer  AND toRole__c  IN:delaccidcase ];
                 
     for(Account_Link__c al :relatedacclnk){  
-            if((MapOfaccountId.get(al.fromRole__c)==al.fromRole__c) && (MapOfdealerId.get(al.toRole__c)==al.toRole__c)){
+            if((MapOfdealerId.get(al.fromRole__c)==al.fromRole__c) && (MapOfaccountId.get(al.toRole__c)==al.toRole__c)){
                    al.Retail_Complaint_Amount__c=al.Retail_Complaint_Amount__c-deletedcasedealer.size();
                } 
            }  
       update relatedacclnk;
       }     
  }
+
          
     public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
        List<Id> caseIds = new List<Id>();
