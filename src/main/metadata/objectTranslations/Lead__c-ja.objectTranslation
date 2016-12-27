@@ -15724,10 +15724,6 @@
         <name>New_Sales_Lead</name>
     </webLinks>
     <webLinks>
-        <label>新規ToDo</label>
-        <name>New_Task</name>
-    </webLinks>
-    <webLinks>
         <label><!-- Print_PDF --></label>
         <name>Print_PDF</name>
     </webLinks>
