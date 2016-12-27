@@ -687,73 +687,155 @@
         <style>OneColumn</style>
     </layoutSections>
     <relatedLists>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>Case_Type__c</fields>
-        <fields>Case_SubType__c</fields>
-        <fields>Repeat_Complaint_Times__c</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>CASES.CREATED_DATE</fields>
-        <fields>CREATEDBY_USER.ALIAS</fields>
-        <fields>CASES.RECORDTYPE</fields>
-        <fields>Vehicle_Model__c</fields>
-        <relatedList>RelatedCaseList</relatedList>
-        <sortField>CASES.CREATED_DATE</sortField>
-        <sortOrder>Desc</sortOrder>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>System__c</fields>
+        <fields>Role__c</fields>
+        <fields>toRole__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Portal_Mail_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
+        <fields>System__c</fields>
+        <fields>Role__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Portal_Mail_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <relatedList>Account_Link__c.toRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>UsVIN__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>New_Used__c</fields>
+        <fields>Finance_Method__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>Selling_Dealer__c</fields>
+        <fields>Last_Service_Dealer__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>ContractNumber__c</fields>
+        <fields>Product_Name__c</fields>
+        <fields>Type__c</fields>
+        <fields>Status__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>VIN_Link__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>Related_Dealer__c</fields>
+        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Competitor_Brand__c</fields>
+        <fields>Competitor_Model__c</fields>
+        <fields>BodyType__c</fields>
+        <fields>ModelYear__c</fields>
+        <fields>NextInspectionDate__c</fields>
+        <fields>Related_From__c</fields>
+        <fields>Related_To__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
+        <fields>NAME</fields>
+        <relatedList>Vehicle__c.Related_contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Lead_Desired_Service__c</fields>
         <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Lead_Latest_Phase__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>AfterSales_VIN__c</fields>
+        <fields>Expected_Close_Date__c</fields>
+        <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Vehicle_Relationship_for_Community</customButtons>
-        <fields>NAME</fields>
-        <fields>Validity__c</fields>
-        <fields>Vehicle_ID__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Vehicle_Brand__c</fields>
-        <fields>Vehicle_Class__c</fields>
-        <fields>Vehicle_Model__c</fields>
-        <fields>Purchase_Date__c</fields>
-        <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+        <excludeButtons>NewProposeMeeting</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CM.STATUS</fields>
+        <fields>Campaign_Channels__c</fields>
+        <fields>CM.RESPONDED</fields>
+        <fields>CM.LAST_UPDATE</fields>
+        <relatedList>RelatedCampaignList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
+        <fields>Delivery_Type__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>Sent_Date__c</fields>
+        <relatedList>DM_Request__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Duration__c</fields>
-        <fields>Follow_Up_Date__c</fields>
-        <fields>Follow_Up_Type__c</fields>
-        <fields>Group__c</fields>
-        <fields>Origin__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
+        <fields>Survey_Taking_Status__c</fields>
+        <fields>Survey__c</fields>
+        <fields>Lead__c</fields>
+        <fields>Case__c</fields>
+        <fields>Campaign__c</fields>
+        <fields>Account__c</fields>
+        <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
+        <customButtons>New_Inquiry</customButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>Case_Type__c</fields>
+        <fields>Case_Class__c</fields>
+        <fields>Data_Source__c</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>Case_Dealer__c</fields>
+        <fields>Customer_Request__c</fields>
+        <fields>PARENT.CASE_NUMBER</fields>
+        <fields>Customer_Type__c</fields>
+        <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Audit_Trail__c.Customer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Vehicle_Inspection__c.Customer_Name__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Vehicle_Inspection__c.Inspection_Dealership__c</relatedList>
+        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

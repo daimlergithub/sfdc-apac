@@ -175,6 +175,10 @@ public class AddressSearchValidationController{
                     {       
                         system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                         objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+						if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+						{
+							objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+						}
                     }                    
                     else
                     {
@@ -188,6 +192,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+						if(objAccount.Work_Phone__c.startsWith(' -'))
+						{
+							objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+						}
                     }
                     else
                     {
@@ -200,6 +208,11 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+						if(objAccount.Mobile__c.startsWith(' -'))
+						{
+							objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+						}
+						
                     }
                     else
                     {
@@ -226,9 +239,12 @@ public class AddressSearchValidationController{
                         objPersonAccount.Individual_Home_Phone__c = '';
                     }
                     else if((homePhoneAreaCodePart1 != ' ' || homePhoneAreaCodePart1 == ' ') && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
-                    {       
-                        system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
+                    {             
                         objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+						if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+						{
+							objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+						}
                     }                    
                     else
                     {
@@ -242,6 +258,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+						if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+						{
+							objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+						}
                     }
                     else
                     {
@@ -254,6 +274,10 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+						if(objPersonAccount.Mobile__c.startsWith(' -'))
+						{
+							objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+						}
                     }
                     else
                     {
@@ -323,6 +347,10 @@ public class AddressSearchValidationController{
                     {       
                         system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                         objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+						if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+						{
+							objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+						}
                     }                    
                     else
                     {
@@ -336,6 +364,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+						if(objAccount.Work_Phone__c.startsWith(' -'))
+						{
+							objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+						}
                     }
                     else
                     {
@@ -348,6 +380,10 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+						if(objAccount.Mobile__c.startsWith(' -'))
+						{
+							objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+						}
                     }
                     else
                     {
@@ -460,6 +496,10 @@ public class AddressSearchValidationController{
                         {       
                             system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                             objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+							if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+							{
+								objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+							}
                         }                    
                         else
                         {
@@ -473,6 +513,10 @@ public class AddressSearchValidationController{
                         else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                         {                         
                             objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+							if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+							{
+								objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+							}
                         }
                         else
                         {
@@ -485,6 +529,10 @@ public class AddressSearchValidationController{
                         else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                         {              
                             objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+							if(objPersonAccount.Mobile__c.startsWith(' -'))
+							{
+								objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+							}
                         }
                         else
                         {
@@ -940,18 +988,19 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc !=null)
-                    {
-                        objAccountDeDup.Email__c=response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
                     }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     {
-                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
-                    {
-                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
-                    }
+                    // if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    // {
+                    //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
                         AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
