@@ -240,14 +240,7 @@
             <translation><!-- Telephone --></translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label><!-- Retail Country --></label>
-        <name>Retail_Country__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
+   
     <fields>
         <label><!-- Retail CreatedDate --></label>
         <name>Retail_CreatedDate__c</name>
@@ -764,14 +757,7 @@
             <translation>베트남 사람</translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label><!-- Retail Primary Phone --></label>
-        <name>Retail_Primary_Phone__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
+    
     <fields>
         <label><!-- Retail Province --></label>
         <name>Retail_Province__c</name>
