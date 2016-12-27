@@ -7,8 +7,12 @@ public class AccountLinkEmailTemplate {
     public Id accLinkId {get;set;}
     public list<Account_Link__c> accLinkList;
     
-    public list<Account_Link__c> getaccLinkList(){
-        accLinkList = [SELECT name,System__c FROM Account_Link__c WHERE system__c = 'MBOnline' AND toRole__c = : accLinkId];
+    public list<Account_Link__c> getaccLinkList()
+	{
+		if(accLinkId != null)
+		{
+			accLinkList = [SELECT name,System__c FROM Account_Link__c WHERE system__c = 'MBOnline' AND toRole__c = : accLinkId];
+		}
         return accLinkList;
     }
     
