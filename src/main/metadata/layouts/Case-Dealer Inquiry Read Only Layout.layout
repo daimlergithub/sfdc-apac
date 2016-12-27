@@ -353,6 +353,10 @@
                 <behavior>Readonly</behavior>
                 <field>PR_Comment_for_Dealer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Origin</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
