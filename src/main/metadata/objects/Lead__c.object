@@ -71363,7 +71363,8 @@ else{
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var prName = "{!$Profile.Name}"; 
-if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
+var market = "{!Lead__c.MD__c}"; 
+if((prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator') && market == 'JP'){ 
 var myWindow = window.open("/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
 else{ 
