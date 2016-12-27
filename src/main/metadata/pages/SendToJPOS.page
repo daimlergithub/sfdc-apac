@@ -9,6 +9,7 @@ if({!ShowHideError} ==false)
 {
 alert('Sucessfully Sent Information to JPOS');
 window.location.href="/{!AccId}";
+ 
 }
 else
 {
@@ -77,7 +78,7 @@ else
 </apex:actionStatus>
     <apex:pageMessages id="Errormessage"></apex:pageMessages>
     <div align="Center">
-                        <apex:outputPanel >
+                        <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
 
             <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputfield value=" {!Account.Company__c}">
                              <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="PbId" >
@@ -97,9 +98,10 @@ else
                           <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.UCID__c.Label}"/>
                         <apex:outputField value="{!Account.UCID__c}"/>  
-              </apex:pageBlockSectionItem>    
-              <apex:pageBlockSectionItem >
-              My Mercedes ID
+              </apex:pageBlockSectionItem>   
+              <apex:pageBlockSectionItem >              
+                        <apex:outputLabel value="My Mercedes ID"/>
+                        <apex:outputText value="{!MyMercedesID}"></apex:outputText> 
               </apex:pageBlockSectionItem> 
                
               <apex:pageBlockSectionItem >                 
@@ -144,6 +146,11 @@ else
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_1__c.Label}"/>
                         <apex:outputField value="{!Account.Company_Name_Native_1__c}"/>  
+              </apex:pageBlockSectionItem> 
+                              
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_2__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Name_Native_2__c}"/>  
               </apex:pageBlockSectionItem>   
                <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Legal_Form__c.Label}"/>
