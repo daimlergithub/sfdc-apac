@@ -18,9 +18,9 @@
     Customer Status: {!relatedTo.Company_Account__r.PC_Status__c}, {!relatedTo.Company_Account__r.VAN_Status__c}<br/>
     Salesforce Customer Number: {!relatedTo.Company_Account__r.Customer_Number__c}<br/>
     MB Online Customer Number : <c:AccountLinkComponent accLink="{!relatedTo.Company_account__r.id}"/><br/>
-    Lead Link : <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">
-    {!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
+     Lead Link : <apex:outputLink value="{!$Label.Au_Community_URL+ relatedTo.id}">{!$Label.Au_Community_URL+ relatedTo.id}
     </apex:outputLink><br/><br/>
+    <br/><br/>
     Please action your leads within the timelines as advised by Mercedes-Benz. Our goal is to create the Best Customer Experience possible.
     <br/><br/>
     Thank you,<br/> 

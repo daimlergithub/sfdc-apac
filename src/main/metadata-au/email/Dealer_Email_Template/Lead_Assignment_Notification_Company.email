@@ -24,9 +24,9 @@
     
     <c:LedStatusContactAttemptMade leadId="{!relatedTo.id}" leadName="{!relatedTo.Name}"/><br/>
 
-    Lead Link : <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">
-    {!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
+    Lead Link : <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
     </apex:outputLink><br/><br/>
+
     Please action your leads within the timelines as advised by Mercedes-Benz. Our goal is to create the Best Customer Experience possible.
     <br/><br/>
     Thank you,<br/> 
