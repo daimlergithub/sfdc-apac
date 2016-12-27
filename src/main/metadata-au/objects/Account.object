@@ -5930,7 +5930,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <fullName>Finance_Contract__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Finance Contract</label>
+        <label>Financial Contract</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -8931,7 +8931,7 @@ Modify Reason:
     <fields>
         <fullName>Partner_DOB__c</fullName>
         <externalId>false</externalId>
-        <label>Partner DOB</label>
+        <label>Partner Birthdate</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
