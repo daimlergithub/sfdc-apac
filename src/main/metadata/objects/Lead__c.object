@@ -95631,6 +95631,17 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_lost_Reason_Manadatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
+ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lost_Comment__c</errorDisplayField>
+        <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lead_Invoice_Amount_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
