@@ -165,6 +165,8 @@
 				<sf:include name="ServiceRetailTask "/>
 				<sf:include name="RetailTaskLoan"/>
 				<sf:include name="Retailcopybutton"/>
+				<sf:include name="PrintPDF"/>
+				<sf:include name="PrintPDF-meta"/>
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -228,6 +230,10 @@
 			<sf:include name="RelatedDealerViewForLoanTest"/>
 			<sf:include name="createRetailCopy"/>
 			<sf:include name="createRetailCopyJPTEST"/>
+			<sf:include name="PrintPDF"/>
+			<sf:include name="PrintPDF-meta"/>
+			<sf:include name="PrintPDFTest"/>
+			<sf:include name="PrintPDFTest-meta"/>
 			</sf:typeset>
 		</deploy>
     </target>
