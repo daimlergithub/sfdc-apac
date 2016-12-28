@@ -595,7 +595,8 @@ public class AccountHelperJP
     }
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
-    Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's    
+    Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
+     Set<String> UsrAccountIds = new set<String>();   
     for(Account acc : accLst){
                 if(isInsert && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                     AccountIds.add(acc.id); //Adding accountId's to set
@@ -607,6 +608,10 @@ public class AccountHelperJP
              String origin = ApexPages.currentPage().getParameters().get('correlationID');
        
     Map<ID,User> ownermap = new Map<ID,User>([select id , name , ContactId , Contact.AccountId from user where id IN : OwnerIds]);
+    
+    /*for(User ur : ownermap.values()){
+        UsrAccountIds.add(ur.Contact.AccountId);        
+    }*/
         
         List<Account> AccList = [select Id, LastName, FirstName,LastName_Native_1__c, 
                                  FirstName_Native_1__c, PersonBirthdate, Special_Care__c, Individual_Home_Phone__c, Work_Phone__c,
@@ -626,24 +631,24 @@ public class AccountHelperJP
          }
          Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
          Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-         
+    //Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : AccountIds AND fromRole__c IN : UsrAccountIds AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];    
     for(Account led : AccList){            
-            if(ownermap.containskey(led.ownerid)){
+            if(ownermap.containskey(led.ownerid) ){// && dealercount == 0){
                  Account_Link__c acclnk = new Account_Link__c();
-                 acclnk.RecordTypeId = recordTypes.get('ContactSector');
+                 /*acclnk.RecordTypeId = recordTypes.get('ContactSector');
                  acclnk.Name = led.UCID__c;
                  acclnk.fromRole__c = led.Id;               
                   acclnk.toRole__c = ownermap.get(led.ownerid).Contact.AccountId;
                   acclnk.CorrelationID__c = origin ;
-                 acckLst.add(acclnk);
+                 acckLst.add(acclnk);*/
                  if(led.RecordTypeId == PersonRecordTypeId){
-                 acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.UCID__c, fromRole__c = led.Id, toRole__c = ownermap.get(led.ownerid).Contact.AccountId,                                                                         
+                 acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.UCID__c, fromRole__c = ownermap.get(led.ownerid).Contact.AccountId, toRole__c = led.Id,                                                                         
                                                                         Retail_Full_Name__c = ((led.LastName!=null ? led.LastName : '') + ' ' + (led.FirstName != null ? led.FirstName : '')).left(25) ,
                                                                         Retail_PersonBirthdate__c = led.PersonBirthdate, Retail_Special_Care__c = led.Special_Care__c, Retail_Individual_Home_Phone__c = led.Individual_Home_Phone__c,
                                                                         Retail_Work_Phone__c = led.Work_Phone__c, Retail_Mobile__c = led.Mobile__c, Retail_Email__c = led.Email__c,                                                                       
                                                                         Retail_Gender__c = led.Gender__c, Retail_Occupation__c = led.Occupation__c,
                                                                         Retail_Preferred_Language__c = led.Preferred_Language__c,
-                                                                        Retail_Preferred_Contact_Method__c = led.Preferred_Contact_Method__c,CorrelationID__c = origin ,
+                                                                        Retail_Preferred_Contact_Method__c = led.Preferred_Contact_Method__c,
                                                                         Retail_Special_Needs_Class__c = led.Special_Needs_Class__c, Retail_Allow_Data_Sharing__c = led.Allow_Data_Sharing2__c,
                                                                         Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
                                                                         
@@ -652,8 +657,8 @@ public class AccountHelperJP
                                                                         Retail_LastName_Native__c = led.LastName_Native_1__c, Retail_FirstName_Native__c = led.FirstName_Native_1__c
                                                                         );
                   }else if(led.RecordTypeId == AccountCompanyId){
-                      acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.UCID__c, fromRole__c = led.id, toRole__c = ownermap.get(led.ownerid).Contact.AccountId,         
-                                                     Retail_Company_Name__c = led.Name, Retail_Company_Name_Native1__c = led.Company_Name_Native_1__c, CorrelationID__c = origin ,
+                      acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.UCID__c, fromRole__c = ownermap.get(led.ownerid).Contact.AccountId, toRole__c = led.Id,          
+                                                     Retail_Company_Name__c = led.Name, Retail_Company_Name_Native1__c = led.Company_Name_Native_1__c, 
                                                      Retail_Commercial_Reg_No__c = led.Commercial_Reg_No__c, Retail_Website__c = led.website,Retail_Company_Phone__c = led.Individual_Home_Phone__c,
                                                      Retail_Company_Other_Phone__c = led.Work_Phone__c, Retail_Vat_No__c = led.Vat_No__c); 
                        if(led.Foundation_Date__c != null){
@@ -662,6 +667,9 @@ public class AccountHelperJP
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
+                  if(origin != null){
+                      acclnk.CorrelationID__c = origin;
+                  }
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
                   }

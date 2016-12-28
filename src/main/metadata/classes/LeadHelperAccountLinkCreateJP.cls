@@ -55,39 +55,36 @@ public class LeadHelperAccountLinkCreateJP {
          Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
          Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
          for(Lead__c dealerLead : leadLst){
-			if(dealerLead.Assigned_Dealer__c != null)
-				dealerId.add(dealerLead.Assigned_Dealer__c);
-			if(dealerLead.Contact__c != null)
-				AcclinkContactId.add(dealerLead.Contact__c);
-			if(dealerLead.Company_Account__c != null)
-				CompanyId.add(dealerLead.Company_Account__c);
+            if(dealerLead.Assigned_Dealer__c != null)
+                dealerId.add(dealerLead.Assigned_Dealer__c);
+            if(dealerLead.Contact__c != null)
+                AcclinkContactId.add(dealerLead.Contact__c);
+            if(dealerLead.Company_Account__c != null)
+                CompanyId.add(dealerLead.Company_Account__c);
          }
-         Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (fromRole__c IN : AcclinkContactId OR fromRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         //Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (fromRole__c IN : AcclinkContactId OR fromRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         Integer dealercount = [select count() from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
          system.debug('########'+dealercount);
          for(Lead__c led : leadlst){            
             if(led.Assigned_Dealer__c != null && dealercount == 0){
-                 Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), Name = led.Contact__r.UCID__c, fromRole__c = led.Contact__c, toRole__c = led.Assigned_Dealer__c);
+                 Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
                  accLst.add(acclnk);
                  if(led.Contact__r.RecordTypeId == PersonRecordTypeId){
-                 acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.Contact__r.UCID__c, fromRole__c = led.Contact__c, toRole__c = led.Assigned_Dealer__c, 
-                                                                        //Retail_CreatedDate__c =  led.Contact__r.Retail_CreatedDate__c, Retail_LastModifiedDate__c = led.Contact__r.Retail_LastModifiedDate__c,
-                                                                        Retail_Full_Name__c = ((led.Contact__r.LastName!=null ? led.Contact__r.LastName : '') + ' ' + (led.Contact__r.FirstName != null ? led.Contact__r.FirstName : '')).left(25) , //Retail_Full_Name_Native__c = (led.Contact__r.LastName_Native_1__c + ' ' + led.Contact__r.FirstName_Native_1__c).left(50),
+                 acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c,                                                                        
+                                                                        Retail_Full_Name__c = ((led.Contact__r.LastName!=null ? led.Contact__r.LastName : '') + ' ' + (led.Contact__r.FirstName != null ? led.Contact__r.FirstName : '')).left(25) , 
                                                                         Retail_PersonBirthdate__c = led.Contact__r.PersonBirthdate, Retail_Special_Care__c = led.Contact__r.Special_Care__c, Retail_Individual_Home_Phone__c = led.Contact__r.Individual_Home_Phone__c,
-                                                                        Retail_Work_Phone__c = led.Contact__r.Work_Phone__c, Retail_Mobile__c = led.Contact__r.Mobile__c, Retail_Email__c = led.Contact__r.Email__c,
-                                                                        //Retail_City__c = led.Contact__r.Primary_Address_Reference__r.City__c, Retail_Distinct__c = ((led.Contact__r.Primary_Address_Reference__r.District__c != null ? led.Contact__r.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Contact__r.Primary_Address_Reference__r.Block__c != null ? led.Contact__r.Primary_Address_Reference__r.Block__c : '' )).left(35),
+                                                                        Retail_Work_Phone__c = led.Contact__r.Work_Phone__c, Retail_Mobile__c = led.Contact__r.Mobile__c, Retail_Email__c = led.Contact__r.Email__c,                                                                        
                                                                         Retail_Gender__c = led.Contact__r.Gender__c, Retail_Occupation__c = led.Contact__r.Occupation__c,
                                                                         Retail_Preferred_Language__c = led.Contact__r.Preferred_Language__c,
                                                                         Retail_Preferred_Contact_Method__c = led.contact__r.Preferred_Contact_Method__c,
                                                                         Retail_Special_Needs_Class__c = led.Contact__r.Special_Needs_Class__c, Retail_Allow_Data_Sharing__c = led.contact__r.Allow_Data_Sharing2__c,
-                                                                        Retail_Full_Name_Native__c = ((led.Contact__r.LastName_Native_1__c != null ? led.Contact__r.LastName_Native_1__c: '') + (led.Contact__r.FirstName_Native_1__c != null ?led.Contact__r.FirstName_Native_1__c :'' )).left(50),
-                                                                        //Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c,                                                              
-                                                                        //Retail_Country__c = 'Japan'
+                                                                        Retail_Full_Name_Native__c = ((led.Contact__r.LastName_Native_1__c != null ? led.Contact__r.LastName_Native_1__c: '') + (led.Contact__r.FirstName_Native_1__c != null ?led.Contact__r.FirstName_Native_1__c :'' )).left(50),                                                                        
                                                                         Retail_LastName__c = led.Contact__r.LastName, Retail_FirstName__c = led.Contact__r.FirstName, 
                                                                         Retail_Full_Name_Title__c = ((led.Contact__r.LastName!=null ? led.Contact__r.LastName : '') + ' ' + (led.Contact__r.FirstName != null ? led.Contact__r.FirstName : '') + ' ' + (led.Contact__r.FirstName!= null ? led.Contact__r.FirstName : '')),
                                                                         Retail_LastName_Native__c = led.Contact__r.LastName_Native_1__c, Retail_FirstName_Native__c = led.Contact__r.FirstName_Native_1__c
                                                                         );
                   }else if(led.Contact__r.RecordTypeId == AccountCompanyId){
-                      acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.Contact__r.UCID__c, fromRole__c = led.Contact__c, toRole__c = led.Assigned_Dealer__c,         
+                      acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.Contact__r.UCID__c, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c,         
                                                      Retail_Company_Name__c = led.Contact__r.Name, Retail_Company_Name_Native1__c = led.Contact__r.Company_Name_Native_1__c, 
                                                      Retail_Commercial_Reg_No__c = led.Contact__r.Commercial_Reg_No__c, Retail_Website__c = led.Contact__r.website,Retail_Company_Phone__c = led.Contact__r.Individual_Home_Phone__c,
                                                      Retail_Company_Other_Phone__c = led.Contact__r.Work_Phone__c, Retail_Vat_No__c = led.Contact__r.Vat_No__c); 
@@ -103,18 +100,15 @@ public class LeadHelperAccountLinkCreateJP {
                   else if(led.MD__c == Label.MarketJP){
                       acclnk.Retail_Country__c = 'Japan';
                   }
-                  
-                  
-                  
                   if(led.Contact__r.Primary_Address_Reference__c != null){
-                     acclnk.Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c;
+                     acclnk.Retail_Address_Type__c = (led.Contact__r.Primary_Address_Reference__r.Address_Type__c!=null ?led.Contact__r.Primary_Address_Reference__r.Address_Type__c : '' );
                      acclnk.Retail_Address_Line_1__c = (led.Contact__r.Primary_Address_Reference__r.Address_Line_1__c != null ? led.Contact__r.Primary_Address_Reference__r.Address_Line_1__c: '' ).left(17);
                      acclnk.Retail_Address_Line_2__c  = (led.Contact__r.Primary_Address_Reference__r.Address_Line_2__c!= null ? led.Contact__r.Primary_Address_Reference__r.Address_Line_2__c : '' ).left(17);
-                     acclnk.Retail_ZipCode__c= led.Contact__r.Primary_Address_Reference__r.ZipCode__c;
+                     acclnk.Retail_ZipCode__c= (led.Contact__r.Primary_Address_Reference__r.ZipCode__c!=null ? led.Contact__r.Primary_Address_Reference__r.ZipCode__c : '');
                      acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Contact__r.Primary_Address_Reference__r.CreatedDate);
                      acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(led.Contact__r.Primary_Address_Reference__r.LastModifiedDate);
-                     acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
-                     acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.City__c.left(17);
+                     acclnk.Retail_Province__c = (led.Contact__r.Primary_Address_Reference__r.Province__c!= null ? led.Contact__r.Primary_Address_Reference__r.Province__c : '');
+                     acclnk.Retail_City__c = (led.Contact__r.Primary_Address_Reference__r.City__c != null ? led.Contact__r.Primary_Address_Reference__r.City__c : '').left(17);
                      acclnk.Retail_Distinct__c = ((led.Contact__r.Primary_Address_Reference__r.District__c != null ? led.Contact__r.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Contact__r.Primary_Address_Reference__r.Block__c != null ? led.Contact__r.Primary_Address_Reference__r.Block__c : '' )).left(17);
                    }    
                    accLst.add(acclnk);

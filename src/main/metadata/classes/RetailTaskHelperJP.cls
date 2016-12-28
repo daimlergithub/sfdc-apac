@@ -52,7 +52,7 @@ public class RetailTaskHelperJP {
                  //Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), Name = led.Account__r.UCID__c, fromRole__c = led.Account__c, toRole__c = led.Supporting_Dealer__c,ContractId__c=led .Id);
                  //accLst.add(acclnk);
                  if(led.Account__r.RecordTypeId == PersonRecordTypeId){
-            acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.Account__r.UCID__c, fromRole__c = led.Account__c, toRole__c = led.Supporting_Dealer__c, ContractId__c=led .Id ,                                                                     
+            acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Person'), Name = led.Account__r.UCID__c, fromRole__c = led.Supporting_Dealer__c , toRole__c = led.Account__c, ContractId__c=led .Id ,                                                                     
                                                                         Retail_Full_Name__c = ((led.Account__r.LastName!=null ? led.Account__r.LastName : '') + ' ' + (led.Account__r.FirstName != null ? led.Account__r.FirstName : '')).left(25) , 
                                                                         Retail_PersonBirthdate__c = led.Account__r.PersonBirthdate, Retail_Special_Care__c = led.Account__r.Special_Care__c, Retail_Individual_Home_Phone__c = led.Account__r.Individual_Home_Phone__c,
                                                                         Retail_Work_Phone__c = led.Account__r.Work_Phone__c, Retail_Mobile__c = led.Account__r.Mobile__c, Retail_Email__c = led.Account__r.Email__c,                                                                        
@@ -66,7 +66,7 @@ public class RetailTaskHelperJP {
                                                                         Retail_LastName_Native__c = led.Account__r.LastName_Native_1__c, Retail_FirstName_Native__c = led.Account__r.FirstName_Native_1__c
                                                                         );
                   }else if(led.Account__r.RecordTypeId == AccountCompanyId){
-                acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.Account__r.UCID__c, fromRole__c = led.Account__c, toRole__c = led.Supporting_Dealer__c,ContractId__c=led .Id,         
+                acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), Name = led.Account__r.UCID__c, fromRole__c = led.Supporting_Dealer__c , toRole__c = led.Account__c,ContractId__c=led .Id,         
                                                      Retail_Company_Name__c = led.Account__r.Name, Retail_Company_Name_Native1__c = led.Account__r.Company_Name_Native_1__c, 
                                                      Retail_Commercial_Reg_No__c = led.Account__r.Gender__c, Retail_Website__c = led.Account__r.website,Retail_Company_Phone__c = led.Account__r.Individual_Home_Phone__c,
                                                      Retail_Company_Other_Phone__c = led.Account__r.Work_Phone__c);  

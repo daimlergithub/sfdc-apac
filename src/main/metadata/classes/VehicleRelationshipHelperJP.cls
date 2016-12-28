@@ -447,4 +447,39 @@ public with sharing class VehicleRelationshipHelperJP
         }
         return list_SharingRecord;
     }
+ public static void beforeupdateEventAddress(List<Vehicle_Relationship__c> newList,Map<Id, Vehicle_Relationship__c> oldMap){
+     set<id> addressids= new set<id>();
+     
+     for(Vehicle_Relationship__c vc : newList){
+         addressids.add(vc.vehicle_address__c);
+     }
+     Map<id,Address__c> addressMap = new Map<id,Address__c>([select id,HouseNumber__c,City__c,Country__c,District__c,Province__c,ZipCode__c from Address__c where id in:addressids] );
+ 
+     for(Vehicle_Relationship__c vc : newList){
+         if(addressMap !=null && addressMap.get(vc.vehicle_address__c) !=null &&vc.vehicle_address__c!=oldMap.get(vc.id).vehicle_address__c)
+         {
+                Address__c addr =addressMap.get(vc.vehicle_address__c);
+                vc.MOT_User_Address__c='';
+                if(addr.HouseNumber__c!=null)
+                vc.MOT_User_Address__c=addr.HouseNumber__c+',';
+                if(addr.District__c!=null)
+                vc.MOT_User_Address__c=vc.MOT_User_Address__c+addr.District__c+',';
+                if(addr.City__c!=null)
+                vc.MOT_User_Address__c=vc.MOT_User_Address__c+addr.City__c+',';
+                if(addr.Country__c!=null)
+                vc.MOT_User_Address__c=vc.MOT_User_Address__c+addr.Country__c+',';
+                if(addr.Province__c!=null)
+                vc.MOT_User_Address__c=vc.MOT_User_Address__c+addr.Province__c+',';
+                if(addr.ZipCode__c!=null)
+                vc.MOT_User_Address__c=vc.MOT_User_Address__c+addr.ZipCode__c;
+                
+                
+                
+         }
+     
+     
+     }
+ 
+ 
+ }
 }
