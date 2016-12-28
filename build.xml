@@ -165,6 +165,8 @@
 				<sf:include name="ServiceRetailTask "/>
 				<sf:include name="RetailTaskLoan"/>
 				<sf:include name="Retailcopybutton"/>
+				<sf:include name="DuplicateCheckPage"/>
+				
 			   </sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -202,6 +204,7 @@
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="Duplicatecheck_controller"/>
 			   <sf:include name="ChangeContactTargetTest"/>
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
