@@ -190,6 +190,21 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Person Account Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>CompanySoftDeleted</value>
+        </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>Edit</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
