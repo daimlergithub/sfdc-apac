@@ -8,8 +8,8 @@ public class usernotificationsetting {
     public List<String> Selected{set;get;}
     public List<String> Selected1{set;get;}
     public List<String> Selected2{set;get;}
-    public user currentuser{set;get;}
-  public List<user> usertoupdate{set;get;}
+  
+  public user usertoupdate{set;get;}
      
     public string strname{set;get;}
     public  List<Account> acclst{set;get;}
@@ -17,21 +17,20 @@ public class usernotificationsetting {
    
     public usernotificationsetting(ApexPages.StandardController controller){
       
-        Id recid=ApexPages.currentPage().getParameters().get('id');
+        
          Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
        Selected=new List<string>();
          Selected1=new List<string>();
          Selected2=new List<string>();
-     usertoupdate=[select id,name,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:recid]; 
+     usertoupdate=[select id,name,Dealer_GC_Code__c ,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:userinfo.getUserId() ]; 
       leftacc=new List<selectOption>(); 
          rightacc=new List<selectOption>();
         leftacctwo=new List<selectOption>(); 
         leftaccthree=new List<selectOption>();
         rightacctwo=new List<selectOption>();
         rightaccthree=new List<selectOption>();
-         currentuser=[select id,name,Dealer_GC_Code__c from user where id=:userinfo.getUserId()];
-     
-        strname=currentuser.Dealer_GC_Code__c;
+         
+        strname=usertoupdate.Dealer_GC_Code__c;
         accstr=new List<string>();
          acclst=[select Id,Name,Dealer_GC_Code__c,Dealer_ND_Code__c from Account where  Dealer_GC_Code__c =:strname AND recordtypeId=:dealeracctrt ];
      
@@ -44,7 +43,7 @@ public class usernotificationsetting {
         }
   
     public void addit(){
-          
+       
         if(Selected.size() >0){
             for(String s1:Selected){
             SelectOption sp=new SelectOption(s1,s1);
@@ -53,6 +52,7 @@ public class usernotificationsetting {
          }
         }
     public void addit1(){
+   
        if(Selected1.size() >0){
             for(String s1:Selected1){
             SelectOption sp1=new SelectOption(s1,s1);
@@ -64,6 +64,7 @@ public class usernotificationsetting {
     }
     
      public void addit2(){
+    
          if(Selected2.size() >0){
             for(String s2:Selected2){
             SelectOption sp2=new SelectOption(s2,s2);
@@ -73,22 +74,19 @@ public class usernotificationsetting {
          }
     
     public void updateit(){
-        for(user u:usertoupdate ){
-           u.Notification_Lead_Dealer_Assignment__c=JSON.serializePretty(Selected);
+       
+           usertoupdate.Notification_Lead_Dealer_Assignment__c=JSON.serializePretty(Selected);
             
-        }  
-      
-         for(user us:usertoupdate ){
-       us.Notification_Lead_Not_Assigned__c=JSON.serializePretty(Selected1);    
-         }
-         for(user use:usertoupdate ){
-       use.Notification_Lead_No_Update__c=JSON.serializePretty(Selected2);  
-         }
-        
+   
+    
+       usertoupdate.Notification_Lead_Not_Assigned__c=JSON.serializePretty(Selected1);    
+       
+       usertoupdate.Notification_Lead_No_Update__c=JSON.serializePretty(Selected2);  
+       
          update usertoupdate;
     }
     public PageReference cancelit(){
-        PageReference p=new pagereference('/'+currentuser.id+'/e' );
+        PageReference p=new pagereference('/'+usertoupdate.id+'/e' );
         p.setRedirect(true);
         return p;
     }

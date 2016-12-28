@@ -49,10 +49,6 @@
                 <behavior>Edit</behavior>
                 <field>Inquiry_Comments__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Other_Type_Comments__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -101,7 +97,7 @@
         <label>Case Detail</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Subject</field>
             </layoutItems>
             <layoutItems>
@@ -144,7 +140,7 @@
                 <field>Vehicle_Class__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
@@ -204,7 +200,7 @@
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Case_RepeatCause__c</field>
             </layoutItems>
         </layoutColumns>
@@ -222,10 +218,6 @@
         <editHeading>true</editHeading>
         <label>Other Info</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Lead__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>SSI__c</field>
@@ -259,10 +251,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Result__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>On_Site_Manager_Confirmed__c</field>
