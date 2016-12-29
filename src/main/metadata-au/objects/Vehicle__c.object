@@ -6569,7 +6569,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is ”Vehicle_UsVIN“</description>
         <externalId>true</externalId>
-        <label>UsVIN</label>
+        <label>VIN</label>
         <length>17</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
