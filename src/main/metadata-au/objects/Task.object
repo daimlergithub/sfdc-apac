@@ -8162,10 +8162,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Change Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Delivery</fullName>
                 <default>false</default>
             </values>
@@ -10496,6 +10492,10 @@
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
             <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Electronic-in</fullName>
                 <default>false</default>
             </values>
@@ -10504,11 +10504,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mail</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Outbound visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10524,7 +10540,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Site</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11046,10 +11070,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Change Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Delivery</fullName>
                 <default>false</default>
             </values>
@@ -11171,6 +11191,10 @@
             </values>
             <values>
                 <fullName>Vehicle Presentation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11918,6 +11942,10 @@
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
             <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Electronic-in</fullName>
                 <default>false</default>
             </values>
@@ -11926,11 +11954,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mail</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Outbound visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11946,7 +11990,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Site</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12453,10 +12505,6 @@
             </values>
             <values>
                 <fullName>Campaign Task</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Change Owner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17339,6 +17387,10 @@
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
             <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Electronic-in</fullName>
                 <default>false</default>
             </values>
@@ -17347,11 +17399,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mail</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Outbound visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17367,12 +17435,24 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Site</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Communication_Type__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Feedback</fullName>
                 <default>false</default>
@@ -17708,6 +17788,10 @@
                 <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>training required</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>SSI_Status__c</picklist>
@@ -17835,12 +17919,20 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>In Progress</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Not Started</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting for someone else</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -30652,6 +30744,19 @@ Subject == '3rd visit (leads) update on leads.',Subject == '4th follow up or tou
         <errorDisplayField>Description</errorDisplayField>
         <errorMessage>Please enter Comment</errorMessage>
     </validationRules>
+	<webLinks>
+		<fullName>New_Task</fullName>
+		<availability>online</availability>
+		<displayType>massActionButton</displayType>
+		<encodingKey>UTF-8</encodingKey>
+		<height>600</height>
+		<linkType>url</linkType>
+		<masterLabel>New Task</masterLabel>
+		<openType>sidebar</openType>
+		<protected>false</protected>
+		<requireRowSelection>true</requireRowSelection>
+		<url>/00T/e?what_id=a0Z7A000000X7Cw&amp;RecordType=0127A0000004OqT&amp;ekp=00T&amp;ent=Task&amp;isdtp=vw&amp;nonce=bb5e476e1f99e00155a5e6980246424a43baeebc12b66abce922f67cd55c8077&amp;tsk6={!Retail_Task__c.ContractNumber__c}</url>
+	</webLinks>
     <webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
@@ -30807,19 +30912,6 @@ var v_name='{! Vehicle_Relationship__c.ContactId__c }';
 var url = "/OBJECT_TASK_WEBLINK_TASK_TAB_ID/e?RecordType=OBJECT_TASK_WEBLINK_CHANGE_OWNER_RECORDTYPEID&amp;what_id="+VRId+"  &amp;tsk5="+v_subject+"&amp;who_id="+v_name+"&amp;retURL="+VRId;
 
 window.parent.navigateToUrl(url);</url>
-    </webLinks>
-    <webLinks>
-        <fullName>New_Task</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
-        <masterLabel>New Task</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>/00T/e?what_id=a0Z7A000000X7Cw&amp;RecordType=0127A0000004OqT&amp;ekp=00T&amp;ent=Task&amp;isdtp=vw&amp;nonce=bb5e476e1f99e00155a5e6980246424a43baeebc12b66abce922f67cd55c8077&amp;tsk6={!Retail_Task__c.ContractNumber__c}</url>
     </webLinks>
     <webLinks>
         <fullName>Redo_Survey</fullName>
