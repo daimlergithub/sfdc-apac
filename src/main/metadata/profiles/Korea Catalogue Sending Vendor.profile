@@ -174,6 +174,10 @@
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>AccountMergeControllerKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
@@ -3150,7 +3154,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Master_Record__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -21661,6 +21665,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>AccountMergeKR</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>SelectSlaveAccountKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
