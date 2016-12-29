@@ -1,43 +1,95 @@
-/**
-** Utility for Account trigger
-** when Allow Data Sharing changed to yes, update lead's owner
-** Created By: Bing Bai
-** Date: 2013-06-05
-** User Story: US-CP-010 , US-CP-016, US-CP-017
-** Modified By : 
-** Modified date : 27-oct-2015
-**/
-
-public class AccountHelper { 
+@isTest
+ public class AddressSelectionforExistingCustomerTest {
  
-    /**
-       US-CP-010 error message
-     */
-    public static final String ERROR_MSG_CP_010 = Label.Dealer_Has_SR_Code_1;
-    
-    /**
-       US-CP-016 error message
-     */
-    public static final String ERROR_MSG_CP_016 = Label.Account_Cann_t_be_Customer;
-    
-/**	
-* @Description: when Allow Data Sharing changed to yes, update lead's owner.
-* @author:  Bing Bai
-* @Date: 2013-06-05(mm/dd/yy)
-* @param:  Set of dealer Id's
-* @return: 
-* @see:  AccountHelper
-*/
- 
-    public static void updateLeads(Set<Id> contactIds) {
-        List<Lead__c> leads = [select Id, Dealer_LMS__c, RecordTypeId, Need_Assign_To_Dealer__c, Assigned_Dealer__c from Lead__c where Contact__c in :contactIds and Need_Assign_To_Dealer__c = 'Need' and Assigned_Dealer__c != null];
-        Set<Id> dealerIds = new Set<Id>();
-        for(Lead__c lead : leads) {
-            dealerIds.add(lead.Assigned_Dealer__c);
-        }
+  private static List<Account> accountlist = new List<Account>();
+   private static Account account;
+     private static Address__c address;
+   private static Account personAcc;
+   private static Account companyacc;
+  public static testMethod void createTestData()
+  {
+  
+      personAcc = new Account(Dealer_Default_Flag__c=false,
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801110',
+                               Area_code__c = '0101',
+                               MD__c = 'JP',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'Email1',
+                               Primary_Fax__c = 'FAX2',
+                               Primary_Phone__c ='Other2',
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+       
+       insert personAcc;  
+       
+       
+        companyacc = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown',      
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+       
+      //insert companyacc;
+      accountlist.add(companyacc);
         
-        if(leads.size() > 0) {
-            LeadHelper.UpdateLeadOwnerFromContact(dealerIds, leads);
-        }
-    }   
-}
+      insert accountlist;  
+      
+       
+        account= new Account();
+        account.Phone='09844650654';
+        account.FirstName = 'Test';
+        account.Mobile__c = '1234567890';
+        account.Data_Source__c  = 'Test4';
+        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+        
+        address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='test1';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.Customer__c=account.id;
+        address.TitleOfHonor__c = 'To Person';  
+         
+
+        insert address;
+        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = accountlist[0].id,fromrole__c=account.id, ReCordTypeId = RetailPerson);
+        insert acclnk;
+        
+        test.StartTest();
+        ApexPages.currentPage().getParameters().put('Id',personAcc.id);
+         ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
+         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer(sc);
+          add.getSelectedAddress();
+         add.getDealer();       
+         add.CreateRetailCopy();
+         test.StopTest();
+         system.assertNotEquals(personAcc,null);
+  }
+ 
+ }
