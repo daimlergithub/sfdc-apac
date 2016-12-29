@@ -269,7 +269,9 @@
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
+			   <sf:include name="SelectSlaveAccountKR"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="AccountMergeKR"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>			   
 			</sf:typeset>
@@ -287,7 +289,8 @@
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
-				<sf:include name="AccountMergeController"/>
+				<sf:include name="AccountMergeController"/>		
+				<sf:include name="AccountMergeControllerKR"/>
 				<sf:include name="AccountMergeControllerTest"/>
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
