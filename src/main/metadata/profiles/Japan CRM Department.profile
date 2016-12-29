@@ -144,7 +144,12 @@
         <application>standard__DataAssessment</application>
         <default>false</default>
         <visible>true</visible>
-    </applicationVisibilities> 
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
@@ -752,7 +757,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RelatedDealerLease</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RelatedDealerViewForInsurance</apexClass>
@@ -1040,7 +1045,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestRelatedDealerLease</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
@@ -1624,11 +1629,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>testusernotification</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
@@ -1912,9 +1917,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Company__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -21743,6 +21748,10 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead__c-After-Sales Leads Soft Deleted</layout>
+        <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead__c-AfterSales Lead</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
@@ -22674,7 +22683,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadMerge</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadVehiclePickerKR</apexPage>
@@ -22774,7 +22783,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCampaignSegmentation</apexPage>
@@ -22830,7 +22839,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectSlaveLead</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SendAccountInfoToSPO</apexPage>
@@ -22970,7 +22979,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23236,6 +23245,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
