@@ -68,6 +68,126 @@
     <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <fieldSets>
+        <fullName>AccountMegeReadOnlyPersonKR</fullName>
+        <description>This is verify duplicate page on the account. This is used for Account Merge KR only</description>
+        <displayedFields>
+            <field>Master_Record__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>AccountMegeReadOnlyPersonKR</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>AccountMergeFields</fullName>
         <description>AccountMerge.page (Contact Portfolio)</description>
         <displayedFields>
@@ -118,10 +238,15 @@
         <label>AccountMergeFields</label>
     </fieldSets>
     <fieldSets>
-        <fullName>AccountMergeFieldsCompany</fullName>
-        <description>AccountMerge</description>
+        <fullName>AccountMergeFieldsCompanyKR</fullName>
+        <description>This is used in account merge for after verify duplicate button</description>
         <displayedFields>
-            <field>FirstName</field>
+            <field>Master_Record__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -131,7 +256,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Name</field>
+            <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -201,7 +326,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Mobile_Status__c</field>
+            <field>SMS_MMS_IM_Status_2__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -211,7 +336,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>SMS_MMS_IM_Status_2__c</field>
+            <field>Mobile_Status__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -375,11 +500,16 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>AccountMergeFieldsCompany</label>
+        <label>AccountMergeFieldsCompanyKR</label>
     </fieldSets>
     <fieldSets>
-        <fullName>AccountMergeFieldsPerson</fullName>
-        <description>AccountMerge.page (Contact Portfolio)</description>
+        <fullName>AccountMergeFieldsPersonKR</fullName>
+        <description>This is field set used in verify duplicate, This has the list fields that shows in merge page. This set is for KOREA.AccountMergeKR.page (Contact Portfolio)</description>
+        <displayedFields>
+            <field>Master_Record__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -411,12 +541,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Allow_Data_Sharing__c</field>
+            <field>Allow_Data_Sharing2__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Allow_Data_Sharing2__c</field>
+            <field>Allow_Data_Sharing__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -676,12 +806,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Preferred_Newspaper__c</field>
+            <field>Newspaper__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Preferred_Magazine__c</field>
+            <field>Magazine__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -730,7 +860,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>AccountMergeFieldsPerson</label>
+        <label>AccountMergeFieldsPersonKR</label>
     </fieldSets>
     <fieldSets>
         <fullName>AccountMergeReadonlyCompany</fullName>
@@ -846,6 +976,126 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeReadonlyCompany</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>AccountMergeReadonlyCompanyKR</fullName>
+        <description>This is used in verify duplicate and account merge on the account layout button.</description>
+        <displayedFields>
+            <field>Master_Record__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_By3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Last_Modified_Date3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>AccountMergeReadonlyCompanyKR</label>
     </fieldSets>
     <fieldSets>
         <fullName>AccountMergeReadonlyPerson</fullName>
@@ -1066,6 +1316,36 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>DealerSearchColumns</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>PersonAccountMergeSetKR</fullName>
+        <description>This is used in verify duplicate button on the select slave accounbt</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonMobilePhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonHomePhone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonBirthdate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>PersonAccountMergeSetKR</label>
     </fieldSets>
     <fieldSets>
         <fullName>SLICK_CTI_ACCOUNT</fullName>
@@ -30908,7 +31188,20 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
 
-		   window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");</url>
+
+ sforce.connection.sessionId = "{!$Api.Session_ID}";
+var userDetails = sforce.connection.query("SELECT Id, Market__c from User WHERE id ='" + sforce.connection.getUserInfo().userId + "'");
+var userMarket = userDetails.getArray("records");
+
+
+
+if(userMarket[0].Market__c == 'JP'){
+window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");
+}else if(userMarket[0].Market__c == 'KR'){
+window.open("/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");
+}else{
+alert('Error: Your Market Is Not defined ');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
