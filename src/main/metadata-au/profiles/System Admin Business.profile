@@ -23043,7 +23043,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.EOC_Call</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
