@@ -407,5 +407,87 @@ public class AccountLinkHelper
     
      
  }
+ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
+        
+        system.debug('------>Method is called');
+        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
+        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+        for(Account_Link__c acc : accLst){
+            if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+                AccountIds.add(acc.toRole__c); //Adding accountId's to set
+                System.debug('AccountID--->'+acc.id);        
+            }
+            
+        }
+        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
+        Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
+        Map<id,Account> accountMap = new Map<id,Account>([select id,Name,RecordType.Name, LastName, FirstName, Salutation__c, LastName_Native_1__c,
+                                                FirstName_Native_1__c, Gender__c, PersonBirthdate, Occupation__c, Industry, 
+                                                Preferred_Language__c, Primary_Phone__c, Special_Care__c, Special_Needs_Class__c,
+                                                Allow_Data_Sharing2__c, Individual_Home_Phone__c, Work_Phone__c, Mobile__c, Fax,
+                                                Email__c,Primary_Address_Reference__r.Address_Type__c, Primary_Address_Reference__r.Province__c,
+                                                Primary_Address_Reference__r.City__c, Primary_Address_Reference__r.District__c, Primary_Address_Reference__r.Block__c,
+                                                Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,
+                                                Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c, 
+                                                Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,
+                                                Primary_Address_Reference__r.LastModifiedDate
+                                                from Account WHERE Id IN :AccountIds]);
+        System.debug('Accountlinklist------>'+accountMap);
+        //Account link iteration
+        for(Account_Link__c acclink : accLst ){
+            if(accountMap.get(acclink.toRole__c).RecordType.Name == 'Person Account') {
+                acclink.Retail_LastName__c = accountMap.get(acclink.toRole__c).LastName;
+                acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
+                //acclink.Retail_Salutation__c = accountMap.get(acclink.toRole__c).Salutation__c;
+                acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25); 
+                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
+                acclink.Retail_LastName_Native__c = accountMap.get(acclink.toRole__c).LastName_Native_1__c;
+                acclink.Retail_FirstName_Native__c = accountMap.get(acclink.toRole__c).FirstName_Native_1__c; 
+                acclink.Retail_Gender__c = accountMap.get(acclink.toRole__c).Gender__c;
+                acclink.Retail_PersonBirthdate__c = accountMap.get(acclink.toRole__c).PersonBirthdate;
+                acclink.Retail_Occupation__c = accountMap.get(acclink.toRole__c).Occupation__c;                
+                acclink.Retail_Preferred_Language__c = accountMap.get(acclink.toRole__c).Preferred_Language__c;
+                acclink.Retail_Primary_Phone__c = accountMap.get(acclink.toRole__c).Primary_Phone__c;
+                acclink.Retail_Special_Care__c = accountMap.get(acclink.toRole__c).Special_Care__c;
+                acclink.Retail_Special_Needs_Class__c = accountMap.get(acclink.toRole__c).Special_Needs_Class__c;
+                acclink.Retail_Allow_Data_Sharing__c = accountMap.get(acclink.toRole__c).Allow_Data_Sharing2__c;                
+                acclink.Retail_Work_Phone__c = accountMap.get(acclink.toRole__c).Work_Phone__c;
+                acclink.Retail_Mobile__c = accountMap.get(acclink.toRole__c).Mobile__c;                
+                acclink.Retail_Email__c = accountMap.get(acclink.toRole__c).Email__c;
+            }
+            //Checking the Company RecordType
+            if(accountMap.get(acclink.toRole__c).RecordType.Name=='Company'){ 
+                acclink.Retail_Company_Name__c = accountMap.get(acclink.toRole__c).Name;
+                acclink.Retail_Company_Name_Native1__c = accountMap.get(acclink.toRole__c).Company_Name_Native_1__c;
+                acclink.Retail_Commercial_Reg_No__c = accountMap.get(acclink.toRole__c).Commercial_Reg_No__c;
+                acclink.Retail_Vat_No__c = accountMap.get(acclink.toRole__c).Vat_No__c;
+                if(accountMap.get(acclink.toRole__c).Foundation_Date__c != null)
+                    acclink.Retail_Foundation_Month__c = string.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());         
+            }//End if for Company record type
+            acclink.Retail_Industry__c = accountMap.get(acclink.toRole__c).Industry; 
+            acclink.Retail_Website__c = accountMap.get(acclink.toRole__c).website;
+            acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
+            acclink.Retail_Fax__c = accountMap.get(acclink.toRole__c).Fax;
+            
+            //Checking Null for sales Address 
+            if(accountMap.get(acclink.toRole__c).Primary_Address_Reference__c != null){ 
+                    acclink.Retail_Address_Type__c = accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Type__c;
+                    acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' );
+                    acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
+                    acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
+                    acclink.Retail_Address_Line_1__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c)!=null?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
+                    acclink.Retail_Address_Line_2__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_2__c)!=null?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
+                    acclink.Retail_ZipCode__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.ZipCode__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.ZipCode__c : '' );
+                    acclink.Retail_Address_CreatedDate__c = Date.ValueOf(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.CreatedDate);
+                    acclink.Retail_Address_LastModifiedDate__c = Date.ValueOf(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.LastModifiedDate);
+
+                }//End if for Sales Address
+            
+           //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
+        }//End of for loop
+        
+       // if(!AccountlnkUpdate.isEmpty())
+         //   update AccountlnkUpdate;
+    }//End of Method
 
 }
