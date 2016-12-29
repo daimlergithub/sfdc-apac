@@ -71,8 +71,8 @@ public class ContactTableController
 				if(resultshomePhoneAreaCode.size() < 3)
                 {
                   homePhoneAreaCodePart1='';
-                  homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
-                  homePhoneAreaCodePart3=resultshomePhoneAreaCode[2]; 
+                  homePhoneAreaCodePart2=resultshomePhoneAreaCode[0];
+                  homePhoneAreaCodePart3=resultshomePhoneAreaCode[1]; 
 				}
 				else
 				{
