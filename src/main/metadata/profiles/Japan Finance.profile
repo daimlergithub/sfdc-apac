@@ -23254,7 +23254,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
