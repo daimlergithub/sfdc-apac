@@ -157,6 +157,7 @@
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="DuplicateCheckPage"/>
 			   <sf:include name="RetailTask_inline_service_amount"/>
 			   <sf:include name="RelatedDealerViewForLease"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
@@ -167,7 +168,7 @@
 				<sf:include name="Retailcopybutton"/>
 				<sf:include name="PrintPDF"/>
 				<sf:include name="PrintPDF-meta"/>
-				<sf:include name="DuplicateCheckPage"/>
+				
 			</sf:typeset>
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -206,6 +207,7 @@
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="ChangeContactTarget"/>
 			   <sf:include name="Duplicatecheck_controller"/>
+			   <sf:include name="Duplicatecheck_controller_Test"/>
 			   <sf:include name="ChangeContactTargetTest"/>
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
