@@ -95631,6 +95631,17 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_lost_Reason_Manadatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
+ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lost_Comment__c</errorDisplayField>
+        <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lead_Invoice_Amount_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -96152,6 +96163,7 @@ if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
 if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
 var myWindow = window.open("/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
@@ -96174,6 +96186,24 @@ var RTs = sforce.connection.query("Select Id, Name from RecordType where sObject
 var rt = RTs.getArray("records"); 
 window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
     </webLinks>	
+	 <webLinks>
+        <fullName>Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>PrintPDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
     <webLinks>
            <fullName>Send_to_Autoline</fullName>
         <availability>online</availability>
@@ -96228,25 +96258,6 @@ else
 alert("Web service callout failed");
 }
 }</url>
-    </webLinks>	
-    <webLinks>
-        <fullName>Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Print PDF</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/</url>
     </webLinks>
     <webLinks>
         <fullName>Find_Duplicates</fullName>

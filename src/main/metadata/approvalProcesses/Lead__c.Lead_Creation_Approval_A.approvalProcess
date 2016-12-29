@@ -54,6 +54,11 @@
             <value>Aftersales Leads,Sales Leads</value>
         </criteriaItems>
         <criteriaItems>
+            <field>User.Profile</field>
+            <operation>notEqual</operation>
+            <value>Japan Dealer Company Manager,Japan Dealer Sales Manager,Japan Dealer Sales Representative,Japan Dealer Service Advisor,Japan Dealer Service Manager</value>
+        </criteriaItems>
+        <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>

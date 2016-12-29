@@ -2630,14 +2630,7 @@
             <translation><!-- 5 --></translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label><!-- SalesType --></label>
-        <name>SalesType__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
+    
     <fields>
         <label><!-- Selling Res Person --></label>
         <name>Sales_Consultant__c</name>

@@ -2401,10 +2401,7 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label>車検情報</label>
-            <section>MOT Information</section>
-        </sections>
+        
 		 <sections>
             <label>新しい</label>
             <section>New</section>
