@@ -29,7 +29,9 @@ implements TriggerHandlerIf
         }
         if(isAfter && isInsert )
         {
+        if(usr.Profile.Name.contains('Dealer')){
             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+          }
         }
         if(isBefore && isUpdate)
         {

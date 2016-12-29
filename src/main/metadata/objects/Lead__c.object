@@ -95631,6 +95631,17 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_lost_Reason_Manadatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
+ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lost_Comment__c</errorDisplayField>
+        <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lead_Invoice_Amount_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -96175,6 +96186,24 @@ var RTs = sforce.connection.query("Select Id, Name from RecordType where sObject
 var rt = RTs.getArray("records"); 
 window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
     </webLinks>	
+	 <webLinks>
+        <fullName>Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>PrintPDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
     <webLinks>
            <fullName>Send_to_Autoline</fullName>
         <availability>online</availability>
@@ -96229,25 +96258,6 @@ else
 alert("Web service callout failed");
 }
 }</url>
-    </webLinks>	
-    <webLinks>
-        <fullName>Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Print PDF</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/</url>
     </webLinks>
     <webLinks>
         <fullName>Find_Duplicates</fullName>
@@ -96337,34 +96347,34 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}  
 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'/a0u/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
 ) 
 }	
 else { 
-if('{!Account.RecordTypeId}' == '012280000000f0p')
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("/a0u/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
-else if ('{!Account.RecordTypeId}' == '012280000000f14')
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("/a0u/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
-    </webLinks>
+    </webLinks>    
     <webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
@@ -96476,6 +96486,11 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+
+
+
+
+    
 
 
 
