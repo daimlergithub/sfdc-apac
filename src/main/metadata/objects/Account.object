@@ -30777,6 +30777,17 @@ else {
         <url>/</url>
     </webLinks>
     <webLinks>
+        <fullName>Confirmed_match</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Confirmed match</masterLabel>
+        <openType>sidebar</openType>
+        <page>DuplicateCheckPage</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
         <fullName>Create_Retail_Copy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

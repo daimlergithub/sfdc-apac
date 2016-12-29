@@ -157,6 +157,7 @@
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="DuplicateCheckPage"/>
 			   <sf:include name="RetailTask_inline_service_amount"/>
 			   <sf:include name="RelatedDealerViewForLease"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
@@ -165,7 +166,10 @@
 				<sf:include name="ServiceRetailTask "/>
 				<sf:include name="RetailTaskLoan"/>
 				<sf:include name="Retailcopybutton"/>
-			   </sf:typeset>				
+				<sf:include name="PrintPDF"/>
+				<sf:include name="PrintPDF-meta"/>
+				
+			</sf:typeset>
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
 			   <sf:include name="UtilViewHierarchyTestData"/>
@@ -202,6 +206,8 @@
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="ChangeContactTarget"/>
+			   <sf:include name="Duplicatecheck_controller"/>
+			   <sf:include name="Duplicatecheck_controller_Test"/>
 			   <sf:include name="ChangeContactTargetTest"/>
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
@@ -228,6 +234,10 @@
 			<sf:include name="RelatedDealerViewForLoanTest"/>
 			<sf:include name="createRetailCopy"/>
 			<sf:include name="createRetailCopyJPTEST"/>
+			<sf:include name="PrintPDF"/>
+			<sf:include name="PrintPDF-meta"/>
+			<sf:include name="PrintPDFTest"/>
+			<sf:include name="PrintPDFTest-meta"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -287,9 +297,7 @@
 				<sf:exclude name="Account_Link__c"/>
 				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
-			</sf:typeset>
-			
-			
+			</sf:typeset>	
 		</deploy>
     </target>	
 	<target name="deploy21">
@@ -433,13 +441,11 @@
 				<sf:include name="RetailTaskHelperJP"/>						
 				<sf:include name="RetailTaskHelperJPTest"/>	
 				<sf:include name="LeadcustomClone"/>
-				<sf:include name="LeadMergeController"/>
-				
+				<sf:include name="LeadMergeController"/>				
 				<sf:include name="UtilShare"/>
 				<sf:include name="LeadSharingforDealerJP"/>
 				<sf:include name="DeleteRetailCopy"/>
 				<sf:include name="DeleteRetailCopyTest"/>
-				<!-- Added By Naga   Start   -->
 				<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
 				<sf:include name="MBJ_FS_Case_Request_InlineController"/>
 				<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
@@ -448,7 +454,6 @@
 				<sf:include name="FS_CaseInlineController"/>
 				<sf:include name="LeadDealerAssignmentProcess"/>
 				<sf:include name="LeadDealerAssignmentProcessTest"/>
-				<!-- Added By Naga   End  -->
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
@@ -458,8 +463,7 @@
 				<sf:include name="RetailTaskTrigger"/>				
 			</sf:typeset>
 		</deploy>
-    </target>
-	
+    </target>	
 	<target name="deploy25">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="letterhead"/>			
@@ -1060,4 +1064,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
+
+
+
 
