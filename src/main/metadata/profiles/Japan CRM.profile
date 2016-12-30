@@ -23037,7 +23037,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.CompanySoftDeleted</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23061,18 +23061,19 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Retail_Company</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Retail_Person</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23146,6 +23147,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -23176,6 +23178,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Case.Inquiry</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -23245,9 +23248,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Claim__c.Insurance_Claim</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23302,7 +23305,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23321,13 +23324,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Lead__c.Sales_Leads</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -23436,7 +23440,8 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Retail_Task__c.Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -23451,7 +23456,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Retail_Task__c.Loan_Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -23463,7 +23468,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Service</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -23597,6 +23602,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -23608,7 +23614,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Soft_Deleted</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
