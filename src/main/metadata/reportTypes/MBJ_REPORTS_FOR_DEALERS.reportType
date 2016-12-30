@@ -188,6 +188,11 @@
         </columns>
 		<columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>RecordType</field>
+            <table>Lead__c</table>
+        </columns>
+		<columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>ServiceProgram_Proposal_Date__c</field>
             <table>Lead__c</table>
         </columns>
