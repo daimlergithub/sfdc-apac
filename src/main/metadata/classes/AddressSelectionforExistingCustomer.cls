@@ -13,7 +13,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     Public  Id DealeAccId{get;set;}
     public List<Contact> contactList{ get; set; }  
     public Account_Link__c newAlk;
-    public List<Account_Link__c> InsertAlk;
+    public Map<id,Account_Link__c> InsertAlk; 
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
     public List<Account> Dealeracc{set;get;}
@@ -26,7 +26,7 @@ public with sharing class AddressSelectionforExistingCustomer {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
      SelectedAdd=new List<Address__c>();
-     InsertAlk=new List<Account_Link__c>();
+     InsertAlk=new Map<id,Account_Link__c> ();
      account=new Account();
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
      account = (Account)controller.getRecord();
@@ -110,7 +110,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -122,7 +122,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
@@ -161,7 +161,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -173,7 +173,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
@@ -185,7 +185,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     }
     if(InsertAlk!=null && InsertAlk.size()>0)
     {
-    insert InsertAlk;
+    insert InsertAlk.values();
     }
     
     }
