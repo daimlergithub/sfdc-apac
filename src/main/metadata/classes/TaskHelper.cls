@@ -893,8 +893,12 @@ public class TaskHelper {
   */
     
     public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
+    
         Set<ID> leadId = new Set<ID>();
+        System.debug('@@@@@@@@@@'+leadId );
           List<Lead__c> lstLead = new List<Lead__c>();
+          List<Lead__c> updateLead = new List<Lead__c>();
+          Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
          for(Task tsk : tasks){            
             if(tsk.WhatId != null){
                 if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
@@ -903,18 +907,40 @@ public class TaskHelper {
             }   
         }
          if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,Task_Update_Flag__c from Lead__c where Id =:leadId];
+            lstLead = [Select Id,Task_Update_Flag__c,Next_Contact_Customer_Date__c from Lead__c where Id =:leadId];
         }
-        for(Lead__c led : lstLead){
+        
+        for(Task t : tasks)
+        {
+        if(t.WhatId != null){
+                if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
+                for(Lead__c le : lstLead)
+                {
+                
+                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
+                {
+                le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
+                updateLead.add(le);
+                updlead.put(le.ID,le);
+                }
+                }
+                
+                }
+          }
+        }
+       for(Lead__c led : lstLead){
             if(led.Task_Update_Flag__c == False){
                 led.Task_Update_Flag__c = True;
+                updateLead.add(led);
             }
             else if(led.Task_Update_Flag__c == True){
                 led.Task_Update_Flag__c = False;
+                updateLead.add(led);
             }
         } 
-        if(lstLead.size()>0){ 
-            update  lstLead;  
+        system.debug('#####$$$$$$'+updateLead);
+        if(updlead.size()>0){ 
+            update  updlead.Values();  
         }          
     } 
 }
