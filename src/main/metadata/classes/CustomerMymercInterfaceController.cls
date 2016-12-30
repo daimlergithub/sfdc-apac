@@ -4,7 +4,7 @@ public with sharing class CustomerMymercInterfaceController {
     public Id Accid;
     public id IndividualCustomerExternaLink;
     public id ContactSector;
-    public Account_Link__c accl{get;set;}
+    public list<Account_Link__c> accl{get;set;}
     public Account_Link__c AclinkPop{get;set;}
     public list<Account_Link__c> aclsize;
     public account accont{get;set;}
@@ -34,13 +34,23 @@ public with sharing class CustomerMymercInterfaceController {
         Accid = apexpages.currentpage().getparameters().get('id');
         aclsize  = [select id, toRole__c  from Account_Link__c where toRole__c =: Accid ];
         if(aclsize.size() >0)
-            accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid limit 1];
+            accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid ];
             accont = [select id,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
-            if(accl != null && accl.System__c == 'My Mercedes')
+            if(!accl.isEmpty())
             {
-                myMercId = accl.name;
+                for(Account_Link__c acc: accl){
+                    if(acc.System__c == 'My Mercedes'){
+                myMercId = acc.name;
                 MyMercVar = true;
                 MyMercEmailVar = false;
+                
+                    }
+                    if(string.IsnotBlank(acc.Portal_Email__c)){
+                MyMercEmail = acc.Portal_Email__c;        }
+            else{
+                MyMercEmail = accont.email3__c;
+            }
+            }
             }
             for(Account_Link__c acclink: accont.Account_Links__r){
             if(acclink.fromRole__c !=null && acclink.toRole__c !=null && acclink.RecordtypeId == ContactSector){
@@ -49,11 +59,7 @@ public with sharing class CustomerMymercInterfaceController {
             }
             }
       
-            if(string.IsnotBlank(accl.Portal_Email__c)){
-                MyMercEmail = accl.Portal_Email__c;        }
-            else{
-                MyMercEmail = accont.email3__c;
-            }
+            
        }
  
      public pagereference createContractSector()
@@ -66,7 +72,7 @@ public with sharing class CustomerMymercInterfaceController {
          acc.RecordtypeId = ContactSector;
          acc.Status__c = 'My Shops';
          acc.toRole__c = Accid; //con.AccountId;
-         acc.name= 'Test Rec';
+         acc.name= '販売店関係情報';
          acc.fromRole__c = usr.contact.accountId;
          if(acc != null)
          insert acc;
@@ -80,7 +86,7 @@ public with sharing class CustomerMymercInterfaceController {
          acc.RecordtypeId = ContactSector;
          acc.Status__c = 'My Shops';
          acc.toRole__c = Accid;
-         acc.name= 'Test Rec';
+         acc.name= '販売店関係情報';
          if(acc != null)
          insert acc;
        pagereference pr = new pagereference ('/'+Accid);
@@ -132,23 +138,28 @@ public with sharing class CustomerMymercInterfaceController {
       }
  
  
-     public void mymercnew(){
+     public PageReference mymercnew(){
          Pattern MyPattern = Pattern.compile(emailRegex);
          if(!String.isBlank(accont.LastName_Native_1__c)){
             Matcher MyMatcher = MyPattern.matcher(accont.LastName_Native_1__c);
             result  = MyMatcher.matches();
          }
-        if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {                   
-             if(accont.PersonBirthdate != null&& result ==true && !String.isBlank(accont.Email2__c)){
+            
+        if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
+            system.debug('@@@in if @@@@');
+             if(accont.PersonBirthdate != null&& result ==true && accont.Email2__c!=null){
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
                  accont.Portal_Apply_User__c = userinfo.getUserid();
                  update accont;
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
              }
 
             else
             {
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandate Fields In Accounts'));
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Mandate Fields In Accounts'));
+                 return null;
+                 
             }
         }
  
@@ -159,7 +170,7 @@ public with sharing class CustomerMymercInterfaceController {
          accont.Portal_Apply_User__c = userinfo.getUserid();
          update accont;
      }
- 
+    return null;
  }
  
          

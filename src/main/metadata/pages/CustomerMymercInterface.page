@@ -1,17 +1,18 @@
 <apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
     <apex:form >
-    <apex:pagemessages ></apex:pagemessages>
+        <apex:pagemessages ></apex:pagemessages>
+
         <apex:pageBlock title="Customer My Mercedes Interface Customer" id="a">
             <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> 
                 <apex:pageblockButtons location="bottom">
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" oncomplete="myfunction();"/> <!-- oncomplete="myfunction();"-->
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}"/> <!-- oncomplete="myfunction();"-->
                      <apex:commandButton action="{!mymercnew}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" oncomplete="myfunction();"/>
                      <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
                      <apex:commandButton action="{!cancel}" value="Cancel"/>
                 </apex:pageblockButtons>
                   
                 <apex:pageBlockSection title="Select Your Preferred Email Id For Customer" columns="1">
-                    <apex:pageblockTable value="{!accl}" var="ac">
+                    <apex:pageblockTable value="{!accl[0]}" var="ac">
                         <apex:column value="{!ac.toRole__c}" headerValue="Account Name"/>
                         <apex:column headerValue="My Mercedes Id" value="{!myMercId}"/>
                         <apex:column headerValue="My Mercedes Email Id">
