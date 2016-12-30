@@ -67,9 +67,11 @@ public class TriggerVehicleRelTriggerHandlerJP
          // US-CP-007
         /* if (trigger.isBefore && trigger.isInsert){
                 vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
+                VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New, new Map<Id,Vehicle_Relationship__c>());
          }
          if(trigger.isBefore && trigger.isUpdate){
                 vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
+                 VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }*/
        // Update Status , Update Vehicle Relationship and Create Account Link     
       
@@ -77,6 +79,7 @@ public class TriggerVehicleRelTriggerHandlerJP
        if(trigger.isAfter && (trigger.isInsert))
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+          
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
