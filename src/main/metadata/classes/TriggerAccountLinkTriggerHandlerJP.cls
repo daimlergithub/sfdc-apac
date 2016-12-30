@@ -14,6 +14,7 @@ public class TriggerAccountLinkTriggerHandlerJP
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
           if(Trigger.isAfter && Trigger.isInsert){
+           AccountLinkHelper.afterInsertDeleteEvent(Trigger.new);
             AccountLinkHelper.afterInsertEvent(Trigger.new);
         }
         if(Trigger.isAfter && Trigger.isUpdate){
@@ -43,5 +44,10 @@ public class TriggerAccountLinkTriggerHandlerJP
             
             AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
         }
+         if(Trigger.isAfter && Trigger.isInsert)
+          {
+           AccountLinkHelper.afterInsertDeleteEvent(Trigger.new);
+                   }
+
     }
 }

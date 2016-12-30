@@ -207,6 +207,13 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
+            <layoutItems>
+                <height>800</height>
+                <page>RetailTaskLoan</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>1400</width>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
