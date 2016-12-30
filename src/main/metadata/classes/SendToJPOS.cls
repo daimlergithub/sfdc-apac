@@ -63,8 +63,11 @@ public class SendToJPOS{
                System.debug('@#@#@#@ AccId #@@#'+AccId );
                System.debug('@#@#@#@  alkPerson_RecordTypeId#@@#'+alkPerson_RecordTypeId);
                System.debug('@#@#@#@  alkCompany_RecordTypeId#@@#'+alkCompany_RecordTypeId);
+			   if(DealeAccId!=null && AccId!=null)
+			   {
               listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and (Recordtypeid=:alkCompany_RecordTypeId OR Recordtypeid=:alkPerson_RecordTypeId)];
-          System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+               }     
+		  System.debug('@#@#@#@ listAlk#@@#'+listAlk);
           
             if(listAlk!=null && !listAlk.isempty())
            {
