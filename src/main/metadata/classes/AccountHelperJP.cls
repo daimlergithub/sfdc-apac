@@ -541,8 +541,44 @@ public class AccountHelperJP
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
     }//End of Method
+    //*created by :Suryavarma
+    // sharing account to dealer user
+    //SFDCJP(2.0)-578 
+ public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts)
+    {
+        list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
+        list<accountshare>aslist=new list<accountshare>();
+        map<string,id> assgroupMap = new map<string,id>();  
+
+        Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+        for(account a:aclist)
+        {
+            if(a.recordtypeid==rpa)
+            {
+              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
+               {
+               
+                assgroupMap.put(assg.Name, assg.id);
+
+               }
+            }
+            if(assgroupMap!=null && assgroupMap.containskey(a.name))
+            {
+            //  system.debug('assgroupMap'+ assgroupMap);
+                Accountshare acs=new Accountshare();
+                acs.Accountid=a.id;
+                acs.UserOrGroupId = assgroupMap.get(a.name);
+                acs.AccountAccessLevel='read';
+                acs.OpportunityAccessLevel ='read';
+                aslist.add(acs);
+            }
+        }
+        if(aslist!=null)
+        {
+             insert aslist;
+        }
     
-      
+    }      
     /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
