@@ -123,7 +123,7 @@ public class AccountLinkHelper
       /*
         * Added By: Siva Krishna
         * Desc: trigger hanler code for sharing record creation for after insert and after update event
-        * Updated: Dec 23, 2016
+        * Updated: Dec 30, 2016
         */
       
       
@@ -181,7 +181,7 @@ public class AccountLinkHelper
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
-            createSharingRecord(map_AccountIdAndListAccountLinkId);
+            // createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
@@ -304,9 +304,9 @@ public class AccountLinkHelper
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
                     accountLinkShare.UserOrGroupId = usr.Id;
@@ -325,9 +325,9 @@ public class AccountLinkHelper
     
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
                     accountLinkShare.UserOrGroupId = usr.Id;
@@ -351,23 +351,27 @@ public class AccountLinkHelper
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
         if(list_VehicleRelationRecord.size() > 0){
-            for(User usr :  [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-                if(!map_AccountIdListUser.containsKey(usr.AccountId)){
-                    map_AccountIdListUser.put(usr.AccountId, new List<Id>());
+            for(User usr :  [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+                if(!map_AccountIdListUser.containsKey(usr.Contact.AccountId)){
+                    map_AccountIdListUser.put(usr.Contact.AccountId, new List<Id>());
                 }
-                map_AccountIdListUser.get(usr.AccountId).add(usr.Id);
+                map_AccountIdListUser.get(usr.Contact.AccountId).add(usr.Id);
             }
             
             if(map_AccountIdListUser.size() > 0){
                 for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
-                    for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){
-                        for(Id usrId : map_AccountIdListUser.get(toAccId)){
-                            Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                            vehicleRelationShare.AccessLevel = 'Edit';
-                            vehicleRelationShare.UserOrGroupId = usrId;
-                            vehicleRelationShare.ParentId = vehicleR.Id;
-                            vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
-                            list_SharingRecord.add(vehicleRelationShare);
+                    if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
+                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){
+                            if(map_AccountIdListUser.containsKey(toAccId)){
+                                for(Id usrId : map_AccountIdListUser.get(toAccId)){
+                                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+                                    vehicleRelationShare.AccessLevel = 'Edit';
+                                    vehicleRelationShare.UserOrGroupId = usrId;
+                                    vehicleRelationShare.ParentId = vehicleR.Id;
+                                    vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
+                                    list_SharingRecord.add(vehicleRelationShare);
+                                }
+                            }
                         }
                     }
                 }
