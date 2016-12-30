@@ -1153,11 +1153,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Master_Record__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>MBK_Lead_DataSubSource__c</field>
             <table>Lead__c</table>
         </columns>
