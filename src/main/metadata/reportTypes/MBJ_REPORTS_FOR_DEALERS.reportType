@@ -183,6 +183,11 @@
         </columns>
 		<columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Proxy_Date_Time__c </field>
+            <table>Lead__c</table>
+        </columns>
+		<columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Quotation_Date__c</field>
             <table>Lead__c</table>
         </columns>
