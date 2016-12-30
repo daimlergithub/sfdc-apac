@@ -42,6 +42,47 @@ public class SendToJPOS{
        address=[select id,Customer__c,Address_Code__c ,ZipCode__c,Province__c,Province_Native__c,Block__c,Block_Native__c,City__c,City_Native__c,District__c,District_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c from address__c where Customer__c=:AccId];     
        }
        
+       
+       //To Display Mym Id and Assigned dealer name.
+       
+       if(CurrentUsr.contactid!=null)
+             {
+              System.debug('@#@#@#@#@#@#@@#'+CurrentUsr.contactid);
+               Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
+              System.debug('@#usr @#@@#'+usr);
+              contactList=[Select id,AccountId from Contact where id=:usr.ContactId];
+               System.debug('@#@#@#@  contactList#@@#'+contactList);
+              If(contactList!=null)
+              {
+              for(Contact con:contactList)
+              {
+              DealeAccId.add(con.AccountId);
+              }
+              }
+               System.debug('@#@#@#@ DealeAccId #@@#'+DealeAccId);
+               System.debug('@#@#@#@ AccId #@@#'+AccId );
+               System.debug('@#@#@#@  alkPerson_RecordTypeId#@@#'+alkPerson_RecordTypeId);
+               System.debug('@#@#@#@  alkCompany_RecordTypeId#@@#'+alkCompany_RecordTypeId);
+			   if(DealeAccId!=null && AccId!=null)
+			   {
+              listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and (Recordtypeid=:alkCompany_RecordTypeId OR Recordtypeid=:alkPerson_RecordTypeId)];
+               }     
+		  System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+          
+            if(listAlk!=null && !listAlk.isempty())
+           {
+           for(Account_Link__c Acclink:listAlk)
+           {
+           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
+           MyMercedesID=Acclink.System__c;
+           }
+           }
+           if(AssignedDealerUserID!=null)
+           {
+         AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
+           }
+             }
+       
     }
            
          public pageReference  getSelected ()
@@ -117,7 +158,7 @@ public class SendToJPOS{
             ShowHideError=True;
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select atleast one Address'));
             }
-            if(DealerID.Company__c ==null)
+            if(DealerID.Company__c ==null && CurrentUsr.contactid==null)
             {
             ShowHideError=True;
             System.debug('Selected Out dealer'+DealerID.Company__c);
@@ -329,6 +370,7 @@ public class SendToJPOS{
               if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+           System.debug(' ^&^&^&^ Id#$#$#'+response);
             if(response!=null)
             {
             ShowHideError=false;
