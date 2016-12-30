@@ -167,7 +167,8 @@
 				<sf:include name="RetailTaskLoan"/>
 				<sf:include name="Retailcopybutton"/>
 				<sf:include name="AddressSelectionforExistingCustomer"/>
-				<sf:include name="PrintPDF"/> 
+				<sf:include name="PrintPDF"/>
+				<sf:include name="SelectAddress"/> 		 	
 				
 			</sf:typeset>
 			<sf:typeset name="classes">
@@ -238,6 +239,8 @@
 			<sf:include name="PrintPDFTest"/> 
 			<sf:include name="AddressSelectionforExistingCustomer"/> 
 			<sf:include name="AddressSelectionforExistingCustomerTest"/> 
+			<sf:include name="SelectAddressController"/>
+			<sf:include name="SelectAddressControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
