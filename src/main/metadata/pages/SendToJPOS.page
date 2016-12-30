@@ -181,7 +181,7 @@ else
         <apex:pageBlock title="Address Details" id="adddetails">
           <apex:pageBlockButtons location="bottom">
             <apex:commandButton value="Send to JPOS" action="{!SendToJPOS}" Onclick="if(!confirm('Are you sure want to send information to JPOS interface?')){return false};" oncomplete="afterSave()"  status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
-        <apex:commandButton value="cancel"/>
+        <apex:commandButton value="cancel" action="{!Cancel}"/>
         </apex:pageBlockButtons>
        <apex:pageBlockTable value="{!address}" var="a">
           <!--  <apex:column >
