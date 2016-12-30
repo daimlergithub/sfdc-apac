@@ -5,6 +5,7 @@
         <apex:outputPanel layout="block" style="overflow:auto;">
             
             <!--PageBlock starts here-->
+            
             <apex:pageBlock title="Duplicate Accounts" id="pageBlock"> 
                     <apex:pageBlocktable value="{!listwrap}" var="retail">
                 

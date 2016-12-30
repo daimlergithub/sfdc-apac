@@ -4,10 +4,9 @@
         <apex:pageBlock title="Customer My Mercedes Interface Customer" id="a">
             <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> 
                 <apex:pageblockButtons location="bottom">
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" oncomplete="window.open('/{!account.id}')"/> <!-- oncomplete="myfunction();"-->
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" oncomplete="window.open('/{!account.id}')"/>
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" oncomplete="myfunction();"/> <!-- oncomplete="myfunction();"-->
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" oncomplete="myfunction();"/>
                      <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
-                     <apex:commandButton action="{!mymercnew}" value="Send Information"/>
                      <apex:commandButton action="{!cancel}" value="Cancel"/>
                 </apex:pageblockButtons>
                   
@@ -64,7 +63,7 @@
         {
 
 
-             <!-- alert('Records updated'); -->
+            alert('Records updated');
 
         }
     </script>

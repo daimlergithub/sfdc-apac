@@ -157,6 +157,7 @@
 			   <sf:include name="SendVehicletoSPOConfirmationJP"/>
 			   <sf:include name="CustomerMymercInterface"/>
 			   <sf:include name="SendVehicleInfoMyMercedes"/>
+			   <sf:include name="DuplicateCheckPage"/>
 			   <sf:include name="RetailTask_inline_service_amount"/>
 			   <sf:include name="RelatedDealerViewForLease"/>
 			   <sf:include name="RetailCopyViewAreaForDealerUser"/>
@@ -165,9 +166,10 @@
 				<sf:include name="ServiceRetailTask "/>
 				<sf:include name="RetailTaskLoan"/>
 				<sf:include name="Retailcopybutton"/>
+				<sf:include name="AddressSelectionforExistingCustomer"/>
 				<sf:include name="PrintPDF"/>
-				<sf:include name="PrintPDF-meta"/>
-				<sf:include name="DuplicateCheckPage"/>
+				<sf:include name="SelectAddress"/> 		 	
+				
 			</sf:typeset>
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -206,6 +208,7 @@
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="ChangeContactTarget"/>
 			   <sf:include name="Duplicatecheck_controller"/>
+			   <sf:include name="Duplicatecheck_controller_Test"/>
 			   <sf:include name="ChangeContactTargetTest"/>
 			   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 			   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
@@ -232,10 +235,12 @@
 			<sf:include name="RelatedDealerViewForLoanTest"/>
 			<sf:include name="createRetailCopy"/>
 			<sf:include name="createRetailCopyJPTEST"/>
-			<sf:include name="PrintPDF"/>
-			<sf:include name="PrintPDF-meta"/>
-			<sf:include name="PrintPDFTest"/>
-			<sf:include name="PrintPDFTest-meta"/>
+			<sf:include name="PrintPDF"/> 
+			<sf:include name="PrintPDFTest"/> 
+			<sf:include name="AddressSelectionforExistingCustomer"/> 
+			<sf:include name="AddressSelectionforExistingCustomerTest"/> 
+			<sf:include name="SelectAddressController"/>
+			<sf:include name="SelectAddressControllerTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -326,7 +331,9 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="Print_Dealer_PDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
+			   <sf:include name="SelectSlaveAccountKR"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="AccountMergeKR"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>
                <sf:include name="ALKDeleteConformationpage"/>
@@ -363,7 +370,8 @@
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
-				<sf:include name="AccountMergeController"/>
+				<sf:include name="AccountMergeController"/>		
+				<sf:include name="AccountMergeControllerKR"/>
 				<sf:include name="AccountMergeControllerTest"/>
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
