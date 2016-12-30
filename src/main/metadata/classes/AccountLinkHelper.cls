@@ -123,7 +123,7 @@ public class AccountLinkHelper
       /*
         * Added By: Siva Krishna
         * Desc: trigger hanler code for sharing record creation for after insert and after update event
-        * Updated: Dec 23, 2016
+        * Updated: Dec 30, 2016
         */
       
       
@@ -181,7 +181,7 @@ public class AccountLinkHelper
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
-            createSharingRecord(map_AccountIdAndListAccountLinkId);
+            // createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
@@ -304,9 +304,9 @@ public class AccountLinkHelper
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
                     accountLinkShare.UserOrGroupId = usr.Id;
@@ -325,9 +325,9 @@ public class AccountLinkHelper
     
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
                     accountLinkShare.UserOrGroupId = usr.Id;
@@ -351,23 +351,27 @@ public class AccountLinkHelper
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
         if(list_VehicleRelationRecord.size() > 0){
-            for(User usr :  [SELECT Id, AccountId FROM User WHERE Contact.AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-                if(!map_AccountIdListUser.containsKey(usr.AccountId)){
-                    map_AccountIdListUser.put(usr.AccountId, new List<Id>());
+            for(User usr :  [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
+                if(!map_AccountIdListUser.containsKey(usr.Contact.AccountId)){
+                    map_AccountIdListUser.put(usr.Contact.AccountId, new List<Id>());
                 }
-                map_AccountIdListUser.get(usr.AccountId).add(usr.Id);
+                map_AccountIdListUser.get(usr.Contact.AccountId).add(usr.Id);
             }
             
             if(map_AccountIdListUser.size() > 0){
                 for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
-                    for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){
-                        for(Id usrId : map_AccountIdListUser.get(toAccId)){
-                            Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
-                            vehicleRelationShare.AccessLevel = 'Edit';
-                            vehicleRelationShare.UserOrGroupId = usrId;
-                            vehicleRelationShare.ParentId = vehicleR.Id;
-                            vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
-                            list_SharingRecord.add(vehicleRelationShare);
+                    if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
+                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){
+                            if(map_AccountIdListUser.containsKey(toAccId)){
+                                for(Id usrId : map_AccountIdListUser.get(toAccId)){
+                                    Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
+                                    vehicleRelationShare.AccessLevel = 'Edit';
+                                    vehicleRelationShare.UserOrGroupId = usrId;
+                                    vehicleRelationShare.ParentId = vehicleR.Id;
+                                    vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
+                                    list_SharingRecord.add(vehicleRelationShare);
+                                }
+                            }
                         }
                     }
                 }
@@ -489,5 +493,108 @@ public class AccountLinkHelper
        // if(!AccountlnkUpdate.isEmpty())
          //   update AccountlnkUpdate;
     }//End of Method
+//created by:surya varma
+//sfdcjp-578
+  /*created by :Surya Varma
+     Desc:Trigger handler code for sharing account record when after insert and delete event
+     Update date:28/12/2016
+      */
+     
+ 
+ public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+ {
+   list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+     set<id>toroleidlist=new set<id>();
+     for(Account_Link__c atl:allist)
+     {
+           toroleidlist.add(atl.toRole__r.id);
+     }
+     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
+   list<Account_Link__c>allist1 = new list<Account_Link__c>();
+  list<Account> aclist;
+  list<string> aclistnames = new list<string>();
+  list<Accountshare> acclist=new list<Accountshare>(); 
+  list<SurveyTaker__share> sutlist=new list<SurveyTaker__share>();
+  
+    Set<id> StAccountIdsSet = new Set<id>();
+    Set<id> AccountIdsSet = new Set<id>();
+  Set<id> ToAccountIdsSet = new Set<id>();  
+  map<string,id> assgroupMap = new map<string,id>();  
+  Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
+  Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
+  Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
+  Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
+  Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
+  
+    for(Account_Link__c al:allist)
+     {
+         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
+         {
+            
+             if(al.fromRole__c!=null)
+             {
+                 if(al.fromRole__r.RecordTypeid==da && (al.ToRole__r.RecordTypeid==rpa)||(al.ToRole__r.RecordTypeid==rca))
+                 {
+                      allist1.add(al);
+                     aclistnames.add(al.fromRole__r.name);
+                     AccountIdsSet.add(al.fromRole__c);
+                     ToAccountIdsSet.add(al.toRole__c);
+                 }
+             }
+         } 
+        
+     }
+     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+    if( aclistnames!=null&& allist1!=null)
+    {
+       for(Group assg:glist)
+        {
+               
+           assgroupMap.put(assg.Name, assg.id);
 
+        }
+    
+     for(Account_Link__c alnk: allist1) 
+     {
+          if(AccountIdsSet.contains(alnk.fromRole__c))
+          {
+                 
+              if(assgroupMap.containskey(alnk.fromRole__r.name))
+              {
+              //  system.debug('assgroupMap'+ assgroupMap);
+                Accountshare a=new Accountshare();
+                a.Accountid=alnk.toRole__c;
+                a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
+                a.AccountAccessLevel='edit';
+                a.OpportunityAccessLevel ='edit';
+                acclist.add(a);
+                  if(stlist!=null)
+                  {
+                      for(SurveyTaker__c sa:stlist)
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          if(sa.account__r.id==alnk.toRole__r.id)
+                          {
+                                SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=assgroupMap.get(alnk.fromRole__r.name);
+                                 surt.AccessLevel='edit';
+                                sutlist.add(surt);
+                          }    
+                      }   
+                  }
+               } 
+    
+          }
+       }
+     }
+    if(acclist.size()>0)
+    {
+        insert acclist;
+        if(sutlist!=null)
+            {
+            insert sutlist;
+            }
+    }
+ }
 }

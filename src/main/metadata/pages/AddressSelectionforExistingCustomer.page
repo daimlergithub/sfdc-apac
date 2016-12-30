@@ -1,13 +1,70 @@
 <apex:page standardController="Account" extensions="AddressSelectionforExistingCustomer">
   <apex:form >
-  <script >
-function afterSave(){ 
- 
- 
-window.location.href="/{!AccId}";
- 
- 
+  
+  <script language="JavaScript" type="text/javascript">
+function afterSave(){
+alert('Sucessfully Created Retail task');
+window.location.href="/{!AccId}";      
+  
+  }
 </script>
+
+<style>
+    /* This is for the full screen DIV */
+    .popupBackground {
+        /* Background color */
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+    
+        /* Dimensions */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        position: absolute;
+        
+        /* Mouse */
+        cursor:wait;
+    }
+ 
+    /* This is for the message DIV */
+    .PopupPanel {
+        /* Background color */
+        border: solid 2px blue;
+        background-color: white;
+ 
+        /* Dimensions */
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 50%;
+        height: 50px;
+        margin-top: -25px;
+        z-index: 999;
+        position: fixed;
+        
+        /* Mouse */
+        cursor:pointer;
+    }
+</style>
+<apex:actionStatus id="statusSaveTrip" stopText="" >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="PopupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center"><b>Please Wait</b></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionStatus>
+
   <div align="Center">
     <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
  
@@ -106,7 +163,7 @@ window.location.href="/{!AccId}";
 
 </apex:pageBlockTable>
 <apex:pageBlockButtons location="bottom">
- <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()"  reRender="Errormessage,pbid,jspanel"/>
+ <apex:commandButton value="Create Retail Copy" action="{!CreateRetailCopy}"  oncomplete="afterSave()" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
 <apex:commandButton value="cancel" action="{!cancel}"/>
         </apex:pageBlockButtons>
 
@@ -114,4 +171,4 @@ window.location.href="/{!AccId}";
                      
   </apex:form>
 </apex:page>
-             
+                   

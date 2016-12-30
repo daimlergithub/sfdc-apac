@@ -13,7 +13,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     Public  Id DealeAccId{get;set;}
     public List<Contact> contactList{ get; set; }  
     public Account_Link__c newAlk;
-    public List<Account_Link__c> InsertAlk;
+    public Map<id,Account_Link__c> InsertAlk; 
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
     public List<Account> Dealeracc{set;get;}
@@ -26,7 +26,7 @@ public with sharing class AddressSelectionforExistingCustomer {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
      SelectedAdd=new List<Address__c>();
-     InsertAlk=new List<Account_Link__c>();
+     InsertAlk=new Map<id,Account_Link__c> ();
      account=new Account();
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
      account = (Account)controller.getRecord();
@@ -91,41 +91,46 @@ public with sharing class AddressSelectionforExistingCustomer {
               }
     if(accList.RecordtypeId == accPerson_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
     }
      if(accList.RecordtypeId == accCompany_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
-    }
-   
-   
-     if(accList.RecordtypeId == accPerson_RecordTypeId)
-    {     
-    if(Accountlinklist ==null ||  Accountlinklist.isempty())
-    {
-     
-    newAlk=new Account_Link__c ();
-    newAlk.toRole__c = AccId;
-    newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=DealeAccId;
-    newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.add(newAlk);
-    }
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
     }
     
-    if(accList.RecordtypeId == accCompany_RecordTypeId)
-    {     
-    if(Accountlinklist ==null ||  Accountlinklist.isempty())
+    
+     if(Accountlinklist ==null ||  Accountlinklist.isempty())
     {
+    
+     if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {     
      
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=DealeAccId;
+    newAlk.fromRole__c=account.Company__c;
+    newAlk.RecordTypeId=alkPerson_RecordTypeId;
+    InsertAlk.put(newAlk.id,newAlk);
+     
+    }
+    if(accList.RecordtypeId == accCompany_RecordTypeId)
+    {     
+     
+     
+    newAlk=new Account_Link__c ();
+    newAlk.toRole__c = AccId;
+    newAlk.Retail_Address_Reference__c=addId;
+    newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
+    System.debug('newAlk newAlk%%%%%%%'+newAlk);
+     
     }
+    } else if(Accountlinklist !=null)
+    {
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
+   
     
     }
     }
@@ -141,40 +146,46 @@ public with sharing class AddressSelectionforExistingCustomer {
     {
     Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
     }
-   
+    
    System.debug('#$#$#$####$'+account.Company__c);
    
-     if(accList.RecordtypeId == accPerson_RecordTypeId)
-    {     
+         
     if(Accountlinklist ==null ||  Accountlinklist.isempty())
     {
+    
+     if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {     
      
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=DealerID.Company__c;
+    newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.add(newAlk);
-    }
+    InsertAlk.put(newAlk.id,newAlk);
+     
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
     {     
-    if(Accountlinklist ==null ||  Accountlinklist.isempty())
-    {
+     
      
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Company__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.add(newAlk);
+    InsertAlk.put(newAlk.id,newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
+     
     }
+    } else if(Accountlinklist !=null)
+    {
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
+    
     }
     if(InsertAlk!=null && InsertAlk.size()>0)
     {
-    insert InsertAlk;
+    insert InsertAlk.values();
     }
     
     }

@@ -130,6 +130,13 @@
         <value>Address Search</value>
     </labels>
     <labels>
+        <fullName>Address_Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Select</shortDescription>
+        <value>Address Select</value>
+    </labels>
+    <labels>
         <fullName>Address_fields_not_null</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -2639,6 +2646,13 @@
         <value>No</value>
     </labels>
     <labels>
+        <fullName>No_Address_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Address Message</shortDescription>
+        <value>There is no address. Please add address first.</value>
+    </labels>
+    <labels>
         <fullName>No_Complaint</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2884,6 +2898,13 @@
         <protected>false</protected>
         <shortDescription>Please enter the filter name</shortDescription>
         <value>Please enter the filter name</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Address</shortDescription>
+        <value>Please select Address</value>
     </labels>
     <labels>
         <fullName>Please_select_only_one_Master_Record</fullName>
@@ -3436,6 +3457,13 @@
         <protected>false</protected>
         <shortDescription>Search Duplicates</shortDescription>
         <value>Check Dedup</value>
+    </labels>
+    <labels>
+        <fullName>Select_Address_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Address Msg</shortDescription>
+        <value>Please select address</value>
     </labels>
     <labels>
         <fullName>Select_All</fullName>
@@ -4045,6 +4073,13 @@
         <protected>false</protected>
         <shortDescription>Unknown</shortDescription>
         <value>Unknown</value>
+    </labels>
+    <labels>
+        <fullName>Update_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Address</shortDescription>
+        <value>Update Address</value>
     </labels>
     <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
