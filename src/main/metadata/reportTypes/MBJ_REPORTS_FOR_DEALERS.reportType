@@ -183,7 +183,7 @@
         </columns>
 		<columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Proxy_Date_Time__c </field>
+            <field>Proxy_Date_Time__c</field>
             <table>Lead__c</table>
         </columns>
 		<columns>
