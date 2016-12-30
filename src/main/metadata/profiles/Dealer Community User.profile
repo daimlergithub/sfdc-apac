@@ -7928,7 +7928,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Recall_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
