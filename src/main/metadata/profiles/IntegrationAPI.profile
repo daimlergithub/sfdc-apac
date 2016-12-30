@@ -144,12 +144,7 @@
         <application>standard__DataAssessment</application>
         <default>false</default>
         <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
+    </applicationVisibilities> 
     <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
@@ -24620,11 +24615,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPlatformEvents</name>
-    </userPermissions>
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewSetup</name>
