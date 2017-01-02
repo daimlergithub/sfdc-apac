@@ -176,11 +176,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Actual_Maturity_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Payment_status_Two_Month_Delay__c</field>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
