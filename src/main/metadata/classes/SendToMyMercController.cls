@@ -300,6 +300,7 @@ public with sharing class SendToMyMercController {
                 accountLink = accountLinkVar;
                 PortalEmail = PortalEmailVar;
                 VID = VIDVar;
+                
             }
         }    
     }
