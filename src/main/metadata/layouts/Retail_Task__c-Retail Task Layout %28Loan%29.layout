@@ -248,11 +248,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Contractor_Company_Established_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contractor_ZipCode1__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Contractor_Address1__c</field>
@@ -282,11 +278,7 @@
                 <field>Annual_Income__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contractor_Name_Native__c</field>
-            </layoutItems>
+        <layoutColumns> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Contractor_Company_Name_Native__c</field>
