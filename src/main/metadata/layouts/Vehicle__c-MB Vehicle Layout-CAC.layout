@@ -3,6 +3,7 @@
     <customButtons>TerminateVehicleRelationships</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
+    <customButtons>Change_Contact_Target</customButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
