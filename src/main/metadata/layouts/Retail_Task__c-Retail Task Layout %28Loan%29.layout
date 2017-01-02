@@ -236,11 +236,7 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Contractor Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contractor_Name__c</field>
-            </layoutItems>
+        <layoutColumns> 
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Contractor_Company_Name__c</field>
