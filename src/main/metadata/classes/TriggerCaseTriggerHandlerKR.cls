@@ -11,11 +11,16 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             caseHelperJP.updateCaseDeadline(trigger.new);
             
         }
+        if(trigger.isAfter && trigger.isInsert)
+        {
+            CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+        }
         
         if(trigger.isBefore && trigger.isUpdate)
         {
             System.debug('#########################################-->trigger.isBefore && trigger.isUpdate');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
+          
             caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
             
@@ -25,12 +30,14 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
                caseHelperJP.calculateComplaintAmount(trigger.old);
             } 
             if (trigger.isInsert){
-               caseHelperJP.calculateComplaintAmount(trigger.new);
-              caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new);
+                caseHelperJP.calculateComplaintAmount(trigger.new);
+                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new);
+                
             }
             if (trigger.isUpdate){
                caseHelperJP.calculateComplaintAmount(trigger.new);
                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new);
+               
             }
         }
         // Implementation to addedd as required in market
