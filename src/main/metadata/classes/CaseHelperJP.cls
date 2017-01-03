@@ -325,7 +325,7 @@ List<Account> accUpdLst = new List<Account>();
  
 }
  
- public static void shareCaseWithDealers(List<Case> shcaseList)
+   public static void shareCaseWithDealers(List<Case> shcaseList)
     {
     Id profileId=userinfo.getProfileId();
     Profile profileName=[Select Id,Name from Profile where Id=:profileId];
@@ -364,7 +364,7 @@ List<Account> accUpdLst = new List<Account>();
                     }
             }
       List<User> pUser=new List<User>();
-      pUser=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId];
+      pUser=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
        
         if(!Dealername.isempty() && Dealername != null)
         {
@@ -380,12 +380,15 @@ List<Account> accUpdLst = new List<Account>();
           {
             for(Case shrcs : caserecList)
             {
-                if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
+            
+               // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
+                
+                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null && us.Contact.Accountid==shrcs.Case_Dealer__c  )
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
                     shrcase.CaseAccessLevel = 'edit';
-                    shrcase.UserOrGroupId = groupmap.get(shrcs.Case_Dealer__r.Name);
+                    shrcase.UserOrGroupId = us.id;
                     CaseSharingRecord.add(shrcase);
                 }
             }
@@ -433,6 +436,7 @@ List<Account> accUpdLst = new List<Account>();
         System.debug('$%$%$%$%$%$% CaseSharingRecord'+CaseSharingRecord);
         
     }
+    
 	
 	
       public static void countchildcase(List<Case> cases,List<case> oldcases){
