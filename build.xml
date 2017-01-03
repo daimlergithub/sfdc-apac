@@ -294,6 +294,8 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="CaseHelper"/>
+				<sf:include name="CaseHelperTest"/>
 				<sf:include name="TaskHelperKR"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
@@ -805,8 +807,6 @@
 			<sf:include name="AddToRetailCampaignControllerTet"/>
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
-			<sf:include name="CaseHelper"/>
-			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
 			<sf:include name="UtilCaseShare"/>
 			<sf:include name="UtilCaseShareTest"/>
