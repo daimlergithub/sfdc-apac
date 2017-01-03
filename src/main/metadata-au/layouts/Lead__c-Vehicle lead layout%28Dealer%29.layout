@@ -154,7 +154,7 @@
             <layoutItems>
                 <height>20</height>
                 <page>InlineVFPageToShowGenericVehicleDetails</page>
-                <showLabel>false</showLabel>
+                <showLabel>true</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>

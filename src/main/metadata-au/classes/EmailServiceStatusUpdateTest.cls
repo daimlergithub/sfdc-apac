@@ -88,7 +88,7 @@ private class EmailServiceStatusUpdateTest {
         emailProcess.handleInboundEmail(email, env);
         
         leadAfterUpdate = [select CAC_Lost_Reason__c,CAC_Lead_Status__c from Lead__c where id =: leada.id];
-        system.assertEquals('Closed',leadAfterUpdate.CAC_Lead_Status__c);
+        system.assertEquals('Closed Won',leadAfterUpdate.CAC_Lead_Status__c);
         system.assertEquals('Interest Rate',leadAfterUpdate.CAC_Lost_Reason__c);
 
         email.subject='';

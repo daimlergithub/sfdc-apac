@@ -3671,7 +3671,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.PreferredName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11341,7 +11341,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Customer_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13081,7 +13081,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.VehicleRel_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -21079,12 +21079,12 @@
         <recordType>Retail_Task__c.Retail_Activity</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
-        <recordType>Retail_Task__c.Service</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28ContractDealer%29</layout>
         <recordType>Retail_Task__c.Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout%28ServiceDealer%29</layout>
+        <recordType>Retail_Task__c.Service</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Roadside Assistant Layout</layout>
