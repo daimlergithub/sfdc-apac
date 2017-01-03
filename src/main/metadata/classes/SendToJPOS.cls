@@ -371,10 +371,8 @@ public class SendToJPOS{
               {
            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
            System.debug(' ^&^&^&^ Id#$#$#'+response);
-            if(response!=null)
-            {
-            ShowHideError=false;
-            }
+             
+            ShowHideError=false; 
             }
             }
             }
