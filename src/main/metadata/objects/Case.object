@@ -109279,7 +109279,7 @@ $Profile.Name ='Dealer-Lead+Complaint Manager'
         <active>true</active>
         <description>If Repeat Complaint Times is more than 1,  Repeat Complaint Reason is required.</description>
         <errorConditionFormula>AND(Repeat_Complaint_Times__c &gt; 0, 
-$Profile.Name != 'IntegrationAPI', MD__c = 'KR',RecordType.Name = 'MB Complaint',ISBLANK(TEXT(Case_RepeatCause__c)))</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR',RecordType.Name = 'MB Complaint',ISBLANK(TEXT(Case_RepeatCause__c)),ISNEW())</errorConditionFormula>
         <errorDisplayField>Case_RepeatCause__c</errorDisplayField>
         <errorMessage>Please enter the "Repeat Complaint Reason".</errorMessage>
     </validationRules>
@@ -109685,7 +109685,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7s&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
@@ -109696,7 +109696,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New AfterSales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=012280000006I7q&amp;ent=Case&amp;CF00N2800000A9CjS={!Account.Name}</url>
+        <url>/a13/e?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>

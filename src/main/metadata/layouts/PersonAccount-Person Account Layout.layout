@@ -5,6 +5,7 @@
     <customButtons>New_AfterSales_Leads</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Hierarchy</customButtons>
+	<customButtons>Create_Retail_Copy</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
