@@ -144,7 +144,12 @@
         <application>standard__DataAssessment</application>
         <default>false</default>
         <visible>false</visible>
-    </applicationVisibilities> 
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
