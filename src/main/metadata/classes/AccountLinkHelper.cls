@@ -439,6 +439,7 @@ public class AccountLinkHelper
         System.debug('Accountlinklist------>'+accountMap);
         //Account link iteration
         for(Account_Link__c acclink : accLst ){
+			if(acclink.toRole__c != null){
             if(accountMap.get(acclink.toRole__c).RecordType.Name == 'Person Account') {
                 acclink.Retail_LastName__c = accountMap.get(acclink.toRole__c).LastName;
                 acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
@@ -486,7 +487,7 @@ public class AccountLinkHelper
                     acclink.Retail_Address_LastModifiedDate__c = Date.ValueOf(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.LastModifiedDate);
 
                 }//End if for Sales Address
-            
+            }
            //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
         }//End of for loop
         
