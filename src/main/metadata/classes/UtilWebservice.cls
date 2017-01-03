@@ -40,7 +40,7 @@ Global class UtilWebservice
       System.debug('%^%%^%^%^% response'+response); 
        //return response;
     }
-    Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+   /* Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
         
@@ -61,8 +61,47 @@ Global class UtilWebservice
       System.debug('%^%%^%^%^% ErrorCode response'+fault.ErrorCode); 
       
        return response;
-    }
+    } */
 
+	   Public static string AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType fault=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType();
+    
+    
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
+            Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
+            response_map_x.put('response_x', response_x);
+            
+            
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+         request.Organization=UserInfo.getOrganizationId();
+          request.MarketDiscriminator=Usr.Market__c;
+           request.CustomerId=CustomerID;
+            request.AddressId=AddressId;
+             request.UserId=DealerId;
+         System.debug('$%$%$%$%$%$%$%$ TransactionId'+CustomerID+'Address id'+ AddressId+'Dealer ids'+DealerID);
+        //response.(String.Valueof(sendport.JPOSCustomerNotification(request.Organization,request.MarketDiscriminator,CustomerID,AddressId,DealerId)));
+  
+  
+   sendport.JPOSCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,AddressId,DealerId);
+  string src;
+  System.debug('$%$%$%$src tra'+src);
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% ErrorCode response'+fault.ErrorCode); 
+      
+           
+      
+       return src;
+    }
+	
     Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendSPO(String CustomerID,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
