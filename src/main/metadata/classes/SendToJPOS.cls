@@ -369,7 +369,8 @@ public class SendToJPOS{
               System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
               if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
-           response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+			  String src;
+           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
            System.debug(' ^&^&^&^ Id#$#$#'+response);
              
             ShowHideError=false; 
