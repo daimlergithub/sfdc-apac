@@ -629,6 +629,88 @@ public class AccountHelperJP
             System.debug('Line Numer'+e.getLineNumber());
         }
     }
+    public static void UpdateVRonAccount(list<Account> accMainList)
+    {
+        Set<Id> sid = New Set<Id>();
+        
+        list<Account> updateacclist = new list<Account>(); 
+        List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
+                
+        
+                for(Account abc: accMainList)
+                {
+                     sid.add(abc.Id);   
+                }
+                
+                
+
+       List<Account> accList =  [select id,Individual_Home_Phone__c,Primary_Address_Reference__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
+       
+        system.debug('++++++++++++++'+accList);
+       for(Account acc : accList){
+       
+       for(Vehicle_Relationship__c Velti : acc.Vehicle_Relationships2__r){
+       
+                   system.debug('+++++++++++++'+ acc.Vehicle_Relationships2__r);
+                   
+                   if (Velti.Vehicle_address_picklist__c == '--None--')
+                    {
+                            Velti.Vehicle_mail__c = acc.Primary_Address_Reference__c;
+                             
+                    } 
+                   
+                   if (Velti.Vehicle_Phone_picklist__c == 'Home Phone')
+                    {
+                            Velti.Vehicle_Phone__c = acc.Individual_Home_Phone__c;
+                            system.debug('++++++++++++++'+ 'IM Too WORKING BRO'); 
+                    } 
+                    else if (Velti.Vehicle_Phone_picklist__c == 'Work Phone')
+                    {
+                            Velti.Vehicle_Phone__c = acc.Work_Phone__c;
+                            system.debug('++++++++++++++'+ 'IM Too WORKING BRO');
+                    }
+                    else if (Velti.Vehicle_Phone_picklist__c ==  'Home Phone 2')
+                    {
+                            Velti.Vehicle_Phone__c = acc.Home_Phone_2__c;
+                    }
+                    
+                   
+       
+       
+                       if (Velti.vehicle_fax_picklist__c == 'FAX ')
+                     {
+                        Velti.vehicle_fax__c = acc.Fax;
+                     }
+                    else  if (Velti.vehicle_fax_picklist__c == 'Work FAX' ) {
+                     
+                        Velti.vehicle_fax__c = acc.Fax2__c;
+                     system.debug('++++++++++++++'+ 'IM WORKING BRO'); 
+                     }
+                     
+                     if (Velti.vehicle_mail_picklist__c == 'Email Home')
+                    {
+                        Velti.vehicle_mail__c =  acc.Email__c;
+                    }
+                    else if (Velti.vehicle_mail_picklist__c == 'Email Work')
+                    {
+                        Velti.vehicle_mail__c = acc.Email2__c;
+                        system.debug('++++++++++++++'+ 'IM Three WORKING BRO'); 
+                        system.debug('+++++++++++'+Velti.vehicle_mail__c );
+                    }
+                    else if (Velti.vehicle_mail_picklist__c == 'MyMercedes Email')
+                    {
+                        Velti.vehicle_mail__c = acc.Email3__c;
+                    }
+                   
+                  
+                                  
+       
+           Updateli.add(Velti ); 
+       }
+       }
+     Update Updateli ;
+}
+
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
     Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
