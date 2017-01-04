@@ -14,8 +14,15 @@ public class TriggerAccountLinkTriggerHandlerJP
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
           if(Trigger.isAfter && Trigger.isInsert){
-           AccountLinkHelper.afterInsertDeleteEvent(Trigger.new);
+        Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+           AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
             AccountLinkHelper.afterInsertEvent(Trigger.new);
+        }
+        if(Trigger.isAfter && Trigger.isDelete){
+            
+            AccountLinkHelper.afterDeleteEvent(Trigger.old);
+            
+
         }
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
@@ -46,8 +53,13 @@ public class TriggerAccountLinkTriggerHandlerJP
         }
          if(Trigger.isAfter && Trigger.isInsert)
           {
-           AccountLinkHelper.afterInsertDeleteEvent(Trigger.new);
-                   }
+            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+            AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
+          }
+        if(Trigger.isAfter && Trigger.isDelete)
+        {
+            AccountLinkHelper.afterDeleteEvent(Trigger.old); 
+        }
 
     }
 }
