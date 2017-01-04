@@ -7876,7 +7876,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Parts_Manager__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8426,7 +8426,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Service_Manager__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9986,6 +9986,56 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Duplicate_Merge_Info__c.Transaction_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info3__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.SFDC_Record_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Usecase__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20521,7 +20571,7 @@
         <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout%28Dealer%29</layout>
+        <layout>Account-Comapny Layout%28G4%29</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20840,6 +20890,9 @@
         <layout>Duplicate_Merge_Info__c-Duplicate Merge Info Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -20969,11 +21022,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account%28Dealer%29</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
+        <recordType>PersonAccount.Person_Account_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account%28Dealer%29</layout>
-        <recordType>PersonAccount.Person_Account_Retail</recordType>
+        <layout>PersonAccount-Person Account%28G4%29</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PreOrder__c-Pre-Order Layout%28Retail%29</layout>
