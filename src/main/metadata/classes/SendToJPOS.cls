@@ -383,7 +383,7 @@ public class SendToJPOS{
            ShowHideError=True;
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Web service callout failed'));     
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
           
           }
          }
