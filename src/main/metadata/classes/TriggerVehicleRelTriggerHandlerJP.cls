@@ -105,6 +105,7 @@ public class TriggerVehicleRelTriggerHandlerJP
 
           
 
+
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
