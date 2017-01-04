@@ -50,7 +50,15 @@ public class TriggerVehicleRelTriggerHandlerJP
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+          
+          if(LeadUtil.vrTrigger ){
+          LeadUtil.accountTrigger = false;
+
+          
           VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+          }
+          
+          
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
@@ -71,6 +79,7 @@ public class TriggerVehicleRelTriggerHandlerJP
          }
          if(trigger.isBefore && trigger.isUpdate){
                 vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
+				VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
                  VehicleRelationshipHelperJP.updatePortalApplyStatus(Trigger.New,(Map<Id,Vehicle_Relationship__c>) Trigger.oldMap);
          }*/
        // Update Status , Update Vehicle Relationship and Create Account Link     
@@ -84,8 +93,19 @@ public class TriggerVehicleRelTriggerHandlerJP
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+          if(LeadUtil.vrTrigger ){
+          LeadUtil.accountTrigger = false;
+
+          
           VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+
+          }
+          
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
+
+          
+
+
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
