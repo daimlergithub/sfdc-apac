@@ -51,9 +51,9 @@ global with sharing class VehiclePickerController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
-            disableButtons = false;
-        }
+        //if(p.Name.contains('Dealer')){
+            //disableButtons = false;
+        //}
         currentRecordId  = controller.getId();
         System.debug('Lead Vehicles Types...' +lead_Vehicles);
         Set<Id> lead_VehicleIds;
