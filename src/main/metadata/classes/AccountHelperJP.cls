@@ -636,11 +636,14 @@ public class AccountHelperJP
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
-        
+                
                 for(Account abc: accMainList)
+                
                 {
                      sid.add(abc.Id);   
                 }
+                
+                
                 
                 
 
