@@ -129,7 +129,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vehicle_Registration_No__c</field>
+                <field>VehicleRel_No__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
