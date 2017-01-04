@@ -31597,7 +31597,7 @@ if (sforce.console.isInConsole()) {
         <url>http://maps.yahoo.com/py/maps.py?cn={!Account.BillingCountry}&amp;csz={!Account.BillingCity}+{!Account.BillingState}+{!Account.BillingPostalCode}+&amp;addr={!Account.BillingStreet}</url>
     </webLinks>
     <webLinks>
-        <fullName>Create_Retail_Copy</fullName>
+        <fullName>Create_Retail_Copy_kr</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>page</linkType>
