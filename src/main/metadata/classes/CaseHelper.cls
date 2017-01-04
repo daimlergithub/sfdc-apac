@@ -1319,6 +1319,23 @@ public with sharing  class  CaseHelper{
         }
        
     }
+    
+    public static void caseafterInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal){
+       Map<id,case> parentCaseMap = new Map<id,Case>();
+       
+       for(Case caseNew : cases) {          
+           case parentCase = new case();
+           if(caseNew.ParentId != Null){
+           parentCase.id = caseNew.ParentId;
+           system.debug('caseNew.Repeat_Complaint_Times__c : '+caseNew.Repeat_Complaint_Times__c);
+           parentCase.Repeat_Complaint_Times__c = caseNew.Repeat_Complaint_Times__c;
+           parentCaseMap.put(parentCase.id,parentCase);
+           }
+       }
+       if(parentCaseMap.size() > 0){ 
+           update parentCaseMap.values();   
+       }
+    }
 /**      
   * @Description: Case After Insert OR Update Trigger merge 
   * @author :CHAOS
