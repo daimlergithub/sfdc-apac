@@ -19,7 +19,7 @@ public with sharing class AnnouncementController{
     }
     public PageReference doPost() {
         FeedItem fItem = new FeedItem();
-        CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'All MGJ Users' LIMIT 1];
+        CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'All MBJ Users' LIMIT 1];
         fItem.parentId = Chattergrp.id;        
         fItem.body = detail;
         insert fItem;
