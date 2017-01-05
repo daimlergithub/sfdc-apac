@@ -8,8 +8,8 @@
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
         <label>Vehicle information</label>
         <layoutColumns>
             <layoutItems>
@@ -64,8 +64,8 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Vehicle Detail</label>
+        <editHeading>true</editHeading>
+        <label>Additional Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
