@@ -22602,7 +22602,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>GeneratePDF</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>GenericUploader</apexPage>
