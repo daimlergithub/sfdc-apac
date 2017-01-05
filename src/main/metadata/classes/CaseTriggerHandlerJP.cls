@@ -9,10 +9,12 @@ public class CaseTriggerHandlerJP
     if (trigger.isInsert){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
+	caseHelperJP.SendEmailToNotifyDealer(trigger.new);
     }
     if (trigger.isUpdate){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
+	caseHelperJP.SendEmailToNotifyDealer(trigger.new);
     }
     } 
         system.debug('Entered handler...JP handler');

@@ -325,11 +325,69 @@ List<Account> accUpdLst = new List<Account>();
  
 }
  
+       /*
+ Sent email to Dealer Sales/Dealer Service manager profile users if Retail_Case_Notice_Dealer_Flag__c =true in case object.
+ */
+ public static void SendEmailToNotifyDealer(List<Case> caseList)
+    {
+    Set<ID> dealerID=new Set<Id>();
+    Set<ID> dealerName=new Set<Id>();
+    List<User> lstUser=new List<User>();
+    
+        for(Case cs:caseList)
+        {
+        dealerID.add(cs.Case_Dealer__c);
+        dealerName.add(cs.Case_Dealer__r.name);
+        }
+        if(dealerID!=null && !dealerID.isempty())
+        {
+        lstUser=[Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:dealerID AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ];
+       System.debug('sent lstUser '+lstUser);
+       }
+       EmailTemplate et=[Select id,DeveloperName from EmailTemplate where DeveloperName=:'Notify_to_Dealer']; 
+       Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+             if(lstUser!=null && !lstUser.isempty())
+             {
+             for(User u:lstUser)
+             {
+                 System.debug('user details');
+                 if(u.profile.Name=='Japan Dealer Sales Manager' || u.profile.Name=='Japan Dealer Service Manager')
+                 {
+                     for(Case c:caseList)
+                     {
+                             if(c.Case_Dealer__c !=null && c.Retail_Case_Notice_Dealer_Flag__c  ==true)
+                             {
+                             System.debug('user email details');
+                              
+                             mail.setTargetObjectId(u.id);  
+                            mail.setUseSignature(false);  
+                            mail.setBccSender(false);  
+                            mail.setTemplateId(et.id); 
+                            mail.setSaveAsActivity(false); 
+                            mail.setWhatID(c.id);
+                            
+                             }
+                     }
+                 }
+               }
+               
+                Messaging.SendEmailResult [] sentemails = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail }); 
+                             
+                             System.debug('sent email details'+sentemails );
+             } 
+    }
+ /*
+ Share case record with Japan Dealer Company Manager,Japan Dealer Sales Manager,Japan Dealer Service Manager,
+  if this Case record belongs to the dealer user's company and Dealer_Contact__c value as "Yes" and
+  Dealer_GC_Code_c field value of the Account linked to the "Case_Dealer_c" field of target Case match the Dealer_GC_Code__c of the target User
+ */
    public static void shareCaseWithDealers(List<Case> shcaseList)
     {
     Id profileId=userinfo.getProfileId();
+    if(profileId!=null)
+    {
     Profile profileName=[Select Id,Name from Profile where Id=:profileId];
-    
+    }
         Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
         List<CaseShare> CaseSharingRecord = new List<CaseShare>();
         List<Caseshare> shareList = new List<Caseshare>();
@@ -340,8 +398,13 @@ List<Account> accUpdLst = new List<Account>();
         map<string,id> groupmap = new map<string,id>();
         set<id> shUserId = new set<id>();
         List<Group> partnerUserList = new List<Group>();
-         List<Case> caselist = new List<Case>();
+        List<Case> caselist = new List<Case>();
         set<id> dealerId = new set<id>();
+        List<User> pUser=new List<User>();
+        List<User> CaseDealerUser=new List<User>();
+        set<id> CaseDealerUserId = new set<id>();
+        if(shcaseList!=null && !shcaseList.isempty())
+        {
         for(Case c : shcaseList)
         {
             if(c.RecordTypeId == caseRecId && c.Dealer_Contact__c == 'Yes' && c.Case_Dealer__c != null)
@@ -351,21 +414,25 @@ List<Account> accUpdLst = new List<Account>();
             }
            
         }
+        }
          if(!shrcaseId.isEmpty() && shrcaseId != null)
             {
-                caserecList = [select id,Case_Dealer__c,Case_Dealer__r.Name from Case where ID =:shrcaseId];                
+                caserecList = [select id,Case_Dealer__c,Case_Dealer_User__c,Case_Dealer__r.Name,Case_Dealer__r.Dealer_GC_Code__c from Case where ID =:shrcaseId];                
             }
             if(!caserecList.isEmpty() && caserecList != null)
             {
                 for(Case listca:caserecList)
                     {
                         Dealername.add(listca.Case_Dealer__r.Name);
-                        userId.add(listca.Case_Dealer__c);                    
+                        userId.add(listca.Case_Dealer__c);  
+                        CaseDealerUserId.add(listca.Case_Dealer_User__c);                  
                     }
             }
-      List<User> pUser=new List<User>();
-      pUser=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
-       
+      
+      if(userId!=null)
+      {
+      pUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
+      } 
         if(!Dealername.isempty() && Dealername != null)
         {
             partnerUserList = [select id,name,developername from group where name =:Dealername];
@@ -383,7 +450,7 @@ List<Account> accUpdLst = new List<Account>();
             
                // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
                 
-                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null && us.Contact.Accountid==shrcs.Case_Dealer__c  )
+                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null && us.Contact.Accountid==shrcs.Case_Dealer__c && us.Dealer_GC_Code__c == shrcs.Case_Dealer__r.Dealer_GC_Code__c)
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
@@ -394,10 +461,33 @@ List<Account> accUpdLst = new List<Account>();
             }
            } 
         }
-       // if(!CaseSharingRecord.isempty() && CaseSharingRecord != null)
-      //  {
-      //      insert CaseSharingRecord ;
-        //}
+        //Apex share number AS-017,JIRA ticket SFDCJP-655
+        if(CaseDealerUserId!=null)
+        {
+          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where id=:CaseDealerUserId and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
+        }
+        
+         if(!caserecList.isEmpty() && caserecList != null && CaseDealerUser!=null)
+        { 
+         
+          for(User us:CaseDealerUser)
+          {
+            for(Case shrcs : caserecList)
+            {
+            
+               // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
+                
+                if(us.id !=null && shrcs.Case_Dealer_User__c!=null && us.id==shrcs.Case_Dealer_User__c )
+                {
+                    CaseShare shrcase = new CaseShare();
+                    shrcase.CaseId = shrcs.id;
+                    shrcase.CaseAccessLevel = 'edit';
+                    shrcase.UserOrGroupId = us.id;
+                    CaseSharingRecord.add(shrcase);
+                }
+            }
+           } 
+        }
         
          // Insert sharing records and capture save result 
         // The false parameter allows for partial processing if multiple records are passed 
