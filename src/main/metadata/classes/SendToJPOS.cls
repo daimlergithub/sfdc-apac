@@ -281,10 +281,10 @@ public class SendToJPOS{
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name'));
                }
-                if(Acclist.Company_Name_Native_1__c==null)
+              /*  if(Acclist.Company_Name_Native_1__c==null)
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name Native'));
-               }
+               }*/
                if(Acclist.Company_Name_Native_2__c==null)
                {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please Enter value for Company Name Native2'));
@@ -383,7 +383,7 @@ public class SendToJPOS{
            ShowHideError=True;
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Web service callout failed'));     
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
           
           }
          }

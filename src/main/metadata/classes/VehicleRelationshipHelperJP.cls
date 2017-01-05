@@ -313,7 +313,92 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-    
+    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList){
+    set<id> sid = new set<id>();
+           
+        List<Vehicle_Relationship__c> Updatelist = new List<Vehicle_Relationship__c> ();
+            
+            if(LeadUtil.verTrigger){ 
+            for (Vehicle_Relationship__c Ve : veReList ) 
+                {
+                system.debug('+++++++++++++++++++'+veReList );
+                        if (Ve.vehicle_fax_picklist__c != null || Ve.vehicle_mail_picklist__c != null || Ve.Vehicle_Phone_picklist__c != null || ve.vehicle_address_picklist__c != null)
+                        {
+                        sid.add(Ve.Contact__c);
+                        }
+                }
+                
+                }
+                LeadUtil.verTrigger = false;
+                system.debug('++++++++++++++++++++'+sid);
+                
+            
+      List <Account> accls =[ select id,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Customer__c,Address_Type__c from Addresses__r),(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
+      //List<Vehicle_Relationship__c> Vehiclepicklist =[ select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid ];
+     
+           system.debug('++++++++++++++++++'+accls);      
+            for (Account acc : accls)
+            {
+            
+            for(Vehicle_Relationship__c Vels  : acc.Vehicle_Relationships2__r )
+           {
+                
+                    if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
+                    {
+                            vels.Vehicle_Phone__c = acc.Individual_Home_Phone__c;
+                    } 
+                    else if (Vels.Vehicle_Phone_picklist__c == 'work phone')
+                    {
+                            vels.Vehicle_Phone__c = acc.Work_Phone__c;
+                    }
+                    else if (vels.Vehicle_Phone_picklist__c ==  'Home Phone 2')
+                    {
+                            vels.Vehicle_Phone__c = acc.Home_Phone_2__c;
+                    }
+                     
+                     
+                     if (vels.vehicle_fax_picklist__c == 'FAX')
+                     {
+                        vels.vehicle_fax__c = acc.Fax;
+                     }
+                    else if (vels.vehicle_fax_picklist__c == 'Work FAX')
+                    {
+                        vels.vehicle_fax__c = acc.Fax2__c;
+                    }
+                
+                    
+                    if (vels.vehicle_mail_picklist__c == 'Email Home')
+                    {
+                        vels.vehicle_mail__c =  acc.Email__c;
+                    }
+                    else if (vels.vehicle_mail_picklist__c == 'Email Work')
+                    {
+                        vels.vehicle_mail__c = acc.Email2__c;
+                    }
+                    else if (vels.vehicle_mail_picklist__c == 'MyMercedes Email')
+                    {
+                        vels.vehicle_mail__c = acc.Email3__c;
+                    }
+                    
+            for( Address__c add : acc.Addresses__r){
+            
+              if( vels.vehicle_address_picklist__c == add.Address_Type__c){
+              
+                vels.vehicle_address__c = add.Id;
+              
+              }
+            
+            
+            
+            }
+                                        
+            Updatelist.add(Vels);
+
+            }
+        }       
+                        
+    update Updatelist;
+    }
     
     /*
     * Added By: SivaKrishna

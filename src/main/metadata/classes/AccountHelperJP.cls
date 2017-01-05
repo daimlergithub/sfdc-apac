@@ -578,8 +578,8 @@ public class AccountHelperJP
              insert aslist;
         }
     
-    }      
-    /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    } 
+	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
@@ -605,19 +605,19 @@ public class AccountHelperJP
                                     if(acc.Legal_Form_Position__c== NULL )
                                     {
                                         
-                                           acc.name =  acc.Company_Name__c;
+                                           acc.name =  (acc.Company_Name__c!=null ?acc.Company_Name__c : '' );
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Pre') {
                                         if(usr.LanguageLocaleKey == 'ja')
-                                            acc.name = TranslateMap.get(Company_Legal_Form) + ' ' + acc.Company_Name__c;
+                                            acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '') + ' ' + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
                                         else
-                                           acc.name = Company_Legal_Form + ' ' + acc.Company_Name__c;     
+                                           acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + ' ' + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Post'){
                                         if(usr.LanguageLocaleKey == 'ja')
-                                            acc.name = acc.Company_Name__c + ' ' + TranslateMap.get(Company_Legal_Form);
+                                            acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + ' ' + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
                                         else
-                                            acc.name = acc.Company_Name__c + ' ' + Company_Legal_Form;    
+                                            acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + ' ' + (Company_Legal_Form != null ? Company_Legal_Form:'');    
                                     }
                                 
                 }
@@ -636,11 +636,14 @@ public class AccountHelperJP
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
-        
+                
                 for(Account abc: accMainList)
+                
                 {
                      sid.add(abc.Id);   
                 }
+                
+                
                 
                 
 

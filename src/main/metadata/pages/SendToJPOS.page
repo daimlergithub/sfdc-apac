@@ -143,10 +143,10 @@ else
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name__c.Label}"/>
                         <apex:outputField value="{!Account.Company_Name__c}"/>  
               </apex:pageBlockSectionItem>                
-              <apex:pageBlockSectionItem >                 
+             <!-- <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_1__c.Label}"/>
                         <apex:outputField value="{!Account.Company_Name_Native_1__c}"/>  
-              </apex:pageBlockSectionItem> 
+              </apex:pageBlockSectionItem> -->
                               
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_2__c.Label}"/>
@@ -181,7 +181,7 @@ else
         <apex:pageBlock title="Address Details" id="adddetails">
           <apex:pageBlockButtons location="bottom">
             <apex:commandButton value="Send to JPOS" action="{!SendToJPOS}" Onclick="if(!confirm('Are you sure want to send information to JPOS interface?')){return false};" oncomplete="afterSave()"  status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
-        <apex:commandButton value="cancel" action="{!Cancel}"/>
+        <apex:commandButton value="cancel"/>
         </apex:pageBlockButtons>
        <apex:pageBlockTable value="{!address}" var="a">
           <!--  <apex:column >
