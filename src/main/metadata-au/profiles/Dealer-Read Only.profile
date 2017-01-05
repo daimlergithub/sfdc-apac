@@ -8901,7 +8901,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Business_Unit__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9031,7 +9031,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Inactive__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9041,7 +9041,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Job_Title__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9141,7 +9141,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Sub_BusinessUnit__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
