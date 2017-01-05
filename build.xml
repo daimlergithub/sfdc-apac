@@ -177,8 +177,8 @@
 				<sf:include name="AddressSelectionforExistingCustomer"/>
 				<sf:include name="PrintPDF"/>
 				<sf:include name="SelectAddress"/> 		 	
-				
-			</sf:typeset>
+			   <sf:include name="createRetailCopyKRButton"/>
+			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
 			   <sf:include name="UtilViewHierarchyTestData"/>
@@ -249,6 +249,8 @@
 			<sf:include name="AddressSelectionforExistingCustomerTest"/> 
 			<sf:include name="SelectAddressController"/>
 			<sf:include name="SelectAddressControllerTest"/>
+			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="createRetailCopyKR"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -374,6 +376,8 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="CaseHelper"/>
+				<sf:include name="CaseHelperTest"/>
 				<sf:include name="TaskHelperKR"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
@@ -908,8 +912,6 @@
 			<sf:include name="AddToRetailCampaignControllerTet"/>
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
-			<sf:include name="CaseHelper"/>
-			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
 			<sf:include name="UtilCaseShare"/>
 			<sf:include name="UtilCaseShareTest"/>

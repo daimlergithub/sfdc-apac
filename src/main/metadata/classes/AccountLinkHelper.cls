@@ -439,7 +439,7 @@ public class AccountLinkHelper
         System.debug('Accountlinklist------>'+accountMap);
         //Account link iteration
         for(Account_Link__c acclink : accLst ){
-			if(acclink.toRole__c != null){
+            if(acclink.toRole__c != null){
             if(accountMap.get(acclink.toRole__c).RecordType.Name == 'Person Account') {
                 acclink.Retail_LastName__c = accountMap.get(acclink.toRole__c).LastName;
                 acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
@@ -567,6 +567,7 @@ public class AccountLinkHelper
                 a.Accountid=alnk.toRole__c;
                 a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
                 a.AccountAccessLevel='edit';
+                a.RowCause = Schema.Accountshare.RowCause.Manual;
                 a.OpportunityAccessLevel ='edit';
                 acclist.add(a);
                   if(stlist!=null)
@@ -580,6 +581,122 @@ public class AccountLinkHelper
                                  surt.ParentId=sa.id;
                                  surt.UserOrGroupId=assgroupMap.get(alnk.fromRole__r.name);
                                  surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                sutlist.add(surt);
+                          }    
+                      }   
+                  }
+               } 
+    
+          }
+       }
+     }
+    if(acclist.size()>0)
+    {
+        insert acclist;
+        if(sutlist!=null)
+            {
+            insert sutlist;
+            }
+    }
+ }
+  public static void afterDeleteEvent(List<Account_Link__c>oldlist)
+ {
+  // list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :oldlist];
+     set<id>toroleidlist=new set<id>();
+     set<Id> fromRoleIdList = new set<id>();
+
+     for(Account_Link__c atl:oldlist)
+     {
+           toroleidlist.add(atl.toRole__c);
+           fromRoleIdList.add(atl.fromRole__c);
+
+     }
+     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
+     
+    Map<Id,Account> fromAccountRecordTypeMap = new Map<Id,Account>();
+   for(Account acc:[Select id, Name,RecordtypeId From Account Where Id IN:fromRoleIdList]){      
+      fromAccountRecordTypeMap.put(acc.id,acc);
+   
+   }
+   
+   Map<Id,Account> ToAccountRecordTypeMap = new Map<Id,Account>();
+   for(Account acc:[Select id, Name,RecordtypeId From Account Where Id IN:toroleidlist]){      
+      ToAccountRecordTypeMap.put(acc.id,acc);
+   
+   }
+   
+   list<Account_Link__c>allist1 = new list<Account_Link__c>();
+  list<Account> aclist;
+  list<string> aclistnames = new list<string>();
+  list<Accountshare> acclist=new list<Accountshare>(); 
+  list<SurveyTaker__share> sutlist=new list<SurveyTaker__share>();
+  
+    Set<id> StAccountIdsSet = new Set<id>();
+    Set<id> AccountIdsSet = new Set<id>();
+  Set<id> ToAccountIdsSet = new Set<id>();  
+  map<string,id> assgroupMap = new map<string,id>();  
+  Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
+  Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
+  Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
+  Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
+  Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
+  
+    for(Account_Link__c al:oldlist)
+     {
+         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
+         {
+            
+             if(al.fromRole__c!=null)
+             {
+                 if(fromAccountRecordTypeMap.containskey(al.fromRole__c) && fromAccountRecordTypeMap.get(al.fromRole__c).RecordTypeid== da && ((ToAccountRecordTypeMap.containskey(al.ToRole__c) && ToAccountRecordTypeMap.get(al.ToRole__c).RecordTypeid==rpa)||(ToAccountRecordTypeMap.containskey(al.ToRole__c) && ToAccountRecordTypeMap.get(al.ToRole__c).RecordTypeid==rca)))
+                 {
+                      allist1.add(al);
+                     aclistnames.add(fromAccountRecordTypeMap.get(al.fromRole__c).name);
+                     AccountIdsSet.add(al.fromRole__c);
+                     ToAccountIdsSet.add(al.toRole__c);
+                 }
+             }
+         } 
+        
+     }
+     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+    if( aclistnames!=null&& allist1!=null)
+    {
+       for(Group assg:glist)
+        {
+               
+           assgroupMap.put(assg.Name, assg.id);
+
+        }
+    
+     for(Account_Link__c alnk: allist1) 
+     {
+          if(AccountIdsSet.contains(alnk.fromRole__c))
+          {
+                 
+              if(fromAccountRecordTypeMap.containskey(alnk.fromRole__c) && assgroupMap.containskey(fromAccountRecordTypeMap.get(alnk.fromRole__c).name))
+              {
+              //  system.debug('assgroupMap'+ assgroupMap);
+                Accountshare a=new Accountshare();
+                a.Accountid=alnk.toRole__c;
+                a.UserOrGroupId = assgroupMap.get(fromAccountRecordTypeMap.get(alnk.fromRole__c).name);
+                a.AccountAccessLevel='edit';
+                a.RowCause = Schema.Accountshare.RowCause.Manual;
+                a.OpportunityAccessLevel ='edit';
+                acclist.add(a);
+                  if(stlist!=null)
+                  {
+                      for(SurveyTaker__c sa:stlist)
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          if(ToAccountRecordTypeMap.containskey(alnk.toRole__c) && sa.account__r.id == ToAccountRecordTypeMap.get(alnk.toRole__c).id)
+                          {
+                                SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=assgroupMap.get(FromAccountRecordTypeMap.get(alnk.fromRole__c).name);
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
                                 sutlist.add(surt);
                           }    
                       }   
