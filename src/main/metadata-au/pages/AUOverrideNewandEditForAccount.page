@@ -10,7 +10,7 @@
         <apex:commandButton value="Cancel" rerender="formId" immediate="true" action="{!cancel}"/>
     </apex:pageBlockButtons>
     <apex:outputpanel rendered="{!isCompany}">
-        <apex:pageBlockSection columns="2" id="pbsAccInfoId" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),false,true)}">
+        <apex:pageBlockSection columns="2" id="pbsAccInfoId" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),false,true)}">
             <apex:inputField value="{!objAccount.Name}"/>
             <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
             <apex:inputField value="{!objAccount.City__c}"/>
@@ -28,20 +28,20 @@
             <apex:inputField value="{!objAccount.AccountNumber}" rendered="{!$Profile.Name =='Fleet'||$Profile.Name =='Fleet (Delete)'}" />
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection columns="2" id="pbsAccInfodlrId" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),true,false)}">
+        <apex:pageBlockSection columns="2" id="pbsAccInfodlrId" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),true,false)}">
             <apex:inputField value="{!objAccount.Name}"/>
             <apex:inputField value="{!objAccount.City__c}"/>
             <apex:inputField value="{!objAccount.Company_Name__c}" />
             <apex:inputField value="{!objAccount.Website}"/>
             <apex:inputField value="{!objAccount.ParentId}" />
             <apex:inputField value="{!objAccount.Fax}" />
-            <apex:outputtext value="" />             
-            <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
-            <apex:outputtext value="" />
-            <apex:outputtext value="{!recordType}" label="Account Record Type"/>
+            <apex:outputText value="" />             
+            <apex:outputText value="{!accountOwner}" label="Account Owner"/>
+            <apex:outputText value="" />
+            <apex:outputText value="{!recordType}" label="Account Record Type"/>
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection columns="2" id="pbsOtherInfoId" title="Other Informations" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),false,true)}">
+        <apex:pageBlockSection columns="2" id="pbsOtherInfoId" title="Other Informations" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),false,true)}">
             <apex:inputField value="{!objAccount.Fleet_Category__c}" />
         </apex:pageBlockSection>
         
@@ -60,19 +60,19 @@
             <apex:inputField value="{!objAccount.FS_Opt_In_Email__c}" taborderhint="20"/>
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection columns="2" id="pbsSysInfoId" title="System Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),false,true)}">
+        <apex:pageBlockSection columns="2" id="pbsSysInfoId" title="System Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),false,true)}">
             <apex:inputField value="{!objAccount.Add_User__c}" taborderhint="21"/>
             <apex:inputField value="{!objAccount.Add_Date__c}" taborderhint="22"/>  
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection columns="2" id="pbsSysInfodlrId" title="Additional Account User" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),true,false)}">
+        <apex:pageBlockSection columns="2" id="pbsSysInfodlrId" title="Additional Account User" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),true,false)}">
             <apex:inputField value="{!objAccount.Add_User__c}" taborderhint="21"/>
             <apex:inputField value="{!objAccount.Add_Date__c}" taborderhint="22"/>  
         </apex:pageBlockSection>
     </apex:outputpanel>
     
     <apex:outputpanel rendered="{!isPerson}">
-        <apex:pageBlockSection columns="2" id="pbsAccInfoId1" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'),false,true)}">
+        <apex:pageBlockSection columns="2" id="pbsAccInfoId1" title="Account Information" collapsible="false" rendered="{!IF(($Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'),false,true)}">
             <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
             <apex:outputtext value="{!recordType}" label="Account Record Type"/>
             <apex:pageBlockSectionItem >
@@ -104,7 +104,7 @@
             <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="21"/>            
         </apex:pageBlockSection>
 		
-		<apex:pageBlockSection columns="2" id="pbsAccInfoIddlr1" title="Account Information" collapsible="false" rendered="{!$Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager'}">
+		<apex:pageBlockSection columns="2" id="pbsAccInfoIddlr1" title="Account Information" collapsible="false" rendered="{!$Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'}">
             <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
             <apex:inputField value="{!objPersonAccount.Partner_Title__c}" />
            <!-- <apex:outputtext value="{!recordType}" label="Account Record Type"/> -->

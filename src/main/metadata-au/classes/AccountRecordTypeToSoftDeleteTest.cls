@@ -15,7 +15,7 @@ public class AccountRecordTypeToSoftDeleteTest {
             insert t;
             Event e = new Event(Subject  = 'Call', WhatId = perAcc.Id, ownerId = u.Id, StartDateTime = System.Now(), EndDateTime = System.now());
             insert e;
-            lead__c curLead = new lead__c(Contact__c = perAcc.id ,Nature_of_Request__c = 'campaign', Lead_Source__c = 'campaign', 	CAC_Lead_Status__c = 'Lost', Business_Unit__c = 'Fleet', Sub_BusinessUnit__c = 'Sales', CAC_Lost_Reason__c = 'Lost Competitor', RecordTypeId = leadVehicleRt);
+            lead__c curLead = new lead__c(Contact__c = perAcc.id ,Nature_of_Request__c = 'campaign', Lead_Source__c = 'campaign', 	CAC_Lead_Status__c = 'Closed Lost', Business_Unit__c = 'Fleet', Sub_BusinessUnit__c = 'Sales', CAC_Lost_Reason__c = 'Lost Competitor', RecordTypeId = leadVehicleRt);
             insert curLead;
             String sch = '0 0 23 * * ?'; 
             system.schedule('Test Territory Check', sch, acc); 
@@ -30,7 +30,7 @@ public class AccountRecordTypeToSoftDeleteTest {
         Test.startTest();
         Account comAcc = new Account(Name= 'TestAccount', recordTypeId = comRecordTypeId, Mobile__c='040123456',PC_Status__c = 'Prospect',VAN_Status__c = 'Prospect',Insurance_Status__c = 'Prospect' );
         insert comAcc;
-        lead__c curLead = new lead__c(Company_Account__c = comAcc.id ,Nature_of_Request__c = 'campaign', Lead_Source__c = 'campaign', 	CAC_Lead_Status__c = 'Lost', Business_Unit__c = 'Fleet', Sub_BusinessUnit__c = 'Sales', CAC_Lost_Reason__c = 'Lost Competitor', RecordTypeId = fleetVansRt);
+        lead__c curLead = new lead__c(Company_Account__c = comAcc.id ,Nature_of_Request__c = 'campaign', Lead_Source__c = 'campaign', 	CAC_Lead_Status__c = 'Closed Lost', Business_Unit__c = 'Fleet', Sub_BusinessUnit__c = 'Sales', CAC_Lost_Reason__c = 'Lost Competitor', RecordTypeId = fleetVansRt);
         insert curLead;
         String sch = '0 0 23 * * ?'; 
 	    system.schedule('Test Territory Check', sch, acc); 
