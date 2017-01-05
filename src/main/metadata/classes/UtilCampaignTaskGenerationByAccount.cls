@@ -72,7 +72,7 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c
+                    Campaign.Template__c, Status
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
@@ -205,7 +205,7 @@ system.debug('&******************'+cpList);
                 Campaign_eDM_Template_ID__c = cpm.Campaign.Template__r.Template_ID__c,                                 
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                 WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-				Campaign_Member_ID__c = String.valueOf(cpm.Id), 
+                Campaign_Member_ID__c = String.valueOf(cpm.Id), 
                 Campaign_Name__c = cpm.Campaign.Name,
                 UniqueCampaignEmail__c = cpm.CampaignId + '-' + cpm.Contact.Email,
                 Email_Address__c = cpm.Contact.Email,
@@ -222,18 +222,19 @@ system.debug('&******************'+cpList);
                 Status = strOpenStatus,
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                 WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-				Campaign_Member_ID__c = String.valueOf(cpm.Id), 
+                Campaign_Member_ID__c = String.valueOf(cpm.Id), 
                 Campaign_Name__c = cpm.Campaign.Name,
                 ActivityDate = date.today(),
                 UniqueCampaignGenerateTask__c = uniqueTaskField)
             );
-            //if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
-                //dmRequestList.add(new DM_Request__c(
-                   // Campaign__c = cpm.CampaignId, 
-                   // Customer_Name__c = cpm.Contact.AccountId,
-                   // Expected_DM_Material1__c = cpm.Campaign.DM_Material__c
-                   // )
-               // );
+            if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
+                     dmRequestList.add(new DM_Request__c(
+                     Campaign__c = cpm.CampaignId, 
+                     Customer_Name__c = cpm.Contact.AccountId,
+                     Expected_DM_Material1__c = cpm.Campaign.DM_Material__c,
+                     Status1__c = cpm.Status
+                    )
+                );
         } 
         return taskList;
     }
