@@ -38,7 +38,7 @@ public with sharing class SendToMyMercController {
             Set<ID> setAccountID = new Set<ID>();
             Map<ID,String> mapAccount = new Map<Id,String>();
             Map<ID,string> accountLinkId = new Map<Id,string>();
-            List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null and Car_Relation__c = 'Purchaser'];
+            List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null ];
            
             for(Vehicle_Relationship__c vch:lstVehicle_Relationship){
                 setAccountID.add(vch.Contact__c);
