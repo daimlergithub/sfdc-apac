@@ -358,7 +358,8 @@
 			   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
 			   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
 			   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
-			   <sf:include name="LeadDealerAssignmentPage"/>
+			   <sf:include name="LeadDealerAssignmentPage"/>			   
+			   <sf:include name="AnnouncementsPage"/>
 			   <!-- Added by Naga Start-->
 			</sf:typeset>
 			<!--<sf:typeset name="layouts">
@@ -472,6 +473,10 @@
 				<sf:include name="FS_CaseInlineController"/>
 				<sf:include name="LeadDealerAssignmentProcess"/>
 				<sf:include name="LeadDealerAssignmentProcessTest"/>
+				<sf:include name="AnnouncementController"/>
+				<sf:include name="AnnouncementController_test"/>
+				<sf:include name="AddingMemberstoChatterGroup"/>
+				<sf:include name="AddingMemberstoChatterGroup_test"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>

@@ -1,0 +1,21 @@
+/**
+    *@Description : This Class will incresse coverage AddingMemberstoChatterGroup.
+    *@Author : Kiran P.
+    *@Date : 4/12/2017
+    *@Release : Japan J4
+    */
+@isTest(seeAlldata = true)
+public class AddingMemberstoChatterGroup_test{
+    public static testMethod void AddingMemberstoChatterGroup_MT(){
+        Profile p = [SELECT Id FROM Profile WHERE Name='Japan CRM']; 
+        User u = new User(Alias = 'standt', Email='standarduser@testorg.com', 
+            EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+            LocaleSidKey='en_US', ProfileId = p.Id,market__c = 'JP', 
+            TimeZoneSidKey='America/Los_Angeles', UserName='standarduser23@testorg.com');
+            
+            //CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'All MBJ Users' LIMIT 1];
+            AddingMemberstoChatterGroup obj = new AddingMemberstoChatterGroup();
+            Database.executeBatch(obj);
+    }
+
+}
