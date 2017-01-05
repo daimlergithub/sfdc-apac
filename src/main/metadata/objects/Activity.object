@@ -568,48 +568,7 @@
         <label>Activity Info</label>
         <required>false</required>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Activity_LeadsData__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity LeadsData</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Activity_OutboundCallSource__c</fullName>
         <externalId>false</externalId>

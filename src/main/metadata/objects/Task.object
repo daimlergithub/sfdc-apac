@@ -538,42 +538,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -1660,42 +1625,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -2793,42 +2723,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -4239,42 +4134,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -5352,42 +5212,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -6741,42 +6566,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -8131,42 +7921,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -9281,42 +9036,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -10443,42 +10163,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -11589,42 +11274,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -12822,42 +12472,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -13944,42 +13559,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
@@ -15101,42 +14681,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Activity_LeadsData__c</picklist>
-            <values>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_OutboundCallSource__c</picklist>
             <values>
