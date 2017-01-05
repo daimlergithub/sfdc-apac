@@ -325,7 +325,7 @@ List<Account> accUpdLst = new List<Account>();
  
 }
  
-       /*
+          /*
  Sent email to Dealer Sales/Dealer Service manager profile users if Retail_Case_Notice_Dealer_Flag__c =true in case object.
  */
  public static void SendEmailToNotifyDealer(List<Case> caseList)
@@ -344,36 +344,47 @@ List<Account> accUpdLst = new List<Account>();
         lstUser=[Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:dealerID AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ];
        System.debug('sent lstUser '+lstUser);
        }
-       EmailTemplate et=[Select id,DeveloperName from EmailTemplate where DeveloperName=:'Notify_to_Dealer']; 
-       Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-             if(lstUser!=null && !lstUser.isempty())
+       EmailTemplate et=[Select id,DeveloperName from EmailTemplate where DeveloperName=:'Notify_to_Dealer'];  
+       List < Messaging.SingleEmailMessage > mailList = new List < Messaging.SingleEmailMessage > ();
+        
+             if(lstUser!=null )
              {
+             System.debug('sent lstUser  venkyusers '+lstUser);
              for(User u:lstUser)
              {
                  System.debug('user details');
                  if(u.profile.Name=='Japan Dealer Sales Manager' || u.profile.Name=='Japan Dealer Service Manager')
                  {
+                 
+                 System.debug('sent lstUser  caseList'+caseList);
                      for(Case c:caseList)
                      {
-                             if(c.Case_Dealer__c !=null && c.Retail_Case_Notice_Dealer_Flag__c  ==true)
+                             if(c.Case_Dealer__c !=null )
                              {
                              System.debug('user email details');
-                              
-                             mail.setTargetObjectId(u.id);  
+                              if(c.Retail_Case_Notice_Dealer_Flag__c  ==true)
+                              {
+                               Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+                            mail.setTargetObjectId(u.id);  
                             mail.setUseSignature(false);  
-                            mail.setBccSender(false);  
+                            mail.setBccSender(false); 
                             mail.setTemplateId(et.id); 
                             mail.setSaveAsActivity(false); 
                             mail.setWhatID(c.id);
-                            
+                            mailList.add(mail);
+                             
+                            }
                              }
                      }
                  }
                }
-               
-                Messaging.SendEmailResult [] sentemails = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail }); 
+               if(mailList!=null && !mailList.isempty())
+               {
+            Messaging.sendEmail(mailList);
+            }
+            //  Messaging.SendEmailResult [] sentemails = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mailList}); 
                              
-                             System.debug('sent email details'+sentemails );
+                    //         System.debug('sent email details'+sentemails ); 
              } 
     }
  /*
@@ -527,8 +538,8 @@ List<Account> accUpdLst = new List<Account>();
         
     }
     
-	
-	
+    
+    
       public static void countchildcase(List<Case> cases,List<case> oldcases){
       Id caseinquiryrt= Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
         Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
